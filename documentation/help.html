@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OLYMPE - Help file</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+
+    body { width: 100%; height: 100%; font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #fff; background-color: #2B2D35; }
+    html { width: 100%; height: 100%; }
+    h1, h2, h3, h4, h5, h6 { margin: 0 0 35px; text-transform: uppercase; font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: 1px; }
+    strong { font-size: 17px; }
+    h5 { text-align: left; color: #f1e7c0; margin-bottom: 5px; }
+    h6 { text-transform: none !important; font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; }
+    section li { list-style: none; text-align: left; padding-bottom: 15px; }
+    .txtfile { background: #F8F8F8; width: 100%; color: #333; }
+    .simplemail { background: #5F7A87; width: 100%; color: #F8F8F8; }
+    p { margin: 0 0 25px; font-size: 18px; line-height: 1.5; }
+    @media(min-width:767px) {
+    p { margin: 0 0 35px; font-size: 20px; line-height: 1.6; }
+    }
+    a { color: #f1e7c0; -webkit-transition: all .2s ease-in-out; -moz-transition: all .2s ease-in-out; transition: all .2s ease-in-out; }
+    a:hover, a:focus { text-decoration: none; color: #45B29D; }
+    .light { font-weight: 400; }
+    .navbar { margin-bottom: 0; border-bottom: 1px solid rgba(255,255,255,.3); text-transform: uppercase; font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif; background-color: #2B2D35; }
+    .navbar-brand { font-weight: 700; }
+    .navbar-brand:focus { outline: 0; }
+    .navbar-custom a { color: #fff; }
+    .navbar-custom .nav li a { -webkit-transition: background .3s ease-in-out; -moz-transition: background .3s ease-in-out; transition: background .3s ease-in-out; }
+    .navbar-custom .nav li a:hover, .navbar-custom .nav li a:focus, .navbar-custom .nav li.active { outline: 0; background-color: rgba(255,255,255,.2); }
+    .navbar-toggle { padding: 4px 6px; font-size: 16px; color: #fff; }
+    .navbar-toggle:focus, .navbar-toggle:active { outline: 0; }
+    .dropdown-menu {background-color: #2B2D35;}
+    .dropdown-menu li a {color: #FFFFFF;}
+    @media(min-width:767px) {
+    .navbar { padding: 20px 0; border-bottom: 0; letter-spacing: 1px; background: 0 0; -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out; -moz-transition: background .5s ease-in-out, padding .5s ease-in-out; transition: background .5s ease-in-out, padding .5s ease-in-out; }
+    .top-nav-collapse { padding: 0; background-color: #2B2D35; }
+    .navbar-custom.top-nav-collapse { border-bottom: 1px solid rgba(255,255,255,.3); }
+    }
+    .intro { display: table; width: 100%; height: auto; padding: 100px 0; text-align: center; color: #fff; background: url(http://www.julienbrion.fr/themeforest/olympe-tf/assets/img/back-2.jpg) no-repeat bottom center scroll; background-color: #2B2D35; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; }
+    .intro-body { display: table-cell; vertical-align: middle; }
+    .brand-heading { font-size: 40px; }
+    .intro-text { font-size: 18px; }
+    @media(min-width:767px) {
+    .intro { height: 100%; padding: 0; }
+    .brand-heading { font-size: 100px; }
+    .intro-text { font-size: 25px; font-weight: 300; color: #f1e7c0; }
+    }
+    .btn-circle { width: 70px; height: 70px; margin-top: 15px; padding: 7px 16px; border: 2px solid #fff; border-radius: 35px; font-size: 40px; color: #fff; background: 0 0; -webkit-transition: background .3s ease-in-out; -moz-transition: background .3s ease-in-out; transition: background .3s ease-in-out; }
+    .btn-circle:hover, .btn-circle:focus { outline: 0; color: #fff; background: rgba(255,255,255,.1); }
+    .btn-circle-2 { width: 70px; height: 70px; margin-top: 15px; padding: 2px 16px; border: 2px solid #fff; border-radius: 35px; font-size: 40px; color: #fff; background: 0 0; -webkit-transition: background .3s ease-in-out; -moz-transition: background .3s ease-in-out; transition: background .3s ease-in-out; }
+    .btn-circle-2:hover, .btn-circle-2:focus { outline: 0; color: #fff; background: rgba(255,255,255,.1); }
+    .page-scroll .btn-circle i.animated { -webkit-transition-property: -webkit-transform; -webkit-transition-duration: 1s; -moz-transition-property: -moz-transform; -moz-transition-duration: 1s; }
+    .page-scroll .btn-circle:hover i.animated { -webkit-animation-name: pulse; -moz-animation-name: pulse; -webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; -webkit-animation-iteration-count: infinite; -moz-animation-iteration-count: infinite; -webkit-animation-timing-function: linear; -moz-animation-timing-function: linear; }
+    .page-scroll .btn-circle-2 i.animated { -webkit-transition-property: -webkit-transform; -webkit-transition-duration: 1s; -moz-transition-property: -moz-transform; -moz-transition-duration: 1s; }
+    .page-scroll .btn-circle-2:hover i.animated { -webkit-animation-name: pulse; -moz-animation-name: pulse; -webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; -webkit-animation-iteration-count: infinite; -moz-animation-iteration-count: infinite; -webkit-animation-timing-function: linear; -moz-animation-timing-function: linear; }
+    @-webkit-keyframes pulse {  0 {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    }
+    50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    }
+    100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    }
+    }
+    @-moz-keyframes pulse {  0 {
+    -moz-transform: scale(1);
+    transform: scale(1);
+    }
+    50% {
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+    }
+    100% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+    }
+    }
+    .content-section { padding-top: 100px; border-bottom: 1px solid #F8F8F8; }
+    @media(min-width:767px) {
+    .content-section { padding-top: 150px; padding-bottom: 150px; }
+    .download-section { padding: 100px 0; }
+    #map { height: 400px; margin-top: 250px; }
+    }
+    .btn { text-transform: uppercase; font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 400; -webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out; transition: all .3s ease-in-out; }
+    .btn-default { border: 1px solid #f1e7c0; color: #f1e7c0; background-color: transparent; }
+    .btn-default:hover, .btn-default:focus { border: 1px solid #f1e7c0; outline: 0; color: #2B2D35; background-color: #f1e7c0; }
+    .btn-huge { padding: 25px; font-size: 26px; }
+
+
+    ::-moz-selection {
+    text-shadow: none;
+    background: #fcfcfc;
+    background: rgba(255,255,255,.2);
+    }
+    ::selection { text-shadow: none; background: #fcfcfc; background: rgba(255,255,255,.2); }
+    img::selection { background: 0 0; }
+    img::-moz-selection {
+    background: 0 0;
+    }
+    .nav>li>a {
+        font-size: 12px;
+    }
+    body { webkit-tap-highlight-color: rgba(255,255,255,.2); }
+
+    </style>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    <span class="light">OLYMPE</span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#info">info</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#countdown">countdown</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#firefly">firefly</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#map-loc">backgrounds</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#youtube">youtube</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#mapp">map</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#carousel">carousel</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">contact</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">newsletter<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#newsletter">MAILCHIMP</a></li>
+                            <li><a href="#filetxt">TXT FILE</a></li>
+                            <li><a href="#mailboxx">MAIL BOX</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <section class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">HELP FILE</h1>
+                        <p class="intro-text">Thank you for your purchasing !<br/>Premium quality by Madeon08</p>
+                        <div class="page-scroll">
+                            <a href="#info" class="btn btn-circle">
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2 style="margin-top:50px">Informations</h2>
+                <p>
+                   If you have any questions, feel free to email me via my user page with the contact form <a href="http://themeforest.net/user/Madeon08">Here</a> or by email: <a href="mailto:julien.brion.08@gmail.com">julien.brion.08@gmail.com</a><br/><br/>
+    			   I would answer you as soon as possible ;-)<br/>
+                   7/7 and almost 24/24 !<br/><br/>
+                   <span style="color:#f1e7c0">One more time, a big thanks to you to have purchased OLYMPE ! :-)</span>
+                   
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="countdown" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Countdown <small>Set your end date</small></h2>
+                <ul>
+                        <li>1. Open the file "olympe.js" findable in assets/js/<strong style="color:#0C9">olympe.js</strong></li>
+                        <li>2. On line 210, you will find:<br><br><pre><code>/* ================================= */
+/* ::::::::: 2. Countdown :::::::::: */
+/* ================================= */
+
+$('#countdown_dashboard').countDown({
+        targetDate: {
+            'day':      30,
+            'month':    12,
+            'year':     2016,
+            'hour':     11,
+            'min':      13,
+            'sec':      0
+        },
+        omitWeeks: true
+});</code></pre></li>
+                        <li>3. So just set up the date that you want :)</li>
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="firefly" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>firefly <small>effect</small></h2>
+                <ul>
+                    <li>1. Open index-(n).html</li>
+                    <li>2. At the bottom of your document, you will find:<br><br>
+                    <pre><code>$.firefly({
+    color: '#F1E7C0',
+    minPixel: 1,
+    maxPixel: 2,
+    total : 220,
+    on: '#wrapper-firefly'
+});</code></pre>
+                    </li>
+                    <li>3. You can set : </li>
+                    <li><i class="fa fa-hand-o-right fa-2x"></i>  <span style="color:#f1e7c0">&nbsp;&nbsp;The color of the fireflies</span></li>
+                    <li><i class="fa fa-hand-o-right fa-2x"></i>  <span style="color:#f1e7c0">&nbsp;&nbsp;The smallest and the biggest size with minPixel and maxPixel</span></li>
+                    <li><i class="fa fa-hand-o-right fa-2x"></i>  <span style="color:#f1e7c0">&nbsp;&nbsp;The total number of fireflies</span></li>
+                    <li><i class="fa fa-hand-o-right fa-2x"></i>  <span style="color:#f1e7c0">&nbsp;&nbsp;The div where you want the effect</span></li>
+                    <li>4. Set the same rules in "olympe.js" findable in assets/js/<strong style="color:#0C9">olympe.js</strong>, on line 161 <strong style="color:#FFD700">but with a total of 1</strong> :<pre><code>$.firefly({
+    color: '#F1E7C0',
+    minPixel: 1,
+    maxPixel: 2,
+    total : 1,
+    on: '#wrapper-firefly'
+ });</code></pre>
+                 </ul>
+        
+                <hr>
+                
+                <h2>Disable the effect <small>method</small></h2>
+    
+                <ul>
+                    <li>Read and apply carrefully the nexts points :-)</li>
+                    <li>1. Open index-(n).html and go to the bottom, you will find the previous script, remove this one :
+                    <pre><code>&lt;script&gt;
+$(window).load(function() {
+    
+    'use strict';
+    
+    $.firefly({
+        color: '#F1E7C0',
+        minPixel: 1,
+        maxPixel: 2,
+        total : 220,
+        on: '#wrapper-firefly'
+    });
+});
+&lt;/script&gt;</code></pre>
+                    </li>
+                        <li>2. Remove also the script calling :<pre><code>&lt;script type="text/javascript" src="assets/js/jquery.firefly-0.3.js">&lt;/script&gt;</code></pre>
+                    </li>
+            <li>3. Open the file "olympe.js" findable in assets/js/<strong style="color:#0C9">olympe.js</strong>, on line 161 you must remove this part :<pre><code>$.firefly({
+    color: '#F1E7C0',
+    minPixel: 1,
+    maxPixel: 2,
+    total : 1,
+    on: '#wrapper-firefly'
+ });</code></pre></li>
+                        
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="mapp" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Map <small>Location & text</small></h2>
+                <ul>
+                        <li>1. Open the file "olympe.js" findable in assets/js/<strong style="color:#0C9">olympe.js</strong></li>
+                        <li>2. On line 266, you will find:
+                        <pre><code>var myLatlng = new google.maps.LatLng(49.6122021,6.1324549,17);</code></pre>
+                        </li>
+                        <li>3. On line 290, you will find:
+                        <pre><code>var contentString = We are here 28, Rue du Nord @ Luxembourg Located in the center of the city, lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fermentum euismod erat, nec porta turpis fringilla sed. Morbi euismod metus sagittis, gravida orci id, tincidunt odio. Pellentesque habitant morbi tristique.</code></pre></li>
+                        <li><i class="fa fa-hand-o-right fa-2x"></i> I advise you to visit <a href="http://snazzymaps.com">Snazzy Map</a> to have a lot of styles for your map ;-)</li>
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="map-loc" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Backgrounds <small>index-1 & index-2</small></h2>
+                <ul>
+                        <li>1. Open the file "index-1.html"</li>
+                        <strong style="color:#F1E7C0"><li>You need to have your picture blurred and the same unblurred</li></strong>
+                        <li>2. On line 554, you will find:<br><br><pre><code>$.backstretch("http://placehold.it/1920x1080/763568/F8F8F8&text=Your+picture+unblurred");
+
+// This second backstretch must contain your blurred picture
+$(".outer").backstretch("http://placehold.it/1920x1080/F1E7C0/333333&text=Your+picture+blurred");</code></pre></li>
+                        <li>3. The first path is for your picture unblurred and the second for your picture blurred</li>
+                    </ul>
+
+                    <hr>
+
+                    <ul>
+                        <li>1. Open the file "index-2.html"</li>
+                        <strong style="color:#F1E7C0"><li>You need to have one of your picture blurred and the same unblurred placed in second position</li></strong>
+                <li>2. On line 553, you will find:<br><br><pre><code>// *** For the slideshow version, write the path in second position your picture unblurred. Reminder, your blurred picture is in the .outer just below.
+$.backstretch(
+[
+    "http://placehold.it/1920x1080/763568/F8F8F8&text=Your+first+picture",
+    "http://placehold.it/1920x1080/F1E7C0/333333&text=Your+second+picture+unblurred", 
+    "http://placehold.it/1920x1080/6C7A89/F8F8F8&text=Your+third+picture"
+    
+],
+
+{
+    duration    :   4500,
+    fade        :   1500
+}
+);
+
+// This second backstretch must contain your blurred picture
+$(".outer").backstretch("http://placehold.it/1920x1080/F1E7C0/333333&text=Your+picture+blurred");</code></pre></li>
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="youtube" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>youtube <small>index-3</small></h2>
+                <ul>
+                    <li>1. Open index-3.html</li>
+                    <li>2. At the top of your document, on line 74, you will find:<br><br>
+                    <pre><code>&lt;a id="bgndVideo" class="player" data-property="{videoURL:'http://www.youtube.com/watch<strong>?v=9d8wWcJLnFI</strong>',containment:'body',autoPlay:true, mute:false, startAt:0, opacity:1}"&gt;youtube&lt;/a&gt;</code></pre>
+                    </li>
+                    <li>3. You just have to change the part after the ?v= , and write the correct url of your video</li>
+                    <li><i class="fa fa-hand-o-right fa-2x"></i>  <span style="color:#F90">The plugin YouTube needs to have a website online to work, in local, the background stay black ;-)</span></li>
+                 </ul>
+        
+                <hr>
+                
+                <h2>YouTube - <small>mobile & tablet</small></h2>
+    
+                <ul>
+                    <li>The mb.YTPlayer doesn't work on any mobile devices (iOs, Android, Windows, etc.) due to restrictions applied by the vendors on media controls via javascript. Adding a background image to the body as mobile devices fallback is a good practice.</li>
+                    <li>1. Open the file style.css, findable in assets/css/<strong style="color:#0C9">style.css</strong></li>
+                    <li>2. On line 523, you will find:
+                    <pre><code>.sub-picture {
+    background-image: url('http://placehold.it/1920x1080/6C7A89/F8F8F8&text=Background+for+mobile');
+    background-size:cover;
+    background-position: center;
+    min-height: 1000px;
+    width: 100%;
+    z-index:-1;
+    position: fixed;
+}</code></pre>
+                    </li>
+                        <li>3. Write the correct path to your substitution picture</li>
+                        
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="mapp" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Map <small>Location & text</small></h2>
+                <ul>
+                        <li>1. Open the file "olympe.js" findable in assets/js/<strong style="color:#0C9">olympe.js</strong></li>
+                        <li>2. On line 266, you will find:
+                        <pre><code>var myLatlng = new google.maps.LatLng(49.6122021,6.1324549,17);</code></pre>
+                        </li>
+                        <li>3. On line 290, you will find:
+                        <pre><code>var contentString = We are here 28, Rue du Nord @ Luxembourg Located in the center of the city, lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fermentum euismod erat, nec porta turpis fringilla sed. Morbi euismod metus sagittis, gravida orci id, tincidunt odio. Pellentesque habitant morbi tristique.</code></pre></li>
+                        <li><i class="fa fa-hand-o-right fa-2x"></i> I advise you to visit <a href="http://snazzymaps.com">Snazzy Map</a> to have a lot of styles for your map ;-)</li>
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="carousel" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>carousel <small>add pictures</small></h2>
+                <ul>
+                        <li>1. Open index.html</li>
+                        <li>2. In the first part, on line 242, you will find:
+                        <pre><code>
+&lt;ol class="carousel-indicators"&gt;
+    &lt;li class="active" data-slide-to="0" data-target="#myCarousel"&gt;&lt;/li&gt;
+    &lt;li data-slide-to="1" data-target="#myCarousel" class=""&gt;&lt;/li&gt;
+    &lt;li data-slide-to="2" data-target="#myCarousel" class=""&gt;&lt;/li&gt;
+&lt;/ol&gt;
+                                </code></pre>
+                                
+                        </li>
+                        <li>If you want add a picture, add firstly a line under the others (I've already added one, you just have to uncomment) like this:
+                        <pre><code>&lt;li data-slide-to="3" data-target="#myCarousel" class=""&gt;&lt;/li&gt;</code></pre>
+                        Don't forget to check if you have correctly write the number data-slide-to="***"
+                                
+                        </li>
+                        <li>3. After, add these lines (I've already added an other, you just have to uncomment) under the others:
+                        <pre><code>
+&lt;div class="item"&gt;
+    &lt;div class="row text-box"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;a href="http://placehold.it/1920x1080/333333/F8F8F8&text=Fourth+picture" class="swipebox" title="My Caption" &gt;&lt;img src="http://placehold.it/1920x1080/333333/F8F8F8&text=Fourth+picture" alt="" class="img-responsive" height="363" width="560"/&gt;&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </code></pre>
+                        
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>contact form <small>write your email</small></h2>
+                <ul>
+                        
+                        <li>1- Open <strong style="color:#0C9">contact_me.php</strong> findable in assets/php/<strong style="color:#0C9">contact_me.php</strong></li>
+<li>2- On the line 9, you will find:
+                        <pre><code>$to = 'myemail@mail.com';
+</code></pre></li>
+<li>3. Just replace "myemail@mail.com" by your mail</li>
+</ul>
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Newsletter <small>Mailchimp / File / Email</small></h2>
+                <h6>With this Coming soon, you have the choice between 3 solutions to know the persons wanting to be alerted when your website will be online, the launching of your event etc...</h6>
+                <h4>1. Mailchimp<small> - Newsletter service</small></h4>
+                <ul>
+                        <li>More than 6 million people use MailChimp to create, send, and track email newsletters. Whether you're self-employed, you manage projects for clients, or you work for a Fortune 500 company, MailChimp has features and integrations that will suit your email marketing needs. <a href="http://mailchimp.com/about/">More informations</a></li>
+                        <li>For the configuration with Mailchimp, you must just to know your API Key and the ID of your list.</li>
+                </ul>
+                        <ul>
+                            <li>
+                        
+                        <h5>API Key</h5></li>
+                        
+<li>1- Click your profile name to open the Account Panel and choose <strong style="color:#88B7B3">Account Settings</strong>.<br/><br/>
+<img src="http://help.mailchimp.com/img/accountpanel_accountsettings.jpg" alt="Account settings" class="img-responsive"></li>
+<li>2- Click the <strong style="color:#88B7B3">Extras</strong> drop-down menu and choose <strong style="color:#88B7B3">API keys</strong>. <br/><br/>
+<img src="http://help.mailchimp.com/img/account_extrasmenu_apikeys.jpg" alt="Api keys" class="img-responsive"></li> 
+<li>3- Copy an existing API key or click the <strong style="color:#88B7B3">Create A Key</strong> button. <br/><br/>
+<img src="http://help.mailchimp.com/img/apikeys_createakey.jpg" alt="Create a key" class="img-responsive"></li> 
+<li>4- Label your key to keep your keys organized.<br/><br/>
+<img src="http://help.mailchimp.com/img/apikeys_labelkey.jpg" alt="Label key" class="img-responsive"></li>
+</ul>
+<ul>
+                            <li>
+                                <br/>    
+                                <hr>
+                                <br/>
+
+                        <h5>List ID</h5></li>
+                        
+    <li>1- Navigate to the <strong style="color:#88B7B3">Lists</strong> page on the left of your dashboard.</li>
+    <li>2- Click the list's drop down menu and select <strong style="color:#88B7B3">Settings.</strong><br/><br/>   
+    <img src="http://help.mailchimp.com/img/lists_dropdown_settings.jpg" class="img-responsive" alt="List settings"> 
+    </li>   
+    <li>3- Scroll down to the bottom of the <strong style="color:#88B7B3">Settings</strong> page to find the unique <em>List ID</em> for the list.<br/><br/>  <img src="http://help.mailchimp.com/img/lists_settings_uniqueid.jpg" class="img-responsive" alt="Unique list id"></li>
+</ul>
+                        <br/><hr><br/>
+                        <h4>Final step</h4>
+                        <ul>
+                            
+                            <li>1- Open the file "notify-me.php" findable in assets/php/<strong style="color:#88B7B3">notify-me.php</strong></li>
+                            <li>2- From the line 8 to 14, you will find:
+                        <pre><code>// Set to "mailchimp" or "file"
+$STORE_MODE = "<strong style="color:#88B7B3">mailchimp</strong>";
+
+// MailChimp API Key findable in your Mailchimp's dashboard
+$API_KEY =  "<strong style="color:#88B7B3">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</strong>";
+
+// MailChimp List ID  findable in your Mailchimp's dashboard
+$LIST_ID =  "<strong style="color:#88B7B3">XXXXXXXXXX</strong>";
+</code></pre></li>
+<li>3- So to finish the configuration:<br/>&bull; Check if the $STORE_MODE is well "mailchimp"<br/>
+    &bull; Replace the "XXXXX" by your API key & the ID of your list</li>
+<li><i class="fa fa-exclamation-triangle" style="color:#FFD700"></i> Don't forget to check the path of MailChimp.php on line 23:<pre><code>require('../php-tools/MailChimp.php');
+</code></pre></li>
+<li>On line 67 of notify-me.php, you can edit if you want that the subscribers receive a confirmation of their subscription:
+    <pre><code>'send_welcome'      => true,</code></pre>
+    Set true for the confirmation, or false to send nothing</li>
+
+                    </ul>
+                    </div>
+        </div>
+    </section>
+                    <div class="txtfile" id="filetxt">
+                    <section class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                    <h4>2. File<small> - Save the emails in a .txt file</small></h4>
+                    <ul>
+                        <li>Second solution offered by noirval, the save of the subscribers's emails in a txt file at the root of your server</li>
+                </ul>
+                <ul>
+                            <li>
+                        
+                        <h5 style="color:#333">TXT File</h5></li>
+                        
+<li>1- Create a .txt file empty or use the file <strong style="color:#88B7B3">notify-email-list.txt</strong> provided in your download pack.</li>
+<li>2- Upload the file on the root of your server</li>
+<li>3- Open the file "notify-me.php" findable in assets/php/<strong style="color:#88B7B3">notify-me.php</strong></li>
+                            <li>4- On the line 8 and 17, you must fill in the fields like as below:
+                        <pre><code>// Set to "mailchimp" or "file"
+$STORE_MODE = "<strong style="color:#88B7B3">file</strong>";
+
+...........
+
+// After $_SERVER["DOCUMENT_ROOT"]."
+$STORE_FILE = $_SERVER["DOCUMENT_ROOT"]."<strong style="color:#88B7B3">/subscription-list.txt</strong>";
+</code></pre></li>
+<li>5- Don't forget to:<br/>&bull; <strong>Change the $STORE_MODE to "file"</strong><br/>
+    &bull; Let notify-email-list.txt if you use the provided file or change the path to your file</li>
+
+</ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div class="simplemail" id="mailboxx">
+                    <section class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                    <h4>3. Email<small style="color:#CCC"> - Receive in your mail box</small></h4>
+                    <ul>
+                        <li>Third solution offered by noirval, you can receive directly in your mail box, the subscribers's emails</li>
+                </ul>
+                <ul>
+                            <li>
+                        
+                        <h5>notify-me-2.php</h5></li>
+                        
+<li>1- Open <strong style="color:#0C9">notify-me-2.php</strong> findable in assets/php/<strong style="color:#0C9">notify-me-2.php</strong></li>
+<li>2- On the line 7, you will find:
+                        <pre><code>$email_to = "myemail@mail.com";
+</code></pre></li>
+<li>3. So just replace "myemail@mail.com" by your mail</li>
+<li>4. Open your index.html, on line approximatively 244, you must have this:
+    <pre><code>&lt;form action="assets/php/notify-me<strong style="color:#0C9">-2</strong>.php" id="notifyMe" method="POST"&gt;</code></pre>
+</ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+    <section id="download" class="content-section text-center">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                   
+                    <h2>More informations about:</h2>
+                    <a href="http://getbootstrap.com" class="btn btn-default btn-lg" target="_blank">Bootstrap</a>
+                    <a href="http://kb.mailchimp.com/home" class="btn btn-default btn-lg" target="_blank">Mailchimp</a>
+                    <br/><br/><br/>
+                    <h5 style="text-align:center">I wish you all the best !</h5>
+                    <div class="page-scroll">
+                            <a href="#page-top" class="btn btn-circle-2">
+                                <i class="fa fa-angle-double-up animated"></i>
+                            </a>
+                        </div>
+                </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Core JavaScript Files -->
+    <script src="../assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+    <script>
+    //jQuery to collapse the navbar on scroll
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+</script>
+
+<script>
+//jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('.page-scroll a').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+</script>
+
+
+</body>
+
+</html>
