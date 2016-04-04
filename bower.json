@@ -1,0 +1,25 @@
+{
+  "name": "gulp-template",
+  "version": "2.0.0",
+  "authors": [
+    "Cole Gentry <peapod2007@gmail.com>"
+  ],
+  "description": "template for starting gulp projects",
+  "main": "dist/index.html",
+  "keywords": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-material": "^1.0.7",
+    "v-accordion": "^1.5.1",
+    "angular-ui-router": "^0.2.18"
+  }
+}

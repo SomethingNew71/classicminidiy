@@ -1,0 +1,26 @@
+@import "partials/variables.scss";
+
+// Basic App level sytles
+.main {
+  margin: 10px;
+}
+md-toolbar {
+  h2 {
+    color: $font-base;
+    margin-left: 5% !important;
+  }
+  a.md-button {
+    color: $font-base !important;
+  }
+  a.md-button.md-primary {
+    background: #106cc8;
+    color: #fff !important;
+  }
+  a.md-button:last-of-type {
+    margin-right: 5% !important;
+  }
+}
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+  background-color: transparent;
+  color: $font-base;
+}

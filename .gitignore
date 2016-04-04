@@ -5,10 +5,9 @@
 ._*
 .Spotlight-V100
 .Trashes
-.tmp
-.subl350.tmp
 ehthumbs.db
 Thumbs.db
-.sass-cache/
 node_modules/
+bower_components/
+babel/
 dist/
