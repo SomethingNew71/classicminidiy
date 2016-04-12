@@ -3,8 +3,8 @@
     'ngMaterial',
     'ui.router',
     'cmdiy.routes',
-    // 'cmdiy.controllers',
-    // 'cmdiy.directives',
+    'cmdiy.controllers',
+    'cmdiy.directives',
   ];
 
   angular

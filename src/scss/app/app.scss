@@ -2,7 +2,22 @@
 
 // Basic App level sytles
 .main {
-  margin: 10px;
+  // margin: 10px;
+
+  .welcome {
+    background-image: url("../assets/bg.jpg");
+    // height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    padding: 300px 0;
+
+    h1 {
+      text-align: right;
+      margin-right: 100px;  
+    }
+  }
 }
 md-toolbar {
   h2 {

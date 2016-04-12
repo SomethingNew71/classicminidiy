@@ -1,10 +1,10 @@
 {
-  "name": "gulp-template",
-  "version": "2.0.0",
+  "name": "Classic Mini DIY",
+  "version": "1.0.0",
   "authors": [
     "Cole Gentry <peapod2007@gmail.com>"
   ],
-  "description": "template for starting gulp projects",
+  "description": "Classic Mini DIY's website",
   "main": "dist/index.html",
   "keywords": [],
   "private": true,
@@ -18,8 +18,9 @@
   ],
   "dependencies": {
     "angular": "^1.5.3",
-    "angular-material": "^1.0.7",
+    "angular-material": "^1.1.0",
     "v-accordion": "^1.5.1",
-    "angular-ui-router": "^0.2.18"
+    "angular-ui-router": "^0.2.18",
+    "angular-timeline": "^1.6.2"
   }
 }

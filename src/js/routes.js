@@ -1,10 +1,8 @@
 (() => {
   const moduleDependencies = [
     'ui.router',
-    // 'cmdiy.routes',
-    // 'cmdiy.controllers',
-    // 'cmdiy.directives',
-
+    'cmdiy.controllers',
+    'cmdiy.directives',
 
   ];
 
@@ -27,6 +25,11 @@
         url: '/techspecs',
         templateUrl: 'techspecs.html',
         // controller: 'revisionsController',
+      })
+      .state('diy', {
+        url: '/diy',
+        templateUrl: 'diy.html',
+        // controller: 'sourcesController',
       });
   }
 

@@ -87,6 +87,7 @@ gulp.task('scripts', () =>
       'bower_components/angular-messages/angular-messages.min.js',
       'bower_components/v-accordion/dist/v-accordion.min.js',
       'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+      'bower_components/angular-timeline/dist/angular-timeline.js',
     ])
       .pipe(concat('lib.js'))
       .pipe(rename({ suffix: '.min' }))
@@ -117,7 +118,7 @@ gulp.task('serve', () => {
   gulp.watch('src/js/**/*.js', gulp.series('babel', 'scripts'));
   gulp.watch('src/assets/**/*', gulp.series('images'));
   gulp.watch('src/**/*.html', gulp.series('html', 'ngTemplates', 'scripts'));
-  gulp.watch(['dist/scss/**/*.scss', 'dist/*.html', 'dist/assets/**/*', 'dist/js/**/*.js'], reload);
+  gulp.watch(['dist/css/**/*.css', 'dist/*.html', 'dist/assets/**/*', 'dist/js/**/*.js'], reload);
 });
 
 /* Default Task ------------------------------------------------------------- */
