@@ -22,6 +22,11 @@ const del = require('del');
 /* Cleans Directories ------------------------------------------------------- */
 gulp.task('clean', () => del(['dist/**']));
 
+/* Copies Fonts ------------------------------------------------------------- */
+gulp.task('copy', () =>
+  gulp.src('bower_components/font-awesome/fonts/**/*.{ttf,woff,eof,svg}')
+  .pipe(gulp.dest('dist/css/fonts')));
+
 /* Lint Task ---------------------------------------------------------------- */
 gulp.task('lint', () =>
   gulp.src('src/js/*.js')
@@ -122,9 +127,9 @@ gulp.task('serve', () => {
 });
 
 /* Default Task ------------------------------------------------------------- */
-gulp.task('default', gulp.series('clean', 'lint', 'babel', 'ngTemplates', 'images',
+gulp.task('default', gulp.series('clean', 'copy', 'lint', 'babel', 'ngTemplates', 'images',
   gulp.parallel('html', 'sass', 'scripts'), 'serve'));
 
 /* Distribution Prep Task --------------------------------------------------- */
-gulp.task('dist', gulp.series('clean', 'lint', 'babel', 'ngTemplates', 'images',
+gulp.task('dist', gulp.series('clean', 'copy', 'lint', 'babel', 'ngTemplates', 'images',
   gulp.parallel('html', 'sass', 'scripts')));

@@ -2,20 +2,36 @@
 
 // Basic App level sytles
 .main {
-  // margin: 10px;
-
   .welcome {
     background-image: url("../assets/bg.jpg");
-    // height: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    color: #fff;
     padding: 300px 0;
 
     h1 {
-      text-align: right;
-      margin-right: 100px;  
+      text-align: left;
+      margin-left: 100px;
+      padding-bottom: 125px;
+    }
+  }
+  .intro {
+    .details {
+      text-align: center;
+    }
+    .info {
+      img {
+        display: block;
+        float: right;
+      }
+      .details {
+        text-align: left;
+        max-height: 150px;
+
+        h3 {
+          margin-top: 0;
+        }
+      }
     }
   }
 }
