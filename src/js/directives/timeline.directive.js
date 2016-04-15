@@ -8,7 +8,21 @@
       restrict: 'EA',
       replace: true,
       templateUrl: 'timeline.html',
-      controller () {},
+      controllerAs: 'vm',
+      controller () {
+        const vm = this;
+        vm.events = [{
+          badgeClass: 'info',
+          badgeIconClass: 'glyphicon-check',
+          title: 'First heading',
+          content: 'Some awesome content.',
+        }, {
+          badgeClass: 'warning',
+          badgeIconClass: 'glyphicon-credit-card',
+          title: 'Second heading',
+          content: 'More awesome content.',
+        }];
+      },
     };
   }
 
