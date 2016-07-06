@@ -31,7 +31,7 @@ module.exports = {
     'no-return-assign': 2,
     'no-script-url': 2,
     'no-self-compare': 2,
-    'no-sequences': 2,
+    'no-sequences': 1,
     // Disallow useless expressions but short circuiting and ternarys OK
     'no-unused-expressions': [2, { 'allowShortCircuit': true, 'allowTernary': true }],
     'no-useless-concat': 2,

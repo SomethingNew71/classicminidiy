@@ -21,14 +21,14 @@
         templateUrl: 'history.html',
         // controller: 'sourcesController',
       })
-      .state('techspecs', {
-        url: '/techspecs',
-        templateUrl: 'techspecs.html',
+      .state('colors', {
+        url: '/colors',
+        templateUrl: 'colors.html',
         // controller: 'revisionsController',
       })
-      .state('diy', {
-        url: '/diy',
-        templateUrl: 'diy.html',
+      .state('wheels', {
+        url: '/wheels',
+        templateUrl: 'wheels.html',
         // controller: 'sourcesController',
       });
   }
