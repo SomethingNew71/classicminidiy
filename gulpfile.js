@@ -16,7 +16,6 @@ const sass = require('gulp-sass');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
-// const notify = require('gulp-notify');
 const del = require('del');
 
 /* Cleans Directories ------------------------------------------------------- */

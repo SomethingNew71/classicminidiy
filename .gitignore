@@ -11,3 +11,4 @@ node_modules/
 bower_components/
 babel/
 dist/
+src/js/templates/templates.js
