@@ -116,7 +116,7 @@ gulp.task('serve', () => {
   });
   /* Watch Files For Changes ------------------------------------------------ */
   gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
-  gulp.watch('src/js/**/*.js', gulp.series('babel', 'scripts'));
+  gulp.watch('src/js/**/*.js', gulp.series('lint', 'babel', 'scripts'));
   gulp.watch('src/assets/**/*', gulp.series('images'));
   gulp.watch('src/**/*.html', gulp.series('html', 'ngTemplates', 'scripts'));
   gulp.watch(['dist/css/**/*.css', 'dist/*.html', 'dist/assets/**/*', 'dist/js/**/*.js'], reload);

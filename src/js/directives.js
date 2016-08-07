@@ -1,6 +1,6 @@
 (() => {
   const moduleDependencies = [
-    'cmdiy.ngTimeline',
+
   ];
 
   angular

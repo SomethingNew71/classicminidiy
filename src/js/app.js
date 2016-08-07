@@ -5,6 +5,7 @@
     'cmdiy.routes',
     'cmdiy.controllers',
     'cmdiy.directives',
+    'cmdiy.factories',
   ];
 
   angular

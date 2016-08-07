@@ -3,6 +3,7 @@
     'ui.router',
     'cmdiy.controllers',
     'cmdiy.directives',
+    'cmdiy.factories',
 
   ];
 
