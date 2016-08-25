@@ -1,7 +1,6 @@
 (() => {
   const moduleDependencies = [
-
-
+    'cmdiy.colors',
   ];
 
   angular

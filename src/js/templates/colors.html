@@ -1,62 +1,58 @@
-<md-toolbar class="nav-bar">
-  <div class="md-toolbar-tools">
-    <h1 class="md-flex"><span id="c">C</span><span id="o">o</span><span id="l">l</span><span id="o2">o</span><span id="r">r</span> <span>my Mini</span> - Classic Mini Paint Codes</h1>
+<div layout="row">
+  <div class="searchbox" flex="50">
+    <md-content class="md-padding">
+      <h2>Finding Your Paint Code has Never Been so Easy</h2>
+      <form ng-submit="$event.preventDefault()">
+        <md-autocomplete
+            md-no-cache="false"
+            md-selected-item="selectedColor"
+            md-search-text="searchText"
+            md-items="color in filterColors(searchText)"
+            md-item-text="color.name"
+            md-min-length="2"
+            placeholder="Just start typing your color name">
+          <md-item-template>
+            <span md-highlight-text="searchText" md-highlight-flags="^i">{{color.name.toUpperCase()}}  -  {{color.years}}</span>
+          </md-item-template>
+          <md-not-found>
+            No matches found for "{{searchText}}".
+          </md-not-found>
+        </md-autocomplete>
+      </form>
+      <aside>Over {{colors.length}} colors listed</aside>
+    </md-content>
   </div>
-</md-toolbar>
-<div class="searchbox">
-  <md-content class="md-padding">
-    <h2>Finding Your Paint Code has Never Been so Easy</h2>
-    <form ng-submit="$event.preventDefault()">
-      <md-autocomplete
-          md-no-cache="false"
-          md-selected-item="selectedColor"
-          md-search-text="searchText"
-          md-items="color in filterColors(searchText)"
-          md-item-text="color.name"
-          md-min-length="2"
-          placeholder="Just start typing your color name">
-        <md-item-template>
-          <span md-highlight-text="searchText" md-highlight-flags="^i">{{color.name.toUpperCase()}}  -  {{color.years}}</span>
-        </md-item-template>
-        <md-not-found>
-          No matches found for "{{searchText}}".
-        </md-not-found>
-      </md-autocomplete>
-    </form>
-    <aside>Over {{colors.length}} colors listed</aside>
-
-  </md-content>
+  <div class="color-info" ng-show="selectedColor" layout="row" flex="50">
+    <div class="color-details md-padding" flex>
+      <ul>
+        <li class="title">
+          <span>Color:</span> {{selectedColor.name.toUpperCase()}}
+        </li>
+        <li class="sub-info" ng-show="selectedColor.years">
+          <span>Years in Service:</span> {{selectedColor.years || 'Unknown'}}
+        </li>
+        <li class="sub-info" ng-show="selectedColor.color">
+          <span>Approx Color:</span> {{selectedColor.color.toUpperCase()}}
+        </li>
+      </ul>
+    </div>
+    <div class="code-list md-padding" flex>
+      <ul>
+        <li ng-show="selectedColor.bmc"><span>BMC Code:</span> {{selectedColor.bmc.toUpperCase()}}</li>
+        <li ng-show="selectedColor.blvc"><span>BLVC Code:</span> {{selectedColor.blvc.toUpperCase()}}</li>
+        <li ng-show="selectedColor.rover"><span>Rover Code:</span> {{selectedColor.rover.toUpperCase()}}</li>
+        <li ng-show="selectedColor.centari"><span>Centari Code:</span> {{selectedColor.centari.toUpperCase()}}</li>
+        <li ng-show="selectedColor.lucite"><span>Lucite Code:</span> {{selectedColor.lucite.toUpperCase()}}</li>
+        <li ng-show="selectedColor.dulux"><span>Dulux Code:</span> {{selectedColor.dulux.toUpperCase()}}</li>
+        <li ng-show="selectedColor.dupotstandox"><span>Dupot Standox Code:</span> {{selectedColor.dupotstandox.toUpperCase()}}</li>
+        <li ng-show="selectedColor.glasurit"><span>Glasurit Code:</span> {{selectedColor.glasurit.toUpperCase()}}</li>
+        <li ng-show="selectedColor.ditzlerppg"><span>Ditzler/PPG Code:</span> {{selectedColor.ditzlerppg.toUpperCase()}}</li>
+        <li ng-show="selectedColor.ici"><span>ICI Code:</span> {{selectedColor.ici.toUpperCase()}}</li>
+        <li ng-show="selectedColor.randm"><span>R&amp;M Code:</span> {{selectedColor.randm.toUpperCase()}}</li>
+        <li ng-show="selectedColor.sherwin"><span>Sherwin Williams Code:</span> {{selectedColor.sherwin.toUpperCase()}}</li>
+        <li ng-show="selectedColor.martinsenour"><span>Martin Senour Code:</span> {{selectedColor.martinsenour.toUpperCase()}}</li>
+      </ul>
+    </div>
+  </div>
 </div>
 <aside class="md-padding disclaimer"><span>Disclaimer</span> - We do not guarantee these colors to be correct. Many of these codes come from old books that may no longer be accurate. Please test the paints before using them on anything important.</aside>
-<div class="color-info" ng-show="selectedColor" layout="row">
-  <div class="color-details md-padding" flex>
-    <ul>
-      <li class="title">
-        <span>Color:</span> {{selectedColor.name.toUpperCase()}}
-      </li>
-      <li class="sub-info" ng-show="selectedColor.years">
-        <span>Years in Service:</span> {{selectedColor.years || 'Unknown'}}
-      </li>
-      <li class="sub-info" ng-show="selectedColor.color">
-        <span>Approx Color:</span> {{selectedColor.color.toUpperCase()}}
-      </li>
-    </ul>
-  </div>
-  <div class="code-list md-padding" flex>
-    <ul>
-      <li ng-show="selectedColor.bmc"><span>BMC Code:</span> {{selectedColor.bmc.toUpperCase()}}</li>
-      <li ng-show="selectedColor.blvc"><span>BLVC Code:</span> {{selectedColor.blvc.toUpperCase()}}</li>
-      <li ng-show="selectedColor.rover"><span>Rover Code:</span> {{selectedColor.rover.toUpperCase()}}</li>
-      <li ng-show="selectedColor.centari"><span>Centari Code:</span> {{selectedColor.centari.toUpperCase()}}</li>
-      <li ng-show="selectedColor.lucite"><span>Lucite Code:</span> {{selectedColor.lucite.toUpperCase()}}</li>
-      <li ng-show="selectedColor.dulux"><span>Dulux Code:</span> {{selectedColor.dulux.toUpperCase()}}</li>
-      <li ng-show="selectedColor.dupotstandox"><span>Dupot Standox Code:</span> {{selectedColor.dupotstandox.toUpperCase()}}</li>
-      <li ng-show="selectedColor.glasurit"><span>Glasurit Code:</span> {{selectedColor.glasurit.toUpperCase()}}</li>
-      <li ng-show="selectedColor.ditzlerppg"><span>Ditzler/PPG Code:</span> {{selectedColor.ditzlerppg.toUpperCase()}}</li>
-      <li ng-show="selectedColor.ici"><span>ICI Code:</span> {{selectedColor.ici.toUpperCase()}}</li>
-      <li ng-show="selectedColor.randm"><span>R&amp;M Code:</span> {{selectedColor.randm.toUpperCase()}}</li>
-      <li ng-show="selectedColor.sherwin"><span>Sherwin Williams Code:</span> {{selectedColor.sherwin.toUpperCase()}}</li>
-      <li ng-show="selectedColor.martinsenour"><span>Martin Senour Code:</span> {{selectedColor.martinsenour.toUpperCase()}}</li>
-    </ul>
-  </div>
-</div>

@@ -74,11 +74,10 @@ gulp.task('babel', () =>
     .pipe(gulp.dest('babel')));
 
 /* Concatenate & Minify JS -------------------------------------------------- */
-gulp.task('scripts', () =>
-  (
-    gulp.src(['src/js/*.json'])
+gulp.task('scripts', () => (
+    gulp.src(['src/js/data/*.json'])
       .pipe(jsonminify())
-      .pipe(gulp.dest('dist/js')),
+      .pipe(gulp.dest('dist/js/data')),
     gulp.src([
       // List of Library Files
       'bower_components/angular/angular.min.js',
