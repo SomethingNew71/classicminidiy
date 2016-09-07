@@ -1,4 +1,4 @@
-<html lang="en" ng-app="cmdiy">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
     <meta property="og:site_name" content="Classic Mini History">
     <meta property="og:type" content="website">
     <meta property="og:description" content="A visual history of the Classic Mini Cooper">
-    <meta property="og:url" content="www.cmdiy.org">
+    <meta property="og:url" content="www.classicminidiy.com">
     <!-- favicons -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/favicons/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/favicons/apple-touch-icon-114x114.png" />
@@ -40,22 +40,9 @@
     <link rel="stylesheet" type="text/css" href="css/app.min.css">
   </head>
   <body>
-    <div class="header">
-      <md-toolbar class="md-whiteframe-3dp">
-        <div class="md-toolbar-tools">
-          <h2>
-            <span>Classic Mini DIY</span>
-          </h2>
-          <span flex></span>
-          <md-button ui-sref="home" ui-sref-active="md-primary" aria-label="Home"><a>Home</a></md-button>
-          <!-- <md-button ui-sref="history" ui-sref-active="md-primary" aria-label="History">History</md-button> -->
-          <md-button ui-sref="colors" ui-sref-active="md-primary" aria-label="Technical Specs">Color Codes</md-button>
-          <md-button ui-sref="wheels" ui-sref-active="md-primary" aria-label="Technical Specs">Wheel Dictionary</md-button>
+    <div id="example"></div>
 
-        </div>
-      </md-toolbar>
-    </div>
-    <div class="main" ui-view></div>
+    
     <script src="js/lib.min.js"></script>
     <script src="js/app.min.js"></script>
   </body>

@@ -8,7 +8,6 @@ const eslint = require('gulp-eslint');
 const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
-const templateCache = require('gulp-angular-templatecache');
 const jsonminify = require('gulp-jsonminify');
 const autoprefixer = require('gulp-autoprefixer');
 const minifyHTML = require('gulp-minify-html');
@@ -19,17 +18,21 @@ const rename = require('gulp-rename');
 const del = require('del');
 
 /* Cleans Directories ------------------------------------------------------- */
-gulp.task('clean', () => del(['dist/**']));
-
-/* Copies Fonts ------------------------------------------------------------- */
-gulp.task('copy', () =>
-  gulp.src('bower_components/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,svg}')
-  .pipe(gulp.dest('dist/css/fonts')));
+gulp.task('clean', () => del([
+  'dist/**',
+  'babel/**',
+]));
 
 /* Lint Task ---------------------------------------------------------------- */
 gulp.task('lint', () =>
-  gulp.src('src/js/*.js')
-    .pipe(eslint())
+  gulp.src('src/js/**/*.jsx')
+    .pipe(eslint({
+      baseConfig: {
+        'ecmaFeatures': {
+          'jsx': true,
+        },
+      },
+    }))
     .pipe(eslint.format()));
 
 /* HTML Minification -------------------------------------------------------- */
@@ -43,17 +46,9 @@ gulp.task('html', () => {
     .pipe(gulp.dest('dist/'));
 });
 
-/* Angular Template handling ------------------------------------------------ */
-gulp.task('ngTemplates', () =>
-  gulp.src('src/js/templates/**/*.html')
-    .pipe(templateCache({ module: 'cmdiy' }))
-    .pipe(gulp.dest('babel/js/templates')));
-
 /* Compile Our Sass --------------------------------------------------------- */
 gulp.task('sass', () =>
   (
-    gulp.src('src/scss/lib/fonts/**')
-      .pipe(gulp.dest('dist/css/fonts')),
     gulp.src('src/scss/lib/lib.scss')
       .pipe(sass())
       .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
@@ -69,10 +64,10 @@ gulp.task('sass', () =>
   ));
 /* Babel Transpiling -------------------------------------------------------- */
 gulp.task('babel', () =>
-  gulp.src('src/js/**/*.js')
-    .pipe(babel({ presets: ['es2015'] }))
+  gulp.src('src/js/**/*.jsx')
+    .pipe(babel({
+      presets: ['react'] }))
     .pipe(gulp.dest('babel')));
-
 /* Concatenate & Minify JS -------------------------------------------------- */
 gulp.task('scripts', () => (
     gulp.src(['src/js/data/*.json'])
@@ -80,14 +75,8 @@ gulp.task('scripts', () => (
       .pipe(gulp.dest('dist/js/data')),
     gulp.src([
       // List of Library Files
-      'bower_components/angular/angular.min.js',
-      'bower_components/angular-animate/angular-animate.min.js',
-      'bower_components/angular-aria/angular-aria.min.js',
-      'bower_components/angular-material/angular-material.min.js',
-      'bower_components/angular-messages/angular-messages.min.js',
-      'bower_components/v-accordion/dist/v-accordion.min.js',
-      'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-      'bower_components/angular-timeline/dist/angular-timeline.js',
+      'node_modules/react/dist/react.min.js',
+      'node_modules/react-dom/dist/react-dom.min.js',
     ])
       .pipe(concat('lib.js'))
       .pipe(rename({ suffix: '.min' }))
@@ -115,16 +104,16 @@ gulp.task('serve', () => {
   });
   /* Watch Files For Changes ------------------------------------------------ */
   gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
-  gulp.watch('src/js/**/*.js', gulp.series('lint', 'babel', 'scripts'));
+  gulp.watch('assets/js/src/**/*.jsx', gulp.series('lint', 'babel', 'scripts'));
   gulp.watch('src/assets/**/*', gulp.series('images'));
-  gulp.watch('src/**/*.html', gulp.series('html', 'ngTemplates', 'scripts'));
+  gulp.watch('src/**/*.html', gulp.series('html', 'scripts'));
   gulp.watch(['dist/css/**/*.css', 'dist/*.html', 'dist/assets/**/*', 'dist/js/**/*.js'], reload);
 });
 
 /* Default Task ------------------------------------------------------------- */
-gulp.task('default', gulp.series('clean', 'copy', 'lint', 'babel', 'ngTemplates', 'images',
+gulp.task('default', gulp.series('clean', 'lint', 'babel', 'images',
   gulp.parallel('html', 'sass', 'scripts'), 'serve'));
 
 /* Distribution Prep Task --------------------------------------------------- */
-gulp.task('dist', gulp.series('clean', 'copy', 'lint', 'babel', 'ngTemplates', 'images',
+gulp.task('dist', gulp.series('clean', 'lint', 'babel', 'images',
   gulp.parallel('html', 'sass', 'scripts')));

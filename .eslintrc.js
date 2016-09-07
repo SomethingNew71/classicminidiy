@@ -49,7 +49,7 @@ module.exports = {
     // Enforce spacing after commas and never before
     'comma-spacing': [2, { 'before': false, 'after': true }],
     'comma-style': [2, 'last'],
-    'comma-dangle': 2,
+    'comma-dangle': 1,
     // Always require curlies to denote blocks
     'curly': [2, 'all'],
     // Enforce a newline at the end of files
@@ -103,7 +103,7 @@ module.exports = {
     'no-var': 2,
     'object-shorthand': 2,
     'prefer-const': 1,
-    'prefer-template': 2,
+    'prefer-template': 1,
     'prefer-arrow-callback': 2,
 
     'no-unneeded-ternary': 2
@@ -112,15 +112,32 @@ module.exports = {
     'es6': true,
     'node': true,
     'browser': true,
-    'jasmine': true,
   },
-  // Some common globals in browser environments
-  'globals': {
-    'angular': false,
-    'ngDescribe': false,
-    'it': false,
-    'sinon': true,
+  "ecmaFeatures": {
+    "arrowFunctions": true,
+    "binaryLiterals": true,
+    "blockBindings": true,
+    "classes": true,
+    "defaultParams": true,
+    "destructuring": true,
+    "forOf": true,
+    "generators": true,
+    "modules": true,
+    "objectLiteralComputedProperties": true,
+    "objectLiteralDuplicateProperties": true,
+    "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
+    "octalLiterals": true,
+    "regexUFlag": true,
+    "regexYFlag": true,
+    "spread": true,
+    "superInFunctions": true,
+    "templateStrings": true,
+    "unicodeCodePointEscapes": true,
+    "globalReturn": true,
+    "jsx": true
   },
+  "plugins": ["react"],
   // Include all the recommended rules, most for error-avoidance and best
   // practices
   'extends': 'airbnb',
