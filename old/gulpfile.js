@@ -7,6 +7,7 @@ const babel = require('gulp-babel');
 const eslint = require('gulp-eslint');
 const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
+
 const reload = browserSync.reload;
 const jsonminify = require('gulp-jsonminify');
 const autoprefixer = require('gulp-autoprefixer');
@@ -64,7 +65,7 @@ gulp.task('sass', () =>
   ));
 /* Babel Transpiling -------------------------------------------------------- */
 gulp.task('babel', () =>
-  gulp.src('src/js/**/*.jsx')
+  gulp.src('src/js/**/*.{jsx,js}')
     .pipe(babel({
       presets: ['react'] }))
     .pipe(gulp.dest('babel')));

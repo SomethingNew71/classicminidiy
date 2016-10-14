@@ -1,6 +1,7 @@
 'format cjs';
 
 const wrap = require('word-wrap');
+
 module.exports = {
   prompter (cz, commit) {
     cz.prompt([{
@@ -54,7 +55,7 @@ module.exports = {
       // Wrap these lines at 100 characters
       const body = wrap(answers.body, wrapOptions);
       const footer = wrap(answers.footer, wrapOptions);
-      commit(head + '\n\n' + body + '\n\n' + footer);
+      commit(`${head}\n\n${body}\n\n${footer}`);
     });
   },
 };
