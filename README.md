@@ -4,9 +4,13 @@ Classic Mini DIY is the best place to find all the reference material, how to vi
 
 ##### Technologies Used:
 
+* **nodeJS** - https://nodejs.org/en/
 * **angular 2** - https://angularjs.org/
 * **angular-cli** - https://github.com/angular/angular-cli
 * **angular-material 2** - https://github.com/angular/material2
+
+## Installing Dependancies server
+Run `ng init` to kick off the install. This command will run `npm install` so that will not need to be run seperately. Once this is complete you are ready to get rolling.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
