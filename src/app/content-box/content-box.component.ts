@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-box.component.css']
 })
 export class ContentBoxComponent implements OnInit {
-
+  heroUrl = 'assets/hero.jpg';
   constructor() { }
 
   ngOnInit() {
