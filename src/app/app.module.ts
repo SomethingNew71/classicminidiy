@@ -51,6 +51,7 @@ let technicalState = {
     MaterialModule.forRoot(),
     UIRouterModule.forRoot({
       // States imported here
+      // UI-router options can be configured here as well
       states: [
         homeState,
         historyState,
