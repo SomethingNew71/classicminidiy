@@ -1,0 +1,14 @@
+md-toolbar h1 {
+  margin-left: 10px;
+  margin-top: 8px;
+  display: inline-block;
+}
+md-toolbar  a.md-button:last-of-type {
+  margin-right: 5% !important;
+}
+.md-toolbar-tools {
+  width: 100%;
+}
+.nav-buttons {
+  float: right;
+}

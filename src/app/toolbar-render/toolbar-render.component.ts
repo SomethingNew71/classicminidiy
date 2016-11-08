@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarRenderComponent implements OnInit {
   title = 'Classic Mini DIY';
-  logoUrl = 'url/to/logo.png';
+  logoUrl = 'assets/logo.png';
 
   constructor() { }
   ngOnInit() { }

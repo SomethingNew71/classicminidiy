@@ -1,8 +1,18 @@
-<md-toolbar md-scroll-shrink>
-  <div class="md-toolbar-tools">
-    <img [src]="logoUrl" alt="Logo image for CMDIY" />
-    <h1>
-      <span>{{title}}</span>
-    </h1>
-  </div>
-</md-toolbar>
+<div class="header">
+  <md-toolbar class="md-whiteframe-3dp">
+    <div class="md-toolbar-tools">
+      <h1>{{title}}</h1>
+      <div class="nav-buttons">
+        <button md-button ui-sref="timeline" aria-label="Timeline">
+          Timeline
+        </button>
+        <button md-button ui-sref="sources" aria-label="Sources">
+          Sources
+        </button>
+        <button md-button ui-sref="revisions" aria-label="Submit Revisions">
+          Submit Revision
+        </button>
+      </div>
+    </div>
+  </md-toolbar>
+</div>
