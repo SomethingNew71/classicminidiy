@@ -26,6 +26,7 @@ let defaultState = {
   redirectTo: 'home',
   component: HomePageComponent
 };
+
 let homeState = {
   name: 'home',
   url: '/home',

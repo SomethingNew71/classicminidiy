@@ -53,5 +53,10 @@
     "tslint": "3.13.0",
     "typescript": "~2.0.3",
     "ui-router-ng2": "^1.0.0-beta.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./changlog-cmdiy.js"
+    }
   }
 }
