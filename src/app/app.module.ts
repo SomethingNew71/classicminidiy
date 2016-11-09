@@ -20,6 +20,7 @@ import { TechnicalPageComponent } from './pages/technical-page/technical-page.co
 
 // States Declerations
 let defaultState = {
+  // Simply a filler that directs to the homeState
   name: 'default',
   url: '',
   redirectTo: 'home',
