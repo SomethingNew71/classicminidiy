@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  // Sets hero-banner URL
+  heroUrl = 'assets/hero.jpg';
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }
