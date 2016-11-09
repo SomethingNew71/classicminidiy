@@ -13,12 +13,18 @@ import { AppComponent } from './app.component';
 import { ToolbarRenderComponent } from './toolbar-render/toolbar-render.component';
 import { ContentBoxComponent } from './content-box/content-box.component';
 
-// Page Components
+// Page Components - Paired with the states
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { TechnicalPageComponent } from './pages/technical-page/technical-page.component';
-/** States */
 
+// States Declerations
+let defaultState = {
+  name: 'default',
+  url: '',
+  redirectTo: 'home',
+  component: HomePageComponent
+};
 let homeState = {
   name: 'home',
   url: '/home',
@@ -53,6 +59,7 @@ let technicalState = {
       // States imported here
       // UI-router options can be configured here as well
       states: [
+        defaultState,
         homeState,
         historyState,
         technicalState
