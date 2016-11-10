@@ -49,7 +49,6 @@ table {
 }
 /*------------------------ CSS RESET END ------------------------*/
 
-
 /*------------------------ FONT DECLERATIONS START ------------------------*/
 h1 {
 	font-family: Lato;
@@ -61,19 +60,21 @@ h1 {
 }
 h3 {
 	font-family: Lato;
-	font-size: 14px;
+	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 15.4px;
+	color: #616161;
 }
 p {
 	font-family: Lato;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
-	line-height: 20px;
+	line-height: 24px;
+	color: #8a8a8a;
 }
 blockquote {
 	font-family: Lato;
