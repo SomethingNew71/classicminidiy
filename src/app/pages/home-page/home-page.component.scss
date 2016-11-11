@@ -1,13 +1,20 @@
 h2 {
   display: block;
-  padding-top: 100px;
-  padding-left: 100px;
-  width: 60%;
+  text-align: center;
+  padding-top: 50px;
   font-family: Lato;
-  font-size: 55px;
+  font-size: 35px;
   font-weight: bold;
-  color: white;
-  -webkit-text-stroke: 1px black;
+}
+
+.image {
+  display: inline-block;
+  margin: auto;
+
+  img {
+    height: auto;
+    width: 100px;
+  }
 }
 
 .who-are-we {

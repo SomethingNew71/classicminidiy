@@ -17,6 +17,7 @@ import { ContentBoxComponent } from './content-box/content-box.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { TechnicalPageComponent } from './pages/technical-page/technical-page.component';
+import { FooterRenderComponent } from './footer-render/footer-render.component';
 
 // States Declerations
 let defaultState = {
@@ -50,7 +51,8 @@ let technicalState = {
     ContentBoxComponent,
     HomePageComponent,
     HistoryPageComponent,
-    TechnicalPageComponent
+    TechnicalPageComponent,
+    FooterRenderComponent
   ],
   imports: [
     BrowserModule,
