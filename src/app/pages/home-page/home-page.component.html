@@ -1,3 +1,29 @@
-<p>
-  home-page works!
-</p>
+<div class="page">
+  <div
+    flex="100"
+    class="hero-banner"
+    [ngStyle]="{'background-image': 'url(' + heroUrl + ')'}">
+  </div>
+  <div class="imagry">
+    <h2>Bringing the Classic Mini into the future</h2>
+    <div class="image mini">
+      <img [src]="miniUrl" alt="Image of a Classic Mini" />
+    </div>
+    <div class="image arrow">
+      <img [src]="arrowUrl" alt="Image of an arrow pointing right" />
+    </div>
+    <div class="image rocket">
+      <img [src]="rocketUrl" alt="Image of a rocket ship symbolizing future" />
+    </div>
+  </div>
+  <div class="about-us" flex="100">
+    <div class="who-are-we-header">
+      <h3 class="headline-bordered">What is Classic Mini DIY? </h3>
+    </div>
+    <div class="who-are-we-body">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu enim non sapien vulputate luctus ornare vel turpis. Donec mattis mauris at lectus vulputate, vel venenatis risus scelerisque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam in feugiat libero, sed pellentesque leo. Integer interdum nulla ac lorem vestibulum, non rhoncus sapien fermentum. Etiam congue bibendum fringilla.
+      </p>
+    </div>
+  </div>
+</div>

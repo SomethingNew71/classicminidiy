@@ -2,6 +2,7 @@
 
 /*------------------------ IMPORTS START ------------------------*/
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+@import "src/variables.scss";
 
 
 /*------------------------ CSS RESET START ------------------------*/
@@ -47,10 +48,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/*------------------------ CSS RESET END ------------------------*/
+.page {
+  padding-top: 64px;
+	padding-bottom: 50px;
+}
 
-
-/*------------------------ FONT DECLERATIONS START ------------------------*/
+// Font Declerations -----------------------------------------------------------
 h1 {
 	font-family: Lato;
 	font-size: 24px;
@@ -58,22 +61,25 @@ h1 {
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 26.4px;
+	color: $header;
 }
 h3 {
 	font-family: Lato;
-	font-size: 14px;
+	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 15.4px;
+	color: $header;
 }
 p {
 	font-family: Lato;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
-	line-height: 20px;
+	line-height: 24px;
+	color: $content;
 }
 blockquote {
 	font-family: Lato;
@@ -82,6 +88,7 @@ blockquote {
 	font-variant: normal;
 	font-weight: 400;
 	line-height: 30px;
+	color: $content;
 }
 pre {
 	font-family: Lato;
@@ -90,5 +97,6 @@ pre {
 	font-variant: normal;
 	font-weight: 400;
 	line-height: 18.5714px;
+	color: $content;
 }
 /*------------------------ FONT DECLERATIONS END ------------------------*/

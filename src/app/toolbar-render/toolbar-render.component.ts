@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-toolbar-render',
   templateUrl: './toolbar-render.component.html',
-  styleUrls: ['./toolbar-render.component.css']
+  styleUrls: ['./toolbar-render.component.scss']
 })
 export class ToolbarRenderComponent implements OnInit {
   title = 'Classic Mini DIY';
