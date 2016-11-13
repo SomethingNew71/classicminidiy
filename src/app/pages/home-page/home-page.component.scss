@@ -1,41 +1,54 @@
+@import "src/variables.scss";
+
 h2 {
   display: block;
   text-align: center;
-  padding-top: 50px;
   font-family: Lato;
-  font-size: 35px;
+  font-size: 33px;
+  line-height: 33px;
   font-weight: bold;
 }
+h3 {
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
 
-.image {
-  display: inline-block;
-  margin: auto;
+.what-we-do {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  text-align: center;
 
-  img {
-    height: auto;
-    width: 100px;
+  p {
+    padding: 10px;
+  }
+
+  .fa {
+    font-size: 60px;
+    color: $brand-primary;
   }
 }
 
-.who-are-we {
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .hero-banner {
-  min-height: 400px;
+  min-height: 650px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: rgba(0,0,0,.6);
+
+  img {
+    display: block;
+    padding-top: 9%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .headline-bordered {
-  font-size: 55px;
   text-align: center;
   display: block;
-  margin: 20px 0;
-  padding: 20px 0 25px 0;
-  border: 3px solid #e9e9e9;
+  margin: 20px 0 0px 0;
+  padding: 10px 0 10px 0;
+  // border: 3px solid $borders;
   border-right: none;
   border-left: none;
   margin-left: auto;
@@ -44,9 +57,7 @@ h2 {
   width: 100%;
   line-height: 55px;
 }
-.who-are-we-body {
-  p {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
+.citations {
+  padding-top: 20px;
+  border-top: 1px solid $borders;
 }
