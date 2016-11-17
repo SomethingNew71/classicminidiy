@@ -10,6 +10,7 @@ import { UIRouterModule } from 'ui-router-ng2';
 
 // Component Imports
 import { AppComponent } from './app.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 // App Structure Components
 import { ToolbarRenderComponent } from './scaffolds/toolbar-render/toolbar-render.component';
@@ -23,7 +24,7 @@ import { TechnicalPageComponent } from './pages/technical-page/technical-page.co
 import { ManualPageComponent } from './pages/manual-page/manual-page.component';
 
 
-// States Declerations
+// State Declerations
 let defaultState = {
   // Simply a filler that directs to the homeState
   name: 'default',
@@ -64,7 +65,9 @@ const manualsState = {
     HomePageComponent,
     HistoryPageComponent,
     TechnicalPageComponent,
-    ManualPageComponent
+    ManualPageComponent,
+    // Functional Components
+    CounterComponent
   ],
   imports: [
     BrowserModule,
