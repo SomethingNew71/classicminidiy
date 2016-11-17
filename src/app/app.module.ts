@@ -63,7 +63,8 @@ const manualsState = {
     // Page Components
     HomePageComponent,
     HistoryPageComponent,
-    TechnicalPageComponent
+    TechnicalPageComponent,
+    ManualPageComponent
   ],
   imports: [
     BrowserModule,
