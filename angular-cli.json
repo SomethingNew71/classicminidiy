@@ -22,6 +22,7 @@
         "../node_modules/flexboxgrid/dist/flexboxgrid.min.css"
       ],
       "scripts": [
+        "node_modules/countup.js/dist/countUp.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
@@ -33,8 +34,7 @@
   "addons": [
     "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
   ],
-  "packages": [
-  ],
+  "packages": [],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"

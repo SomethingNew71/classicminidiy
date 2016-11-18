@@ -51,6 +51,9 @@ table {
 .page {
 	padding-bottom: 50px;
 }
+body {
+	background-color: $page-background;
+}
 
 // Font Declerations -----------------------------------------------------------
 h1 {
@@ -72,6 +75,15 @@ h2 {
 	color: $header;
 }
 h3 {
+	font-family: Lato;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 18px;
+	color: $header;
+}
+h4 {
 	font-family: Lato;
 	font-size: 18px;
 	font-style: normal;

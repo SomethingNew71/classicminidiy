@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 // Third Party Library Additions
 import { MaterialModule } from '@angular/material';
 import { UIRouterModule } from 'ui-router-ng2';
+// import CountUp from 'node_modules/countup.js/dist/countUp.min.js';
 
 // Component Imports
 import { AppComponent } from './app.component';
