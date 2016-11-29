@@ -21,9 +21,7 @@
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/flexboxgrid/dist/flexboxgrid.min.css"
       ],
-      "scripts": [
-        "node_modules/countup.js/dist/countUp.min.js"
-      ],
+      "scripts": [],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
