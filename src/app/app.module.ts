@@ -20,8 +20,13 @@ import { FooterRenderComponent } from './scaffolds/footer-render/footer-render.c
 // Page Components - Paired with the states
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
+
 import { TechnicalPageComponent } from './pages/technical-page/technical-page.component';
+// Subsets of Technical Page
+import { TechWelcomeComponent } from './pages/technical-page/tech-welcome/tech-welcome.component';
+
 import { ManualPageComponent } from './pages/manual-page/manual-page.component';
+
 
 
 // State Declerations
@@ -65,6 +70,7 @@ const manualsState = {
     HomePageComponent,
     HistoryPageComponent,
     TechnicalPageComponent,
+    TechWelcomeComponent,
     ManualPageComponent,
     // Functional Components
     CounterComponent

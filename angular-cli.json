@@ -19,6 +19,7 @@
       "styles": [
         "styles.scss",
         "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/font-awesome-animation/dist/font-awesome-animation.min.css",
         "../node_modules/flexboxgrid/dist/flexboxgrid.min.css"
       ],
       "scripts": [],

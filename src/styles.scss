@@ -119,4 +119,13 @@ pre {
 	line-height: 18.5714px;
 	color: $content;
 }
+table {
+	font-family: Lato;
+	th {
+		color: $header;
+	}
+	td {
+		color: $content;	
+	}
+}
 /*------------------------ FONT DECLERATIONS END ------------------------*/
