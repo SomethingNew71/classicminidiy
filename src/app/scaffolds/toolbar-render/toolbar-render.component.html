@@ -1,8 +1,30 @@
 <div class="header">
   <md-toolbar class="md-whiteframe-3dp">
     <div class="md-toolbar-tools">
-      <h1>{{title}}</h1>
-      <div class="nav-buttons">
+      <nav class="hidden-sm hidden-md hidden-lg" role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <a uiSref="home" uiSrefActive="active" aria-label="Home">
+              <li>Home</li>
+            </a>
+            <a uiSref="history" uiSrefActive="active" aria-label="History">
+              <li>History</li>
+            </a>
+            <a href="#">
+              <li>Technical Specs</li>
+            </a>
+            <a href="#">
+              <li>Manuals</li>
+            </a>
+          </ul>
+        </div>
+      </nav>
+      <h1 class="float-right-xs">{{title}}</h1>
+      <div class="nav-buttons hidden-xs">
         <button md-button uiSref="home" uiSrefActive="active" aria-label="Home">
           Home
         </button>
@@ -15,10 +37,8 @@
         <button md-button uiSref="manuals" uiSrefActive="active" aria-label="Manuals">
           Manuals
         </button>
-        <!-- <button md-button aria-label="Youtube">
-          <a href="#"></a>
-        </button> -->
       </div>
+
     </div>
   </md-toolbar>
 </div>

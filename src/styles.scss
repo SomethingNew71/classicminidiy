@@ -3,7 +3,7 @@
 /*------------------------ IMPORTS START ------------------------*/
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 @import "src/variables.scss";
-
+@import "src/utilities.scss";
 
 /*------------------------ CSS RESET START ------------------------*/
 html, body, div, span, applet, object, iframe,
@@ -125,7 +125,7 @@ table {
 		color: $header;
 	}
 	td {
-		color: $content;	
+		color: $content;
 	}
 }
 /*------------------------ FONT DECLERATIONS END ------------------------*/
