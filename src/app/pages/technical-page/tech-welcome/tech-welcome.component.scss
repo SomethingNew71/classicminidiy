@@ -1,0 +1,79 @@
+@import "src/variables.scss";
+
+@media screen and (max-width: 767px) {
+  .tg {
+    width: auto !important;
+  }
+  .tg col {
+    width: auto !important;
+  }
+  .tg-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+h2 {
+  font-size: 30px;
+  padding-bottom: 25px;
+}
+
+.aside-content,
+.image-facts {
+  padding-top: 80px;
+}
+.aside-content {
+  padding-left: 10%;
+
+  .tg-wrap {
+    padding-left: 10px;
+    padding-top: 30px;
+
+    table {
+      tr {
+        border-bottom: dotted 1px #d3d7de;
+
+        th {
+          text-align: left;
+          font-size: 14px;
+        }
+        th, td {
+          padding-bottom: 10px;
+          padding-top: 10px;
+        }
+      }
+      tr:last-of-type {
+        border-bottom: none;
+      }
+
+      .value1 {
+        text-align: left;
+        padding-left: 10px;
+        font-size: 12px;
+      }
+      .value2 {
+        text-align: left;
+        padding-right: 10px;
+        padding-left: 10px;
+        border-right: 1px solid $content;
+        color: #9db1cd;
+      }
+      .value3 {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+.image-facts {
+  img {
+    width: 70%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .facts {
+    text-align: center;
+  }
+}

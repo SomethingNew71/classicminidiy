@@ -3,7 +3,7 @@
 /*------------------------ IMPORTS START ------------------------*/
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 @import "src/variables.scss";
-
+@import "src/utilities.scss";
 
 /*------------------------ CSS RESET START ------------------------*/
 html, body, div, span, applet, object, iframe,
@@ -49,8 +49,10 @@ table {
 	border-spacing: 0;
 }
 .page {
-  padding-top: 64px;
 	padding-bottom: 50px;
+}
+body {
+	background-color: $page-background;
 }
 
 // Font Declerations -----------------------------------------------------------
@@ -60,7 +62,16 @@ h1 {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 26.4px;
+	line-height: 24px;
+	color: $header;
+}
+h2 {
+	font-family: Lato;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 20px;
 	color: $header;
 }
 h3 {
@@ -69,7 +80,16 @@ h3 {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 15.4px;
+	line-height: 18px;
+	color: $header;
+}
+h4 {
+	font-family: Lato;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 18px;
 	color: $header;
 }
 p {
@@ -98,5 +118,14 @@ pre {
 	font-weight: 400;
 	line-height: 18.5714px;
 	color: $content;
+}
+table {
+	font-family: Lato;
+	th {
+		color: $header;
+	}
+	td {
+		color: $content;
+	}
 }
 /*------------------------ FONT DECLERATIONS END ------------------------*/

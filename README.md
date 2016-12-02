@@ -1,3 +1,5 @@
+![alt text](http://i.imgur.com/E86umcV.png?3 "CMDIY Logo")
+
 # Classic Mini DIY
 
 Classic Mini DIY is the best place to find all the reference material, how to videos, and much much more for your Classic Mini. Check out the live site at www.classicminidiy.com
@@ -8,6 +10,7 @@ Classic Mini DIY is the best place to find all the reference material, how to vi
 * **angular 2** - https://angularjs.org/
 * **angular-cli** - https://github.com/angular/angular-cli
 * **angular-material 2** - https://github.com/angular/material2
+* **flexboxgrid** - http://flexboxgrid.com/
 
 ## Installing Dependencies server
 Run `ng init` to kick off the install. This command will run `npm install` so that will not need to be run seperately. Once this is complete you are ready to get rolling.
