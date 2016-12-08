@@ -19,113 +19,128 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 .page {
-	padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 body {
-	background-color: $page-background;
+  background-color: $page-background;
 }
 
 // Font Declerations -----------------------------------------------------------
 h1 {
-	font-family: Lato;
-	font-size: 24px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 24px;
-	color: $header;
+  font-family: Lato;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: $header;
 }
 h2 {
-	font-family: Lato;
-	font-size: 20px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 20px;
-	color: $header;
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: $header;
 }
 h3 {
-	font-family: Lato;
-	font-size: 18px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 18px;
-	color: $header;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 18px;
+  color: $header;
 }
 h4 {
-	font-family: Lato;
-	font-size: 18px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 18px;
-	color: $header;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 18px;
+  color: $header;
 }
 p {
-	font-family: Lato;
-	font-size: 16px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 24px;
-	color: $content;
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: $content;
 }
 blockquote {
-	font-family: Lato;
-	font-size: 21px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 30px;
-	color: $content;
+  font-family: Lato;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+  color: $content;
 }
 pre {
-	font-family: Lato;
-	font-size: 13px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 18.5714px;
-	color: $content;
+  font-family: Lato;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
+  color: $content;
 }
 table {
-	font-family: Lato;
-	th {
-		color: $header;
-	}
-	td {
-		color: $content;
-	}
+  font-family: Lato;
+  th {
+  color: $header;
+  }
+  td {
+  color: $content;
+  }
 }
 /*------------------------ FONT DECLERATIONS END ------------------------*/
+
+.page {
+  &.technical {
+    section {
+      border-top: 1px solid #d6d6d6;
+      padding-top: 25px;
+      margin-top: 25px;
+
+      h2 {
+        font-size: 28px;
+        font-weight: lighter;
+      }
+    }
+  }
+}
