@@ -24,6 +24,9 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
 import { TechnicalPageComponent } from './pages/technical-page/technical-page.component';
 // Subsets of Technical Page
 import { TechWelcomeComponent } from './pages/technical-page/tech-welcome/tech-welcome.component';
+import { TechEngineComponent } from './pages/technical-page/tech-engine/tech-engine.component';
+import { TechSuspensionComponent } from './pages/technical-page/tech-suspension/tech-suspension.component';
+import { TechTorquesComponent } from './pages/technical-page/tech-torques/tech-torques.component';
 
 import { ManualPageComponent } from './pages/manual-page/manual-page.component';
 
@@ -70,10 +73,13 @@ const manualsState = {
     HomePageComponent,
     HistoryPageComponent,
     TechnicalPageComponent,
-    TechWelcomeComponent,
+      TechWelcomeComponent,
+      TechEngineComponent,
+      TechSuspensionComponent,
+      TechTorquesComponent,
     ManualPageComponent,
     // Functional Components
-    CounterComponent
+    CounterComponent,
   ],
   imports: [
     BrowserModule,
