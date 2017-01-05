@@ -13,6 +13,44 @@ h3 {
   padding-bottom: 20px;
 }
 
+.about-us {
+  padding-bottom: 40px;
+}
+
+.youtube-cta {
+  .youtube-content {
+    background-color: #5C5E59;
+    z-index: 1;
+    text-align: center;
+    border: none !important;
+
+    a {
+      text-decoration: none;
+      
+      h1 {
+        color: $page-background;
+      }
+    }
+
+    img {
+      width: 60px;
+    }
+  }
+  .backshape {
+    z-index: -1;
+    height: 150px;
+    display: block;
+    float: left;
+    background: #5C5E59;
+    transform: skew(0deg, 2deg);
+    position: absolute;
+    left: 0;
+    bottom: -460px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .what-we-do {
   padding-top: 20px;
   padding-bottom: 50px;
@@ -65,8 +103,7 @@ h3 {
   line-height: 55px;
 }
 .citations {
-  padding-top: 20px;
-  border-top: 1px solid $borders;
+  padding-top: 60px;
   text-align: center;
 
   h3 {
