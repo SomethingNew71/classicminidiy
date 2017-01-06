@@ -1,9 +1,9 @@
-<div class="page">
-  <div
-    class="hero-banner"
-    [ngStyle]="{'background-image': 'url(' + heroUrl + ')'}">
-    <img src="assets/logo.png" alt="Classic Mini DIY Logo"/>
-  </div>
+<div
+  class="hero-banner"
+  [ngStyle]="{'background-image': 'url(' + heroUrl + ')'}">
+  <img src="assets/logo.png" alt="Classic Mini DIY Logo"/>
+</div>
+<div class="page" layout="column">
   <div class="row">
     <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
       <app-counter></app-counter>
@@ -42,6 +42,17 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="youtube-cta">
+    <div class="youtube-content">
+      <a href="https://www.youtube.com/channel/UCZIUfOFhrQ9nrR06IOoAJ2Q">
+        <img src="assets/youtube-icon.png" alt="">
+      </a>
+      <a href="https://www.youtube.com/channel/UCZIUfOFhrQ9nrR06IOoAJ2Q">
+        <h1>Check us out on Youtube</h1>
+      </a>
+    </div>
+    <div class="backshape"></div>
   </div>
   <div class="citations">
     <div class="headline-bordered">

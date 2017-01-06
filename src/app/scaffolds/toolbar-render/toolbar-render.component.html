@@ -1,6 +1,7 @@
 <div class="header">
   <md-toolbar class="md-whiteframe-3dp">
     <div class="md-toolbar-tools">
+      <!-- Mobile Nav -->
       <nav class="hidden-sm hidden-md hidden-lg" role="navigation">
         <div id="menuToggle">
           <input type="checkbox" />
@@ -11,34 +12,36 @@
             <a uiSref="home" uiSrefActive="active" aria-label="Home">
               <li>Home</li>
             </a>
-            <a uiSref="history" uiSrefActive="active" aria-label="History">
-              <li>History</li>
+            <a uiSref="videos" uiSrefActive="active" aria-label="Videos">
+              <li>Videos</li>
             </a>
-            <a href="#">
+            <a uiSref="technical" uiSrefActive="active" aria-label="Tech-Specs">
               <li>Technical Specs</li>
             </a>
-            <a href="#">
+            <a uiSref="manuals" uiSrefActive="active" aria-label="Manuals">
               <li>Manuals</li>
             </a>
           </ul>
         </div>
       </nav>
-      <h1 class="float-right-xs">{{title}}</h1>
-      <div class="nav-buttons hidden-xs">
-        <button md-button uiSref="home" uiSrefActive="active" aria-label="Home">
-          Home
-        </button>
-        <button md-button uiSref="history" uiSrefActive="active" aria-label="History">
-          History
-        </button>
-        <button md-button uiSref="technical" uiSrefActive="active" aria-label="Tech-Specs">
-          Technical Specs
-        </button>
-        <button md-button uiSref="manuals" uiSrefActive="active" aria-label="Manuals">
-          Manuals
-        </button>
-      </div>
-
+      <!-- Desktop Nav -->
+      <nav>
+        <h1 class="float-right-xs">{{title}}</h1>
+        <div class="nav-buttons hidden-xs">
+          <button md-button uiSref="home" uiSrefActive="active" aria-label="Home">
+            Home
+          </button>
+          <button md-button uiSref="videos" uiSrefActive="active" aria-label="Videos">
+            Videos
+          </button>
+          <button md-button uiSref="technical" uiSrefActive="active" aria-label="Tech-Specs">
+            Technical Specs
+          </button>
+          <button md-button uiSref="manuals" uiSrefActive="active" aria-label="Manuals">
+            Manuals
+          </button>
+        </div>
+      </nav>
     </div>
   </md-toolbar>
 </div>
