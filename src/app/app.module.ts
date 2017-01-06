@@ -19,7 +19,7 @@ import { FooterRenderComponent } from './scaffolds/footer-render/footer-render.c
 
 // Page Components - Paired with the states
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { VideosPageComponent } from './pages/videos-page/videos-page.component';
 
 import { TechnicalPageComponent } from './pages/technical-page/technical-page.component';
 // Subsets of Technical Page
@@ -29,7 +29,6 @@ import { TechSuspensionComponent } from './pages/technical-page/tech-suspension/
 import { TechTorquesComponent } from './pages/technical-page/tech-torques/tech-torques.component';
 
 import { ManualPageComponent } from './pages/manual-page/manual-page.component';
-
 
 
 // State Declerations
@@ -46,10 +45,10 @@ const homeState = {
   url: '/home',
   component: HomePageComponent
 };
-const historyState = {
-  name: 'history',
-  url: '/history',
-  component: HistoryPageComponent
+const videosState = {
+  name: 'videos',
+  url: '/videos',
+  component: VideosPageComponent
 };
 const technicalState = {
   name: 'technical',
@@ -71,7 +70,7 @@ const manualsState = {
     FooterRenderComponent,
     // Page Components
     HomePageComponent,
-    HistoryPageComponent,
+    VideosPageComponent,
     TechnicalPageComponent,
       TechWelcomeComponent,
       TechEngineComponent,
@@ -92,7 +91,7 @@ const manualsState = {
       states: [
         defaultState,
         homeState,
-        historyState,
+        videosState,
         technicalState,
         manualsState
       ],
