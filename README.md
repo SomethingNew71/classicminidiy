@@ -13,7 +13,20 @@ Classic Mini DIY is the best place to find all the reference material, how to vi
 * **flexboxgrid** - http://flexboxgrid.com/
 
 ## Installing Dependencies server
-Run `ng init` to kick off the install. This command will run `npm install` so that will not need to be run seperately. Once this is complete you are ready to get rolling.
+
+### Install Angular CLI
+**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
+
+```bash
+npm install -g angular-cli
+```
+### Install project Dependancies
+
+```bash
+ng init
+```
+
+This command will run `npm install` so that will not need to be run seperately. Once this is complete you are ready to get rolling.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
