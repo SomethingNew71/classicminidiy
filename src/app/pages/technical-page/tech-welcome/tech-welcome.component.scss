@@ -64,16 +64,32 @@ h2 {
     }
   }
 }
-.image-facts {
-  img {
-    width: 70%;
-    height: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
 
-  .facts {
-    text-align: center;
+.dimensions-container {
+  figure  {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: relative;
+    height: 200px;
+
+    p {
+      position: absolute;
+    }
+
+    &.image-saloon {
+      background-image: url();
+    }
+    &.image-estate {
+      background-image: url("../assets/supplementary/mini-clubman-estate-wagon-.png");
+
+      .diagram-text-1 {
+        left: 0;
+        height: 200px;
+      }
+    }
+    &.image-riley {
+      background-image: url();
+    }
   }
 }
