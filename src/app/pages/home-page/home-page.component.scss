@@ -1,5 +1,11 @@
 @import "src/variables.scss";
 
+h1 {
+  padding-top: 50px;
+  text-align: center;
+  letter-spacing: 7px;
+}
+
 h2 {
   display: block;
   text-align: center;
@@ -92,16 +98,53 @@ h3 {
 }
 
 .hero-banner {
-  max-height: 490px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgba(0,0,0,.6);
+  height: 100vh;
+  background: #212121;
 
   img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+    // padding-top: 128px;
+    // width: 100%;
+    // font-family: 'Lobster', cursive;
+    // color: #9f9ea4;
+    // font-size: 60px;
+
+  .diamond-container {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    margin-top: 128px;
+    display: inline-block;
+    font-family: 'Lobster', cursive;
+    color: #9f9ea4;
+    font-size: 60px;
+  }
+  .diamond-element {
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .diamond-element:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 120px;
+    height: 120px;
+    top: -35px;
+    right: -4px;
+    border: 6px solid #3c3d3c;
+    -webkit-transform: rotate(45deg);
+    -webkit-transition: border-color 0.3s;
+    -moz-transform: rotate(45deg);
+    -moz-transition: border-color 0.3s;
+    transform: rotate(45deg);
   }
 }
 
