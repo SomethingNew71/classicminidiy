@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Main from './app/Main.vue';
+import Main from './app/main/Main.vue';
 
 import './index.scss';
 import VueRouter from 'vue-router';

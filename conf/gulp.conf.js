@@ -23,7 +23,7 @@ exports.paths = {
 };
 
 /**
-* used on gulp dist
+* Used on gulp dist
 */
 exports.htmlmin = {
   ignoreCustomFragments: [/{{.*?}}/]
