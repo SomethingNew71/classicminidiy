@@ -6,6 +6,6 @@ Classic Mini DIY is the best place to find all the reference material, how to vi
 
 ##### Technologies Used:
 
-* **react** - https://facebook.github.io/react/
-* **react-boilerplate** - https://github.com/react-boilerplate/react-boilerplate
+* **VueJS** - https://vuejs.org/
+* **generator-fountain-vue** - https://github.com/fountainjs/generator-fountain-vue#readme
 * **nodeJS** - https://nodejs.org/en/
