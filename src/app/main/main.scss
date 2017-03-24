@@ -1,5 +1,4 @@
-// test
-
+// Everything having to do with the main section of the app
 .main-container {
   display: flex;
   flex-direction: column;
@@ -11,6 +10,7 @@
   flex-direction: column;
 }
 
+// Header specific CSS
 .header {
   display: flex;
   align-items: center;
@@ -28,6 +28,7 @@
   white: white;
 }
 
+// Title specific CSS
 .title {
   display: flex;
   flex-direction: column;
@@ -51,6 +52,7 @@
   margin: .5rem;
 }
 
+// Footer specific css
 .footer {
   padding: 0.5rem;
   font-size: 1rem;
