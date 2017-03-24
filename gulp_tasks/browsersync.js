@@ -10,12 +10,12 @@ browserSync.use(spa());
 gulp.task('browsersync', browserSyncServe);
 gulp.task('browsersync:dist', browserSyncDist);
 
-function browserSyncServe(done) {
+function browserSyncServe (done) {
   browserSync.init(browserSyncConf());
   done();
 }
 
-function browserSyncDist(done) {
+function browserSyncDist (done) {
   browserSync.init(browserSyncDistConf());
   done();
 }
