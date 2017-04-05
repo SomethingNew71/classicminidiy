@@ -23,7 +23,7 @@ gulp.task('webpack:dist', (done) => {
 function webpackWrapper (watch, conf, done) {
   const webpackBundler = webpack(conf);
 
-  const webpackChangeHandler = (err, stats) => {
+  function webpackChangeHandler (err, stats) {
     if (err) {
       gulpConf.errorHandler('Webpack')(err);
     }
@@ -39,7 +39,7 @@ function webpackWrapper (watch, conf, done) {
     } else {
       browsersync.reload();
     }
-  };
+  }
 
   if (watch) {
     webpackBundler.watch(200, webpackChangeHandler);
