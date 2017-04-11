@@ -1,11 +1,22 @@
-![alt text](http://i.imgur.com/E86umcV.png?3 "CMDIY Logo")
+# classicminidiy
 
-# Classic Mini DIY
+> VueJS project built using nuxt to scaffold out
 
-Classic Mini DIY is the best place to find all the reference material, how to videos, and much much more for your Classic Mini. Check out the live site at www.classicminidiy.com
+## Build Setup
 
-##### Technologies Used:
+``` bash
+# install dependencies
+$ npm install # Or yarn install
 
-* **VueJS** - https://vuejs.org/
-* **generator-fountain-vue** - https://github.com/fountainjs/generator-fountain-vue#readme
-* **nodeJS** - https://nodejs.org/en/
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm start
+
+# generate static project
+$ npm run generate
+```
+
+For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
