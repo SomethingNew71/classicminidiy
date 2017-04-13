@@ -1,16 +1,24 @@
 module.exports = {
-  root: true,
-  parser: 'babel-eslint',
+  extends: 'standard',
   env: {
     browser: true,
     node: true
   },
-  extends: 'standard',
+  parserOptions: {
+    // ecmaFeatures: {
+    //   classes: true
+    // }
+  },
+  parser: 'babel-eslint',
+  root: true,
   // required to lint *.vue files
   plugins: [
-    'html'
+    'html',
+    // 'import'
   ],
   // add your custom rules here
-  rules: {},
+  rules: {
+    semi: [ "error", "always" ]
+  },
   globals: {}
 }

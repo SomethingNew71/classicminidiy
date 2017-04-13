@@ -1,6 +1,6 @@
-# classicminidiy
+# vernonkesner-dotcom
 
-> VueJS project built using nuxt to scaffold out
+> Source code for vernonkesner.com
 
 ## Build Setup
 

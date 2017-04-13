@@ -1,10 +1,11 @@
 {
-  "name": "classicminidiy",
-  "version": "1.0.0",
-  "description": "VueJS project built using nuxt to scaffold out",
-  "author": "Cole Gentry <Peapod2007@gmail.com>",
+  "name": "vernonkesner-dotcom",
+  "version": "0.0.1",
+  "description": "Source code for vernonkesner.com",
+  "author": "Vernon Kesner",
   "private": true,
   "dependencies": {
+    "bulma": "^0.4.0",
     "nuxt": "latest"
   },
   "scripts": {
@@ -17,12 +18,12 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
-    "bulma": "^0.4.0",
     "css-loader": "^0.28.0",
     "eslint": "^3.15.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-html": "^2.0.0",
+    "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-standard": "^2.0.1",
     "node-sass": "^4.5.2",

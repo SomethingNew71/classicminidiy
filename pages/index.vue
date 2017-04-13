@@ -1,59 +1,51 @@
 <template>
-  <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        NUXT
-      </h1>
-      <h2 class="subtitle">
-        Universal Vue.js Application
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">Github</a>
+  <section>
+    <hero/>
+    <section class="section">
+      <div class="columns">
+        <div class="column is-one-third">
+          <div class="card">
+            <header class="card-header">
+              <h2 class="card-header-title">Consulting</h2>
+            </header>
+            <div class="card-content">
+              Consulting services...
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card">
+            <header class="card-header">
+              <h2 class="card-header-title">Development</h2>
+            </header>
+            <div class="card-content">
+              Development services...
+            </div>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="card">
+            <header class="card-header">
+              <h2 class="card-header-title">Training</h2>
+            </header>
+            <div class="card-content">
+              Training services...
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </section>
 </template>
 
 <script>
-import Logo from '~components/Logo.vue'
+import Hero from '~components/Hero';
 
 export default {
   components: {
-    Logo
+    Hero
   }
-}
+};
 </script>
 
-<style>
-.container
-{
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.title
-{
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-.subtitle
-{
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-.links
-{
-  padding-top: 15px;
-}
-</style>
+<style lang="scss" src="./home.scss"></style>
