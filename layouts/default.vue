@@ -1,16 +1,16 @@
 <template>
   <div>
-    <masthead/>
+    <navigation/>
     <nuxt/>
   </div>
 </template>
 
 <script>
-import Masthead from '../components/Masthead';
+import navigation from '../components/navigation';
 
 export default {
   components: {
-    Masthead
+    navigation
   }
 };
 

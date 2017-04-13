@@ -1,9 +1,9 @@
 {
-  "name": "vernonkesner-dotcom",
+  "name": "classicminidiy",
   "version": "0.0.1",
-  "description": "Source code for vernonkesner.com",
-  "author": "Vernon Kesner",
-  "private": true,
+  "description": "Classic Mini DIY knowledge repo source code",
+  "author": "Cole Gentry",
+  "private": false,
   "dependencies": {
     "bulma": "^0.4.0",
     "nuxt": "latest"
@@ -24,6 +24,7 @@
     "eslint-loader": "^1.6.1",
     "eslint-plugin-html": "^2.0.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-standard": "^3.0.1",
     "node-sass": "^4.5.2",
