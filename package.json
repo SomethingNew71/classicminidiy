@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Classic Mini DIY knowledge repo source code",
   "author": "Cole Gentry",
+  "license": "MIT",
   "private": false,
   "dependencies": {
     "bulma": "^0.4.0",
