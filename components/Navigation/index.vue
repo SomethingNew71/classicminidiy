@@ -1,10 +1,10 @@
 <template>
   <nav class="nav">
     <div class="nav-left">
-      <a class="nav-item">
+      <nuxt-link class="nav-item" to="/">
         <!-- <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo"> -->
-        Classic Mini DIY
-      </a>
+        640 x 160 logo - Classic Mini DIY
+      </nuxt-link>
     </div>
 
     <div class="nav-center">
@@ -31,16 +31,12 @@
     <!-- This "nav-menu" is hidden on mobile -->
     <!-- Add the modifier "is-active" to display it on mobile -->
     <div class="nav-right nav-menu">
-      <a class="nav-item">
-        Home
-      </a>
-      <a class="nav-item">
-        Documentation
-      </a>
-      <a class="nav-item">
-        Blog
-      </a>
-
+      <nuxt-link class="nav-item" to="/">Home</nuxt-link>
+      <nuxt-link class="nav-item" to="/about">About</nuxt-link>
+      <nuxt-link class="nav-item" to="/specs">Specs</nuxt-link>
+      <nuxt-link class="nav-item" to="/manuals">Manuals</nuxt-link>
+      <nuxt-link class="nav-item" to="/historical">Historical</nuxt-link>
+      <nuxt-link class="nav-item" to="/contact">Contact</nuxt-link>
       <span class="nav-item">
         <a class="button" >
           <span class="icon">
