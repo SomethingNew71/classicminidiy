@@ -6,7 +6,7 @@
         <div class="column is-one-third">
           <div class="card">
             <header class="card-header">
-              <h2 class="card-header-title">Consulting</h2>
+              <h2 class="card-header-title">toots</h2>
             </header>
             <div class="card-content">
               Consulting services...
@@ -29,7 +29,7 @@
               <h2 class="card-header-title">Training</h2>
             </header>
             <div class="card-content">
-              Training services...
+              Training fart...
             </div>
           </div>
         </div>
