@@ -6,7 +6,7 @@
         <div class="column is-one-third">
           <div class="card">
             <header class="card-header">
-              <h2 class="card-header-title">toots</h2>
+              <h2 class="card-header-title">Research</h2>
             </header>
             <div class="card-content">
               Consulting services...
@@ -16,7 +16,7 @@
         <div class="column is-one-third">
           <div class="card">
             <header class="card-header">
-              <h2 class="card-header-title">Development</h2>
+              <h2 class="card-header-title">Learn</h2>
             </header>
             <div class="card-content">
               Development services...
@@ -26,7 +26,7 @@
         <div class="column is-one-third">
           <div class="card">
             <header class="card-header">
-              <h2 class="card-header-title">Training</h2>
+              <h2 class="card-header-title">Discuss</h2>
             </header>
             <div class="card-content">
               Training fart...
