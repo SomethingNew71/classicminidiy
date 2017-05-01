@@ -1,0 +1,18 @@
+@import "../../assets/styles/colors.scss";
+
+.historical {
+  .loader {
+    z-index: -1;
+    border-color: $brand-primary;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    font-size: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    top: 10rem;
+  }
+
+  .iframe-container {
+    z-index: 1;
+  }
+}
