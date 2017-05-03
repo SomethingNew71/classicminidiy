@@ -9,7 +9,10 @@
 
     <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
     <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-    <span class="nav-toggle">
+    <span
+      v-on:click="toggleNav"
+      v-bind:class="{ 'is-active': isActive }"
+      class="nav-toggle">
       <span></span>
       <span></span>
       <span></span>
@@ -17,23 +20,35 @@
 
     <!-- This "nav-menu" is hidden on mobile -->
     <!-- Add the modifier "is-active" to display it on mobile -->
-    <div class="nav-right nav-menu">
+    <div v-bind:class="{ 'is-active': isActive }" class="nav-right nav-menu">
       <nuxt-link class="nav-item" to="/">Home</nuxt-link>
-      <nuxt-link class="nav-item" to="/about">About</nuxt-link>
       <nuxt-link class="nav-item" to="/specs">Specs</nuxt-link>
       <nuxt-link class="nav-item" to="/manuals">Manuals</nuxt-link>
       <nuxt-link class="nav-item" to="/historical">Historical</nuxt-link>
       <nuxt-link class="nav-item" to="/contact">Contact</nuxt-link>
-      <span class="nav-item">
+      <!-- <span class="nav-item">
         <a class="button is-primary">
           <span class="icon">
-            <i class="fa fa-download"></i>
+            <i class="fa fa-youtube"></i>
           </span>
-          <span>Download</span>
+          <span>Youtube</span>
         </a>
-      </span>
+      </span> -->
     </div>
   </nav>
 </template>
 
 <style lang="scss" src="./navigation.scss"></style>
+
+<script>
+export default {
+  data: function () {
+    return { isActive: false };
+  },
+  methods: {
+    toggleNav: function () {
+      this.isActive = !this.isActive;
+    }
+  }
+};
+</script>
