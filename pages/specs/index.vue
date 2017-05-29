@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div class="container">
-      <div class="columns">
+    <div class="container specs">
+      <div class="columns header">
         <div class="column is-10">
           <h1 class="title">
-            Classic Mini Specifications
+            Specifications
           </h1>
         </div>
         <div class="column">
@@ -26,30 +26,92 @@
           </div>
         </div>
       </div>
+      <h2 class="title">Body</h2>
+      <div class="tabs">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span class="icon is-small"><i class="fa fa-black-tie"></i></span>
+              <span>Saloon</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fa fa-users"></i></span>
+              <span>Estate</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fa fa-question"></i></span>
+              <span>Elf</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fa fa-hand-peace-o"></i></span>
+              <span>Moke</span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <div class="columns">
-        <div class="column is-5">
+        <div class="column is-4">
           <div class="card">
             <div class="card-content">
-              <p class="title">
+              <h3 class="title">
                 Classic Mini Saloon
-              </p>
+              </h3>
               <p class="subtitle">
                 The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
               </p>
             </div>
           </div>
           <div class="columns">
-            <div class="column is-half">
-              <h3>{{ body.weight.saloonLb}}</h3>
+            <div class="column is-half aside-value">
+              <h3 class="title">{{ body.weight.saloonLb}}lbs</h3>
+              <p>Weight</p>
+              <hr>
             </div>
-            <div class="column is-half">
-              <p>70 ft//lbs of torque</p>
+            <div class="column is-half aside-value">
+              <h3 class="title">{{ body.wheelbase.saloonIn}}in</h3>
+              <p>Wheelbase</p>
+              <hr>
             </div>
           </div>
         </div>
         <div class="column">
           Second column
         </div>
+      </div>
+      <h2 class="title">Engine</h2>
+      <div class="tabs">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span class="icon is-small"><i class="fa fa-black-tie"></i></span>
+              <span>Saloon</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fa fa-users"></i></span>
+              <span>Estate</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fa fa-question"></i></span>
+              <span>Elf</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span class="icon is-small"><i class="fa fa-hand-peace-o"></i></span>
+              <span>Moke</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -158,6 +220,8 @@ export default {
       }
     };
   },
-  methods: {}
+  methods: {
+
+  }
 };
 </script>

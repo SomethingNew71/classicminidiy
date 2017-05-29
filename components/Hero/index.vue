@@ -2,7 +2,14 @@
   <section class="hero is-dark is-medium is-bold is-full-width">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">The Best Source of Classic Mini Information</h1>
+        <div class="columns">
+          <div class="column">
+            <h1 class="title">The Best Source of Classic Mini Information</h1>
+          </div>
+          <div class="column">
+            <img src="/logo.png" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </section>
