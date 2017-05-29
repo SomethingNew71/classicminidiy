@@ -1,0 +1,21 @@
+.home {
+  .hero {
+    background-image: url('/hero.png') !important;
+    background-repeat: no-repeat;
+
+    .hero-body {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      h1 {
+        padding-top: 9rem;
+      }
+      img {
+        max-height: 360px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

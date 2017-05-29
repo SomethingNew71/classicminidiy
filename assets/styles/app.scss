@@ -3,11 +3,16 @@
 
 // 2. Set my initial variables
 // Update blue
-$blue: #206BFB;
+$brand-primary: #279BFB;
+$brand-secondary: #FBAA27;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
-$primary: $blue;
+$primary: $brand-primary;
+$secondary: $brand-secondary;
+
+$alert: #FB4027;
+$warning: #FBDF27;
 
 // 4. Import the rest of Bulma
 @import "../../node_modules/bulma/bulma";
