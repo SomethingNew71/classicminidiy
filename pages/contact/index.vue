@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div>
+    <div class="container">
       <h1 class="title">
         /contact route
       </h1>
