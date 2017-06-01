@@ -8,11 +8,6 @@
   "engines": {
     "node": "<7.10.0"
   },
-  "dependencies": {
-    "bulma": "^0.4.2",
-    "fetchival": "^0.3.2",
-    "nuxt": "^1.0.0-alpha1"
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -23,6 +18,9 @@
     "precommit": "npm run lint"
   },
   "devDependencies": {
+    "bulma": "^0.4.2",
+    "fetchival": "^0.3.2",
+    "nuxt": "^1.0.0-alpha1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
     "css-loader": "^0.28.3",
