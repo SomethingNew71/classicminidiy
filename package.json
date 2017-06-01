@@ -5,10 +5,8 @@
   "author": "Cole Gentry",
   "license": "MIT",
   "private": false,
-  "dependencies": {
-    "bulma": "^0.4.2",
-    "fetchival": "^0.3.2",
-    "nuxt": "^1.0.0-alpha1"
+  "engines": {
+    "node": "7.10.0"
   },
   "scripts": {
     "dev": "nuxt",
@@ -17,7 +15,12 @@
     "heroku-postbuild": "npm run build",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "fix-absolute": "sed -i '/  .basedir.: /d' .nuxt/dist/server-bundle.json"
+  },
+  "dependencies": {
+    "bulma": "^0.4.2",
+    "nuxt": "^1.0.0-alpha1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -34,5 +37,6 @@
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.5",
     "vue-style-loader": "^3.0.1"
-  }
+  },
+  "fix-absolute": "sed -i '/  .basedir.: /d' .nuxt/dist/server-bundle.json"
 }

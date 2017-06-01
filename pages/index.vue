@@ -41,11 +41,11 @@
 </template>
 
 <script>
-import Hero from '~components/Hero';
+import hero from '~components/hero';
 
 export default {
   components: {
-    Hero
+    hero
   }
 };
 </script>
