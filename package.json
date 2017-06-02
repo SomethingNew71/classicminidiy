@@ -1,12 +1,12 @@
 {
   "name": "classicminidiy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Classic Mini DIY knowledge repo source code",
   "author": "Cole Gentry",
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": "7.10.0"
+    "node": "8.0.0"
   },
   "scripts": {
     "dev": "nuxt",
@@ -15,17 +15,16 @@
     "heroku-postbuild": "npm run build",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint",
-    "fix-absolute": "sed -i '/  .basedir.: /d' .nuxt/dist/server-bundle.json"
+    "precommit": "npm run lint"
   },
   "dependencies": {
     "bulma": "^0.4.2",
-    "nuxt": "^1.0.0-alpha1"
+    "nuxt": "^1.0.0-alpha2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
-    "css-loader": "^0.28.3",
+    "css-loader": "^0.28.4",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.7.1",
