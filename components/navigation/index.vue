@@ -2,8 +2,7 @@
   <nav class="nav">
     <div class="nav-left">
       <nuxt-link class="nav-item" to="/">
-        <!-- <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo"> -->
-        640 x 160 logo - Classic Mini DIY
+        <img src="/navigation/mini.png" alt="Bulma logo"> Classic Mini DIY
       </nuxt-link>
     </div>
 
