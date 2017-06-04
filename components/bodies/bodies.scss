@@ -1,0 +1,12 @@
+.bodies {
+  .columns.saloon,
+  .columns.estate,
+  .columns.elf,
+  .columns.moke, {
+    display: none;
+
+    &.is-active {
+      display: flex;
+    }
+  }
+}
