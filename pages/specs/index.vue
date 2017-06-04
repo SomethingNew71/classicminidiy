@@ -205,11 +205,11 @@ export default {
           'prodYears': '1959 - 1980',
           'displacement': 850,
           'power': {
-            'metric': 25
+            'metric': 25,
             'imperial': 34
           },
           'torque': {
-            'metric': 60
+            'metric': 60,
             'imperial': 44
           }
         },
@@ -217,11 +217,11 @@ export default {
           'prodYears': '1959 - 1980',
           'displacement': 998,
           'power': {
-            'metric': 31
+            'metric': 31,
             'imperial': 41
           },
           'torque': {
-            'metric': 71
+            'metric': 71,
             'imperial': 52
           }
         },
@@ -233,7 +233,7 @@ export default {
             'imperial': 70
           },
           'torque': {
-            'metric': 84
+            'metric': 84,
             'imperial': 62
           }
         },
@@ -241,11 +241,11 @@ export default {
           'prodYears': '1969 - 1980',
           'displacement': 1098,
           'power': {
-            'metric': 34
+            'metric': 34,
             'imperial': 45
           },
           'torque': {
-            'metric': 76
+            'metric': 76,
             'imperial': 56
           }
         },
@@ -253,11 +253,11 @@ export default {
           'prodYears': '1964 - 1980',
           'displacement': 1275,
           'power': {
-            'metric': 57
+            'metric': 57,
             'imperial': 76
           },
           'torque': {
-            'metric': 107
+            'metric': 107,
             'imperial': 79
           }
         },
@@ -265,11 +265,11 @@ export default {
           'prodYears': '1980 - 1992',
           'displacement': 998,
           'power': {
-            'metric': 33
+            'metric': 33,
             'imperial': 44
           },
           'torque': {
-            'metric': 71
+            'metric': 71,
             'imperial': 52
           }
         },
@@ -277,11 +277,11 @@ export default {
           'prodYears': '1980 - 1996',
           'displacement': 1275,
           'power': {
-            'metric': 58
+            'metric': 58,
             'imperial': 78
           },
           'torque': {
-            'metric': 106
+            'metric': 106,
             'imperial': 78
           }
         },
@@ -289,11 +289,11 @@ export default {
           'prodYears': '1997 - 2000',
           'displacement': 1275,
           'power': {
-            'metric': 47
+            'metric': 47,
             'imperial': 63
           },
           'torque': {
-            'metric': 95
+            'metric': 95,
             'imperial': 70
           }
         }
