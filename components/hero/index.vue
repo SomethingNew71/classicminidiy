@@ -7,7 +7,7 @@
             <h1 class="title">The Best Source of Classic Mini Information</h1>
           </div>
           <div class="column">
-            <img src="/logo.png" alt="">
+            <img src="/hero/logo.png" alt="Classic Mini DIY Logo image">
           </div>
         </div>
       </div>

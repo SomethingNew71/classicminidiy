@@ -1,1 +1,11 @@
-// @import "../../assets/styles/colors.scss";
+.nav {
+  .nav-left {
+    img {
+      padding-right: 1rem;
+    }
+
+    .nav-item {
+      font-size: 1.2rem;
+    }
+  }
+}
