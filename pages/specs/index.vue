@@ -122,100 +122,180 @@
 export default {
   data: function () {
     return {
-      'body': {
-        'wheelbase': {
-          'saloonIn': 80.2,
-          'saloonMm': 2036,
-          'estateIn': 84.2,
-          'estateMm': 2138
+      'unit': {
+        'weight': {
+          'metric': 'kg',
+          'imperial': 'lbs'
         },
         'length': {
-          'saloonIn': 120.2,
-          'saloonMm': 3054,
-          'estateIn': 129.9,
-          'estateMm': 3299,
-          'hornetIn': 130,
-          'hornetMm': 3300
+          'metric': 'mm',
+          'imperial': 'in'
+        },
+        'power': {
+          'metric': 'kw',
+          'imperial': 'hp'
+        },
+        'torque': {
+          'metric': 'nm',
+          'imperial': 'lb/ft'
+        }
+      },
+      'body': {
+        'wheelbase': {
+          'metric': {
+            'saloon': 2036,
+            'estate': 2138
+          },
+          'imperial': {
+            'saloon': 80.2,
+            'estate': 84.2
+          }
+        },
+        'length': {
+          'metric': {
+            'saloon': 3054,
+            'estate': 3299,
+            'hornet': 3300
+          },
+          'imperial': {
+            'saloon': 120.2,
+            'estate': 129.9,
+            'hornet': 130
+          }
         },
         'width': {
-          'saloonIn': 55,
-          'saloonMm': 1397
+          'metric': {
+            'saloon': 1397,
+            'estate': 1397,
+            'hornet': 1397
+          },
+          'imperial': {
+            'saloon': 55,
+            'estate': 55,
+            'hornet': 55
+          }
         },
         'height': {
-          'saloonIn': 53,
-          'saloonMm': 1346
+          'metric': {
+            'saloon': 1346,
+            'estate': 1346,
+            'hornet': 1346
+          },
+          'imperial': {
+            'saloon': 53,
+            'estate': 53,
+            'hornet': 53
+          }
         },
         'weight': {
-          'saloonLb': 1360,
-          'saloonkg': 617,
-          'estateLb': 1512,
-          'estatekg': 686
+          'metric': {
+            'saloon': 617,
+            'estate': 686,
+            'hornet': 617
+          },
+          'imperial': {
+            'saloon': 1360,
+            'estate': 1512,
+            'hornet': 1360
+          }
         }
       },
       'engines': {
         'engine850a': {
+          'prodYears': '1959 - 1980',
           'displacement': 850,
-          'powerHp': 34,
-          'powerKw': 25,
-          'torqueLbft': 44,
-          'torqueNm': 60,
-          'prodYears': '1959 - 1980'
+          'power': {
+            'metric': 25
+            'imperial': 34
+          },
+          'torque': {
+            'metric': 60
+            'imperial': 44
+          }
         },
         'engine998a': {
+          'prodYears': '1959 - 1980',
           'displacement': 998,
-          'powerHp': 41,
-          'powerKw': 31,
-          'torqueLbft': 52,
-          'torqueNm': 71,
-          'prodYears': '1959 - 1980'
+          'power': {
+            'metric': 31
+            'imperial': 41
+          },
+          'torque': {
+            'metric': 71
+            'imperial': 52
+          }
         },
         'engine1071a': {
+          'prodYears': '1963 - 1964',
           'displacement': 1071,
-          'powerHp': 70,
-          'powerKw': 52,
-          'torqueLbft': 62,
-          'torqueNm': 84,
-          'prodYears': '1963 - 1964'
+          'power': {
+            'metric': 52,
+            'imperial': 70
+          },
+          'torque': {
+            'metric': 84
+            'imperial': 62
+          }
         },
         'engine1098a': {
+          'prodYears': '1969 - 1980',
           'displacement': 1098,
-          'powerHp': 45,
-          'powerKw': 34,
-          'torqueLbft': 56,
-          'torqueNm': 76,
-          'prodYears': '1969 - 1980'
+          'power': {
+            'metric': 34
+            'imperial': 45
+          },
+          'torque': {
+            'metric': 76
+            'imperial': 56
+          }
         },
         'engine1275a': {
+          'prodYears': '1964 - 1980',
           'displacement': 1275,
-          'powerHp': 76,
-          'powerKw': 57,
-          'torqueLbft': 79,
-          'torqueNm': 107,
-          'prodYears': '1964 - 1980'
+          'power': {
+            'metric': 57
+            'imperial': 76
+          },
+          'torque': {
+            'metric': 107
+            'imperial': 79
+          }
         },
         'engine998plus': {
-          'displacement': 1275,
-          'powerHp': 44,
-          'powerKw': 33,
-          'torqueLbft': 52,
-          'torqueNm': 71,
-          'prodYears': '1980 - 1992'
+          'prodYears': '1980 - 1992',
+          'displacement': 998,
+          'power': {
+            'metric': 33
+            'imperial': 44
+          },
+          'torque': {
+            'metric': 71
+            'imperial': 52
+          }
         },
         'engine1275plus': {
+          'prodYears': '1980 - 1996',
           'displacement': 1275,
-          'powerHp': 78,
-          'powerKw': 58,
-          'torqueLbft': 78,
-          'torqueNm': 106,
-          'prodYears': '1980 - 1996'
+          'power': {
+            'metric': 58
+            'imperial': 78
+          },
+          'torque': {
+            'metric': 106
+            'imperial': 78
+          }
         },
         'engine1275MPIplus': {
+          'prodYears': '1997 - 2000',
           'displacement': 1275,
-          'powerHp': 63,
-          'powerKw': 47,
-          'torqueLbft': 70,
-          'torqueNm': 95,
-          'prodYears': '1997 - 2000'
+          'power': {
+            'metric': 47
+            'imperial': 63
+          },
+          'torque': {
+            'metric': 95
+            'imperial': 70
+          }
         }
       }
     };
