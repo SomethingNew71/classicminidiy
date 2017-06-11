@@ -35,7 +35,7 @@
         <div class="card">
           <div class="card-content">
             <h3 class="title">
-              Classic Mini Saloon
+              Mini Saloon
             </h3>
             <p class="subtitle">
               The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
@@ -44,12 +44,26 @@
         </div>
         <div class="columns">
           <div class="column is-half aside-value">
-            <h3 class="title"></h3>
+            <h3 class="title">
+              <output>{{body.weight.imperial.saloon}}</output>
+              <output>{{unit.weight.imperial}}</output>
+            </h3>
+            <h4>
+              <output>{{body.weight.metric.saloon}}</output>
+              <output>{{unit.weight.metric}}</output>
+            </h4>
             <p>Weight</p>
             <hr>
           </div>
           <div class="column is-half aside-value">
-            <h3 class="title">in</h3>
+            <h3 class="title">
+              <output>{{body.wheelbase.imperial.saloon}}</output>
+              <output>{{unit.length.imperial}}</output>
+            </h3>
+            <h4>
+              <output>{{body.wheelbase.metric.saloon}}</output>
+              <output>{{unit.length.metric}}</output>
+            </h4>
             <p>Wheelbase</p>
             <hr>
           </div>
@@ -65,7 +79,7 @@
         <div class="card">
           <div class="card-content">
             <h3 class="title">
-              Classic Mini Saloon
+              Mini Estate
             </h3>
             <p class="subtitle">
               The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
@@ -95,7 +109,7 @@
         <div class="card">
           <div class="card-content">
             <h3 class="title">
-              Classic Mini Saloon
+              Mini Elf
             </h3>
             <p class="subtitle">
               The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
@@ -109,7 +123,7 @@
             <hr>
           </div>
           <div class="column is-half aside-value">
-            <h3 class="title">in</h3>
+            <h3 class="title"><output>{{}}</output>in</h3>
             <p>Wheelbase</p>
             <hr>
           </div>
@@ -125,7 +139,7 @@
         <div class="card">
           <div class="card-content">
             <h3 class="title">
-              Classic Mini Saloon
+              Mini Moke
             </h3>
             <p class="subtitle">
               The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
