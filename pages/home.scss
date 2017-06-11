@@ -18,4 +18,72 @@
       }
     }
   }
+  .what-we-do,
+  .latest-video {
+    .column.first {
+      padding-left: 6rem;
+
+      h2 {
+        font-size: 4rem;
+        font-weight: 600;
+      }
+      hr {
+        width: 5rem;
+        background-color: #279BFB;
+        height: 5px;
+      }
+    }
+  }
+  .what-we-do {
+    h3 {
+      margin: 0;
+    }
+    .column.last { padding-right: 5rem; }
+    .media-content p { margin: 0; }
+  }
+
+  .latest-video {
+    background-color: #F4F5F9
+  }
+
+  .sponsors {
+    h2 {
+      text-align: center;
+      font-size: 4rem;
+      font-weight: 600;
+    }
+    hr {
+      margin-right: auto;
+      margin-left: auto;
+      width: 5rem;
+      background-color: #279BFB;
+      height: 5px;
+    }
+  }
+
+  .contact {
+    background-color: #333333;
+
+    h2, h3, .social-icons {
+      padding-left: 6rem;
+    }
+    h2 {
+      color: #FDFCFC;
+      text-transform: uppercase;
+      font-size: 2rem
+    }
+
+    h3 {
+      padding-top: .5rem;
+      color: #9A9DAD;
+    }
+
+    .social-icons {
+      padding-top: 1rem;
+
+      .icon {
+        color: #9A9DAD;
+      }
+    }
+  }
 }
