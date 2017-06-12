@@ -16,6 +16,11 @@ module.exports = {
     ],
     script: [
       { src: 'https://use.fontawesome.com/3d93f1904c.js' }
+      // {
+      //   src: 'https://code.jquery.com/jquery-3.2.1.min.js',
+      //   integrity: 'sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=',
+      //   crossorigin: 'anonymous'
+      // }
     ]
   },
   /*
@@ -26,6 +31,9 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: [
+      // 'a/thing'
+    ],
     /*
     ** Run ESLINT on save
     */
