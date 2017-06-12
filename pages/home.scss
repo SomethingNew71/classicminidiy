@@ -2,6 +2,7 @@
   .hero {
     background-image: url('/hero/hero.png') !important;
     background-repeat: no-repeat;
+    background-size: cover;
 
     .hero-body {
       padding-top: 0;
@@ -9,6 +10,11 @@
 
       h1 {
         padding-top: 9rem;
+
+        @media only screen and (max-width:48em) {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+        }
       }
       img {
         max-height: 360px;
@@ -33,6 +39,21 @@
         height: 5px;
       }
     }
+    .is-hidden-desktop {
+      .column.first {
+        padding-left: 1rem;
+
+        h2 {
+          font-size: 2.5rem;
+          font-weight: 600;
+        }
+        hr {
+          width: 10rem;
+          background-color: #279BFB;
+          height: 5px;
+        }
+      }
+    }
   }
   .what-we-do {
     h3 {
@@ -49,8 +70,16 @@
   .contact {
     background-color: #333333;
 
+    @media only screen and (max-width:48em) {
+      text-align: center;
+    }
+
     h2, h3, .social-icons {
       padding-left: 6rem;
+
+      @media only screen and (max-width:48em) {
+        padding-left: 0;
+      }
     }
     h2 {
       color: #FDFCFC;
@@ -66,21 +95,44 @@
     .social-icons {
       padding-top: 1rem;
 
+      @media only screen and (max-width:48em) {
+        text-align: center;
+
+        .level-left {
+          margin: auto;
+        }
+      }
+
       .icon {
         color: #9A9DAD;
+
+        &:hover {
+          color: #279BFB;
+        }
       }
     }
 
     .sponsors {
       border-left: 1px solid #9A9DAD;
 
+      @media only screen and (max-width:48em) {
+        border-left: none;
+        border-top: 1px solid #9A9DAD;
+        text-align: center;
+        margin-left: 4rem;
+        margin-right: 4rem;
+      }
+
       h2 {
         padding-bottom: 2rem;
       }
-      
+
       h2, a {
-        text-align: left;
         padding-left: 2rem;
+
+        @media only screen and (max-width:48em) {
+          padding-left: 0;
+        }
       }
     }
   }
