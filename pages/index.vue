@@ -3,8 +3,14 @@
     <hero/>
     <!-- WHAT WE DO SECTION -->
     <section class="section what-we-do">
+      <div class="columns is-hidden-desktop">
+        <div class="column first">
+          <h2>The Mission</h2>
+          <hr>
+        </div>
+      </div>
       <div class="columns">
-        <div class="column is-one-third first">
+        <div class="column is-one-third first is-hidden-touch">
           <h2>
             The
             <br>
@@ -12,7 +18,7 @@
           </h2>
           <hr>
         </div>
-        <div class="column is-two-thirds last">
+        <div class="column is-two-third-tablet last">
           <!-- ITEM ONE -->
           <article class="media">
             <figure class="media-left">
@@ -56,7 +62,7 @@
             </figure>
             <div class="media-content">
               <div class="content">
-                <h3>Keep the Mini World Strong</h3>
+                <h3>Keep the Mini World Growing</h3>
                 <br>
                 <p>
                   Our main mission is to keep the Classic minis out there on the road for many years to come and for countless others to find joy and excitement from these little cars built so many years ago.
@@ -69,8 +75,14 @@
     </section>
     <!-- OUR LATEST VIDEO SECTION -->
     <section class="section latest-video">
+      <div class="columns is-hidden-desktop">
+        <div class="column first">
+          <h2>Latest Videos</h2>
+          <hr>
+        </div>
+      </div>
       <div class="columns">
-        <div class="column is-one-third first">
+        <div class="column is-one-third first is-hidden-touch">
           <h2>
             Latest
             <br>
@@ -79,14 +91,14 @@
           <hr>
         </div>
         <div class="column">
-
+          <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe width='1280' height='720' src='https://www.youtube.com/embed/videoseries?list=PLC6pySlMGdyTr5OXpF7w726LzHPLLfimi' frameborder='0' allowfullscreen></iframe></div>
         </div>
       </div>
     </section>
     <!-- CONTACT SECTION -->
-    <section class="section contact">
+    <section id="contact-section" class="section contact">
       <div class="columns">
-        <div class="column is-one-third">
+        <div class="column is-5">
           <h2>
             Classic Mini DIY
           </h2>
@@ -107,7 +119,7 @@
             </div>
           </nav>
         </div>
-        <div class="column is-two-thirds sponsors">
+        <div class="column sponsors">
           <h2>Sponsors</h2>
           <a href="http://www.7ent.com">
             <img src="/supplementary/seven-mini.png" alt="Seven Mini Parts">

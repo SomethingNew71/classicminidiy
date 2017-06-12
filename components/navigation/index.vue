@@ -24,15 +24,15 @@
       <nuxt-link class="nav-item" to="/specs">Specs</nuxt-link>
       <nuxt-link class="nav-item" to="/manuals">Manuals</nuxt-link>
       <nuxt-link class="nav-item" to="/historical">Historical</nuxt-link>
-      <nuxt-link class="nav-item" to="/contact">Contact</nuxt-link>
-      <!-- <span class="nav-item">
-        <a class="button is-primary">
+      <!-- <nuxt-link class="nav-item" href="">Contact</nuxt-link> -->
+      <span class="nav-item">
+        <a class="button is-primary" href="https://www.youtube.com/c/classicminidiy" target="_blank">
           <span class="icon">
             <i class="fa fa-youtube"></i>
           </span>
           <span>Youtube</span>
         </a>
-      </span> -->
+      </span>
     </div>
   </nav>
 </template>
