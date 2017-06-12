@@ -80,33 +80,13 @@
         </div>
         <div class="column">
 
-
-        </div>
-      </div>
-    </section>
-    <!-- SPONSORS SECTION -->
-    <section class="section sponsors">
-      <div class="columns">
-        <div class="column">
-          <h2>
-            Sponsors
-          </h2>
-          <hr>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column">
-          <img src="" alt="">
-        </div>
-        <div class="column">
-          <img src="" alt="">
         </div>
       </div>
     </section>
     <!-- CONTACT SECTION -->
     <section class="section contact">
       <div class="columns">
-        <div class="column">
+        <div class="column is-one-third">
           <h2>
             Classic Mini DIY
           </h2>
@@ -127,10 +107,11 @@
             </div>
           </nav>
         </div>
-      </div>
-      <div class="columns">
-        <div class="column">
-          <img src="" alt="">
+        <div class="column is-two-thirds sponsors">
+          <h2>Sponsors</h2>
+          <a href="http://www.7ent.com">
+            <img src="/supplementary/seven-mini.png" alt="Seven Mini Parts">
+          </a>
         </div>
       </div>
     </section>

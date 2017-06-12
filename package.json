@@ -19,8 +19,7 @@
   },
   "dependencies": {
     "bulma": "^0.4.2",
-    "nuxt": "^1.0.0-alpha2",
-    "vue-carousel-3d": "^0.1.13"
+    "nuxt": "^1.0.0-alpha2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
