@@ -107,14 +107,17 @@
           </h3>
           <nav class="social-icons level is-mobile">
             <div class="level-left">
-              <a class="level-item">
+              <a class="level-item" href="https://www.youtube.com/c/classicminidiy">
                 <span class="icon is-medium"><i class="fa fa-youtube"></i></span>
               </a>
-              <a class="level-item">
+              <a class="level-item" href="https://www.facebook.com/classicminidiy">
                 <span class="icon is-medium"><i class="fa fa-facebook"></i></span>
               </a>
-              <a class="level-item">
+              <a class="level-item" href="https://www.instagram.com/somethingnew71/">
                 <span class="icon is-medium"><i class="fa fa-instagram"></i></span>
+              </a>
+              <a class="level-item" href="https://github.com/SomethingNew71/classicminidiy">
+                <span class="icon is-medium"><i class="fa fa-github"></i></span>
               </a>
             </div>
           </nav>
