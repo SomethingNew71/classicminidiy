@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": "8.0.0"
+    "node": "8.1.0"
   },
   "scripts": {
     "dev": "nuxt",
