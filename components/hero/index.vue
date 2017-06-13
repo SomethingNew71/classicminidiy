@@ -16,5 +16,28 @@
 </template>
 
 <style lang="scss">
+  .hero {
+    background-repeat: no-repeat;
+    background-size: cover;
 
+    .hero-body {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+
+      h1 {
+        padding-top: 9rem;
+
+        @media only screen and (max-width:48em) {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+        }
+      }
+      img {
+        max-height: 360px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
 </style>
