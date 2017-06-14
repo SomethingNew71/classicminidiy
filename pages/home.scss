@@ -89,10 +89,11 @@
         }
       }
     }
-
-    .sponsors {
+    .ad-block {
       border-left: 1px solid #9A9DAD;
-
+      border-right: 1px solid #9A9DAD;
+    }
+    .sponsors {
       @media only screen and (max-width:48em) {
         border-left: none;
         border-top: 1px solid #9A9DAD;

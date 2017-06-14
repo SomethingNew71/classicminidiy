@@ -6,8 +6,25 @@
       padding-bottom: 9rem;
     }
   }
+
+  .intro-container {
+    background-color: #F4F5F9;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    img {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      margin: auto;
+      display: block;
+    }
+  }
+
   .manual-container {
-    padding-top: 2rem;
+    .tabs {
+      padding-top: 3rem;
+      padding-bottom: 1rem;
+    }
   }
   .columns.manuals,
   .columns.guides,
@@ -20,7 +37,9 @@
   }
 
   .card {
+    background-color: transparent;
     box-shadow: none;
+    flex: 1 0 auto;
 
     .image img {
       max-height: 180px;
@@ -30,6 +49,7 @@
 
     .card-content .media-content {
       text-align: center;
+      min-height: 1rem;
     }
     .card-footer {
       border-top: 0px;

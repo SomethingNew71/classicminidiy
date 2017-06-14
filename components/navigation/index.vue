@@ -2,7 +2,7 @@
   <nav class="nav">
     <div class="nav-left">
       <nuxt-link class="nav-item" to="/">
-        <img src="/navigation/mini.png" alt="Bulma logo"> Classic Mini DIY
+        <img src="components/navigation/mini.png" alt="Bulma logo"> Classic Mini DIY
       </nuxt-link>
     </div>
 
@@ -26,6 +26,11 @@
         class="nav-item"
         to="/">
         Home
+      </nuxt-link>
+      <nuxt-link
+        class="nav-item"
+        to="/getting-started">
+        Getting Started
       </nuxt-link>
       <nuxt-link
         class="nav-item"
