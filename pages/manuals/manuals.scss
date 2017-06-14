@@ -1,0 +1,59 @@
+.manuals {
+  .hero {
+    background-image: url('/backgrounds/manuals/manuals4.jpg') !important;
+
+    .hero-body h1 {
+      padding-bottom: 9rem;
+    }
+  }
+  .manual-container {
+    padding-top: 2rem;
+  }
+  .columns.manuals,
+  .columns.guides,
+  .columns.technical {
+    display: none;
+
+    &.is-active {
+      display: flex;
+    }
+  }
+
+  .card {
+    box-shadow: none;
+
+    .image img {
+      max-height: 180px;
+      width: auto;
+      margin: auto;
+    }
+
+    .card-content .media-content {
+      text-align: center;
+    }
+    .card-footer {
+      border-top: 0px;
+
+      .amazon,
+      .seven-ent {
+        padding: 0.5rem;
+      }
+      .amazon {
+        background-color: #FF9900;
+        color: #fff;
+      }
+      .seven-ent {
+        background-color: #2f2f2f;
+        color: #fff;
+      }
+      .seven-ent span {
+        // color: #D70302;
+      }
+      .amazon span,
+      .seven-ent span {
+        font-size: 1rem;
+        padding-right: .25rem;
+      }
+    }
+  }
+}
