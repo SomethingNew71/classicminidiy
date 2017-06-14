@@ -53,7 +53,7 @@
           <article class="media">
             <figure class="media-left">
               <p class="image is-64x64">
-                <img src="/supplementary/books.png">
+                <img src="/pages/home/books.png">
               </p>
             </figure>
             <div class="media-content">
@@ -70,7 +70,7 @@
           <article class="media">
             <figure class="media-left">
               <p class="image is-64x64">
-                <img src="/supplementary/grow.png">
+                <img src="/pages/home/grow.png">
               </p>
             </figure>
             <div class="media-content">
@@ -111,7 +111,7 @@
     <!-- CONTACT SECTION -->
     <section id="contact-section" class="section contact">
       <div class="columns">
-        <div class="column is-5">
+        <div class="column">
           <h2>
             Classic Mini DIY
           </h2>
@@ -135,10 +135,13 @@
             </div>
           </nav>
         </div>
+        <div class="column ad-block">
+
+        </div>
         <div class="column sponsors">
           <h2>Sponsors</h2>
           <a href="http://www.7ent.com">
-            <img src="/supplementary/seven-mini.png" alt="Seven Mini Parts">
+            <img src="/pages/home/seven-mini.png" alt="Seven Mini Parts">
           </a>
         </div>
       </div>
