@@ -2,15 +2,18 @@
   <div>
     <navigation/>
     <nuxt/>
+    <pagefoot/>
   </div>
 </template>
 
 <script>
 import navigation from '../components/navigation';
+import pagefoot from '../components/pagefoot';
 
 export default {
   components: {
-    navigation
+    navigation,
+    pagefoot
   }
 };
 
