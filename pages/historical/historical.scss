@@ -1,4 +1,11 @@
 .historical {
+  .hero {
+    background-image: url('/backgrounds/historical/history.jpg') !important;
+
+    .hero-body h1 {
+      padding-bottom: 9rem;
+    }
+  }
   .loader {
     z-index: -1;
     border-color: #279BFB;
@@ -7,12 +14,13 @@
     font-size: 100px;
     margin-right: auto;
     margin-left: auto;
-    top: 10rem;
+    top: 30rem;
     left: 48%;
-    position: fixed;
+    position: absolute;
   }
 
   .iframe-container {
     z-index: 1;
+    margin-bottom: 5rem;
   }
 }
