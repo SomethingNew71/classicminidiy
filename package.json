@@ -18,24 +18,27 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "bulma": "^0.4.2",
-    "nuxt": "^1.0.0-alpha2"
+    "nuxt": "^1.0.0-alpha2",
+    "vue-server-renderer": "latest",
+    "vuetify": "latest"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.0.0",
+    "babel-loader": "^7.1.0",
     "css-loader": "^0.28.4",
-    "eslint": "^3.19.0",
+    "eslint": "^4.1.0",
     "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-html": "^2.0.3",
-    "eslint-plugin-import": "^2.3.0",
+    "eslint-loader": "^1.8.0",
+    "eslint-plugin-html": "^3.0.0",
+    "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-node": "^5.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.5",
-    "vue-style-loader": "^3.0.1"
+    "sass-loader": "^6.0.6",
+    "vue-style-loader": "^3.0.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1"
   },
   "fix-absolute": "sed -i '/  .basedir.: /d' .nuxt/dist/server-bundle.json"
 }

@@ -1,30 +1,31 @@
 .specs {
+  padding-bottom: 5rem;
+
   .header {
     padding-top: 1rem;
   }
+
+  .tab-section {
+    .saloon, .estate, .elf, .moke,
+    .van, .countryman, .clubman, .pickup {
+      display: none;
+
+      &.is-active {
+        display: inherit;
+
+        > .column.is-5 {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
   .card {
     h3 {
       padding-bottom: 2rem;
     }
     p {
       padding-bottom: 2rem;
-    }
-  }
-  .aside-value {
-
-    h3 {
-      font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 0;
-    }
-    h4 { font-size: 1.2rem; }
-    p {
-      text-transform: uppercase;
-      font-size: 11px;
-    }
-    hr {
-      width: 1.2rem;
-      margin: .5rem 0;
     }
   }
 }

@@ -1,9 +1,24 @@
 <template>
-  <div>
+  <v-app dark>
     <navigation/>
-    <nuxt/>
-    <pagefoot/>
-  </div>
+    <v-toolbar fixed light>
+      <v-toolbar-side-icon light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Toolbar</v-toolbar-title>
+    </v-toolbar>
+    <main>
+      <v-container fluid>
+        <nuxt/>
+      </v-container>
+    </main>
+    <template>
+      <v-footer class="pa-3">
+        <v-spacer></v-spacer>
+        <div>Classic Mini DIY © - {{ new Date().getFullYear() }}</div>
+      </v-footer>
+    </template>
+  </v-app>
+<!--
+    <pagefoot/> -->
 </template>
 
 <script>
@@ -16,7 +31,6 @@ export default {
     pagefoot
   }
 };
-
 </script>
 
 <style lang="scss" src="../assets/styles/app.scss"></style>

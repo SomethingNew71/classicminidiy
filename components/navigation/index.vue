@@ -30,7 +30,7 @@
       <nuxt-link
         class="nav-item"
         to="/getting-started">
-        Getting Started
+        Get Started
       </nuxt-link>
       <nuxt-link
         class="nav-item"
@@ -45,7 +45,7 @@
       <nuxt-link
         class="nav-item"
         to="/historical">
-        Historical
+        History
       </nuxt-link>
       <!-- <nuxt-link class="nav-item" href="">Contact</nuxt-link> -->
       <span class="nav-item">
@@ -53,7 +53,7 @@
           <span class="icon">
             <i class="fa fa-youtube"></i>
           </span>
-          <span>Youtube</span>
+          <span>Channel</span>
         </a>
       </span>
     </div>

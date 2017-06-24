@@ -12,15 +12,11 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'favicon/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'favicon/favicon-16x16.png' },
-      { rel: 'icon', type: 'image/x-icon', href: 'favicon/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ],
     script: [
       { src: 'https://use.fontawesome.com/3d93f1904c.js' }
-      // {
-      //   src: 'https://code.jquery.com/jquery-3.2.1.min.js',
-      //   integrity: 'sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=',
-      //   crossorigin: 'anonymous'
-      // }
     ]
   },
   /*
@@ -31,9 +27,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: [
-      // 'a/thing'
-    ],
+    vendor: ['vuetify'],
     /*
     ** Run ESLINT on save
     */
@@ -47,5 +41,9 @@ module.exports = {
         });
       }
     }
-  }
-};
+  },
+  plugins: ['~plugins/vuetify.js'],
+  css: [
+    { src: '~assets/styles/app.styl', lang: 'styl' }
+  ]
+}

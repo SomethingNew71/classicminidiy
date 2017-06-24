@@ -1,152 +1,39 @@
 <template>
-  <div class="column bodies">
-    <h2 class="title">Engines</h2>
-    <div class="tabs">
-      <ul>
-        <li v-bind:class="{ 'is-active': saloonActive }" class="saloon">
-          <a v-on:click="saloonToggle" >
-            <span class="icon is-small"><i class="fa fa-black-tie"></i></span>
-            <span>Saloon</span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': estateActive }" class="estate">
-          <a v-on:click="estateToggle">
-            <span class="icon is-small"><i class="fa fa-users"></i></span>
-            <span>Estate</span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': elfActive }" class="elf">
-          <a v-on:click="elfToggle">
-            <span class="icon is-small"><i class="fa fa-question"></i></span>
-            <span>Elf</span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': mokeActive }" class="moke">
-          <a v-on:click="mokeToggle">
-            <span class="icon is-small"><i class="fa fa-hand-peace-o"></i></span>
-            <span>Moke</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <!-- SALOON *************************************************************-->
-    <div v-bind:class="{ 'is-active': saloonActive }" class="columns saloon">
-      <div class="column is-4">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="title">
-              Classic Mini Saloon
-            </h3>
-            <p class="subtitle">
-              The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
-            </p>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column is-half aside-value">
-            <h3 class="title"></h3>
-            <p>Weight</p>
-            <hr>
-          </div>
-          <div class="column is-half aside-value">
-            <h3 class="title">in</h3>
-            <p>Wheelbase</p>
-            <hr>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        Second column
+  <div class="column engines is-4">
+    <div class="card">
+      <div class="card-content">
+        <h3 class="title">
+          A Series Motor
+        </h3>
+        <p class="subtitle">
+          The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
+        </p>
       </div>
     </div>
-    <!-- ESTATE *************************************************************-->
-    <div v-bind:class="{ 'is-active': estateActive }" class="columns estate">
-      <div class="column is-4">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="title">
-              Classic Mini Saloon
-            </h3>
-            <p class="subtitle">
-              The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
-            </p>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column is-half aside-value">
-            <h3 class="title"></h3>
-            <p>Weight</p>
-            <hr>
-          </div>
-          <div class="column is-half aside-value">
-            <h3 class="title">in</h3>
-            <p>Wheelbase</p>
-            <hr>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        Second column
-      </div>
-    </div>
-    <!-- ELF ****************************************************************-->
-    <div v-bind:class="{ 'is-active': elfActive }" class="columns elf">
-      <div class="column is-4">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="title">
-              Classic Mini Saloon
-            </h3>
-            <p class="subtitle">
-              The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
-            </p>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column is-half aside-value">
-            <h3 class="title"></h3>
-            <p>Weight</p>
-            <hr>
-          </div>
-          <div class="column is-half aside-value">
-            <h3 class="title">in</h3>
-            <p>Wheelbase</p>
-            <hr>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        Second column
-      </div>
-    </div>
-    <!-- MOKE ***************************************************************-->
-    <div v-bind:class="{ 'is-active': mokeActive }" class="columns moke">
-      <div class="column is-4">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="title">
-              Classic Mini Saloon
-            </h3>
-            <p class="subtitle">
-              The most iconic of the Classic mini body styles, the Saloon is what most people attribute to the Classic Mini Cooper.
-            </p>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column is-half aside-value">
-            <h3 class="title"></h3>
-            <p>Weight</p>
-            <hr>
-          </div>
-          <div class="column is-half aside-value">
-            <h3 class="title">in</h3>
-            <p>Wheelbase</p>
-            <hr>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        Second column
+    <div class="column">
+      <div class="tabs is-toggle is-small is-fullwidth">
+        <ul>
+          <li v-bind:class="{ 'is-active': active850 }" >
+            <a v-on:click="engineToggle(850)">
+              <span>850cc</span>
+            </a>
+          </li>
+          <li v-bind:class="{ 'is-active': active998 }" >
+            <a v-on:click="engineToggle(998)" >
+              <span>998cc</span>
+            </a>
+          </li>
+          <li v-bind:class="{ 'is-active': active1100 }">
+            <a v-on:click="engineToggle(1100)" >
+              <span>1100cc</span>
+            </a>
+          </li>
+          <li v-bind:class="{ 'is-active': active1275 }">
+            <a v-on:click="engineToggle(1275)" >
+              <span>1275cc</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -159,10 +46,10 @@
 export default {
   data: function () {
     return {
-      saloonActive: true,
-      estateActive: false,
-      elfActive: false,
-      mokeActive: false,
+      active850: true,
+      active998: false,
+      active1100: false,
+      active1275: false,
       'unit': {
         'weight': {
           'metric': 'kg',
@@ -282,29 +169,28 @@ export default {
     };
   },
   methods: {
-    saloonToggle: function () {
-      this.saloonActive = true;
-      this.estateActive = false;
-      this.elfActive = false;
-      this.mokeActive = false;
-    },
-    estateToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = true;
-      this.elfActive = false;
-      this.mokeActive = false;
-    },
-    elfToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = false;
-      this.elfActive = true;
-      this.mokeActive = false;
-    },
-    mokeToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = false;
-      this.elfActive = false;
-      this.mokeActive = true;
+    engineToggle: function (value) {
+      if (value === 850) {
+        this.active850 = true;
+        this.active998 = false;
+        this.active1100 = false;
+        this.active1275 = false;
+      } else if (value === 998) {
+        this.active850 = false;
+        this.active998 = true;
+        this.active1100 = false;
+        this.active1275 = false;
+      } else if (value === 1100) {
+        this.active850 = false;
+        this.active998 = false;
+        this.active1100 = true;
+        this.active1275 = false;
+      } else if (value === 1275) {
+        this.active850 = false;
+        this.active998 = false;
+        this.active1100 = false;
+        this.active1275 = true;
+      }
     }
   }
 };
