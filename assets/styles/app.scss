@@ -1,43 +1,4 @@
-// 1. Import the initial variables
-// @import "../../node_modules/bulma/sass/utilities/initial-variables";
-
-// // 2. Set my initial variables
-// // Update blue
-// $brand-primary: #279BFB;
-// $brand-secondary: #FBAA27;
-//
-// // 3. Set the derived variables
-// // Use the new pink as the primary color
-// $primary: $brand-primary;
-// $secondary: $brand-secondary;
-//
-// $alert: #FB4027;
-// $warning: #FBDF27;
-
-// 4. Import the rest of Bulma
-// @import "../../node_modules/vuetify/dist/vuetify.min";
-
-.hero {
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  .hero-body {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-
-    h1 {
-      padding-top: 9rem;
-
-      @media only screen and (max-width:48em) {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-    }
-    img {
-      max-height: 360px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
+// Styles applied to the entire app.
+main {
+  padding-top: 4.2rem;
 }
