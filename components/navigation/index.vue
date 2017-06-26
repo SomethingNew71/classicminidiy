@@ -1,63 +1,51 @@
 <template>
-  <nav class="nav">
-    <div class="nav-left">
-      <nuxt-link class="nav-item" to="/">
-        <img src="components/navigation/mini.png" alt="Bulma logo"> Classic Mini DIY
-      </nuxt-link>
-    </div>
-
-    <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-    <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-    <span
-      v-on:click="toggleNav"
-      v-bind:class="{ 'is-active': isActive }"
-      class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
-
-    <!-- This "nav-menu" is hidden on mobile -->
-    <!-- Add the modifier "is-active" to display it on mobile -->
-    <div
-      v-bind:class="{ 'is-active': isActive }"
-      class="nav-right nav-menu">
-      <nuxt-link
-        class="nav-item"
-        to="/">
-        Home
-      </nuxt-link>
-      <nuxt-link
-        class="nav-item"
-        to="/getting-started">
-        Get Started
-      </nuxt-link>
-      <nuxt-link
-        class="nav-item"
-        to="/specs">
-        Specs
-      </nuxt-link>
-      <nuxt-link
-        class="nav-item"
-        to="/manuals">
-        Manuals
-      </nuxt-link>
-      <nuxt-link
-        class="nav-item"
-        to="/historical">
-        History
-      </nuxt-link>
-      <!-- <nuxt-link class="nav-item" href="">Contact</nuxt-link> -->
-      <span class="nav-item">
-        <a class="button is-primary" href="https://www.youtube.com/c/classicminidiy" target="_blank">
-          <span class="icon">
-            <i class="fa fa-youtube"></i>
-          </span>
-          <span>Channel</span>
-        </a>
-      </span>
-    </div>
-  </nav>
+  <v-app id="example-8" dark>
+    <v-navigation-drawer temporary v-model="drawer" :mini-variant="mini" dark>
+      <v-list class="pa-0">
+        <v-list-item v-if="mini">
+          <v-list-tile @click.native.stop="mini = !mini">
+            <v-list-tile-action>
+              <v-icon light>chevron_right</v-icon>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list-item>
+        <v-list-item>
+          <v-list-tile avatar tag="div">
+            <v-list-tile-avatar>
+              <img src="components/navigation/mini.png" />
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>Menu</v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <v-btn icon light @click.native.stop="mini = !mini">
+                <v-icon>chevron_left</v-icon>
+              </v-btn>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list-item>
+      </v-list>
+      <v-list class="pt-0" dense>
+        <v-divider light></v-divider>
+        <!-- <nuxt-link > -->
+          <v-list-item v-for="item in items" :key="item">
+            <v-list-tile :to='item.to'>
+              <v-list-tile-action>
+                <v-icon light>{{ item.icon }}</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list-item>
+        <!-- </nuxt-link> -->
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar fixed light>
+      <v-toolbar-side-icon light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
+    </v-toolbar>
+  </v-app>
 </template>
 
 <style lang="scss" src="./navigation.scss"></style>
@@ -66,13 +54,37 @@
 export default {
   data: function () {
     return {
-      isActive: false
+      drawer: null,
+      items: [
+        {
+          title: 'Home',
+          icon: 'home',
+          to: '/'
+        },
+        {
+          title: 'Get Started',
+          icon: 'build',
+          to: '/getting-started'
+        },
+        {
+          title: 'Specs',
+          icon: 'settings',
+          to: '/specs'
+        },
+        {
+          title: 'History',
+          icon: 'account_balance',
+          to: '/historical'
+        },
+        {
+          title: 'Youtube',
+          icon: 'videocam',
+          to: 'https://www.youtube.com/c/classicminidiy'
+        }
+      ],
+      mini: false,
+      right: null
     };
-  },
-  methods: {
-    toggleNav: function () {
-      this.isActive = !this.isActive;
-    }
   }
 };
 </script>
