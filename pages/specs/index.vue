@@ -1,16 +1,11 @@
 <template>
-  <section>
-    <div class="container specs">
-      <div class="columns header">
-        <div class="column is-9">
-          <h1 class="title">
-            Specifications
-          </h1>
-        </div>
-      </div>
-      <div class="columns">
-        <bodies/>
-      </div>
+  <section class="specs">
+    <v-layout class="hero" row>
+      <v-flex xs12 md6>
+        <h1 class="display-1 py-5 my-5 pl-3">Specifications</h1>
+      </v-flex>
+    </v-layout>
+    <bodies/>
     </div>
   </section>
 </template>

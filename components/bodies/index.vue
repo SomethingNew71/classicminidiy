@@ -1,327 +1,96 @@
 <template>
-  <div class="column bodies">
-    <div class="tabs">
-      <ul>
-        <li v-bind:class="{ 'is-active': saloonActive }" class="saloon">
-          <a class="toggleElement saloon"v-on:click="saloonToggle" >
-            <span>Saloon</span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': estateActive }" class="estate">
-          <a class="toggleElement estate"v-on:click="estateToggle">
-            <span>Estate</span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': vanActive }" class="van">
-          <a class="toggleElement van"v-on:click="vanToggle">
-            <span>Panel Van</span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': countrymanActive }" class="countryman">
-          <a class="toggleElement countryman"v-on:click="countrymanToggle">
-            <span>Country-man</span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': clubmanActive }" class="clubman">
-          <a class="toggleElement clubman"v-on:click="clubmanToggle">
-            <span>Clubman</span></span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': pickupActive }" class="pickup">
-          <a class="toggleElement pickup"v-on:click="pickupToggle">
-            <span>Pickup</span></span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': elfActive }" class="elf">
-          <a class="toggleElement elf"v-on:click="elfToggle">
-            <span>Elf</span>
-          </a>
-        </li>
-        <li v-bind:class="{ 'is-active': mokeActive }" class="moke">
-          <a class="toggleElement moke"v-on:click="mokeToggle">
-            <span>Moke</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <!-- TAB SECTION
-    *************************************************************-->
-    <div class="columns tab-section">
-      <engines/>
-      <div
-        v-bind:class="{ 'is-active': saloonActive }"
-        class="column saloon">
-        <div class="column">
-          <div class="image">
-            IMAGE GOES HERE
-          </div>
-          <div class="blurb">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam nisi, vestibulum vel risus ut, dictum ullamcorper arcu. Ut non elit risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus quis vehicula velit, vitae suscipit neque.
-          </div>
-        </div>
-        <div class="column is-5">
-          <nav class="panel">
-            <p class="panel-heading">
-              Details
-            </p>
-            <a class="panel-block">
-              <strong>Years Sold:</strong>{{body.yearsSold.saloon}}
-            </a>
-            <a class="panel-block">
-              <strong>Length:</strong> {{body.length.imperial.saloon}}in/{{body.length.metric.saloon}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Width:</strong> {{body.width.imperial.saloon}}in/{{body.width.metric.saloon}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Wheelbase:</strong> {{body.wheelbase.imperial.saloon}}in/{{body.wheelbase.metric.saloon}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Weight:</strong> {{body.weight.imperial.saloon}}lbs/{{body.weight.metric.saloon}}kg
-            </a>
-          </nav>
-        </div>
-      </div>
-      <div
-        v-bind:class="{ 'is-active': estateActive }"
-        class="column estate">
-        <div class="column">
-          <div class="image">
-            IMAGE GOES HERE
-          </div>
-          <div class="blurb">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam nisi, vestibulum vel risus ut, dictum ullamcorper arcu. Ut non elit risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus quis vehicula velit, vitae suscipit neque.
-          </div>
-        </div>
-        <div class="column is-5">
-          <nav class="panel">
-            <p class="panel-heading">
-              Details
-            </p>
-            <a class="panel-block">
-              <strong>Years Sold:</strong>{{body.yearsSold.estate}}
-            </a>
-            <a class="panel-block">
-              <strong>Length:</strong> {{body.length.imperial.estate}}in/{{body.length.metric.estate}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Width:</strong> {{body.width.imperial.estate}}in/{{body.width.metric.estate}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Wheelbase:</strong> {{body.wheelbase.imperial.estate}}in/{{body.wheelbase.metric.estate}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Weight:</strong> {{body.weight.imperial.estate}}lbs/{{body.weight.metric.estate}}kg
-            </a>
-          </nav>
-        </div>
-      </div>
-      <div
-        v-bind:class="{ 'is-active': elfActive }"
-        class="column elf">
-        <div class="column">
-          <div class="image">
-            IMAGE GOES HERE
-          </div>
-          <div class="blurb">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam nisi, vestibulum vel risus ut, dictum ullamcorper arcu. Ut non elit risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus quis vehicula velit, vitae suscipit neque.
-          </div>
-        </div>
-        <div class="column is-5">
-          <nav class="panel">
-            <p class="panel-heading">
-              Details
-            </p>
-            <a class="panel-block">
-              <strong>Years Sold:</strong>{{body.yearsSold.elf}}
-            </a>
-            <a class="panel-block">
-              <strong>Length:</strong> {{body.length.imperial.elf}}in/{{body.length.metric.elf}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Width:</strong> {{body.width.imperial.elf}}in/{{body.width.metric.elf}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Wheelbase:</strong> {{body.wheelbase.imperial.elf}}in/{{body.wheelbase.metric.elf}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Weight:</strong> {{body.weight.imperial.elf}}lbs/{{body.weight.metric.elf}}kg
-            </a>
-          </nav>
-        </div>
-      </div>
-      <div
-        v-bind:class="{ 'is-active': mokeActive }"
-        class="column moke">
-        <div class="column">
-          <div class="image">
-            IMAGE GOES HERE
-          </div>
-          <div class="blurb">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam nisi, vestibulum vel risus ut, dictum ullamcorper arcu. Ut non elit risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus quis vehicula velit, vitae suscipit neque.
-          </div>
-        </div>
-        <div class="column is-5">
-          <nav class="panel">
-            <p class="panel-heading">
-              Details
-            </p>
-            <a class="panel-block">
-              <strong>Years Sold:</strong>{{body.yearsSold.moke}}
-            </a>
-            <a class="panel-block">
-              <strong>Length:</strong> {{body.length.imperial.moke}}in/{{body.length.metric.moke}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Width:</strong> {{body.width.imperial.moke}}in/{{body.width.metric.moke}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Wheelbase:</strong> {{body.wheelbase.imperial.moke}}in/{{body.wheelbase.metric.moke}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Weight:</strong> {{body.weight.imperial.moke}}lbs/{{body.weight.metric.moke}}kg
-            </a>
-          </nav>
-        </div>
-      </div>
-      <div
-        v-bind:class="{ 'is-active': vanActive }"
-        class="column van">
-        <div class="column">
-          <div class="image">
-            IMAGE GOES HERE
-          </div>
-          <div class="blurb">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam nisi, vestibulum vel risus ut, dictum ullamcorper arcu. Ut non elit risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus quis vehicula velit, vitae suscipit neque.
-          </div>
-        </div>
-        <div class="column is-5">
-          <nav class="panel">
-            <p class="panel-heading">
-              Details
-            </p>
-            <a class="panel-block">
-              <strong>Years Sold:</strong>{{body.yearsSold.van}}
-            </a>
-            <a class="panel-block">
-              <strong>Length:</strong> {{body.length.imperial.van}}in/{{body.length.metric.van}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Width:</strong> {{body.width.imperial.van}}in/{{body.width.metric.van}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Wheelbase:</strong> {{body.wheelbase.imperial.van}}in/{{body.wheelbase.metric.van}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Weight:</strong> {{body.weight.imperial.van}}lbs/{{body.weight.metric.van}}kg
-            </a>
-          </nav>
-        </div>
-      </div>
-      <div
-        v-bind:class="{ 'is-active': countrymanActive }"
-        class="column countryman">
-        <div class="column">
-          <div class="image">
-            IMAGE GOES HERE
-          </div>
-          <div class="blurb">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam nisi, vestibulum vel risus ut, dictum ullamcorper arcu. Ut non elit risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus quis vehicula velit, vitae suscipit neque.
-          </div>
-        </div>
-        <div class="column is-5">
-          <nav class="panel">
-            <p class="panel-heading">
-              Details
-            </p>
-            <a class="panel-block">
-              <strong>Years Sold:</strong>{{body.yearsSold.countryman}}
-            </a>
-            <a class="panel-block">
-              <strong>Length:</strong> {{body.length.imperial.countryman}}in/{{body.length.metric.countryman}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Width:</strong> {{body.width.imperial.countryman}}in/{{body.width.metric.countryman}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Wheelbase:</strong> {{body.wheelbase.imperial.countryman}}in/{{body.wheelbase.metric.countryman}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Weight:</strong> {{body.weight.imperial.countryman}}lbs/{{body.weight.metric.countryman}}kg
-            </a>
-          </nav>
-        </div>
-      </div>
-      <div
-        v-bind:class="{ 'is-active': clubmanActive }"
-        class="column clubman">
-        <div class="column">
-          <div class="image">
-            IMAGE GOES HERE
-          </div>
-          <div class="blurb">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam nisi, vestibulum vel risus ut, dictum ullamcorper arcu. Ut non elit risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus quis vehicula velit, vitae suscipit neque.
-          </div>
-        </div>
-        <div class="column is-5">
-          <nav class="panel">
-            <p class="panel-heading">
-              Details
-            </p>
-            <a class="panel-block">
-              <strong>Years Sold:</strong>{{body.yearsSold.clubman}}
-            </a>
-            <a class="panel-block">
-              <strong>Length:</strong> {{body.length.imperial.clubman}}in/{{body.length.metric.clubman}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Width:</strong> {{body.width.imperial.clubman}}in/{{body.width.metric.clubman}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Wheelbase:</strong> {{body.wheelbase.imperial.clubman}}in/{{body.wheelbase.metric.clubman}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Weight:</strong> {{body.weight.imperial.clubman}}lbs/{{body.weight.metric.clubman}}kg
-            </a>
-          </nav>
-        </div>
-      </div>
-      <div
-        v-bind:class="{ 'is-active': pickupActive }"
-        class="column pickup">
-        <div class="column">
-          <div class="image">
-            IMAGE GOES HERE
-          </div>
-          <div class="blurb">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam nisi, vestibulum vel risus ut, dictum ullamcorper arcu. Ut non elit risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus quis vehicula velit, vitae suscipit neque.
-          </div>
-        </div>
-        <div class="column is-5">
-          <nav class="panel">
-            <p class="panel-heading">
-              Details
-            </p>
-            <a class="panel-block">
-              <strong>Years Sold:</strong>{{body.yearsSold.pickup}}
-            </a>
-            <a class="panel-block">
-              <strong>Length:</strong> {{body.length.imperial.pickup}}in/{{body.length.metric.pickup}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Width:</strong> {{body.width.imperial.pickup}}in/{{body.width.metric.pickup}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Wheelbase:</strong> {{body.wheelbase.imperial.pickup}}in/{{body.wheelbase.metric.pickup}}mm
-            </a>
-            <a class="panel-block">
-              <strong>Weight:</strong> {{body.weight.imperial.pickup}}lbs/{{body.weight.metric.pickup}}kg
-            </a>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </div>
+  <v-layout row wrap class="bodies">
+    <v-tabs
+      id="mobile-tabs-1"
+      grow
+      scroll-bars
+      v-model="active"
+      light
+    >
+      <v-tabs-bar slot="activators">
+        <v-tabs-item
+          v-for="body in bodies"
+          :key="body.name"
+          :href="'#mobile-tabs-1-' + body.name"
+          ripple
+        >
+          Item {{ body.name }}
+        </v-tabs-item>
+        <v-tabs-slider></v-tabs-slider>
+      </v-tabs-bar>
+      <v-tabs-content v-for="body in bodies" :key="body.name" :id="'mobile-tabs-1-' + body.name">
+        <v-layout px-5>
+          <v-flex xs12 md3>
+            <engines/>
+          </v-flex>
+          <v-flex xs12 md6>
+            <div class="blurb">
+              {{body.text}}
+            </div>
+          </v-flex>
+          <v-flex xs12 md3 pa-2>
+            <v-layout row>
+              <v-flex xs12>
+                <v-card>
+                  <v-card-row img="/static/doc-images/lists/alison.jpeg" height="200px">
+                    <v-card-text class="white--text pa-0">
+                      <v-card-row height="100%" class="pt-5">
+                        <div class="display-1 pl-5 pt-5">Details</div>
+                      </v-card-row>
+                    </v-card-text>
+                  </v-card-row>
+                  <v-list two-line>
+                    <v-list-item>
+                      <v-list-tile>
+                        <v-list-tile-content>
+                          <v-list-tile-title>(650) 555-1234</v-list-tile-title>
+                          <v-list-tile-sub-title>Mobile</v-list-tile-sub-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-tile>
+                        <v-list-tile-content>
+                          <v-list-tile-title>(323) 555-6789</v-list-tile-title>
+                          <v-list-tile-sub-title>Work</v-list-tile-sub-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                    </v-list-item>
+                    <v-divider inset></v-divider>
+                    <v-list-item>
+                      <v-list-tile>
+                        <v-list-tile-content>
+                          <v-list-tile-title>aliconnors@example.com</v-list-tile-title>
+                          <v-list-tile-sub-title>Personal</v-list-tile-sub-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                    </v-list-item>
+                    <v-list-item>
+                      <v-list-tile>
+                        <v-list-tile-content>
+                          <v-list-tile-title>ali_connors@example.com</v-list-tile-title>
+                          <v-list-tile-sub-title>Work</v-list-tile-sub-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                    </v-list-item>
+                    <v-divider inset></v-divider>
+                    <v-list-item>
+                      <v-list-tile>
+                        <v-list-tile-content>
+                          <v-list-tile-title>1400 Main Street</v-list-tile-title>
+                          <v-list-tile-sub-title>Orlando, FL 79938</v-list-tile-sub-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                    </v-list-item>
+                  </v-list>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-tabs-content>
+    </v-tabs>
+  </v-layout>
 </template>
 
 <style lang="scss" src="./bodies.scss"></style>
@@ -335,35 +104,219 @@ export default {
   },
   data: function () {
     return {
-      saloonActive: true,
-      estateActive: false,
-      elfActive: false,
-      mokeActive: false,
-      vanActive: false,
-      countrymanActive: false,
-      clubmanActive: false,
-      pickupActive: false,
-      'body': {
-        'yearsSold': {
-          'saloon': '1959 - 2000',
-          'estate': '1969 - 1980',
-          'van': '1960 - 1964',
-          'pickup': '1961 - 1969',
-          'moke': '1964 - 1968',
-          'countryman': '1961 - 1967',
-          'clubman': '1969 - 1980',
-          'elf': '1961 - 1969'
-        },
-        'wheelbase': {
-          'metric': {
-            'saloon': 2036,
-            'estate': 2138
+      active: null,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      // saloonActive: true,
+      // estateActive: false,
+      // elfActive: false,
+      // mokeActive: false,
+      // vanActive: false,
+      // countrymanActive: false,
+      // clubmanActive: false,
+      // pickupActive: false,
+      bodies: {
+        saloon: {
+          name: 'saloon',
+          text: 'The mini saloon is the most iconic of the mini body styles being the first introduced in 1959 as the Austin Seven.  This is the longest running production body style ever in the Mini lineup',
+          years: '1959 - 2000',
+          wheelbase: {
+            metric: '2036mm',
+            imperial: '80.2in'
           },
-          'imperial': {
-            'saloon': 80.2,
-            'estate': 84.2
+          length: {
+            metric: '',
+            imperial: ''
+          },
+          width: {
+            metric: '',
+            imperial: ''
+          },
+          weight: {
+            metric: '',
+            imperial: ''
+          },
+          height: {
+            metric: '',
+            imperial: ''
           }
         },
+        estate: {
+          name: 'estate',
+          text: 'Sample',
+          years: '1969 - 1980',
+          wheelbase: {
+            metric: '2138mm',
+            imperial: '84.2in'
+          },
+          length: {
+            metric: '',
+            imperial: ''
+          },
+          width: {
+            metric: '',
+            imperial: ''
+          },
+          weight: {
+            metric: '',
+            imperial: ''
+          },
+          height: {
+            metric: '',
+            imperial: ''
+          }
+        },
+        van: {
+          name: 'van',
+          text: 'Sample',
+          years: '1960 - 1964',
+          wheelbase: {
+            metric: '',
+            imperial: ''
+          },
+          length: {
+            metric: '',
+            imperial: ''
+          },
+          width: {
+            metric: '',
+            imperial: ''
+          },
+          weight: {
+            metric: '',
+            imperial: ''
+          },
+          height: {
+            metric: '',
+            imperial: ''
+          }
+        },
+        pickup: {
+          name: 'pickup',
+          text: 'Sample',
+          years: '1961 - 1969',
+          wheelbase: {
+            metric: '',
+            imperial: ''
+          },
+          length: {
+            metric: '',
+            imperial: ''
+          },
+          width: {
+            metric: '',
+            imperial: ''
+          },
+          weight: {
+            metric: '',
+            imperial: ''
+          },
+          height: {
+            metric: '',
+            imperial: ''
+          }
+        },
+        moke: {
+          name: 'moke',
+          text: 'Sample',
+          years: '1964 - 1968',
+          wheelbase: {
+            metric: '',
+            imperial: ''
+          },
+          length: {
+            metric: '',
+            imperial: ''
+          },
+          width: {
+            metric: '',
+            imperial: ''
+          },
+          weight: {
+            metric: '',
+            imperial: ''
+          },
+          height: {
+            metric: '',
+            imperial: ''
+          }
+        },
+        countryman: {
+          name: 'countryman',
+          text: 'Sample',
+          years: '1961 - 1967',
+          wheelbase: {
+            metric: '',
+            imperial: ''
+          },
+          length: {
+            metric: '',
+            imperial: ''
+          },
+          width: {
+            metric: '',
+            imperial: ''
+          },
+          weight: {
+            metric: '',
+            imperial: ''
+          },
+          height: {
+            metric: '',
+            imperial: ''
+          }
+        },
+        clubman: {
+          name: 'clubman',
+          text: 'Sample',
+          years: '1969 - 1980',
+          wheelbase: {
+            metric: '',
+            imperial: ''
+          },
+          length: {
+            metric: '',
+            imperial: ''
+          },
+          width: {
+            metric: '',
+            imperial: ''
+          },
+          weight: {
+            metric: '',
+            imperial: ''
+          },
+          height: {
+            metric: '',
+            imperial: ''
+          }
+        },
+        elf: {
+          name: 'elf',
+          text: '',
+          years: '1961 - 1969',
+          wheelbase: {
+            metric: '',
+            imperial: ''
+          },
+          length: {
+            metric: '',
+            imperial: ''
+          },
+          width: {
+            metric: '',
+            imperial: ''
+          },
+          weight: {
+            metric: '',
+            imperial: ''
+          },
+          height: {
+            metric: '',
+            imperial: ''
+          }
+        }
+      },
+      'body': {
         'length': {
           'metric': {
             'saloon': 3054,
@@ -414,88 +367,6 @@ export default {
         }
       }
     };
-  },
-  methods: {
-    saloonToggle: function () {
-      this.saloonActive = true;
-      this.estateActive = false;
-      this.elfActive = false;
-      this.mokeActive = false;
-      this.vanActive = false;
-      this.countrymanActive = false;
-      this.clubmanActive = false;
-      this.pickupActive = false;
-    },
-    estateToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = true;
-      this.elfActive = false;
-      this.mokeActive = false;
-      this.vanActive = false;
-      this.countrymanActive = false;
-      this.clubmanActive = false;
-      this.pickupActive = false;
-    },
-    elfToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = false;
-      this.elfActive = true;
-      this.mokeActive = false;
-      this.vanActive = false;
-      this.countrymanActive = false;
-      this.clubmanActive = false;
-      this.pickupActive = false;
-    },
-    mokeToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = false;
-      this.elfActive = false;
-      this.mokeActive = true;
-      this.vanActive = false;
-      this.countrymanActive = false;
-      this.clubmanActive = false;
-      this.pickupActive = false;
-    },
-    vanToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = false;
-      this.elfActive = false;
-      this.mokeActive = false;
-      this.vanActive = true;
-      this.countrymanActive = false;
-      this.clubmanActive = false;
-      this.pickupActive = false;
-    },
-    countrymanToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = false;
-      this.elfActive = false;
-      this.mokeActive = false;
-      this.vanActive = false;
-      this.countrymanActive = true;
-      this.clubmanActive = false;
-      this.pickupActive = false;
-    },
-    clubmanToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = false;
-      this.elfActive = false;
-      this.mokeActive = false;
-      this.vanActive = false;
-      this.countrymanActive = false;
-      this.clubmanActive = true;
-      this.pickupActive = false;
-    },
-    pickupToggle: function () {
-      this.saloonActive = false;
-      this.estateActive = false;
-      this.elfActive = false;
-      this.mokeActive = false;
-      this.vanActive = false;
-      this.countrymanActive = false;
-      this.clubmanActive = false;
-      this.pickupActive = true;
-    }
   }
 };
 </script>
