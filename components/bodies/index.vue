@@ -14,7 +14,7 @@
           :href="'#mobile-tabs-1-' + body.name"
           ripple
         >
-          Item {{ body.name }}
+          {{ body.name }}
         </v-tabs-item>
         <v-tabs-slider></v-tabs-slider>
       </v-tabs-bar>
@@ -24,6 +24,9 @@
             <engines/>
           </v-flex>
           <v-flex xs12 md6>
+            <div class="showcase-image">
+              <img :src="body.image" alt="">
+            </div>
             <div class="blurb">
               {{body.text}}
             </div>
@@ -32,53 +35,65 @@
             <v-layout row>
               <v-flex xs12>
                 <v-card>
-                  <v-card-row img="/static/doc-images/lists/alison.jpeg" height="200px">
+                  <v-card-row img="/static/doc-images/lists/alison.jpeg" height="80px">
                     <v-card-text class="white--text pa-0">
-                      <v-card-row height="100%" class="pt-5">
-                        <div class="display-1 pl-5 pt-5">Details</div>
+                      <v-card-row height="100%">
+                        <div class="display-1 pl-3">Details</div>
                       </v-card-row>
                     </v-card-text>
                   </v-card-row>
                   <v-list two-line>
+                    <v-divider></v-divider>
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title>(650) 555-1234</v-list-tile-title>
-                          <v-list-tile-sub-title>Mobile</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">Years Sold</v-list-tile-title>
+                          <v-list-tile-sub-title class="primary--text">{{body.years}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
+                    <v-divider></v-divider>
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title>(323) 555-6789</v-list-tile-title>
-                          <v-list-tile-sub-title>Work</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">Wheelbase</v-list-tile-title>
+                          <v-list-tile-sub-title class="primary--text">{{body.wheelbase.imperial}} / {{body.wheelbase.metric}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
-                    <v-divider inset></v-divider>
+                    <v-divider></v-divider>
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title>aliconnors@example.com</v-list-tile-title>
-                          <v-list-tile-sub-title>Personal</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">Weight</v-list-tile-title>
+                          <v-list-tile-sub-title class="primary--text">{{body.weight.imperial}} / {{body.weight.metric}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
+                    <v-divider></v-divider>
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title>ali_connors@example.com</v-list-tile-title>
-                          <v-list-tile-sub-title>Work</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">Length</v-list-tile-title>
+                          <v-list-tile-sub-title class="primary--text">{{body.length.imperial}} / {{body.length.metric}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
-                    <v-divider inset></v-divider>
+                    <v-divider></v-divider>
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title>1400 Main Street</v-list-tile-title>
-                          <v-list-tile-sub-title>Orlando, FL 79938</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">Width</v-list-tile-title>
+                          <v-list-tile-sub-title class="primary--text">{{body.width.imperial}} / {{body.width.metric}}</v-list-tile-sub-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
+                    </v-list-item>
+                    <v-divider></v-divider>
+                    <v-list-item>
+                      <v-list-tile>
+                        <v-list-tile-content>
+                          <v-list-tile-title class="white--text">Height</v-list-tile-title>
+                          <v-list-tile-sub-title class="primary--text">{{body.height.imperial}} / {{body.height.metric}}</v-list-tile-sub-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
@@ -117,6 +132,7 @@ export default {
       bodies: {
         saloon: {
           name: 'saloon',
+          image: '',
           text: 'The mini saloon is the most iconic of the mini body styles being the first introduced in 1959 as the Austin Seven.  This is the longest running production body style ever in the Mini lineup',
           years: '1959 - 2000',
           wheelbase: {
@@ -142,6 +158,7 @@ export default {
         },
         estate: {
           name: 'estate',
+          image: '',
           text: 'Sample',
           years: '1969 - 1980',
           wheelbase: {
@@ -167,6 +184,7 @@ export default {
         },
         van: {
           name: 'van',
+          image: '',
           text: 'Sample',
           years: '1960 - 1964',
           wheelbase: {
@@ -192,6 +210,7 @@ export default {
         },
         pickup: {
           name: 'pickup',
+          image: '',
           text: 'Sample',
           years: '1961 - 1969',
           wheelbase: {
@@ -217,6 +236,7 @@ export default {
         },
         moke: {
           name: 'moke',
+          image: '',
           text: 'Sample',
           years: '1964 - 1968',
           wheelbase: {
@@ -242,6 +262,7 @@ export default {
         },
         countryman: {
           name: 'countryman',
+          image: '',
           text: 'Sample',
           years: '1961 - 1967',
           wheelbase: {
@@ -267,6 +288,7 @@ export default {
         },
         clubman: {
           name: 'clubman',
+          image: '',
           text: 'Sample',
           years: '1969 - 1980',
           wheelbase: {
@@ -292,6 +314,7 @@ export default {
         },
         elf: {
           name: 'elf',
+          image: '',
           text: '',
           years: '1961 - 1969',
           wheelbase: {
