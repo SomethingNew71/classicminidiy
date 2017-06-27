@@ -20,7 +20,8 @@
   "dependencies": {
     "nuxt": "^1.0.0-alpha2",
     "vue-server-renderer": "latest",
-    "vuetify": "latest"
+    "vuetify": "latest",
+    "bulma": "0.4.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
