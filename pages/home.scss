@@ -14,33 +14,67 @@
     }
   }
 
+  .container--fluid {
+    padding-top: 0;
+  }
+
   .mission, .latest-video {
     h2 {
       color: #fff;
     }
-    hr {
-      width: 5rem;
-      background-color: #279BFB;
-      height: 5px;
-      display: block;
-      border-style: solid;
-      border-color: #279BFB;
-      border-width: 1px;
-    }
   }
-  .mission-list {
-    h3, p {
-      color: #fff;
+  .mission {
+    background-color: #3F3F3F;
+    margin-left: -1.7rem;
+    margin-right: -1.7rem;
+
+    .mission-header {
+      hr {
+        width: 5rem;
+        background-color: #279BFB;
+        height: 5px;
+        display: block;
+        border-style: solid;
+        border-color: #279BFB;
+        border-width: 1px;
+      }
     }
 
-    img {
-      width: 64px;
-      display: inline;
+    .mission-list {
+      padding-bottom: 2rem;
+
+      h3, p {
+        color: #fff;
+      }
+      img {
+        &.youtube {
+          padding-top: .5rem;
+        }
+        &.books {
+          padding-top: 0rem;
+        }
+        &.grow {
+          // padding-top: 0rem;
+        }
+      }
     }
   }
+
   .latest-video {
-    // background-color: #686868;
     padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    .latest-video-header {
+      hr {
+        width: 5rem;
+        background-color: #279BFB;
+        height: 5px;
+        display: block;
+        border-style: solid;
+        border-color: #279BFB;
+        border-width: 1px;
+      }
+    }
 
     .embed-container {
       position: relative;
