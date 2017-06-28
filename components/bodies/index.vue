@@ -42,13 +42,14 @@
                       </v-card-row>
                     </v-card-text>
                   </v-card-row>
-                  <v-list two-line>
+                  <v-list>
                     <v-divider></v-divider>
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">Years Sold</v-list-tile-title>
-                          <v-list-tile-sub-title class="primary--text">{{body.years}}</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">
+                            Years Sold: <span class="primary--text">{{body.years}}</span>
+                          </v-list-tile-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
@@ -56,8 +57,9 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">Wheelbase</v-list-tile-title>
-                          <v-list-tile-sub-title class="primary--text">{{body.wheelbase.imperial}} / {{body.wheelbase.metric}}</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">
+                            Wheelbase: <span class="primary--text">{{body.wheelbase.imperial}} / {{body.wheelbase.metric}}</span>
+                          </v-list-tile-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
@@ -65,8 +67,9 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">Weight</v-list-tile-title>
-                          <v-list-tile-sub-title class="primary--text">{{body.weight.imperial}} / {{body.weight.metric}}</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">
+                            Weight: <span class="primary--text">{{body.weight.imperial}} / {{body.weight.metric}}</span>
+                          </v-list-tile-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
@@ -74,8 +77,9 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">Length</v-list-tile-title>
-                          <v-list-tile-sub-title class="primary--text">{{body.length.imperial}} / {{body.length.metric}}</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">
+                            Length: <span class="primary--text">{{body.length.imperial}} / {{body.length.metric}}</span>
+                          </v-list-tile-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
@@ -83,8 +87,9 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">Width</v-list-tile-title>
-                          <v-list-tile-sub-title class="primary--text">{{body.width.imperial}} / {{body.width.metric}}</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">
+                            Width: <span class="primary--text">{{body.width.imperial}} / {{body.width.metric}}</span>
+                          </v-list-tile-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
@@ -92,8 +97,9 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">Height</v-list-tile-title>
-                          <v-list-tile-sub-title class="primary--text">{{body.height.imperial}} / {{body.height.metric}}</v-list-tile-sub-title>
+                          <v-list-tile-title class="white--text">
+                            Height: <span class="primary--text">{{body.height.imperial}} / {{body.height.metric}}</span>
+                          </v-list-tile-title>
                         </v-list-tile-content>
                       </v-list-tile>
                     </v-list-item>
@@ -120,15 +126,6 @@ export default {
   data: function () {
     return {
       active: null,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      // saloonActive: true,
-      // estateActive: false,
-      // elfActive: false,
-      // mokeActive: false,
-      // vanActive: false,
-      // countrymanActive: false,
-      // clubmanActive: false,
-      // pickupActive: false,
       bodies: {
         saloon: {
           name: 'saloon',
@@ -140,20 +137,20 @@ export default {
             imperial: '80.2in'
           },
           length: {
-            metric: '',
-            imperial: ''
+            metric: '3054mm',
+            imperial: '120.2in'
           },
           width: {
-            metric: '',
-            imperial: ''
+            metric: '1397mm',
+            imperial: '55in'
           },
           weight: {
-            metric: '',
-            imperial: ''
+            metric: '617kg',
+            imperial: '1360lbs'
           },
           height: {
-            metric: '',
-            imperial: ''
+            metric: '1346mm',
+            imperial: '53in'
           }
         },
         estate: {
@@ -166,20 +163,20 @@ export default {
             imperial: '84.2in'
           },
           length: {
-            metric: '',
-            imperial: ''
+            metric: '3299mm',
+            imperial: '129.9in'
           },
           width: {
-            metric: '',
-            imperial: ''
+            metric: '1397mm',
+            imperial: '55in'
           },
           weight: {
-            metric: '',
-            imperial: ''
+            metric: '686kg',
+            imperial: '1512lbs'
           },
           height: {
-            metric: '',
-            imperial: ''
+            metric: '1346mm',
+            imperial: '53in'
           }
         },
         van: {
@@ -188,24 +185,24 @@ export default {
           text: 'Sample',
           years: '1960 - 1964',
           wheelbase: {
-            metric: '',
-            imperial: ''
+            metric: '686kg',
+            imperial: '1512lbs'
           },
           length: {
-            metric: '',
-            imperial: ''
+            metric: '3299mm',
+            imperial: '129.9in'
           },
           width: {
-            metric: '',
-            imperial: ''
+            metric: '1397mm',
+            imperial: '55in'
           },
           weight: {
             metric: '',
             imperial: ''
           },
           height: {
-            metric: '',
-            imperial: ''
+            metric: '1346mm',
+            imperial: '53in'
           }
         },
         pickup: {
@@ -214,24 +211,24 @@ export default {
           text: 'Sample',
           years: '1961 - 1969',
           wheelbase: {
-            metric: '',
-            imperial: ''
+            metric: '2036mm',
+            imperial: '80.2in'
           },
           length: {
-            metric: '',
-            imperial: ''
+            metric: '3054mm',
+            imperial: '120.2in'
           },
           width: {
-            metric: '',
-            imperial: ''
+            metric: '1397mm',
+            imperial: '55in'
           },
           weight: {
             metric: '',
             imperial: ''
           },
           height: {
-            metric: '',
-            imperial: ''
+            metric: '1346mm',
+            imperial: '53in'
           }
         },
         moke: {
@@ -240,24 +237,24 @@ export default {
           text: 'Sample',
           years: '1964 - 1968',
           wheelbase: {
-            metric: '',
-            imperial: ''
+            metric: '2036mm',
+            imperial: '80.2in'
           },
           length: {
-            metric: '',
-            imperial: ''
+            metric: '3054mm',
+            imperial: '120.2in'
           },
           width: {
-            metric: '',
-            imperial: ''
+            metric: '1397mm',
+            imperial: '55in'
           },
           weight: {
             metric: '',
             imperial: ''
           },
           height: {
-            metric: '',
-            imperial: ''
+            metric: '1346mm',
+            imperial: '53in'
           }
         },
         countryman: {
@@ -266,24 +263,24 @@ export default {
           text: 'Sample',
           years: '1961 - 1967',
           wheelbase: {
-            metric: '',
-            imperial: ''
+            metric: '686kg',
+            imperial: '1512lbs'
           },
           length: {
-            metric: '',
-            imperial: ''
+            metric: '3299mm',
+            imperial: '129.9in'
           },
           width: {
-            metric: '',
-            imperial: ''
+            metric: '1397mm',
+            imperial: '55in'
           },
           weight: {
             metric: '',
             imperial: ''
           },
           height: {
-            metric: '',
-            imperial: ''
+            metric: '1346mm',
+            imperial: '53in'
           }
         },
         clubman: {
@@ -292,24 +289,24 @@ export default {
           text: 'Sample',
           years: '1969 - 1980',
           wheelbase: {
-            metric: '',
-            imperial: ''
+            metric: '2036mm',
+            imperial: '80.2in'
           },
           length: {
-            metric: '',
-            imperial: ''
+            metric: '3054mm',
+            imperial: '120.2in'
           },
           width: {
-            metric: '',
-            imperial: ''
+            metric: '1397mm',
+            imperial: '55in'
           },
           weight: {
-            metric: '',
-            imperial: ''
+            metric: '617kg',
+            imperial: '1360lbs'
           },
           height: {
-            metric: '',
-            imperial: ''
+            metric: '1346mm',
+            imperial: '53in'
           }
         },
         elf: {
@@ -318,74 +315,24 @@ export default {
           text: '',
           years: '1961 - 1969',
           wheelbase: {
-            metric: '',
-            imperial: ''
+            metric: '2036mm',
+            imperial: '80.2in'
           },
           length: {
-            metric: '',
-            imperial: ''
+            metric: '3300mm',
+            imperial: '130in'
           },
           width: {
-            metric: '',
-            imperial: ''
+            metric: '1397mm',
+            imperial: '55in'
           },
           weight: {
-            metric: '',
-            imperial: ''
+            metric: '617',
+            imperial: '1360lbs'
           },
           height: {
-            metric: '',
-            imperial: ''
-          }
-        }
-      },
-      'body': {
-        'length': {
-          'metric': {
-            'saloon': 3054,
-            'estate': 3299,
-            'hornet': 3300
-          },
-          'imperial': {
-            'saloon': 120.2,
-            'estate': 129.9,
-            'hornet': 130
-          }
-        },
-        'width': {
-          'metric': {
-            'saloon': 1397,
-            'estate': 1397,
-            'hornet': 1397
-          },
-          'imperial': {
-            'saloon': 55,
-            'estate': 55,
-            'hornet': 55
-          }
-        },
-        'height': {
-          'metric': {
-            'saloon': 1346,
-            'estate': 1346,
-            'hornet': 1346
-          },
-          'imperial': {
-            'saloon': 53,
-            'estate': 53,
-            'hornet': 53
-          }
-        },
-        'weight': {
-          'metric': {
-            'saloon': 617,
-            'estate': 686,
-            'hornet': 617
-          },
-          'imperial': {
-            'saloon': 1360,
-            'estate': 1512,
-            'hornet': 1360
+            metric: '1346kg',
+            imperial: '53in'
           }
         }
       }
