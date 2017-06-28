@@ -29,7 +29,7 @@
         <v-divider light></v-divider>
         <!-- <nuxt-link > -->
           <v-list-item v-for="item in items" :key="item">
-            <v-list-tile :to='item.to'>
+            <v-list-tile nuxt :to='item.to'>
               <v-list-tile-action>
                 <v-icon light>{{ item.icon }}</v-icon>
               </v-list-tile-action>
@@ -44,8 +44,8 @@
     <v-toolbar fixed light>
       <v-toolbar-side-icon class="hidden-md-and-up" light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
-      <v-toolbar-items class="hidden-md-and-down">
-        <v-toolbar-item v-for="item in items" :key="item" :to='item.to' :target='item.target' ripple>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-toolbar-item v-for="item in items" :key="item" nuxt :to='item.to' :target='item.target' ripple>
           {{ item.title }}
         </v-toolbar-item>
       </v-toolbar-items>
