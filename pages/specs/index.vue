@@ -6,7 +6,6 @@
       </v-flex>
     </v-layout>
     <bodies/>
-    </div>
   </section>
 </template>
 

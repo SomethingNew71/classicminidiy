@@ -19,11 +19,11 @@
         <v-tabs-slider></v-tabs-slider>
       </v-tabs-bar>
       <v-tabs-content v-for="body in bodies" :key="body.name" :id="'mobile-tabs-1-' + body.name">
-        <v-layout px-5>
-          <v-flex xs12 md3>
+        <v-layout px-5 pt-4>
+          <!-- <v-flex xs12 md3>
             <engines/>
-          </v-flex>
-          <v-flex xs12 md6>
+          </v-flex> -->
+          <v-flex xs12 md8>
             <div class="showcase-image">
               <img :src="body.image" alt="">
             </div>
@@ -31,7 +31,7 @@
               {{body.text}}
             </div>
           </v-flex>
-          <v-flex xs12 md3 pa-2>
+          <v-flex xs12 md4 pa-2>
             <v-layout row>
               <v-flex xs12>
                 <v-card>
