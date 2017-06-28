@@ -42,8 +42,13 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed light>
-      <v-toolbar-side-icon light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon class="hidden-md-and-up" light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
+      <v-toolbar-items class="hidden-md-and-down">
+        <v-toolbar-item v-for="item in items" :key="item" :to='item.to' :target='item.target' ripple>
+          {{ item.title }}
+        </v-toolbar-item>
+      </v-toolbar-items>
     </v-toolbar>
   </v-app>
 </template>
@@ -67,6 +72,11 @@ export default {
           to: '/getting-started'
         },
         {
+          title: 'Manuals',
+          icon: 'settings',
+          to: '/manuals'
+        },
+        {
           title: 'Specs',
           icon: 'settings',
           to: '/specs'
@@ -79,6 +89,7 @@ export default {
         {
           title: 'Youtube',
           icon: 'videocam',
+          target: '_blank',
           to: 'https://www.youtube.com/c/classicminidiy'
         }
       ],
