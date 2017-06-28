@@ -1,9 +1,16 @@
 .manuals {
   .hero {
     background-image: url('/backgrounds/manuals/manuals4.jpg') !important;
+    background-size: cover;
+    min-height: 15rem;
 
-    .hero-body h1 {
-      padding-bottom: 9rem;
+    h1 {
+      color: #fff;
+    }
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 

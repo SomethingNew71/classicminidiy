@@ -1,28 +1,17 @@
 <template>
   <section class="manuals">
-    <div class="hero is-dark is-medium is-bold is-full-width">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns">
-            <div class="column">
-              <h1 class="title">Technical Literature and Tools</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="columns intro-container">
-      <div class="column">
-        <img src="/pages/manuals/globe.png" alt="">
-      </div>
-      <div class="column is-two-thirds">
-        <div class="content">
-          <h2>The Information to Do the Job Right</h2>
-          <hr>
-          <p>Here at Classic Mini DIY we have worked very hard to provide you with the most accurate information we can in our videos. Below you will find links to all of our top picks for books in the Classic Mini world to help you learn and become the best you can be at working on your car.</p>
-        </div>
-      </div>
-    </div>
+    <v-layout class="hero" row>
+      <v-flex xs12 md6>
+        <h1 class="display-1 py-5 my-5 pl-3">The Information to Do the Job Right</h1>
+      </v-flex>
+    </v-layout>
+    <v-layout>
+      <v-flex xs12 class="text-xs-center">
+        <h2>Choose Book Type</h2>
+        <v-btn primary light>Manuals</v-btn>
+        <v-btn primary light>Technical</v-btn>
+      </v-flex>
+    </v-layout>
     <div class="container manual-container">
       <div class="tabs is-toggle is-centered is-medium">
         <ul>
