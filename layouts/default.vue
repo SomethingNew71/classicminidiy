@@ -1,10 +1,10 @@
 <template>
-  <v-app dark>
+  <v-app>
     <navigation/>
     <main>
       <nuxt/>
     </main>
-    <pagefoot/> 
+    <pagefoot/>
   </v-app>
 </template>
 
