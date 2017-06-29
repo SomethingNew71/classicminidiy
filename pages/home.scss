@@ -1,8 +1,8 @@
 .home {
   .hero {
-    background-image: url('/backgrounds/home/hero.png') !important;
+    background-image: url('/backgrounds/default.png') !important;
     background-size: cover;
-    min-height: 26rem;
+    min-height: 92vh;
 
     h1 {
       color: #fff;
@@ -14,8 +14,16 @@
     }
   }
 
+  h2 {
+    font-weight: 200;
+  }
+  a {
+    text-decoration: none;
+  }
+
   .container--fluid {
     padding-top: 0;
+    padding-bottom: 0;
   }
 
   .mission, .latest-video {
@@ -24,57 +32,20 @@
     }
   }
   .mission {
-    background-color: #3F3F3F;
-    margin-left: -1.7rem;
-    margin-right: -1.7rem;
-
-    .mission-header {
-      hr {
-        width: 5rem;
-        background-color: #279BFB;
-        height: 5px;
-        display: block;
-        border-style: solid;
-        border-color: #279BFB;
-        border-width: 1px;
-      }
-    }
-
     .mission-list {
-      padding-bottom: 2rem;
-
-      h3, p {
-        color: #fff;
-      }
-      img {
-        &.youtube {
-          padding-top: .5rem;
-        }
-        &.books {
-          padding-top: 0rem;
-        }
-        &.grow {
-          // padding-top: 0rem;
-        }
+      .center {
+        border-left: 2px solid #EDF0F3;
+        border-right: 2px solid #EDF0F3;
       }
     }
   }
 
   .latest-video {
+    background-color: #F1F5F7;
     padding-top: 5rem;
     padding-bottom: 5rem;
-
-    .latest-video-header {
-      hr {
-        width: 5rem;
-        background-color: #279BFB;
-        height: 5px;
-        display: block;
-        border-style: solid;
-        border-color: #279BFB;
-        border-width: 1px;
-      }
-    }
+    // margin-left: -25px;
+    // margin-right: -25px;
 
     .embed-container {
       position: relative;
@@ -93,64 +64,13 @@
       height: 100%;
     }
   }
+
+  .sponsors {
+    .seven-ent {
+      background-color: #D40C16;
+    }
+    .patreon {
+      background-color: #F96854;
+    }
+  }
 }
-//   .what-we-do,
-//   .latest-video {
-//     .column.first {
-//       padding-left: 6rem;
-//
-//       h2 {
-//         font-size: 4rem;
-//         font-weight: 600;
-//       }
-//       hr {
-//         width: 5rem;
-//         background-color: #279BFB;
-//         height: 5px;
-//       }
-//     }
-//     .is-hidden-desktop {
-//       .column.first {
-//         padding-left: 1rem;
-//
-//         h2 {
-//           font-size: 2.5rem;
-//           font-weight: 600;
-//         }
-//         hr {
-//           width: 10rem;
-//           background-color: #279BFB;
-//           height: 5px;
-//         }
-//       }
-//     }
-//   }
-//   .what-we-do {
-//     h3 {
-//       margin: 0;
-//     }
-//     .column.last { padding-right: 5rem; }
-//     .media-content p { margin: 0; }
-//   }
-//
-//   .latest-video {
-//     background-color: #F4F5F9;
-//
-//     .embed-container {
-//       position: relative;
-//       padding-bottom: 56.25%;
-//       height: 0;
-//       overflow: hidden;
-//       max-width: 100%;
-//     }
-//     .embed-container iframe,
-//     .embed-container object,
-//     .embed-container embed {
-//       position: absolute;
-//       top: 0;
-//       left: 0;
-//       width: 100%;
-//       height: 100%;
-//     }
-//   }
-// }
