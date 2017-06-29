@@ -28,7 +28,7 @@
       <v-list class="pt-0" dense>
         <v-divider light></v-divider>
         <!-- <nuxt-link > -->
-          <v-list-item v-for="item in items" :key="item">
+          <v-list-item v-for="item in items" :key="item" v-if='!item.disabled'>
             <v-list-tile nuxt :to='item.to'>
               <v-list-tile-action>
                 <v-icon light>{{ item.icon }}</v-icon>
@@ -45,7 +45,7 @@
       <v-toolbar-side-icon class="hidden-md-and-up" light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-toolbar-item v-for="item in items" :key="item" nuxt :to='item.to' :target='item.target' ripple>
+        <v-toolbar-item v-for="item in items" :key="item" nuxt :to='item.to' :target='item.target' ripple v-if='!item.disabled'>
           {{ item.title }}
         </v-toolbar-item>
       </v-toolbar-items>
@@ -64,33 +64,39 @@ export default {
         {
           title: 'Home',
           icon: 'home',
-          to: '/'
+          to: '/',
+          disabled: false
         },
         {
           title: 'Get Started',
           icon: 'build',
-          to: '/getting-started'
+          to: '/getting-started',
+          disabled: true
         },
         {
           title: 'Manuals',
           icon: 'settings',
-          to: '/manuals'
+          to: '/manuals',
+          disabled: true
         },
         {
           title: 'Specs',
           icon: 'settings',
-          to: '/specs'
+          to: '/specs',
+          disabled: true
         },
         {
           title: 'History',
           icon: 'account_balance',
-          to: '/historical'
+          to: '/historical',
+          disabled: true
         },
         {
           title: 'Youtube',
           icon: 'videocam',
           target: '_blank',
-          to: 'https://www.youtube.com/c/classicminidiy'
+          to: 'https://www.youtube.com/c/classicminidiy',
+          disabled: false
         }
       ],
       mini: false,
