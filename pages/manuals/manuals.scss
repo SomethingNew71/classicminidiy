@@ -3,85 +3,29 @@
     background-image: url('/backgrounds/manuals/manuals4.jpg') !important;
     background-size: cover;
     min-height: 15rem;
-
-    h1 {
-      color: #fff;
-    }
-    img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  }
+  .caption {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .amazon {
+    background-color: #FF9900;
   }
 
-  .intro-container {
-    background-color: #F4F5F9;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-
-    img {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      margin: auto;
-      display: block;
-    }
+  .image-section {
+    background-color: #F1F5F7;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  .manual-container {
-    padding-bottom: 5rem;
-
-    .tabs {
-      padding-top: 3rem;
-      padding-bottom: 1rem;
-    }
-  }
-  .columns.manuals,
-  .columns.guides,
-  .columns.technical {
+  .manuals-section,
+  .guides,
+  .technical {
     display: none;
 
     &.is-active {
       display: flex;
-    }
-  }
-
-  .card {
-    background-color: transparent;
-    box-shadow: none;
-
-    .image img {
-      max-height: 180px;
-      width: auto;
-      margin: auto;
-    }
-
-    .card-content .media-content {
-      text-align: center;
-      min-height: 4rem;
-    }
-    .card-footer {
-      border-top: 0px;
-
-      .amazon,
-      .seven-ent {
-        padding: 0.5rem;
-      }
-      .amazon {
-        background-color: #FF9900;
-        color: #fff;
-      }
-      .seven-ent {
-        background-color: #2f2f2f;
-        color: #fff;
-      }
-      .seven-ent span {
-        // color: #D70302;
-      }
-      .amazon span,
-      .seven-ent span {
-        font-size: 1rem;
-        padding-right: .25rem;
-      }
     }
   }
 }
