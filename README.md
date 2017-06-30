@@ -1,4 +1,4 @@
-![alt text](http://i.imgur.com/E86umcV.png?3 "CMDIY Logo")
+![alt text](http://i.imgur.com/E86umcV.png?4 "CMDIY Logo")
 
 # Classic Mini DIY
 
