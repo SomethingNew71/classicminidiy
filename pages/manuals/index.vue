@@ -1,89 +1,70 @@
 <template>
-  <section class="manuals">
+  <section class="manuals pb-5">
     <v-layout class="hero" row>
       <v-flex xs12 md6>
-        <h1 class="display-1 py-5 my-5 pl-3">The Information to Do the Job Right</h1>
+        <h1 class="white--text display-1 py-5 my-5 pl-3">The Information to Do the Job Right</h1>
       </v-flex>
     </v-layout>
     <v-layout>
-      <v-flex xs12 class="text-xs-center">
-        <h2>Choose Book Type</h2>
-        <v-btn primary light>Manuals</v-btn>
-        <v-btn primary light>Technical</v-btn>
+      <v-flex xs12 class="text-xs-center pb-4">
+        <h2 class="display-1 pt-4">Choose Book Type</h2>
+        <a v-on:click="tabToggle" >
+          <v-btn primary light>Manuals</v-btn>
+        </a>
+        <a v-on:click="tabToggle" >
+          <v-btn primary light>Technical</v-btn>
+        </a>
       </v-flex>
     </v-layout>
-    <div class="container manual-container">
-      <div class="tabs is-toggle is-centered is-medium">
-        <ul>
-          <li v-bind:class="{ 'is-active': manualsActive }" class="manuals">
-            <a v-on:click="tabToggle" >
-              <span class="icon is-small"><i class="fa fa-black-tie"></i></span>
-              <span>Manuals</span>
-            </a>
-          </li>
-          <li v-bind:class="{ 'is-active': techActive }" class="technical">
-            <a v-on:click="tabToggle">
-              <span class="icon is-small"><i class="fa fa-wrench"></i></span>
-              <span>Tech Reference</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="columns is-multiline manuals" v-bind:class="{ 'is-active': manualsActive }">
-        <div class="column is-3" v-for="book in books.workshop">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image ">
-                <img :src='book.imgSource'  alt="Image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-5">{{book.name}}</p>
-                  <p class="subtitle is-6">by {{book.author}}</p>
-                </div>
-              </div>
-            </div>
-            <footer class="card-footer columns">
-              <div class="column" v-if='book.urlAmazon'>
-                <a class="card-footer-item amazon" :href='book.urlAmazon'><span class="fa fa-amazon"></span>Amazon</a>
-              </div>
-              <div class="column" v-if='book.urlSeven'>
-                <a class="card-footer-item seven-ent"><span class="fa fa-car"></span>Seven Mini</a>
-              </div>
-            </footer>
-          </div>
-        </div>
-      </div>
-      <div class="columns is-multiline technical" v-bind:class="{ 'is-active': techActive }">
-        <div class="column is-3" v-for="book in books.technical">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image ">
-                <img :src='book.imgSource'  alt="Image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-5">{{book.name}}</p>
-                  <p class="subtitle is-6">by {{book.author}}</p>
-                </div>
-              </div>
-            </div>
-            <footer class="card-footer columns">
-              <div class="column"  v-if='book.urlAmazon'>
-                <a class="card-footer-item amazon" :href='book.urlAmazon'><span class="fa fa-amazon"></span>Amazon</a>
-              </div>
-              <div class="column" v-if='book.urlSeven'>
-                <a class="card-footer-item seven-ent"><span class="fa fa-car"></span>Seven Mini</a>
-              </div>
-            </footer>
-          </div>
-        </div>
-      </div>
-    </div>
+    <v-layout>
+      <v-flex offset-xs1 xs10>
+        <v-layout row wrap class="manuals-section" v-bind:class="{'is-active': manualsActive}">
+          <v-flex xs12 sm6 class="py-2" :key="book" v-for="book in books.workshop">
+            <v-card class="elevation-2">
+              <v-card-row class="image-section pt-2" v-bind:style="{ backgroundImage: 'url(' + book.imgSource + ')' }" height="200px">
+              </v-card-row>
+              <v-list class="py-0">
+                <v-list-item>
+                  <v-card-text class="white--text pa-0">
+                    <v-card-title class="subheader pl-3 grey--text">
+                      {{book.name}}
+                    </v-card-title>
+                    <v-list-tile-title class="caption pl-3 grey--text">Written by {{book.author}}</v-list-tile-title>
+                  </v-card-text>
+                </v-list-item>
+                <v-list-item class="text-xs-center">
+                  <v-btn v-if="book.urlAmazon" class="amazon" light>Amazon</v-btn>
+                  <v-btn v-if="book.urlSeven" class="red seven-mini" light>Seven Mini</v-btn>
+                </v-list-item>
+              </v-list>
+            </v-card>
+          </v-flex>
+        </v-layout>
+
+        <v-layout row wrap class="technical" v-bind:class="{'is-active': techActive}">
+          <v-flex xs12 sm6 class="py-2" :key="book" v-for="book in books.technical">
+            <v-card class="elevation-2">
+              <v-card-row class="image-section pt-2" v-bind:style="{ backgroundImage: 'url(' + book.imgSource + ')' }" height="200px">
+              </v-card-row>
+              <v-list class="py-0">
+                <v-list-item>
+                  <v-card-text class="white--text pa-0">
+                    <v-card-title class="subheader pl-3 grey--text">
+                      {{book.name}}
+                    </v-card-title>
+                    <v-list-tile-title class="caption pl-3 grey--text">Written by {{book.author}}</v-list-tile-title>
+                  </v-card-text>
+                </v-list-item>
+                <v-list-item class="text-xs-center">
+                  <v-btn v-if="book.urlAmazon" class="amazon" light>Amazon</v-btn>
+                  <v-btn v-if="book.urlSeven" class="red seven-mini" light>Seven Mini</v-btn>
+                </v-list-item>
+              </v-list>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
   </section>
 </template>
 

@@ -77,7 +77,7 @@ export default {
           title: 'Manuals',
           icon: 'settings',
           to: '/manuals',
-          disabled: true
+          disabled: false
         },
         {
           title: 'Specs',
