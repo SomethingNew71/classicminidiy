@@ -42,7 +42,7 @@
         </v-layout>
 
         <v-layout row wrap class="technical" v-bind:class="{'is-active': techActive}">
-          <v-flex xs12 sm6 md4 lg3  class="py-2" :key="book" v-for="book in books.technical">
+          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="book" v-for="book in books.technical">
             <v-card class="elevation-2">
               <v-card-row class="image-section pt-2" v-bind:style="{ backgroundImage: 'url(' + book.imgSource + ')' }" height="200px">
               </v-card-row>
