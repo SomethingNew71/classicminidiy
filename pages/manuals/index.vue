@@ -19,7 +19,7 @@
     <v-layout>
       <v-flex offset-xs1 xs10>
         <v-layout row wrap class="manuals-section" v-bind:class="{'is-active': manualsActive}">
-          <v-flex xs12 sm6 class="py-2" :key="book" v-for="book in books.workshop">
+          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="book" v-for="book in books.workshop">
             <v-card class="elevation-2">
               <v-card-row class="image-section pt-2" v-bind:style="{ backgroundImage: 'url(' + book.imgSource + ')' }" height="200px">
               </v-card-row>
@@ -42,7 +42,7 @@
         </v-layout>
 
         <v-layout row wrap class="technical" v-bind:class="{'is-active': techActive}">
-          <v-flex xs12 sm6 class="py-2" :key="book" v-for="book in books.technical">
+          <v-flex xs12 sm6 md4 lg3  class="py-2" :key="book" v-for="book in books.technical">
             <v-card class="elevation-2">
               <v-card-row class="image-section pt-2" v-bind:style="{ backgroundImage: 'url(' + book.imgSource + ')' }" height="200px">
               </v-card-row>
