@@ -5,7 +5,10 @@
         <h1 class="white--text display-1 py-5 my-5 pl-3">The Information to Do the Job Right</h1>
       </v-flex>
     </v-layout>
-    <v-layout>
+    <v-layout wrap>
+      <v-flex xs6 offset-xs3  class="text-xs-center pt-4 mt-4 subheader">
+        <p>Here at Classic Mini DIY, one of our main priorities is making sure you have the best information for the job at hand. Below we have put together our list of our favorite Mini specific resources out there right now.</p>
+      </v-flex>
       <v-flex xs12 class="text-xs-center pb-4">
         <h2 class="display-1 pt-4">Choose Book Type</h2>
         <a v-on:click="tabToggle" >
