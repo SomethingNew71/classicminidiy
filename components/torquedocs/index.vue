@@ -114,7 +114,7 @@
           <h3 class="title">
             Engine
             <br>
-            <span class="body-1">All Models</span>
+            <span class="body-1">Important: See Notes</span>
           </h3>
           <v-spacer></v-spacer>
           <v-text-field
@@ -154,6 +154,7 @@
 export default {
   data: function () {
     return {
+      // This is where you declare the search thingys
       engineSearch: '',
       gearSearch: '',
       electricalSearch: '',
@@ -488,45 +489,213 @@ export default {
       engineItems: [
         {
           value: false,
-          name: 'Alternator (11AC) Brush box fixing screws',
-          lbft: '10',
-          kgm: '0.115',
-          notes: ''
+          name: 'Camshaft Nut',
+          lbft: '60 to 70',
+          kgm: '8.3 to 9.7',
+          notes: '848cc, 998cc'
         },
         {
           value: false,
-          name: 'Alternator (11AC) Diode heat sink fixings',
+          name: 'Con Rod Big-end Bolts',
+          lbft: '35 to 38',
+          kgm: '4.8 to 5.3',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Crankshaft Pulley Nut',
+          lbft: '70 to 80',
+          kgm: '9.7 to 11.1',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Cylinder Head Stud Nuts',
+          lbft: '40',
+          kgm: '5.5',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Cylinder Side Cover',
+          lbft: '3 to 4',
+          kgm: '0.42 to 0.55',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Clutch Spring Housing to Pressure Plate set screws',
+          lbft: '16',
+          kgm: '2.2',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Driving Strap to Flywheel set screw',
+          lbft: '16',
+          kgm: '2.2',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Flywheel Center Bolt',
+          lbft: '110 to 115',
+          kgm: '15.2 to 15.9',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Flywheel Housing bolts and stud nuts',
+          lbft: '18',
+          kgm: '2.5',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Gudgeon Pin Clamp Screws',
+          lbft: '22 to 25',
+          kgm: '3.0 to 3.5',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Heater Control to Cylinder Head',
+          lbft: '6 to 8',
+          kgm: '0.83 to 1.11',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Main Bearing set screws',
+          lbft: '60 to 65',
+          kgm: '8.3 to 9.0',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Manifold to Cylinder Head',
+          lbft: '12 to 16',
+          kgm: '1.7 to 2.2',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Oil Filter Brown Center Bolt',
+          lbft: '12 to 16',
+          kgm: '1.7 to 2.2',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Oil Pump',
+          lbft: '6 to 9',
+          kgm: '0.83 to 1.25',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Oil Pipe banjo',
+          lbft: '35 to 40',
+          kgm: '4.8 to 5.5',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Oil Pressure Release Valve - dome nut',
+          lbft: '40 to 45',
+          kgm: '5.5 to 6.2',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Rocker Cover',
+          lbft: '3 to 4',
+          kgm: '0.41 to 0.55',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Rocker Shaft Bracket Nuts',
+          lbft: '22 to 25',
+          kgm: '3.0 to 3.5',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Spark Plugs',
+          lbft: '18',
+          kgm: '2.5',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Timing Cover and Front Plate 1/4in UNF bolts',
+          lbft: '4 to 6',
+          kgm: '0.55 to 0.83',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Timing Cover and Front Plate 5/16in UNF bolts',
+          lbft: '1.4 to 1.9',
+          kgm: '',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Water Pump',
+          lbft: '14 to 18',
+          kgm: '1.9 to 2.5',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Water Outlet Elbow',
+          lbft: '6 to 9',
+          kgm: '0.83 to 1.25',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Thermal Transmitter',
+          lbft: '16',
+          kgm: '2.2',
+          notes: '848cc, 998cc'
+        },
+        {
+          value: false,
+          name: 'Cylinder Head nuts (11 stud head)',
+          lbft: '42',
+          kgm: '5.8',
+          notes: '970cc, 1071cc, 1275cc'
+        },
+        {
+          value: false,
+          name: 'Cylinder Head bolt (11 stud head)',
           lbft: '25',
-          kgm: '0.288',
-          notes: ''
+          kgm: '3.5',
+          notes: '970cc, 1071cc, 1275cc'
         },
         {
           value: false,
-          name: 'Alternator (11AC) through-bolts',
-          lbft: '45 to 50',
-          kgm: '0.518 to 0.576',
-          notes: ''
+          name: 'Con Rod Big-end nuts (assemble dry only)',
+          lbft: '40',
+          kgm: '5.5',
+          notes: '970cc, 1071cc, 1275cc'
         },
         {
           value: false,
-          name: 'Alternator (16ACR) Shaft nut',
-          lbft: '25 to 30',
-          kgm: '3.5 to 4.2',
-          notes: ''
+          name: 'Main Bearing set screws (early type)',
+          lbft: '67',
+          kgm: '9.3',
+          notes: '970cc, 1071cc, 1275cc'
         },
         {
           value: false,
-          name: 'Distributor Clamp Bolt (fixed nut type)',
-          lbft: 50,
-          kgm: 0.576,
-          notes: ''
-        },
-        {
-          value: false,
-          name: 'Distributor Clamp Bolt (fixed bolt type)',
-          lbft: 30,
-          kgm: 0.345,
-          notes: ''
+          name: 'Main Bearing nuts (later type)',
+          lbft: '57',
+          kgm: '7.9',
+          notes: '970cc, 1071cc, 1275cc'
         }
       ]
     };
