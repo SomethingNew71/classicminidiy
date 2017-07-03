@@ -1,5 +1,11 @@
 <template>
   <v-layout row wrap class="bodies">
+    <v-flex xs8 class="pt-3">
+      <h2 class="display-1 pl-4">Body Styles</h2>
+    </v-flex>
+    <v-flex xs8 class="pt-3">
+      <p class="title pl-4">Over the many years of production the mini was offered in a slew of different body styles. From the iconic saloon body to the much different Mini Moke. Below you can find all the information could need for each induvidual body style.</p>
+    </v-flex>
     <v-tabs
       id="mobile-tabs-1"
       grow
@@ -19,11 +25,11 @@
         <v-tabs-slider></v-tabs-slider>
       </v-tabs-bar>
       <v-tabs-content v-for="body in bodies" :key="body.name" :id="'mobile-tabs-1-' + body.name">
-        <v-layout px-5 pt-4>
+        <v-layout wrap px-5 pt-4>
           <!-- <v-flex xs12 md3>
             <engines/>
           </v-flex> -->
-          <v-flex xs12 md8>
+          <v-flex xs12 sm6 md8>
             <div class="showcase-image">
               <img :src="body.image" alt="">
             </div>
@@ -31,14 +37,14 @@
               {{body.text}}
             </div>
           </v-flex>
-          <v-flex xs12 md4 pa-2>
+          <v-flex xs12 sm6 md4 pa-2>
             <v-layout row>
               <v-flex xs12>
-                <v-card>
+                <v-card dark>
                   <v-card-row img="/static/doc-images/lists/alison.jpeg" height="80px">
-                    <v-card-text class="white--text pa-0">
+                    <v-card-text class="py-0">
                       <v-card-row height="100%">
-                        <div class="display-1 pl-3">Details</div>
+                        <div class="headline pl-3">Details</div>
                       </v-card-row>
                     </v-card-text>
                   </v-card-row>
@@ -47,7 +53,7 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">
+                          <v-list-tile-title class="">
                             Years Sold: <span class="primary--text">{{body.years}}</span>
                           </v-list-tile-title>
                         </v-list-tile-content>
@@ -57,7 +63,7 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">
+                          <v-list-tile-title class="">
                             Wheelbase: <span class="primary--text">{{body.wheelbase.imperial}} / {{body.wheelbase.metric}}</span>
                           </v-list-tile-title>
                         </v-list-tile-content>
@@ -67,7 +73,7 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">
+                          <v-list-tile-title class="">
                             Weight: <span class="primary--text">{{body.weight.imperial}} / {{body.weight.metric}}</span>
                           </v-list-tile-title>
                         </v-list-tile-content>
@@ -77,7 +83,7 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">
+                          <v-list-tile-title class="">
                             Length: <span class="primary--text">{{body.length.imperial}} / {{body.length.metric}}</span>
                           </v-list-tile-title>
                         </v-list-tile-content>
@@ -87,7 +93,7 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">
+                          <v-list-tile-title class="">
                             Width: <span class="primary--text">{{body.width.imperial}} / {{body.width.metric}}</span>
                           </v-list-tile-title>
                         </v-list-tile-content>
@@ -97,7 +103,7 @@
                     <v-list-item>
                       <v-list-tile>
                         <v-list-tile-content>
-                          <v-list-tile-title class="white--text">
+                          <v-list-tile-title class="">
                             Height: <span class="primary--text">{{body.height.imperial}} / {{body.height.metric}}</span>
                           </v-list-tile-title>
                         </v-list-tile-content>
@@ -111,6 +117,12 @@
         </v-layout>
       </v-tabs-content>
     </v-tabs>
+    <v-flex xs8 class="pt-3">
+      <h2 class="display-1 pl-4">Mini Engine</h2>
+    </v-flex>
+    <v-flex xs8 class="pt-3">
+      <p class="title pl-4">Over the many years of production the mini was offered in a slew of different body styles. From the iconic saloon body to the much different Mini Moke. Below you can find all the information could need for each induvidual body style.</p>
+    </v-flex>
   </v-layout>
 </template>
 

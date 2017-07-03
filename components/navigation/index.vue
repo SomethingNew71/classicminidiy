@@ -86,6 +86,12 @@ export default {
           disabled: true
         },
         {
+          title: 'Tech Reference',
+          icon: 'settings',
+          to: '/technical',
+          disabled: false
+        },
+        {
           title: 'History',
           icon: 'account_balance',
           to: '/historical',
