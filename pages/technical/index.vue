@@ -37,10 +37,10 @@
       <torquedocs/>
     </div>
     <div wrap v-if="e2 === 2" class="techincals">
-      <!-- <torquedocs/> -->
+      <techdocs/>
     </div>
     <div wrap v-if="e2 === 3" class="electricals">
-      <!-- <torquedocs/> -->
+      <electricaldocs/>
     </div>
   </section>
 </template>
@@ -48,12 +48,14 @@
 <style lang="scss" src="./technical.scss"></style>
 <script>
 import torquedocs from '~components/torquedocs';
+import techdocs from '~components/techdocs';
+import electricaldocs from '~components/electricaldocs';
 
 export default {
   components: {
-    torquedocs
-    // techdocs,
-    // electricaldocs
+    torquedocs,
+    techdocs,
+    electricaldocs
   },
   data: function () {
     return {
