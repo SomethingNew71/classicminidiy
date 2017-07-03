@@ -377,7 +377,7 @@ export default {
         },
         {
           value: false,
-          name: 'Drive Shaft Nut',
+          name: 'Drive Shaft Nut (disc only)',
           lbft: '150',
           kgm: '20.7',
           notes: 'Disc Brake Hubs Only (Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!)'
@@ -430,44 +430,93 @@ export default {
       gearboxItems: [
         {
           value: false,
-          name: 'Alternator (11AC) Brush box fixing screws',
-          lbft: '10',
-          kgm: '0.115',
+          name: 'Third Motion Shaft bearing retainer screws',
+          lbft: '13',
+          kgm: '1.8',
           notes: ''
         },
         {
           value: false,
-          name: 'Alternator (11AC) Diode heat sink fixings',
-          lbft: '25',
-          kgm: '0.288',
+          name: 'First Motion Shaft nut',
+          lbft: '150',
+          kgm: '20.7',
           notes: ''
         },
         {
           value: false,
-          name: 'Alternator (11AC) through-bolts',
-          lbft: '45 to 50',
-          kgm: '0.518 to 0.576',
+          name: 'Third Motion Shaft nut',
+          lbft: '150',
+          kgm: '20.7',
           notes: ''
         },
         {
           value: false,
-          name: 'Alternator (16ACR) Shaft nut',
-          lbft: '25 to 30',
-          kgm: '3.5 to 4.2',
+          name: 'Transmission Case to Crankcase',
+          lbft: '6',
+          kgm: '0.8',
           notes: ''
         },
         {
           value: false,
-          name: 'Distributor Clamp Bolt (fixed nut type)',
-          lbft: 50,
-          kgm: 0.576,
+          name: 'Transmission drain plug',
+          lbft: 25,
+          kgm: 3.5,
           notes: ''
         },
         {
           value: false,
-          name: 'Distributor Clamp Bolt (fixed bolt type)',
-          lbft: 30,
-          kgm: 0.345,
+          name: 'Transmission case studs - 3/8in dia. UNC',
+          lbft: 8,
+          kgm: 1.1,
+          notes: ''
+        },
+        {
+          value: false,
+          name: 'Transmission case studs - 5/16in dia. UNC',
+          lbft: 6,
+          kgm: 0.8,
+          notes: ''
+        },
+        {
+          value: false,
+          name: 'Transmission case stud nuts 3/8in UNF',
+          lbft: 25,
+          kgm: 3.4,
+          notes: ''
+        },
+        {
+          value: false,
+          name: 'Transmission case stud nuts 5/16in UNF',
+          lbft: 18,
+          kgm: 2.5,
+          notes: ''
+        },
+        {
+          value: false,
+          name: 'Bottom Cover set screws 1/4in dia. UNC (change-speed tower)',
+          lbft: 6,
+          kgm: 0.8,
+          notes: ''
+        },
+        {
+          value: false,
+          name: 'Driven Gear to Differential Cage',
+          lbft: 60,
+          kgm: 8.3,
+          notes: ''
+        },
+        {
+          value: false,
+          name: 'Driving Flange to Differential nut (tighten to next split pin hole)',
+          lbft: 70,
+          kgm: 9.6,
+          notes: ''
+        },
+        {
+          value: false,
+          name: 'Differential Housing End Cover bolts',
+          lbft: 18,
+          kgm: 2.5,
           notes: ''
         }
       ],
