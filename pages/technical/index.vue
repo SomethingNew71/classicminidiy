@@ -52,6 +52,8 @@ import torquedocs from '~components/torquedocs';
 export default {
   components: {
     torquedocs
+    // techdocs,
+    // electricaldocs
   },
   data: function () {
     return {
