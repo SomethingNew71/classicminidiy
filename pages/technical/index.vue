@@ -51,14 +51,14 @@
               label="Search"
               single-line
               hide-details
-              v-model="search"
+              v-model="suspensionSearch"
               class="pr-4"
             ></v-text-field>
           </v-card-title>
           <v-data-table
               v-bind:headers="headers"
               v-bind:items="suspensionItems"
-              v-bind:search="search"
+              v-bind:search="suspensionSearch"
             >
             <template slot="items" scope="props">
               <td class="text-xs-left">{{ props.item.name }}</td>
@@ -88,14 +88,14 @@
               label="Search"
               single-line
               hide-details
-              v-model="search"
+              v-model="gearSearch"
               class="pr-4"
             ></v-text-field>
           </v-card-title>
           <v-data-table
               v-bind:headers="headers"
               v-bind:items="gearboxItems"
-              v-bind:search="search"
+              v-bind:search="gearSearch"
             >
             <template slot="items" scope="props">
               <td class="text-xs-left">{{ props.item.name }}</td>
@@ -122,14 +122,14 @@
               label="Search"
               single-line
               hide-details
-              v-model="search"
+              v-model="electricalSearch"
               class="pr-4"
             ></v-text-field>
           </v-card-title>
           <v-data-table
               v-bind:headers="specialHeaders"
               v-bind:items="electricalItems"
-              v-bind:search="search"
+              v-bind:search="electricalSearch"
             >
             <template slot="items" scope="props">
               <td class="text-xs-left">{{ props.item.name }}</td>
@@ -156,14 +156,14 @@
               label="Search"
               single-line
               hide-details
-              v-model="search"
+              v-model="engineSearch"
               class="pr-4"
             ></v-text-field>
           </v-card-title>
           <v-data-table
               v-bind:headers="headers"
               v-bind:items="engineItems"
-              v-bind:search="search"
+              v-bind:search="engineSearch"
             >
             <template slot="items" scope="props">
               <td class="text-xs-left">{{ props.item.name }}</td>
@@ -189,7 +189,10 @@ export default {
   data: function () {
     return {
       e2: 1,
-      search: '',
+      engineSearch: '',
+      gearSearch: '',
+      electricalSearch: '',
+      suspensionSearch: '',
       pagination: {},
       // This is where you put all the titles
       headers: [
