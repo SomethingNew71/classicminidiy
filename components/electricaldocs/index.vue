@@ -2,7 +2,11 @@
   <v-layout wrap class="electrical">
     <v-flex xs12 sm9 class="pb-5">
       <v-flex xs12>
-        <h2 class="headline pl-4 pt-4">Wiring Diagrams</h2>
+        <h2 class="headline pl-4 pt-4 mb-0">Wiring Diagrams</h2>
+        <aside class="title pl-4 pt-0 pb-0 mb-0 subheader">Documents redrawn by Mike L on The Mini Forum</aside>
+        <aside class="subheader pl-4 pt-0">
+          <a href="http://www.theminiforum.co.uk/forums/topic/324929-wire-diagrams-redrawn/"> Source </a>
+        </aside>
       </v-flex>
       <!-- POSITIVE GROUND SECTION -->
       <v-flex xs12>
