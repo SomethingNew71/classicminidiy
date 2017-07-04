@@ -74,7 +74,7 @@
         </v-data-table>
       </v-card>
     </v-flex>
-    <v-flex xs12 offset-sm1 sm10 md5 class="pt-5">
+    <v-flex xs12 offset-sm1 sm10 md5 class="pt-5 electrical-margin">
       <v-card>
         <v-card-title class="pl-4 pt-4">
           <h3 class="title">
