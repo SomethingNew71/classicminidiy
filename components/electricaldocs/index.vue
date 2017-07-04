@@ -1,45 +1,70 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12 offset-sm1 sm10 class="mt-4">
-      <v-card>
-        <v-card-title class="pl-4 pt-4">
-          <h3 class="title">
-            Wiring Diagrams
-            <br>
-            <span class="body-1">Multiple Years</span>
-          </h3>
-          <v-spacer></v-spacer>
-          <v-text-field
-            append-icon="search"
-            label="Search"
-            single-line
-            hide-details
-            v-model="search"
-            class="pr-4"
-          ></v-text-field>
-        </v-card-title>
-        <v-data-table
-            v-bind:headers="headers"
-            v-bind:items="diagrams"
-            v-bind:search="search"
-          >
-          <template slot="items" scope="props">
-            <td class="text-xs-left">{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.years.from }}</td>
-            <td class="text-xs-right">{{ props.item.years.to }}</td>
-            <td class="text-xs-right">
-              <a :href="props.item.link">
-                <v-btn primary small light>
-                  Download(pdf)
-                </v-btn>
-              </a>
-            </td>
-          </template>
-          <template slot="pageText" scope="{ pageStart, pageStop }">
-            From {{ pageStart }} to {{ pageStop }}
-          </template>
-        </v-data-table>
-      </v-card>
+  <v-layout wrap class="electrical">
+    <v-flex xs12>
+      <h2 class="headline pl-4 pt-4">Wiring Diagrams</h2>
+    </v-flex>
+    <!-- POSITIVE GROUND SECTION -->
+    <v-flex xs12>
+      <h3 class="title pl-5 pt-4">Positive Ground</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list class="pl-4">
+        <template v-for="diagram in diagrams.positiveGround">
+          <v-list-item v-bind:key="diagram.name">
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} - {{diagram.to}}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list-item>
+        </template>
+      </v-list>
+    </v-flex>
+    <!-- NEGATIVE GROUND SECTION -->
+    <v-flex xs12>
+      <h3 class="title pl-5 pt-4">Negative Ground</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list class="pl-4">
+        <template v-for="diagram in diagrams.negativeGround">
+          <v-list-item v-bind:key="diagram.name">
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} - {{diagram.to}}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list-item>
+        </template>
+      </v-list>
+    </v-flex>
+    <!-- NEGATIVE GROUND SECTION -->
+    <v-flex xs12>
+      <h3 class="title pl-5 pt-4">Negative Ground</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list class="pl-4">
+        <template v-for="diagram in diagrams.negativeGround">
+          <v-list-item v-bind:key="diagram.name">
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} - {{diagram.to}}</v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list-item>
+        </template>
+      </v-list>
     </v-flex>
   </v-layout>
 </template>
@@ -50,64 +75,96 @@
 export default {
   data: function () {
     return {
-      search: '',
-      headers: [
-        {
-          text: 'Name',
-          left: true,
-          sortable: true,
-          value: 'name'
-        },
-        { text: 'From(year)', value: 'from' },
-        { text: 'To(year)', value: 'to' },
-        {
-          text: 'Download Link',
-          sortable: false,
-          value: 'link'
-        }
-      ],
-      diagrams: [
-        {
-          name: 'Mini Super/Super Deluxe/Countryman/Traveller/Cooper',
-          years: {
+      diagrams: {
+        positiveGround: [
+          {
+            name: 'Mini Super/Super Deluxe/Countryman/Traveller/Cooper',
             from: 1959,
-            to: 1964
+            to: 1964,
+            negative: 'yes',
+            link: ''
           },
-          link: ''
-        },
-        {
-          name: 'Mini Standard and Deluxe',
-          years: {
+          {
+            name: 'Mini Standard and Deluxe',
             from: 1959,
-            to: 1964
+            to: 1964,
+            negative: 'yes',
+            link: ''
           },
-          link: ''
-        },
-        {
-          name: 'Mini Saloon/Van/Pickup',
-          years: {
+          {
+            name: 'Mini Saloon/Van/Pickup',
             from: 1964,
-            to: 1967
+            to: 1967,
+            negative: 'yes',
+            link: ''
           },
-          link: ''
-        },
-        {
-          name: 'Mini Cooper/Cooper S/Countryman/Traveller/Super Deluxe',
-          years: {
+          {
+            name: 'Mini Cooper/Cooper S/Countryman/Traveller/Super Deluxe',
             from: 1964,
-            to: 1967
+            to: 1967,
+            negative: 'yes',
+            link: ''
           },
-          link: ''
-        },
-        {
-          name: '',
-          years: {
-            from: 1959,
-            to: 1964
+          {
+            name: 'Mini Super Deluxe/Countryman/Traveller/Cooper/Cooper S Mk2',
+            from: '',
+            to: '',
+            negative: 'yes',
+            link: ''
           },
-          link: ''
-        }
-      ]
+          {
+            name: 'Mini Standard Saloon/Van/Pickup Mk2',
+            from: '',
+            to: '',
+            negative: 'yes',
+            link: ''
+          },
+          {
+            name: 'Mini Moke',
+            from: '1959',
+            to: '1967',
+            negative: 'no',
+            link: ''
+          },
+          {
+            name: 'Mini Moke Mk2',
+            from: '',
+            to: '',
+            negative: 'no',
+            link: ''
+          }
+        ],
+        negativeGround: [
+          {
+            name: 'Mini 850 Deluxe Saloon/Van/Pickup',
+            from: '',
+            to: '',
+            negative: 'no',
+            link: 'https://coolstuff.com'
+          },
+          {
+            name: 'Mini 1000 Special Deluxe Saloon/Cooper S Mk3',
+            from: '',
+            to: '',
+            negative: 'no',
+            link: ''
+          },
+          {
+            name: 'Mini 1275 GT',
+            from: '',
+            to: '',
+            negative: 'no',
+            link: ''
+          },
+          {
+            name: 'Mini Clubman Saloon/Estate',
+            from: '',
+            to: '',
+            negative: 'no',
+            link: ''
+          }
+        ]
+      }
     };
   }
 };
