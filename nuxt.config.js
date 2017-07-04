@@ -42,7 +42,10 @@ module.exports = {
       }
     }
   },
-  plugins: ['~plugins/vuetify.js'],
+  plugins: [
+    { src: '~plugins/analytics.js', ssr: false },
+    '~plugins/vuetify.js'
+  ],
   css: [
     { src: '~assets/styles/app.styl', lang: 'styl' }
   ]
