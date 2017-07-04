@@ -6,7 +6,7 @@
       </v-flex>
     </v-layout>
     <v-layout wrap>
-      <v-flex xs6 offset-xs3  class="text-xs-center pt-4 mt-4 subheader">
+      <v-flex xs12 sm6 offset-sm3  class="text-xs-center pt-4 mt-4 subheader">
         <p>Here at Classic Mini DIY, one of our main priorities is making sure you have the best information for the job at hand. Below we have put together our list of our favorite Mini specific resources out there right now.</p>
       </v-flex>
       <v-flex xs12 class="text-xs-center pb-4">
