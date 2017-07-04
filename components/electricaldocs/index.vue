@@ -1,6 +1,6 @@
 <template>
   <v-layout wrap class="electrical">
-    <v-flex xs12 sm9 class="pb-5">
+    <v-flex xs12 sm8 class="pb-5">
       <v-flex xs12>
         <h2 class="headline pl-4 pt-4 mb-0">Wiring Diagrams</h2>
         <aside class="title pl-4 pt-0 pb-0 mb-0 subheader">Documents redrawn by Mike L on The Mini Forum</aside>
@@ -156,8 +156,22 @@
         </v-list>
       </v-flex>
     </v-flex>
-    <v-flex xs12 sm3>
-      <!-- SECTION FOR ADS IF I CAN EVER FIGURE THE OUT -->
+    <v-flex xs12 sm3 class="pt-5">
+      <v-card>
+        <v-card-text>
+          <!-- CMDIY - Electrical Diagrams -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-0523971861051053"
+               data-ad-slot="2859974597"
+               data-ad-format="auto"></ins>
+          <script>
+          /* eslint-disable */
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          /* eslint-enable */
+          </script>
+        </v-card-text>
+      </v-card>
     </v-flex>
   </v-layout>
 </template>

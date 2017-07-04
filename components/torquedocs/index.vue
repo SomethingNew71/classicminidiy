@@ -41,6 +41,19 @@
         </v-data-table>
       </v-card>
     </v-flex>
+    <v-flex xs12 offset-xs1>
+      <!-- CMDIY - Torque Specs -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-0523971861051053"
+           data-ad-slot="4439282592"
+           data-ad-format="auto"></ins>
+      <script>
+      /* eslint-disable */
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      /* eslint-enable */
+      </script>
+    </v-flex>
     <v-flex xs12 offset-sm1 sm10 md5 class="pt-5">
       <v-card>
         <v-card-title class="pl-4 pt-4">
@@ -146,7 +159,20 @@
         </v-data-table>
       </v-card>
     </v-flex>
-  </v-layout>
+    <v-flex xs12 offset-xs1>
+      <!-- CMDIY - Torque Specs -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-0523971861051053"
+           data-ad-slot="4439282592"
+           data-ad-format="auto"></ins>
+      <script>
+      /* eslint-disable */
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      /* eslint-enable */
+      </script>
+    </v-flex>
+</v-layout>
 </template>
 
 <style lang="scss" src="./torquedocs.scss"></style>

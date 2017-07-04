@@ -16,7 +16,8 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ],
     script: [
-      { src: 'https://use.fontawesome.com/3d93f1904c.js' }
+      { src: 'https://use.fontawesome.com/3d93f1904c.js' },
+      { src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' }
     ]
   },
   /*
@@ -44,7 +45,8 @@ module.exports = {
   },
   plugins: [
     { src: '~plugins/vuetify.js' },
-    { src: '~plugins/analytics.js', ssr: false }
+    { src: '~plugins/analytics.js', ssr: false },
+    { src: '~plugins/ads.js', ssr: false }
   ],
   css: [
     { src: '~assets/styles/app.styl', lang: 'styl' }
