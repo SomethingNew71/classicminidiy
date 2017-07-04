@@ -15,15 +15,16 @@ if (process.env.NODE_ENV === 'production') {
   ** Set the current page
   */
   ga('create', 'UA-53914731-2', 'auto')
+  ga('send', 'pageview')
   /*
   ** Every time the route changes (fired on initialization too)
   */
-  router.afterEach((to, from) => {
-    /*
-    ** We tell Google Analytic to add a page view
-    */
-    ga('set', 'page', to.fullPath)
-    ga('send', 'pageview')
-  })
+  // router.afterEach((to, from) => {
+  //   /*
+  //   ** We tell Google Analytic to add a page view
+  //   */
+  //   ga('set', 'page', to.fullPath)
+  //   ga('send', 'pageview')
+  // })
 }
 /*eslint-enable */

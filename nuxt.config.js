@@ -43,8 +43,8 @@ module.exports = {
     }
   },
   plugins: [
-    { src: '~plugins/analytics.js', ssr: false },
-    '~plugins/vuetify.js'
+    { src: '~plugins/vuetify.js' },
+    { src: '~plugins/analytics.js', ssr: false }
   ],
   css: [
     { src: '~assets/styles/app.styl', lang: 'styl' }
