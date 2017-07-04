@@ -46,4 +46,4 @@ module.exports = {
   css: [
     { src: '~assets/styles/app.styl', lang: 'styl' }
   ]
-}
+};
