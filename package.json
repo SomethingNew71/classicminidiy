@@ -1,9 +1,9 @@
 {
   "name": "classicminidiy",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Classic Mini DIY knowledge repo source code",
   "author": "Cole Gentry",
-  "license": "MIT",
+  "license": "GNU GPLv3",
   "private": false,
   "engines": {
     "node": "8.1.0"
@@ -20,7 +20,7 @@
   "dependencies": {
     "nuxt": "^1.0.0-alpha2",
     "vue-server-renderer": "latest",
-    "vuetify": "latest"
+    "vuetify": "^0.13.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
