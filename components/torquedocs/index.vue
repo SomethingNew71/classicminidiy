@@ -205,7 +205,7 @@ export default {
           value: 'fastener'
         },
         { text: 'Torque (lb/ft)', value: 'lbft' },
-        { text: 'Torque (kgm)', value: 'kgm' },
+        { text: 'Torque (Nm)', value: 'nm' },
         { text: 'Notes', value: 'notes' }
       ],
       specialHeaders: [
@@ -216,7 +216,7 @@ export default {
           value: 'fastener'
         },
         { text: 'Torque (lb/In)', value: 'lbin' },
-        { text: 'Torque (kgm)', value: 'kgm' }
+        { text: 'Torque (Nm)', value: 'nm' }
       ],
       specialHeaders2: [
         {
@@ -226,7 +226,7 @@ export default {
           value: 'fastener'
         },
         { text: 'Torque (lb/ft)', value: 'lbft' },
-        { text: 'Torque (kgm)', value: 'kgm' }
+        { text: 'Torque (Nm)', value: 'nm' }
       ],
       // This is all the table data
       suspensionItems: [
@@ -234,154 +234,154 @@ export default {
           value: false,
           name: 'Drive shaft coupling U bolts (rubber cross inner joints)',
           lbft: '8 to 12',
-          kgm: '1.11 to 1.66',
+          nm: '10.88 to 16.279',
           notes: ''
         },
         {
           value: false,
           name: 'Drive shaft nut (Front Drums Only)',
           lbft: '20 to 24',
-          kgm: '2.8 to 3.3',
+          nm: '27.45 to 32.36',
           notes: 'Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!'
         },
         {
           value: false,
           name: 'Tie rod to front sub-frame',
           lbft: '17-20',
-          kgm: '2.8 to 3.3',
+          nm: '27.45 to 32.36',
           notes: ''
         },
         {
           value: false,
           name: 'Tie rod to lower front suspension wishbone',
           lbft: '17-20',
-          kgm: '2.8 to 3.3',
+          nm: '27.45 to 32.36',
           notes: ''
         },
         {
           value: false,
           name: 'Front suspension upper support arm pivot shaft nut',
           lbft: '45 to 60',
-          kgm: '6.2 to 8.3',
+          nm: '60.80 to 81.39',
           notes: ''
         },
         {
           value: false,
           name: 'Front suspension lower wishbone pivot shaft nut',
           lbft: '30 to 35',
-          kgm: '4.1 to 4.8',
+          nm: '40.20 to 47.07',
           notes: ''
         },
         {
           value: false,
           name: 'Wheel nuts',
           lbft: '40 to 45',
-          kgm: '5.5 to 6.2',
+          nm: '53.93 to 60.80',
           notes: ''
         },
         {
           value: false,
           name: 'Steering column/rack pinion clamp bolt',
           lbft: '8 to 10',
-          kgm: '1.11 to 1.38',
+          nm: '11 to 13.5',
           notes: ''
         },
         {
           value: false,
           name: 'Steering arm to swivel hub',
           lbft: '30 to 35',
-          kgm: '4.1 to 4.8',
+          nm: '40.20 to 47.07',
           notes: ''
         },
         {
           value: false,
           name: 'Steering track-rod end to steering arm',
           lbft: '20 to 24',
-          kgm: '2.8 to 3.3',
+          nm: '27.45 to 32.36',
           notes: ''
         },
         {
           value: false,
           name: 'Steering-wheel nut',
           lbft: '32 to 37',
-          kgm: '4.5 to 5.1',
+          nm: '44.12 to 50',
           notes: ''
         },
         {
           value: false,
           name: 'Swivel hub ball joint socket',
           lbft: '70 to 80',
-          kgm: '9.6 to 11.1',
+          nm: '94 to 108',
           notes: ''
         },
         {
           value: false,
           name: 'Swivel hub ball joint to suspension arms',
           lbft: '35 to 40',
-          kgm: '4.8 to 5.5',
+          nm: '47 to 54',
           notes: ''
         },
         {
           value: false,
           name: 'Track rod end to steering rack lock nut',
           lbft: '35 to 40',
-          kgm: '4.8 to 5.5',
+          nm: '47 to 54',
           notes: ''
         },
         {
           value: false,
           name: 'Steering rack U-bolts to floor',
           lbft: '10 to 12',
-          kgm: '1.4 to 1.7',
+          nm: '13.7 to 16.6',
           notes: ''
         },
         {
           value: false,
           name: 'Steering-column clip bracket to column clip and parcel shelf',
           lbft: '13 to 18',
-          kgm: '1.8 to 2.5',
+          nm: '17.7 to 24.5',
           notes: ''
         },
         {
           value: false,
           name: 'Rear suspension rear hub nut',
           lbft: '60',
-          kgm: '8.3',
+          nm: '81.39',
           notes: 'Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!'
         },
         {
           value: false,
           name: 'Rear radius arm pivot shaft nut',
           lbft: '45 to 60',
-          kgm: '6.2 to 8.3',
+          nm: '60.80 to 81.39',
           notes: ''
         },
         {
           value: false,
           name: 'Backplate to rear radius arm bolts',
           lbft: '18 to 22',
-          kgm: '2.5 to 3.0',
+          nm: '24.5 to 29.4',
           notes: ''
         },
         {
           value: false,
           name: 'Caliper retaining bolts',
           lbft: '35 to 40',
-          kgm: '4.8 to 5.5',
+          nm: '47 to 54',
           notes: 'Mini Cooper 997/998cc only'
         },
         {
           value: false,
           name: 'Steering Lever ball joint',
           lbft: '25 to 30',
-          kgm: '3.4 to 4.1',
+          nm: '33 to 40',
           notes: 'Mini Cooper 997/998cc only'
         },
         {
           value: false,
           name: 'Drive Shaft Nut (disc only)',
           lbft: '150',
-          kgm: '20.7',
+          nm: '20.7',
           notes: 'Disc Brake Hubs Only (Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!)'
         }
       ],
@@ -390,42 +390,42 @@ export default {
           value: false,
           name: 'Alternator (11AC) Brush box fixing screws',
           lbin: '10',
-          kgm: '0.115',
+          nm: '11',
           notes: ''
         },
         {
           value: false,
           name: 'Alternator (11AC) Diode heat sink fixings',
           lbin: '25',
-          kgm: '0.288',
+          nm: '27',
           notes: ''
         },
         {
           value: false,
           name: 'Alternator (11AC) through-bolts',
           lbin: '45 to 50',
-          kgm: '0.518 to 0.576',
+          nm: '49 to 55',
           notes: ''
         },
         {
           value: false,
           name: 'Alternator (16ACR) Shaft nut',
           lbin: '25 to 30',
-          kgm: '3.5 to 4.2',
+          nm: '34 to 41',
           notes: ''
         },
         {
           value: false,
           name: 'Distributor Clamp Bolt (fixed nut type)',
           lbin: 50,
-          kgm: 0.576,
+          nm: 55,
           notes: ''
         },
         {
           value: false,
           name: 'Distributor Clamp Bolt (fixed bolt type)',
           lbin: 30,
-          kgm: 0.345,
+          nm: 33,
           notes: ''
         }
       ],
@@ -434,91 +434,91 @@ export default {
           value: false,
           name: 'Third Motion Shaft bearing retainer screws',
           lbft: '13',
-          kgm: '1.8',
+          nm: '17.6',
           notes: ''
         },
         {
           value: false,
           name: 'First Motion Shaft nut',
           lbft: '150',
-          kgm: '20.7',
+          nm: '203',
           notes: ''
         },
         {
           value: false,
           name: 'Third Motion Shaft nut',
           lbft: '150',
-          kgm: '20.7',
+          nm: '203',
           notes: ''
         },
         {
           value: false,
           name: 'Transmission Case to Crankcase',
           lbft: '6',
-          kgm: '0.8',
+          nm: '7.8',
           notes: ''
         },
         {
           value: false,
           name: 'Transmission drain plug',
           lbft: 25,
-          kgm: 3.5,
+          nm: 34,
           notes: ''
         },
         {
           value: false,
           name: 'Transmission case studs - 3/8in dia. UNC',
           lbft: 8,
-          kgm: 1.1,
+          nm: 10.8,
           notes: ''
         },
         {
           value: false,
           name: 'Transmission case studs - 5/16in dia. UNC',
           lbft: 6,
-          kgm: 0.8,
+          nm: 7.8,
           notes: ''
         },
         {
           value: false,
           name: 'Transmission case stud nuts 3/8in UNF',
           lbft: 25,
-          kgm: 3.4,
+          nm: 33,
           notes: ''
         },
         {
           value: false,
           name: 'Transmission case stud nuts 5/16in UNF',
           lbft: 18,
-          kgm: 2.5,
+          nm: 24.5,
           notes: ''
         },
         {
           value: false,
           name: 'Bottom Cover set screws 1/4in dia. UNC (change-speed tower)',
           lbft: 6,
-          kgm: 0.8,
+          nm: 7.8,
           notes: ''
         },
         {
           value: false,
           name: 'Driven Gear to Differential Cage',
           lbft: 60,
-          kgm: 8.3,
+          nm: 81.39,
           notes: ''
         },
         {
           value: false,
           name: 'Driving Flange to Differential nut (tighten to next split pin hole)',
           lbft: 70,
-          kgm: 9.6,
+          nm: 94,
           notes: ''
         },
         {
           value: false,
           name: 'Differential Housing End Cover bolts',
           lbft: 18,
-          kgm: 2.5,
+          nm: 24.5,
           notes: ''
         }
       ],
@@ -527,210 +527,210 @@ export default {
           value: false,
           name: 'Camshaft Nut',
           lbft: '60 to 70',
-          kgm: '8.3 to 9.7',
+          nm: '81.39 to 95',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Con Rod Big-end Bolts',
           lbft: '35 to 38',
-          kgm: '4.8 to 5.3',
+          nm: '47 to 52',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Crankshaft Pulley Nut',
           lbft: '70 to 80',
-          kgm: '9.7 to 11.1',
+          nm: '95 to 108.8',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Cylinder Head Stud Nuts',
           lbft: '40',
-          kgm: '5.5',
+          nm: '54',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Cylinder Side Cover',
           lbft: '3 to 4',
-          kgm: '0.42 to 0.55',
+          nm: '4 to 5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Clutch Spring Housing to Pressure Plate set screws',
           lbft: '16',
-          kgm: '2.2',
+          nm: '21.5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Driving Strap to Flywheel set screw',
           lbft: '16',
-          kgm: '2.2',
+          nm: '21.5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Flywheel Center Bolt',
           lbft: '110 to 115',
-          kgm: '15.2 to 15.9',
+          nm: '149 to 156',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Flywheel Housing bolts and stud nuts',
           lbft: '18',
-          kgm: '2.5',
+          nm: '24.5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Gudgeon Pin Clamp Screws',
           lbft: '22 to 25',
-          kgm: '3.0 to 3.5',
+          nm: '29 to 24',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Heater Control to Cylinder Head',
           lbft: '6 to 8',
-          kgm: '0.83 to 1.11',
+          nm: '8 to 11',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Main Bearing set screws',
           lbft: '60 to 65',
-          kgm: '8.3 to 9.0',
+          nm: '81.39 to 88',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Manifold to Cylinder Head',
           lbft: '12 to 16',
-          kgm: '1.7 to 2.2',
+          nm: '16.6 to 21.5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Oil Filter Brown Center Bolt',
           lbft: '12 to 16',
-          kgm: '1.7 to 2.2',
+          nm: '16.6 to 21.5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Oil Pump',
           lbft: '6 to 9',
-          kgm: '0.83 to 1.25',
+          nm: '8 to 12',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Oil Pipe banjo',
           lbft: '35 to 40',
-          kgm: '4.8 to 5.5',
+          nm: '47 to 54',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Oil Pressure Release Valve - dome nut',
           lbft: '40 to 45',
-          kgm: '5.5 to 6.2',
+          nm: '53.93 to 60.80',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Rocker Cover',
           lbft: '3 to 4',
-          kgm: '0.41 to 0.55',
+          nm: '4 to 5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Rocker Shaft Bracket Nuts',
           lbft: '22 to 25',
-          kgm: '3.0 to 3.5',
+          nm: '29 to 34',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Spark Plugs',
           lbft: '18',
-          kgm: '2.5',
+          nm: '24.5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Timing Cover and Front Plate 1/4in UNF bolts',
           lbft: '4 to 6',
-          kgm: '0.55 to 0.83',
+          nm: '5 to 8',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Timing Cover and Front Plate 5/16in UNF bolts',
-          lbft: '1.4 to 1.9',
-          kgm: '',
+          lbft: '14 to 18.6',
+          nm: '',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Water Pump',
           lbft: '14 to 18',
-          kgm: '1.9 to 2.5',
+          nm: '18.6 to 24.5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Water Outlet Elbow',
           lbft: '6 to 9',
-          kgm: '0.83 to 1.25',
+          nm: '8 to 12',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Thermal Transmitter',
           lbft: '16',
-          kgm: '2.2',
+          nm: '21.5',
           notes: '848cc, 998cc'
         },
         {
           value: false,
           name: 'Cylinder Head nuts (11 stud head)',
           lbft: '42',
-          kgm: '5.8',
+          nm: '57',
           notes: '970cc, 1071cc, 1275cc'
         },
         {
           value: false,
           name: 'Cylinder Head bolt (11 stud head)',
           lbft: '25',
-          kgm: '3.5',
+          nm: '34',
           notes: '970cc, 1071cc, 1275cc'
         },
         {
           value: false,
           name: 'Con Rod Big-end nuts (assemble dry only)',
           lbft: '40',
-          kgm: '5.5',
+          nm: '54',
           notes: '970cc, 1071cc, 1275cc'
         },
         {
           value: false,
           name: 'Main Bearing set screws (early type)',
           lbft: '67',
-          kgm: '9.3',
+          nm: '91',
           notes: '970cc, 1071cc, 1275cc'
         },
         {
           value: false,
           name: 'Main Bearing nuts (later type)',
           lbft: '57',
-          kgm: '7.9',
+          nm: '77',
           notes: '970cc, 1071cc, 1275cc'
         }
       ]
