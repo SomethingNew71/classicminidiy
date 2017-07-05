@@ -68,6 +68,25 @@
         </v-layout>
       </v-flex>
     </v-layout>
+    <v-layout row>
+      <v-flex xs10 offset-xs1 class="pt-4">
+        <v-card>
+          <v-card-text>
+            <!-- CMDIY - Manuals -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-0523971861051053"
+                 data-ad-slot="1008138191"
+                 data-ad-format="auto"></ins>
+            <script>
+            /* eslint-disable */
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            /* eslint-enable */
+            </script>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </section>
 </template>
 
