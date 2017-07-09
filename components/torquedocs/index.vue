@@ -30,7 +30,7 @@
           <template slot="items" scope="props">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbft }}</td>
-            <td class="text-xs-right">{{ props.item.kgm }}</td>
+            <td class="text-xs-right">{{ props.item.nm }}</td>
             <td class="text-xs-right">
               {{props.item.notes}}
             </td>
@@ -84,7 +84,7 @@
           <template slot="items" scope="props">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbft }}</td>
-            <td class="text-xs-right">{{ props.item.kgm }}</td>
+            <td class="text-xs-right">{{ props.item.nm }}</td>
           </template>
           <template slot="pageText" scope="{ pageStart, pageStop }">
             From {{ pageStart }} to {{ pageStop }}
@@ -118,7 +118,7 @@
           <template slot="items" scope="props">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbin }}</td>
-            <td class="text-xs-right">{{ props.item.kgm }}</td>
+            <td class="text-xs-right">{{ props.item.nm }}</td>
           </template>
           <template slot="pageText" scope="{ pageStart, pageStop }">
             From {{ pageStart }} to {{ pageStop }}
@@ -152,7 +152,7 @@
           <template slot="items" scope="props">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbft }}</td>
-            <td class="text-xs-right">{{ props.item.kgm }}</td>
+            <td class="text-xs-right">{{ props.item.nm }}</td>
             <td class="text-xs-right">
               {{props.item.notes}}
             </td>
@@ -673,8 +673,8 @@ export default {
         {
           value: false,
           name: 'Timing Cover and Front Plate 5/16in UNF bolts',
-          lbft: '14 to 18.6',
-          nm: '',
+          lbft: '14 to 18.5',
+          nm: '19 to 25',
           notes: '848cc, 998cc'
         },
         {
