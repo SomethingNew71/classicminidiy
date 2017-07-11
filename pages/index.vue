@@ -19,19 +19,13 @@
       </v-layout>
       <v-layout row wrap class="mb-4 pt-3 text-xs-center mission-list">
         <v-flex xs12 md4 class="mb-4">
-          <v-btn floating medium class="white mb-4">
-            <v-icon fa class="red--text">youtube-play</v-icon>
-          </v-btn>
+          <v-icon fa large class="red--text mb-3">youtube-play</v-icon>
           <h3 class="headline">Create DIY Videos</h3>
           <p>Classic Mini DIY first and foremost is about creating DIY videos for new and inexperiences Classic Mini owners to use and reference when fixing their own cars.</p>
-          <a target='_blank' :href='youtube'>
-            <v-btn class="red" light>Visit us on Youtube</v-btn>
-          </a>
+          <v-btn class="red" tag='a' :href='youtube' dark target='_blank'>Visit us on Youtube</v-btn>
         </v-flex>
         <v-flex xs12 md4 class="center mb-4">
-          <v-btn floating medium class="white mb-4">
-            <v-icon fa class="primary--text">book</v-icon>
-          </v-btn>
+          <v-icon fa medium class="primary--text mb-3 mt-1">book</v-icon>
           <h3 class="headline">Consolidate Mini Knowledge</h3>
           <p>
             As the channel expanded we started to realize that while there are many good sources of mini information out there, there is no single repository of technical and helpful knowledge for new mini owners. So with countless hours of work we have built just that.
@@ -41,9 +35,7 @@
           <v-btn primary light router :to="manuals">Manuals</v-btn> -->
         </v-flex>
         <v-flex xs12 md4 class="mb-4">
-          <v-btn floating medium class="white mb-4">
-            <v-icon fa class="green--text">tree</v-icon>
-          </v-btn>
+          <v-icon fa large class="green--text mb-3">tree</v-icon>
           <!-- <img src="/pages/home/grow.png" alt=""> -->
           <h3 class="headline">Keep the Mini World Growing</h3>
           <p>
@@ -75,17 +67,13 @@
             <img src="/pages/home/seven-logo.png" alt="">
             <h3 class="headline pt-3">Seven Mini Parts</h3>
             <p>From almost the point of this channels creation Seven Mini Parts has been a brand and company partner. They took a chance on a small youtube channel that is now growing past my wildest dreams. If you are in the market for Mini parts please check them out!</p>
-            <a target='_blank' :href='sevenEnt'>
-              <v-btn class="seven-ent" light>Checkout 7ent.com</v-btn>
-            </a>
+            <v-btn target='_blank' :href='sevenEnt' tag='a' class="seven-ent" dark>Checkout 7ent.com</v-btn>
           </v-flex>
           <v-flex xs12 md5>
             <img src="/pages/home/patreon-logo.png" alt="">
             <h3 class="headline pt-3">Patreon Supporters</h3>
             <p>Aside from the parts and guidance provided by Seven Mini Parts, Classic Mini DIY is completely funded by myself and my patrons.  Without your help I could not provide the quality videos you enjoy.</p>
-            <a target='_blank' :href='patreon'>
-              <v-btn class="patreon" light>Support Us on Patreon</v-btn>
-            </a>
+            <v-btn class="patreon" target='_blank' :href='patreon' tag='a' dark>Support Us on Patreon</v-btn>
           </v-flex>
         </v-layout>
       </v-layout>
