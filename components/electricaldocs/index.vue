@@ -3,9 +3,9 @@
     <v-flex xs12 sm8 class="pb-5">
       <v-flex xs12>
         <h2 class="headline pl-4 pt-4 mb-0">Wiring Diagrams</h2>
-        <aside class="title pl-4 pt-0 pb-0 mb-0 subheader">Documents redrawn by Mike L on The Mini Forum</aside>
-        <aside class="subheader pl-4 pt-0">
-          <a href="http://www.theminiforum.co.uk/forums/topic/324929-wire-diagrams-redrawn/"> Source </a>
+        <aside class="subheading pl-4 py-0 my-0 subheader">Documents redrawn by Mike L on The Mini Forum</aside>
+        <aside class="subheading pl-4 py-0">
+          <v-btn href="http://www.theminiforum.co.uk/forums/topic/324929-wire-diagrams-redrawn/" primary tag="a" target="_blank" dark class="ml-0">Source</v-btn>
         </aside>
       </v-flex>
       <!-- POSITIVE GROUND SECTION -->
@@ -15,17 +15,17 @@
       <v-flex xs12>
         <v-list class="pl-4" dense>
           <template v-for="diagram in diagrams.positiveGround">
-            <v-list-item v-bind:key="diagram.name">
-              <v-list-tile avatar :href="diagram.link" target="_blank">
-                <v-list-tile-avatar>
-                  <v-icon>picture_as_pdf</v-icon>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                  <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} to {{diagram.to}}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list-item>
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                  {{diagram.from}} to {{diagram.to}}
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
           </template>
         </v-list>
       </v-flex>
@@ -36,17 +36,17 @@
       <v-flex xs12>
         <v-list class="pl-4" dense>
           <template v-for="diagram in diagrams.negativeGround">
-            <v-list-item v-bind:key="diagram.name">
-              <v-list-tile avatar :href="diagram.link" target="_blank">
-                <v-list-tile-avatar>
-                  <v-icon>picture_as_pdf</v-icon>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                  <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} to {{diagram.to}}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list-item>
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                  {{diagram.from}} to {{diagram.to}}
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
           </template>
         </v-list>
       </v-flex>
@@ -57,17 +57,17 @@
       <v-flex xs12>
         <v-list class="pl-4" dense>
           <template v-for="diagram in diagrams.britishLeyland">
-            <v-list-item v-bind:key="diagram.name">
-              <v-list-tile avatar :href="diagram.link" target="_blank">
-                <v-list-tile-avatar>
-                  <v-icon>picture_as_pdf</v-icon>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                  <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} to {{diagram.to}}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list-item>
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                  {{diagram.from}} to {{diagram.to}}
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
           </template>
         </v-list>
       </v-flex>
@@ -78,17 +78,17 @@
       <v-flex xs12>
         <v-list class="pl-4" dense>
           <template v-for="diagram in diagrams.earlyRover">
-            <v-list-item v-bind:key="diagram.name">
-              <v-list-tile avatar :href="diagram.link" target="_blank">
-                <v-list-tile-avatar>
-                  <v-icon>picture_as_pdf</v-icon>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                  <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} to {{diagram.to}}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list-item>
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                  {{diagram.from}} to {{diagram.to}}
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
           </template>
         </v-list>
       </v-flex>
@@ -99,17 +99,17 @@
       <v-flex xs12>
         <v-list class="pl-4" dense>
           <template v-for="diagram in diagrams.laterRover">
-            <v-list-item v-bind:key="diagram.name">
-              <v-list-tile avatar :href="diagram.link" target="_blank">
-                <v-list-tile-avatar>
-                  <v-icon>picture_as_pdf</v-icon>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                  <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} to {{diagram.to}}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list-item>
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                  {{diagram.from}} to {{diagram.to}}
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
           </template>
         </v-list>
       </v-flex>
@@ -120,17 +120,17 @@
       <v-flex xs12>
         <v-list class="pl-4" dense>
           <template v-for="diagram in diagrams.hornetElf">
-            <v-list-item v-bind:key="diagram.name">
-              <v-list-tile avatar :href="diagram.link" target="_blank">
-                <v-list-tile-avatar>
-                  <v-icon>picture_as_pdf</v-icon>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                  <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} to {{diagram.to}}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list-item>
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                  {{diagram.from}} to {{diagram.to}}
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
           </template>
         </v-list>
       </v-flex>
@@ -141,17 +141,17 @@
       <v-flex xs12>
         <v-list class="pl-4" dense>
           <template v-for="diagram in diagrams.ausMinis">
-            <v-list-item v-bind:key="diagram.name">
-              <v-list-tile avatar :href="diagram.link" target="_blank">
-                <v-list-tile-avatar>
-                  <v-icon>picture_as_pdf</v-icon>
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                  <v-list-tile-sub-title v-if="diagram.from || diagram.to">{{diagram.from}} to {{diagram.to}}</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list-item>
+            <v-list-tile avatar :href="diagram.link" target="_blank">
+              <v-list-tile-avatar>
+                <v-icon>picture_as_pdf</v-icon>
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                  {{diagram.from}} to {{diagram.to}}
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
           </template>
         </v-list>
       </v-flex>

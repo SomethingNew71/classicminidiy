@@ -15,7 +15,7 @@
       </a>
     </div>
     <v-spacer></v-spacer>
-    <div>
+    <div class="white--text">
       Classic Mini DIY © - {{ new Date().getFullYear() }}
     </div>
   </v-footer>
