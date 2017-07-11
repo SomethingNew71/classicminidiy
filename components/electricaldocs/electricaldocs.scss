@@ -4,6 +4,14 @@
   }
   aside.title,
   aside.subheader {
-    height: 20px;
+    height: 30px;
+  }
+  aside a {
+    text-decoration: none;
+  }
+  ul {
+    &.list {
+      background: transparent !important;
+    }
   }
 }
