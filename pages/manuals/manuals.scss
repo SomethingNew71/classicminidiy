@@ -4,12 +4,13 @@
     background-size: cover;
     min-height: 15rem;
   }
-  .caption {
-    font-size: 12px;
-    font-weight: 400;
+
+  .card__media__background {
+    background-position: center !important;
   }
+
   .amazon {
-    background-color: #FF9900;
+    background-color: #FF9900 !important;
   }
 
   .image-section {

@@ -12,10 +12,10 @@
       <v-flex xs12 class="text-xs-center pb-4">
         <h2 class="display-1 pt-4">Choose Book Type</h2>
         <a v-on:click="tabToggle" >
-          <v-btn primary light>Manuals</v-btn>
+          <v-btn primary dark>Manuals</v-btn>
         </a>
         <a v-on:click="tabToggle" >
-          <v-btn primary light>Technical</v-btn>
+          <v-btn primary dark>Technical</v-btn>
         </a>
       </v-flex>
     </v-layout>
@@ -23,46 +23,58 @@
       <v-flex offset-xs1 xs10>
         <v-layout row wrap class="manuals-section" v-bind:class="{'is-active': manualsActive}">
           <v-flex xs12 sm6 md4 lg3 class="py-2" :key="book" v-for="book in books.workshop">
-            <v-card class="elevation-2">
-              <v-card-row class="image-section pt-2" v-bind:style="{ backgroundImage: 'url(' + book.imgSource + ')' }" height="200px">
-              </v-card-row>
-              <v-list class="py-0">
-                <v-list-item>
-                  <v-card-text class="white--text pa-0">
-                    <v-card-title class="subheader pl-3 grey--text">
-                      {{book.name}}
-                    </v-card-title>
-                    <v-list-tile-title class="caption pl-3 grey--text">Written by {{book.author}}</v-list-tile-title>
-                  </v-card-text>
-                </v-list-item>
-                <v-list-item class="text-xs-center">
-                  <v-btn :href="book.urlAmazon" v-if="book.urlAmazon" class="amazon" light>Amazon</v-btn>
-                  <v-btn :href="book.urlSeven" v-if="book.urlSeven" class="red seven-mini" light>Seven Mini</v-btn>
-                </v-list-item>
-              </v-list>
+            <v-card hover class="">
+              <v-container fluid grid-list-lg>
+                <v-layout row>
+                  <v-flex xs7>
+                    <div>
+                      <div class="pl-0 subheader">{{book.name}}</div>
+                      <div class="caption">Written by {{book.author}}</div>
+                    </div>
+                    <v-card-actions class="pl-0 mt-2">
+                      <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
+                      <v-btn :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="red seven-mini" dark>Seven Mini</v-btn>
+                    </v-card-actions>
+                  </v-flex>
+                  <v-flex xs5>
+                    <v-card-media
+                      :src="book.imgSource"
+                      height="150px"
+                      contain
+                    >
+                    </v-card-media>
+                  </v-flex>
+                </v-layout>
+              </v-container>
             </v-card>
           </v-flex>
         </v-layout>
 
         <v-layout row wrap class="technical" v-bind:class="{'is-active': techActive}">
           <v-flex xs12 sm6 md4 lg3 class="py-2" :key="book" v-for="book in books.technical">
-            <v-card class="elevation-2">
-              <v-card-row class="image-section pt-2" v-bind:style="{ backgroundImage: 'url(' + book.imgSource + ')' }" height="200px">
-              </v-card-row>
-              <v-list class="py-0">
-                <v-list-item>
-                  <v-card-text class="white--text pa-0">
-                    <v-card-title class="subheader pl-3 grey--text">
-                      {{book.name}}
-                    </v-card-title>
-                    <v-list-tile-title class="caption pl-3 grey--text">Written by {{book.author}}</v-list-tile-title>
-                  </v-card-text>
-                </v-list-item>
-                <v-list-item class="text-xs-center">
-                  <v-btn nuxt :href="book.urlAmazon" v-if="book.urlAmazon" class="amazon" light>Amazon</v-btn>
-                  <v-btn :href="book.urlSeven" v-if="book.urlSeven" class="red seven-mini" light>Seven Mini</v-btn>
-                </v-list-item>
-              </v-list>
+            <v-card hover class="">
+              <v-container fluid grid-list-lg>
+                <v-layout row>
+                  <v-flex xs7>
+                    <div>
+                      <div class="pl-0 subheader">{{book.name}}</div>
+                      <div class="caption">Written by {{book.author}}</div>
+                    </div>
+                    <v-card-actions class="pl-0 mt-2">
+                      <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
+                      <v-btn :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="red seven-mini" dark>Seven Mini</v-btn>
+                    </v-card-actions>
+                  </v-flex>
+                  <v-flex xs5>
+                    <v-card-media
+                      :src="book.imgSource"
+                      height="150px"
+                      contain
+                    >
+                    </v-card-media>
+                  </v-flex>
+                </v-layout>
+              </v-container>
             </v-card>
           </v-flex>
         </v-layout>
