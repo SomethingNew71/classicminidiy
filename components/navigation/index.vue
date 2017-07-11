@@ -53,10 +53,6 @@
         </v-btn>
         <v-btn flat ripple :href='youtube.to' tag='a' :target='youtube.target'>
           {{ youtube.title }}
-
-          <!-- <a class="white--text" :href="youtube.to" :target='youtube.target'>
-            {{ youtube.title }}
-          </a> -->
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
