@@ -36,8 +36,8 @@
                   </v-card-text>
                 </v-list-item>
                 <v-list-item class="text-xs-center">
-                  <v-btn v-if="book.urlAmazon" class="amazon" light>Amazon</v-btn>
-                  <v-btn v-if="book.urlSeven" class="red seven-mini" light>Seven Mini</v-btn>
+                  <v-btn :href="book.urlAmazon" v-if="book.urlAmazon" class="amazon" light>Amazon</v-btn>
+                  <v-btn :href="book.urlSeven" v-if="book.urlSeven" class="red seven-mini" light>Seven Mini</v-btn>
                 </v-list-item>
               </v-list>
             </v-card>
@@ -59,8 +59,8 @@
                   </v-card-text>
                 </v-list-item>
                 <v-list-item class="text-xs-center">
-                  <v-btn v-if="book.urlAmazon" class="amazon" light>Amazon</v-btn>
-                  <v-btn v-if="book.urlSeven" class="red seven-mini" light>Seven Mini</v-btn>
+                  <v-btn nuxt :href="book.urlAmazon" v-if="book.urlAmazon" class="amazon" light>Amazon</v-btn>
+                  <v-btn :href="book.urlSeven" v-if="book.urlSeven" class="red seven-mini" light>Seven Mini</v-btn>
                 </v-list-item>
               </v-list>
             </v-card>

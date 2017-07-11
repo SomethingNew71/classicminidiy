@@ -2,3 +2,12 @@
   height: auto;
   border-radius: 0;
 }
+
+.toolbar {
+  .btn__content {
+    a {
+      text-decoration: none;
+      z-index: 2;
+    }
+  }
+}

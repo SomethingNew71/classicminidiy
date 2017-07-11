@@ -1,6 +1,13 @@
 <template>
-  <v-app id="example-8" dark>
-    <v-navigation-drawer temporary v-model="drawer" :mini-variant="mini" dark>
+  <div>
+    <v-navigation-drawer
+      temporary
+      v-model="drawer"
+      :mini-variant="mini"
+      dark
+      overflow
+      absolute
+    >
       <v-list class="pa-0">
         <v-list-item v-if="mini">
           <v-list-tile @click.native.stop="mini = !mini">
@@ -17,11 +24,6 @@
             <v-list-tile-content>
               <v-list-tile-title>Menu</v-list-tile-title>
             </v-list-tile-content>
-            <v-list-tile-action>
-              <v-btn icon light @click.native.stop="mini = !mini">
-                <v-icon>chevron_left</v-icon>
-              </v-btn>
-            </v-list-tile-action>
           </v-list-tile>
         </v-list-item>
       </v-list>
@@ -31,7 +33,7 @@
           <v-list-item v-for="item in items" :key="item" v-if='!item.disabled'>
             <v-list-tile nuxt :to='item.to'>
               <v-list-tile-action>
-                <v-icon light>{{ item.icon }}</v-icon>
+                <v-icon dark>{{ item.icon }}</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -41,16 +43,22 @@
         <!-- </nuxt-link> -->
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed light>
+    <v-toolbar fixed dark prominent>
       <v-toolbar-side-icon class="hidden-md-and-up" light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
+      <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-toolbar-item v-for="item in items" :key="item" nuxt :to='item.to' :target='item.target' ripple v-if='!item.disabled'>
+        <v-btn flat v-for="item in items" :key="item" :to='item.to' :target='item.target' ripple v-if='!item.disabled'>
           {{ item.title }}
-        </v-toolbar-item>
+        </v-btn>
+        <v-btn flat ripple>
+          <a class="white--text" :href="youtube.to" :target='youtube.target'>
+            {{ youtube.title }}
+          </a>
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-  </v-app>
+  </div>
 </template>
 
 <style lang="scss" src="./navigation.scss"></style>
@@ -96,15 +104,15 @@ export default {
           icon: 'account_balance',
           to: '/historical',
           disabled: true
-        },
-        {
-          title: 'Youtube',
-          icon: 'videocam',
-          target: '_blank',
-          to: 'https://www.youtube.com/c/classicminidiy',
-          disabled: false
         }
       ],
+      youtube: {
+        title: 'Youtube',
+        icon: 'videocam',
+        target: '_blank',
+        to: 'https://www.youtube.com/c/classicminidiy',
+        disabled: false
+      },
       mini: false,
       right: null
     };

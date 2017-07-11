@@ -17,15 +17,15 @@
               'primary': e2 === 3
             }"
           >
-            <v-btn flat light @click.native="e2 = 1" :value="e2 === 1">
+            <v-btn flat dark @click.native="e2 = 1" :value="e2 === 1">
               <span>Torque Settings</span>
               <v-icon>build</v-icon>
             </v-btn>
-            <!-- <v-btn flat light @click.native="e2 = 2" :value="e2 === 2">
+            <!-- <v-btn flat dark @click.native="e2 = 2" :value="e2 === 2">
               <span>Technical Documents</span>
               <v-icon>library_books</v-icon>
             </v-btn> -->
-            <v-btn flat light @click.native="e2 = 3" :value="e2 === 3">
+            <v-btn flat dark @click.native="e2 = 3" :value="e2 === 3">
               <span>Wiring Diagrams</span>
               <v-icon>battery_charging_full</v-icon>
             </v-btn>
