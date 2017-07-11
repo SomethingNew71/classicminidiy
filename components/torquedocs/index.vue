@@ -58,7 +58,8 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex xs12 offset-sm1 sm10 md5 class="pt-5">
+    <!-- <v-flex xs12 offset-sm1 sm10 md5 class="pt-5"> -->
+    <v-flex xs12 offset-sm1 sm10 class="mt-4">
       <v-card>
         <v-card-title class="pl-4 pt-4">
           <h3 class="title">
@@ -92,7 +93,7 @@
         </v-data-table>
       </v-card>
     </v-flex>
-    <v-flex xs12 offset-sm1 sm10 md5 class="pt-5 electrical-margin">
+    <!-- <v-flex xs12 offset-sm1 sm10 md5 class="pt-5 electrical-margin">
       <v-card>
         <v-card-title class="pl-4 pt-4">
           <h3 class="title">
@@ -125,7 +126,7 @@
           </template>
         </v-data-table>
       </v-card>
-    </v-flex>
+    </v-flex> -->
     <v-flex xs12 offset-md1 md10 class="mt-4">
       <v-card>
         <v-card-title class="pl-4 pt-4">
@@ -200,30 +201,30 @@ export default {
       headers: [
         {
           text: 'Fastener',
-          left: true,
+          align: 'left',
           sortable: false,
-          value: 'fastener'
+          value: 'name'
         },
         { text: 'Torque (lb/ft)', value: 'lbft' },
         { text: 'Torque (Nm)', value: 'nm' },
-        { text: 'Notes', value: 'notes' }
+        { text: 'Notes', value: 'notes', align: 'center' }
       ],
       specialHeaders: [
         {
           text: 'Fastener',
-          left: true,
+          align: 'left',
           sortable: false,
-          value: 'fastener'
+          value: 'name'
         },
-        { text: 'Torque (lb/In)', value: 'lbin' },
+        { text: 'Torque (lb/in)', value: 'lbin' },
         { text: 'Torque (Nm)', value: 'nm' }
       ],
       specialHeaders2: [
         {
           text: 'Fastener',
-          left: true,
+          align: 'left',
           sortable: false,
-          value: 'fastener'
+          value: 'name'
         },
         { text: 'Torque (lb/ft)', value: 'lbft' },
         { text: 'Torque (Nm)', value: 'nm' }

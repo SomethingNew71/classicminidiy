@@ -28,7 +28,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['vuetify'],
+    vendor: ['vuetify', 'axios'],
     /*
     ** Run ESLINT on save
     */
