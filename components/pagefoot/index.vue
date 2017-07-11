@@ -2,16 +2,16 @@
   <v-footer class="pa-4 secondary footer">
     <div>
       <a class="social-link" target='_blank' :href='urls.youtube'>
-        <span class="icon"><i class="fa fa-youtube"></i></span>
+        <span class="icon"><i class="white--text fa fa-youtube"></i></span>
       </a>
       <a class="social-link" target='_blank' :href='urls.facebook'>
-        <span class="icon"><i class="fa fa-facebook"></i></span>
+        <span class="icon"><i class="white--text fa fa-facebook"></i></span>
       </a>
       <a class="social-link"  target='_blank' :href='urls.instagram'>
-        <span class="icon"><i class="fa fa-instagram"></i></span>
+        <span class="icon"><i class="white--text fa fa-instagram"></i></span>
       </a>
       <a class="social-link" target='_blank' :href='urls.github'>
-        <span class="icon"><i class="fa fa-github"></i></span>
+        <span class="icon"><i class="white--text fa fa-github"></i></span>
       </a>
     </div>
     <v-spacer></v-spacer>
