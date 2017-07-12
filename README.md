@@ -19,6 +19,6 @@ Classic Mini DIY is the best place to find all the reference material, how to vi
 
 ##### Technologies Us
 
-| [![VueJS](https://github.com/vuejs.png?size=100)](https://vuejs.org/)  | [![NuxtJS](https://nuxtjs.org/_nuxt/img/logo_nav.171838c.png)](https://nuxtjs.org/) | [![VuetifyJS](https://camo.githubusercontent.com/f4d599316109217d47b2fd75ce6d6a39b8756990/68747470733a2f2f696d6167652e6962622e636f2f635a673233512f762e706e67)](https://vuetifyjs.com/) |
-|:---:|:---:|:---:|
-| https://vuejs.org/ | https://nuxtjs.org/ | https://vuetifyjs.com/ |
+| [![VueJS](https://github.com/vuejs.png?size=100)](https://vuejs.org/)  | [![NuxtJS](https://nuxtjs.org/_nuxt/img/logo_nav.171838c.png)](https://nuxtjs.org/) | [![VuetifyJS](https://camo.githubusercontent.com/f4d599316109217d47b2fd75ce6d6a39b8756990/68747470733a2f2f696d6167652e6962622e636f2f635a673233512f762e706e67)](https://vuetifyjs.com/) | [![Heroku](https://s.gravatar.com/avatar/2617ee46b4f339b57484b735b05fd34f?size=100&default=retro)](https://heroku.com/) |  
+|:---:|:---:|:---:|:---:|
+| https://vuejs.org/ | https://nuxtjs.org/ | https://vuetifyjs.com/ | https://heroku.com/
