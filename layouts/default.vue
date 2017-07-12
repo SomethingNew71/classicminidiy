@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app standalone>
     <navigation/>
     <main>
       <nuxt/>

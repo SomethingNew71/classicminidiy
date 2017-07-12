@@ -6,7 +6,6 @@
       :mini-variant="mini"
       dark
       overflow
-      absolute
     >
       <v-list class="pa-0">
         <v-list-item v-if="mini">
