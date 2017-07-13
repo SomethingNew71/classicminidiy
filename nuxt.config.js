@@ -16,8 +16,8 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ],
     script: [
-      { src: 'https://use.fontawesome.com/3d93f1904c.js' },
-      { src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' }
+      { async, src: 'https://use.fontawesome.com/3d93f1904c.js' },
+      { async, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' }
     ]
   },
   /*
