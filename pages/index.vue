@@ -47,9 +47,10 @@
         <v-flex xs12 class="mission-header text-xs-center">
           <v-icon large class="pb-2 red--text" fa>youtube-play</v-icon>
           <p class="subheading grey--text lighten-2 ma-0">Check us out on YouTube</p>
+          <ytcounter></ytcounter>
           <h2 class="black--text darken-3">Latest Videos</h2>
         </v-flex>
-        <v-flex xs12 offset-md3 md6>
+        <v-flex xs12 offset-md3 md6 class="pt-4">
           <div class='embed-container'>
             <iframe width='1280' height='720' src='https://www.youtube.com/embed/videoseries?list=PLC6pySlMGdyTr5OXpF7w726LzHPLLfimi' frameborder='0' allowfullscreen>
             </iframe>
@@ -82,7 +83,7 @@
 </template>
 
 <script>
-// import footer from '~components/footer';
+import ytcounter from '~components/ytcounter';
 
 export default {
   data () {
@@ -96,7 +97,7 @@ export default {
     };
   },
   components: {
-    // footer
+    ytcounter
   }
 };
 </script>

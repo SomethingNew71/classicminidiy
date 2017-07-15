@@ -45,6 +45,8 @@ module.exports = {
   },
   plugins: [
     { src: '~plugins/vuetify.js' },
+    // { src: '~plugins/axios.js' },
+    { src: '~plugins/vue-resource.js' },
     { src: '~plugins/analytics.js', ssr: false },
     { src: '~plugins/ads.js', ssr: false }
   ],
