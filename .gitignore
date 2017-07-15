@@ -9,3 +9,7 @@ npm-debug.log
 
 # Nuxt generate
 dist
+
+# Yarn and NPM Lock because heroku is a bastard
+yarn.lock
+package-lock.json
