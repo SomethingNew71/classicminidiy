@@ -164,25 +164,7 @@
         </v-data-table>
       </v-card>
     </v-flex>
-    <v-flex xs10 offset-xs1 class="pt-4">
-      <v-card>
-        <v-card-text>
-          <!-- CMDIY - Torque Specs 2 -->
-          <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-0523971861051053"
-             data-ad-slot="8531404996"
-             data-ad-format="auto"></ins>
-          <script>
-          /* eslint-disable */
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          /* eslint-enable */
-          </script>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-    <v-flex xs1></v-flex>
-</v-layout>
+  </v-layout>
 </template>
 
 <style lang="scss" src="./torquedocs.scss"></style>

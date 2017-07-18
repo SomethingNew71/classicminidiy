@@ -26,7 +26,7 @@
     "nuxt": "^1.0.0-alpha2",
     "vue-axios": "^2.0.2",
     "vue-server-renderer": "latest",
-    "vuetify": "^0.13.1"
+    "vuetify": "^0.14.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
