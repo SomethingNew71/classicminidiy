@@ -18,7 +18,7 @@
         <v-list-item>
           <v-list-tile avatar tag="div">
             <v-list-tile-avatar>
-              <img src="components/navigation/mini.png" />
+              <img src="/components/navigation/mini.png" />
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>Menu</v-list-tile-title>
@@ -28,7 +28,6 @@
       </v-list>
       <v-list class="pt-0" dense>
         <v-divider light></v-divider>
-        <!-- <nuxt-link > -->
           <v-list-item v-for="item in items" :key="item" v-if='!item.disabled'>
             <v-list-tile nuxt :to='item.to'>
               <v-list-tile-action>
@@ -39,7 +38,6 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list-item>
-        <!-- </nuxt-link> -->
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed dark prominent>
@@ -47,10 +45,10 @@
       <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat nuxt v-for="item in items" :key="item" :to='item.to' :target='item.target' ripple v-if='!item.disabled'>
+        <v-btn flat small ripple nuxt v-for="item in items" :key="item" :to='item.to' :target='item.target' v-if='!item.disabled'>
           {{ item.title }}
         </v-btn>
-        <v-btn flat ripple :href='youtube.to' tag='a' :target='youtube.target'>
+        <v-btn flat small ripple :href='youtube.to' tag='a' :target='youtube.target'>
           {{ youtube.title }}
         </v-btn>
       </v-toolbar-items>
@@ -80,7 +78,7 @@ export default {
         },
         {
           title: 'Manuals',
-          icon: 'settings',
+          icon: 'collections_bookmark',
           to: '/manuals',
           disabled: false
         },
@@ -92,8 +90,8 @@ export default {
         },
         {
           title: 'Tech Reference',
-          icon: 'settings',
-          to: '/technical',
+          icon: 'perm_data_setting',
+          to: '/technical/torque',
           disabled: false
         },
         {

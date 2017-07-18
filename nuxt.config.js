@@ -10,9 +10,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Classic Mini DIY Knowledgebase' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'favicon/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'favicon/favicon-16x16.png' },
-      { rel: 'icon', type: 'image/x-icon', href: 'favicon/favicon.ico' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ],
     script: [

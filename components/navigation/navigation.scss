@@ -11,3 +11,7 @@
     }
   }
 }
+
+.navigation-drawer--temporary, .navigation-drawer--is-mobile:not(.navigation-drawer--permanent) {
+  z-index: 5 !important;
+}
