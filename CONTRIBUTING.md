@@ -84,8 +84,8 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 * Fill in [the required template](PULL_REQUEST_TEMPLATE.md)
 * Do not include issue numbers in the PR title
 * Include screenshots and animated GIFs in your pull request whenever possible.
-* All code must pass eslint linting and will be run through Codacy to check compliance against our styleguides.
-* All code must support Edge, Chrome, and Safari
+* All code must pass eslint linting and will be run through Codacy to check compliance against our style guides.
+* All code must support Edge, Chrome, Firefox and Safari
 * End all files with a newline
 
 ## Styleguides
@@ -107,7 +107,6 @@ Example: `git pull --rebase origin master`
     * :memo: `:memo:` when writing docs
     * :bug: `:bug:` when fixing a bug
     * :fire: `:fire:` when removing code or files
-    * :lock: `:lock:` when dealing with security
     * :arrow_up: `:arrow_up:` when upgrading dependencies
     * :arrow_down: `:arrow_down:` when downgrading dependencies
     * :shirt: `:shirt:` when removing linter warnings
