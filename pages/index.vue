@@ -6,7 +6,8 @@
         <h1 class="display-3 text-xs-center">Classic Mini DIY</h1>
         <h2 class="subheading text-xs-center white--text">The best place to find information on your Classic Mini Cooper</h2>
       </v-flex>
-      <v-flex xs12>
+      <v-flex xs12 class="text-xs-center">
+        <span><v-icon x-large class="white--text" fa>angle-down</v-icon></span>
       </v-flex>
     </v-layout>
     <v-container fluid>
