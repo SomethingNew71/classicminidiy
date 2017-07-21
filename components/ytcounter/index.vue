@@ -25,7 +25,7 @@
     },
     methods: {
       fetchData: function () {
-        const feed = 'https://app.hipposm.com/feed/5967b6eb552901318d554842';
+        const feed = 'https://cdn.hipposm.com/feed/5966e85a5529017368525965';
         const vueScope = this;
         axios.get(feed).then(function (response) {
           // Raw Youtube feed
