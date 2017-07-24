@@ -1,3 +1,9 @@
+<script src="https://d3tvtfb6518e3e.cloudfront.net/3/opbeat.min.js"
+    data-org-id="fc93e647eed8425ea822fbe713255ed1"
+    data-app-id="e1ca9c529f">
+</script>
+
+
 module.exports = {
   /*
   ** Headers of the page
@@ -16,6 +22,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ],
     script: [
+      { async: true, data-org-id: 'fc93e647eed8425ea822fbe713255ed1', data-app-id: 'e1ca9c529f', src: 'https://d3tvtfb6518e3e.cloudfront.net/3/opbeat.min.js' },
       { async: true, src: 'https://use.fontawesome.com/3d93f1904c.js' },
       { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' }
     ]
