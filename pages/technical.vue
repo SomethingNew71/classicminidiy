@@ -16,10 +16,10 @@
               <span>Torque Settings</span>
               <v-icon>build</v-icon>
             </v-btn>
-            <!-- <v-btn flat dark nuxt to="/technical/tech">
-              <span>Technical Documents</span>
-              <v-icon>library_books</v-icon>
-            </v-btn> -->
+            <v-btn flat dark nuxt to="/technical/colors">
+              <span>Color Codes</span>
+              <v-icon>color_lens</v-icon>
+            </v-btn>
             <v-btn flat dark nuxt to="/technical/electrical">
               <span>Wiring Diagrams</span>
               <v-icon>battery_charging_full</v-icon>
