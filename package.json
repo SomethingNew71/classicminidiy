@@ -23,22 +23,21 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "nuxt": "^1.0.0-alpha2",
-    "vue-axios": "^2.0.2",
+    "nuxt": "1.0.0-alpha2",
     "vue-server-renderer": "latest",
-    "vuetify": "^0.14.2"
+    "vuetify": "^0.13.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-polyfill": "^6.23.0",
     "css-loader": "^0.28.4",
-    "eslint": "^4.2.0",
+    "eslint": "^4.4.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-html": "^3.1.1",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "node-sass": "^4.5.3",

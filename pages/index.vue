@@ -90,7 +90,7 @@ export default {
   data () {
     return {
       patreon: 'https://www.patreon.com/classicminidiy',
-      sevenEnt: 'https://www.7ent.com',
+      sevenEnt: 'http://www.7ENT.com/store?af=cmdiy1959',
       youtube: 'https://www.youtube.com/c/classicminidiy',
       specs: '/specs',
       history: '/historical',
