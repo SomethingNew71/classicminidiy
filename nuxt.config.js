@@ -45,10 +45,10 @@ module.exports = {
     }
   },
   plugins: [
-    { src: '~plugins/plugins.js' },
-    { src: '~plugins/analytics.js', ssr: false }
+    { src: '~/plugins/plugins.js' },
+    { src: '~/plugins/analytics.js', ssr: false }
   ],
   css: [
-    { src: '~assets/styles/app.styl', lang: 'styl' }
+    { src: '~/assets/styles/app.styl', lang: 'styl' }
   ]
 };

@@ -11,7 +11,7 @@
 
 <style lang="scss" src="./specs.scss"></style>
 <script>
-import bodies from '~components/bodies';
+import bodies from '~/components/bodies';
 
 export default {
   components: {

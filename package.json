@@ -23,9 +23,9 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "nuxt": "1.0.0-alpha2",
+    "nuxt": "1.0.0-rc4",
     "vue-server-renderer": "latest",
-    "vuetify": "^0.13.0"
+    "vuetify": "^0.14.11"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -35,7 +35,7 @@
     "eslint": "^4.4.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-html": "^3.2.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
