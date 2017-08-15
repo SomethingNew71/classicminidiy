@@ -1,5 +1,5 @@
 /* eslint-disable */
-import router from '~router'
+// import router from '~/router'
 /*
 ** Only run on client-side and only in production mode
 */

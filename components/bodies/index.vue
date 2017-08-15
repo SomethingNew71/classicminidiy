@@ -129,7 +129,7 @@
 <style lang="scss" src="./bodies.scss"></style>
 
 <script>
-import engines from '~components/engines';
+import engines from '~/components/engines';
 
 export default {
   components: {

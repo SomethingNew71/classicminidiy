@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import ytcounter from '~components/ytcounter';
+import ytcounter from '~/components/ytcounter';
 
 export default {
   data () {
