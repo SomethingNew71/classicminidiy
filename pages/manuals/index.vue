@@ -33,7 +33,9 @@
                     </div>
                     <v-card-actions class="pl-0 mt-2">
                       <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
-                      <v-btn :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="red seven-mini" dark>Seven Mini</v-btn>
+                    </v-card-actions>
+                    <v-card-actions class="pl-0 pt-0 ml-0">
+                      <v-btn small :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="ml-0 red seven-mini" dark>Seven Mini</v-btn>
                     </v-card-actions>
                   </v-flex>
                   <v-flex xs5>
@@ -62,7 +64,9 @@
                     </div>
                     <v-card-actions class="pl-0 mt-2">
                       <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
-                      <v-btn :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="red seven-mini" dark>Seven Mini</v-btn>
+                    </v-card-actions>
+                    <v-card-actions class="pl-0 pt-0 ml-0">
+                      <v-btn small :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="ml-0 red seven-mini" dark>Seven Mini</v-btn>
                     </v-card-actions>
                   </v-flex>
                   <v-flex xs5>
@@ -113,7 +117,7 @@
             1: {
               'name': 'Haynes Mini - 1959 to 1969',
               'author': 'John Haynes',
-              'urlSeven': '',
+              'urlSeven': 'http://www.7ENT.com/products/haynes-repair-manual-59-69-sbk0002.html?af=cmdiy1959',
               'urlAmazon': 'http://amzn.to/2s8NTEJ',
               'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0856965278&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
               'imgFrame': '<a href="https://www.amazon.com/Haynes-Mini-Owners-Workshop-Manual/dp/0856965278/ref=as_li_ss_il?ie=UTF8&qid=1497403488&sr=8-4&keywords=Mini+(1959+-+1969)+haynes&linkCode=li3&tag=classicmini0a-20&linkId=d4dedc0e81a46e63e0567c7190a93ad1" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0856965278&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=0856965278" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
@@ -122,7 +126,7 @@
             2: {
               'name': 'Haynes Mini - 1969 to 2001',
               'author': 'John S Mead',
-              'urlSeven': '',
+              'urlSeven': 'http://www.7ENT.com/products/haynes-repair-manual-1969-2001-sbk0023.html?af=cmdiy1959',
               'urlAmazon': 'http://amzn.to/2slJsZ8',
               'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0857339656&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
               'imgFrame': '<a href="https://www.amazon.com/Haynes-Registration-Service-Repair-Manual/dp/0857339656/ref=as_li_ss_il?ie=UTF8&qid=1497396942&sr=8-3&keywords=Mini+Repair+manual&linkCode=li3&tag=classicmini0a-20&linkId=b2121622386f905e03457864c07ce73b" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0857339656&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=0857339656" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />" />',
@@ -140,7 +144,7 @@
             4: {
               'name': 'Mini: Purchase and Restoration Guide',
               'author': 'Lindsay Porter',
-              'urlSeven': '',
+              'urlSeven': 'http://www.7ENT.com/products/haynes-mini-restoration-manual-sbk0044.html?af=cmdiy1959',
               'urlAmazon': 'http://amzn.to/2smk1Xs',
               'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859604404&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
               'imgFrame': '<a href="https://www.amazon.com/Mini-Purchase-Restoration-Lindsay-Porter/dp/1859604404/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-1&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=6c84288fe26c533e4388c10980311786" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859604404&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859604404" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
@@ -149,7 +153,7 @@
             5: {
               'name': 'Mini Renovation Manual - 1986 to 2000',
               'author': 'Paul Hardiman',
-              'urlSeven': '',
+              'urlSeven': 'http://www.7ENT.com/products/mini-renovation-manual-1986-2000-sbk0209.html?af=cmdiy1959',
               'urlAmazon': 'http://amzn.to/2slQ6P1',
               'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1844254240&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
               'imgFrame': '<a href="https://www.amazon.com/Mini-Renovation-Manual-1986-2000-Manuals/dp/1844254240/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-3&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=3b3d7ff756af1373ed670b266e5bae5e" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1844254240&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1844254240" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
@@ -158,7 +162,7 @@
             6: {
               'name': 'Mini Performance Manual',
               'author': 'Tim Mundy',
-              'urlSeven': '',
+              'urlSeven': 'http://www.7ENT.com/products/mini-performance-manual-sbk0223.html?af=cmdiy1959',
               'urlAmazon': 'http://amzn.to/2rp5Hho',
               'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859608809&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
               'imgFrame': '<a href="https://www.amazon.com/Mini-Performance-Manual-Haynes/dp/1859608809/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-4&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=264ff7a930a5319d1d8738b85ca4b3ef" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859608809&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859608809" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
@@ -187,7 +191,7 @@
             2: {
               'name': 'Tuning the A-Series Engine',
               'author': 'David Vizard',
-              'urlSeven': '',
+              'urlSeven': 'http://www.7ENT.com/products/tuning-the-a-series-engine-sbk0001.html?af=cmdiy1959',
               'urlAmazon': 'http://amzn.to/2t3cRoR',
               'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859606202&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
               'imgFrame': '<a href="https://www.amazon.com/Tuning-Engine-Definitive-Performance-Economy/dp/1859606202/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1859606202&pd_rd_r=THVAMSQ4PVRSSBE7STXP&pd_rd_w=U0WnN&pd_rd_wg=Idzj1&psc=1&refRID=THVAMSQ4PVRSSBE7STXP&linkCode=li3&tag=classicmini0a-20&linkId=1cfae556a49124602a87095d62b176f1" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859606202&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859606202" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
