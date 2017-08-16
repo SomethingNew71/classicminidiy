@@ -8,12 +8,9 @@
       <v-select
         v-bind:items="items"
         v-model="e1"
-        label="Select"
-        :hint="`Choose a primary color`"
-        persistent-hint
-        single-line
-        bottom
-        v-on:change='fetchData'
+        label="Start typing your color name"
+        autocomplete
+        @input='fetchData()'
       ></v-select>
     </v-flex>
   </v-layout>
@@ -25,15 +22,18 @@
 import axios from 'axios';
 
 export default {
-  data: function () {
+  data () {
     return {
       e1: 'Blue',
       items: ['Beige', 'Black', 'Blue', 'Bronze', 'Brown', 'Gold', 'Green', 'Grey', 'Maroon', 'Orange', 'Pink', 'Purple', 'Red', 'Silver', 'Turquoise', 'White', 'Yellow'],
       activeColors: {}
     };
   },
+  created () {
+    this.fetchData();
+  },
   methods: {
-    fetchData: function () {
+    fetchData () {
       const baseFeed = 'http://mini-colours.co.uk/api.php/';
       const vueScope = this;
       let complexFeed;
