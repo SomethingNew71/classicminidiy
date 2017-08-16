@@ -5,28 +5,28 @@
         <img class="is-hidden-mobile pt-5 mt-5" src="/pages/home/logo.png" alt="Classic Mini DIY Logo image">
         <h1 class="display-3 text-xs-center">Classic Mini DIY</h1>
         <h2 class="subheading text-xs-center white--text">The best place to find information on your Classic Mini Cooper</h2>
-      </v-flex>
-      <v-flex xs12 class="text-xs-center">
-        <span><v-icon x-large class="white--text" fa>angle-down</v-icon></span>
+        <div class="text-xs-center">
+          <v-icon x-large class="white--text">fa-angle-down</v-icon>
+        </div>
       </v-flex>
     </v-layout>
     <v-container fluid>
       <v-layout row wrap class="mission pt-5 pb-4">
         <v-flex xs12 class="mission-header text-xs-center">
-          <v-icon medium class="pb-2 primary--text" fa>certificate</v-icon>
+          <v-icon medium class="pb-2 primary--text">fa-certificate</v-icon>
           <p class="subheading grey--text lighten-2 ma-0">Keeping the classics alive</p>
           <h2 class="black--text darken-3">Our Mission</h2>
         </v-flex>
       </v-layout>
       <v-layout row wrap class="mb-4 pt-3 text-xs-center mission-list">
         <v-flex xs12 md4 class="mb-4">
-          <v-icon fa large class="red--text mb-3">youtube-play</v-icon>
+          <v-icon large class="red--text mb-3">fa-youtube-play</v-icon>
           <h3 class="headline">Create DIY Videos</h3>
           <p>Classic Mini DIY first and foremost is about creating DIY videos for new and inexperiences Classic Mini owners to use and reference when fixing their own cars.</p>
           <v-btn class="red" tag='a' :href='youtube' dark target='_blank'>Visit us on Youtube</v-btn>
         </v-flex>
         <v-flex xs12 md4 class="center mb-4">
-          <v-icon fa medium class="primary--text mb-3 mt-1">book</v-icon>
+          <v-icon medium class="primary--text mb-3 mt-1">fa-book</v-icon>
           <h3 class="headline">Consolidate Mini Knowledge</h3>
           <p>
             As the channel expanded we started to realize that while there are many good sources of mini information out there, there is no single repository of technical and helpful knowledge for new mini owners. So with countless hours of work we have built just that.
@@ -36,7 +36,7 @@
           <v-btn primary light router :to="manuals">Manuals</v-btn> -->
         </v-flex>
         <v-flex xs12 md4 class="mb-4">
-          <v-icon fa large class="green--text mb-3">tree</v-icon>
+          <v-icon large class="green--text mb-3">fa-tree</v-icon>
           <!-- <img src="/pages/home/grow.png" alt=""> -->
           <h3 class="headline">Keep the Mini World Growing</h3>
           <p>
@@ -46,7 +46,7 @@
       </v-layout>
       <v-layout row wrap class="latest-video">
         <v-flex xs12 class="mission-header text-xs-center">
-          <v-icon large class="pb-2 red--text" fa>youtube-play</v-icon>
+          <v-icon large class="pb-2 red--text">fa-youtube-play</v-icon>
           <p class="subheading grey--text lighten-2 ma-0">Check us out on YouTube</p>
           <ytcounter></ytcounter>
           <h2 class="black--text darken-3">Latest Videos</h2>
@@ -61,7 +61,7 @@
       <v-layout row wrap class="sponsors pt-5 pb-5">
         <v-layout row wrap class="text-xs-center">
           <v-flex xs12 class="pb-5">
-            <v-icon large class="pb-2 primary--text" fa>handshake-o</v-icon>
+            <v-icon large class="pb-2 primary--text">fa-handshake-o</v-icon>
             <p class="subheading grey--text lighten-2 ma-0">All the wonderful people who help support this channel</p>
             <h2 class="black--text darken-3">Our Sponsors</h2>
           </v-flex>
