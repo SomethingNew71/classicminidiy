@@ -1,19 +1,51 @@
 <template>
-  <v-layout wrap transition="slide-x-transition">
-    <v-flex xs12>
-      <h2 class="headline pl-5 pt-4">Color Picker</h2>
-    </v-flex>
+  <div class="colors-page">
+    <v-layout wrap transition="slide-x-transition">
+      <v-flex xs12>
+        <h2 class="headline pl-5 pt-4">Color Picker</h2>
+      </v-flex>
 
-    <v-flex offset-xs4 xs4>
-      <v-select
-        v-bind:items="items"
-        v-model="e1"
-        label="Start typing your color name"
-        autocomplete
-        @input='fetchData()'
-      ></v-select>
-    </v-flex>
-  </v-layout>
+      <v-flex offset-xs4 xs4>
+        <v-select
+          v-bind:items="items"
+          v-model="e1"
+          label="Start typing your color name"
+          autocomplete
+          @input='fetchData()'
+        ></v-select>
+      </v-flex>
+    </v-layout>
+    <v-layout>
+      <v-flex offset-xs1 xs10>
+        <v-layout row wrap class="color-cards">
+          <!-- <v-flex xs12 sm6 md4 lg3 class="py-2" :key="colour" v-for="colour in activeColors.colour.records">
+            <v-card hover class="">
+              <v-container fluid grid-list-lg>
+                <v-layout row>
+                  <v-flex xs7>
+                    <div>
+                      <div class="pl-0 subheader">{{colour[2]}}</div>
+                      <div class="caption">{{ colour[3] }}</div>
+                      <div class="caption">{{ colour[4] }}</div>
+                      <div class="caption">{{ colour[5] }}</div>
+                    </div>
+                  </v-flex>
+                  <v-flex xs5>
+                    <v-card-media
+                      :src="book.imgSource"
+                      height="150px"
+                      contain
+                    >
+                    </v-card-media>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card>
+          </v-flex> -->
+        </v-layout>
+      </v-flex>
+    </v-layout>
+  </div>
 </template>
 
 <style lang="scss" src="./colors.scss"></style>

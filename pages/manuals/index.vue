@@ -22,7 +22,7 @@
     <v-layout>
       <v-flex offset-xs1 xs10>
         <v-layout row wrap class="manuals-section" v-bind:class="{'is-active': manualsActive}">
-          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="book" v-for="book in books.workshop">
+          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="index" v-for="(book, index) in books.workshop">
             <v-card hover class="">
               <v-container fluid grid-list-lg>
                 <v-layout row>
@@ -53,7 +53,7 @@
         </v-layout>
 
         <v-layout row wrap class="technical" v-bind:class="{'is-active': techActive}">
-          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="book" v-for="book in books.technical">
+          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="index" v-for="(book, index)  in books.technical">
             <v-card hover class="">
               <v-container fluid grid-list-lg>
                 <v-layout row>

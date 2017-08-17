@@ -14,7 +14,7 @@
       </v-flex>
       <v-flex xs12>
         <v-list class="pl-4" dense>
-          <template v-for="diagram in diagrams.positiveGround">
+          <div :key="index" v-for="(diagram, index) in diagrams.positiveGround">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
                 <v-icon>picture_as_pdf</v-icon>
@@ -26,7 +26,7 @@
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-          </template>
+          </div>
         </v-list>
       </v-flex>
       <!-- NEGATIVE GROUND SECTION -->
@@ -35,7 +35,7 @@
       </v-flex>
       <v-flex xs12>
         <v-list class="pl-4" dense>
-          <template v-for="diagram in diagrams.negativeGround">
+          <div :key="index" v-for="(diagram, index) in diagrams.negativeGround">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
                 <v-icon>picture_as_pdf</v-icon>
@@ -47,7 +47,7 @@
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-          </template>
+          </div>
         </v-list>
       </v-flex>
       <!-- BRITISH LEYLAND SECTION -->
@@ -56,7 +56,7 @@
       </v-flex>
       <v-flex xs12>
         <v-list class="pl-4" dense>
-          <template v-for="diagram in diagrams.britishLeyland">
+          <div :key="index" v-for="(diagram, index) in diagrams.britishLeyland">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
                 <v-icon>picture_as_pdf</v-icon>
@@ -68,7 +68,7 @@
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-          </template>
+          </div>
         </v-list>
       </v-flex>
       <!-- EARLY ROVER SECTION -->
@@ -77,7 +77,7 @@
       </v-flex>
       <v-flex xs12>
         <v-list class="pl-4" dense>
-          <template v-for="diagram in diagrams.earlyRover">
+          <div :key="index" v-for="(diagram, index) in diagrams.earlyRover">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
                 <v-icon>picture_as_pdf</v-icon>
@@ -89,7 +89,7 @@
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-          </template>
+          </div>
         </v-list>
       </v-flex>
       <!-- LATER ROVER SECTION -->
@@ -98,7 +98,7 @@
       </v-flex>
       <v-flex xs12>
         <v-list class="pl-4" dense>
-          <template v-for="diagram in diagrams.laterRover">
+          <div :key="index" v-for="(diagram, index) in diagrams.laterRover">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
                 <v-icon>picture_as_pdf</v-icon>
@@ -110,7 +110,7 @@
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-          </template>
+          </div>
         </v-list>
       </v-flex>
       <!-- HORNET ELF SECTION -->
@@ -119,7 +119,7 @@
       </v-flex>
       <v-flex xs12>
         <v-list class="pl-4" dense>
-          <template v-for="diagram in diagrams.hornetElf">
+          <div :key="index" v-for="(diagram, index) in diagrams.hornetElf">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
                 <v-icon>picture_as_pdf</v-icon>
@@ -131,7 +131,7 @@
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-          </template>
+          </div>
         </v-list>
       </v-flex>
       <!-- AUS MINI SECTION -->
@@ -140,7 +140,7 @@
       </v-flex>
       <v-flex xs12>
         <v-list class="pl-4" dense>
-          <template v-for="diagram in diagrams.ausMinis">
+          <div :key="index" v-for="(diagram, index) in diagrams.ausMinis">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
                 <v-icon>picture_as_pdf</v-icon>
@@ -152,7 +152,7 @@
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-          </template>
+          </div>
         </v-list>
       </v-flex>
     </v-flex>

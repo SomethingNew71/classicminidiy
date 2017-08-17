@@ -31,7 +31,7 @@
       </v-list>
       <v-list class="pt-0" dense>
         <v-divider light></v-divider>
-          <v-list-item v-for="item in items" :key="item" v-if='!item.disabled'>
+          <v-list-item v-for="(item, index) in items" :key="index" v-if='!item.disabled'>
             <v-list-tile nuxt :to='item.to'>
               <v-list-tile-action>
                 <v-icon dark>{{ item.icon }}</v-icon>
@@ -48,7 +48,7 @@
       <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat small ripple nuxt v-for="item in items" :key="item" :to='item.to' :target='item.target' v-if='!item.disabled'>
+        <v-btn flat small ripple nuxt v-for="(item, index) in items" :key="index" :to='item.to' :target='item.target' v-if='!item.disabled'>
           {{ item.title }}
         </v-btn>
         <v-btn flat small ripple :href='youtube.to' tag='a' :target='youtube.target'>

@@ -30,7 +30,7 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
-    "babel-polyfill": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^0.28.4",
     "eslint": "^4.4.1",
     "eslint-config-standard": "^10.2.1",
