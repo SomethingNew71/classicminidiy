@@ -10,7 +10,7 @@
     "url": "git://github.com/SomethingNew71/classicminidiy.git"
   },
   "engines": {
-    "node": "8.1.4"
+    "node": "8.4.0"
   },
   "scripts": {
     "dev": "nuxt",
@@ -22,6 +22,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/google-analytics": "^1.0.0",
     "axios": "^0.16.2",
     "nuxt": "1.0.0-rc4",
     "vue-server-renderer": "latest",
