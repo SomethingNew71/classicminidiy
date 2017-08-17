@@ -59,7 +59,25 @@
   </div>
 </template>
 
-<style lang="scss" src="./navigation.scss"></style>
+<style lang="scss">
+.avatar img, .avatar .icon {
+  height: auto;
+  border-radius: 0;
+}
+
+.toolbar {
+  .btn__content {
+    a {
+      text-decoration: none;
+      z-index: 2;
+    }
+  }
+}
+
+.navigation-drawer--temporary, .navigation-drawer--is-mobile:not(.navigation-drawer--permanent) {
+  z-index: 5 !important;
+}
+</style>
 
 <script>
 export default {

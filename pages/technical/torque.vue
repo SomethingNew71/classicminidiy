@@ -167,7 +167,13 @@
   </v-layout>
 </template>
 
-<style lang="scss" src="./torquedocs.scss"></style>
+<style lang="scss">
+.electrical-margin {
+  @media only screen and (min-width : 1025px) {
+    margin-left: 0 !important;
+  }
+}
+</style>
 
 <script>
 export default {

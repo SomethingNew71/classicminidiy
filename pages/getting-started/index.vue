@@ -17,4 +17,14 @@
 <script>
 
 </script>
-<style lang="scss" src="./getting-started.scss"></style>
+<style lang="scss">
+.getting-started {
+  .hero {
+    background-image: url('/backgrounds/getting-started/start.jpg') !important;
+
+    .hero-body h1 {
+      padding-bottom: 9rem;
+    }
+  }
+}
+</style>

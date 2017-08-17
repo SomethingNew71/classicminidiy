@@ -33,7 +33,32 @@
   </section>
 </template>
 
-<style lang="scss" src="./technical/technical.scss"></style>
-<script>
-export default {};
-</script>
+<style lang="scss">
+.techincal {
+  .hero {
+    background-image: url('/pages/technical/hero.jpg') !important;
+    background-size: cover;
+    min-height: 19rem;
+
+    h1 {
+      color: #fff;
+    }
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .bottom-nav.bottom-nav--absolute.bottom-nav--active {
+    z-index: 1 !important;
+    position: relative;
+  }
+  .torques {
+    background-color: #F1F5F7;
+  }
+  .bottom-nav .btn--active .btn__content {
+    font-size: 12px;
+  }
+}
+
+</style>

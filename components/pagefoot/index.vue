@@ -21,7 +21,22 @@
   </v-footer>
 </template>
 
-<style lang="scss" src="./pagefoot.scss"></style>
+<style lang="scss">
+.footer {
+  text-align: center;
+
+  .social-link {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      color: #279BFB;
+    }
+  }
+}
+</style>
 
 <script>
 export default {

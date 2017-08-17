@@ -3,7 +3,7 @@
 </template>
 
 
-<style lang="scss" src="./engines.scss"></style>
+<style lang="scss"></style>
 
 <script>
 export default {
