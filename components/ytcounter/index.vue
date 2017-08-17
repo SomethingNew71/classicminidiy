@@ -7,7 +7,15 @@
   </v-flex>
 </template>
 
-<style lang="scss" src="./ytcounter.scss"></style>
+<style lang="scss">
+.youtube-counter {
+  h3 {
+    span {
+      color: #F44336;
+    }
+  }
+}
+</style>
 
 <script>
   import axios from 'axios';

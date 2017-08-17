@@ -176,7 +176,25 @@
   </v-layout>
 </template>
 
-<style lang="scss" src="./electricaldocs.scss"></style>
+<style lang="scss">
+  .electrical {
+    h3 {
+      text-decoration: underline;
+    }
+    aside.title,
+    aside.subheader {
+      height: 30px;
+    }
+    aside a {
+      text-decoration: none;
+    }
+    ul {
+      &.list {
+        background: transparent !important;
+      }
+    }
+  }
+</style>
 
 <script>
 export default {

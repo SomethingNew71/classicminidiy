@@ -126,7 +126,28 @@
   </v-layout>
 </template>
 
-<style lang="scss" src="./bodies.scss"></style>
+<style lang="scss">
+.bodies {
+  h2, p {
+    font-weight: 200;
+  }
+  .columns.saloon,
+  .columns.estate,
+  .columns.elf,
+  .columns.moke, {
+    display: none;
+
+    &.is-active {
+      display: flex;
+    }
+  }
+
+  .panel-block strong {
+    padding-right: .5rem;
+  }
+}
+
+</style>
 
 <script>
 import engines from '~/components/engines';

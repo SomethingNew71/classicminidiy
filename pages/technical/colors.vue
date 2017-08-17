@@ -48,7 +48,9 @@
   </div>
 </template>
 
-<style lang="scss" src="./colors.scss"></style>
+<style lang="scss">
+
+</style>
 
 <script>
 import axios from 'axios';

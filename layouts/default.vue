@@ -20,4 +20,21 @@ export default {
 };
 </script>
 
-<style lang="scss" src="../assets/styles/app.scss"></style>
+<style lang="scss">
+// Styles applied to the entire app.
+main {
+  padding-top: 3rem;
+}
+
+// Helpers for some minor bugs in Vuetify right now
+.icon--medium {
+  font-size: 2rem !important;
+}
+.icon--large {
+  font-size: 2.5rem !important;
+}
+
+.icon--x-large {
+  font-size: 3rem !important;
+}
+</style>

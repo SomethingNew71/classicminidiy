@@ -6,7 +6,9 @@
   </v-layout>
 </template>
 
-<style lang="scss" src="./techdocs.scss"></style>
+<style lang="scss">
+
+</style>
 
 <script>
 export default {
