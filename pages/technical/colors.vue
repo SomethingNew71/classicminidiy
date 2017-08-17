@@ -15,25 +15,37 @@
         ></v-select>
       </v-flex>
     </v-layout>
-    <v-layout>
+    <v-layout v-if="this.isLoading">
+      <v-flex xs12 class="text-xs-center">
+        <v-progress-circular indeterminate v-bind:size="50" class="primary--text"></v-progress-circular>
+      </v-flex>
+    </v-layout>
+    <v-layout v-if="!this.isLoading">
       <v-flex offset-xs1 xs10>
         <v-layout row wrap class="color-cards">
-          <!-- <v-flex xs12 sm6 md4 lg3 class="py-2" :key="colour" v-for="colour in activeColors.colour.records">
+          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="index" v-for="(colour, index) in activeColors.colour.records">
             <v-card hover class="">
               <v-container fluid grid-list-lg>
                 <v-layout row>
                   <v-flex xs7>
                     <div>
-                      <div class="pl-0 subheader">{{colour[2]}}</div>
-                      <div class="caption">{{ colour[3] }}</div>
+                      <div class="pb-2 pt-3 title">{{colour[2]}}</div>
+                      <div class="subheading">{{ colour[3] }}</div>
                       <div class="caption">{{ colour[4] }}</div>
                       <div class="caption">{{ colour[5] }}</div>
                     </div>
                   </v-flex>
                   <v-flex xs5>
                     <v-card-media
-                      :src="book.imgSource"
-                      height="150px"
+                      :src="`http://mini-colours.co.uk/images/swatches/${colour[2]}.jpg`"
+                      height="130px"
+                      v-if="colour[6]"
+                    >
+                    </v-card-media>
+                    <v-card-media
+                      src="http://mini-colours.co.uk/images/swatches/no_swatch.jpg"
+                      height="130px"
+                      v-if="!colour[6]"
                       contain
                     >
                     </v-card-media>
@@ -41,7 +53,7 @@
                 </v-layout>
               </v-container>
             </v-card>
-          </v-flex> -->
+          </v-flex>
         </v-layout>
       </v-flex>
     </v-layout>
@@ -49,7 +61,9 @@
 </template>
 
 <style lang="scss">
-
+  .colors-page {
+    min-height: 600px;
+  }
 </style>
 
 <script>
@@ -58,9 +72,14 @@ import axios from 'axios';
 export default {
   data () {
     return {
-      e1: 'Blue',
+      isLoading: true,
+      e1: 'Green',
       items: ['Beige', 'Black', 'Blue', 'Bronze', 'Brown', 'Gold', 'Green', 'Grey', 'Maroon', 'Orange', 'Pink', 'Purple', 'Red', 'Silver', 'Turquoise', 'White', 'Yellow'],
-      activeColors: {}
+      activeColors: {
+        colour: {
+          records: {}
+        }
+      }
     };
   },
   created () {
@@ -68,6 +87,7 @@ export default {
   },
   methods: {
     fetchData () {
+      this.isLoading = true;
       const baseFeed = 'http://mini-colours.co.uk/api.php/';
       const vueScope = this;
       let complexFeed;
@@ -147,6 +167,7 @@ export default {
       }
       axios.get(complexFeed).then(function (response) {
         vueScope.activeColors = response.data;
+        vueScope.isLoading = false;
       });
     }
   }
