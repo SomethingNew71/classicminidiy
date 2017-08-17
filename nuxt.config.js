@@ -45,10 +45,12 @@ module.exports = {
     }
   },
   plugins: [
-    { src: '~/plugins/plugins.js' },
-    { src: '~/plugins/analytics.js', ssr: false }
+    { src: '~/plugins/plugins.js' }
   ],
   css: [
     { src: '~/assets/styles/app.styl', lang: 'styl' }
+  ],
+  modules: [
+    ['@nuxtjs/google-analytics', { ua: 'UA-53914731-2' }]
   ]
 };
