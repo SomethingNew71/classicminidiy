@@ -10,11 +10,6 @@
       dense
     >
       <v-list class="pa-1">
-        <v-list-tile v-if="mini" @click.native.stop="mini = !mini">
-          <v-list-tile-action>
-            <v-icon light>chevron_right</v-icon>
-          </v-list-tile-action>
-        </v-list-tile>
         <v-list-tile avatar tag="div">
           <v-list-tile-avatar>
             <img src="/components/navigation/mini.png" />
@@ -22,29 +17,24 @@
           <v-list-tile-content>
             <v-list-tile-title>Classic Mini DIY</v-list-tile-title>
           </v-list-tile-content>
-          <v-list-tile-action>
-            <v-btn icon @click.native.stop="mini = !mini">
-              <v-icon class="white--text">chevron_left</v-icon>
-            </v-btn>
-          </v-list-tile-action>
         </v-list-tile>
       </v-list>
       <v-list class="pt-0" dense>
         <v-divider light></v-divider>
-          <v-list-item v-for="(item, index) in items" :key="index" v-if='!item.disabled'>
-            <v-list-tile nuxt :to='item.to'>
-              <v-list-tile-action>
-                <v-icon dark>{{ item.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list-item>
+        <v-list-item v-for="(item, index) in items" :key="index" v-if='!item.disabled'>
+          <v-list-tile nuxt :to='item.to'>
+            <v-list-tile-action>
+              <v-icon dark>{{ item.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed dark dense>
-      <v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-btn icon class="hidden-md-and-up white--text" @click.stop="drawer = !drawer"><v-icon>menu</v-icon></v-btn>
       <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -77,6 +67,11 @@
 .navigation-drawer--temporary, .navigation-drawer--is-mobile:not(.navigation-drawer--permanent) {
   z-index: 5 !important;
 }
+
+.btn--active .btn__content:before {
+  background-color: transparent;
+}
+
 </style>
 
 <script>
