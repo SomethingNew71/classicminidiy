@@ -3,7 +3,7 @@
     <v-layout wrap transition="slide-x-transition" v-if="!this.isLoading">
       <v-flex xs12 offset-xs1>
         <h2 class="headline pt-4 mb-0">Color Picker</h2>
-        <h3 class="body-2 pt-2" >All data courtesy of Mini-Colours.co.uk</h3>
+        <h3 class="title pt-2" >All data courtesy of <a href="http://mini-colours.co.uk">Mini-Colours.co.uk</a></h3>
       </v-flex>
       <v-flex offset-xs3 offset-sm4 xs6 sm4>
         <v-select
