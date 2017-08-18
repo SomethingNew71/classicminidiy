@@ -1,8 +1,8 @@
 <template>
   <v-layout wrap>
-    <v-flex xs12>
-      <h2 class="headline pl-5 pt-4 mb-0">Common Torque Settings</h2>
-      <aside class="title pl-5 pt-0 pb-0 mb-0 subheader">Torque Specs taken from Mini Haynes Manuals</aside>
+    <v-flex offset-xs1 xs10>
+      <h2 class="headline pt-4 mb-0">Common Torque Settings</h2>
+      <aside class="title pl-0 pt-0 pb-0 mb-0 subheader">Torque Specs taken from Mini Haynes Manuals</aside>
     </v-flex>
     <v-flex xs12 offset-sm1 sm10 class="mt-4">
       <v-card>

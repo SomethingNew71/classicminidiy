@@ -1,8 +1,8 @@
 <template>
   <section class="techincal">
     <v-layout class="hero" row>
-      <v-flex xs12 md6>
-        <h1 class="display-1 mt-5 py-5 pl-3">Technical References</h1>
+      <v-flex offset-xs1 xs10 md6>
+        <h1 class="display-1 mt-5 py-5">Technical References</h1>
       </v-flex>
     </v-layout>
     <v-layout row>
