@@ -1,19 +1,19 @@
 <template>
   <v-layout wrap class="electrical">
-    <v-flex xs12 sm8 class="pb-5">
+    <v-flex offset-xs1 xs10 sm7 class="pb-5">
       <v-flex xs12>
-        <h2 class="headline pl-4 pt-4 mb-0">Wiring Diagrams</h2>
-        <aside class="subheading pl-4 py-0 my-0 subheader">Documents redrawn by Mike L on The Mini Forum</aside>
-        <aside class="subheading pl-4 py-0">
-          <v-btn href="http://www.theminiforum.co.uk/forums/topic/324929-wire-diagrams-redrawn/" primary tag="a" target="_blank" dark class="ml-0">Source</v-btn>
+        <h2 class="headline pt-4 mb-0">Wiring Diagrams</h2>
+        <aside class="subheading py-0 pl-0 my-0 subheader">Documents redrawn by Mike L on The Mini Forum</aside>
+        <aside class="subheading py-0">
+          <v-btn href="http://www.theminiforum.co.uk/forums/topic/324929-wire-diagrams-redrawn/" primary tag="a" target="_blank" dark class="ml-0" small>Source</v-btn>
         </aside>
       </v-flex>
       <!-- POSITIVE GROUND SECTION -->
       <v-flex xs12>
-        <h3 class="title pl-5 pt-4">Positive Ground</h3>
+        <h3 class="title pt-4">Positive Ground</h3>
       </v-flex>
       <v-flex xs12>
-        <v-list class="pl-4" dense>
+        <v-list dense>
           <div :key="index" v-for="(diagram, index) in diagrams.positiveGround">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
@@ -31,10 +31,10 @@
       </v-flex>
       <!-- NEGATIVE GROUND SECTION -->
       <v-flex xs12>
-        <h3 class="title pl-5 pt-4">Negative Ground</h3>
+        <h3 class="title pt-4">Negative Ground</h3>
       </v-flex>
       <v-flex xs12>
-        <v-list class="pl-4" dense>
+        <v-list dense>
           <div :key="index" v-for="(diagram, index) in diagrams.negativeGround">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
@@ -52,10 +52,10 @@
       </v-flex>
       <!-- BRITISH LEYLAND SECTION -->
       <v-flex xs12>
-        <h3 class="title pl-5 pt-4">From British Leyland AKD 4935 (9th edition)</h3>
+        <h3 class="title pt-4">From British Leyland AKD 4935 (9th edition)</h3>
       </v-flex>
       <v-flex xs12>
-        <v-list class="pl-4" dense>
+        <v-list dense>
           <div :key="index" v-for="(diagram, index) in diagrams.britishLeyland">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
@@ -73,10 +73,10 @@
       </v-flex>
       <!-- EARLY ROVER SECTION -->
       <v-flex xs12>
-        <h3 class="title pl-5 pt-4">From Rover Repair Manual AKM 6353</h3>
+        <h3 class="title pt-4">From Rover Repair Manual AKM 6353</h3>
       </v-flex>
       <v-flex xs12>
-        <v-list class="pl-4" dense>
+        <v-list dense>
           <div :key="index" v-for="(diagram, index) in diagrams.earlyRover">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
@@ -94,10 +94,10 @@
       </v-flex>
       <!-- LATER ROVER SECTION -->
       <v-flex xs12>
-        <h3 class="title pl-5 pt-4">From Rover repair manual AKM 7169</h3>
+        <h3 class="title pt-4">From Rover repair manual AKM 7169</h3>
       </v-flex>
       <v-flex xs12>
-        <v-list class="pl-4" dense>
+        <v-list dense>
           <div :key="index" v-for="(diagram, index) in diagrams.laterRover">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
@@ -115,10 +115,10 @@
       </v-flex>
       <!-- HORNET ELF SECTION -->
       <v-flex xs12>
-        <h3 class="title pl-5 pt-4">BMC Hornet and Elf  AKM 4062D</h3>
+        <h3 class="title pt-4">BMC Hornet and Elf  AKM 4062D</h3>
       </v-flex>
       <v-flex xs12>
-        <v-list class="pl-4" dense>
+        <v-list dense>
           <div :key="index" v-for="(diagram, index) in diagrams.hornetElf">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
@@ -136,10 +136,10 @@
       </v-flex>
       <!-- AUS MINI SECTION -->
       <v-flex xs12>
-        <h3 class="title pl-5 pt-4">Australian Workshop Manual Supplement Publication TP 759 A</h3>
+        <h3 class="title pt-4">Australian Workshop Manual Supplement Publication TP 759 A</h3>
       </v-flex>
       <v-flex xs12>
-        <v-list class="pl-4" dense>
+        <v-list dense>
           <div :key="index" v-for="(diagram, index) in diagrams.ausMinis">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>

@@ -1,8 +1,8 @@
 <template>
   <section class="manuals pb-5">
     <v-layout class="hero" row>
-      <v-flex xs12 md6>
-        <h1 class="white--text display-1 py-5 my-5 pl-3">The Information to Do the Job Right</h1>
+      <v-flex offset-xs1 xs10 md6>
+        <h1 class="white--text display-1 py-5 my-5">The Information to Do the Job Right</h1>
       </v-flex>
     </v-layout>
     <v-layout wrap>

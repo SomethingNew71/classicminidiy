@@ -1,11 +1,11 @@
 <template>
-  <div class="colors-page">
-    <v-layout wrap transition="slide-x-transition">
-      <v-flex xs12>
-        <h2 class="headline pl-5 pt-4">Color Picker</h2>
+  <div class="colors-page" >
+    <v-layout wrap transition="slide-x-transition" v-if="!this.isLoading">
+      <v-flex xs12 offset-xs1>
+        <h2 class="headline pt-4 mb-0">Color Picker</h2>
+        <h3 class="body-2 pt-2" >All data courtesy of Mini-Colours.co.uk</h3>
       </v-flex>
-
-      <v-flex offset-xs4 xs4>
+      <v-flex offset-xs3 offset-sm4 xs6 sm4>
         <v-select
           v-bind:items="items"
           v-model="e1"
@@ -16,7 +16,7 @@
       </v-flex>
     </v-layout>
     <v-layout v-if="this.isLoading">
-      <v-flex xs12 class="text-xs-center">
+      <v-flex xs12 class="text-xs-center pt-5">
         <v-progress-circular indeterminate v-bind:size="50" class="primary--text"></v-progress-circular>
       </v-flex>
     </v-layout>
