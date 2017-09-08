@@ -24,19 +24,19 @@
   "dependencies": {
     "@nuxtjs/google-analytics": "^1.0.0",
     "axios": "^0.16.2",
-    "nuxt": "1.0.0-rc4",
+    "nuxt": "1.0.0-rc11",
     "vue-server-renderer": "latest",
-    "vuetify": "^0.14.11"
+    "vuetify": "^0.15.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^7.1.2",
     "babel-polyfill": "^6.26.0",
-    "css-loader": "^0.28.4",
-    "eslint": "^4.4.1",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.6.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.2.0",
+    "eslint-plugin-html": "^3.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
