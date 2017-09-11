@@ -1,5 +1,5 @@
 <template>
-  <div class="colors-page" >
+  <v-container class="colors-page" fluid>
     <v-layout wrap transition="slide-x-transition" v-if="!this.isLoading">
       <v-flex xs12 offset-xs1>
         <h2 class="headline pt-4 mb-0">Color Picker</h2>
@@ -23,7 +23,7 @@
     <v-layout v-if="!this.isLoading">
       <v-flex offset-xs1 xs10>
         <v-layout row wrap class="color-cards">
-          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="index" v-for="(colour, index) in activeColors.colour.records">
+          <v-flex xs12 sm6 md4 lg3 class="py-2 px-2" :key="index" v-for="(colour, index) in activeColors.colour.records">
             <v-card hover class="">
               <v-container fluid grid-list-lg>
                 <v-layout row>
@@ -57,7 +57,7 @@
         </v-layout>
       </v-flex>
     </v-layout>
-  </div>
+  </v-container>
 </template>
 
 <style lang="scss">
