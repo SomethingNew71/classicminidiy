@@ -10,7 +10,7 @@
         </div>
       </v-flex>
     </v-layout>
-    <v-container fluid>
+    <v-container grid-list-md>
       <v-layout row wrap class="mission pt-5 pb-4">
         <v-flex xs12 class="mission-header text-xs-center">
           <v-icon medium class="pb-2 primary--text">fa-certificate</v-icon>
