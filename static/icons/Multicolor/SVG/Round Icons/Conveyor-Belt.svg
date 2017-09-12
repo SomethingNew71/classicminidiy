@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="110px"
+	 height="110px" viewBox="0 0 110 110" style="enable-background:new 0 0 110 110;" xml:space="preserve">
+<g id="Artboard">
+</g>
+<g id="Multicolor">
+	<circle style="fill:#32BEA6;" cx="55" cy="55" r="55"/>
+	<g>
+		<path style="fill:#3E3E3F;" d="M87,76.008C87,82.079,82.079,87,76.008,87H23V65.016h53.008C82.079,65.016,87,69.937,87,76.008z"/>
+		<path style="fill:#818284;" d="M83,76.016c0,3.866-3.134,7-7,7H23v-14h53C79.866,69.016,83,72.15,83,76.016z"/>
+		<circle style="fill:#F0F1F1;" cx="34" cy="76" r="7"/>
+		<path style="fill:#EDBC7C;" d="M60,62.364c0,1.465-1.187,2.652-2.652,2.652H25.652c-1.465,0-2.652-1.187-2.652-2.652V33.652
+			C23,32.187,24.187,31,25.652,31h31.696C58.813,31,60,32.187,60,33.652V62.364z"/>
+		<path style="fill:#F4D0A1;" d="M57.348,31H25.652C24.187,31,23,32.187,23,33.652v28.712c0,0.946,0.499,1.77,1.244,2.24
+			l34.708-33.05C58.506,31.212,57.954,31,57.348,31z"/>
+		<rect x="49.52" y="54.407" style="fill:#F4D0A1;" width="7.956" height="5.304"/>
+		<polygon style="fill:#FCF1E2;" points="46.868,41.147 44.216,38.495 41.564,41.147 38.912,38.495 36.26,41.147 36.26,31 
+			46.868,31 		"/>
+		<path style="fill:#EDBC7C;" d="M79,63.643C79,64.392,78.392,65,77.643,65H61.357C60.608,65,60,64.392,60,63.643V48.714
+			c0-0.75,0.608-1.357,1.357-1.357h16.286c0.75,0,1.357,0.608,1.357,1.357V63.643z"/>
+		<path style="fill:#F4D0A1;" d="M77.643,47.357H61.357c-0.75,0-1.357,0.608-1.357,1.357v14.929c0,0.484,0.255,0.906,0.637,1.146
+			L78.464,47.64C78.235,47.465,77.953,47.357,77.643,47.357z"/>
+		<rect x="73.571" y="59.571" style="fill:#F4D0A1;" width="4.071" height="2.714"/>
+		<polygon style="fill:#FCF1E2;" points="72.214,52.786 70.857,51.429 69.5,52.786 68.143,51.429 66.786,52.786 66.786,47.357 
+			72.214,47.357 		"/>
+		<circle style="fill:#B6BCBD;" cx="34" cy="76" r="5"/>
+		<circle style="fill:#5B5C5F;" cx="34" cy="76.016" r="2"/>
+		<circle style="fill:#F0F1F1;" cx="55" cy="76.016" r="7"/>
+		<circle style="fill:#B6BCBD;" cx="55" cy="76" r="5"/>
+		<circle style="fill:#5B5C5F;" cx="55" cy="76.016" r="2"/>
+		<circle style="fill:#F0F1F1;" cx="76" cy="76.016" r="7"/>
+		<circle style="fill:#B6BCBD;" cx="76" cy="76" r="5"/>
+		<circle style="fill:#5B5C5F;" cx="76" cy="76.016" r="2"/>
+	</g>
+</g>
+</svg>

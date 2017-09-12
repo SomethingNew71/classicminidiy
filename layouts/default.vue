@@ -4,18 +4,18 @@
     <main>
       <nuxt/>
     </main>
-    <pagefoot/>
+    <footbar/>
   </v-app>
 </template>
 
 <script>
 import navigation from '../components/navigation';
-import pagefoot from '../components/pagefoot';
+import footbar from '../components/footbar';
 
 export default {
   components: {
     navigation,
-    pagefoot
+    footbar
   }
 };
 </script>
