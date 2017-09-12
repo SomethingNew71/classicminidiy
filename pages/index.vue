@@ -6,11 +6,13 @@
         <h1 class="display-3 text-xs-center">Classic Mini DIY</h1>
         <h2 class="subheading text-xs-center white--text">The best place to find information on your Classic Mini Cooper</h2>
         <div class="text-xs-center">
+          <v-btn tag='a' href="/getting-started" class="primary" dark>Get Started</v-btn>
+          <br>
           <v-icon x-large class="white--text">fa-angle-down</v-icon>
         </div>
       </v-flex>
     </v-layout>
-    <v-container grid-list-md>
+    <!-- <v-container> -->
       <v-layout row wrap class="mission pt-5 pb-4">
         <v-flex xs12 class="mission-header text-xs-center">
           <v-icon medium class="pb-2 primary--text">fa-certificate</v-icon>
@@ -19,25 +21,21 @@
         </v-flex>
       </v-layout>
       <v-layout row wrap class="mb-4 pt-3 text-xs-center mission-list">
-        <v-flex xs12 md4 class="mb-4">
+        <v-flex xs12 md4 class="mb-4 px-3">
           <v-icon large class="red--text mb-3">fa-youtube-play</v-icon>
           <h3 class="headline">Create DIY Videos</h3>
           <p>Classic Mini DIY first and foremost is about creating DIY videos for new and inexperiences Classic Mini owners to use and reference when fixing their own cars.</p>
           <v-btn class="red" tag='a' :href='youtube' dark target='_blank'>Visit us on Youtube</v-btn>
         </v-flex>
-        <v-flex xs12 md4 class="center mb-4">
+        <v-flex xs12 md4 class="center mb-4 px-3">
           <v-icon medium class="primary--text mb-3 mt-1">fa-book</v-icon>
           <h3 class="headline">Consolidate Mini Knowledge</h3>
           <p>
             As the channel expanded we started to realize that while there are many good sources of mini information out there, there is no single repository of technical and helpful knowledge for new mini owners. So with countless hours of work we have built just that.
           </p>
-          <!-- <v-btn primary light router :to="specs">Specifications</v-btn>
-          <v-btn primary light router :to="history">History</v-btn>
-          <v-btn primary light router :to="manuals">Manuals</v-btn> -->
         </v-flex>
-        <v-flex xs12 md4 class="mb-4">
+        <v-flex xs12 md4 class="mb-4 px-3">
           <v-icon large class="green--text mb-3">fa-tree</v-icon>
-          <!-- <img src="/pages/home/grow.png" alt=""> -->
           <h3 class="headline">Keep the Mini World Growing</h3>
           <p>
             Our main mission is to keep the Classic minis out there on the road for many years to come and for countless others to find joy and excitement from these little cars built so many years ago.
@@ -79,7 +77,7 @@
           </v-flex>
         </v-layout>
       </v-layout>
-    </v-container>
+    <!-- </v-container> -->
   </section>
 </template>
 

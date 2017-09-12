@@ -38,10 +38,10 @@
       <v-toolbar-title>Classic Mini DIY</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat small ripple nuxt v-for="(item, index) in items" :key="index" :to='item.to' :target='item.target' v-if='!item.disabled'>
+        <v-btn flat small ripple nuxt v-for="(item, index) in items" :key="index" :to='item.to' :target='item.target' v-if='!item.disabled' :class='item.bgColor'>
           {{ item.title }}
         </v-btn>
-        <v-btn flat small ripple :href='youtube.to' tag='a' :target='youtube.target'>
+        <v-btn class="youtube-red" flat small ripple :href='youtube.to' tag='a' :target='youtube.target'>
           {{ youtube.title }}
         </v-btn>
       </v-toolbar-items>
@@ -90,31 +90,8 @@ export default {
           title: 'Get Started',
           icon: 'build',
           to: '/getting-started',
-          disabled: true
-        },
-        {
-          title: 'Manuals',
-          icon: 'collections_bookmark',
-          to: '/manuals',
           disabled: false
-        },
-        {
-          title: 'Specs',
-          icon: 'settings',
-          to: '/specs',
-          disabled: true
-        },
-        {
-          title: 'Tech Reference',
-          icon: 'perm_data_setting',
-          to: '/technical/torque',
-          disabled: false
-        },
-        {
-          title: 'History',
-          icon: 'account_balance',
-          to: '/historical',
-          disabled: true
+          // bgColor: 'primary'
         }
       ],
       youtube: {
