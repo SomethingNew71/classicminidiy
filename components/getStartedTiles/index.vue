@@ -82,7 +82,7 @@ export default {
           disabled: false
         },
         {
-          title: 'Technical Specifications',
+          title: 'Tech Specs',
           icon: '"icons/Multicolor/SVG/Round Icons/Analytics.svg"',
           to: '/specs',
           disabled: true
