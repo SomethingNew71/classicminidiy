@@ -96,7 +96,7 @@ export default {
   .hero {
     background-image: url('/pages/default.png') !important;
     background-size: cover;
-    min-height: 92vh;
+    min-height: 55vh;
 
     h1 {
       color: #fff;
