@@ -26,10 +26,10 @@
     "axios": "^0.16.2",
     "nuxt": "1.0.0-rc11",
     "vue-server-renderer": "latest",
-    "vuetify": "^0.15.3"
+    "vuetify": "^0.15.6"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.2",
     "babel-polyfill": "^6.26.0",
     "css-loader": "^0.28.7",
