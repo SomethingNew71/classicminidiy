@@ -1,5 +1,5 @@
 <template>
-  <section class="getting-started text-xs-center">
+  <section class="getting-started text-xs-center pb-4" id="get-started">
     <v-layout row class="pt-4">
       <v-flex xs12 class="mission-header text-xs-center">
         <v-icon large class="pb-2 primary--text">search</v-icon>
@@ -9,7 +9,7 @@
     </v-layout>
     <v-container grid-list-xl>
       <v-layout row wrap>
-        <v-flex sm4 md3 :key="index" v-for="(item, index) in items">
+        <v-flex xs12 sm4 md3 :key="index" v-for="(item, index) in items">
           <nuxt-link v-if="!item.disabled && !item.youtube" :to='item.to'>
             <v-card hover class="pt-3">
               <v-card-media :src="item.icon" height="130px"></v-card-media>
@@ -106,6 +106,8 @@ export default {
 </script>
 <style lang="scss">
 .getting-started {
+  background-color: #F1F5F7;
+
   a {
     color: transparent;
   }
@@ -122,10 +124,10 @@ export default {
     position: absolute;
     left:0;
     top:0;
-    background: rgba(255,255,255,.5);
+    background: rgba(255,255,255,.8);
     width:100%;
     height:100%;
-    z-index: 5;
+    z-index: 1;
 
     &::after {
       content: '';

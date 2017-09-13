@@ -1,11 +1,21 @@
 <template>
   <v-container class="colors-page" fluid>
     <v-layout wrap transition="slide-x-transition" v-if="!this.isLoading">
-      <v-flex xs12 offset-xs1>
-        <h2 class="headline pt-4 mb-0">Color Picker</h2>
-        <h3 class="title pt-2" >All data courtesy of <a href="http://mini-colours.co.uk" target="_blank">Mini-Colours.co.uk</a></h3>
+      <v-flex xs12 offset-xs1 class="pt-5">
+        <v-btn dark primary tag='a' href="/#get-started" >
+          <v-icon left dark>fa-arrow-left</v-icon>
+          Back to Get Started
+        </v-btn>
       </v-flex>
-      <v-flex offset-xs3 offset-sm4 xs6 sm4>
+      <v-flex xs12 class="text-xs-center">
+        <img src="icons/Multicolor/SVG/Round Icons/Pantone.svg" alt="" width="70px" class="pb-3">
+        <p class="subheading grey--text lighten-2 ma-0">All data from Mini-Colours.co.uk</p>
+        <h2 class="black--text darken-3">Color Picker</h2>
+      </v-flex>
+      <v-flex xs10 offset-xs1>
+        <v-divider></v-divider>
+      </v-flex>
+      <v-flex offset-xs3 offset-sm4 xs6 sm4 class="pt-4">
         <v-select
           v-bind:items="items"
           v-model="e1"

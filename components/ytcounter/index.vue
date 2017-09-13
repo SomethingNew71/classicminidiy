@@ -1,10 +1,10 @@
 <template>
-  <v-flex xs2 offset-sm5 class="youtube-counter mt-1">
+  <div class="youtube-counter mt-1">
     <v-btn error dark medium tag='a' target='_blank' href='https://www.youtube.com/c/classicminidiy'>
       <v-icon class="white--text pr-2">fa-youtube-play</v-icon>
-      {{ytSubs}}
+      {{ytSubs}} - Subscribe
     </v-btn>
-  </v-flex>
+  </div>
 </template>
 
 <style lang="scss">

@@ -1,16 +1,22 @@
 <template>
   <section class="manuals pb-5">
-    <v-layout class="hero" row>
-      <v-flex offset-xs1 xs10 md6>
-        <h1 class="white--text display-1 py-5 my-5">The Information to Do the Job Right</h1>
-      </v-flex>
-    </v-layout>
     <v-layout wrap>
-      <v-flex xs12 sm6 offset-sm3  class="text-xs-center pt-4 mt-4 subheader">
-        <p>Here at Classic Mini DIY, one of our main priorities is making sure you have the best information for the job at hand. Below we have put together our list of our favorite Mini specific resources out there right now.</p>
+      <v-flex xs12 offset-xs1 class="pt-5">
+        <v-btn dark primary tag='a' href="/#get-started" >
+          <v-icon left dark>fa-arrow-left</v-icon>
+          Back to Get Started
+        </v-btn>
+      </v-flex>
+      <v-flex xs12 class="text-xs-center">
+        <img src="icons/Multicolor/SVG/Round Icons/Checklist.svg" alt="" width="70px" class="pb-3">
+        <p class="subheading grey--text lighten-2 ma-0">Currated list of Classic Mini DIY recommended manuals</p>
+        <h2 class="black--text darken-3">Workshop Manuals</h2>
+      </v-flex>
+      <v-flex xs10 offset-xs1>
+        <v-divider></v-divider>
       </v-flex>
       <v-flex xs12 class="text-xs-center pb-4">
-        <h2 class="display-1 pt-4">Choose Book Type</h2>
+        <h2 class="title pt-4">Choose Book Type</h2>
         <a v-on:click="tabToggle" >
           <v-btn primary dark>Manuals</v-btn>
         </a>

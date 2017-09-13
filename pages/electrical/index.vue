@@ -1,12 +1,19 @@
 <template>
-  <v-layout wrap class="electrical">
-    <v-flex offset-xs1 xs10 sm7 class="pb-5">
+  <v-container>
+    <v-layout wrap class="electrical">
+      <v-flex xs12 class="pt-5">
+        <v-btn dark primary tag='a' href="/#get-started" >
+          <v-icon left dark>fa-arrow-left</v-icon>
+          Back to Get Started
+        </v-btn>
+      </v-flex>
+      <v-flex xs12 class="text-xs-center">
+        <img src="icons/Multicolor/SVG/Round Icons/Battery-Charging.svg" alt="" width="70px" class="pb-3">
+        <p class="subheading grey--text lighten-2 ma-0">Documents redrawn by Mike L on The Mini Forum</p>
+        <h2 class="black--text darken-3">Wiring Diagrams</h2>
+      </v-flex>
       <v-flex xs12>
-        <h2 class="headline pt-4 mb-0">Wiring Diagrams</h2>
-        <aside class="subheading py-0 pl-0 my-0 subheader">Documents redrawn by Mike L on The Mini Forum</aside>
-        <aside class="subheading py-0">
-          <v-btn href="http://www.theminiforum.co.uk/forums/topic/324929-wire-diagrams-redrawn/" primary tag="a" target="_blank" dark class="ml-0" small>Source</v-btn>
-        </aside>
+        <v-divider></v-divider>
       </v-flex>
       <!-- POSITIVE GROUND SECTION -->
       <v-flex xs12>
@@ -155,25 +162,8 @@
           </div>
         </v-list>
       </v-flex>
-    </v-flex>
-    <v-flex xs12 sm3 class="pt-5">
-      <v-card>
-        <v-card-text>
-          <!-- CMDIY - Electrical Diagrams -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-0523971861051053"
-               data-ad-slot="2859974597"
-               data-ad-format="auto"></ins>
-          <script>
-          /* eslint-disable */
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          /* eslint-enable */
-          </script>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-  </v-layout>
+    </v-layout>
+  </v-container>
 </template>
 
 <style lang="scss">

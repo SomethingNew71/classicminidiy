@@ -42,6 +42,7 @@
           {{ item.title }}
         </v-btn>
         <v-btn class="youtube-red" flat small ripple :href='youtube.to' tag='a' :target='youtube.target'>
+          <v-icon class="white--text pr-2">fa-youtube-play</v-icon>
           {{ youtube.title }}
         </v-btn>
       </v-toolbar-items>
@@ -52,7 +53,18 @@
 <style lang="scss">
 .avatar img, .avatar .icon {
   height: auto;
+  width: 60%;
   border-radius: 0;
+}
+
+.youtube-red {
+  .btn__content {
+    background-color: #F44336;
+  }
+}
+
+.toolbar__items {
+  margin-right: 0 !important;
 }
 
 .toolbar {
@@ -85,13 +97,6 @@ export default {
           icon: 'home',
           to: '/',
           disabled: false
-        },
-        {
-          title: 'Get Started',
-          icon: 'build',
-          to: '/getting-started',
-          disabled: false
-          // bgColor: 'primary'
         }
       ],
       youtube: {
