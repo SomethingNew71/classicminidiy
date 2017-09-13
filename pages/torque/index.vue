@@ -1,8 +1,15 @@
 <template>
   <v-layout wrap>
-    <v-flex offset-xs1 xs10>
-      <h2 class="headline pt-4 mb-0">Common Torque Settings</h2>
-      <aside class="title pl-0 pt-0 pb-0 mb-0 subheader">Torque Specs taken from Mini Haynes Manuals</aside>
+    <v-flex xs12 offset-xs1 class="pt-5">
+      <v-btn dark primary tag='a' href="/#get-started" >
+        <v-icon left dark>fa-arrow-left</v-icon>
+        Back to Get Started
+      </v-btn>
+    </v-flex>
+    <v-flex xs12 class="text-xs-center">
+      <img src="icons/Multicolor/SVG/Round Icons/Settings-5.svg" alt="" width="70px" class="pb-3">
+      <p class="subheading grey--text lighten-2 ma-0">All torque settings sourced from Haynes Manuals</p>
+      <h2 class="black--text darken-3">Torque Specifications</h2>
     </v-flex>
     <v-flex xs12 offset-sm1 sm10 class="mt-4">
       <v-card>
@@ -58,76 +65,78 @@
         </v-card-text>
       </v-card>
     </v-flex>
-    <!-- <v-flex xs12 offset-sm1 sm10 md5 class="pt-5"> -->
-    <v-flex xs12 offset-sm1 sm10 class="mt-4">
-      <v-card>
-        <v-card-title class="pl-4 pt-4">
-          <h3 class="title">
-            Gearbox
-            <br>
-            <span class="body-1">All Models</span>
-          </h3>
-          <v-spacer></v-spacer>
-          <v-text-field
-            append-icon="search"
-            label="Search"
-            single-line
-            hide-details
-            v-model="gearSearch"
-            class="pr-4"
-          ></v-text-field>
-        </v-card-title>
-        <v-data-table
-            v-bind:headers="specialHeaders2"
-            v-bind:items="gearboxItems"
-            v-bind:search="gearSearch"
-          >
-          <template slot="items" scope="props">
-            <td class="text-xs-left">{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.lbft }}</td>
-            <td class="text-xs-right">{{ props.item.nm }}</td>
-          </template>
-          <template slot="pageText" scope="{ pageStart, pageStop }">
-            From {{ pageStart }} to {{ pageStop }}
-          </template>
-        </v-data-table>
-      </v-card>
-    </v-flex>
-    <!-- <v-flex xs12 offset-sm1 sm10 md5 class="pt-5 electrical-margin">
-      <v-card>
-        <v-card-title class="pl-4 pt-4">
-          <h3 class="title">
-            Electrical
-            <br>
-            <span class="body-1">All Models</span>
-          </h3>
-          <v-spacer></v-spacer>
-          <v-text-field
-            append-icon="search"
-            label="Search"
-            single-line
-            hide-details
-            v-model="electricalSearch"
-            class="pr-4"
-          ></v-text-field>
-        </v-card-title>
-        <v-data-table
-            v-bind:headers="specialHeaders"
-            v-bind:items="electricalItems"
-            v-bind:search="electricalSearch"
-          >
-          <template slot="items" scope="props">
-            <td class="text-xs-left">{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.lbin }}</td>
-            <td class="text-xs-right">{{ props.item.nm }}</td>
-          </template>
-          <template slot="pageText" scope="{ pageStart, pageStop }">
-            From {{ pageStart }} to {{ pageStop }}
-          </template>
-        </v-data-table>
-      </v-card>
-    </v-flex> -->
-    <v-flex xs12 offset-md1 md10 class="mt-4">
+    <v-layout row wrap>
+      <v-flex xs12 offset-sm1 sm10 md5 class="pr-2 pt-5">
+      <!-- <v-flex xs12 offset-sm1 sm10 class="mt-4"> -->
+        <v-card>
+          <v-card-title class="pl-4 pt-4">
+            <h3 class="title">
+              Gearbox
+              <br>
+              <span class="body-1">All Models</span>
+            </h3>
+            <v-spacer></v-spacer>
+            <v-text-field
+              append-icon="search"
+              label="Search"
+              single-line
+              hide-details
+              v-model="gearSearch"
+              class="pr-4"
+            ></v-text-field>
+          </v-card-title>
+          <v-data-table
+              v-bind:headers="specialHeaders2"
+              v-bind:items="gearboxItems"
+              v-bind:search="gearSearch"
+            >
+            <template slot="items" scope="props">
+              <td class="text-xs-left">{{ props.item.name }}</td>
+              <td class="text-xs-right">{{ props.item.lbft }}</td>
+              <td class="text-xs-right">{{ props.item.nm }}</td>
+            </template>
+            <template slot="pageText" scope="{ pageStart, pageStop }">
+              From {{ pageStart }} to {{ pageStop }}
+            </template>
+          </v-data-table>
+        </v-card>
+      </v-flex>
+      <v-flex xs12 offset-sm1 sm10 md5 class="pl-2 pt-5 electrical-margin">
+        <v-card>
+          <v-card-title class="pl-4 pt-4">
+            <h3 class="title">
+              Electrical
+              <br>
+              <span class="body-1">All Models</span>
+            </h3>
+            <v-spacer></v-spacer>
+            <v-text-field
+              append-icon="search"
+              label="Search"
+              single-line
+              hide-details
+              v-model="electricalSearch"
+              class="pr-4"
+            ></v-text-field>
+          </v-card-title>
+          <v-data-table
+              v-bind:headers="specialHeaders"
+              v-bind:items="electricalItems"
+              v-bind:search="electricalSearch"
+            >
+            <template slot="items" scope="props">
+              <td class="text-xs-left">{{ props.item.name }}</td>
+              <td class="text-xs-right">{{ props.item.lbin }}</td>
+              <td class="text-xs-right">{{ props.item.nm }}</td>
+            </template>
+            <template slot="pageText" scope="{ pageStart, pageStop }">
+              From {{ pageStart }} to {{ pageStop }}
+            </template>
+          </v-data-table>
+        </v-card>
+      </v-flex>
+    </v-layout>
+    <v-flex xs12 offset-sm1 sm10 class="mt-4 mb-4">
       <v-card>
         <v-card-title class="pl-4 pt-4">
           <h3 class="title">
