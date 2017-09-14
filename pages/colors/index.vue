@@ -93,7 +93,11 @@ export default {
     };
   },
   created () {
-    this.fetchData();
+    if (this.e1 === '') {
+      this.isLoading = false;
+    } else {
+      this.fetchData();
+    }
   },
   methods: {
     fetchData () {
@@ -103,6 +107,8 @@ export default {
       let complexFeed;
       let baseValue;
       switch (this.e1) {
+        case '':
+          break;
         case 'Beige':
           baseValue = 15;
           complexFeed = `${baseFeed}colour?filter=base_id,eq,${baseValue}`;

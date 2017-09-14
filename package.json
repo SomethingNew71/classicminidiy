@@ -10,7 +10,7 @@
     "url": "git://github.com/SomethingNew71/classicminidiy.git"
   },
   "engines": {
-    "node": "8.4.0"
+    "node": "8.5.0"
   },
   "scripts": {
     "dev": "nuxt",
@@ -26,7 +26,7 @@
     "axios": "^0.16.2",
     "nuxt": "1.0.0-rc11",
     "vue-server-renderer": "latest",
-    "vuetify": "^0.15.6"
+    "vuetify": "^0.15.7"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.0",
@@ -43,7 +43,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
-    "vue-style-loader": "^3.0.1",
+    "vue-style-loader": "^3.0.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1"
   },

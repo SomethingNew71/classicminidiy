@@ -10,6 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Classic Mini DIY Knowledgebase' }
     ],
     link: [
+      { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon/favicon-96x96.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
       { rel: 'icon', type: 'image/x-icon', href: '/icons/preview.png' },
