@@ -16,7 +16,7 @@
         </div>
       </v-flex>
     </v-layout>
-    <!-- <v-container> -->
+    <v-container>
       <v-layout row wrap class="mission pt-5 pb-4">
         <v-flex xs12 class="mission-header text-xs-center">
           <h2 class="black--text darken-3">Our Mission</h2>
@@ -66,7 +66,7 @@
           </v-flex>
         </v-layout>
       </v-layout>
-    <!-- </v-container> -->
+    </v-container>
   </section>
 </template>
 
