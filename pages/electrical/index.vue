@@ -2,7 +2,7 @@
   <v-container>
     <v-layout wrap class="electrical">
       <v-flex xs12 class="pt-5">
-        <v-btn dark primary tag='a' href="/#get-started" >
+        <v-btn dark primary nuxt to="/" >
           <v-icon left dark>fa-arrow-left</v-icon>
           Back to Get Started
         </v-btn>

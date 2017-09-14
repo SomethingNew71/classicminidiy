@@ -2,7 +2,7 @@
   <section class="manuals pb-5">
     <v-layout wrap>
       <v-flex xs12 offset-xs1 class="pt-5">
-        <v-btn dark primary tag='a' href="/#get-started" >
+        <v-btn dark primary nuxt to="/" >
           <v-icon left dark>fa-arrow-left</v-icon>
           Back to Get Started
         </v-btn>
