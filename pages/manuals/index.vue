@@ -15,80 +15,88 @@
       <v-flex xs10 offset-xs1>
         <v-divider></v-divider>
       </v-flex>
-      <v-flex xs12 class="text-xs-center pb-4">
-        <h2 class="title pt-4">Choose Book Type</h2>
-        <a v-on:click="tabToggle" >
-          <v-btn primary dark>Manuals</v-btn>
-        </a>
-        <a v-on:click="tabToggle" >
-          <v-btn primary dark>Technical</v-btn>
-        </a>
-      </v-flex>
-    </v-layout>
-    <v-layout>
-      <v-flex offset-xs1 xs10>
-        <v-layout row wrap class="manuals-section" v-bind:class="{'is-active': manualsActive}">
-          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="index" v-for="(book, index) in books.workshop">
-            <v-card hover class="">
-              <v-container fluid grid-list-lg>
-                <v-layout row>
-                  <v-flex xs7>
-                    <div>
-                      <div class="pl-0 subheader">{{book.name}}</div>
-                      <div class="caption">Written by {{book.author}}</div>
-                    </div>
-                    <v-card-actions class="pl-0 mt-2">
-                      <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
-                    </v-card-actions>
-                    <v-card-actions class="pl-0 pt-0 ml-0">
-                      <v-btn small :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="ml-0 red seven-mini" dark>Seven Mini</v-btn>
-                    </v-card-actions>
-                  </v-flex>
-                  <v-flex xs5>
-                    <v-card-media
-                      :src="book.imgSource"
-                      height="150px"
-                      contain
-                    >
-                    </v-card-media>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-card>
-          </v-flex>
-        </v-layout>
 
-        <v-layout row wrap class="technical" v-bind:class="{'is-active': techActive}">
-          <v-flex xs12 sm6 md4 lg3 class="py-2" :key="index" v-for="(book, index)  in books.technical">
-            <v-card hover class="">
-              <v-container fluid grid-list-lg>
-                <v-layout row>
-                  <v-flex xs7>
-                    <div>
-                      <div class="pl-0 subheader">{{book.name}}</div>
-                      <div class="caption">Written by {{book.author}}</div>
-                    </div>
-                    <v-card-actions class="pl-0 mt-2">
-                      <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
-                    </v-card-actions>
-                    <v-card-actions class="pl-0 pt-0 ml-0">
-                      <v-btn small :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="ml-0 red seven-mini" dark>Seven Mini</v-btn>
-                    </v-card-actions>
-                  </v-flex>
-                  <v-flex xs5>
-                    <v-card-media
-                      :src="book.imgSource"
-                      height="150px"
-                      contain
-                    >
-                    </v-card-media>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-flex>
+      <v-tabs dark fixed centered>
+        <v-tabs-bar class="primary">
+          <v-tabs-slider class="white"></v-tabs-slider>
+          <v-tabs-item :href="'#manuals'">
+            Manuals
+          </v-tabs-item>
+          <v-tabs-item :href="'#technical'">
+            Technical
+          </v-tabs-item>
+        </v-tabs-bar>
+        <v-tabs-items>
+          <v-tabs-content :id="'manuals'">
+            <v-container>
+              <v-layout row wrap class="manuals-section">
+                <v-flex xs12 sm6 md4 lg3 class="pa-2" :key="index" v-for="(book, index) in books.workshop">
+                  <v-card hover class="">
+                    <v-container fluid grid-list-lg>
+                      <v-layout row>
+                        <v-flex xs7>
+                          <div>
+                            <div class="pl-0 subheader">{{book.name}}</div>
+                            <div class="caption">Written by {{book.author}}</div>
+                          </div>
+                          <v-card-actions class="pl-0 mt-2">
+                            <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
+                          </v-card-actions>
+                          <v-card-actions class="pl-0 pt-0 ml-0">
+                            <v-btn small :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="ml-0 red seven-mini" dark>Seven Mini</v-btn>
+                          </v-card-actions>
+                        </v-flex>
+                        <v-flex xs5>
+                          <v-card-media
+                            :src="book.imgSource"
+                            height="150px"
+                            contain
+                          >
+                          </v-card-media>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-tabs-content>
+          <v-tabs-content :id="'technical'">
+            <v-container>
+              <v-layout row wrap class="technical-section">
+                <v-flex xs12 sm6 md4 lg3 class="pa-2" :key="index" v-for="(book, index)  in books.technical">
+                  <v-card hover class="">
+                    <v-container fluid grid-list-lg>
+                      <v-layout row>
+                        <v-flex xs7>
+                          <div>
+                            <div class="pl-0 subheader">{{book.name}}</div>
+                            <div class="caption">Written by {{book.author}}</div>
+                          </div>
+                          <v-card-actions class="pl-0 mt-2">
+                            <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
+                          </v-card-actions>
+                          <v-card-actions class="pl-0 pt-0 ml-0">
+                            <v-btn small :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="ml-0 red seven-mini" dark>Seven Mini</v-btn>
+                          </v-card-actions>
+                        </v-flex>
+                        <v-flex xs5>
+                          <v-card-media
+                            :src="book.imgSource"
+                            height="150px"
+                            contain
+                          >
+                          </v-card-media>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-tabs-content>
+        </v-tabs-items>
+      </v-tabs>
     </v-layout>
     <v-layout row>
       <v-flex xs10 offset-xs1 class="pt-4">
@@ -116,8 +124,6 @@
   export default {
     data: function () {
       return {
-        manualsActive: true,
-        techActive: false,
         books: {
           workshop: {
             1: {
@@ -224,17 +230,14 @@
           }
         }
       };
-    },
-    methods: {
-      tabToggle: function () {
-        this.manualsActive = !this.manualsActive;
-        this.techActive = !this.techActive;
-      }
     }
   };
 </script>
 <style lang="scss">
 .manuals {
+  .subheader {
+    height: inherit;
+  }
   .hero {
     background-image: url('/pages/manuals/manuals4.jpg') !important;
     background-size: cover;
@@ -255,14 +258,10 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-
   .manuals-section,
-  .guides,
-  .technical {
-    display: none;
-
-    &.is-active {
-      display: flex;
+  .technical-section {
+    .card {
+      height: 100% !important;
     }
   }
 }

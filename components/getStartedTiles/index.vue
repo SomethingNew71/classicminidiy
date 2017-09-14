@@ -3,8 +3,8 @@
     <v-layout row class="pt-4">
       <v-flex xs12 class="mission-header text-xs-center">
         <v-icon large class="pb-2 primary--text">search</v-icon>
-        <p class="subheading grey--text lighten-2 ma-0">Finding the right information for your car</p>
         <h2 class="black--text darken-3">Get Started</h2>
+        <p class="subheading grey--text lighten-2 ma-0">Finding the right information for your car</p>
       </v-flex>
     </v-layout>
     <v-container grid-list-xl>
