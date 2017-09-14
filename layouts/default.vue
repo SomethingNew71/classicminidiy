@@ -1,5 +1,5 @@
 <template>
-  <v-app standalone>
+  <v-app>
     <main>
       <nuxt/>
     </main>
@@ -19,4 +19,10 @@ export default {
 
 <style lang="scss">
 // Styles applied to the entire app.
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
 </style>
