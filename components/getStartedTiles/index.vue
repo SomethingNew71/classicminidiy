@@ -106,8 +106,6 @@ export default {
 </script>
 <style lang="scss">
 .getting-started {
-  background-color: #F1F5F7;
-
   a {
     color: transparent;
   }

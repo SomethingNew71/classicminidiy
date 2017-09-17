@@ -45,7 +45,13 @@
           </p>
         </v-flex>
       </v-layout>
+      <v-flex xs10 offset-xs1>
+        <v-divider></v-divider>
+      </v-flex>
       <get-started-tiles></get-started-tiles>
+      <v-flex xs10 offset-xs1>
+        <v-divider></v-divider>
+      </v-flex>
       <v-layout row wrap class="sponsors pt-5 pb-5">
         <v-layout row wrap class="text-xs-center">
           <v-flex xs12 class="pb-5">
