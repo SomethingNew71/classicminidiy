@@ -42,9 +42,6 @@
                           <v-card-actions class="pl-0 mt-2">
                             <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
                           </v-card-actions>
-                          <v-card-actions class="pl-0 pt-0 ml-0">
-                            <v-btn small :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="ml-0 red seven-mini" dark>Seven Mini</v-btn>
-                          </v-card-actions>
                         </v-flex>
                         <v-flex xs5>
                           <v-card-media
@@ -75,9 +72,6 @@
                           </div>
                           <v-card-actions class="pl-0 mt-2">
                             <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
-                          </v-card-actions>
-                          <v-card-actions class="pl-0 pt-0 ml-0">
-                            <v-btn small :href="book.urlSeven" target="_blank" tag='a' v-if="book.urlSeven" class="ml-0 red seven-mini" dark>Seven Mini</v-btn>
                           </v-card-actions>
                         </v-flex>
                         <v-flex xs5>
