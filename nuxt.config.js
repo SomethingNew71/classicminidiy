@@ -50,7 +50,7 @@ module.exports = {
     { src: '~/plugins/plugins.js' }
   ],
   css: [
-    { src: '~/assets/styles/app.styl', lang: 'styl' }
+    { src: '~/node_modules/vuetify/dist/vuetify.min.css', lang: 'css' }
   ],
   modules: [
     ['@nuxtjs/google-analytics', { ua: 'UA-53914731-2' }]
