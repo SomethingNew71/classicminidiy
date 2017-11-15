@@ -4,9 +4,9 @@
       <v-flex xs12 class="pb-2">
         <img class="is-hidden-mobile pt-5 mt-5" src="/img/logo.png" alt="Classic Mini DIY Logo image">
         <h1 class="display-3 text-xs-center">Classic Mini DIY</h1>
-        <h2 class="subheading text-xs-center white--text">The best place to find information on your Classic Mini Cooper</h2>
+        <h2 class="subheading text-xs-center white--text pb-4">The best place to find information on your Classic Mini Cooper</h2>
         <div class="text-xs-center">
-          <v-btn tag='a' href="#get-started" class="primary mb-5" dark>Get Started</v-btn>
+          <v-btn tag='a' href="#get-started" color="primary" class="mb-5" dark>Get Started</v-btn>
           <v-btn tag='a' href="https://www.youtube.com/c/classicminidiy" class="youtube-red mb-5" dark>
             <v-icon class="white--text pr-2">fa-youtube-play</v-icon>
             Youtube
@@ -19,35 +19,27 @@
     <v-container>
       <v-layout row wrap class="mission pt-5 pb-4">
         <v-flex xs12 class="mission-header text-xs-center">
-          <h2 class="black--text darken-3">Our Mission</h2>
+          <h2 class="display-1 black--text darken-3">Our Mission</h2>
           <p class="subheading grey--text lighten-2 ma-0">Keeping the classics alive</p>
         </v-flex>
       </v-layout>
-      <v-layout row wrap class="mb-4 pt-3 text-xs-center mission-list">
-        <v-flex xs12 md4 class="center mb-4 px-3">
-          <v-icon medium class="primary--text mb-3 mt-1">fa-book</v-icon>
-          <h3 class="headline">Consolidate Mini Knowledge</h3>
-          <p>
-            As the channel expanded we started to realize that while there are many good sources of mini information out there, there is no single repository of technical and helpful knowledge for new mini owners. So with countless hours of work we have built just that.
-          </p>
-        </v-flex>
-        <v-flex xs12 md4 class="mb-4 px-3">
-          <v-icon large class="red--text mb-3">fa-youtube-play</v-icon>
-          <h3 class="headline">Create DIY Videos</h3>
-          <p>Classic Mini DIY first and foremost is about creating DIY videos for new and inexperiences Classic Mini owners to use and reference when fixing their own cars.</p>
+      <v-layout row wrap class="mb-4 pt-3 text-xs-center text-md-left mission-list">
+        <v-flex xs12 md6 class="mb-4 px-3">
+          <h3 class="headline pb-3"><v-icon large class="red--text">fa-youtube-play</v-icon>  Teach the Mini Community</h3>
+          <p>Classic Mini DIY first and foremost is about creating DIY videos for new and inexperienced Classic Mini owners to use and reference when fixing their own cars. While we will always be making DIY videos Classic Mini DIY hopes to be the best place on the internet to find Classic Mini information.</p>
           <ytcounter></ytcounter>
         </v-flex>
-        <v-flex xs12 md4 class="mb-4 px-3">
-          <v-icon large class="green--text mb-3">fa-tree</v-icon>
-          <h3 class="headline">Keep the Mini World Growing</h3>
-          <p>
-            Our main mission is to keep the Classic minis out there on the road for many years to come and for countless others to find joy and excitement from these little cars built so many years ago.
-          </p>
+        <v-flex xs12 md6 class="mb-4 px-3">
+          <img class="responsive-img elevation-5" src="/img/preview.png" alt="">
+          <!-- Add this carousel later when nuxt finally moves to vue 2.5 -->
+          <!-- <v-carousel>
+            <v-carousel-item v-for="(item,i) in items" v-bind:src="item.src" :key="i"></v-carousel-item>
+          </v-carousel> -->
         </v-flex>
       </v-layout>
-      <v-flex xs10 offset-xs1>
+      <!-- <v-flex xs10 offset-xs1>
         <v-divider></v-divider>
-      </v-flex>
+      </v-flex> -->
       <get-started-tiles></get-started-tiles>
       <v-flex xs10 offset-xs1>
         <v-divider></v-divider>
@@ -55,7 +47,7 @@
       <v-layout row wrap class="sponsors pt-5 pb-5">
         <v-layout row wrap class="text-xs-center">
           <v-flex xs12 class="pb-5">
-            <h2 class="black--text darken-3">Our Sponsors</h2>
+            <h2 class="display-1 black--text darken-3">Our Sponsors</h2>
             <p class="subheading grey--text lighten-2 ma-0">All the wonderful people who help support this channel</p>
           </v-flex>
           <v-flex xs12 offset-md1 md5 class="first mb-4 pb-4">
@@ -88,7 +80,21 @@ export default {
       youtube: 'https://www.youtube.com/c/classicminidiy',
       specs: '/specs',
       history: '/historical',
-      manuals: '/manuals'
+      manuals: '/manuals',
+      items: [
+        {
+          src: '/static/doc-images/carousel/squirrel.jpg'
+        },
+        {
+          src: '/static/doc-images/carousel/sky.jpg'
+        },
+        {
+          src: '/static/doc-images/carousel/bird.jpg'
+        },
+        {
+          src: '/static/doc-images/carousel/planet.jpg'
+        }
+      ]
     };
   },
   components: {
@@ -100,6 +106,14 @@ export default {
 
 <style lang="scss">
 .home {
+  .responsive-img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    margin: auto;
+    display: block;
+  }
+
   .hero {
     background-image: url('/img/default.png') !important;
     background-size: cover;
