@@ -26,7 +26,6 @@
       <v-layout row wrap class="mb-4 pt-3 text-xs-center text-md-left mission-list">
         <v-flex xs12 md6 class="mb-4 px-3">
           <h3 class="headline pb-3 accent--text">
-            <!-- <v-icon large class="red--text">fa-youtube-play</v-icon> -->
             Teach the Mini Community
           </h3>
           <p class="accent--text">Classic Mini DIY first and foremost is about creating DIY videos for new and inexperienced Classic Mini owners to use and reference when fixing their own cars. While we will always be making DIY videos Classic Mini DIY hopes to be the best place on the internet to find Classic Mini information.</p>
@@ -40,9 +39,6 @@
           </v-carousel> -->
         </v-flex>
       </v-layout>
-      <!-- <v-flex xs10 offset-xs1>
-        <v-divider></v-divider>
-      </v-flex> -->
       <get-started-tiles></get-started-tiles>
       <v-flex xs10 offset-xs1>
         <v-divider></v-divider>
@@ -84,21 +80,21 @@ export default {
       youtube: 'https://www.youtube.com/c/classicminidiy',
       specs: '/specs',
       history: '/historical',
-      manuals: '/manuals',
-      items: [
-        {
-          src: '/static/doc-images/carousel/squirrel.jpg'
-        },
-        {
-          src: '/static/doc-images/carousel/sky.jpg'
-        },
-        {
-          src: '/static/doc-images/carousel/bird.jpg'
-        },
-        {
-          src: '/static/doc-images/carousel/planet.jpg'
-        }
-      ]
+      manuals: '/manuals'
+      // items: [
+      //   {
+      //     src: '/static/doc-images/carousel/squirrel.jpg'
+      //   },
+      //   {
+      //     src: '/static/doc-images/carousel/sky.jpg'
+      //   },
+      //   {
+      //     src: '/static/doc-images/carousel/bird.jpg'
+      //   },
+      //   {
+      //     src: '/static/doc-images/carousel/planet.jpg'
+      //   }
+      // ]
     };
   },
   components: {
