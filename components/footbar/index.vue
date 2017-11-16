@@ -50,7 +50,7 @@ export default {
         facebook: 'https://www.facebook.com/classicminidiy',
         github: 'https://github.com/SomethingNew71/classicminidiy',
         youtube: 'https://www.youtube.com/c/classicminidiy',
-        sevenMini: 'http://www.7ent.com'
+        sevenMini: 'http://www.7ENT.com/store?af=cmdiy1959'
       }
     };
   }
