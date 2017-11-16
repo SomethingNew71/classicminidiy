@@ -2,8 +2,8 @@
   <section class="getting-started text-xs-center pb-4" id="get-started">
     <v-layout row class="pt-4">
       <v-flex xs12 class="mission-header text-xs-center">
-        <h2 class="display-1 black--text darken-3">Get Started</h2>
-        <p class="subheading grey--text lighten-2 ma-0">Finding the right information for your car</p>
+        <h2 class="display-1 white--text darken-3">Get Started</h2>
+        <p class="subheading accent--text lighten-2 ma-0">Finding the right information for your car</p>
       </v-flex>
     </v-layout>
     <v-container grid-list-xl>
@@ -121,7 +121,7 @@ export default {
     position: absolute;
     left:0;
     top:0;
-    background: rgba(255,255,255,.8);
+    background: rgba(61, 60, 60,.8);
     width:100%;
     height:100%;
     z-index: 1;
@@ -134,8 +134,8 @@ export default {
       border-style: solid;
       border-width: 2.7em;
       border-color: transparent;
-      border-right-color: #279bfb;
-      border-top-color: #279bfb;
+      border-right-color: #659CC8;
+      border-top-color: #659CC8;
       z-index: 1
     }
 

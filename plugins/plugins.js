@@ -3,12 +3,12 @@ import Vuetify from 'vuetify';
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#279BFB',
-    accent: '#279BFB',
+    primary: '#659CC8',
+    accent: '#EFD9B8',
     secondary: '#424242',
-    info: '#0D47A1',
-    warning: '#FBDF27',
-    error: '#FB4027',
+    info: '#659CC8',
+    warning: '#DCA033',
+    error: '#C13F21',
     youtube: '#E62117',
     success: '#2E7D32'
   }
