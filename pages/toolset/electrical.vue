@@ -1,169 +1,161 @@
 <template>
-  <v-container>
-    <v-layout wrap class="electrical">
-      <v-flex xs12 class="pt-2">
-        <v-btn dark primary nuxt to="/" >
-          <v-icon left dark>fa-arrow-left</v-icon>
-          Back to Get Started
-        </v-btn>
-      </v-flex>
-      <v-flex xs12 class="text-xs-center">
-        <img src="icons/Multicolor/SVG/Round Icons/Battery-Charging.svg" alt="" width="70px" class="pb-3">
-        <p class="subheading grey--text lighten-2 ma-0">Documents redrawn by Mike L on The Mini Forum</p>
-        <h2 class="black--text darken-3">Wiring Diagrams</h2>
-      </v-flex>
-      <v-flex xs12>
-        <v-divider></v-divider>
-      </v-flex>
-      <!-- POSITIVE GROUND SECTION -->
-      <v-flex xs12>
-        <h3 class="title pt-4">Positive Ground</h3>
-      </v-flex>
-      <v-flex xs12>
-        <v-list dense>
-          <div :key="index" v-for="(diagram, index) in diagrams.positiveGround">
-            <v-list-tile avatar :href="diagram.link" target="_blank">
-              <v-list-tile-avatar>
-                <v-icon>picture_as_pdf</v-icon>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
-                  {{diagram.from}} to {{diagram.to}}
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </div>
-        </v-list>
-      </v-flex>
-      <!-- NEGATIVE GROUND SECTION -->
-      <v-flex xs12>
-        <h3 class="title pt-4">Negative Ground</h3>
-      </v-flex>
-      <v-flex xs12>
-        <v-list dense>
-          <div :key="index" v-for="(diagram, index) in diagrams.negativeGround">
-            <v-list-tile avatar :href="diagram.link" target="_blank">
-              <v-list-tile-avatar>
-                <v-icon>picture_as_pdf</v-icon>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
-                  {{diagram.from}} to {{diagram.to}}
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </div>
-        </v-list>
-      </v-flex>
-      <!-- BRITISH LEYLAND SECTION -->
-      <v-flex xs12>
-        <h3 class="title pt-4">From British Leyland AKD 4935 (9th edition)</h3>
-      </v-flex>
-      <v-flex xs12>
-        <v-list dense>
-          <div :key="index" v-for="(diagram, index) in diagrams.britishLeyland">
-            <v-list-tile avatar :href="diagram.link" target="_blank">
-              <v-list-tile-avatar>
-                <v-icon>picture_as_pdf</v-icon>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
-                  {{diagram.from}} to {{diagram.to}}
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </div>
-        </v-list>
-      </v-flex>
-      <!-- EARLY ROVER SECTION -->
-      <v-flex xs12>
-        <h3 class="title pt-4">From Rover Repair Manual AKM 6353</h3>
-      </v-flex>
-      <v-flex xs12>
-        <v-list dense>
-          <div :key="index" v-for="(diagram, index) in diagrams.earlyRover">
-            <v-list-tile avatar :href="diagram.link" target="_blank">
-              <v-list-tile-avatar>
-                <v-icon>picture_as_pdf</v-icon>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
-                  {{diagram.from}} to {{diagram.to}}
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </div>
-        </v-list>
-      </v-flex>
-      <!-- LATER ROVER SECTION -->
-      <v-flex xs12>
-        <h3 class="title pt-4">From Rover repair manual AKM 7169</h3>
-      </v-flex>
-      <v-flex xs12>
-        <v-list dense>
-          <div :key="index" v-for="(diagram, index) in diagrams.laterRover">
-            <v-list-tile avatar :href="diagram.link" target="_blank">
-              <v-list-tile-avatar>
-                <v-icon>picture_as_pdf</v-icon>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
-                  {{diagram.from}} to {{diagram.to}}
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </div>
-        </v-list>
-      </v-flex>
-      <!-- HORNET ELF SECTION -->
-      <v-flex xs12>
-        <h3 class="title pt-4">BMC Hornet and Elf  AKM 4062D</h3>
-      </v-flex>
-      <v-flex xs12>
-        <v-list dense>
-          <div :key="index" v-for="(diagram, index) in diagrams.hornetElf">
-            <v-list-tile avatar :href="diagram.link" target="_blank">
-              <v-list-tile-avatar>
-                <v-icon>picture_as_pdf</v-icon>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
-                  {{diagram.from}} to {{diagram.to}}
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </div>
-        </v-list>
-      </v-flex>
-      <!-- AUS MINI SECTION -->
-      <v-flex xs12>
-        <h3 class="title pt-4">Australian Workshop Manual Supplement Publication TP 759 A</h3>
-      </v-flex>
-      <v-flex xs12>
-        <v-list dense>
-          <div :key="index" v-for="(diagram, index) in diagrams.ausMinis">
-            <v-list-tile avatar :href="diagram.link" target="_blank">
-              <v-list-tile-avatar>
-                <v-icon>picture_as_pdf</v-icon>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
-                <v-list-tile-sub-title v-if="diagram.from || diagram.to">
-                  {{diagram.from}} to {{diagram.to}}
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </div>
-        </v-list>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div class="electrical pt-4">
+    <v-flex xs12>
+      <img src="/icons/Multicolor/SVG/Round Icons/Battery-Charging.svg" alt="" width="70px" class="pb-3">
+      <h1 class="display-1">Wiring Diagrams</h1>
+      <p class="accent--text">Documents redrawn by Mike L on The Mini Forum</p>
+    </v-flex>
+    <v-flex xs12>
+      <v-divider></v-divider>
+    </v-flex>
+    <!-- POSITIVE GROUND SECTION -->
+    <v-flex xs12>
+      <h3 class="title pt-4">Positive Ground</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list dense>
+        <div :key="index" v-for="(diagram, index) in diagrams.positiveGround">
+          <v-list-tile avatar :href="diagram.link" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon>picture_as_pdf</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+              <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                {{diagram.from}} to {{diagram.to}}
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
+      </v-list>
+    </v-flex>
+    <!-- NEGATIVE GROUND SECTION -->
+    <v-flex xs12>
+      <h3 class="title pt-4">Negative Ground</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list dense>
+        <div :key="index" v-for="(diagram, index) in diagrams.negativeGround">
+          <v-list-tile avatar :href="diagram.link" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon>picture_as_pdf</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+              <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                {{diagram.from}} to {{diagram.to}}
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
+      </v-list>
+    </v-flex>
+    <!-- BRITISH LEYLAND SECTION -->
+    <v-flex xs12>
+      <h3 class="title pt-4">From British Leyland AKD 4935 (9th edition)</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list dense>
+        <div :key="index" v-for="(diagram, index) in diagrams.britishLeyland">
+          <v-list-tile avatar :href="diagram.link" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon>picture_as_pdf</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+              <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                {{diagram.from}} to {{diagram.to}}
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
+      </v-list>
+    </v-flex>
+    <!-- EARLY ROVER SECTION -->
+    <v-flex xs12>
+      <h3 class="title pt-4">From Rover Repair Manual AKM 6353</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list dense>
+        <div :key="index" v-for="(diagram, index) in diagrams.earlyRover">
+          <v-list-tile avatar :href="diagram.link" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon>picture_as_pdf</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+              <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                {{diagram.from}} to {{diagram.to}}
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
+      </v-list>
+    </v-flex>
+    <!-- LATER ROVER SECTION -->
+    <v-flex xs12>
+      <h3 class="title pt-4">From Rover repair manual AKM 7169</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list dense>
+        <div :key="index" v-for="(diagram, index) in diagrams.laterRover">
+          <v-list-tile avatar :href="diagram.link" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon>picture_as_pdf</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+              <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                {{diagram.from}} to {{diagram.to}}
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
+      </v-list>
+    </v-flex>
+    <!-- HORNET ELF SECTION -->
+    <v-flex xs12>
+      <h3 class="title pt-4">BMC Hornet and Elf  AKM 4062D</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list dense>
+        <div :key="index" v-for="(diagram, index) in diagrams.hornetElf">
+          <v-list-tile avatar :href="diagram.link" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon>picture_as_pdf</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+              <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                {{diagram.from}} to {{diagram.to}}
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
+      </v-list>
+    </v-flex>
+    <!-- AUS MINI SECTION -->
+    <v-flex xs12>
+      <h3 class="title pt-4">Australian Workshop Manual Supplement Publication TP 759 A</h3>
+    </v-flex>
+    <v-flex xs12>
+      <v-list dense>
+        <div :key="index" v-for="(diagram, index) in diagrams.ausMinis">
+          <v-list-tile avatar :href="diagram.link" target="_blank">
+            <v-list-tile-avatar>
+              <v-icon>picture_as_pdf</v-icon>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>{{diagram.name}}</v-list-tile-title>
+              <v-list-tile-sub-title v-if="diagram.from || diagram.to">
+                {{diagram.from}} to {{diagram.to}}
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
+      </v-list>
+    </v-flex>
+  </div>
 </template>
 
 <style lang="scss">

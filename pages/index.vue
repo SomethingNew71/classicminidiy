@@ -16,14 +16,14 @@
         </div>
       </v-flex>
     </v-layout>
-    <v-container>
+    <v-container fluid class="px-0">
       <v-layout row wrap class="mission pt-5 pb-4">
         <v-flex xs12 class="mission-header text-xs-center">
           <h2 class="display-1 white--text darken-3">Our Mission</h2>
           <p class="subheading accent--text lighten-2 ma-0">Keeping the classics alive</p>
         </v-flex>
       </v-layout>
-      <v-layout row wrap class="mb-4 pt-3 text-xs-center text-md-left mission-list">
+      <v-layout row wrap class="mb-4 pt-3 px-5 text-xs-center text-md-left mission-list">
         <v-flex xs12 md6 class="mb-4 px-3">
           <h3 class="headline pb-3 accent--text">
             Teach the Mini Community
@@ -33,7 +33,6 @@
         </v-flex>
         <v-flex xs12 md6 class="mb-4 px-3">
           <img class="responsive-img elevation-5" src="/img/preview.png" alt="">
-          <!-- Add this carousel later when nuxt finally moves to vue 2.5 -->
           <!-- <v-carousel>
             <v-carousel-item v-for="(item,i) in items" v-bind:src="item.src" :key="i"></v-carousel-item>
           </v-carousel> -->
@@ -43,14 +42,14 @@
       <v-flex xs10 offset-xs1>
         <v-divider></v-divider>
       </v-flex>
-      <v-layout row wrap class="sponsors pt-5 pb-5" justify-space-around>
+      <v-layout row wrap class="sponsors pt-5 pb-5 px-5" justify-space-around>
         <v-layout row wrap class="text-xs-center">
           <v-flex xs12 class="pb-5 mb-3">
             <h2 class="display-1 white--text darken-3">Our Sponsors</h2>
             <p class="subheading accent--text lighten-2 ma-0">All the wonderful people who help support this channel</p>
           </v-flex>
           <v-flex xs12 md5 class="first mb-4 pb-4 px-2">
-            <img src="/img/seven-logo.png" alt="">
+            <img src="/img/seven-logo-white-small.png" alt="">
             <h3 class="headline pt-3">Seven Mini Parts</h3>
             <p>From almost the point of this channels creation, Seven Mini Parts has been a brand and company partner. They took a chance on a small youtube channel that is now growing past my wildest dreams. If you are in the market for Mini parts please check them out!</p>
             <v-btn target='_blank' :href='sevenEnt' tag='a' class="seven-ent" dark>Checkout 7ent.com</v-btn>
@@ -60,7 +59,7 @@
             <img src="/img/patreon-logo.png" alt="">
             <h3 class="headline pt-3">Patreon Supporters</h3>
             <p>Aside from the parts and guidance provided by Seven Mini Parts, Classic Mini DIY is completely funded by myself and my patrons. Without your help, I could not provide the quality videos you enjoy.</p>
-            <v-btn class="patreon" target='_blank' :href='patreon' tag='a' dark>Support Us on Patreon</v-btn>
+            <v-btn class="patreon" target='_blank' :href='patreon' tag='a' dark>Support Me on Patreon</v-btn>
           </v-flex>
         </v-layout>
       </v-layout>
@@ -75,26 +74,20 @@ import getStartedTiles from '~/components/getStartedTiles';
 export default {
   data () {
     return {
-      patreon: 'https://www.patreon.com/classicminidiy',
+      patreon: 'http://bit.ly/cmdiypatreon',
       sevenEnt: 'http://www.7ENT.com/store?af=cmdiy1959',
       youtube: 'https://www.youtube.com/c/classicminidiy',
       specs: '/specs',
       history: '/historical',
-      manuals: '/manuals'
-      // items: [
-      //   {
-      //     src: '/static/doc-images/carousel/squirrel.jpg'
-      //   },
-      //   {
-      //     src: '/static/doc-images/carousel/sky.jpg'
-      //   },
-      //   {
-      //     src: '/static/doc-images/carousel/bird.jpg'
-      //   },
-      //   {
-      //     src: '/static/doc-images/carousel/planet.jpg'
-      //   }
-      // ]
+      manuals: '/manuals',
+      items: [
+        {
+          src: '/img/preview.png'
+        },
+        {
+          src: '/img/preview2.png'
+        }
+      ]
     };
   },
   components: {
@@ -106,6 +99,9 @@ export default {
 
 <style lang="scss">
 .home {
+  h2 { font-weight: 200; }
+  a { text-decoration: none; }
+
   .responsive-img {
     max-width: 100%;
     width: auto;
@@ -134,16 +130,8 @@ export default {
     }
   }
 
-  h2 {
-    font-weight: 200;
-  }
-  a {
-    text-decoration: none;
-  }
-
-  .container--fluid {
-    padding-top: 0;
-    padding-bottom: 0;
+  #get-started {
+    background-color: #414141;
   }
 
   .sponsors {

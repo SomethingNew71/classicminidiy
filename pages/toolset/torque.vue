@@ -1,17 +1,16 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12 offset-xs1 class="pt-2">
-      <v-btn dark primary nuxt to="/" >
-        <v-icon left dark>fa-arrow-left</v-icon>
-        Back to Get Started
-      </v-btn>
+  <v-layout row wrap class="pt-4">
+    <v-flex xs12>
+      <img src="/icons/Multicolor/SVG/Round Icons/Settings-5.svg" alt="" width="70px" class="pb-3">
+      <h1 class="display-1">Torque Specifications</h1>
+      <p class="accent--text">All torque settings sourced from Haynes Manuals</p>
     </v-flex>
-    <v-flex xs12 class="text-xs-center">
-      <img src="icons/Multicolor/SVG/Round Icons/Settings-5.svg" alt="" width="70px" class="pb-3">
+    <!-- <v-flex xs12 class="text-xs-center">
+      <img src="/icons/Multicolor/SVG/Round Icons/Settings-5.svg" alt="" width="70px" class="pb-3">
       <p class="subheading grey--text lighten-2 ma-0">All torque settings sourced from Haynes Manuals</p>
       <h2 class="black--text darken-3">Torque Specifications</h2>
-    </v-flex>
-    <v-flex xs12 offset-sm1 sm10 class="mt-4">
+    </v-flex> -->
+    <v-flex xs12 class="mt-4">
       <v-card>
         <v-card-title class="pl-4 pt-4">
           <h3 class="title">
@@ -34,7 +33,7 @@
             v-bind:items="suspensionItems"
             v-bind:search="suspensionSearch"
           >
-          <template slot="items" scope="props">
+          <template slot="items" slot-scope="props">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbft }}</td>
             <td class="text-xs-right">{{ props.item.nm }}</td>
@@ -42,13 +41,13 @@
               {{props.item.notes}}
             </td>
           </template>
-          <template slot="pageText" scope="{ pageStart, pageStop }">
+          <template slot="pageText" slot-scope="{ pageStart, pageStop }">
             From {{ pageStart }} to {{ pageStop }}
           </template>
         </v-data-table>
       </v-card>
     </v-flex>
-    <v-flex xs10 offset-xs1 class="pt-4">
+    <v-flex xs12 class="pt-4">
       <v-card>
         <v-card-text>
           <!-- CMDIY - Torque Specs -->
@@ -66,7 +65,7 @@
       </v-card>
     </v-flex>
     <v-layout row wrap>
-      <v-flex xs12 offset-sm1 sm10 md5 class="pr-2 pt-5">
+      <v-flex xs12 md6 class="pr-2 pt-5">
       <!-- <v-flex xs12 offset-sm1 sm10 class="mt-4"> -->
         <v-card>
           <v-card-title class="pl-4 pt-4">
@@ -90,18 +89,18 @@
               v-bind:items="gearboxItems"
               v-bind:search="gearSearch"
             >
-            <template slot="items" scope="props">
+            <template slot="items" slot-scope="props">
               <td class="text-xs-left">{{ props.item.name }}</td>
               <td class="text-xs-right">{{ props.item.lbft }}</td>
               <td class="text-xs-right">{{ props.item.nm }}</td>
             </template>
-            <template slot="pageText" scope="{ pageStart, pageStop }">
+            <template slot="pageText" slot-scope="{ pageStart, pageStop }">
               From {{ pageStart }} to {{ pageStop }}
             </template>
           </v-data-table>
         </v-card>
       </v-flex>
-      <v-flex xs12 offset-sm1 sm10 md5 class="pl-2 pt-5 electrical-margin">
+      <v-flex xs12 md6 class="pl-2 pt-5 electrical-margin">
         <v-card>
           <v-card-title class="pl-4 pt-4">
             <h3 class="title">
@@ -124,19 +123,19 @@
               v-bind:items="electricalItems"
               v-bind:search="electricalSearch"
             >
-            <template slot="items" scope="props">
+            <template slot="items" slot-scope="props">
               <td class="text-xs-left">{{ props.item.name }}</td>
               <td class="text-xs-right">{{ props.item.lbin }}</td>
               <td class="text-xs-right">{{ props.item.nm }}</td>
             </template>
-            <template slot="pageText" scope="{ pageStart, pageStop }">
+            <template slot="pageText" slot-scope="{ pageStart, pageStop }">
               From {{ pageStart }} to {{ pageStop }}
             </template>
           </v-data-table>
         </v-card>
       </v-flex>
     </v-layout>
-    <v-flex xs12 offset-sm1 sm10 class="mt-4 mb-4">
+    <v-flex xs12 class="mt-4 mb-4">
       <v-card>
         <v-card-title class="pl-4 pt-4">
           <h3 class="title">
@@ -159,7 +158,7 @@
             v-bind:items="engineItems"
             v-bind:search="engineSearch"
           >
-          <template slot="items" scope="props">
+          <template slot="items" slot-scope="props">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbft }}</td>
             <td class="text-xs-right">{{ props.item.nm }}</td>
@@ -167,7 +166,7 @@
               {{props.item.notes}}
             </td>
           </template>
-          <template slot="pageText" scope="{ pageStart, pageStop }">
+          <template slot="pageText" slot-scope="{ pageStart, pageStop }">
             From {{ pageStart }} to {{ pageStop }}
           </template>
         </v-data-table>

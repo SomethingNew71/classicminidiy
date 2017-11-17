@@ -1,21 +1,28 @@
 <template>
-  <v-container class="colors-page" fluid>
+  <v-container class="colors-page pt-4 pl-0" fluid>
     <v-layout wrap>
-      <v-flex xs12 offset-xs1 class="pt-2">
-        <v-btn dark primary nuxt to="/" >
-          <v-icon left dark>fa-arrow-left</v-icon>
-          Back to Get Started
-        </v-btn>
+      <v-flex xs12>
+        <img src="/icons/Multicolor/SVG/Round Icons/Pantone.svg" alt="" width="70px" class="pb-3">
+        <h1 class="display-1">Color Picker</h1>
+        <p class="accent--text">All data from Mini-Colours.co.uk</p>
       </v-flex>
-      <v-flex xs12 class="text-xs-center">
-        <img src="icons/Multicolor/SVG/Round Icons/Pantone.svg" alt="" width="70px" class="pb-3">
-        <p class="subheading grey--text lighten-2 ma-0">All data from Mini-Colours.co.uk</p>
-        <h2 class="black--text darken-3">Color Picker</h2>
-      </v-flex>
-      <v-flex xs10 offset-xs1>
+      <v-flex xs12>
         <v-divider></v-divider>
       </v-flex>
-      <v-flex offset-xs3 offset-sm4 xs6 sm4 class="pt-4">
+      <v-flex xs12 sm6 class="py-4">
+         <v-card color="secondary" class="white--text">
+           <v-card-title primary-title>
+             <v-select
+               v-bind:items="items"
+               v-model="e1"
+               label="Start typing or select your color name"
+               autocomplete
+               @input='fetchData()'
+             ></v-select>
+           </v-card-title>
+         </v-card>
+       </v-flex>
+      <!-- <v-flex xs5 class="pt-4">
         <v-select
           v-bind:items="items"
           v-model="e1"
@@ -23,7 +30,7 @@
           autocomplete
           @input='fetchData()'
         ></v-select>
-      </v-flex>
+      </v-flex> -->
     </v-layout>
     <v-layout v-if="this.isLoading">
       <v-flex xs12 class="text-xs-center pt-5">
@@ -31,7 +38,7 @@
       </v-flex>
     </v-layout>
     <v-layout v-if="!this.isLoading">
-      <v-flex offset-xs1 xs10>
+      <v-flex xs12>
         <v-layout row wrap class="color-cards">
           <v-flex xs12 sm6 md4 lg3 class="py-2 px-2" :key="index" v-for="(colour, index) in activeColors.colour.records">
             <v-card hover class="">
