@@ -1,116 +1,43 @@
 <template>
-  <section class="manuals pb-5">
-    <v-layout wrap>
-      <v-flex xs12 offset-xs1 class="pt-2">
-        <v-btn dark primary nuxt to="/" >
-          <v-icon left dark>fa-arrow-left</v-icon>
-          Back to Get Started
-        </v-btn>
-      </v-flex>
-      <v-flex xs12 class="text-xs-center">
-        <img src="icons/Multicolor/SVG/Round Icons/Checklist.svg" alt="" width="70px" class="pb-3">
-        <p class="subheading grey--text lighten-2 ma-0">Currated list of Classic Mini DIY recommended manuals</p>
-        <h2 class="black--text darken-3">Workshop Manuals</h2>
-      </v-flex>
-      <v-flex xs10 offset-xs1>
-        <v-divider></v-divider>
-      </v-flex>
+  <section class="manuals pb-5 pt-4">
+    <v-flex xs12>
+      <img src="/icons/Multicolor/SVG/Round Icons/Checklist.svg" alt="" width="70px" class="pb-3">
+      <h1 class="display-1">Workshop Manuals</h1>
+      <p class="accent--text">Currated list of Classic Mini DIY recommended manuals</p>
+    </v-flex>
+    <v-flex xs12>
+      <v-divider></v-divider>
+    </v-flex>
 
-      <v-tabs dark fixed centered>
-        <v-tabs-bar class="primary">
-          <v-tabs-slider class="white"></v-tabs-slider>
-          <v-tabs-item :href="'#manuals'">
-            Manuals
-          </v-tabs-item>
-          <v-tabs-item :href="'#technical'">
-            Technical
-          </v-tabs-item>
-        </v-tabs-bar>
-        <v-tabs-items>
-          <v-tabs-content :id="'manuals'">
-            <v-container>
-              <v-layout row wrap class="manuals-section">
-                <v-flex xs12 sm6 md4 lg3 class="pa-2" :key="index" v-for="(book, index) in books.workshop">
-                  <v-card hover class="">
-                    <v-container fluid grid-list-lg>
-                      <v-layout row>
-                        <v-flex xs7>
-                          <div>
-                            <div class="pl-0 subheader">{{book.name}}</div>
-                            <div class="caption">Written by {{book.author}}</div>
-                          </div>
-                          <v-card-actions class="pl-0 mt-2">
-                            <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
-                          </v-card-actions>
-                        </v-flex>
-                        <v-flex xs5>
-                          <v-card-media
-                            :src="book.imgSource"
-                            height="150px"
-                            contain
-                          >
-                          </v-card-media>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                  </v-card>
+    <v-container>
+      <v-layout row wrap class="manuals-section">
+        <v-flex xs12 sm6 md4 lg3 class="pa-2" :key="index" v-for="(book, index) in books.workshop">
+          <v-card hover class="">
+            <v-container fluid grid-list-lg>
+              <v-layout row>
+                <v-flex xs7>
+                  <div>
+                    <div class="pl-0 subheader">{{book.name}}</div>
+                    <div class="caption">Written by {{book.author}}</div>
+                  </div>
+                  <v-card-actions class="pl-0 mt-2">
+                    <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
+                  </v-card-actions>
+                </v-flex>
+                <v-flex xs5>
+                  <v-card-media
+                    :src="book.imgSource"
+                    height="150px"
+                    contain
+                  >
+                  </v-card-media>
                 </v-flex>
               </v-layout>
             </v-container>
-          </v-tabs-content>
-          <v-tabs-content :id="'technical'">
-            <v-container>
-              <v-layout row wrap class="technical-section">
-                <v-flex xs12 sm6 md4 lg3 class="pa-2" :key="index" v-for="(book, index)  in books.technical">
-                  <v-card hover class="">
-                    <v-container fluid grid-list-lg>
-                      <v-layout row>
-                        <v-flex xs7>
-                          <div>
-                            <div class="pl-0 subheader">{{book.name}}</div>
-                            <div class="caption">Written by {{book.author}}</div>
-                          </div>
-                          <v-card-actions class="pl-0 mt-2">
-                            <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
-                          </v-card-actions>
-                        </v-flex>
-                        <v-flex xs5>
-                          <v-card-media
-                            :src="book.imgSource"
-                            height="150px"
-                            contain
-                          >
-                          </v-card-media>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                  </v-card>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-tabs-content>
-        </v-tabs-items>
-      </v-tabs>
-    </v-layout>
-    <v-layout row>
-      <v-flex xs10 offset-xs1 class="pt-4">
-        <v-card>
-          <v-card-text>
-            <!-- CMDIY - Manuals -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-0523971861051053"
-                 data-ad-slot="1008138191"
-                 data-ad-format="auto"></ins>
-            <script>
-            /* eslint-disable */
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            /* eslint-enable */
-            </script>
-          </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </section>
 </template>
 
@@ -182,10 +109,8 @@
               'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842049&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
               'imgFrame': '<a href="https://www.amazon.com/Mini-Essential-Buyers-Mark-Paxton/dp/1845842049/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1845842049&pd_rd_r=THVAMSQ4PVRSSBE7STXP&pd_rd_w=U0WnN&pd_rd_wg=Idzj1&psc=1&refRID=THVAMSQ4PVRSSBE7STXP&linkCode=li3&tag=classicmini0a-20&linkId=ef34c71b59ab81868c4f22b6631d25d2" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842049&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1845842049" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
               'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1845842049&asins=1845842049&linkId=feeb56f849bfe1bdcdc11774fb3ccd3b&show_border=true&link_opens_in_new_window=true"></iframe>'
-            }
-          },
-          technical: {
-            1: {
+            },
+            8: {
               'name': 'Anatomy of the Classic Mini',
               'author': 'Mark Huthert',
               'urlSeven': '',
@@ -194,7 +119,7 @@
               'imgFrame': '<a href="https://www.amazon.com/Anatomy-Classic-Mini-definitive-interchangeability/dp/1845842235/ref=as_li_ss_il?ie=UTF8&qid=1497404041&sr=8-1&keywords=classic+mini+books&linkCode=li3&tag=classicmini0a-20&linkId=35f89a9bf08117dd6821420954873b44" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842235&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1845842235" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
               'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1845842235&asins=1845842235&linkId=44ef5b792ac9a01ba86686b8bbab6fd1&show_border=true&link_opens_in_new_window=true"></iframe>'
             },
-            2: {
+            9: {
               'name': 'Tuning the A-Series Engine',
               'author': 'David Vizard',
               'urlSeven': 'http://www.7ENT.com/products/tuning-the-a-series-engine-sbk0001.html?af=cmdiy1959',
@@ -203,7 +128,7 @@
               'imgFrame': '<a href="https://www.amazon.com/Tuning-Engine-Definitive-Performance-Economy/dp/1859606202/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1859606202&pd_rd_r=THVAMSQ4PVRSSBE7STXP&pd_rd_w=U0WnN&pd_rd_wg=Idzj1&psc=1&refRID=THVAMSQ4PVRSSBE7STXP&linkCode=li3&tag=classicmini0a-20&linkId=1cfae556a49124602a87095d62b176f1" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859606202&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859606202" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
               'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1859606202&asins=1859606202&linkId=6af83734a1ba68448f772985f0bf49a9&show_border=true&link_opens_in_new_window=true"></iframe>'
             },
-            3: {
+            10: {
               'name': 'SU Carburetters Tuning Tips And Techniques',
               'author': 'R.M. Clarke',
               'urlSeven': '',
@@ -212,7 +137,7 @@
               'imgFrame': '<a href="https://www.amazon.com/SU-Carburetters-Tuning-Tips-Techniques/dp/1855202557/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1855202557&pd_rd_r=ADRNVNTZ6VVVCTW03KZN&pd_rd_w=my5cl&pd_rd_wg=J5SNd&psc=1&refRID=ADRNVNTZ6VVVCTW03KZN&linkCode=li3&tag=classicmini0a-20&linkId=57ccd821731bd290ed006d2d8e124aee" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1855202557&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1855202557" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
               'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1855202557&asins=1855202557&linkId=8d2428ad61aa6d9e2e23d0d1895eb935&show_border=true&link_opens_in_new_window=true"></iframe>'
             },
-            4: {
+            11: {
               'name': 'The Ultimate Mini Restoration Manual',
               'author': 'Iain Ayre',
               'urlSeven': '',

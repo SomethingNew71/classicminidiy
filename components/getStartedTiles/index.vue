@@ -9,7 +9,7 @@
     <v-container grid-list-xl>
       <v-layout row wrap>
         <v-flex xs12 sm4 md3 :key="index" v-for="(item, index) in items">
-          <nuxt-link v-if="!item.disabled && !item.youtube" :to='item.to'>
+          <nuxt-link v-if="!item.disabled && !item.external" :to='item.to'>
             <v-card hover class="pt-3">
               <v-card-media :src="item.icon" height="130px"></v-card-media>
               <v-card-title primary-title class="pt-0">
@@ -19,7 +19,7 @@
               </v-card-title>
             </v-card>
           </nuxt-link>
-          <a v-if="item.youtube" :href="item.to" target="_blank">
+          <a v-if="item.external" :href="item.to" target="_blank">
             <v-card hover class="pt-3">
               <v-card-media :src="item.icon" height="130px"></v-card-media>
               <v-card-title primary-title class="pt-0">
@@ -52,50 +52,51 @@ export default {
         {
           title: 'Manuals',
           icon: '"icons/Multicolor/SVG/Round Icons/Checklist.svg"',
-          to: '/manuals',
+          to: 'toolset/manuals',
           disabled: false
         },
         {
           title: 'Torque Specs',
           icon: '"icons/Multicolor/SVG/Round Icons/Settings-5.svg"',
-          to: '/torque',
+          to: 'toolset/torque',
           disabled: false
         },
         {
           title: 'Electrical Diagrams',
           icon: '"icons/Yellow/SVG/Round Icons/Battery-Charging.svg"',
-          to: '/electrical',
+          to: 'toolset/electrical',
           disabled: false
         },
         {
           title: 'Color Codes',
           icon: '"icons/Multicolor/SVG/Round Icons/Pantone.svg"',
-          to: '/colors',
+          to: 'toolset/colors',
           disabled: false
         },
         {
           title: 'DIY Videos',
           icon: '"icons/Multicolor/SVG/Round Icons/Video-Camera-2.svg"',
-          youtube: true,
+          external: true,
           to: 'https://www.youtube.com/c/classicminidiy',
+          disabled: false
+        },
+        {
+          title: 'Live Chat',
+          external: true,
+          icon: '"img/discord-icon.png"',
+          to: 'https://discord.gg/TNNH7ZD',
           disabled: false
         },
         {
           title: 'Tech Specs',
           icon: '"icons/Multicolor/SVG/Round Icons/Analytics.svg"',
-          to: '/specs',
-          disabled: true
-        },
-        {
-          title: 'Forums',
-          icon: '"icons/Multicolor/SVG/Round Icons/Chat-2.svg"',
-          to: '/forums',
+          to: 'toolset/specs',
           disabled: true
         },
         {
           title: 'History',
           icon: '"icons/Multicolor/SVG/Round Icons/Phone-Booth.svg"',
-          to: '/historical',
+          to: 'toolset/historical',
           disabled: true
         }
       ]
@@ -111,6 +112,9 @@ export default {
   .icon {
     margin: auto;
   }
+  .card {
+    background-color: rgba(61, 60, 60,.8);
+  }
   .card__media__background {
     background-size: auto !important;
   }
@@ -121,7 +125,7 @@ export default {
     position: absolute;
     left:0;
     top:0;
-    background: rgba(61, 60, 60,.8);
+    background: rgba(48, 48, 48, .8);
     width:100%;
     height:100%;
     z-index: 1;
