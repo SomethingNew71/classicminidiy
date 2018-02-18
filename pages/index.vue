@@ -45,21 +45,26 @@
       <v-layout row wrap class="sponsors pt-5 pb-5 px-5" justify-space-around>
         <v-layout row wrap class="text-xs-center">
           <v-flex xs12 class="pb-5 mb-3">
-            <h2 class="display-1 white--text darken-3">Our Sponsors</h2>
+            <h2 class="display-1 white--text darken-3">Supporting the Channel</h2>
             <p class="subheading accent--text lighten-2 ma-0">All the wonderful people who help support this channel</p>
           </v-flex>
-          <v-flex xs12 md5 class="first mb-4 pb-4 px-2">
+          <v-flex xs12 md4 class="first mb-4 pb-4 px-3">
             <img src="/img/seven-logo-white-small.png" alt="">
             <h3 class="headline pt-3">Seven Mini Parts</h3>
             <p>From almost the point of this channels creation, Seven Mini Parts has been a brand and company partner. They took a chance on a small youtube channel that is now growing past my wildest dreams. If you are in the market for Mini parts please check them out!</p>
             <v-btn target='_blank' :href='sevenEnt' tag='a' class="seven-ent" dark>Checkout 7ent.com</v-btn>
           </v-flex>
-          <v-flex xs12 md2></v-flex>
-          <v-flex xs12 md5 class="px-2">
+          <v-flex xs12 md4 class="px-3">
             <img src="/img/patreon-logo.png" alt="">
             <h3 class="headline pt-3">Patreon Supporters</h3>
             <p>Aside from the parts and guidance provided by Seven Mini Parts, Classic Mini DIY is completely funded by myself and my patrons. Without your help, I could not provide the quality videos you enjoy.</p>
             <v-btn class="patreon" target='_blank' :href='patreon' tag='a' dark>Support Me on Patreon</v-btn>
+          </v-flex>
+          <v-flex xs12 md4 class="px-3">
+            <img src="icons/Multicolor/SVG/Round Icons/Shop.svg" alt="">
+            <h3 class="headline pt-3">Classic Mini DIY Merch</h3>
+            <p>Classic Mini DIY now has a merch store. If you like to get cool stuff to support youtube channels you like head over to the link below to check out all the cool stuff we have!</p>
+            <v-btn class="merch" target='_blank' :href='merch' tag='a' dark>Visit the Store</v-btn>
           </v-flex>
         </v-layout>
       </v-layout>
@@ -75,6 +80,7 @@ export default {
   data () {
     return {
       patreon: 'http://bit.ly/cmdiypatreon',
+      merch: 'https://merch.classicminidiy.com/',
       sevenEnt: 'http://www.7ENT.com/store?af=cmdiy1959',
       youtube: 'https://www.youtube.com/c/classicminidiy',
       specs: '/specs',
@@ -140,6 +146,9 @@ export default {
     }
     .patreon {
       background-color: #F96854 !important;
+    }
+    .merch {
+      background-color: #25B7D4 !important;
     }
   }
 }

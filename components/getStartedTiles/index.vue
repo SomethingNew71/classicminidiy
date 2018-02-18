@@ -88,11 +88,18 @@ export default {
           disabled: false
         },
         {
-          title: 'Tech Specs',
-          icon: '"icons/Multicolor/SVG/Round Icons/Analytics.svg"',
-          to: 'toolset/specs',
-          disabled: true
+          title: 'Merch',
+          external: true,
+          icon: '"icons/Multicolor/SVG/Round Icons/Shop.svg"',
+          to: 'https://merch.classicminidiy.com/',
+          disabled: false
         },
+        // {
+        //   title: 'Tech Specs',
+        //   icon: '"icons/Multicolor/SVG/Round Icons/Analytics.svg"',
+        //   to: 'toolset/specs',
+        //   disabled: true
+        // },
         {
           title: 'History',
           icon: '"icons/Multicolor/SVG/Round Icons/Phone-Booth.svg"',
