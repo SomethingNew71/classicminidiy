@@ -15,12 +15,12 @@ module.exports = {
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
       { rel: 'icon', type: 'image/x-icon', href: '/icons/preview.png' },
       { rel: 'image_src', href: '/static' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+      { href: 'https://fonts.googleapis.com/css?family=Oxygen:300,400,700', rel: 'stylesheet' }
     ],
     script: [
-      { async: true, 'data-org-id': 'fc93e647eed8425ea822fbe713255ed1', 'data-app-id': 'e1ca9c529f', src: 'https://d3tvtfb6518e3e.cloudfront.net/3/opbeat.min.js' },
-      { async: true, src: 'https://use.fontawesome.com/3d93f1904c.js' },
-      { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' }
+      { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
+      { defer: true, src: 'https://pro.fontawesome.com/releases/v5.0.9/js/all.js', integrity: 'sha384-DtPgXIYsUR6lLmJK14ZNUi11aAoezQtw4ut26Zwy9/6QXHH8W3+gjrRDT+lHiiW4', crossorigin: 'anonymous' },
+      { defer: true, src: 'https://use.fontawesome.com/releases/v5.0.9/js/v4-shims.js' }
     ]
   },
   /*
