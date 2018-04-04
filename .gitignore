@@ -11,5 +11,4 @@ npm-debug.log
 dist
 
 # Yarn and NPM Lock because heroku is a bastard
-yarn.lock
 package-lock.json
