@@ -10,9 +10,10 @@
     </v-flex>
     <!-- POSITIVE GROUND SECTION -->
     <v-flex xs12>
-      <h3 class="title pt-4">Positive Ground</h3>
-    </v-flex>
-    <v-flex xs12>
+      <v-toolbar color="primary" dark dense>
+        <v-icon fa class="fas white--text">plus</v-icon>
+        <v-toolbar-title color="white--text">Positive Ground</v-toolbar-title>
+      </v-toolbar>
       <v-list dense>
         <div :key="index" v-for="(diagram, index) in diagrams.positiveGround">
           <v-list-tile avatar :href="diagram.link" target="_blank">
@@ -31,9 +32,10 @@
     </v-flex>
     <!-- NEGATIVE GROUND SECTION -->
     <v-flex xs12>
-      <h3 class="title pt-4">Negative Ground</h3>
-    </v-flex>
-    <v-flex xs12>
+      <v-toolbar color="primary" dark dense>
+        <v-icon fa class="fas white--text">minus</v-icon>
+        <v-toolbar-title>Negative Ground</v-toolbar-title>
+      </v-toolbar>
       <v-list dense>
         <div :key="index" v-for="(diagram, index) in diagrams.negativeGround">
           <v-list-tile avatar :href="diagram.link" target="_blank">
@@ -52,9 +54,10 @@
     </v-flex>
     <!-- BRITISH LEYLAND SECTION -->
     <v-flex xs12>
-      <h3 class="title pt-4">From British Leyland AKD 4935 (9th edition)</h3>
-    </v-flex>
-    <v-flex xs12>
+      <v-toolbar color="primary" dark dense>
+        <v-icon fa class="fas white--text">car</v-icon>
+        <v-toolbar-title>From British Leyland AKD 4935 (9th edition)</v-toolbar-title>
+      </v-toolbar>
       <v-list dense>
         <div :key="index" v-for="(diagram, index) in diagrams.britishLeyland">
           <v-list-tile avatar :href="diagram.link" target="_blank">
@@ -73,9 +76,10 @@
     </v-flex>
     <!-- EARLY ROVER SECTION -->
     <v-flex xs12>
-      <h3 class="title pt-4">From Rover Repair Manual AKM 6353</h3>
-    </v-flex>
-    <v-flex xs12>
+      <v-toolbar color="primary" dark dense>
+        <v-icon fa class="fas white--text">car</v-icon>
+        <v-toolbar-title>From Rover Repair Manual AKM 6353</v-toolbar-title>
+      </v-toolbar>
       <v-list dense>
         <div :key="index" v-for="(diagram, index) in diagrams.earlyRover">
           <v-list-tile avatar :href="diagram.link" target="_blank">
@@ -94,9 +98,10 @@
     </v-flex>
     <!-- LATER ROVER SECTION -->
     <v-flex xs12>
-      <h3 class="title pt-4">From Rover repair manual AKM 7169</h3>
-    </v-flex>
-    <v-flex xs12>
+      <v-toolbar color="primary" dark dense>
+        <v-icon fa class="fas white--text">car</v-icon>
+        <v-toolbar-title>From Rover repair manual AKM 7169</v-toolbar-title>
+      </v-toolbar>
       <v-list dense>
         <div :key="index" v-for="(diagram, index) in diagrams.laterRover">
           <v-list-tile avatar :href="diagram.link" target="_blank">
@@ -115,9 +120,10 @@
     </v-flex>
     <!-- HORNET ELF SECTION -->
     <v-flex xs12>
-      <h3 class="title pt-4">BMC Hornet and Elf  AKM 4062D</h3>
-    </v-flex>
-    <v-flex xs12>
+      <v-toolbar color="primary" dark dense>
+        <v-icon fa class="fas white--text">car</v-icon>
+        <v-toolbar-title>BMC Hornet and Elf  AKM 4062D</v-toolbar-title>
+      </v-toolbar>
       <v-list dense>
         <div :key="index" v-for="(diagram, index) in diagrams.hornetElf">
           <v-list-tile avatar :href="diagram.link" target="_blank">
@@ -136,9 +142,10 @@
     </v-flex>
     <!-- AUS MINI SECTION -->
     <v-flex xs12>
-      <h3 class="title pt-4">Australian Workshop Manual Supplement Publication TP 759 A</h3>
-    </v-flex>
-    <v-flex xs12>
+      <v-toolbar color="primary" dark dense>
+        <v-icon fa class="fas white--text">car</v-icon>
+        <v-toolbar-title>Australian Workshop Manual Supplement Publication TP 759 A</v-toolbar-title>
+      </v-toolbar>
       <v-list dense>
         <div :key="index" v-for="(diagram, index) in diagrams.ausMinis">
           <v-list-tile avatar :href="diagram.link" target="_blank">

@@ -2,7 +2,7 @@
   <div class="youtube-counter mt-1">
     <v-btn dark medium tag='a' class="ml-0" color="error" target='_blank' href='https://www.youtube.com/c/classicminidiy'>
       <v-icon class="white--text pr-2">fa-youtube-play</v-icon>
-      {{ytSubs}} - Subscribe
+      {{ytSubs}} - Check out my Channel
     </v-btn>
   </div>
 </template>

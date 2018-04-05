@@ -5,11 +5,6 @@
       <h1 class="display-1">Torque Specifications</h1>
       <p class="accent--text">All torque settings sourced from Haynes Manuals</p>
     </v-flex>
-    <!-- <v-flex xs12 class="text-xs-center">
-      <img src="/icons/Multicolor/SVG/Round Icons/Settings-5.svg" alt="" width="70px" class="pb-3">
-      <p class="subheading grey--text lighten-2 ma-0">All torque settings sourced from Haynes Manuals</p>
-      <h2 class="black--text darken-3">Torque Specifications</h2>
-    </v-flex> -->
     <v-flex xs12 class="mt-4">
       <v-card>
         <v-card-title class="pl-4 pt-4">
