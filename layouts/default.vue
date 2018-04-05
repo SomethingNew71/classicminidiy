@@ -5,20 +5,20 @@
     </v-content>
     <v-footer class="pa-4 secondary footer">
       <div>
-        <a class="social-link" target='_blank' :href='urls.youtube'>
-          <span class="icon"><i class="white--text fa fa-youtube"></i></span>
+        <a class="social-link" target='_blank' href='https://www.youtube.com/c/classicminidiy'>
+          <span class="icon"><i class="white--text fab fa-youtube"></i></span>
         </a>
-        <a class="social-link" target='_blank' :href='urls.facebook'>
-          <span class="icon"><i class="white--text fa fa-facebook"></i></span>
+        <a class="social-link" target='_blank' href='https://www.facebook.com/classicminidiy'>
+          <span class="icon"><i class="white--text fab fa-facebook"></i></span>
         </a>
-        <a class="social-link"  target='_blank' :href='urls.instagram'>
-          <span class="icon"><i class="white--text fa fa-instagram"></i></span>
+        <a class="social-link"  target='_blank' href='https://www.instagram.com/classicminidiy59/'>
+          <span class="icon"><i class="white--text fab fa-instagram"></i></span>
         </a>
-        <a class="social-link" target='_blank' :href='urls.github'>
-          <span class="icon"><i class="white--text fa fa-github"></i></span>
+        <a class="social-link" target='_blank' href='https://github.com/SomethingNew71/classicminidiy'>
+          <span class="icon"><i class="white--text fab fa-github"></i></span>
         </a>
-        <a class="social-link" target='_blank' :href='urls.patreon'>
-          <span class="icon"><i class="white--text fa fa-dollar"></i></span>
+        <a class="social-link" target='_blank' href='http://bit.ly/cmdiypatreon'>
+          <span class="icon"><i class="white--text fab fa-patreon"></i></span>
         </a>
       </div>
       <v-spacer></v-spacer>
@@ -28,24 +28,6 @@
     </v-footer>
   </v-app>
 </template>
-
-<script>
-
-export default {
-  data: function () {
-    return {
-      urls: {
-        instagram: 'https://www.instagram.com/classicminidiy59/',
-        facebook: 'https://www.facebook.com/classicminidiy',
-        github: 'https://github.com/SomethingNew71/classicminidiy',
-        youtube: 'https://www.youtube.com/c/classicminidiy',
-        sevenMini: 'http://www.7ENT.com/store?af=cmdiy1959',
-        patreon: 'http://bit.ly/cmdiypatreon'
-      }
-    };
-  }
-};
-</script>
 
 <style lang="scss">
 // Styles applied to the entire app.

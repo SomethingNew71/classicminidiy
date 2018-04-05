@@ -15,7 +15,8 @@ module.exports = {
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
       { rel: 'icon', type: 'image/x-icon', href: '/icons/preview.png' },
       { rel: 'image_src', href: '/static' },
-      { href: 'https://fonts.googleapis.com/css?family=Oxygen:300,400,700', rel: 'stylesheet' }
+      { href: 'https://fonts.googleapis.com/css?family=Oxygen:300,400,700', rel: 'stylesheet' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ],
     script: [
       { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },

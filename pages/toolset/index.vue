@@ -1,5 +1,5 @@
 <template>
   <section class="toolset-default">
-    <!-- <get-started-tiles></get-started-tiles> -->
+    <h1>Woah how did you get to this page. Head back!</h1>
   </section>
 </template>
