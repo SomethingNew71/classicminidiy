@@ -3,16 +3,17 @@
     <v-layout wrap>
       <v-flex xs12>
         <img src="/icons/Multicolor/SVG/Round Icons/Pantone.svg" alt="" width="70px" class="pb-3">
-        <h1 class="display-1">Color Picker</h1>
+        <h1 class="display-1 white--text">Color Picker</h1>
         <p class="accent--text">All data from Mini-Colours.co.uk</p>
       </v-flex>
       <v-flex xs12>
         <v-divider></v-divider>
       </v-flex>
       <v-flex xs12 sm6 class="py-4">
-         <v-card color="secondary" class="white--text">
-           <v-card-title primary-title>
+         <v-card>
+           <v-card-title primary-title class="grey darken-1">
              <v-select
+               dark
                v-bind:items="items"
                v-model="e1"
                label="Start typing or select your color name"
@@ -22,15 +23,6 @@
            </v-card-title>
          </v-card>
        </v-flex>
-      <!-- <v-flex xs5 class="pt-4">
-        <v-select
-          v-bind:items="items"
-          v-model="e1"
-          label="Start typing your color name"
-          autocomplete
-          @input='fetchData()'
-        ></v-select>
-      </v-flex> -->
     </v-layout>
     <v-layout v-if="this.isLoading">
       <v-flex xs12 class="text-xs-center pt-5">
@@ -41,7 +33,7 @@
       <v-flex xs12>
         <v-layout row wrap class="color-cards">
           <v-flex xs12 sm6 md4 lg3 class="py-2 px-2" :key="index" v-for="(colour, index) in activeColors.colour.records">
-            <v-card hover class="">
+            <v-card hover class="grey darken-1 white--text">
               <v-container fluid grid-list-lg>
                 <v-layout row>
                   <v-flex xs7>

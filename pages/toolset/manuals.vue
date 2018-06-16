@@ -2,7 +2,7 @@
   <section class="manuals pb-5 pt-4">
     <v-flex xs12>
       <img src="/icons/Multicolor/SVG/Round Icons/Checklist.svg" alt="" width="70px" class="pb-3">
-      <h1 class="display-1">Workshop Manuals</h1>
+      <h1 class="display-1 white--text">Workshop Manuals</h1>
       <p class="accent--text">Currated list of Classic Mini DIY recommended manuals</p>
     </v-flex>
     <v-flex xs12>
@@ -11,30 +11,24 @@
 
     <v-container>
       <v-layout row wrap class="manuals-section">
-        <v-flex xs12 sm6 md4 lg3 class="pa-2" :key="index" v-for="(book, index) in books.workshop">
-          <v-card hover class="">
-            <v-container fluid grid-list-lg>
-              <v-layout row>
-                <v-flex xs7>
-                  <div>
-                    <div class="pl-0 subheader">{{book.name}}</div>
-                    <div class="caption">Written by {{book.author}}</div>
-                  </div>
-                  <v-card-actions class="pl-0 mt-2">
-                    <v-btn small :href="book.urlAmazon" target="_blank" tag='a' v-if="book.urlAmazon" class="amazon ml-0" dark>Amazon</v-btn>
-                  </v-card-actions>
-                </v-flex>
-                <v-flex xs5>
-                  <v-card-media
-                    :src="book.imgSource"
-                    height="150px"
-                    contain
-                  >
-                  </v-card-media>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card>
+        <v-flex xs12>
+          <v-list dark two-line>
+            <template v-for="(book, index) in books.workshop">
+              <v-subheader v-if="book.header" :key="book.header">{{ book.header }}</v-subheader>
+              <v-divider v-else-if="book.divider" :inset="book.inset" :key="index"></v-divider>
+              <v-list-tile avatar :key="book.name" :href="book.urlAmazon" :target="'_blank'" >
+                <v-list-tile-avatar tile>
+                  <img :src="book.imgSource" class="responsive-img">
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  <v-list-tile-title class="white--text" v-html="book.name"></v-list-tile-title>
+                  <v-list-tile-subtitle class="accent--text caption">
+                    Written by {{book.author}}
+                  </v-list-tile-subtitle>
+                </v-list-tile-content>
+              </v-list-tile>
+            </template>
+          </v-list>
         </v-flex>
       </v-layout>
     </v-container>
@@ -154,34 +148,8 @@
 </script>
 <style lang="scss">
 .manuals {
-  .subheader {
-    height: inherit;
-  }
-  .hero {
-    background-image: url('/pages/manuals/manuals4.jpg') !important;
-    background-size: cover;
-    min-height: 15rem;
-  }
-
-  .card__media__background {
-    background-position: center !important;
-  }
-
-  .amazon {
-    background-color: #FF9900 !important;
-  }
-
-  .image-section {
-    background-color: #F1F5F7;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .manuals-section,
-  .technical-section {
-    .card {
-      height: 100% !important;
-    }
+  .avatar.avatar--tile {
+    height: auto !important;
   }
 }
 </style>

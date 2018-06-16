@@ -5,8 +5,9 @@
       fixed
       v-model="drawer"
       app
+      dark
     >
-      <v-list dense>
+      <v-list dense dark>
         <v-list-tile nuxt to="/toolset/torque">
           <v-list-tile-action>
             <v-icon>build</v-icon>
@@ -57,12 +58,12 @@
         </v-list-tile> -->
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app fixed clipped-left>
+    <v-toolbar app fixed clipped-left dark>
       <v-btn icon nuxt to="/" ><v-icon>home</v-icon></v-btn>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Classic Mini Toolset</v-toolbar-title>
     </v-toolbar>
-    <v-container fill-height>
+    <v-container fill-height class="grey darken-2">
       <v-layout class="pt-5">
         <nuxt-child/>
       </v-layout>
