@@ -2,7 +2,7 @@
   <v-layout row wrap class="pt-4">
     <v-flex xs12>
       <img src="/icons/Multicolor/SVG/Round Icons/Settings-5.svg" alt="" width="70px" class="pb-3">
-      <h1 class="display-1">Torque Specifications</h1>
+      <h1 class="display-1 white--text">Torque Specifications</h1>
       <p class="accent--text">All torque settings sourced from Haynes Manuals</p>
     </v-flex>
     <v-flex xs12 class="mt-4">

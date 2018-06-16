@@ -2,7 +2,7 @@
   <div class="electrical pt-4">
     <v-flex xs12>
       <img src="/icons/Multicolor/SVG/Round Icons/Battery-Charging.svg" alt="" width="70px" class="pb-3">
-      <h1 class="display-1">Wiring Diagrams</h1>
+      <h1 class="display-1 white--text">Wiring Diagrams</h1>
       <p class="accent--text">Documents redrawn by Mike L on The Mini Forum</p>
     </v-flex>
     <v-flex xs12>
