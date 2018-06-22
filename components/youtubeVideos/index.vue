@@ -15,7 +15,7 @@
     <v-layout>
 
     </v-layout>
-    <v-layout row wrap class="grey pt-3">
+    <v-layout row wrap class="pt-3">
       <v-flex
         xs12
         sm6
