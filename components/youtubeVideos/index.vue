@@ -21,9 +21,10 @@
         sm6
         md3
         lg3
-        v-for="(video) in youtubeVideos"
+        v-for="(video, key, index) in youtubeVideos"
         v-bind:key=video
-        class="px-1 pb-2">
+        class="px-1 pb-2"
+        v-bind:class="{ 'hidden-xs-only': key >= 3, 'hidden-sm-and-down': key >= 4}">
         <v-card>
           <v-card-media :src="video.snippet.thumbnails.high.url" height="150px"></v-card-media>
           <v-card-title primary-title>
@@ -47,12 +48,6 @@
     text-decoration: none;
     color: inherit;
   }
-  // .cut-text {
-  //   text-overflow: ellipsis;
-  //   width: 150px;
-  //   overflow: hidden;
-  //   white-space: nowrap;
-  // }
   .card__title.card__title--primary {
     height: 100px;
   }
