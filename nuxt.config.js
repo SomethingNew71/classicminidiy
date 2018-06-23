@@ -20,8 +20,8 @@ module.exports = {
     ],
     script: [
       { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
-      { defer: true, src: 'https://pro.fontawesome.com/releases/v5.0.13/js/all.js', integrity: 'sha384-d84LGg2pm9KhR4mCAs3N29GQ4OYNy+K+FBHX8WhimHpPm86c839++MDABegrZ3gn', crossorigin: 'anonymous' },
-      { defer: true, src: 'https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js' }
+      { defer: true, src: 'https://pro.fontawesome.com/releases/v5.1.0/js/all.js', integrity: 'sha384-E5SpgaZcbSJx0Iabb3Jr2AfTRiFnrdOw1mhO19DzzrT9L+wCpDyHUG2q07aQdO6E', crossorigin: 'anonymous' },
+      { defer: true, src: 'https://use.fontawesome.com/releases/v5.1.0/js/v4-shims.js' }
     ]
   },
   /*
