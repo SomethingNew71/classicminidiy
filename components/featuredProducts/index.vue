@@ -2,7 +2,7 @@
   <div class="pt-5">
     <v-layout wrap>
       <v-flex xs12 class="pb-4">
-        <h2 class="display-1">Featured Products</h2>
+        <h2 class="display-1">Classic Mini Merch</h2>
       </v-flex>
       <v-flex v-for="(product, index) in featuredProducts" v-bind:key=product xs12 sm6 v-bind:class="{ borderRight: index === 'product1'}">
         <v-layout>
@@ -16,6 +16,27 @@
             <br>
             <br>
             <a :href="product.link" class="pt-3">View More Details</a>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
+    <v-layout>
+      <v-flex
+        v-for="(product, key, index) in regularProducts"
+        v-bind:key=product
+        xs12 sm4 md2
+        class="regular-products text-xs-center pt-5"
+        v-bind:class="{ 'hidden-xs-only': index >= 2, 'hidden-sm-and-down': index >= 4}">
+        <v-layout wrap>
+          <v-flex xs12class="">
+            <img :src="product.img" alt="" class="responsive-img">
+          </v-flex>
+          <v-flex xs12 class="pa-3">
+            <h3 class="body-1">{{product.name}} - <span class="red--text"> {{product.price}}</span></h3>
+            <p class="grey--text darken-3 pt-1">{{product.details}}</p>
+            <p>
+              <a :href="product.link">View More Details</a>
+            </p>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -60,39 +81,39 @@
         regularProducts: {
           product1: {
             name: 'Classic Logo Shirt',
-            link: 'https://merch.classicminidiy.com/products/classic-mini-diy-new-logo-short-sleeve-unisex-t-shirt?variant=12097615036517&nopreview',
-            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-2b40d52d_360x.jpg?v=1527810860',
+            link: 'https://merch.classicminidiy.com/collections/apparel/products/classic-logo-short-sleeve-unisex-t-shirt',
+            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-af8ba20a_540x.png?v=1529624756',
             price: '$19'
           },
           product2: {
             name: 'Big One Mug',
-            link: 'https://merch.classicminidiy.com/products/classic-mini-diy-new-logo-short-sleeve-unisex-t-shirt?variant=12097615036517&nopreview',
-            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-2b40d52d_360x.jpg?v=1527810860',
-            price: '$19'
+            link: 'https://merch.classicminidiy.com/collections/odds-and-ends/products/you-dont-need-a-big-one-to-be-happy-mug',
+            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-b7942610_540x.png?v=1529625004',
+            price: '$15'
           },
           product3: {
             name: 'Beanie',
-            link: 'https://merch.classicminidiy.com/products/classic-mini-diy-new-logo-short-sleeve-unisex-t-shirt?variant=12097615036517&nopreview',
-            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-2b40d52d_360x.jpg?v=1527810860',
+            link: 'https://merch.classicminidiy.com/collections/apparel/products/cuffed-beanie',
+            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-8db3a0ac_540x.png?v=1529625038',
             price: '$19'
           },
           product4: {
             name: 'Sweatshirt',
-            link: 'https://merch.classicminidiy.com/products/classic-mini-diy-new-logo-short-sleeve-unisex-t-shirt?variant=12097615036517&nopreview',
-            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-2b40d52d_360x.jpg?v=1527810860',
+            link: 'https://merch.classicminidiy.com/collections/apparel/products/hooded-sweatshirt',
+            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-03c3dac7_540x.png?v=1529625317',
             price: '$19'
           },
           product5: {
-            name: 'Sweatshirt',
-            link: 'https://merch.classicminidiy.com/products/classic-mini-diy-new-logo-short-sleeve-unisex-t-shirt?variant=12097615036517&nopreview',
-            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-2b40d52d_360x.jpg?v=1527810860',
-            price: '$19'
+            name: 'Classic Mini Dad Hat',
+            link: 'https://merch.classicminidiy.com/collections/apparel/products/classic-mini-diy-dad-hat',
+            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-d95be21c_540x.png?v=1529624945',
+            price: '$21'
           },
           product6: {
-            name: 'Sweatshirt',
-            link: 'https://merch.classicminidiy.com/products/classic-mini-diy-new-logo-short-sleeve-unisex-t-shirt?variant=12097615036517&nopreview',
-            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-2b40d52d_360x.jpg?v=1527810860',
-            price: '$19'
+            name: 'Alps Mini',
+            link: 'https://merch.classicminidiy.com/products/light-classic-mini-in-the-alps-cmdiy-exclusive?variant=12119864737893',
+            img: 'https://cdn.shopify.com/s/files/1/2474/8534/products/mockup-eb400f61_540x.png?v=1529624582',
+            price: '$20'
           }
         }
       };
