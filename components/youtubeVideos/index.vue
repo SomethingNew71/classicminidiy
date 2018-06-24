@@ -34,7 +34,7 @@
               <div class="caption">{{video.hippo_ago}}</div>
             </div>
           </v-card-title>
-          <v-card-actions>
+          <v-card-actions class="pb-3">
             <v-btn class="red" outline :href="'https://www.youtube.com/watch?v='+video.id.videoId+''"> <v-icon class="red--text pr-2">fa-youtube-play</v-icon> Watch on YouTube</v-btn>
           </v-card-actions>
         </v-card>
