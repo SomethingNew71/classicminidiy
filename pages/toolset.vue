@@ -24,7 +24,7 @@
             <v-list-tile-title>Electrical Diagrams</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile nuxt to="/toolset/colors">
+        <!-- <v-list-tile nuxt to="/toolset/colors">
           <v-list-tile-action>
             <v-icon>color_lens</v-icon>
           </v-list-tile-action>
@@ -32,7 +32,7 @@
             <v-list-tile-title>Color Picker</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <!-- <v-list-tile nuxt to="/toolset/specs">
+        <v-list-tile nuxt to="/toolset/specs">
           <v-list-tile-action>
             <v-icon>settings</v-icon>
           </v-list-tile-action>
