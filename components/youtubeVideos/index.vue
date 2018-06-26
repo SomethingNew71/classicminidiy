@@ -21,7 +21,7 @@
         sm6
         md3
         lg3
-        v-for="(video, key, index) in youtubeVideos"
+        v-for="(video, key) in youtubeVideos"
         v-bind:key=video
         class="px-1 pb-2"
         v-bind:class="{ 'hidden-xs-only': key >= 3, 'hidden-sm-and-down': key >= 4}">
@@ -29,7 +29,9 @@
           <v-card-media :src="video.snippet.thumbnails.high.url" height="150px"></v-card-media>
           <v-card-title primary-title>
             <div>
-              <h3 class="mb-0 cut-text body-1">{{video.hippo_text}}</h3>
+              <h3 class="mb-0 cut-text body-1">
+                <strong>{{video.hippo_text}}</strong>
+              </h3>
               <v-divider class="my-2"></v-divider>
               <div class="caption">{{video.hippo_ago}}</div>
             </div>
