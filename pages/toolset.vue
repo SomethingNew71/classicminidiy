@@ -63,10 +63,8 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Classic Mini Toolset</v-toolbar-title>
     </v-toolbar>
-    <v-container fill-height class="grey darken-2">
-      <v-layout class="pt-5">
-        <nuxt-child/>
-      </v-layout>
+    <v-container class="child-container">
+      <nuxt-child/>
     </v-container>
   </section>
 </template>
@@ -75,7 +73,7 @@
   export default {
     data () {
       return {
-        drawer: true
+        drawer: false
       };
     },
     props: {
@@ -85,6 +83,10 @@
 </script>
 
 <style lang="scss">
+  .child-container {
+    margin-top: 100px;
+  }
+
   .toolbar {
     .btn--active .btn__content:before, .btn:focus .btn__content:before, .btn:hover .btn__content:before {
       background-color: inherit;
