@@ -19,29 +19,15 @@
     <!-- TAB NAVIGATION -->
     <v-tabs icons-and-text centered dark>
       <v-tabs-slider color="grey" class="darken-3"></v-tabs-slider>
-      <v-tab href="https://www.youtube.com/c/classicminidiy" :target="'_blank'">
-        Videos
-        <span class="icon red--text"><i class="fab fa-youtube"></i></span>
-      </v-tab>
-      <v-tab nuxt to="toolset/torque">
-        Toolset
-        <span class="icon green--text"><i class="far fa-wrench"></i></span>
-      </v-tab>
-      <!-- <v-tab href="" :target="'_blank'">
-        Guides
-        <span class="icon green--text"><i class="far fa-book-open"></i></span>
-      </v-tab> -->
-      <v-tab href="https://merch.classicminidiy.com/" :target="'_blank'">
-        Merch
-        <span class="icon primary--text"><i class="far fa-store"></i></span>
-      </v-tab>
-      <v-tab href="https://www.instagram.com/classicminidiy59" :target="'_blank'">
-        Instagram
-        <span class="icon orange--text darken-1"><i class="fab fa-instagram"></i></span>
-      </v-tab>
-      <v-tab href="http://bit.ly/cmdiypatreon" :target="'_blank'">
-        Patreon
-        <span class="icon red--text lighten-3"><i class="fab fa-patreon"></i></span>
+      <v-tab
+        v-for="item in nav"
+        :nuxt="item.to"
+        :href="item.href"
+        :key="item"
+        :target="item.target"
+        >
+        {{item.name}}
+        <span class="icon" :class="item.color"><i :class="item.icon"></i></span>
       </v-tab>
     </v-tabs>
     <!-- PAGE CONTENTS BEGIN -->
@@ -93,14 +79,43 @@ export default {
       specs: '/specs',
       history: '/historical',
       manuals: '/manuals',
-      items: [
-        {
-          src: '/img/preview.png'
+      nav: {
+        Videos: {
+          name: 'Videos',
+          color: 'red--text',
+          icon: 'fab fa-youtube',
+          target: '_blank',
+          href: 'https://www.youtube.com/c/classicminidiy'
         },
-        {
-          src: '/img/preview2.png'
+        Merch: {
+          name: 'Merch',
+          color: 'blue--text lighten-1',
+          icon: 'fas fa-store',
+          target: '_blank',
+          href: 'https://www.facebook.com/classicminidiy'
+        },
+        Toolset: {
+          name: 'Toolset',
+          color: 'green--text',
+          icon: 'fas fa-wrench',
+          href: 'toolset/torque',
+          to: 'true'
+        },
+        Instagram: {
+          name: 'Instagram',
+          color: 'orange--text darken-1',
+          icon: 'fab fa-instagram',
+          target: '_blank',
+          href: 'https://www.instagram.com/classicminidiy59/'
+        },
+        Patreon: {
+          name: 'Patreon',
+          color: 'red--text lighten-3',
+          icon: 'fab fa-patreon',
+          target: '_blank',
+          href: 'http://bit.ly/cmdiypatreon'
         }
-      ]
+      }
     };
   },
   components: {
