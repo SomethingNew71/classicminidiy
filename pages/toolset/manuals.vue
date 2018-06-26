@@ -1,37 +1,57 @@
 <template>
-  <section class="manuals pb-5 pt-4">
-    <v-flex xs12>
-      <img src="/icons/Multicolor/SVG/Round Icons/Checklist.svg" alt="" width="70px" class="pb-3">
-      <h1 class="display-1 white--text">Workshop Manuals</h1>
-      <p class="accent--text">Currated list of Classic Mini DIY recommended manuals</p>
-    </v-flex>
-    <v-flex xs12>
-      <v-divider></v-divider>
-    </v-flex>
-
-    <v-container>
-      <v-layout row wrap class="manuals-section">
-        <v-flex xs12>
-          <v-list dark two-line>
-            <template v-for="(book, index) in books.workshop">
-              <v-subheader v-if="book.header" :key="book.header">{{ book.header }}</v-subheader>
-              <v-divider v-else-if="book.divider" :inset="book.inset" :key="index"></v-divider>
-              <v-list-tile avatar :key="book.name" :href="book.urlAmazon" :target="'_blank'" >
-                <v-list-tile-avatar tile>
-                  <img :src="book.imgSource" class="responsive-img">
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                  <v-list-tile-title class="white--text" v-html="book.name"></v-list-tile-title>
-                  <v-list-tile-subtitle class="accent--text caption">
-                    Written by {{book.author}}
-                  </v-list-tile-subtitle>
-                </v-list-tile-content>
-              </v-list-tile>
-            </template>
-          </v-list>
-        </v-flex>
-      </v-layout>
-    </v-container>
+  <section class="manuals pb-5">
+    <v-layout wrap>
+      <v-flex xs12>
+        <img src="/icons/Multicolor/SVG/Round Icons/Checklist.svg" alt="" width="90px" class="pb-3">
+        <h1 class="display-1">Workshop Manuals</h1>
+        <p>Currated list of Classic Mini DIY recommended manuals</p>
+      </v-flex>
+      <v-flex xs12 class="pb-3">
+        <v-divider></v-divider>
+      </v-flex>
+      <v-list two-line class="elevation-5">
+        <template v-for="(book, index) in books.workshop">
+          <v-subheader v-if="book.header" :key="book.header">{{ book.header }}</v-subheader>
+          <v-divider v-else-if="book.divider" :inset="book.inset" :key="index"></v-divider>
+          <v-list-tile avatar :key="book.name" :href="book.urlAmazon" :target="'_blank'" >
+            <v-list-tile-avatar tile>
+              <img :src="book.imgSource" class="responsive-img">
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title v-html="book.name"></v-list-tile-title>
+              <v-list-tile-subtitle class="caption">
+                Written by {{book.author}}
+              </v-list-tile-subtitle>
+            </v-list-tile-content>
+          </v-list-tile>
+        </template>
+      </v-list>
+      <!-- <v-container grid-list-xl>
+        <v-layout row wrap>
+          <v-flex xs12 sm4 md3 :key="book" v-for="(book, index) in books.workshop">
+            <a :href="book.to" target="_blank">
+              <v-card hover class="pt-3">
+                <v-card-media contain :src="book.imgSource" height="100px"></v-card-media>
+                <v-card-title primary-title class="pt-2">
+                  <div class="text-container">
+                    <h3 class="subheading text-xs-center mb-0">{{book.name}}</h3>
+                  </div>
+                </v-card-title>
+              </v-card>
+            </a>
+            <v-card v-if="item.disabled" hover class="pt-3">
+              <div class="disabled"></div>
+              <v-card-media :src="item.icon" height="130px"></v-card-media>
+              <v-card-title primary-title class="pt-0">
+                <div class="text-container">
+                  <h3 class="subheading text-xs-center mb-0">{{item.title}}</h3>
+                </div>
+              </v-card-title>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container> -->
+    </v-layout>
   </section>
 </template>
 
