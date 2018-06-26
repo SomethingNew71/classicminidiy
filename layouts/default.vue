@@ -3,28 +3,28 @@
     <v-content>
       <nuxt/>
     </v-content>
-    <v-footer class="pa-4 secondary footer">
-      <div>
-        <a class="social-link" target='_blank' href='https://www.youtube.com/c/classicminidiy'>
-          <span class="icon"><i class="white--text fab fa-youtube"></i></span>
-        </a>
-        <a class="social-link" target='_blank' href='https://www.facebook.com/classicminidiy'>
-          <span class="icon"><i class="white--text fab fa-facebook"></i></span>
-        </a>
-        <a class="social-link"  target='_blank' href='https://www.instagram.com/classicminidiy59/'>
-          <span class="icon"><i class="white--text fab fa-instagram"></i></span>
-        </a>
-        <a class="social-link" target='_blank' href='https://github.com/SomethingNew71/classicminidiy'>
-          <span class="icon"><i class="white--text fab fa-github"></i></span>
-        </a>
-        <a class="social-link" target='_blank' href='http://bit.ly/cmdiypatreon'>
-          <span class="icon"><i class="white--text fab fa-patreon"></i></span>
-        </a>
-      </div>
-      <v-spacer></v-spacer>
-      <div class="white--text">
-        Classic Mini DIY © - {{ new Date().getFullYear() }}
-      </div>
+    <v-footer height="auto">
+      <v-card
+        flat
+        tile
+        class="grey darken-3 white--text text-xs-center"
+      >
+        <v-card-text>
+          <v-btn
+            v-for="link in socialLinks"
+            :key="link"
+            icon
+            class="mx-3 white--text"
+            :href='link.to'
+            :target="'_blank'"
+          >
+            <v-icon size="24px">{{ link.icon }}</v-icon>
+          </v-btn>
+        </v-card-text>
+        <v-card-text class="white--text">
+          &copy;{{ new Date().getFullYear() }} — <strong>Classic Mini DIY, LLC.</strong>
+        </v-card-text>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
@@ -40,21 +40,41 @@ main.content {
 .page-enter, .page-leave-to {
   opacity: 0;
 }
-.footer {
-  text-align: center;
-  position: static;
-  bottom: 0;
+.footer .card {
   width: 100%;
-
-  .social-link {
-    padding-left: .5rem;
-    padding-right: .5rem;
-    text-decoration: none;
-    color: #fff;
-
-    &:hover {
-      color: #279BFB;
-    }
-  }
 }
 </style>
+
+<script>
+  export default {
+    data: () => ({
+      socialLinks: {
+        youtube: {
+          name: 'youtube',
+          icon: 'fab fa-youtube',
+          to: 'https://www.youtube.com/c/classicminidiy'
+        },
+        facebook: {
+          name: 'facebook',
+          icon: 'fab fa-facebook',
+          to: 'https://www.facebook.com/classicminidiy'
+        },
+        instagram: {
+          name: 'instagram',
+          icon: 'fab fa-instagram',
+          to: 'https://www.instagram.com/classicminidiy59/'
+        },
+        github: {
+          name: 'github',
+          icon: 'fab fa-github',
+          to: 'https://github.com/SomethingNew71/classicminidiy'
+        },
+        patreon: {
+          name: 'patreon',
+          icon: 'fab fa-patreon',
+          to: 'http://bit.ly/cmdiypatreon'
+        }
+      }
+    })
+  };
+</script>

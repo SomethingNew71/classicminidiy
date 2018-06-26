@@ -113,6 +113,20 @@ export default {
 
 <style lang="scss">
 .home {
+  @media only screen and (min-width: 0px) {
+    .tabs {
+      .tabs__item {
+        font-size: 11px;
+      }
+    }
+  }
+  @media only screen and (min-width: 500px) {
+    .tabs {
+      .tabs__item {
+        font-size: 14px;
+      }
+    }
+  }
   .seven-card {
     background-image: url('/img/seven-card.jpg') !important;
     background-size: cover;
