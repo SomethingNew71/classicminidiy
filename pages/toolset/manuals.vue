@@ -1,5 +1,5 @@
 <template>
-  <section class="manuals pb-5">
+  <v-container grid-list-lg class="manuals pb-5">
     <v-layout wrap>
       <v-flex xs12>
         <img src="/icons/Multicolor/SVG/Round Icons/Checklist.svg" alt="" width="90px" class="pb-3">
@@ -9,50 +9,33 @@
       <v-flex xs12 class="pb-3">
         <v-divider></v-divider>
       </v-flex>
-      <v-list two-line class="elevation-5">
-        <template v-for="(book, index) in books.workshop">
-          <v-subheader v-if="book.header" :key="book.header">{{ book.header }}</v-subheader>
-          <v-divider v-else-if="book.divider" :inset="book.inset" :key="index"></v-divider>
-          <v-list-tile avatar :key="book.name" :href="book.urlAmazon" :target="'_blank'" >
-            <v-list-tile-avatar tile>
-              <img :src="book.imgSource" class="responsive-img">
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title v-html="book.name"></v-list-tile-title>
-              <v-list-tile-subtitle class="caption">
-                Written by {{book.author}}
-              </v-list-tile-subtitle>
-            </v-list-tile-content>
-          </v-list-tile>
-        </template>
-      </v-list>
-      <!-- <v-container grid-list-xl>
-        <v-layout row wrap>
-          <v-flex xs12 sm4 md3 :key="book" v-for="(book, index) in books.workshop">
-            <a :href="book.to" target="_blank">
-              <v-card hover class="pt-3">
-                <v-card-media contain :src="book.imgSource" height="100px"></v-card-media>
-                <v-card-title primary-title class="pt-2">
-                  <div class="text-container">
-                    <h3 class="subheading text-xs-center mb-0">{{book.name}}</h3>
-                  </div>
-                </v-card-title>
-              </v-card>
-            </a>
-            <v-card v-if="item.disabled" hover class="pt-3">
-              <div class="disabled"></div>
-              <v-card-media :src="item.icon" height="130px"></v-card-media>
-              <v-card-title primary-title class="pt-0">
-                <div class="text-container">
-                  <h3 class="subheading text-xs-center mb-0">{{item.title}}</h3>
-                </div>
-              </v-card-title>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container> -->
+      <v-flex xs12 sm8>
+        <v-list two-line class="elevation-5">
+          <template v-for="(book, index) in books.workshop">
+            <v-subheader v-if="book.header" :key="book.header">{{ book.header }}</v-subheader>
+            <v-divider v-else-if="book.divider" :inset="book.inset" :key="index"></v-divider>
+            <v-list-tile avatar :key="book.name" :href="book.urlAmazon" :target="'_blank'" >
+              <v-list-tile-avatar tile>
+                <img :src="book.imgSource" class="responsive-img">
+              </v-list-tile-avatar>
+              <v-list-tile-content>
+                <v-list-tile-title v-html="book.name"></v-list-tile-title>
+                <v-list-tile-subtitle class="caption">
+                  Written by {{book.author}}
+                </v-list-tile-subtitle>
+              </v-list-tile-content>
+            </v-list-tile>
+          </template>
+        </v-list>
+      </v-flex>
+      <v-flex sm4>
+        <v-card class="pa-2">
+          <div id="amzn-assoc-ad-9fa1cbe7-672f-49be-9402-b78b9ca5b86f"></div>
+          <script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=9fa1cbe7-672f-49be-9402-b78b9ca5b86f"></script>
+        </v-card>
+      </v-flex>
     </v-layout>
-  </section>
+  </v-container>
 </template>
 
 <script>
@@ -80,60 +63,6 @@
               'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=0857339656&asins=0857339656&linkId=fab209b229ca9bb8fe394d55c12c46c4&show_border=true&link_opens_in_new_window=true"></iframe>'
             },
             3: {
-              'name': 'Mini Workshop Manual (Official Workshop Manuals)',
-              'author': 'Brooklands Books Ltd',
-              'urlSeven': '',
-              'urlAmazon': 'http://amzn.to/2rxfPQB',
-              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1855201488&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
-              'imgFrame': '<a href="https://www.amazon.com/Mini-Workshop-Manual-Official-Manuals/dp/1855201488/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1855201488&pd_rd_r=THVAMSQ4PVRSSBE7STXP&pd_rd_w=zbyWB&pd_rd_wg=Idzj1&psc=1&refRID=THVAMSQ4PVRSSBE7STXP&linkCode=li3&tag=classicmini0a-20&linkId=323598647a4604ae498f65df80eaa06d" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1855201488&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1855201488" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
-              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1855201488&asins=1855201488&linkId=1ca1e127ecc3b829279b7f70ae631f29&show_border=true&link_opens_in_new_window=true"></iframe>'
-            },
-            4: {
-              'name': 'Mini: Purchase and Restoration Guide',
-              'author': 'Lindsay Porter',
-              'urlSeven': 'http://www.7ENT.com/products/haynes-mini-restoration-manual-sbk0044.html?af=cmdiy1959',
-              'urlAmazon': 'http://amzn.to/2smk1Xs',
-              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859604404&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
-              'imgFrame': '<a href="https://www.amazon.com/Mini-Purchase-Restoration-Lindsay-Porter/dp/1859604404/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-1&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=6c84288fe26c533e4388c10980311786" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859604404&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859604404" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
-              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1859604404&asins=1859604404&linkId=bca8e771279b2d8555ded8def5b7bcda&show_border=true&link_opens_in_new_window=true"></iframe>'
-            },
-            5: {
-              'name': 'Mini Renovation Manual - 1986 to 2000',
-              'author': 'Paul Hardiman',
-              'urlSeven': 'http://www.7ENT.com/products/mini-renovation-manual-1986-2000-sbk0209.html?af=cmdiy1959',
-              'urlAmazon': 'http://amzn.to/2slQ6P1',
-              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1844254240&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
-              'imgFrame': '<a href="https://www.amazon.com/Mini-Renovation-Manual-1986-2000-Manuals/dp/1844254240/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-3&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=3b3d7ff756af1373ed670b266e5bae5e" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1844254240&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1844254240" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
-              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1844254240&asins=1844254240&linkId=152262a25379210bd63c9252991c6079&show_border=true&link_opens_in_new_window=true"></iframe>'
-            },
-            6: {
-              'name': 'Mini Performance Manual',
-              'author': 'Tim Mundy',
-              'urlSeven': 'http://www.7ENT.com/products/mini-performance-manual-sbk0223.html?af=cmdiy1959',
-              'urlAmazon': 'http://amzn.to/2rp5Hho',
-              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859608809&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
-              'imgFrame': '<a href="https://www.amazon.com/Mini-Performance-Manual-Haynes/dp/1859608809/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-4&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=264ff7a930a5319d1d8738b85ca4b3ef" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859608809&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859608809" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
-              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1859608809&asins=1859608809&linkId=e9aaa6f15d1261c31ebbb4d8482cdfeb&show_border=true&link_opens_in_new_window=true"></iframe>'
-            },
-            7: {
-              'name': 'Mini: The Essential Buyer\'s Guide',
-              'author': 'Mark Paxton',
-              'urlSeven': '',
-              'urlAmazon': 'http://amzn.to/2rimn6n',
-              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842049&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
-              'imgFrame': '<a href="https://www.amazon.com/Mini-Essential-Buyers-Mark-Paxton/dp/1845842049/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1845842049&pd_rd_r=THVAMSQ4PVRSSBE7STXP&pd_rd_w=U0WnN&pd_rd_wg=Idzj1&psc=1&refRID=THVAMSQ4PVRSSBE7STXP&linkCode=li3&tag=classicmini0a-20&linkId=ef34c71b59ab81868c4f22b6631d25d2" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842049&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1845842049" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
-              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1845842049&asins=1845842049&linkId=feeb56f849bfe1bdcdc11774fb3ccd3b&show_border=true&link_opens_in_new_window=true"></iframe>'
-            },
-            8: {
-              'name': 'Anatomy of the Classic Mini',
-              'author': 'Mark Huthert',
-              'urlSeven': '',
-              'urlAmazon': 'http://amzn.to/2smpg9p',
-              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842235&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
-              'imgFrame': '<a href="https://www.amazon.com/Anatomy-Classic-Mini-definitive-interchangeability/dp/1845842235/ref=as_li_ss_il?ie=UTF8&qid=1497404041&sr=8-1&keywords=classic+mini+books&linkCode=li3&tag=classicmini0a-20&linkId=35f89a9bf08117dd6821420954873b44" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842235&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1845842235" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
-              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1845842235&asins=1845842235&linkId=44ef5b792ac9a01ba86686b8bbab6fd1&show_border=true&link_opens_in_new_window=true"></iframe>'
-            },
-            9: {
               'name': 'Tuning the A-Series Engine',
               'author': 'David Vizard',
               'urlSeven': 'http://www.7ENT.com/products/tuning-the-a-series-engine-sbk0001.html?af=cmdiy1959',
@@ -142,7 +71,7 @@
               'imgFrame': '<a href="https://www.amazon.com/Tuning-Engine-Definitive-Performance-Economy/dp/1859606202/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1859606202&pd_rd_r=THVAMSQ4PVRSSBE7STXP&pd_rd_w=U0WnN&pd_rd_wg=Idzj1&psc=1&refRID=THVAMSQ4PVRSSBE7STXP&linkCode=li3&tag=classicmini0a-20&linkId=1cfae556a49124602a87095d62b176f1" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859606202&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859606202" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
               'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1859606202&asins=1859606202&linkId=6af83734a1ba68448f772985f0bf49a9&show_border=true&link_opens_in_new_window=true"></iframe>'
             },
-            10: {
+            4: {
               'name': 'SU Carburetters Tuning Tips And Techniques',
               'author': 'R.M. Clarke',
               'urlSeven': '',
@@ -150,6 +79,60 @@
               'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1855202557&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
               'imgFrame': '<a href="https://www.amazon.com/SU-Carburetters-Tuning-Tips-Techniques/dp/1855202557/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1855202557&pd_rd_r=ADRNVNTZ6VVVCTW03KZN&pd_rd_w=my5cl&pd_rd_wg=J5SNd&psc=1&refRID=ADRNVNTZ6VVVCTW03KZN&linkCode=li3&tag=classicmini0a-20&linkId=57ccd821731bd290ed006d2d8e124aee" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1855202557&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1855202557" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
               'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1855202557&asins=1855202557&linkId=8d2428ad61aa6d9e2e23d0d1895eb935&show_border=true&link_opens_in_new_window=true"></iframe>'
+            },
+            5: {
+              'name': 'Mini Workshop Manual (Official Workshop Manuals)',
+              'author': 'Brooklands Books Ltd',
+              'urlSeven': '',
+              'urlAmazon': 'http://amzn.to/2rxfPQB',
+              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1855201488&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
+              'imgFrame': '<a href="https://www.amazon.com/Mini-Workshop-Manual-Official-Manuals/dp/1855201488/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1855201488&pd_rd_r=THVAMSQ4PVRSSBE7STXP&pd_rd_w=zbyWB&pd_rd_wg=Idzj1&psc=1&refRID=THVAMSQ4PVRSSBE7STXP&linkCode=li3&tag=classicmini0a-20&linkId=323598647a4604ae498f65df80eaa06d" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1855201488&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1855201488" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
+              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1855201488&asins=1855201488&linkId=1ca1e127ecc3b829279b7f70ae631f29&show_border=true&link_opens_in_new_window=true"></iframe>'
+            },
+            6: {
+              'name': 'Mini: Purchase and Restoration Guide',
+              'author': 'Lindsay Porter',
+              'urlSeven': 'http://www.7ENT.com/products/haynes-mini-restoration-manual-sbk0044.html?af=cmdiy1959',
+              'urlAmazon': 'http://amzn.to/2smk1Xs',
+              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859604404&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
+              'imgFrame': '<a href="https://www.amazon.com/Mini-Purchase-Restoration-Lindsay-Porter/dp/1859604404/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-1&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=6c84288fe26c533e4388c10980311786" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859604404&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859604404" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
+              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1859604404&asins=1859604404&linkId=bca8e771279b2d8555ded8def5b7bcda&show_border=true&link_opens_in_new_window=true"></iframe>'
+            },
+            7: {
+              'name': 'Mini Renovation Manual - 1986 to 2000',
+              'author': 'Paul Hardiman',
+              'urlSeven': 'http://www.7ENT.com/products/mini-renovation-manual-1986-2000-sbk0209.html?af=cmdiy1959',
+              'urlAmazon': 'http://amzn.to/2slQ6P1',
+              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1844254240&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
+              'imgFrame': '<a href="https://www.amazon.com/Mini-Renovation-Manual-1986-2000-Manuals/dp/1844254240/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-3&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=3b3d7ff756af1373ed670b266e5bae5e" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1844254240&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1844254240" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
+              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1844254240&asins=1844254240&linkId=152262a25379210bd63c9252991c6079&show_border=true&link_opens_in_new_window=true"></iframe>'
+            },
+            8: {
+              'name': 'Mini Performance Manual',
+              'author': 'Tim Mundy',
+              'urlSeven': 'http://www.7ENT.com/products/mini-performance-manual-sbk0223.html?af=cmdiy1959',
+              'urlAmazon': 'http://amzn.to/2rp5Hho',
+              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859608809&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
+              'imgFrame': '<a href="https://www.amazon.com/Mini-Performance-Manual-Haynes/dp/1859608809/ref=as_li_ss_il?ie=UTF8&qid=1497404189&sr=8-4&keywords=classic+mini+haynes&linkCode=li3&tag=classicmini0a-20&linkId=264ff7a930a5319d1d8738b85ca4b3ef" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1859608809&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1859608809" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
+              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1859608809&asins=1859608809&linkId=e9aaa6f15d1261c31ebbb4d8482cdfeb&show_border=true&link_opens_in_new_window=true"></iframe>'
+            },
+            9: {
+              'name': 'Mini: The Essential Buyer\'s Guide',
+              'author': 'Mark Paxton',
+              'urlSeven': '',
+              'urlAmazon': 'http://amzn.to/2rimn6n',
+              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842049&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
+              'imgFrame': '<a href="https://www.amazon.com/Mini-Essential-Buyers-Mark-Paxton/dp/1845842049/ref=as_li_ss_il?_encoding=UTF8&pd_rd_i=1845842049&pd_rd_r=THVAMSQ4PVRSSBE7STXP&pd_rd_w=U0WnN&pd_rd_wg=Idzj1&psc=1&refRID=THVAMSQ4PVRSSBE7STXP&linkCode=li3&tag=classicmini0a-20&linkId=ef34c71b59ab81868c4f22b6631d25d2" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842049&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1845842049" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
+              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1845842049&asins=1845842049&linkId=feeb56f849bfe1bdcdc11774fb3ccd3b&show_border=true&link_opens_in_new_window=true"></iframe>'
+            },
+            10: {
+              'name': 'Anatomy of the Classic Mini',
+              'author': 'Mark Huthert',
+              'urlSeven': '',
+              'urlAmazon': 'http://amzn.to/2smpg9p',
+              'imgSource': '//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842235&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20',
+              'imgFrame': '<a href="https://www.amazon.com/Anatomy-Classic-Mini-definitive-interchangeability/dp/1845842235/ref=as_li_ss_il?ie=UTF8&qid=1497404041&sr=8-1&keywords=classic+mini+books&linkCode=li3&tag=classicmini0a-20&linkId=35f89a9bf08117dd6821420954873b44" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1845842235&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=classicmini0a-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=classicmini0a-20&l=li3&o=1&a=1845842235" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />',
+              'fullFrame': '<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=classicmini0a-20&marketplace=amazon&region=US&placement=1845842235&asins=1845842235&linkId=44ef5b792ac9a01ba86686b8bbab6fd1&show_border=true&link_opens_in_new_window=true"></iframe>'
             },
             11: {
               'name': 'The Ultimate Mini Restoration Manual',
