@@ -21,8 +21,8 @@
         sm6
         md3
         lg3
-        v-for="(video, key) in youtubeVideos"
-        v-bind:key=video
+        v-for="(video, key, index) in youtubeVideos"
+        :key=index
         class="px-1 pb-2"
         v-bind:class="{ 'hidden-xs-only': key >= 3, 'hidden-sm-and-down': key >= 4}">
         <v-card>

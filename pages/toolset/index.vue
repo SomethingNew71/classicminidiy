@@ -54,31 +54,25 @@ export default {
       items: [
         {
           title: 'Manuals',
-          icon: 'icons/Multicolor/SVG/Round Icons/Checklist.svg',
-          to: 'toolset/manuals',
+          icon: '/icons/Multicolor/SVG/Round Icons/Checklist.svg',
+          to: '/toolset/manuals',
           disabled: false
         },
         {
           title: 'Torque Specs',
-          icon: 'icons/Multicolor/SVG/Round Icons/Settings-5.svg',
-          to: 'toolset/torque',
+          icon: '/icons/Multicolor/SVG/Round Icons/Settings-5.svg',
+          to: '/toolset/torque',
           disabled: false
         },
         {
           title: 'Electrical Diagrams',
-          icon: 'icons/Multicolor/SVG/Round Icons/Battery-Charging.svg',
-          to: 'toolset/electrical',
+          icon: '/icons/Multicolor/SVG/Round Icons/Battery-Charging.svg',
+          to: '/toolset/electrical',
           disabled: false
         },
-        // {
-        //   title: 'Color Codes',
-        //   icon: 'icons/Multicolor/SVG/Round Icons/Pantone.svg',
-        //   to: 'toolset/colors',
-        //   disabled: false
-        // },
         {
           title: 'DIY Videos',
-          icon: 'icons/Multicolor/SVG/Round Icons/Video-Camera-2.svg',
+          icon: '/icons/Multicolor/SVG/Round Icons/Video-Camera-2.svg',
           external: true,
           to: 'https://www.youtube.com/c/classicminidiy',
           disabled: false
@@ -86,27 +80,26 @@ export default {
         {
           title: 'Live Chat',
           external: true,
-          icon: 'img/discord-icon.png',
+          icon: '/img/discord-icon.png',
           to: 'https://discord.gg/TNNH7ZD',
           disabled: false
         },
         {
-          title: 'Merch',
-          external: true,
-          icon: 'icons/Multicolor/SVG/Round Icons/Shop.svg',
-          to: 'https://merch.classicminidiy.com/',
-          disabled: false
+          title: 'Color Codes',
+          icon: '/icons/Multicolor/SVG/Round Icons/Pantone.svg',
+          to: '/toolset/colors',
+          disabled: true
         },
-        // {
-        //   title: 'Tech Specs',
-        //   icon: 'icons/Multicolor/SVG/Round Icons/Analytics.svg',
-        //   to: 'toolset/specs',
-        //   disabled: true
-        // },
+        {
+          title: 'Model Lookup',
+          icon: '/icons/Multicolor/SVG/Round Icons/Analytics.svg',
+          to: '/toolset/specs',
+          disabled: true
+        },
         {
           title: 'History',
-          icon: 'icons/Multicolor/SVG/Round Icons/Phone-Booth.svg',
-          to: 'toolset/historical',
+          icon: '/icons/Multicolor/SVG/Round Icons/Phone-Booth.svg',
+          to: '/toolset/historical',
           disabled: true
         }
       ]

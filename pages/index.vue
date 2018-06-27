@@ -17,17 +17,17 @@
       </v-container>
     </v-jumbotron>
     <!-- TAB NAVIGATION -->
-    <v-tabs icons-and-text centered dark>
-      <v-tabs-slider color="grey" class="darken-3"></v-tabs-slider>
+    <v-tabs icons-and-text centered dark hide-slider>
       <v-tab
-        v-for="item in nav"
+        v-for="(item, index) in nav"
         :nuxt="item.to"
         :href="item.href"
-        :key="item"
+        :key="index"
         :target="item.target"
+        :class="item.classes"
         >
         {{item.name}}
-        <span class="icon" :class="item.color"><i :class="item.icon"></i></span>
+        <v-icon size="22px" :class="item.color"> {{item.icon}} </v-icon>
       </v-tab>
     </v-tabs>
     <!-- PAGE CONTENTS BEGIN -->
@@ -69,11 +69,12 @@ export default {
           href: 'https://www.facebook.com/classicminidiy'
         },
         Toolset: {
-          name: 'Toolset',
+          name: 'Toolbox',
           color: 'green--text',
-          icon: 'fas fa-wrench',
-          href: 'toolset/torque',
-          to: 'true'
+          icon: 'fas fa-toolbox',
+          href: 'toolset/',
+          to: true,
+          classes: 'showcase-item'
         },
         Instagram: {
           name: 'Instagram',
@@ -114,6 +115,14 @@ export default {
     .tabs {
       .tabs__item {
         font-size: 14px;
+      }
+    }
+    .showcase-item {
+      a {
+        font-size: 16px !important;
+        .icon {
+          font-size: 29px !important;
+        }
       }
     }
   }

@@ -11,8 +11,8 @@
       >
         <v-card-text>
           <v-btn
-            v-for="link in socialLinks"
-            :key="link"
+            v-for="(link, index) in socialLinks"
+            :key="index"
             icon
             class="mx-3 white--text"
             :class="link.color"
