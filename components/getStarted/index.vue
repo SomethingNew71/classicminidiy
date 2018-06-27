@@ -41,7 +41,7 @@ export default {
           subtitle: '',
           icon: 'icons/Multicolor/SVG/Round Icons/Video-Camera-2.svg',
           external: true,
-          to: 'https://www.youtube.com/c/classicminidiy',
+          to: 'https://www.youtube.com/c/classicminidiy?sub_confirmation=1',
           disabled: false
         },
         {

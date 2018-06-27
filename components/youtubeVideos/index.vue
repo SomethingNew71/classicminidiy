@@ -6,7 +6,7 @@
         <p class="pt-2">Classic Mini DIY began its life on Youtube and from there it grew to be one of the largest Classic Mini centric channels on Youtube with just at <strong>{{youtubeSubs}}</strong> subscribers. Check out all the latest videos below.</p>
       </v-flex>
       <v-flex xs12 md4 class="text-md-right text-xs-center pt-4">
-        <v-btn dark medium tag='a' class="ml-0" color="red" target='_blank' href='https://www.youtube.com/c/classicminidiy'>
+        <v-btn dark medium tag='a' class="ml-0" color="red" target='_blank' href='https://www.youtube.com/c/classicminidiy?sub_confirmation=1'>
           <v-icon class="white--text pr-2">fa-youtube-play</v-icon>
           {{youtubeSubs}} - Subscribe
         </v-btn>

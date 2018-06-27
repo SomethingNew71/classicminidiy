@@ -61,7 +61,7 @@
             icon: 'fab fa-youtube',
             color: 'red--text',
             external: true,
-            href: 'https://www.youtube.com/c/classicminidiy'
+            href: 'https://www.youtube.com/c/classicminidiy?sub_confirmation=1'
           },
           {
             title: 'Live Chat',
