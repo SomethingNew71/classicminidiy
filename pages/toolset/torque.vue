@@ -1,17 +1,19 @@
 <template>
-  <v-layout row wrap class="pt-4">
+  <v-container grid-list-lg>
+    <v-layout row wrap>
     <v-flex xs12>
       <img src="/icons/Multicolor/SVG/Round Icons/Settings-5.svg" alt="" width="70px" class="pb-3">
-      <h1 class="display-1 white--text">Torque Specifications</h1>
-      <p class="accent--text">All torque settings sourced from Haynes Manuals</p>
+      <h1 class="display-1">Torque Specifications</h1>
+      <p>All torque settings sourced from Haynes Manuals</p>
     </v-flex>
+
     <v-flex xs12 class="mt-4">
       <v-card>
-        <v-card-title class="pl-4 pt-4">
-          <h3 class="title">
+        <v-card-title class="pl-4 pt-4 grey darken-2">
+          <h3 class="title white--text">
             Suspension
             <br>
-            <span class="body-1">Mk1/2</span>
+            <span class="body-1 primary--text">Mk1/2</span>
           </h3>
           <v-spacer></v-spacer>
           <v-text-field
@@ -20,7 +22,7 @@
             single-line
             hide-details
             v-model="suspensionSearch"
-            class="pr-4"
+            class="pr-4 primary--text"
           ></v-text-field>
         </v-card-title>
         <v-data-table
@@ -28,11 +30,11 @@
             v-bind:items="suspensionItems"
             v-bind:search="suspensionSearch"
           >
-          <template slot="items" slot-scope="props">
+          <template slot="items" slot-scope="props" :class="grey">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbft }}</td>
             <td class="text-xs-right">{{ props.item.nm }}</td>
-            <td class="text-xs-right">
+            <td class="text-xs-left">
               {{props.item.notes}}
             </td>
           </template>
@@ -42,32 +44,15 @@
         </v-data-table>
       </v-card>
     </v-flex>
-    <v-flex xs12 class="pt-4">
-      <v-card>
-        <v-card-text>
-          <!-- CMDIY - Torque Specs -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-0523971861051053"
-               data-ad-slot="4439282592"
-               data-ad-format="auto"></ins>
-          <script>
-          /* eslint-disable */
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          /* eslint-enable */
-          </script>
-        </v-card-text>
-      </v-card>
-    </v-flex>
     <v-layout row wrap>
       <v-flex xs12 md6 class="pr-2 pt-5">
       <!-- <v-flex xs12 offset-sm1 sm10 class="mt-4"> -->
         <v-card>
-          <v-card-title class="pl-4 pt-4">
-            <h3 class="title">
+          <v-card-title class="pl-4 pt-4 grey darken-2">
+            <h3 class="title white--text">
               Gearbox
               <br>
-              <span class="body-1">All Models</span>
+              <span class="body-1 primary--text">All Models</span>
             </h3>
             <v-spacer></v-spacer>
             <v-text-field
@@ -76,7 +61,7 @@
               single-line
               hide-details
               v-model="gearSearch"
-              class="pr-4"
+              class="pr-4 primary--text"
             ></v-text-field>
           </v-card-title>
           <v-data-table
@@ -97,11 +82,11 @@
       </v-flex>
       <v-flex xs12 md6 class="pl-2 pt-5 electrical-margin">
         <v-card>
-          <v-card-title class="pl-4 pt-4">
-            <h3 class="title">
+          <v-card-title class="pl-4 pt-4 grey darken-2">
+            <h3 class="title white--text">
               Electrical
               <br>
-              <span class="body-1">All Models</span>
+              <span class="body-1 primary--text">All Models</span>
             </h3>
             <v-spacer></v-spacer>
             <v-text-field
@@ -110,7 +95,7 @@
               single-line
               hide-details
               v-model="electricalSearch"
-              class="pr-4"
+              class="pr-4 primary--text"
             ></v-text-field>
           </v-card-title>
           <v-data-table
@@ -132,11 +117,11 @@
     </v-layout>
     <v-flex xs12 class="mt-4 mb-4">
       <v-card>
-        <v-card-title class="pl-4 pt-4">
-          <h3 class="title">
+        <v-card-title class="pl-4 pt-4 grey darken-2">
+          <h3 class="title white--text">
             Engine
             <br>
-            <span class="body-1">Important: See Notes</span>
+            <span class="body-1 primary--text">Important: See Notes</span>
           </h3>
           <v-spacer></v-spacer>
           <v-text-field
@@ -145,7 +130,7 @@
             single-line
             hide-details
             v-model="engineSearch"
-            class="pr-4"
+            class="pr-4 primary--text"
           ></v-text-field>
         </v-card-title>
         <v-data-table
@@ -167,15 +152,28 @@
         </v-data-table>
       </v-card>
     </v-flex>
+    <v-flex xs12>
+      <v-card class="pa-2">
+        <v-card-text>
+          <div id="amzn-assoc-ad-acb1628a-f8d4-4b6a-8c89-8a289d5db08c"></div>
+          <script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=acb1628a-f8d4-4b6a-8c89-8a289d5db08c"></script>
+        </v-card-text>
+      </v-card>
+    </v-flex>
   </v-layout>
+  </v-container>
 </template>
 
 <style lang="scss">
-.electrical-margin {
-  @media only screen and (min-width : 1025px) {
-    margin-left: 0 !important;
+  .application .theme--light.input-group:not(.input-group--error) label, .theme--light .input-group:not(.input-group--error) label {
+    color: #fff !important;
   }
-}
+  .icon.material-icons.input-group__append-icon {
+    color: #659cc8 !important
+  }
+  .theme--light .input-group input {
+    color: #fff;
+  }
 </style>
 
 <script>
@@ -193,32 +191,32 @@ export default {
         {
           text: 'Fastener',
           align: 'left',
-          sortable: false,
+          sortable: true,
           value: 'name'
         },
-        { text: 'Torque (lb/ft)', value: 'lbft' },
-        { text: 'Torque (Nm)', value: 'nm' },
+        { text: 'Torque (lb/ft)', value: 'lbft', sortable: false },
+        { text: 'Torque (Nm)', value: 'nm', sortable: false },
         { text: 'Notes', value: 'notes', align: 'center' }
       ],
       specialHeaders: [
         {
           text: 'Fastener',
           align: 'left',
-          sortable: false,
+          sortable: true,
           value: 'name'
         },
-        { text: 'Torque (lb/in)', value: 'lbin' },
-        { text: 'Torque (Nm)', value: 'nm' }
+        { text: 'Torque (lb/in)', value: 'lbin', sortable: false },
+        { text: 'Torque (Nm)', value: 'nm', sortable: false }
       ],
       specialHeaders2: [
         {
           text: 'Fastener',
           align: 'left',
-          sortable: false,
+          sortable: true,
           value: 'name'
         },
-        { text: 'Torque (lb/ft)', value: 'lbft' },
-        { text: 'Torque (Nm)', value: 'nm' }
+        { text: 'Torque (lb/ft)', value: 'lbft', sortable: false },
+        { text: 'Torque (Nm)', value: 'nm', sortable: false }
       ],
       // This is all the table data
       suspensionItems: [
