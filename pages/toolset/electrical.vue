@@ -11,7 +11,7 @@
           <v-icon fa class="fas white--text">plus</v-icon>
           <v-toolbar-title color="white--text">{{key}}</v-toolbar-title>
         </v-toolbar>
-        <v-list dense>
+        <v-list dense class="elevation-5">
           <div :key="diagram" v-for="(diagram) in groups">
             <v-list-tile avatar :href="diagram.link" target="_blank">
               <v-list-tile-avatar>
@@ -26,6 +26,12 @@
             </v-list-tile>
           </div>
         </v-list>
+      </v-flex>
+      <v-flex xs12>
+        <v-card class="pa-2">
+          <div id="amzn-assoc-ad-f54e73ba-b7b2-47e6-b78d-0b7986dc6263"></div>
+          <script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=f54e73ba-b7b2-47e6-b78d-0b7986dc6263"></script>
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
