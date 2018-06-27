@@ -7,8 +7,10 @@
           <v-flex xs12 md6 class="text-xs-center px-5">
             <img class="pt-5 text-xs-center responsive-img" src="/img/wheel-logo-black-large.png" alt="Classic Mini DIY Logo image">
             <br>
-            <span class="headline">The best source of Classic Mini DIY videos and guides since 2015</span>
-            <!-- <v-btn large color="primary" class="mx-0">See more</v-btn> -->
+            <span class="title">The best source of Classic Mini DIY videos and guides since 2015</span>
+            <br>
+            <br>
+            <youtubeSubButton></youtubeSubButton>
           </v-flex>
           <v-flex hidden-sm-and-down md6>
             <img src="/img/carb.png" alt="">
@@ -42,6 +44,7 @@
 </template>
 
 <script>
+import youtubeSubButton from '~/components/youtubeSubButton';
 import youtubeVideos from '~/components/youtubeVideos';
 import getStarted from '~/components/getStarted';
 import featuredProducts from '~/components/featuredProducts';
@@ -94,6 +97,7 @@ export default {
     };
   },
   components: {
+    youtubeSubButton,
     youtubeVideos,
     getStarted,
     featuredProducts,
