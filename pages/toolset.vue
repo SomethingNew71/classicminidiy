@@ -8,7 +8,7 @@
       dark
     >
       <v-list dense dark>
-        <v-list-tile :key="index" v-for="(item, index) in navItems" :nuxt="!item.external" :to="item.to">
+        <v-list-tile :key="index" v-for="(item, index) in navItems" :nuxt="!item.external" :to="item.to" :href="item.href">
           <v-list-tile-action>
             <v-icon size="24px" :class="item.color"> {{item.icon}} </v-icon>
           </v-list-tile-action>
@@ -61,14 +61,14 @@
             icon: 'fab fa-youtube',
             color: 'red--text',
             external: true,
-            to: 'https://www.youtube.com/c/classicminidiy'
+            href: 'https://www.youtube.com/c/classicminidiy'
           },
           {
             title: 'Live Chat',
             icon: 'fab fa-discord pl-1',
             color: '',
             external: true,
-            to: 'https://discord.gg/TNNH7ZD'
+            href: 'https://discord.gg/TNNH7ZD'
           }
         ]
       };
