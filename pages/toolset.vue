@@ -8,54 +8,14 @@
       dark
     >
       <v-list dense dark>
-        <v-list-tile nuxt to="/toolset/torque">
+        <v-list-tile :key="index" v-for="(item, index) in navItems" :nuxt="!item.external" :to="item.to">
           <v-list-tile-action>
-            <v-icon>build</v-icon>
+            <v-icon size="24px" :class="item.color"> {{item.icon}} </v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Torque Specs</v-list-tile-title>
+            <v-list-tile-title>{{item.title}}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile nuxt to="/toolset/electrical">
-          <v-list-tile-action>
-            <v-icon>battery_charging_full</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Electrical Diagrams</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <!-- <v-list-tile nuxt to="/toolset/colors">
-          <v-list-tile-action>
-            <v-icon>color_lens</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Color Picker</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile nuxt to="/toolset/specs">
-          <v-list-tile-action>
-            <v-icon>settings</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Specifications</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile> -->
-        <v-list-tile nuxt to="/toolset/manuals">
-          <v-list-tile-action>
-            <v-icon>collections_bookmark</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Manuals</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <!-- <v-list-tile nuxt to="/toolset/historical">
-          <v-list-tile-action>
-            <v-icon>account_balance</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>History</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile> -->
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left dark>
@@ -73,7 +33,44 @@
   export default {
     data () {
       return {
-        drawer: false
+        drawer: false,
+        navItems: [
+          {
+            title: 'Workshop Manuals',
+            icon: 'fas fa-book pl-1',
+            color: 'deep-orange--text',
+            external: false,
+            to: '/toolset/manuals'
+          },
+          {
+            title: 'Torque Specs',
+            icon: 'fas fa-wrench pl-1',
+            color: 'green--text',
+            external: false,
+            to: '/toolset/torque'
+          },
+          {
+            title: 'Electrical Diagrams',
+            icon: 'fas fa-lightbulb pl-1',
+            color: 'primary--text',
+            external: false,
+            to: '/toolset/electrical'
+          },
+          {
+            title: 'DIY Videos',
+            icon: 'fab fa-youtube',
+            color: 'red--text',
+            external: true,
+            to: 'https://www.youtube.com/c/classicminidiy'
+          },
+          {
+            title: 'Live Chat',
+            icon: 'fab fa-discord pl-1',
+            color: '',
+            external: true,
+            to: 'https://discord.gg/TNNH7ZD'
+          }
+        ]
       };
     },
     props: {

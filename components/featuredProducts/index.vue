@@ -4,7 +4,7 @@
       <v-flex xs12 class="pb-4">
         <h2 class="display-1">Classic Mini Merch</h2>
       </v-flex>
-      <v-flex v-for="(product, index) in featuredProducts" v-bind:key=product xs12 sm6 v-bind:class="{ borderRight: index === 'product1'}">
+      <v-flex v-for="(product, index) in featuredProducts" :key=index xs12 sm6 v-bind:class="{ borderRight: index === 'product1'}">
         <v-layout>
           <v-flex xs6 class="pa-4">
             <img :src="product.img" alt="" class="responsive-img">
@@ -23,7 +23,7 @@
     <v-layout>
       <v-flex
         v-for="(product, key, index) in regularProducts"
-        v-bind:key=product
+        :key=index
         xs12 sm4 md2
         class="regular-products text-xs-center pt-5"
         v-bind:class="{ 'hidden-xs-only': index >= 2, 'hidden-sm-and-down': index >= 4}">
