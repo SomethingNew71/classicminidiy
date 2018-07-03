@@ -1,12 +1,19 @@
 <template>
-  <v-container grid-list-lg>
+  <v-container grid-list-xs>
     <v-layout row wrap>
     <v-flex xs12>
       <img src="/icons/Multicolor/SVG/Round Icons/Settings-5.svg" alt="" width="70px" class="pb-3">
       <h1 class="display-1">Torque Specifications</h1>
       <p>All torque settings sourced from Haynes Manuals</p>
+      <!-- <v-btn-toggle dark color="primary" v-model="imperial">
+        <v-btn flat :value="true">
+          Imperial
+        </v-btn>
+        <v-btn flat :value="false">
+          Metric
+        </v-btn>
+      </v-btn-toggle> -->
     </v-flex>
-
     <v-flex xs12 class="mt-4">
       <v-card>
         <v-card-title class="pl-4 pt-4 grey darken-2">
@@ -26,15 +33,15 @@
           ></v-text-field>
         </v-card-title>
         <v-data-table
-            v-bind:headers="headers"
-            v-bind:items="suspensionItems"
-            v-bind:search="suspensionSearch"
+           :headers="computedHeaders"
+           :items="suspensionItems"
+           :search="suspensionSearch"
           >
           <template slot="items" slot-scope="props" :class="grey">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbft }}</td>
             <td class="text-xs-right">{{ props.item.nm }}</td>
-            <td class="text-xs-left">
+            <td class="text-xs-left" v-if="!$vuetify.breakpoint.smAndDown">
               {{props.item.notes}}
             </td>
           </template>
@@ -65,9 +72,9 @@
             ></v-text-field>
           </v-card-title>
           <v-data-table
-              v-bind:headers="specialHeaders2"
-              v-bind:items="gearboxItems"
-              v-bind:search="gearSearch"
+              :headers="specialHeaders2"
+              :items="gearboxItems"
+              :search="gearSearch"
             >
             <template slot="items" slot-scope="props">
               <td class="text-xs-left">{{ props.item.name }}</td>
@@ -99,9 +106,9 @@
             ></v-text-field>
           </v-card-title>
           <v-data-table
-              v-bind:headers="specialHeaders"
-              v-bind:items="electricalItems"
-              v-bind:search="electricalSearch"
+              :headers="specialHeaders"
+              :items="electricalItems"
+              :search="electricalSearch"
             >
             <template slot="items" slot-scope="props">
               <td class="text-xs-left">{{ props.item.name }}</td>
@@ -134,15 +141,15 @@
           ></v-text-field>
         </v-card-title>
         <v-data-table
-            v-bind:headers="headers"
-            v-bind:items="engineItems"
-            v-bind:search="engineSearch"
+            :headers="computedHeaders"
+            :items="engineItems"
+            :search="engineSearch"
           >
           <template slot="items" slot-scope="props">
             <td class="text-xs-left">{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.lbft }}</td>
             <td class="text-xs-right">{{ props.item.nm }}</td>
-            <td class="text-xs-right">
+            <td class="text-xs-right" v-if="!$vuetify.breakpoint.smAndDown">
               {{props.item.notes}}
             </td>
           </template>
@@ -174,10 +181,25 @@
   .theme--light .input-group input {
     color: #fff;
   }
+  @media (min-width: 0px) {
+    .card__title h3 {
+      width: 100%;
+    }
+  }
+  @media (min-width: 600px) {
+    .card__title h3 {
+      width: unset;
+    }
+  }
 </style>
 
 <script>
 export default {
+  computed: {
+    computedHeaders () {
+      return this.headers.filter(h => !h.hide || !this.$vuetify.breakpoint[h.hide]);
+    }
+  },
   data: function () {
     return {
       // This is where you declare the search thingys
@@ -186,35 +208,21 @@ export default {
       electricalSearch: '',
       suspensionSearch: '',
       pagination: {},
+      imperial: true,
       // This is where you put all the titles
       headers: [
-        {
-          text: 'Fastener',
-          align: 'left',
-          sortable: true,
-          value: 'name'
-        },
+        { text: 'Fastener', align: 'left', sortable: true, value: 'name' },
         { text: 'Torque (lb/ft)', value: 'lbft', sortable: false },
         { text: 'Torque (Nm)', value: 'nm', sortable: false },
-        { text: 'Notes', value: 'notes', align: 'center' }
+        { text: 'Notes', value: 'notes', align: 'center', hide: 'smAndDown', sortable: false }
       ],
       specialHeaders: [
-        {
-          text: 'Fastener',
-          align: 'left',
-          sortable: true,
-          value: 'name'
-        },
+        { text: 'Fastener', align: 'left', sortable: true, value: 'name' },
         { text: 'Torque (lb/in)', value: 'lbin', sortable: false },
         { text: 'Torque (Nm)', value: 'nm', sortable: false }
       ],
       specialHeaders2: [
-        {
-          text: 'Fastener',
-          align: 'left',
-          sortable: true,
-          value: 'name'
-        },
+        { text: 'Fastener', align: 'left', sortable: true, value: 'name' },
         { text: 'Torque (lb/ft)', value: 'lbft', sortable: false },
         { text: 'Torque (Nm)', value: 'nm', sortable: false }
       ],
