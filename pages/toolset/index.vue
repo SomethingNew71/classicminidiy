@@ -10,7 +10,7 @@
       </v-flex>
     </v-layout>
     <v-container grid-list-xl>
-      <v-layout row wrap>
+      <v-layout row wrap class="hidden-sm-and-down">
         <v-flex xs12 sm4 md3 :key="index" v-for="(item, index) in items">
           <nuxt-link v-if="!item.disabled && !item.external" :to='item.to'>
             <v-card hover class="pt-3">
@@ -40,6 +40,38 @@
                 <h3 class="subheading text-xs-center mb-0">{{item.title}}</h3>
               </div>
             </v-card-title>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-layout class="hidden-md-and-up">
+        <v-flex xs12>
+          <v-card>
+            <v-toolbar color="primary" dark dense>
+              <v-toolbar-title>A Toolbox to Learn</v-toolbar-title>
+              <v-spacer></v-spacer>
+            </v-toolbar>
+            <v-list>
+              <template v-for="(item, index) in items" v-if="!item.disabled">
+                <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
+                <v-divider v-else-if="item.divider" :inset="item.inset" :key="index"></v-divider>
+                <v-list-tile avatar v-else-if="item.external" :key="item.title" :href="item.to" >
+                  <v-list-tile-avatar>
+                    <img :src="item.icon">
+                  </v-list-tile-avatar>
+                  <v-list-tile-content>
+                    <v-list-tile-title class="black--text" v-html="item.title"></v-list-tile-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+                <v-list-tile avatar v-else :key="item.title" nuxt :to="item.to" >
+                  <v-list-tile-avatar>
+                    <img :src="item.icon">
+                  </v-list-tile-avatar>
+                  <v-list-tile-content>
+                    <v-list-tile-title class="black--text" v-html="item.title"></v-list-tile-title>
+                  </v-list-tile-content>
+                </v-list-tile>
+              </template>
+            </v-list>
           </v-card>
         </v-flex>
       </v-layout>
