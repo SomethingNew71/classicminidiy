@@ -46,7 +46,6 @@
 <script>
 import youtubeSubButton from '~/components/youtubeSubButton';
 import youtubeVideos from '~/components/youtubeVideos';
-import getStarted from '~/components/getStarted';
 import featuredProducts from '~/components/featuredProducts';
 import supportSection from '~/components/supportSection';
 
@@ -99,7 +98,6 @@ export default {
   components: {
     youtubeSubButton,
     youtubeVideos,
-    getStarted,
     featuredProducts,
     supportSection
   }
