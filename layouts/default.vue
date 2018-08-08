@@ -3,7 +3,7 @@
     <v-content>
       <nuxt/>
     </v-content>
-    <v-footer height="auto">
+    <v-footer height="auto" class="grey darken-3">
       <v-spacer></v-spacer>
       <v-card
         flat
