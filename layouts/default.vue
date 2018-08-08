@@ -4,6 +4,7 @@
       <nuxt/>
     </v-content>
     <v-footer height="auto">
+      <v-spacer></v-spacer>
       <v-card
         flat
         tile
@@ -29,6 +30,7 @@
           &copy;{{ new Date().getFullYear() }} — <strong>Classic Mini DIY, LLC.</strong>
         </v-card-text>
       </v-card>
+      <v-spacer></v-spacer>
     </v-footer>
     <div id="amzn-assoc-ad-1b046209-91f6-4804-a6b8-325451dff584"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=1b046209-91f6-4804-a6b8-325451dff584"></script>
   </v-app>
