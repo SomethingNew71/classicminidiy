@@ -23,11 +23,15 @@
     },
     methods: {
       fetchData: function () {
-        const feed = 'https://cdn.hipposm.com/feed/5966e85a5529017368525965';
+        const apiKey = 'AIzaSyCbmPC-gSOA2g9xQOAeBboTTwz4tSVRQZ8';
+        const baseURL = 'https://www.googleapis.com/youtube/v3/channels';
+        const channelId = 'UCZIUfOFhrQ9nrR06IOoAJ2Q';
+        const details = 'statistics';
+        const feed = `${baseURL}?key=${apiKey}&id=${channelId}&part=${details}`;
         const vueScope = this;
         axios.get(feed).then(function (response) {
           // Subscriber Count for Youtube Channel
-          vueScope.youtubeSubs = response.data.meta.feed_details.channel_stats.subscriberCount;
+          vueScope.youtubeSubs = response.data.items[0].statistics.subscriberCount;
         });
       }
     }
