@@ -10,7 +10,7 @@
     "url": "git://github.com/SomethingNew71/classicminidiy.git"
   },
   "engines": {
-    "node": ">8.9.1"
+    "node": ">10.13.0"
   },
   "scripts": {
     "dev": "nuxt",
