@@ -2,7 +2,7 @@
   <section class="getting-started text-xs-center pb-4" id="get-started">
     <v-layout row>
       <v-flex xs12 offset-sm1 sm10 offset-md2 md8 class="mission-header text-xs-center">
-        <span class="icon green--text display-3"><i class="fas fa-wrench"></i></span>
+        <div class="icon green--text display-3"><i class="fas fa-wrench"></i></div>
         <br>
         <br>
         <h2 class="display-1">Discover the Information You Need</h2>
@@ -14,7 +14,7 @@
         <v-flex xs12 sm4 md3 :key="index" v-for="(item, index) in items">
           <nuxt-link v-if="!item.disabled && !item.external" :to='item.to'>
             <v-card hover class="pt-3">
-              <v-card-media :src="item.icon" height="130px"></v-card-media>
+              <v-img :src="item.icon" aspect-ratio="2" contain></v-img>
               <v-card-title primary-title class="pt-0">
                 <div class="text-container">
                   <h3 class="subheading text-xs-center mb-0">{{item.title}}</h3>
@@ -24,7 +24,7 @@
           </nuxt-link>
           <a v-if="item.external" :href="item.to" target="_blank">
             <v-card hover class="pt-3">
-              <v-card-media :src="item.icon" height="130px"></v-card-media>
+              <v-img :src="item.icon" aspect-ratio="2" contain></v-img>
               <v-card-title primary-title class="pt-0">
                 <div class="text-container">
                   <h3 class="subheading text-xs-center mb-0">{{item.title}}</h3>
@@ -34,7 +34,7 @@
           </a>
           <v-card v-if="item.disabled" hover class="pt-3">
             <div class="disabled"></div>
-            <v-card-media :src="item.icon" height="130px"></v-card-media>
+            <v-img :src="item.icon" aspect-ratio="2" contain></v-img>
             <v-card-title primary-title class="pt-0">
               <div class="text-container">
                 <h3 class="subheading text-xs-center mb-0">{{item.title}}</h3>
