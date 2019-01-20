@@ -1,3 +1,5 @@
+const nodeExternals = require('webpack-node-externals');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -44,7 +46,17 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
-    }
+    },
+
+    extend (config, { isServer }) {
+      if (isServer) {
+        config.externals = [
+          nodeExternals ({
+            whitelist: [/\.(?!(?:js|json)$).{1,5}$/i, /^vuetify/]
+          })
+        ]
+      }
+    },
   },
   plugins: [
     { src: '~/plugins/plugins.js' }
