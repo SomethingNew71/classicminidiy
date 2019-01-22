@@ -51,23 +51,6 @@
           }
         }
       };
-    },
-    created: function () {
-      this.fetchData();
-    },
-    methods: {
-      fetchData: function () {
-        const apiKey = 'AIzaSyCbmPC-gSOA2g9xQOAeBboTTwz4tSVRQZ8';
-        const baseURL = 'https://www.googleapis.com/youtube/v3/channels';
-        const channelId = 'UCZIUfOFhrQ9nrR06IOoAJ2Q';
-        const details = 'statistics';
-        const feed = `${baseURL}?key=${apiKey}&id=${channelId}&part=${details}`;
-        const vueScope = this;
-        axios.get(feed).then(function (response) {
-          // Subscriber Count for Youtube Channel
-          vueScope.youtubeSubs = response.data.items[0].statistics.subscriberCount;
-        });
-      }
     }
   };
 </script>
