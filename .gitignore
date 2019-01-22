@@ -12,3 +12,5 @@ dist
 
 # Yarn and NPM Lock because heroku is a bastard
 package-lock.json
+
+.DS_Store

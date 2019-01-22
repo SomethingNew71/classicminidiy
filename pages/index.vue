@@ -1,10 +1,10 @@
 <template>
   <section class="home">
     <!-- HERO SECTION -->
-    <v-jumbotron class="hero" color="grey lighten-2">
+    <v-responsive class="hero grey lighten-2">
       <v-container fill-height>
-        <v-layout align-center>
-          <v-flex xs12 md6 class="text-xs-center px-5">
+        <v-layout align-center row wrap>
+          <v-flex xs12 class="text-xs-center px-5 pb-5">
             <img class="pt-5 text-xs-center responsive-img" src="/img/wheel-logo-black-large.png" alt="Classic Mini DIY Logo image">
             <br>
             <span class="title">The best source of Classic Mini DIY videos and guides since 2015</span>
@@ -12,13 +12,12 @@
             <br>
             <youtubeSubButton></youtubeSubButton>
           </v-flex>
-          <v-flex hidden-sm-and-down md6>
-            <img src="/img/carb.png" alt="">
+          <v-flex xs12>
+            <service-section></service-section>
           </v-flex>
         </v-layout>
       </v-container>
-    </v-jumbotron>
-    <!-- TAB NAVIGATION -->
+    </v-responsive>
     <v-tabs icons-and-text centered dark hide-slider>
       <v-tab
         v-for="(item, index) in nav"
@@ -33,7 +32,7 @@
       </v-tab>
     </v-tabs>
     <!-- PAGE CONTENTS BEGIN -->
-    <v-container class="pt-2">
+    <v-container class="pt-2 page-container">
       <youtubeVideos></youtubeVideos>
       <featuredProducts></featuredProducts>
       <div class="pt-5"></div>
@@ -48,6 +47,7 @@ import youtubeSubButton from '~/components/youtubeSubButton';
 import youtubeVideos from '~/components/youtubeVideos';
 import featuredProducts from '~/components/featuredProducts';
 import supportSection from '~/components/supportSection';
+import serviceSection from '~/components/serviceSection';
 
 export default {
   data () {
@@ -99,7 +99,8 @@ export default {
     youtubeSubButton,
     youtubeVideos,
     featuredProducts,
-    supportSection
+    supportSection,
+    serviceSection
   }
 };
 </script>
