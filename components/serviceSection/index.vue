@@ -32,21 +32,18 @@
       return {
         cards: {
           1: {
-            title: 'Make DIY videos',
+            title: 'DIY Videos',
             description: 'The primary work of Classic Mini DIY is creating videos outlining the way to work on your Classic Mini Cooper.',
-            link: '',
             image: 'icons/homepage/camera.gif'
           },
           2: {
-            title: 'Keeping the Classic Mini Alive',
+            title: 'Practical Approach to DIY',
             description: 'By making these videos, we hope to keep the Classic Mini alive, as well as keeping the entire online community thriving for years to come.',
-            link: '',
             image: '/icons/homepage/mini.gif'
           },
           3: {
-            title: 'Offering Mail in Repair Service',
+            title: 'Mail in Repair Service',
             description: 'A recent addition to our lineup, is the option to send your old or broken Classic Mini parts for a top notch repair and recondition service.',
-            link: '',
             image: '/icons/homepage/tools.gif'
           }
         }

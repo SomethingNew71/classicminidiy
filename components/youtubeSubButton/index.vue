@@ -1,5 +1,5 @@
 <template>
-  <v-btn dark medium tag='a' color="red" target='_blank' href='https://www.youtube.com/c/classicminidiy?sub_confirmation=1'>
+  <v-btn dark large tag='a' color="red" target='_blank' href='https://www.youtube.com/c/classicminidiy?sub_confirmation=1'>
     <v-icon class="white--text pr-2">fa-youtube-play</v-icon>
     <v-progress-circular v-if="!youtubeSubs" :size="20" indeterminate color="white"></v-progress-circular>{{youtubeSubs}} - Subscribe
   </v-btn>

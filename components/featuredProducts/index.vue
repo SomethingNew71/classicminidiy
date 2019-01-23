@@ -1,6 +1,6 @@
 <template>
   <div class="pt-5">
-    <v-layout wrap>
+    <v-layout wrap row>
       <v-flex xs12 class="pb-4">
         <h2 class="display-1">Classic Mini Merch</h2>
       </v-flex>
