@@ -7,7 +7,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'Classic Mini DIY | The Classic Mini Knowledgebase',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -22,8 +22,12 @@ export default {
     ],
     script: [
       { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
-      { defer: true, src: 'https://pro.fontawesome.com/releases/v5.0.13/js/all.js', integrity: 'sha384-d84LGg2pm9KhR4mCAs3N29GQ4OYNy+K+FBHX8WhimHpPm86c839++MDABegrZ3gn', crossorigin: 'anonymous' },
-      { defer: true, src: 'https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js' }
+      {
+        defer: true,
+        src: 'https://pro.fontawesome.com/releases/v5.8.1/js/all.js',
+        integrity: 'sha384-GBwm0s/0wYcqnK/JmrCoRqWYIWzFiGEucsfFqkB76Ouii5+d4R31vWHPQtfhv55b',
+        crossorigin: 'anonymous'
+      }
     ]
   },
 
@@ -50,6 +54,7 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
+    'nuxt-imagemin',
     ['@nuxtjs/google-analytics', { ua: 'UA-53914731-2' }]
   ],
   /*

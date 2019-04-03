@@ -1,7 +1,7 @@
 {
   "name": "classicminidiy",
   "version": "1.0.0",
-  "description": "Classic Mini DIY knowledge repo source code",
+  "description": "Classic Mini DIY Knowledgebase",
   "author": "Cole Gentry",
   "private": true,
   "scripts": {
@@ -34,6 +34,9 @@
     "eslint-plugin-promise": ">=4.1.1",
     "eslint-plugin-standard": ">=4.0.0",
     "eslint-plugin-vue": "^5.2.2",
-    "nodemon": "^1.18.10"
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "nodemon": "^1.18.10",
+    "nuxt-imagemin": "^1.0.0"
   }
 }
