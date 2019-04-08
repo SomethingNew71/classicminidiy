@@ -21,7 +21,7 @@ export default {
       { rel: 'image_src', href: '/static' }
     ],
     script: [
-      { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
+      // { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
       {
         defer: true,
         src: 'https://pro.fontawesome.com/releases/v5.8.1/js/all.js',
@@ -53,7 +53,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://buefy.github.io/#/documentation
-    'nuxt-buefy',
+    ['nuxt-buefy', { materialDesignIcons: false }],
     'nuxt-imagemin',
     ['@nuxtjs/google-analytics', { ua: 'UA-53914731-2' }]
   ],
