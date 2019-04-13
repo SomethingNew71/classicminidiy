@@ -1,10 +1,18 @@
 <template>
   <div>
-    <hero/>
+    <b-notification :active.sync="showNotify" aria-close-label="Close notification">
+      <a class="button patreon-support" href="https://www.patreon.com/bePatron?u=3749975" target="_blank">
+        <span class="icon">
+          <i class="fab fa-patreon" />
+        </span>
+        <span>Consider Supporting on Patreon</span>
+      </a>
+    </b-notification>
+    <hero />
     <div class="container column is-12">
       <section class="section">
         <div class="columns">
-          <div class="column is-4" v-for="card in cards" :key="card">
+          <div v-for="(card, i) in cards" :key="i" class="column is-4">
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
@@ -13,7 +21,7 @@
               </div>
               <header class="card-header">
                 <p class="card-header-title">
-                  {{card.title}}
+                  {{ card.title }}
                 </p>
               </header>
               <div class="card-content">
@@ -22,7 +30,14 @@
                 </div>
               </div>
               <footer class="card-footer">
-                <a v-for="link in card.footerLinks" :key="link" :href="link.url" class="card-footer-item has-text-info">{{link.title}}</a>
+                <a
+                  v-for="(link, index) in card.footerLinks"
+                  :key="index"
+                  :href="link.url"
+                  target="_blank"
+                  class="card-footer-item has-text-info"
+                >
+                  {{ link.title }}</a>
               </footer>
             </div>
           </div>
@@ -32,13 +47,30 @@
   </div>
 </template>
 
+<style lang="scss" scoped>
+  .notification {
+    position: fixed;
+    right: 5px;
+    top: 5px;
+
+    .patreon-support {
+      background: #F96854;
+      color: white;
+    }
+  }
+</style>
+
 <script>
-import hero from '~/components/Hero'
+import hero from '~/components/Hero';
 
 export default {
   name: 'HomePage',
+  components: {
+    hero
+  },
   data() {
     return {
+      showNotify: false,
       cards: {
         0: {
           title: 'DIY Videos',
@@ -74,10 +106,12 @@ export default {
           ]
         }
       }
-    }
+    };
   },
-  components: {
-    hero
+  mounted() {
+    setTimeout(() => {
+      this.showNotify = true;
+    }, 2500);
   }
-}
+};
 </script>

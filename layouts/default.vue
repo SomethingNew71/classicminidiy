@@ -14,34 +14,36 @@
           <div id="mc_embed_signup">
             <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
             <form
+              id="mc-embedded-subscribe-form"
               action="https://classicminidiy.us16.list-manage.com/subscribe/post?u=8c4cae17c7a50111c3fe1a26a&amp;id=6a5daeee77"
               method="post"
-              id="mc-embedded-subscribe-form"
               name="mc-embedded-subscribe-form"
               class="validate"
               target="_blank"
-              novalidate>
+              novalidate
+            >
               <div id="mc_embed_signup_scroll">
                 <input
+                  id="mce-EMAIL"
                   type="email"
                   value=""
                   name="EMAIL"
                   class="email"
-                  id="mce-EMAIL"
                   placeholder="Email Address"
-                  required>
-                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                  <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                    <input type="text" name="b_8c4cae17c7a50111c3fe1a26a_6a5daeee77" tabindex="-1" value="">
-                  </div>
-                  <div class="clear">
-                    <input
-                      type="submit"
-                      value="Subscribe"
-                      name="subscribe"
-                      id="mc-embedded-subscribe"
-                      class="button">
-                  </div>
+                  required
+                >
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                  <input type="text" name="b_8c4cae17c7a50111c3fe1a26a_6a5daeee77" tabindex="-1" value="">
+                </div>
+                <div class="clear">
+                  <input
+                    id="mc-embedded-subscribe"
+                    type="submit"
+                    value="Subscribe"
+                    name="subscribe"
+                    class="button"
+                  >
+                </div>
               </div>
             </form>
           </div>
