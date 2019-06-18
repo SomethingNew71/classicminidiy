@@ -1,6 +1,6 @@
 # classicminidiy
 
-> Classic Mini DIY knowledge repo source code
+> Classic Mini DIY - The Classic Mini Knowledgebase
 
 ## Build Setup
 

@@ -1,42 +1,51 @@
 {
   "name": "classicminidiy",
-  "version": "1.0.0",
-  "description": "Classic Mini DIY Knowledgebase",
-  "author": "Cole Gentry",
-  "private": true,
+  "version": "3.0.0",
+  "description": "Classic Mini DIY - The Classic Mini Knowledgebase",
+  "author": "cole-gentry",
+  "license": "GPL-3.0",
+  "private": false,
+  "fix-absolute": "sed -i '/  .basedir.: /d' .nuxt/dist/server-bundle.json",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SomethingNew71/classicminidiy.git"
+  },
+  "engines": {
+    "node": ">12.4.0"
+  },
   "scripts": {
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/google-analytics": "^2.2.0",
-    "cross-env": "^5.2.0",
-    "nuxt": "^2.6.1",
-    "nuxt-buefy": "^0.3.5",
-    "@nuxtjs/axios": "^5.4.1"
+    "node-sass": "^4.12.0",
+    "nuxt": "^2.0.0",
+    "nuxt-buefy": "^0.3.2",
+    "sass-loader": "^7.1.0"
   },
   "devDependencies": {
+    "@bazzite/nuxt-optimized-images": "^0.2.1",
     "@nuxtjs/eslint-config": "^0.0.1",
+    "@nuxtjs/eslint-module": "^0.0.1",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-config-standard": ">=12.0.0",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-import": ">=2.16.0",
-    "eslint-plugin-jest": ">=22.4.1",
-    "eslint-plugin-node": ">=8.0.1",
-    "eslint-plugin-nuxt": ">=0.4.3",
+    "eslint": "^5.15.1",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-nuxt": "^0.4.2",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-promise": ">=4.1.1",
-    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.2",
-    "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0",
-    "nodemon": "^1.18.11",
-    "nuxt-imagemin": "^1.0.0"
+    "nodemon": "^1.18.9"
   }
 }

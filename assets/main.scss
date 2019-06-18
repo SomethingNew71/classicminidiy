@@ -1,0 +1,87 @@
+body {
+  color: #2a2a2a;
+}
+
+// Futura PT Heavy
+.fancy-font-heavy {
+  font-family: futura-pt, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+// Futura PT Heavy Oblique
+.fancy-font-heavy-oblique {
+  font-family: futura-pt, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+// Futura PT Book
+.fancy-font-book {
+  font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+// Futura PT Book Oblique
+.fancy-font-book-oblique {
+  font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+// Futura PT Bold
+.fancy-font-bold {
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+// Futura PT Bold Oblique
+.fancy-font-bold-oblique {
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+// Futura PT Cond Book
+.fancy-font-cond-book {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+// Futura PT Cond Book Oblique
+.fancy-font-cond-book-oblique {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+// Futura PT Cond Bold
+.fancy-font-cond-bold {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+// Futura PT Cond Bold Oblique
+.fancy-font-cond-bold-oblique {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+$sizes: (0,10,15,20,25,30,50);
+$positions: ('top','left','bottom','right');
+
+@each $size in $sizes {
+  @each $position in $positions {
+    .m#{str-slice($position, 0, 1)}-#{$size} {
+      margin-#{$position}: $size + px;
+    }
+    .p#{str-slice($position, 0, 1)}-#{$size} {
+      padding-#{$position}: $size + px;
+    }
+  }
+}
