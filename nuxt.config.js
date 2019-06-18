@@ -1,69 +1,63 @@
-import pkg from './package'
-
 export default {
   mode: 'universal',
-
   /*
    ** Headers of the page
    */
   head: {
-    title: 'Classic Mini DIY | The Classic Mini Knowledgebase',
+    title: process.env.npm_package_name || 'Classic Mini DIY',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon/favicon-96x96.png' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
-      { rel: 'icon', type: 'image/x-icon', href: '/icons/preview.png' },
-      { rel: 'image_src', href: '/static' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://use.typekit.net/fgm1hlg.css' }
     ],
-    script: [
-      // { async: true, src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
-      {
-        defer: true,
-        src: 'https://pro.fontawesome.com/releases/v5.8.1/js/all.js',
-        integrity: 'sha384-GBwm0s/0wYcqnK/JmrCoRqWYIWzFiGEucsfFqkB76Ouii5+d4R31vWHPQtfhv55b',
-        crossorigin: 'anonymous'
-      }
-    ]
+    script: [{ src: 'https://kit.fontawesome.com/4e4435c885.js' }]
   },
-
   /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
-
   /*
    ** Global CSS
    */
-  css: [],
-
+  css: ['@/assets/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [],
-
   /*
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://buefy.github.io/#/documentation
+    'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://buefy.github.io/#/documentation
-    ['nuxt-buefy', { materialDesignIcons: false }],
-    'nuxt-imagemin',
-    ['@nuxtjs/google-analytics', { ua: 'UA-53914731-2' }]
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/google-analytics',
+    '@bazzite/nuxt-optimized-images'
   ],
+  googleAnalytics: {
+    id: 'UA-53914731-2'
+  },
+  optimizedImages: {
+    optimizeImages: true
+  },
+  buefy: {
+    materialDesignIcons: false
+  },
   /*
    ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
-
+  axios: {},
   /*
    ** Build configuration
    */
@@ -71,16 +65,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+    extend(config, ctx) {}
   }
 }
