@@ -1,51 +1,76 @@
 <template>
-  <nav class="panel">
-    <p class="panel-heading">
-      Electrical Diagrams
-    </p>
-
-    <p class="panel-tabs">
-      <a v-for="(diagram, name, index) in diagrams" :key="name" :class="index > 0 ? '': 'is-active'">{{ diagram.title }}</a>
-    </p>
-    <div>
-      <a class="panel-block is-active">
-        <span class="panel-icon">
-          <i class="fas fa-book" aria-hidden="true"></i>
-        </span>
-        bulma
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-book" aria-hidden="true"></i>
-        </span>
-        marksheet
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-book" aria-hidden="true"></i>
-        </span>
-        minireset.css
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-book" aria-hidden="true"></i>
-        </span>
-        jgthms.github.io
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-code-branch" aria-hidden="true"></i>
-        </span>
-        daniellowtw/infboard
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fas fa-code-branch" aria-hidden="true"></i>
-        </span>
-        mojs
-      </a>
+  <section class="section">
+    <div class="columns">
+      <div class="column is-12">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li>
+              <nuxt-link to="/">
+                <span class="icon is-small">
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                </span>
+                <span>Home</span>
+              </nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/technical">
+                <span class="icon is-small">
+                  <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                <span>Technical Info</span>
+              </nuxt-link>
+            </li>
+            <li class="is-active">
+              <nuxt-link to="">
+                <span class="icon is-small">
+                  <i class="fas fa-wrench" aria-hidden="true"></i>
+                </span>
+                <span>Electrical Diagrams</span>
+              </nuxt-link>
+            </li>
+          </ul>
+        </nav>
+        <h1 class="title">Electrical Diagrams</h1>
+        <template v-for="(diagram, name, index) in diagrams">
+          <div :key="index" class="column is-12">
+            <b-collapse :open="index > 0 ? false : true" class="card" aria-id="contentIdForA11y3">
+              <div
+                slot="trigger"
+                slot-scope="props"
+                class="card-header"
+                role="button"
+                aria-controls="contentIdForA11y3">
+                <h2 class="card-header-title">
+                  {{ diagram.title }}
+                </h2>
+                <a class="card-header-icon" aria-label="more options">
+                  <b-icon
+                    pack="fas"
+                    :icon="props.open ? 'caret-down' : 'caret-up'">
+                  </b-icon>
+                </a>
+              </div>
+              <div class="card-content pt-0 pb-0 pl-0 pr-0">
+                <nav class="panel is-striped">
+                  <a
+                    v-for="(item, name) in diagram.items"
+                    :key="name"
+                    :href="item.link"
+                    target="_blank"
+                    class="panel-block">
+                    <span class="panel-icon">
+                      <i class="fas fa-book" aria-hidden="true"></i>
+                    </span>
+                    {{ item.name }}
+                  </a>
+                </nav>
+              </div>
+            </b-collapse>
+          </div>
+        </template>
+      </div>
     </div>
-  </nav>
+  </section>
 </template>
 
 <script>

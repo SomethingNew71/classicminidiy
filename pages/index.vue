@@ -53,7 +53,7 @@
           <div class="column is-8">
             <h3 class="fancy-font-book-oblique">THE MINI MISSION</h3>
             <h4 class="fancy-font-bold is-size-3">Keeping the Classics on the Road</h4>
-            <p class="is-size-5  pt-20">Woodwork, painting, electrical, plumbing, and more. My services might be varied, but they all come with the same promise of quality, dedication, and durability. Licensed and insured, I’m an experienced contractor with knowledge passed down from generations. I can offer a 1-year guarantee for all my services, along with free estimates.</p>
+            <p class="is-size-5  pt-20">Since Classic Mini DIY was started out of my small driveway workshop in 2015 I have focused on one thing, keeping these Classic Minis on the road. To do this, I make DIY showing exactly how to complete a wide range of jobs on your Classic Mini to make working on your car more accessible for everyone.</p>
           </div>
           <div class="column is-4">
             <h3 class="fancy-font-book-oblique">SUPPORT THE MISSION</h3>
@@ -91,9 +91,9 @@
           <div class="column is-7">
             <h3 class="fancy-font-bold is-size-3">About Me</h3>
             <h4 class="fancy-font-book-oblique pt-20">MY NAME IS COLE</h4>
-            <p>I started apprenticing for my dad, Peter Sweeney, Jr. when I was twelve, but even before that I was watching him work all the time. My grandpa established our company in 1918, back when we specialized in carpentry and woodwork. Dad picked up new trades and expanded our business. I’ve been servicing the greater Wichita area for over 15 years and am about to bring my oldest son in as an assistant.</p>
+            <p>I am 30 year old Web Developer working in the financial industry. My experience in the automotive industry comes from 2 years of training on heavy diesel machinery and 8 years of Classic Mini ownership. With this experience I do my best to provide the most comprehensive and technically correct infortmation I can.</p>
             <h3 class="fancy-font-book-oblique pt-30">MY PROMISE</h3>
-            <p>I’ll only work with the best materials available and provide a 1 year guarantee on all labor. I never compromise quality for time and give my clients realistic schedules that accommodate their lives. I strive for honest customer service, so contracts are only paid in full when the finished work is to your complete satisfaction.</p>
+            <p>I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in the event that I get something incorrect. I am an enthusiest and not a complete expert so from time to time I will make mistakes.</p>
           </div>
           <div class="column is-5">
             <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//U9tBae3riug' frameborder='0' allowfullscreen></iframe></div>
@@ -104,9 +104,7 @@
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
-          <strong>Classic Mini DIY</strong> by <a href="https://jgthms.com">Cole Gentry</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          <strong>Classic Mini DIY</strong> by <a href="https://youtube.com/c/classicminidiy">Cole Gentry</a>.
         </p>
       </div>
     </footer>
