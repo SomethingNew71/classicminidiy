@@ -2,6 +2,34 @@
   <section class="section">
     <div class="columns is-multiline">
       <div class="column is-12">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li>
+              <nuxt-link to="/">
+                <span class="icon is-small">
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                </span>
+                <span>Home</span>
+              </nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/technical">
+                <span class="icon is-small">
+                  <i class="fas fa-book" aria-hidden="true"></i>
+                </span>
+                <span>Technical Info</span>
+              </nuxt-link>
+            </li>
+            <li class="is-active">
+              <nuxt-link to="">
+                <span class="icon is-small">
+                  <i class="fas fa-wrench" aria-hidden="true"></i>
+                </span>
+                <span>Torque Specs</span>
+              </nuxt-link>
+            </li>
+          </ul>
+        </nav>
         <h1 class="title">Torque Specs</h1>
       </div>
       <template v-for="(table, name, index) in tables">

@@ -42,13 +42,7 @@
       </div>
     </section>
     <div class="container">
-      <section class="section">
-        <div class="columns">
-          <div class="column">
-            <nuxt-child />
-          </div>
-        </div>
-      </section>
+      <nuxt-child />
     </div>
   </div>
 </template>
