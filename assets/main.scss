@@ -1,6 +1,12 @@
 body {
   color: #2a2a2a;
 }
+.navbar-menu {
+  a.has-text-white:hover {
+    color: #2f2f2f !important;
+  }
+}
+
 
 // Futura PT Heavy
 .fancy-font-heavy {

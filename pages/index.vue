@@ -12,13 +12,13 @@
                   alt="Logo"
                 />
               </a> -->
-              <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+              <span class="navbar-burger burger" data-target="homepageNavbar">
                 <span></span>
                 <span></span>
                 <span></span>
               </span>
             </div>
-            <div id="navbarMenuHeroC" class="navbar-menu">
+            <div id="homepageNavbar" class="navbar-menu">
               <div class="navbar-end">
                 <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/">Home</nuxt-link>
                 <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/technical">Technical Info</nuxt-link>
@@ -101,6 +101,15 @@
         </div>
       </section>
     </div>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Classic Mini DIY</strong> by <a href="https://jgthms.com">Cole Gentry</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
