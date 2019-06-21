@@ -4,7 +4,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || 'Classic Mini DIY',
+    title: 'Classic Mini DIY',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -31,13 +31,15 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '@/plugins/buefy.js'
+  ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://buefy.github.io/#/documentation
-    'nuxt-buefy',
+    // 'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
@@ -50,9 +52,9 @@ export default {
   optimizedImages: {
     optimizeImages: true
   },
-  buefy: {
-    materialDesignIcons: false
-  },
+  // buefy: {
+  //   materialDesignIcons: false
+  // },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
