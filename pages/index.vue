@@ -1,52 +1,12 @@
 <template>
   <div>
-    <section class="hero hero-car is-large">
-      <!-- Hero head: will stick at the top -->
-      <div class="hero-head">
-        <header class="navbar">
-          <div class="container">
-            <div class="navbar-brand">
-              <!-- <a class="navbar-item">
-                <img
-                  src="https://bulma.io/images/bulma-type-white.png"
-                  alt="Logo"
-                />
-              </a> -->
-              <span class="navbar-burger burger" data-target="homepageNavbar">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-            <div id="homepageNavbar" class="navbar-menu">
-              <div class="navbar-end">
-                <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/">Home</nuxt-link>
-                <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/technical">Technical Info</nuxt-link>
-                <a class="fancy-font-heavy has-text-white navbar-item" target="_blank" href="https://merch.classicminidiy.com">Store</a>
-                <span class="fancy-font-heavy navbar-item">
-                  <a class="button is-inverted is-danger" target='_blank' href='https://www.youtube.com/c/classicminidiy?sub_confirmation=1'>
-                    <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                    </span>
-                    <span>Subscribe</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </header>
-      </div>
-      <div class="hero-body">
-        <div class="container has-text-left">
-          <p class="subtitle is-6 has-text-white">
-            YOUR FRIENDLY NEIGHBORHOOD
-          </p>
-          <h1 class="title special-title fancy-font-bold has-text-white">
-            Classic Mini <br> DIY
-          </h1>
-        </div>
-      </div>
-    </section>
+    <hero
+      v-bind:title="title"
+      v-bind:subtitle="subtitle"
+      v-bind:size="size"
+      v-bind:special="true"
+      v-bind:background="background"
+    />
     <div class="container">
       <section class="section">
         <div class="columns is-multiline">
@@ -113,9 +73,19 @@
 
 <script>
 import Stats from '~/components/Stats'
+import Hero from '~/components/Hero'
 
 export default {
+  data() {
+    return {
+      title: 'Classic Mini <br> DIY',
+      subtitle: 'YOUR FRIENDLY NEIGHBORHOOD',
+      background: '/hero.jpg',
+      size: 'is-large'
+    }
+  },
   components: {
+    Hero,
     Stats
   }
 }
@@ -124,10 +94,6 @@ export default {
 <style lang="scss">
 .special-title {
   font-size: 140px;
-}
-.hero-car {
-  background: #2f2f2f url('/hero.jpg') no-repeat center;
-  background-size: cover;
 }
 .hero-carb {
   background: #2f2f2f url('/carb.jpg') no-repeat center;
