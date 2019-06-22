@@ -59,14 +59,22 @@ export default {
 }
 </script>
 <style lang="scss">
-@media screen and (max-width: 1023px) {
-  .navbar-menu  {
-    background-color: transparent;
-  }
-}
 .hero {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  .special-title {
+    font-size: 140px;
+  }
+
+  @media screen and (max-width: 1023px) {
+  .navbar-menu  {
+    background-color: transparent;
+  }
+  .special-title {
+    font-size: 2rem;
+  }
+}
 }
 </style>

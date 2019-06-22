@@ -21,7 +21,7 @@
             <p class="is-size-5 pt-20">
               Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon.
             </p>
-            <a class="mt-25 button is-medium patreon" href="https://patreon.com/classicminidiy" target="_blank">
+            <a class="mt-25 button is-medium is-patreon" href="https://patreon.com/classicminidiy" target="_blank">
               <span class="icon">
                 <i class="fab fa-patreon"></i>
               </span>
@@ -92,18 +92,8 @@ export default {
 </script>
 
 <style lang="scss">
-.special-title {
-  font-size: 140px;
-}
 .hero-carb {
   background: #2f2f2f url('/carb.jpg') no-repeat center;
   background-size: cover;
-}
-.patreon {
-  color: #F96854;
-}
-p {
-  letter-spacing: .01em;
-  line-height: 1.8em;
 }
 </style>

@@ -30,9 +30,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.hero-technical {
-  background: #2f2f2f url('/technical.jpg') no-repeat center;
-  background-size: cover;
-}
-</style>
