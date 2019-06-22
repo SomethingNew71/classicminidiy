@@ -1,55 +1,32 @@
 <template>
   <div>
-        <section class="hero hero-technical is-medium">
-      <!-- Hero head: will stick at the top -->
-      <div class="hero-head">
-        <header class="navbar">
-          <div class="container">
-            <div class="navbar-brand">
-              <span class="navbar-burger burger" data-target="navbarMenuHeroC">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-            <div id="navbarMenuHeroC" class="navbar-menu">
-              <div class="navbar-end">
-                <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/">Home</nuxt-link>
-                <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/technical">Technical Info</nuxt-link>
-                <a class="fancy-font-heavy has-text-white navbar-item" target="_blank" href="https://merch.classicminidiy.com">Store</a>
-                <span class="fancy-font-heavy navbar-item">
-                  <a class="button is-inverted is-danger" target='_blank' href='https://www.youtube.com/c/classicminidiy?sub_confirmation=1'>
-                    <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                    </span>
-                    <span>Subscribe</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </header>
-      </div>
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <p class="subtitle is-6 has-text-white">
-            YOUR DIGITAL MINI TOOLBOX
-          </p>
-          <h1 class="title fancy-font-bold has-text-white">
-            Technical Information
-          </h1>
-        </div>
-      </div>
-    </section>
+    <hero
+      v-bind:title="title"
+      v-bind:size="size"
+      v-bind:subtitle="subtitle"
+      v-bind:background="background"
+      v-bind:centered="centered"
+    />
     <div class="container">
       <nuxt-child />
     </div>
   </div>
 </template>
 <script>
+import Hero from '~/components/Hero'
+
 export default {
   data() {
-    return {}
+    return {
+      title: 'Technical Information',
+      subtitle: 'YOUR DIGITAL MINI TOOLBOX',
+      background: '/technical.jpg',
+      size: 'is-medium',
+      centered: true
+    }
+  },
+  components: {
+    Hero
   }
 }
 </script>
