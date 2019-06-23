@@ -51,9 +51,9 @@
           <div class="column is-7">
             <h3 class="fancy-font-bold is-size-3">About Me</h3>
             <h4 class="fancy-font-book-oblique pt-20">MY NAME IS COLE</h4>
-            <p>I am 30 year old Web Developer working in the financial industry. My experience in the automotive industry comes from 2 years of training on heavy diesel machinery and 8 years of Classic Mini ownership. With this experience I do my best to provide the most comprehensive and technically correct infortmation I can.</p>
+            <p>I am a 30-year-old Web Developer working in the financial industry. My experience in the automotive industry comes from 2 years of training on heavy diesel machinery and 8 years of Classic Mini ownership. With this experience, I do my best to provide the most comprehensive and technically correct information I can.</p>
             <h3 class="fancy-font-book-oblique pt-30">MY PROMISE</h3>
-            <p>I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in the event that I get something incorrect. I am an enthusiest and not a complete expert so from time to time I will make mistakes.</p>
+            <p>I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to time I will make mistakes.</p>
           </div>
           <div class="column is-5">
             <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//U9tBae3riug' frameborder='0' allowfullscreen></iframe></div>
