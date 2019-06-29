@@ -6,6 +6,7 @@
       v-bind:subtitle="subtitle"
       v-bind:background="background"
       v-bind:centered="centered"
+      v-bind:navigation="true"
     />
     <div class="container">
       <nuxt-child />

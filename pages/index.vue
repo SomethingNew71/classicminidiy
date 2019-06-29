@@ -6,6 +6,7 @@
       v-bind:size="size"
       v-bind:special="true"
       v-bind:background="background"
+      v-bind:navigation="true"
     />
     <div class="container">
       <section class="section">

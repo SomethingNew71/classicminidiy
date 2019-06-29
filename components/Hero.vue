@@ -5,7 +5,7 @@
     v-bind:style="{ backgroundImage: 'url(' + $attrs.background + ')' }"
     >
     <!-- Hero head: will stick at the top -->
-    <div class="hero-head">
+    <div class="hero-head" v-if="$attrs.navigation">
       <header class="navbar">
         <div class="container">
           <div class="navbar-brand">
