@@ -91,7 +91,7 @@ export default {
         },
         {
           channel: 'Paul P. Mini Build',
-          name: 'Paul Parson\'s',
+          name: 'Paul Parsons',
           image: '/youtube/paul.jpg',
           subscribeLink: 'https://www.youtube.com/channel/UC3a2Sm-PJjENRLcEpaRQ8ww?sub_confirmation=1'
         },
