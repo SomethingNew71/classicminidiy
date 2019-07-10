@@ -77,7 +77,7 @@ import Stats from '~/components/Stats'
 import Hero from '~/components/Hero'
 
 export default {
-  data() {
+  data () {
     return {
       title: 'Classic Mini <br> DIY',
       subtitle: 'YOUR FRIENDLY NEIGHBORHOOD',
