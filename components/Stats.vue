@@ -28,7 +28,7 @@
 import axios from 'axios'
 
 export default {
-  data() {
+  data () {
     return {
       views: null,
       subscribers: null,
@@ -37,11 +37,11 @@ export default {
       isLoading: true
     }
   },
-  created() {
+  created () {
     this.fetchData()
   },
   methods: {
-    fetchData() {
+    fetchData () {
       const apiKey = 'AIzaSyCbmPC-gSOA2g9xQOAeBboTTwz4tSVRQZ8'
       const baseURL = 'https://www.googleapis.com/youtube/v3/channels'
       const id = 'UCZIUfOFhrQ9nrR06IOoAJ2Q'

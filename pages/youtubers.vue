@@ -45,7 +45,7 @@
 import Hero from '~/components/Hero'
 
 export default {
-  data() {
+  data () {
     return {
       loading: false,
       title: 'The Classic Mini Youtube Crew',
@@ -161,11 +161,11 @@ export default {
   components: {
     Hero
   },
-  created() {
+  created () {
     // this.shuffle(this.youtubers)
   },
   methods: {
-    shuffle(array) {
+    shuffle (array) {
       this.randomYoutubers = array.sort(() => Math.random() - 0.5)
       this.loading = false
     }

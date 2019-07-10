@@ -75,7 +75,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       diagrams: {
         positiveGround: {

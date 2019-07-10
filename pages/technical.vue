@@ -17,7 +17,7 @@
 import Hero from '~/components/Hero'
 
 export default {
-  data() {
+  data () {
     return {
       title: 'Technical Information',
       subtitle: 'YOUR DIGITAL MINI TOOLBOX',
