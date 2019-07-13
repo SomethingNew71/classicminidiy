@@ -68,6 +68,12 @@ export default {
           image: '/icons/Battery-Charging.svg',
           aside: '',
           to: '/technical/electrical'
+        },
+        {
+          title: 'Wheel Dictionary',
+          image: '/icons/Bus.svg',
+          aside: '',
+          to: '/technical/wheels'
         }
       ]
     }
