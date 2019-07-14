@@ -31,18 +31,87 @@
           </ul>
         </nav>
         <h1 class="title">Wheel Library</h1>
-        <b-tabs type="is-centered is-boxed is-medium">
-          <b-tab-item label="10 Inch"></b-tab-item>
-          <b-tab-item label="12 Inch"></b-tab-item>
-          <b-tab-item label="13 Inch"></b-tab-item>
+        <b-tabs v-model="activeTab" type="is-centered is-toggle is-medium">
+          <b-tab-item label="10 Inch">
+            <div class="tile is-ancestor">
+              <div class="tile is-parent is-3" v-for="(wheel, name) in wheels.ten" :key="name">
+                <article class="tile is-child box">
+                  <img :src="wheel.imagepath" alt="">
+                  <div class="hover-content pl-5">
+                    <h1 class="title is-4 pt-10">{{ wheel.name }}</h1>
+                    <p class="is-size-5">Size: {{ wheel.size }}</p>
+                    <p class="is-size-6">Offset: {{ wheel.offset }}</p>
+                    <p class="is-size-6">Material: {{wheel.type}}</p>
+                    <b-tooltip
+                      v-if="wheel.notes !== ''"
+                      :label="wheel.notes"
+                      multilined
+                      animated
+                      position="is-bottom"
+                      >
+                      <button class="button is-primary">
+                        Special Notes
+                      </button>
+                    </b-tooltip>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </b-tab-item>
+
+          <b-tab-item label="12 Inch">
+            <div class="tile is-ancestor">
+              <div class="tile is-parent is-3" v-for="(wheel, name) in wheels.twelve" :key="name">
+                <article class="tile is-child box">
+                  <img :src="wheel.imagepath" alt="">
+                  <div class="hover-content pl-5">
+                    <h1 class="title is-4 pt-10">{{ wheel.name }}</h1>
+                    <p class="is-size-5">Size: {{ wheel.size }}</p>
+                    <p class="is-size-6">Offset: {{ wheel.offset }}</p>
+                    <p class="is-size-6">Material: {{wheel.type}}</p>
+                    <b-tooltip
+                      v-if="wheel.notes !== ''"
+                      :label="wheel.notes"
+                      multilined
+                      animated
+                      position="is-bottom"
+                      >
+                      <button class="button is-primary">
+                        Special Notes
+                      </button>
+                    </b-tooltip>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </b-tab-item>
+
+          <b-tab-item label="13 Inch">
+            <div class="tile is-ancestor">
+              <div class="tile is-parent is-3" v-for="(wheel, name) in wheels.thirteen" :key="name">
+                <article class="tile is-child box">
+                  <img :src="wheel.imagepath" alt="">
+                  <div class="hover-content pl-5">
+                    <h1 class="title is-4 pt-10">{{ wheel.name }}</h1>
+                    <p class="is-size-5">Size: {{ wheel.size }}</p>
+                    <p class="is-size-6">Offset: {{ wheel.offset }}</p>
+                    <p class="is-size-6">Material: {{wheel.type}}</p>
+                    <b-tooltip
+                      v-if="wheel.notes !== ''"
+                      :label="wheel.notes"
+                      multilined
+                      animated
+                      position="is-bottom">
+                      <button class="button is-primary">
+                        Special Notes
+                      </button>
+                    </b-tooltip>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </b-tab-item>
         </b-tabs>
-        <div class="tile is-ancestor">
-          <div class="tile is-parent is-3" v-for="(wheel, name) in wheels.thirteen" :key="name">
-            <article class="tile is-child box">
-              <img :src="wheel.imagepath" alt="">
-            </article>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -54,7 +123,10 @@ function getWheels (size) {
 }
 export default {
   data () {
-    return { }
+    return {
+      activeTab: 0,
+      isLoading: true
+    }
   },
   async asyncData ({ req }) {
     const wheels = {}
