@@ -63,6 +63,9 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  .navbar-burger {
+    color: #fff;
+  }
 
   .special-title {
     font-size: 140px;
