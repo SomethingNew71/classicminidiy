@@ -1,4 +1,4 @@
-$sizes: (0,10,15,20,25,30,50);
+$sizes: (0,5,10,15,20,25,30,50);
 $positions: ('top','left','bottom','right');
 
 @each $size in $sizes {
