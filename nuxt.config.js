@@ -44,7 +44,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
-    '@bazzite/nuxt-optimized-images'
+    '@bazzite/nuxt-optimized-images',
+    'nuxt-compress'
   ],
   googleAnalytics: {
     id: 'UA-53914731-2'
