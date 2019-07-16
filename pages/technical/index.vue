@@ -91,7 +91,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .icon-image {
   max-width: 50%;
   margin: auto;
