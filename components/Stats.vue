@@ -3,23 +3,35 @@
     <nav class="level pt-20 pb-20">
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">Minutes Watched</p>
-          <p class="title" v-if="!isLoading" >{{ views }}</p>
+          <p class="heading">
+            Minutes Watched
+          </p>
+          <p v-if="!isLoading" class="title">
+            {{ views }}
+          </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">Subscribers</p>
-          <p class="title" v-if="!isLoading" >{{ subscribers }}</p>
+          <p class="heading">
+            Subscribers
+          </p>
+          <p v-if="!isLoading" class="title">
+            {{ subscribers }}
+          </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">videos</p>
-          <p class="title" v-if="!isLoading" >{{ videos }}</p>
+          <p class="heading">
+            videos
+          </p>
+          <p v-if="!isLoading" class="title">
+            {{ videos }}
+          </p>
         </div>
       </div>
-      <b-loading :is-full-page="false" :active.sync="isLoading"></b-loading>
+      <b-loading :is-full-page="false" :active.sync="isLoading" />
     </nav>
   </div>
 </template>

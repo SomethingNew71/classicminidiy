@@ -7,7 +7,7 @@
             <li>
               <nuxt-link to="/">
                 <span class="icon is-small">
-                  <i class="fas fa-home" aria-hidden="true"></i>
+                  <i class="fas fa-home" aria-hidden="true" />
                 </span>
                 <span>Home</span>
               </nuxt-link>
@@ -15,7 +15,7 @@
             <li>
               <nuxt-link to="/technical">
                 <span class="icon is-small">
-                  <i class="fas fa-book" aria-hidden="true"></i>
+                  <i class="fas fa-book" aria-hidden="true" />
                 </span>
                 <span>Technical Info</span>
               </nuxt-link>
@@ -23,19 +23,22 @@
             <li class="is-active">
               <nuxt-link to="">
                 <span class="icon is-small">
-                  <i class="fas fa-wrench" aria-hidden="true"></i>
+                  <i class="fas fa-wrench" aria-hidden="true" />
                 </span>
                 <span>Manuals</span>
               </nuxt-link>
             </li>
           </ul>
         </nav>
-        <h1 class="title">Essential Workshop Manuals</h1>
+        <h1 class="title">
+          Essential Workshop Manuals
+        </h1>
       </div>
       <div
         v-for="(manual, name) in books.workshop"
         :key="name"
-        class="column is-3">
+        class="column is-3"
+      >
         <div class="card">
           <div class="card-image">
             <figure class="image">
@@ -45,8 +48,12 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-6">{{ manual.name }}</p>
-                <p class="subtitle is-7">{{ manual.author }}</p>
+                <p class="title is-6">
+                  {{ manual.name }}
+                </p>
+                <p class="subtitle is-7">
+                  {{ manual.author }}
+                </p>
               </div>
             </div>
           </div>

@@ -1,12 +1,12 @@
 <template>
   <div>
     <hero
-      v-bind:title="title"
-      v-bind:size="size"
-      v-bind:subtitle="subtitle"
-      v-bind:background="background"
-      v-bind:centered="centered"
-      v-bind:navigation="true"
+      :title="title"
+      :size="size"
+      :subtitle="subtitle"
+      :background="background"
+      :centered="centered"
+      :navigation="true"
     />
     <div class="container">
       <nuxt-child />
@@ -17,6 +17,9 @@
 import Hero from '~/components/Hero'
 
 export default {
+  components: {
+    Hero
+  },
   data () {
     return {
       title: 'Technical Information',
@@ -25,9 +28,6 @@ export default {
       size: 'is-medium',
       centered: true
     }
-  },
-  components: {
-    Hero
   }
 }
 </script>

@@ -2,10 +2,10 @@
   <section
     class="hero"
     :class="$attrs.size"
-    v-bind:style="{ backgroundImage: 'url(' + $attrs.background + ')' }"
-    >
+    :style="{ backgroundImage: 'url(' + $attrs.background + ')' }"
+  >
     <!-- Hero head: will stick at the top -->
-    <div class="hero-head" v-if="$attrs.navigation">
+    <div v-if="$attrs.navigation" class="hero-head">
       <header class="navbar">
         <div class="container">
           <div class="navbar-brand">
@@ -15,21 +15,27 @@
                 alt="Logo"
               />
             </a>
-            <span @click="mobileOpen = !mobileOpen" :class="{'is-active': mobileOpen}" class="navbar-burger burger" data-target="homepageNavbar">
-              <span></span>
-              <span></span>
-              <span></span>
+            <span class="navbar-burger burger" :class="{'is-active': mobileOpen}" data-target="homepageNavbar" @click="mobileOpen = !mobileOpen">
+              <span />
+              <span />
+              <span />
             </span>
           </div>
           <div id="homepageNavbar" class="navbar-menu" :class="{'is-active': mobileOpen}">
             <div class="navbar-end">
-              <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/">Home</nuxt-link>
-              <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/technical">Technical Info</nuxt-link>
-              <a class="fancy-font-heavy has-text-white navbar-item" target="_blank" href="https://merch.classicminidiy.com">Store</a>
+              <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/">
+                Home
+              </nuxt-link>
+              <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/technical">
+                Technical Info
+              </nuxt-link>
+              <a class="fancy-font-heavy has-text-white navbar-item" target="_blank" href="https://merch.classicminidiy.com">
+                Store
+              </a>
               <span class="fancy-font-heavy navbar-item">
-                <a class="button is-inverted is-danger" target='_blank' href='https://www.youtube.com/c/classicminidiy?sub_confirmation=1'>
+                <a class="button is-inverted is-danger" target="_blank" href="https://www.youtube.com/c/classicminidiy?sub_confirmation=1">
                   <span class="icon">
-                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-youtube" />
                   </span>
                   <span>Subscribe</span>
                 </a>
@@ -44,7 +50,7 @@
         <p class="subtitle is-6 has-text-white">
           {{ $attrs.subtitle }}
         </p>
-        <h1 class="title fancy-font-bold has-text-white" :class="{'special-title': $attrs.special}" v-html="$attrs.title"></h1>
+        <h1 class="title fancy-font-bold has-text-white" :class="{'special-title': $attrs.special}" v-html="$attrs.title" />
       </div>
     </div>
   </section>
