@@ -1,23 +1,27 @@
 <template>
   <div>
     <hero
-      v-bind:title="title"
-      v-bind:subtitle="subtitle"
-      v-bind:size="size"
-      v-bind:background="background"
-      v-bind:navigation="false"
+      :title="title"
+      :subtitle="subtitle"
+      :size="size"
+      :background="background"
+      :navigation="false"
     />
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12 has-text-centered">
-          <h2 class="title">Subscribe to our Channels</h2>
+          <h2 class="title">
+            Subscribe to our Channels
+          </h2>
           <p>The Classic Mini crew is a tight knit group of awesome people. Consider subscribing and checking out the goup below!</p>
         </div>
         <div v-if="loading" class="column is-12">
-          <progress class="progress is-small is-primary" max="100">15%</progress>
+          <progress class="progress is-small is-primary" max="100">
+            15%
+          </progress>
         </div>
-        <div v-for="(youtuber, name) in youtubers" class="column is-3" :key="name">
-          <div class="card" v-if="!loading">
+        <div v-for="(youtuber, name) in youtubers" :key="name" class="column is-3">
+          <div v-if="!loading" class="card">
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
@@ -26,8 +30,12 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <p class="title is-4">{{youtuber.channel}}</p>
-                  <p class="subtitle is-6">@{{youtuber.name}}</p>
+                  <p class="title is-4">
+                    {{ youtuber.channel }}
+                  </p>
+                  <p class="subtitle is-6">
+                    @{{ youtuber.name }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -45,6 +53,9 @@
 import Hero from '~/components/Hero'
 
 export default {
+  components: {
+    Hero
+  },
   data () {
     return {
       loading: false,
@@ -157,9 +168,6 @@ export default {
         }
       ]
     }
-  },
-  components: {
-    Hero
   },
   created () {
     // this.shuffle(this.youtubers)

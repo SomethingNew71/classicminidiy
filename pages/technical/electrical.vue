@@ -7,7 +7,7 @@
             <li>
               <nuxt-link to="/">
                 <span class="icon is-small">
-                  <i class="fas fa-home" aria-hidden="true"></i>
+                  <i class="fas fa-home" aria-hidden="true" />
                 </span>
                 <span>Home</span>
               </nuxt-link>
@@ -15,7 +15,7 @@
             <li>
               <nuxt-link to="/technical">
                 <span class="icon is-small">
-                  <i class="fas fa-book" aria-hidden="true"></i>
+                  <i class="fas fa-book" aria-hidden="true" />
                 </span>
                 <span>Technical Info</span>
               </nuxt-link>
@@ -23,14 +23,16 @@
             <li class="is-active">
               <nuxt-link to="">
                 <span class="icon is-small">
-                  <i class="fas fa-wrench" aria-hidden="true"></i>
+                  <i class="fas fa-wrench" aria-hidden="true" />
                 </span>
                 <span>Electrical Diagrams</span>
               </nuxt-link>
             </li>
           </ul>
         </nav>
-        <h1 class="title">Electrical Diagrams</h1>
+        <h1 class="title">
+          Electrical Diagrams
+        </h1>
         <template v-for="(diagram, name, index) in diagrams">
           <div :key="index" class="column is-12">
             <b-collapse :open="index > 0 ? false : true" class="card" aria-id="contentIdForA11y3">
@@ -39,29 +41,31 @@
                 slot-scope="props"
                 class="card-header"
                 role="button"
-                aria-controls="contentIdForA11y3">
+                aria-controls="contentIdForA11y3"
+              >
                 <h2 class="card-header-title">
                   {{ diagram.title }}
                 </h2>
                 <a class="card-header-icon" aria-label="more options">
                   <b-icon
                     pack="fas"
-                    :icon="props.open ? 'caret-down' : 'caret-up'">
-                  </b-icon>
+                    :icon="props.open ? 'caret-down' : 'caret-up'"
+                  />
                 </a>
               </div>
               <div class="card-content pt-0 pb-0 pl-0 pr-0">
                 <nav class="panel is-striped">
                   <a
-                    v-for="(item, name) in diagram.items"
-                    :key="name"
+                    v-for="(item, nameItem) in diagram.items"
+                    :key="nameItem"
                     :href="item.link"
                     target="_blank"
-                    class="panel-block">
+                    class="panel-block"
+                  >
                     <span class="panel-icon">
-                      <i class="fas fa-book" aria-hidden="true"></i>
+                      <i class="fas fa-book" aria-hidden="true" />
                     </span>
-                    {{ item.name }}
+                    {{ item.nameItem }}
                   </a>
                 </nav>
               </div>

@@ -32,7 +32,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/buefy.js'
+    '@/plugins/buefy.js',
+    { src: '~plugins/vue-highcharts.js', ssr: false }
   ],
   /*
    ** Nuxt.js modules
@@ -68,6 +69,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) {}
   }
 }

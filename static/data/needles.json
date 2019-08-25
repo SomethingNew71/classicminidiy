@@ -1,6 +1,6 @@
 [
   {
-    "needle": 1,
+    "name": 1,
     "size": 0.09,
     "data": [
       2.261,
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "needle": 2,
+    "name": 2,
     "size": 0.09,
     "data": [
       2.261,
@@ -44,7 +44,7 @@
     ]
   },
   {
-    "needle": 3,
+    "name": 3,
     "size": 0.09,
     "data": [
       2.261,
@@ -66,7 +66,7 @@
     ]
   },
   {
-    "needle": 4,
+    "name": 4,
     "size": 0.09,
     "data": [
       2.261,
@@ -88,7 +88,7 @@
     ]
   },
   {
-    "needle": 5,
+    "name": 5,
     "size": 0.09,
     "data": [
       2.261,
@@ -110,7 +110,7 @@
     ]
   },
   {
-    "needle": 6,
+    "name": 6,
     "size": 0.09,
     "data": [
       2.261,
@@ -132,7 +132,7 @@
     ]
   },
   {
-    "needle": 7,
+    "name": 7,
     "size": 0.09,
     "data": [
       2.261,
@@ -154,7 +154,7 @@
     ]
   },
   {
-    "needle": 20,
+    "name": 20,
     "size": 0.09,
     "data": [
       2.261,
@@ -176,7 +176,7 @@
     ]
   },
   {
-    "needle": 21,
+    "name": 21,
     "size": 0.09,
     "data": [
       2.261,
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "needle": 24,
+    "name": 24,
     "size": 0.09,
     "data": [
       2.235,
@@ -220,7 +220,7 @@
     ]
   },
   {
-    "needle": 53,
+    "name": 53,
     "size": 0.1,
     "data": [
       2.54,
@@ -242,7 +242,7 @@
     ]
   },
   {
-    "needle": 55,
+    "name": 55,
     "size": 0.1,
     "data": [
       2.54,
@@ -264,7 +264,7 @@
     ]
   },
   {
-    "needle": 58,
+    "name": 58,
     "size": 0.1,
     "data": [
       2.54,
@@ -286,7 +286,7 @@
     ]
   },
   {
-    "needle": 61,
+    "name": 61,
     "size": 0.09,
     "data": [
       2.261,
@@ -308,7 +308,7 @@
     ]
   },
   {
-    "needle": 62,
+    "name": 62,
     "size": 0.09,
     "data": [
       2.261,
@@ -330,7 +330,7 @@
     ]
   },
   {
-    "needle": 69,
+    "name": 69,
     "size": 0.09,
     "data": [
       2.261,
@@ -352,7 +352,7 @@
     ]
   },
   {
-    "needle": 80,
+    "name": 80,
     "size": 0.09,
     "data": [
       2.261,
@@ -374,7 +374,7 @@
     ]
   },
   {
-    "needle": 81,
+    "name": 81,
     "size": 0.09,
     "data": [
       2.261,
@@ -396,7 +396,7 @@
     ]
   },
   {
-    "needle": "24A",
+    "name": "24A",
     "size": 0.09,
     "data": [
       2.235,
@@ -418,7 +418,7 @@
     ]
   },
   {
-    "needle": "24B",
+    "name": "24B",
     "size": 0.09,
     "data": [
       2.235,
@@ -440,7 +440,7 @@
     ]
   },
   {
-    "needle": "A5",
+    "name": "A5",
     "size": 0.09,
     "data": [
       2.261,
@@ -462,7 +462,7 @@
     ]
   },
   {
-    "needle": "A9",
+    "name": "A9",
     "size": 0.1,
     "data": [
       2.489,
@@ -484,7 +484,7 @@
     ]
   },
   {
-    "needle": "AA",
+    "name": "AA",
     "size": 0.09,
     "data": [
       2.261,
@@ -506,7 +506,7 @@
     ]
   },
   {
-    "needle": "AAA",
+    "name": "AAA",
     "size": 0.09,
     "data": [
       2.261,
@@ -528,7 +528,7 @@
     ]
   },
   {
-    "needle": "AAB",
+    "name": "AAB",
     "size": 0.09,
     "data": [
       2.261,
@@ -550,7 +550,7 @@
     ]
   },
   {
-    "needle": "AAC",
+    "name": "AAC",
     "size": 0.09,
     "data": [
       2.261,
@@ -572,7 +572,7 @@
     ]
   },
   {
-    "needle": "AAD",
+    "name": "AAD",
     "size": 0.09,
     "data": [
       2.261,
@@ -594,7 +594,7 @@
     ]
   },
   {
-    "needle": "AAE",
+    "name": "AAE",
     "size": 0.09,
     "data": [
       2.261,
@@ -616,7 +616,7 @@
     ]
   },
   {
-    "needle": "AAF",
+    "name": "AAF",
     "size": 0.09,
     "data": [
       2.261,
@@ -638,7 +638,7 @@
     ]
   },
   {
-    "needle": "AAG",
+    "name": "AAG",
     "size": 0.09,
     "data": [
       2.261,
@@ -660,7 +660,7 @@
     ]
   },
   {
-    "needle": "AAH",
+    "name": "AAH",
     "size": 0.09,
     "data": [
       2.261,
@@ -682,7 +682,7 @@
     ]
   },
   {
-    "needle": "AAJ",
+    "name": "AAJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -704,7 +704,7 @@
     ]
   },
   {
-    "needle": "AAK",
+    "name": "AAK",
     "size": 0.09,
     "data": [
       2.261,
@@ -726,7 +726,7 @@
     ]
   },
   {
-    "needle": "AAL",
+    "name": "AAL",
     "size": 0.09,
     "data": [
       2.261,
@@ -748,7 +748,7 @@
     ]
   },
   {
-    "needle": "AAM",
+    "name": "AAM",
     "size": 0.09,
     "data": [
       2.261,
@@ -770,7 +770,7 @@
     ]
   },
   {
-    "needle": "AAN",
+    "name": "AAN",
     "size": 0.09,
     "data": [
       2.261,
@@ -792,7 +792,7 @@
     ]
   },
   {
-    "needle": "AAP",
+    "name": "AAP",
     "size": 0.09,
     "data": [
       2.261,
@@ -814,7 +814,7 @@
     ]
   },
   {
-    "needle": "AAQ",
+    "name": "AAQ",
     "size": 0.09,
     "data": [
       2.261,
@@ -836,7 +836,7 @@
     ]
   },
   {
-    "needle": "AAR",
+    "name": "AAR",
     "size": 0.09,
     "data": [
       2.261,
@@ -858,7 +858,7 @@
     ]
   },
   {
-    "needle": "AAS",
+    "name": "AAS",
     "size": 0.09,
     "data": [
       2.261,
@@ -880,7 +880,7 @@
     ]
   },
   {
-    "needle": "AAT",
+    "name": "AAT",
     "size": 0.09,
     "data": [
       2.261,
@@ -902,7 +902,7 @@
     ]
   },
   {
-    "needle": "AAU",
+    "name": "AAU",
     "size": 0.09,
     "data": [
       2.261,
@@ -924,7 +924,7 @@
     ]
   },
   {
-    "needle": "AAV",
+    "name": "AAV",
     "size": 0.09,
     "data": [
       2.261,
@@ -946,7 +946,7 @@
     ]
   },
   {
-    "needle": "AAW",
+    "name": "AAW",
     "size": 0.09,
     "data": [
       2.261,
@@ -968,7 +968,7 @@
     ]
   },
   {
-    "needle": "AAX",
+    "name": "AAX",
     "size": 0.09,
     "data": [
       2.261,
@@ -990,7 +990,7 @@
     ]
   },
   {
-    "needle": "AAY",
+    "name": "AAY",
     "size": 0.09,
     "data": [
       2.261,
@@ -1012,7 +1012,7 @@
     ]
   },
   {
-    "needle": "AAZ",
+    "name": "AAZ",
     "size": 0.09,
     "data": [
       2.261,
@@ -1034,7 +1034,7 @@
     ]
   },
   {
-    "needle": "AB",
+    "name": "AB",
     "size": 0.09,
     "data": [
       2.261,
@@ -1056,7 +1056,7 @@
     ]
   },
   {
-    "needle": "ABA",
+    "name": "ABA",
     "size": 0.09,
     "data": [
       2.261,
@@ -1078,7 +1078,7 @@
     ]
   },
   {
-    "needle": "ABB",
+    "name": "ABB",
     "size": 0.09,
     "data": [
       2.261,
@@ -1100,7 +1100,7 @@
     ]
   },
   {
-    "needle": "ABC",
+    "name": "ABC",
     "size": 0.09,
     "data": [
       2.261,
@@ -1122,7 +1122,7 @@
     ]
   },
   {
-    "needle": "ABD",
+    "name": "ABD",
     "size": 0.09,
     "data": [
       2.261,
@@ -1144,7 +1144,7 @@
     ]
   },
   {
-    "needle": "ABE",
+    "name": "ABE",
     "size": 0.09,
     "data": [
       2.261,
@@ -1166,7 +1166,7 @@
     ]
   },
   {
-    "needle": "ABF",
+    "name": "ABF",
     "size": 0.09,
     "data": [
       2.261,
@@ -1188,7 +1188,7 @@
     ]
   },
   {
-    "needle": "ABG",
+    "name": "ABG",
     "size": 0.09,
     "data": [
       2.261,
@@ -1210,7 +1210,7 @@
     ]
   },
   {
-    "needle": "ABH",
+    "name": "ABH",
     "size": 0.09,
     "data": [
       2.261,
@@ -1232,7 +1232,7 @@
     ]
   },
   {
-    "needle": "ABJ",
+    "name": "ABJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -1254,7 +1254,7 @@
     ]
   },
   {
-    "needle": "ABK",
+    "name": "ABK",
     "size": 0.09,
     "data": [
       2.261,
@@ -1276,7 +1276,7 @@
     ]
   },
   {
-    "needle": "ABL",
+    "name": "ABL",
     "size": 0.09,
     "data": [
       2.261,
@@ -1298,7 +1298,7 @@
     ]
   },
   {
-    "needle": "ABM",
+    "name": "ABM",
     "size": 0.09,
     "data": [
       2.261,
@@ -1320,7 +1320,7 @@
     ]
   },
   {
-    "needle": "ABN",
+    "name": "ABN",
     "size": 0.09,
     "data": [
       2.261,
@@ -1342,7 +1342,7 @@
     ]
   },
   {
-    "needle": "ABP",
+    "name": "ABP",
     "size": 0.09,
     "data": [
       2.261,
@@ -1364,7 +1364,7 @@
     ]
   },
   {
-    "needle": "ABQ",
+    "name": "ABQ",
     "size": 0.09,
     "data": [
       2.261,
@@ -1386,7 +1386,7 @@
     ]
   },
   {
-    "needle": "ABR",
+    "name": "ABR",
     "size": 0.09,
     "data": [
       2.261,
@@ -1408,7 +1408,7 @@
     ]
   },
   {
-    "needle": "ABS",
+    "name": "ABS",
     "size": 0.09,
     "data": [
       2.261,
@@ -1430,7 +1430,7 @@
     ]
   },
   {
-    "needle": "ABT",
+    "name": "ABT",
     "size": 0.09,
     "data": [
       2.261,
@@ -1452,7 +1452,7 @@
     ]
   },
   {
-    "needle": "ABU",
+    "name": "ABU",
     "size": 0.09,
     "data": [
       2.261,
@@ -1474,7 +1474,7 @@
     ]
   },
   {
-    "needle": "ABV",
+    "name": "ABV",
     "size": 0.09,
     "data": [
       2.261,
@@ -1496,7 +1496,7 @@
     ]
   },
   {
-    "needle": "ABW",
+    "name": "ABW",
     "size": 0.09,
     "data": [
       2.261,
@@ -1518,7 +1518,7 @@
     ]
   },
   {
-    "needle": "ABX",
+    "name": "ABX",
     "size": 0.09,
     "data": [
       2.261,
@@ -1540,7 +1540,7 @@
     ]
   },
   {
-    "needle": "ABY",
+    "name": "ABY",
     "size": 0.09,
     "data": [
       2.261,
@@ -1562,7 +1562,7 @@
     ]
   },
   {
-    "needle": "ABZ",
+    "name": "ABZ",
     "size": 0.09,
     "data": [
       2.261,
@@ -1584,7 +1584,7 @@
     ]
   },
   {
-    "needle": "AC",
+    "name": "AC",
     "size": 0.09,
     "data": [
       2.261,
@@ -1606,7 +1606,7 @@
     ]
   },
   {
-    "needle": "AC2",
+    "name": "AC2",
     "size": 0.09,
     "data": [
       2.261,
@@ -1628,7 +1628,7 @@
     ]
   },
   {
-    "needle": "ACA",
+    "name": "ACA",
     "size": 0.09,
     "data": [
       2.261,
@@ -1650,7 +1650,7 @@
     ]
   },
   {
-    "needle": "ACB",
+    "name": "ACB",
     "size": 0.09,
     "data": [
       2.261,
@@ -1672,7 +1672,7 @@
     ]
   },
   {
-    "needle": "ACC",
+    "name": "ACC",
     "size": 0.09,
     "data": [
       2.261,
@@ -1694,7 +1694,7 @@
     ]
   },
   {
-    "needle": "ACD",
+    "name": "ACD",
     "size": 0.09,
     "data": [
       2.261,
@@ -1716,7 +1716,7 @@
     ]
   },
   {
-    "needle": "ACE",
+    "name": "ACE",
     "size": 0.09,
     "data": [
       2.261,
@@ -1738,7 +1738,7 @@
     ]
   },
   {
-    "needle": "AD",
+    "name": "AD",
     "size": 0.09,
     "data": [
       2.261,
@@ -1760,7 +1760,7 @@
     ]
   },
   {
-    "needle": "ADA",
+    "name": "ADA",
     "size": 0.09,
     "data": [
       2.261,
@@ -1782,7 +1782,7 @@
     ]
   },
   {
-    "needle": "ADB",
+    "name": "ADB",
     "size": 0.09,
     "data": [
       2.261,
@@ -1804,7 +1804,7 @@
     ]
   },
   {
-    "needle": "ADC",
+    "name": "ADC",
     "size": 0.09,
     "data": [
       2.261,
@@ -1826,7 +1826,7 @@
     ]
   },
   {
-    "needle": "ADD",
+    "name": "ADD",
     "size": 0.09,
     "data": [
       2.261,
@@ -1848,7 +1848,7 @@
     ]
   },
   {
-    "needle": "ADE",
+    "name": "ADE",
     "size": 0.09,
     "data": [
       2.261,
@@ -1870,7 +1870,7 @@
     ]
   },
   {
-    "needle": "ADF",
+    "name": "ADF",
     "size": 0.09,
     "data": [
       2.261,
@@ -1892,7 +1892,7 @@
     ]
   },
   {
-    "needle": "ADG",
+    "name": "ADG",
     "size": 0.09,
     "data": [
       2.261,
@@ -1914,7 +1914,7 @@
     ]
   },
   {
-    "needle": "ADH",
+    "name": "ADH",
     "size": 0.09,
     "data": [
       2.261,
@@ -1936,7 +1936,7 @@
     ]
   },
   {
-    "needle": "ADJ",
+    "name": "ADJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -1958,7 +1958,7 @@
     ]
   },
   {
-    "needle": "ADK",
+    "name": "ADK",
     "size": 0.09,
     "data": [
       2.261,
@@ -1980,7 +1980,7 @@
     ]
   },
   {
-    "needle": "ADL",
+    "name": "ADL",
     "size": 0.09,
     "data": [
       2.261,
@@ -2002,7 +2002,7 @@
     ]
   },
   {
-    "needle": "ADM",
+    "name": "ADM",
     "size": 0.09,
     "data": [
       2.286,
@@ -2024,7 +2024,7 @@
     ]
   },
   {
-    "needle": "ADN",
+    "name": "ADN",
     "size": 0.09,
     "data": [
       2.286,
@@ -2046,7 +2046,7 @@
     ]
   },
   {
-    "needle": "ADP",
+    "name": "ADP",
     "size": 0.09,
     "data": [
       2.261,
@@ -2068,7 +2068,7 @@
     ]
   },
   {
-    "needle": "ADQ",
+    "name": "ADQ",
     "size": 0.09,
     "data": [
       2.286,
@@ -2090,7 +2090,7 @@
     ]
   },
   {
-    "needle": "ADR",
+    "name": "ADR",
     "size": 0.09,
     "data": [
       2.184,
@@ -2112,7 +2112,7 @@
     ]
   },
   {
-    "needle": "ADS",
+    "name": "ADS",
     "size": 0.09,
     "data": [
       2.261,
@@ -2134,7 +2134,7 @@
     ]
   },
   {
-    "needle": "ADT",
+    "name": "ADT",
     "size": 0.09,
     "data": [
       2.261,
@@ -2156,7 +2156,7 @@
     ]
   },
   {
-    "needle": "ADU",
+    "name": "ADU",
     "size": 0.09,
     "data": [
       2.261,
@@ -2178,7 +2178,7 @@
     ]
   },
   {
-    "needle": "ADX",
+    "name": "ADX",
     "size": 0.09,
     "data": [
       2.261,
@@ -2200,7 +2200,7 @@
     ]
   },
   {
-    "needle": "ADY",
+    "name": "ADY",
     "size": 0.09,
     "data": [
       2.261,
@@ -2222,7 +2222,7 @@
     ]
   },
   {
-    "needle": "ADZ",
+    "name": "ADZ",
     "size": 0.09,
     "data": [
       2.261,
@@ -2244,7 +2244,7 @@
     ]
   },
   {
-    "needle": "AE",
+    "name": "AE",
     "size": 0.09,
     "data": [
       2.261,
@@ -2266,7 +2266,7 @@
     ]
   },
   {
-    "needle": "AEA",
+    "name": "AEA",
     "size": 0.09,
     "data": [
       2.261,
@@ -2288,7 +2288,7 @@
     ]
   },
   {
-    "needle": "AEB",
+    "name": "AEB",
     "size": 0.09,
     "data": [
       2.261,
@@ -2310,7 +2310,7 @@
     ]
   },
   {
-    "needle": "AEC",
+    "name": "AEC",
     "size": 0.09,
     "data": [
       2.286,
@@ -2332,7 +2332,7 @@
     ]
   },
   {
-    "needle": "AE1",
+    "name": "AE1",
     "size": 0.09,
     "data": [
       2.286,
@@ -2354,7 +2354,7 @@
     ]
   },
   {
-    "needle": "AEF",
+    "name": "AEF",
     "size": 0.09,
     "data": [
       2.235,
@@ -2376,7 +2376,7 @@
     ]
   },
   {
-    "needle": "AEG",
+    "name": "AEG",
     "size": 0.09,
     "data": [
       2.261,
@@ -2398,7 +2398,7 @@
     ]
   },
   {
-    "needle": "AEH",
+    "name": "AEH",
     "size": 0.09,
     "data": [
       2.261,
@@ -2420,7 +2420,7 @@
     ]
   },
   {
-    "needle": "AEJ",
+    "name": "AEJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -2442,7 +2442,7 @@
     ]
   },
   {
-    "needle": "AEK",
+    "name": "AEK",
     "size": 0.09,
     "data": [
       2.261,
@@ -2464,7 +2464,7 @@
     ]
   },
   {
-    "needle": "AEL",
+    "name": "AEL",
     "size": 0.09,
     "data": [
       2.286,
@@ -2486,7 +2486,7 @@
     ]
   },
   {
-    "needle": "AEM",
+    "name": "AEM",
     "size": 0.09,
     "data": [
       2.261,
@@ -2508,7 +2508,7 @@
     ]
   },
   {
-    "needle": "AF",
+    "name": "AF",
     "size": 0.09,
     "data": [
       2.261,
@@ -2530,7 +2530,7 @@
     ]
   },
   {
-    "needle": "AG",
+    "name": "AG",
     "size": 0.09,
     "data": [
       2.261,
@@ -2552,7 +2552,7 @@
     ]
   },
   {
-    "needle": "AH",
+    "name": "AH",
     "size": 0.09,
     "data": [
       2.261,
@@ -2574,7 +2574,7 @@
     ]
   },
   {
-    "needle": "AH1",
+    "name": "AH1",
     "size": 0.09,
     "data": [
       2.261,
@@ -2596,7 +2596,7 @@
     ]
   },
   {
-    "needle": "AH2",
+    "name": "AH2",
     "size": 0.09,
     "data": [
       2.261,
@@ -2618,7 +2618,7 @@
     ]
   },
   {
-    "needle": "AI",
+    "name": "AI",
     "size": 0.09,
     "data": [
       2.261,
@@ -2640,7 +2640,7 @@
     ]
   },
   {
-    "needle": "AJ",
+    "name": "AJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -2662,7 +2662,7 @@
     ]
   },
   {
-    "needle": "AK",
+    "name": "AK",
     "size": 0.09,
     "data": [
       2.261,
@@ -2684,7 +2684,7 @@
     ]
   },
   {
-    "needle": "AKN",
+    "name": "AKN",
     "size": 0.1,
     "data": [
       2.515,
@@ -2706,7 +2706,7 @@
     ]
   },
   {
-    "needle": "AL",
+    "name": "AL",
     "size": 0.09,
     "data": [
       2.261,
@@ -2728,7 +2728,7 @@
     ]
   },
   {
-    "needle": "AM",
+    "name": "AM",
     "size": 0.09,
     "data": [
       2.261,
@@ -2750,7 +2750,7 @@
     ]
   },
   {
-    "needle": "AN",
+    "name": "AN",
     "size": 0.09,
     "data": [
       2.261,
@@ -2772,7 +2772,7 @@
     ]
   },
   {
-    "needle": "AO",
+    "name": "AO",
     "size": 0.09,
     "data": [
       2.261,
@@ -2794,7 +2794,7 @@
     ]
   },
   {
-    "needle": "AP",
+    "name": "AP",
     "size": 0.09,
     "data": [
       2.261,
@@ -2816,7 +2816,7 @@
     ]
   },
   {
-    "needle": "AQ",
+    "name": "AQ",
     "size": 0.09,
     "data": [
       2.261,
@@ -2838,7 +2838,7 @@
     ]
   },
   {
-    "needle": "AR",
+    "name": "AR",
     "size": 0.09,
     "data": [
       2.261,
@@ -2860,7 +2860,7 @@
     ]
   },
   {
-    "needle": "AS",
+    "name": "AS",
     "size": 0.09,
     "data": [
       2.261,
@@ -2882,7 +2882,7 @@
     ]
   },
   {
-    "needle": "AT",
+    "name": "AT",
     "size": 0.09,
     "data": [
       2.235,
@@ -2904,7 +2904,7 @@
     ]
   },
   {
-    "needle": "AU",
+    "name": "AU",
     "size": 0.09,
     "data": [
       2.261,
@@ -2926,7 +2926,7 @@
     ]
   },
   {
-    "needle": "AV",
+    "name": "AV",
     "size": 0.09,
     "data": [
       2.261,
@@ -2948,7 +2948,7 @@
     ]
   },
   {
-    "needle": "AW",
+    "name": "AW",
     "size": 0.09,
     "data": [
       2.286,
@@ -2970,7 +2970,7 @@
     ]
   },
   {
-    "needle": "AX",
+    "name": "AX",
     "size": 0.09,
     "data": [
       2.261,
@@ -2992,7 +2992,7 @@
     ]
   },
   {
-    "needle": "AY",
+    "name": "AY",
     "size": 0.09,
     "data": [
       2.261,
@@ -3014,7 +3014,7 @@
     ]
   },
   {
-    "needle": "AZ",
+    "name": "AZ",
     "size": 0.09,
     "data": [
       2.261,
@@ -3036,7 +3036,7 @@
     ]
   },
   {
-    "needle": "BA",
+    "name": "BA",
     "size": 0.09,
     "data": [
       2.261,
@@ -3058,7 +3058,7 @@
     ]
   },
   {
-    "needle": "BAA",
+    "name": "BAA",
     "size": 0.1,
     "data": [
       2.515,
@@ -3080,7 +3080,7 @@
     ]
   },
   {
-    "needle": "BAB",
+    "name": "BAB",
     "size": 0.1,
     "data": [
       2.515,
@@ -3102,7 +3102,7 @@
     ]
   },
   {
-    "needle": "BAC",
+    "name": "BAC",
     "size": 0.1,
     "data": [
       2.515,
@@ -3124,7 +3124,7 @@
     ]
   },
   {
-    "needle": "BAD",
+    "name": "BAD",
     "size": 0.1,
     "data": [
       2.515,
@@ -3146,7 +3146,7 @@
     ]
   },
   {
-    "needle": "BAE",
+    "name": "BAE",
     "size": 0.1,
     "data": [
       2.515,
@@ -3168,7 +3168,7 @@
     ]
   },
   {
-    "needle": "BAF",
+    "name": "BAF",
     "size": 0.1,
     "data": [
       2.515,
@@ -3190,7 +3190,7 @@
     ]
   },
   {
-    "needle": "BAG",
+    "name": "BAG",
     "size": 0.1,
     "data": [
       2.515,
@@ -3212,7 +3212,7 @@
     ]
   },
   {
-    "needle": "BAH",
+    "name": "BAH",
     "size": 0.1,
     "data": [
       2.527,
@@ -3234,7 +3234,7 @@
     ]
   },
   {
-    "needle": "BAJ",
+    "name": "BAJ",
     "size": 0.1,
     "data": [
       2.515,
@@ -3256,7 +3256,7 @@
     ]
   },
   {
-    "needle": "BAK",
+    "name": "BAK",
     "size": 0.1,
     "data": [
       2.515,
@@ -3278,7 +3278,7 @@
     ]
   },
   {
-    "needle": "BAL",
+    "name": "BAL",
     "size": 0.1,
     "data": [
       2.469,
@@ -3300,7 +3300,7 @@
     ]
   },
   {
-    "needle": "BAM",
+    "name": "BAM",
     "size": 0.1,
     "data": [
       2.515,
@@ -3322,7 +3322,7 @@
     ]
   },
   {
-    "needle": "BAN",
+    "name": "BAN",
     "size": 0.1,
     "data": [
       2.515,
@@ -3344,7 +3344,7 @@
     ]
   },
   {
-    "needle": "BAP",
+    "name": "BAP",
     "size": 0.1,
     "data": [
       2.515,
@@ -3366,7 +3366,7 @@
     ]
   },
   {
-    "needle": "BAQ",
+    "name": "BAQ",
     "size": 0.1,
     "data": [
       2.515,
@@ -3388,7 +3388,7 @@
     ]
   },
   {
-    "needle": "BAR",
+    "name": "BAR",
     "size": 0.1,
     "data": [
       2.515,
@@ -3410,7 +3410,7 @@
     ]
   },
   {
-    "needle": "BAS",
+    "name": "BAS",
     "size": 0.1,
     "data": [
       2.515,
@@ -3432,7 +3432,7 @@
     ]
   },
   {
-    "needle": "BAT",
+    "name": "BAT",
     "size": 0.1,
     "data": [
       2.515,
@@ -3454,7 +3454,7 @@
     ]
   },
   {
-    "needle": "BAU",
+    "name": "BAU",
     "size": 0.1,
     "data": [
       2.515,
@@ -3476,7 +3476,7 @@
     ]
   },
   {
-    "needle": "BAV",
+    "name": "BAV",
     "size": 0.1,
     "data": [
       2.527,
@@ -3498,7 +3498,7 @@
     ]
   },
   {
-    "needle": "BAW",
+    "name": "BAW",
     "size": 0.1,
     "data": [
       2.515,
@@ -3520,7 +3520,7 @@
     ]
   },
   {
-    "needle": "BAX",
+    "name": "BAX",
     "size": 0.1,
     "data": [
       2.515,
@@ -3542,7 +3542,7 @@
     ]
   },
   {
-    "needle": "BAY",
+    "name": "BAY",
     "size": 0.1,
     "data": [
       2.515,
@@ -3564,7 +3564,7 @@
     ]
   },
   {
-    "needle": "BAZ",
+    "name": "BAZ",
     "size": 0.1,
     "data": [
       2.515,
@@ -3586,7 +3586,7 @@
     ]
   },
   {
-    "needle": "BB",
+    "name": "BB",
     "size": 0.09,
     "data": [
       2.261,
@@ -3608,7 +3608,7 @@
     ]
   },
   {
-    "needle": "BB2",
+    "name": "BB2",
     "size": 0.09,
     "data": [
       2.261,
@@ -3630,7 +3630,7 @@
     ]
   },
   {
-    "needle": "BB3",
+    "name": "BB3",
     "size": 0.09,
     "data": [
       2.261,
@@ -3652,7 +3652,7 @@
     ]
   },
   {
-    "needle": "BB4",
+    "name": "BB4",
     "size": 0.09,
     "data": [
       2.261,
@@ -3674,7 +3674,7 @@
     ]
   },
   {
-    "needle": "BBA",
+    "name": "BBA",
     "size": 0.1,
     "data": [
       2.515,
@@ -3696,7 +3696,7 @@
     ]
   },
   {
-    "needle": "BBB",
+    "name": "BBB",
     "size": 0.1,
     "data": [
       2.515,
@@ -3718,7 +3718,7 @@
     ]
   },
   {
-    "needle": "BBC",
+    "name": "BBC",
     "size": 0.1,
     "data": [
       2.515,
@@ -3740,7 +3740,7 @@
     ]
   },
   {
-    "needle": "BBD",
+    "name": "BBD",
     "size": 0.1,
     "data": [
       2.515,
@@ -3762,7 +3762,7 @@
     ]
   },
   {
-    "needle": "BBE",
+    "name": "BBE",
     "size": 0.1,
     "data": [
       2.515,
@@ -3784,7 +3784,7 @@
     ]
   },
   {
-    "needle": "BBF",
+    "name": "BBF",
     "size": 0.1,
     "data": [
       2.515,
@@ -3806,7 +3806,7 @@
     ]
   },
   {
-    "needle": "BBG",
+    "name": "BBG",
     "size": 0.1,
     "data": [
       2.515,
@@ -3828,7 +3828,7 @@
     ]
   },
   {
-    "needle": "BBH",
+    "name": "BBH",
     "size": 0.1,
     "data": [
       2.515,
@@ -3850,7 +3850,7 @@
     ]
   },
   {
-    "needle": "BBJ",
+    "name": "BBJ",
     "size": 0.1,
     "data": [
       2.515,
@@ -3872,7 +3872,7 @@
     ]
   },
   {
-    "needle": "BBK",
+    "name": "BBK",
     "size": 0.1,
     "data": [
       2.515,
@@ -3894,7 +3894,7 @@
     ]
   },
   {
-    "needle": "BBL",
+    "name": "BBL",
     "size": 0.1,
     "data": [
       2.515,
@@ -3916,7 +3916,7 @@
     ]
   },
   {
-    "needle": "BBM",
+    "name": "BBM",
     "size": 0.1,
     "data": [
       2.515,
@@ -3938,7 +3938,7 @@
     ]
   },
   {
-    "needle": "BBN",
+    "name": "BBN",
     "size": 0.1,
     "data": [
       2.515,
@@ -3960,7 +3960,7 @@
     ]
   },
   {
-    "needle": "BBP",
+    "name": "BBP",
     "size": 0.1,
     "data": [
       2.515,
@@ -3982,7 +3982,7 @@
     ]
   },
   {
-    "needle": "BBQ",
+    "name": "BBQ",
     "size": 0.1,
     "data": [
       2.515,
@@ -4004,7 +4004,7 @@
     ]
   },
   {
-    "needle": "BBR",
+    "name": "BBR",
     "size": 0.1,
     "data": [
       2.515,
@@ -4026,7 +4026,7 @@
     ]
   },
   {
-    "needle": "BBS",
+    "name": "BBS",
     "size": 0.1,
     "data": [
       2.515,
@@ -4048,7 +4048,7 @@
     ]
   },
   {
-    "needle": "BBT",
+    "name": "BBT",
     "size": 0.1,
     "data": [
       2.515,
@@ -4070,7 +4070,7 @@
     ]
   },
   {
-    "needle": "BBU",
+    "name": "BBU",
     "size": 0.1,
     "data": [
       2.515,
@@ -4092,7 +4092,7 @@
     ]
   },
   {
-    "needle": "BBV",
+    "name": "BBV",
     "size": 0.1,
     "data": [
       2.515,
@@ -4114,7 +4114,7 @@
     ]
   },
   {
-    "needle": "BBW",
+    "name": "BBW",
     "size": 0.1,
     "data": [
       2.515,
@@ -4136,7 +4136,7 @@
     ]
   },
   {
-    "needle": "BBX",
+    "name": "BBX",
     "size": 0.1,
     "data": [
       2.515,
@@ -4158,7 +4158,7 @@
     ]
   },
   {
-    "needle": "BBY",
+    "name": "BBY",
     "size": 0.1,
     "data": [
       2.515,
@@ -4180,7 +4180,7 @@
     ]
   },
   {
-    "needle": "BBZ",
+    "name": "BBZ",
     "size": 0.1,
     "data": [
       2.489,
@@ -4202,7 +4202,7 @@
     ]
   },
   {
-    "needle": "BC",
+    "name": "BC",
     "size": 0.1,
     "data": [
       2.515,
@@ -4224,7 +4224,7 @@
     ]
   },
   {
-    "needle": "BCA",
+    "name": "BCA",
     "size": 0.1,
     "data": [
       2.515,
@@ -4246,7 +4246,7 @@
     ]
   },
   {
-    "needle": "BCB",
+    "name": "BCB",
     "size": 0.1,
     "data": [
       2.515,
@@ -4268,7 +4268,7 @@
     ]
   },
   {
-    "needle": "BCC",
+    "name": "BCC",
     "size": 0.1,
     "data": [
       2.515,
@@ -4290,7 +4290,7 @@
     ]
   },
   {
-    "needle": "BCD",
+    "name": "BCD",
     "size": 0.1,
     "data": [
       2.54,
@@ -4312,7 +4312,7 @@
     ]
   },
   {
-    "needle": "BCE",
+    "name": "BCE",
     "size": 0.1,
     "data": [
       2.515,
@@ -4334,7 +4334,7 @@
     ]
   },
   {
-    "needle": "BCF",
+    "name": "BCF",
     "size": 0.1,
     "data": [
       2.515,
@@ -4356,7 +4356,7 @@
     ]
   },
   {
-    "needle": "BCG",
+    "name": "BCG",
     "size": 0.1,
     "data": [
       2.515,
@@ -4378,7 +4378,7 @@
     ]
   },
   {
-    "needle": "BCH",
+    "name": "BCH",
     "size": 0.1,
     "data": [
       2.515,
@@ -4400,7 +4400,7 @@
     ]
   },
   {
-    "needle": "BCJ",
+    "name": "BCJ",
     "size": 0.1,
     "data": [
       2.527,
@@ -4422,7 +4422,7 @@
     ]
   },
   {
-    "needle": "BCK",
+    "name": "BCK",
     "size": 0.1,
     "data": [
       2.515,
@@ -4444,7 +4444,7 @@
     ]
   },
   {
-    "needle": "BCL",
+    "name": "BCL",
     "size": 0.1,
     "data": [
       2.515,
@@ -4466,7 +4466,7 @@
     ]
   },
   {
-    "needle": "BCM",
+    "name": "BCM",
     "size": 0.1,
     "data": [
       2.515,
@@ -4488,7 +4488,7 @@
     ]
   },
   {
-    "needle": "BCN",
+    "name": "BCN",
     "size": 0.1,
     "data": [
       2.515,
@@ -4510,7 +4510,7 @@
     ]
   },
   {
-    "needle": "BCP",
+    "name": "BCP",
     "size": 0.1,
     "data": [
       2.515,
@@ -4532,7 +4532,7 @@
     ]
   },
   {
-    "needle": "BCQ",
+    "name": "BCQ",
     "size": 0.1,
     "data": [
       2.515,
@@ -4554,7 +4554,7 @@
     ]
   },
   {
-    "needle": "BCR",
+    "name": "BCR",
     "size": 0.1,
     "data": [
       2.515,
@@ -4576,7 +4576,7 @@
     ]
   },
   {
-    "needle": "BCS",
+    "name": "BCS",
     "size": 0.1,
     "data": [
       2.515,
@@ -4598,7 +4598,7 @@
     ]
   },
   {
-    "needle": "BCT",
+    "name": "BCT",
     "size": 0.1,
     "data": [
       2.515,
@@ -4620,7 +4620,7 @@
     ]
   },
   {
-    "needle": "BCU",
+    "name": "BCU",
     "size": 0.1,
     "data": [
       2.515,
@@ -4642,7 +4642,7 @@
     ]
   },
   {
-    "needle": "BCV",
+    "name": "BCV",
     "size": 0.1,
     "data": [
       2.527,
@@ -4664,7 +4664,7 @@
     ]
   },
   {
-    "needle": "BCW",
+    "name": "BCW",
     "size": 0.1,
     "data": [
       2.515,
@@ -4686,7 +4686,7 @@
     ]
   },
   {
-    "needle": "BCX",
+    "name": "BCX",
     "size": 0.1,
     "data": [
       2.515,
@@ -4708,7 +4708,7 @@
     ]
   },
   {
-    "needle": "BCY",
+    "name": "BCY",
     "size": 0.1,
     "data": [
       2.515,
@@ -4730,7 +4730,7 @@
     ]
   },
   {
-    "needle": "BCZ",
+    "name": "BCZ",
     "size": 0.1,
     "data": [
       2.515,
@@ -4752,7 +4752,7 @@
     ]
   },
   {
-    "needle": "BD",
+    "name": "BD",
     "size": 0.09,
     "data": [
       2.286,
@@ -4774,7 +4774,7 @@
     ]
   },
   {
-    "needle": "BDA",
+    "name": "BDA",
     "size": 0.1,
     "data": [
       2.515,
@@ -4796,7 +4796,7 @@
     ]
   },
   {
-    "needle": "BDB",
+    "name": "BDB",
     "size": 0.1,
     "data": [
       2.515,
@@ -4818,7 +4818,7 @@
     ]
   },
   {
-    "needle": "BDC",
+    "name": "BDC",
     "size": 0.1,
     "data": [
       2.515,
@@ -4840,7 +4840,7 @@
     ]
   },
   {
-    "needle": "BDD",
+    "name": "BDD",
     "size": 0.1,
     "data": [
       2.515,
@@ -4862,7 +4862,7 @@
     ]
   },
   {
-    "needle": "BDE",
+    "name": "BDE",
     "size": 0.1,
     "data": [
       2.515,
@@ -4884,7 +4884,7 @@
     ]
   },
   {
-    "needle": "BDF",
+    "name": "BDF",
     "size": 0.1,
     "data": [
       2.515,
@@ -4906,7 +4906,7 @@
     ]
   },
   {
-    "needle": "BDG",
+    "name": "BDG",
     "size": 0.1,
     "data": [
       2.52,
@@ -4928,7 +4928,7 @@
     ]
   },
   {
-    "needle": "BDH",
+    "name": "BDH",
     "size": 0.1,
     "data": [
       2.515,
@@ -4950,7 +4950,7 @@
     ]
   },
   {
-    "needle": "BDJ",
+    "name": "BDJ",
     "size": 0.1,
     "data": [
       2.51,
@@ -4972,7 +4972,7 @@
     ]
   },
   {
-    "needle": "BDK",
+    "name": "BDK",
     "size": 0.1,
     "data": [
       2.449,
@@ -4994,7 +4994,7 @@
     ]
   },
   {
-    "needle": "BDL",
+    "name": "BDL",
     "size": 0.1,
     "data": [
       2.515,
@@ -5016,7 +5016,7 @@
     ]
   },
   {
-    "needle": "BDM",
+    "name": "BDM",
     "size": 0.1,
     "data": [
       2.515,
@@ -5038,7 +5038,7 @@
     ]
   },
   {
-    "needle": "BDN",
+    "name": "BDN",
     "size": 0.1,
     "data": [
       2.515,
@@ -5060,7 +5060,7 @@
     ]
   },
   {
-    "needle": "BDP",
+    "name": "BDP",
     "size": 0.1,
     "data": [
       2.515,
@@ -5082,7 +5082,7 @@
     ]
   },
   {
-    "needle": "BDQ",
+    "name": "BDQ",
     "size": 0.1,
     "data": [
       2.515,
@@ -5104,7 +5104,7 @@
     ]
   },
   {
-    "needle": "BDR",
+    "name": "BDR",
     "size": 0.1,
     "data": [
       2.515,
@@ -5126,7 +5126,7 @@
     ]
   },
   {
-    "needle": "BDS",
+    "name": "BDS",
     "size": 0.1,
     "data": [
       2.515,
@@ -5148,7 +5148,7 @@
     ]
   },
   {
-    "needle": "BDT",
+    "name": "BDT",
     "size": 0.1,
     "data": [
       2.515,
@@ -5170,7 +5170,7 @@
     ]
   },
   {
-    "needle": "BDU",
+    "name": "BDU",
     "size": 0.1,
     "data": [
       2.515,
@@ -5192,7 +5192,7 @@
     ]
   },
   {
-    "needle": "BDV",
+    "name": "BDV",
     "size": 0.1,
     "data": [
       2.515,
@@ -5214,7 +5214,7 @@
     ]
   },
   {
-    "needle": "BDW",
+    "name": "BDW",
     "size": 0.1,
     "data": [
       2.515,
@@ -5236,7 +5236,7 @@
     ]
   },
   {
-    "needle": "BDX",
+    "name": "BDX",
     "size": 0.1,
     "data": [
       2.515,
@@ -5258,7 +5258,7 @@
     ]
   },
   {
-    "needle": "BDY",
+    "name": "BDY",
     "size": 0.1,
     "data": [
       2.515,
@@ -5280,7 +5280,7 @@
     ]
   },
   {
-    "needle": "BDZ",
+    "name": "BDZ",
     "size": 0.1,
     "data": [
       2.515,
@@ -5302,7 +5302,7 @@
     ]
   },
   {
-    "needle": "BE",
+    "name": "BE",
     "size": 0.09,
     "data": [
       2.261,
@@ -5324,7 +5324,7 @@
     ]
   },
   {
-    "needle": "BEA",
+    "name": "BEA",
     "size": 0.1,
     "data": [
       2.515,
@@ -5346,7 +5346,7 @@
     ]
   },
   {
-    "needle": "BEB",
+    "name": "BEB",
     "size": 0.1,
     "data": [
       2.54,
@@ -5368,7 +5368,7 @@
     ]
   },
   {
-    "needle": "BEC",
+    "name": "BEC",
     "size": 0.1,
     "data": [
       2.54,
@@ -5390,7 +5390,7 @@
     ]
   },
   {
-    "needle": "BED",
+    "name": "BED",
     "size": 0.1,
     "data": [
       2.515,
@@ -5412,7 +5412,7 @@
     ]
   },
   {
-    "needle": "BEE",
+    "name": "BEE",
     "size": 0.1,
     "data": [
       2.515,
@@ -5434,7 +5434,7 @@
     ]
   },
   {
-    "needle": "BEF",
+    "name": "BEF",
     "size": 0.1,
     "data": [
       2.515,
@@ -5456,7 +5456,7 @@
     ]
   },
   {
-    "needle": "BEG",
+    "name": "BEG",
     "size": 0.1,
     "data": [
       2.54,
@@ -5478,7 +5478,7 @@
     ]
   },
   {
-    "needle": "BEH",
+    "name": "BEH",
     "size": 0.1,
     "data": [
       2.515,
@@ -5500,7 +5500,7 @@
     ]
   },
   {
-    "needle": "BEJ",
+    "name": "BEJ",
     "size": 0.1,
     "data": [
       2.515,
@@ -5522,7 +5522,7 @@
     ]
   },
   {
-    "needle": "BEK",
+    "name": "BEK",
     "size": 0.1,
     "data": [
       2.515,
@@ -5544,7 +5544,7 @@
     ]
   },
   {
-    "needle": "BEL",
+    "name": "BEL",
     "size": 0.1,
     "data": [
       2.515,
@@ -5566,7 +5566,7 @@
     ]
   },
   {
-    "needle": "BEM",
+    "name": "BEM",
     "size": 0.1,
     "data": [
       2.515,
@@ -5588,7 +5588,7 @@
     ]
   },
   {
-    "needle": "BEP",
+    "name": "BEP",
     "size": 0.1,
     "data": [
       2.54,
@@ -5610,7 +5610,7 @@
     ]
   },
   {
-    "needle": "BEQ",
+    "name": "BEQ",
     "size": 0.1,
     "data": [
       2.54,
@@ -5632,7 +5632,7 @@
     ]
   },
   {
-    "needle": "BER",
+    "name": "BER",
     "size": 0.1,
     "data": [
       2.515,
@@ -5654,7 +5654,7 @@
     ]
   },
   {
-    "needle": "BES",
+    "name": "BES",
     "size": 0.1,
     "data": [
       2.515,
@@ -5676,7 +5676,7 @@
     ]
   },
   {
-    "needle": "BEU",
+    "name": "BEU",
     "size": 0.1,
     "data": [
       2.515,
@@ -5698,7 +5698,7 @@
     ]
   },
   {
-    "needle": "BEV",
+    "name": "BEV",
     "size": 0.1,
     "data": [
       2.515,
@@ -5720,7 +5720,7 @@
     ]
   },
   {
-    "needle": "BEW",
+    "name": "BEW",
     "size": 0.1,
     "data": [
       2.515,
@@ -5742,7 +5742,7 @@
     ]
   },
   {
-    "needle": "BEY",
+    "name": "BEY",
     "size": 0.1,
     "data": [
       2.515,
@@ -5764,7 +5764,7 @@
     ]
   },
   {
-    "needle": "BEZ",
+    "name": "BEZ",
     "size": 0.1,
     "data": [
       2.515,
@@ -5786,7 +5786,7 @@
     ]
   },
   {
-    "needle": "BF",
+    "name": "BF",
     "size": 0.09,
     "data": [
       2.261,
@@ -5808,7 +5808,7 @@
     ]
   },
   {
-    "needle": "BFA",
+    "name": "BFA",
     "size": 0.1,
     "data": [
       2.515,
@@ -5830,7 +5830,7 @@
     ]
   },
   {
-    "needle": "BFB",
+    "name": "BFB",
     "size": 0.1,
     "data": [
       2.515,
@@ -5852,7 +5852,7 @@
     ]
   },
   {
-    "needle": "BFC",
+    "name": "BFC",
     "size": 0.1,
     "data": [
       2.454,
@@ -5874,7 +5874,7 @@
     ]
   },
   {
-    "needle": "BFD",
+    "name": "BFD",
     "size": 0.1,
     "data": [
       2.54,
@@ -5896,7 +5896,7 @@
     ]
   },
   {
-    "needle": "BFE",
+    "name": "BFE",
     "size": 0.1,
     "data": [
       2.515,
@@ -5918,7 +5918,7 @@
     ]
   },
   {
-    "needle": "BFF",
+    "name": "BFF",
     "size": 0.1,
     "data": [
       2.515,
@@ -5940,7 +5940,7 @@
     ]
   },
   {
-    "needle": "BFG",
+    "name": "BFG",
     "size": 0.1,
     "data": [
       2.515,
@@ -5962,7 +5962,7 @@
     ]
   },
   {
-    "needle": "BFH",
+    "name": "BFH",
     "size": 0.1,
     "data": [
       2.54,
@@ -5984,7 +5984,7 @@
     ]
   },
   {
-    "needle": "BFJ",
+    "name": "BFJ",
     "size": 0.1,
     "data": [
       2.54,
@@ -6006,7 +6006,7 @@
     ]
   },
   {
-    "needle": "BFK",
+    "name": "BFK",
     "size": 0.1,
     "data": [
       2.515,
@@ -6028,7 +6028,7 @@
     ]
   },
   {
-    "needle": "BFL",
+    "name": "BFL",
     "size": 0.1,
     "data": [
       2.54,
@@ -6050,7 +6050,7 @@
     ]
   },
   {
-    "needle": "BFM",
+    "name": "BFM",
     "size": 0.1,
     "data": [
       2.515,
@@ -6072,7 +6072,7 @@
     ]
   },
   {
-    "needle": "BFN",
+    "name": "BFN",
     "size": 0.1,
     "data": [
       2.515,
@@ -6094,7 +6094,7 @@
     ]
   },
   {
-    "needle": "BFP",
+    "name": "BFP",
     "size": 0.1,
     "data": [
       2.515,
@@ -6116,7 +6116,7 @@
     ]
   },
   {
-    "needle": "BFQ",
+    "name": "BFQ",
     "size": 0.1,
     "data": [
       2.515,
@@ -6138,7 +6138,7 @@
     ]
   },
   {
-    "needle": "BFR",
+    "name": "BFR",
     "size": 0.1,
     "data": [
       2.515,
@@ -6160,7 +6160,7 @@
     ]
   },
   {
-    "needle": "BFS",
+    "name": "BFS",
     "size": 0.1,
     "data": [
       2.515,
@@ -6182,7 +6182,7 @@
     ]
   },
   {
-    "needle": "BFT",
+    "name": "BFT",
     "size": 0.1,
     "data": [
       2.515,
@@ -6204,7 +6204,7 @@
     ]
   },
   {
-    "needle": "BFU",
+    "name": "BFU",
     "size": 0.1,
     "data": [
       2.515,
@@ -6226,7 +6226,7 @@
     ]
   },
   {
-    "needle": "BFV",
+    "name": "BFV",
     "size": 0.1,
     "data": [
       2.515,
@@ -6248,7 +6248,7 @@
     ]
   },
   {
-    "needle": "BFW",
+    "name": "BFW",
     "size": 0.1,
     "data": [
       2.515,
@@ -6270,7 +6270,7 @@
     ]
   },
   {
-    "needle": "BFX",
+    "name": "BFX",
     "size": 0.1,
     "data": [
       2.515,
@@ -6292,7 +6292,7 @@
     ]
   },
   {
-    "needle": "BFY",
+    "name": "BFY",
     "size": 0.1,
     "data": [
       2.515,
@@ -6314,7 +6314,7 @@
     ]
   },
   {
-    "needle": "BFZ",
+    "name": "BFZ",
     "size": 0.1,
     "data": [
       2.515,
@@ -6336,7 +6336,7 @@
     ]
   },
   {
-    "needle": "BG",
+    "name": "BG",
     "size": 0.09,
     "data": [
       2.261,
@@ -6358,7 +6358,7 @@
     ]
   },
   {
-    "needle": "BGA",
+    "name": "BGA",
     "size": 0.1,
     "data": [
       2.515,
@@ -6380,7 +6380,7 @@
     ]
   },
   {
-    "needle": "BGB",
+    "name": "BGB",
     "size": 0.1,
     "data": [
       2.515,
@@ -6402,7 +6402,7 @@
     ]
   },
   {
-    "needle": "BGC",
+    "name": "BGC",
     "size": 0.1,
     "data": [
       2.515,
@@ -6424,7 +6424,7 @@
     ]
   },
   {
-    "needle": "BGD",
+    "name": "BGD",
     "size": 0.1,
     "data": [
       2.515,
@@ -6446,7 +6446,7 @@
     ]
   },
   {
-    "needle": "BGE",
+    "name": "BGE",
     "size": 0.1,
     "data": [
       2.515,
@@ -6468,7 +6468,7 @@
     ]
   },
   {
-    "needle": "BGF",
+    "name": "BGF",
     "size": 0.1,
     "data": [
       2.54,
@@ -6490,7 +6490,7 @@
     ]
   },
   {
-    "needle": "BGJ",
+    "name": "BGJ",
     "size": 0.1,
     "data": [
       2.515,
@@ -6512,7 +6512,7 @@
     ]
   },
   {
-    "needle": "BGK",
+    "name": "BGK",
     "size": 0.1,
     "data": [
       2.515,
@@ -6534,7 +6534,7 @@
     ]
   },
   {
-    "needle": "BGL",
+    "name": "BGL",
     "size": 0.1,
     "data": [
       2.515,
@@ -6556,7 +6556,7 @@
     ]
   },
   {
-    "needle": "BGN",
+    "name": "BGN",
     "size": 0.1,
     "data": [
       2.515,
@@ -6578,7 +6578,7 @@
     ]
   },
   {
-    "needle": "BGP",
+    "name": "BGP",
     "size": 0.1,
     "data": [
       2.515,
@@ -6600,7 +6600,7 @@
     ]
   },
   {
-    "needle": "BGQ",
+    "name": "BGQ",
     "size": 0.1,
     "data": [
       2.515,
@@ -6622,7 +6622,7 @@
     ]
   },
   {
-    "needle": "BGR",
+    "name": "BGR",
     "size": 0.1,
     "data": [
       2.515,
@@ -6644,7 +6644,7 @@
     ]
   },
   {
-    "needle": "BGT",
+    "name": "BGT",
     "size": 0.1,
     "data": [
       2.515,
@@ -6666,7 +6666,7 @@
     ]
   },
   {
-    "needle": "BGU",
+    "name": "BGU",
     "size": 0.1,
     "data": [
       2.515,
@@ -6688,7 +6688,7 @@
     ]
   },
   {
-    "needle": "BGV",
+    "name": "BGV",
     "size": 0.1,
     "data": [
       2.515,
@@ -6710,7 +6710,7 @@
     ]
   },
   {
-    "needle": "BGX",
+    "name": "BGX",
     "size": 0.1,
     "data": [
       2.515,
@@ -6732,7 +6732,7 @@
     ]
   },
   {
-    "needle": "BGY",
+    "name": "BGY",
     "size": 0.1,
     "data": [
       2.515,
@@ -6754,7 +6754,7 @@
     ]
   },
   {
-    "needle": "BGZ",
+    "name": "BGZ",
     "size": 0.1,
     "data": [
       2.502,
@@ -6776,7 +6776,7 @@
     ]
   },
   {
-    "needle": "BHC",
+    "name": "BHC",
     "size": 0.1,
     "data": [
       2.515,
@@ -6798,7 +6798,7 @@
     ]
   },
   {
-    "needle": "BHD",
+    "name": "BHD",
     "size": 0.1,
     "data": [
       2.515,
@@ -6820,7 +6820,7 @@
     ]
   },
   {
-    "needle": "BH",
+    "name": "BH",
     "size": 0.09,
     "data": [
       2.261,
@@ -6842,7 +6842,7 @@
     ]
   },
   {
-    "needle": "BI",
+    "name": "BI",
     "size": 0.09,
     "data": [
       2.261,
@@ -6864,7 +6864,7 @@
     ]
   },
   {
-    "needle": "BJ",
+    "name": "BJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -6886,7 +6886,7 @@
     ]
   },
   {
-    "needle": "BK",
+    "name": "BK",
     "size": 0.09,
     "data": [
       2.261,
@@ -6908,7 +6908,7 @@
     ]
   },
   {
-    "needle": "BL",
+    "name": "BL",
     "size": 0.09,
     "data": [
       2.261,
@@ -6930,7 +6930,7 @@
     ]
   },
   {
-    "needle": "BM",
+    "name": "BM",
     "size": 0.09,
     "data": [
       2.261,
@@ -6952,7 +6952,7 @@
     ]
   },
   {
-    "needle": "BN",
+    "name": "BN",
     "size": 0.09,
     "data": [
       2.261,
@@ -6974,7 +6974,7 @@
     ]
   },
   {
-    "needle": "BO",
+    "name": "BO",
     "size": 0.09,
     "data": [
       2.261,
@@ -6996,7 +6996,7 @@
     ]
   },
   {
-    "needle": "BP",
+    "name": "BP",
     "size": 0.09,
     "data": [
       2.261,
@@ -7018,7 +7018,7 @@
     ]
   },
   {
-    "needle": "BQ",
+    "name": "BQ",
     "size": 0.09,
     "data": [
       2.261,
@@ -7040,7 +7040,7 @@
     ]
   },
   {
-    "needle": "BR",
+    "name": "BR",
     "size": 0.09,
     "data": [
       2.261,
@@ -7062,7 +7062,7 @@
     ]
   },
   {
-    "needle": "BS",
+    "name": "BS",
     "size": 0.09,
     "data": [
       2.235,
@@ -7084,7 +7084,7 @@
     ]
   },
   {
-    "needle": "BT",
+    "name": "BT",
     "size": 0.09,
     "data": [
       2.235,
@@ -7106,7 +7106,7 @@
     ]
   },
   {
-    "needle": "BU",
+    "name": "BU",
     "size": 0.09,
     "data": [
       2.286,
@@ -7128,7 +7128,7 @@
     ]
   },
   {
-    "needle": "BV",
+    "name": "BV",
     "size": 0.09,
     "data": [
       2.261,
@@ -7150,7 +7150,7 @@
     ]
   },
   {
-    "needle": "BW",
+    "name": "BW",
     "size": 0.09,
     "data": [
       2.261,
@@ -7172,7 +7172,7 @@
     ]
   },
   {
-    "needle": "BX",
+    "name": "BX",
     "size": 0.09,
     "data": [
       2.261,
@@ -7194,7 +7194,7 @@
     ]
   },
   {
-    "needle": "BX1",
+    "name": "BX1",
     "size": 0.09,
     "data": [
       2.261,
@@ -7216,7 +7216,7 @@
     ]
   },
   {
-    "needle": "BY",
+    "name": "BY",
     "size": 0.09,
     "data": [
       2.235,
@@ -7238,7 +7238,7 @@
     ]
   },
   {
-    "needle": "BZ",
+    "name": "BZ",
     "size": 0.09,
     "data": [
       2.235,
@@ -7260,7 +7260,7 @@
     ]
   },
   {
-    "needle": "C",
+    "name": "C",
     "size": 0.09,
     "data": [
       2.261,
@@ -7282,7 +7282,7 @@
     ]
   },
   {
-    "needle": "C1",
+    "name": "C1",
     "size": 0.1,
     "data": [
       2.515,
@@ -7304,7 +7304,7 @@
     ]
   },
   {
-    "needle": "CA",
+    "name": "CA",
     "size": 0.09,
     "data": [
       2.261,
@@ -7326,7 +7326,7 @@
     ]
   },
   {
-    "needle": "CB",
+    "name": "CB",
     "size": 0.09,
     "data": [
       2.261,
@@ -7348,7 +7348,7 @@
     ]
   },
   {
-    "needle": "CC",
+    "name": "CC",
     "size": 0.09,
     "data": [
       2.261,
@@ -7370,7 +7370,7 @@
     ]
   },
   {
-    "needle": "CD",
+    "name": "CD",
     "size": 0.09,
     "data": [
       2.261,
@@ -7392,7 +7392,7 @@
     ]
   },
   {
-    "needle": "CE",
+    "name": "CE",
     "size": 0.09,
     "data": [
       2.261,
@@ -7414,7 +7414,7 @@
     ]
   },
   {
-    "needle": "CF",
+    "name": "CF",
     "size": 0.09,
     "data": [
       2.261,
@@ -7436,7 +7436,7 @@
     ]
   },
   {
-    "needle": "CG",
+    "name": "CG",
     "size": 0.09,
     "data": [
       2.286,
@@ -7458,7 +7458,7 @@
     ]
   },
   {
-    "needle": "CH",
+    "name": "CH",
     "size": 0.09,
     "data": [
       2.286,
@@ -7480,7 +7480,7 @@
     ]
   },
   {
-    "needle": "CIW",
+    "name": "CIW",
     "size": 0.1,
     "data": [
       2.515,
@@ -7502,7 +7502,7 @@
     ]
   },
   {
-    "needle": "CJ",
+    "name": "CJ",
     "size": 0.09,
     "data": [
       2.286,
@@ -7524,7 +7524,7 @@
     ]
   },
   {
-    "needle": "CK",
+    "name": "CK",
     "size": 0.09,
     "data": [
       2.286,
@@ -7546,7 +7546,7 @@
     ]
   },
   {
-    "needle": "CL",
+    "name": "CL",
     "size": 0.09,
     "data": [
       2.286,
@@ -7568,7 +7568,7 @@
     ]
   },
   {
-    "needle": "CM",
+    "name": "CM",
     "size": 0.09,
     "data": [
       2.235,
@@ -7590,7 +7590,7 @@
     ]
   },
   {
-    "needle": "CN",
+    "name": "CN",
     "size": 0.09,
     "data": [
       2.261,
@@ -7612,7 +7612,7 @@
     ]
   },
   {
-    "needle": "CO",
+    "name": "CO",
     "size": 0.09,
     "data": [
       2.261,
@@ -7634,7 +7634,7 @@
     ]
   },
   {
-    "needle": "CP",
+    "name": "CP",
     "size": 0.09,
     "data": [
       2.261,
@@ -7656,7 +7656,7 @@
     ]
   },
   {
-    "needle": "CP4",
+    "name": "CP4",
     "size": 0.09,
     "data": [
       2.235,
@@ -7678,7 +7678,7 @@
     ]
   },
   {
-    "needle": "CQ",
+    "name": "CQ",
     "size": 0.09,
     "data": [
       2.235,
@@ -7700,7 +7700,7 @@
     ]
   },
   {
-    "needle": "CR",
+    "name": "CR",
     "size": 0.09,
     "data": [
       2.235,
@@ -7722,7 +7722,7 @@
     ]
   },
   {
-    "needle": "CS",
+    "name": "CS",
     "size": 0.09,
     "data": [
       2.261,
@@ -7744,7 +7744,7 @@
     ]
   },
   {
-    "needle": "CS1",
+    "name": "CS1",
     "size": 0.09,
     "data": [
       2.261,
@@ -7766,7 +7766,7 @@
     ]
   },
   {
-    "needle": "CS2",
+    "name": "CS2",
     "size": 0.09,
     "data": [
       2.261,
@@ -7788,7 +7788,7 @@
     ]
   },
   {
-    "needle": "CT",
+    "name": "CT",
     "size": 0.09,
     "data": [
       2.261,
@@ -7810,7 +7810,7 @@
     ]
   },
   {
-    "needle": "CU",
+    "name": "CU",
     "size": 0.09,
     "data": [
       2.261,
@@ -7832,7 +7832,7 @@
     ]
   },
   {
-    "needle": "CV",
+    "name": "CV",
     "size": 0.1,
     "data": [
       2.515,
@@ -7854,7 +7854,7 @@
     ]
   },
   {
-    "needle": "CW",
+    "name": "CW",
     "size": 0.09,
     "data": [
       2.261,
@@ -7876,7 +7876,7 @@
     ]
   },
   {
-    "needle": "CX",
+    "name": "CX",
     "size": 0.09,
     "data": [
       2.261,
@@ -7898,7 +7898,7 @@
     ]
   },
   {
-    "needle": "CY",
+    "name": "CY",
     "size": 0.09,
     "data": [
       2.261,
@@ -7920,7 +7920,7 @@
     ]
   },
   {
-    "needle": "CZ",
+    "name": "CZ",
     "size": 0.09,
     "data": [
       2.261,
@@ -7942,7 +7942,7 @@
     ]
   },
   {
-    "needle": "D1",
+    "name": "D1",
     "size": 0.09,
     "data": [
       2.261,
@@ -7964,7 +7964,7 @@
     ]
   },
   {
-    "needle": "D2",
+    "name": "D2",
     "size": 0.09,
     "data": [
       2.261,
@@ -7986,7 +7986,7 @@
     ]
   },
   {
-    "needle": "D3",
+    "name": "D3",
     "size": 0.09,
     "data": [
       2.261,
@@ -8008,7 +8008,7 @@
     ]
   },
   {
-    "needle": "D4",
+    "name": "D4",
     "size": 0.09,
     "data": [
       2.261,
@@ -8030,7 +8030,7 @@
     ]
   },
   {
-    "needle": "D6",
+    "name": "D6",
     "size": 0.09,
     "data": [
       2.261,
@@ -8052,7 +8052,7 @@
     ]
   },
   {
-    "needle": "D7",
+    "name": "D7",
     "size": 0.09,
     "data": [
       2.261,
@@ -8074,7 +8074,7 @@
     ]
   },
   {
-    "needle": "D8",
+    "name": "D8",
     "size": 0.09,
     "data": [
       2.261,
@@ -8096,7 +8096,7 @@
     ]
   },
   {
-    "needle": "D9",
+    "name": "D9",
     "size": 0.09,
     "data": [
       2.261,
@@ -8118,7 +8118,7 @@
     ]
   },
   {
-    "needle": "DA",
+    "name": "DA",
     "size": 0.09,
     "data": [
       2.261,
@@ -8140,7 +8140,7 @@
     ]
   },
   {
-    "needle": "DB",
+    "name": "DB",
     "size": 0.09,
     "data": [
       2.261,
@@ -8162,7 +8162,7 @@
     ]
   },
   {
-    "needle": "DC",
+    "name": "DC",
     "size": 0.09,
     "data": [
       2.261,
@@ -8184,7 +8184,7 @@
     ]
   },
   {
-    "needle": "DD",
+    "name": "DD",
     "size": 0.09,
     "data": [
       2.261,
@@ -8206,7 +8206,7 @@
     ]
   },
   {
-    "needle": "DE",
+    "name": "DE",
     "size": 0.09,
     "data": [
       2.261,
@@ -8228,7 +8228,7 @@
     ]
   },
   {
-    "needle": "DF",
+    "name": "DF",
     "size": 0.1,
     "data": [
       2.54,
@@ -8250,7 +8250,7 @@
     ]
   },
   {
-    "needle": "DG",
+    "name": "DG",
     "size": 0.1,
     "data": [
       2.54,
@@ -8272,7 +8272,7 @@
     ]
   },
   {
-    "needle": "DH",
+    "name": "DH",
     "size": 0.09,
     "data": [
       2.261,
@@ -8294,7 +8294,7 @@
     ]
   },
   {
-    "needle": "DJ",
+    "name": "DJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -8316,7 +8316,7 @@
     ]
   },
   {
-    "needle": "DK",
+    "name": "DK",
     "size": 0.09,
     "data": [
       2.261,
@@ -8338,7 +8338,7 @@
     ]
   },
   {
-    "needle": "DL",
+    "name": "DL",
     "size": 0.09,
     "data": [
       2.261,
@@ -8360,7 +8360,7 @@
     ]
   },
   {
-    "needle": "DM",
+    "name": "DM",
     "size": 0.09,
     "data": [
       2.261,
@@ -8382,7 +8382,7 @@
     ]
   },
   {
-    "needle": "DN",
+    "name": "DN",
     "size": 0.09,
     "data": [
       2.248,
@@ -8404,7 +8404,7 @@
     ]
   },
   {
-    "needle": "DP",
+    "name": "DP",
     "size": 0.09,
     "data": [
       2.261,
@@ -8426,7 +8426,7 @@
     ]
   },
   {
-    "needle": "DQ",
+    "name": "DQ",
     "size": 0.09,
     "data": [
       2.261,
@@ -8448,7 +8448,7 @@
     ]
   },
   {
-    "needle": "DR",
+    "name": "DR",
     "size": 0.09,
     "data": [
       2.235,
@@ -8470,7 +8470,7 @@
     ]
   },
   {
-    "needle": "DS",
+    "name": "DS",
     "size": 0.09,
     "data": [
       2.261,
@@ -8492,7 +8492,7 @@
     ]
   },
   {
-    "needle": "DT",
+    "name": "DT",
     "size": 0.09,
     "data": [
       2.235,
@@ -8514,7 +8514,7 @@
     ]
   },
   {
-    "needle": "DU",
+    "name": "DU",
     "size": 0.09,
     "data": [
       2.261,
@@ -8536,7 +8536,7 @@
     ]
   },
   {
-    "needle": "DV",
+    "name": "DV",
     "size": 0.09,
     "data": [
       2.261,
@@ -8558,7 +8558,7 @@
     ]
   },
   {
-    "needle": "DW",
+    "name": "DW",
     "size": 0.09,
     "data": [
       2.261,
@@ -8580,7 +8580,7 @@
     ]
   },
   {
-    "needle": "DX",
+    "name": "DX",
     "size": 0.1,
     "data": [
       2.515,
@@ -8602,7 +8602,7 @@
     ]
   },
   {
-    "needle": "DY",
+    "name": "DY",
     "size": 0.09,
     "data": [
       2.261,
@@ -8624,7 +8624,7 @@
     ]
   },
   {
-    "needle": "DZ",
+    "name": "DZ",
     "size": 0.09,
     "data": [
       2.261,
@@ -8646,7 +8646,7 @@
     ]
   },
   {
-    "needle": "E2",
+    "name": "E2",
     "size": 0.09,
     "data": [
       2.235,
@@ -8668,7 +8668,7 @@
     ]
   },
   {
-    "needle": "E21",
+    "name": "E21",
     "size": 0.09,
     "data": [
       2.261,
@@ -8690,7 +8690,7 @@
     ]
   },
   {
-    "needle": "E3",
+    "name": "E3",
     "size": 0.09,
     "data": [
       2.235,
@@ -8712,7 +8712,7 @@
     ]
   },
   {
-    "needle": "E31",
+    "name": "E31",
     "size": 0.09,
     "data": [
       2.235,
@@ -8734,7 +8734,7 @@
     ]
   },
   {
-    "needle": "E4",
+    "name": "E4",
     "size": 0.09,
     "data": [
       2.235,
@@ -8756,7 +8756,7 @@
     ]
   },
   {
-    "needle": "EA",
+    "name": "EA",
     "size": 0.09,
     "data": [
       2.261,
@@ -8778,7 +8778,7 @@
     ]
   },
   {
-    "needle": "EB",
+    "name": "EB",
     "size": 0.09,
     "data": [
       2.261,
@@ -8800,7 +8800,7 @@
     ]
   },
   {
-    "needle": "EC",
+    "name": "EC",
     "size": 0.09,
     "data": [
       2.261,
@@ -8822,7 +8822,7 @@
     ]
   },
   {
-    "needle": "ED",
+    "name": "ED",
     "size": 0.09,
     "data": [
       2.261,
@@ -8844,7 +8844,7 @@
     ]
   },
   {
-    "needle": "EE",
+    "name": "EE",
     "size": 0.09,
     "data": [
       2.261,
@@ -8866,7 +8866,7 @@
     ]
   },
   {
-    "needle": "EF",
+    "name": "EF",
     "size": 0.09,
     "data": [
       2.261,
@@ -8888,7 +8888,7 @@
     ]
   },
   {
-    "needle": "EG",
+    "name": "EG",
     "size": 0.09,
     "data": [
       2.235,
@@ -8910,7 +8910,7 @@
     ]
   },
   {
-    "needle": "EH",
+    "name": "EH",
     "size": 0.09,
     "data": [
       2.261,
@@ -8932,7 +8932,7 @@
     ]
   },
   {
-    "needle": "EI",
+    "name": "EI",
     "size": 0.09,
     "data": [
       2.261,
@@ -8954,7 +8954,7 @@
     ]
   },
   {
-    "needle": "EJ",
+    "name": "EJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -8976,7 +8976,7 @@
     ]
   },
   {
-    "needle": "EK",
+    "name": "EK",
     "size": 0.09,
     "data": [
       2.261,
@@ -8998,7 +8998,7 @@
     ]
   },
   {
-    "needle": "EL",
+    "name": "EL",
     "size": 0.09,
     "data": [
       2.261,
@@ -9020,7 +9020,7 @@
     ]
   },
   {
-    "needle": "EM",
+    "name": "EM",
     "size": 0.09,
     "data": [
       2.261,
@@ -9042,7 +9042,7 @@
     ]
   },
   {
-    "needle": "EN",
+    "name": "EN",
     "size": 0.09,
     "data": [
       2.261,
@@ -9064,7 +9064,7 @@
     ]
   },
   {
-    "needle": "EO",
+    "name": "EO",
     "size": 0.09,
     "data": [
       2.235,
@@ -9086,7 +9086,7 @@
     ]
   },
   {
-    "needle": "EP",
+    "name": "EP",
     "size": 0.09,
     "data": [
       2.261,
@@ -9108,7 +9108,7 @@
     ]
   },
   {
-    "needle": "EQ",
+    "name": "EQ",
     "size": 0.09,
     "data": [
       2.261,
@@ -9130,7 +9130,7 @@
     ]
   },
   {
-    "needle": "ER",
+    "name": "ER",
     "size": 0.09,
     "data": [
       2.261,
@@ -9152,7 +9152,7 @@
     ]
   },
   {
-    "needle": "ES",
+    "name": "ES",
     "size": 0.09,
     "data": [
       2.261,
@@ -9174,7 +9174,7 @@
     ]
   },
   {
-    "needle": "ET",
+    "name": "ET",
     "size": 0.09,
     "data": [
       2.235,
@@ -9196,7 +9196,7 @@
     ]
   },
   {
-    "needle": "EU",
+    "name": "EU",
     "size": 0.09,
     "data": [
       2.261,
@@ -9218,7 +9218,7 @@
     ]
   },
   {
-    "needle": "EV",
+    "name": "EV",
     "size": 0.09,
     "data": [
       2.286,
@@ -9240,7 +9240,7 @@
     ]
   },
   {
-    "needle": "EW",
+    "name": "EW",
     "size": 0.09,
     "data": [
       2.261,
@@ -9262,7 +9262,7 @@
     ]
   },
   {
-    "needle": "EX",
+    "name": "EX",
     "size": 0.09,
     "data": [
       2.235,
@@ -9284,7 +9284,7 @@
     ]
   },
   {
-    "needle": "EX1",
+    "name": "EX1",
     "size": 0.09,
     "data": [
       2.235,
@@ -9306,7 +9306,7 @@
     ]
   },
   {
-    "needle": "EY",
+    "name": "EY",
     "size": 0.09,
     "data": [
       2.235,
@@ -9328,7 +9328,7 @@
     ]
   },
   {
-    "needle": "EZ",
+    "name": "EZ",
     "size": 0.09,
     "data": [
       2.235,
@@ -9350,7 +9350,7 @@
     ]
   },
   {
-    "needle": "FA",
+    "name": "FA",
     "size": 0.09,
     "data": [
       2.261,
@@ -9372,7 +9372,7 @@
     ]
   },
   {
-    "needle": "FB",
+    "name": "FB",
     "size": 0.09,
     "data": [
       2.261,
@@ -9394,7 +9394,7 @@
     ]
   },
   {
-    "needle": "FC",
+    "name": "FC",
     "size": 0.09,
     "data": [
       2.286,
@@ -9416,7 +9416,7 @@
     ]
   },
   {
-    "needle": "FD",
+    "name": "FD",
     "size": 0.09,
     "data": [
       2.235,
@@ -9438,7 +9438,7 @@
     ]
   },
   {
-    "needle": "FE",
+    "name": "FE",
     "size": 0.09,
     "data": [
       2.261,
@@ -9460,7 +9460,7 @@
     ]
   },
   {
-    "needle": "FF",
+    "name": "FF",
     "size": 0.09,
     "data": [
       2.261,
@@ -9482,7 +9482,7 @@
     ]
   },
   {
-    "needle": "FG",
+    "name": "FG",
     "size": 0.09,
     "data": [
       2.261,
@@ -9504,7 +9504,7 @@
     ]
   },
   {
-    "needle": "FH",
+    "name": "FH",
     "size": 0.09,
     "data": [
       2.261,
@@ -9526,7 +9526,7 @@
     ]
   },
   {
-    "needle": "FI",
+    "name": "FI",
     "size": 0.09,
     "data": [
       2.261,
@@ -9548,7 +9548,7 @@
     ]
   },
   {
-    "needle": "FJ",
+    "name": "FJ",
     "size": 0.09,
     "data": [
       2.286,
@@ -9570,7 +9570,7 @@
     ]
   },
   {
-    "needle": "FK",
+    "name": "FK",
     "size": 0.09,
     "data": [
       2.261,
@@ -9592,7 +9592,7 @@
     ]
   },
   {
-    "needle": "FL",
+    "name": "FL",
     "size": 0.09,
     "data": [
       2.261,
@@ -9614,7 +9614,7 @@
     ]
   },
   {
-    "needle": "FM",
+    "name": "FM",
     "size": 0.09,
     "data": [
       2.286,
@@ -9636,7 +9636,7 @@
     ]
   },
   {
-    "needle": "FN",
+    "name": "FN",
     "size": 0.09,
     "data": [
       2.261,
@@ -9658,7 +9658,7 @@
     ]
   },
   {
-    "needle": "FO",
+    "name": "FO",
     "size": 0.09,
     "data": [
       2.261,
@@ -9680,7 +9680,7 @@
     ]
   },
   {
-    "needle": "FP",
+    "name": "FP",
     "size": 0.09,
     "data": [
       2.281,
@@ -9702,7 +9702,7 @@
     ]
   },
   {
-    "needle": "FQ",
+    "name": "FQ",
     "size": 0.09,
     "data": [
       2.261,
@@ -9724,7 +9724,7 @@
     ]
   },
   {
-    "needle": "FR",
+    "name": "FR",
     "size": 0.09,
     "data": [
       2.261,
@@ -9746,7 +9746,7 @@
     ]
   },
   {
-    "needle": "FS",
+    "name": "FS",
     "size": 0.09,
     "data": [
       2.261,
@@ -9768,7 +9768,7 @@
     ]
   },
   {
-    "needle": "FT",
+    "name": "FT",
     "size": 0.09,
     "data": [
       2.261,
@@ -9790,7 +9790,7 @@
     ]
   },
   {
-    "needle": "FU",
+    "name": "FU",
     "size": 0.09,
     "data": [
       2.261,
@@ -9812,7 +9812,7 @@
     ]
   },
   {
-    "needle": "FV",
+    "name": "FV",
     "size": 0.09,
     "data": [
       2.261,
@@ -9834,7 +9834,7 @@
     ]
   },
   {
-    "needle": "FW",
+    "name": "FW",
     "size": 0.09,
     "data": [
       2.261,
@@ -9856,7 +9856,7 @@
     ]
   },
   {
-    "needle": "FX",
+    "name": "FX",
     "size": 0.09,
     "data": [
       2.261,
@@ -9878,7 +9878,7 @@
     ]
   },
   {
-    "needle": "FY",
+    "name": "FY",
     "size": 0.09,
     "data": [
       2.286,
@@ -9900,7 +9900,7 @@
     ]
   },
   {
-    "needle": "FZ",
+    "name": "FZ",
     "size": 0.09,
     "data": [
       2.261,
@@ -9922,7 +9922,7 @@
     ]
   },
   {
-    "needle": "G2",
+    "name": "G2",
     "size": 0.09,
     "data": [
       2.223,
@@ -9944,7 +9944,7 @@
     ]
   },
   {
-    "needle": "GA",
+    "name": "GA",
     "size": 0.09,
     "data": [
       2.261,
@@ -9966,7 +9966,7 @@
     ]
   },
   {
-    "needle": "GB",
+    "name": "GB",
     "size": 0.09,
     "data": [
       2.261,
@@ -9988,7 +9988,7 @@
     ]
   },
   {
-    "needle": "GC",
+    "name": "GC",
     "size": 0.09,
     "data": [
       2.261,
@@ -10010,7 +10010,7 @@
     ]
   },
   {
-    "needle": "GD",
+    "name": "GD",
     "size": 0.09,
     "data": [
       2.261,
@@ -10032,7 +10032,7 @@
     ]
   },
   {
-    "needle": "GE",
+    "name": "GE",
     "size": 0.09,
     "data": [
       2.261,
@@ -10054,7 +10054,7 @@
     ]
   },
   {
-    "needle": "GER",
+    "name": "GER",
     "size": 0.09,
     "data": [
       2.261,
@@ -10076,7 +10076,7 @@
     ]
   },
   {
-    "needle": "GF",
+    "name": "GF",
     "size": 0.09,
     "data": [
       2.261,
@@ -10098,7 +10098,7 @@
     ]
   },
   {
-    "needle": "GG",
+    "name": "GG",
     "size": 0.09,
     "data": [
       2.261,
@@ -10120,7 +10120,7 @@
     ]
   },
   {
-    "needle": "GH",
+    "name": "GH",
     "size": 0.09,
     "data": [
       2.261,
@@ -10142,7 +10142,7 @@
     ]
   },
   {
-    "needle": "GI",
+    "name": "GI",
     "size": 0.09,
     "data": [
       2.261,
@@ -10164,7 +10164,7 @@
     ]
   },
   {
-    "needle": "GJ",
+    "name": "GJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -10186,7 +10186,7 @@
     ]
   },
   {
-    "needle": "GK",
+    "name": "GK",
     "size": 0.1,
     "data": [
       2.54,
@@ -10208,7 +10208,7 @@
     ]
   },
   {
-    "needle": "GL",
+    "name": "GL",
     "size": 0.09,
     "data": [
       2.261,
@@ -10230,7 +10230,7 @@
     ]
   },
   {
-    "needle": "GM",
+    "name": "GM",
     "size": 0.09,
     "data": [
       2.261,
@@ -10252,7 +10252,7 @@
     ]
   },
   {
-    "needle": "GN",
+    "name": "GN",
     "size": 0.09,
     "data": [
       2.261,
@@ -10274,7 +10274,7 @@
     ]
   },
   {
-    "needle": "GO",
+    "name": "GO",
     "size": 0.09,
     "data": [
       2.261,
@@ -10296,7 +10296,7 @@
     ]
   },
   {
-    "needle": "GP",
+    "name": "GP",
     "size": 0.09,
     "data": [
       2.261,
@@ -10318,7 +10318,7 @@
     ]
   },
   {
-    "needle": "GR",
+    "name": "GR",
     "size": 0.09,
     "data": [
       2.261,
@@ -10340,7 +10340,7 @@
     ]
   },
   {
-    "needle": "GS",
+    "name": "GS",
     "size": 0.09,
     "data": [
       2.261,
@@ -10362,7 +10362,7 @@
     ]
   },
   {
-    "needle": "GT",
+    "name": "GT",
     "size": 0.09,
     "data": [
       2.261,
@@ -10384,7 +10384,7 @@
     ]
   },
   {
-    "needle": "GU",
+    "name": "GU",
     "size": 0.09,
     "data": [
       2.261,
@@ -10406,7 +10406,7 @@
     ]
   },
   {
-    "needle": "GV",
+    "name": "GV",
     "size": 0.09,
     "data": [
       2.261,
@@ -10428,7 +10428,7 @@
     ]
   },
   {
-    "needle": "GW",
+    "name": "GW",
     "size": 0.09,
     "data": [
       2.261,
@@ -10450,7 +10450,7 @@
     ]
   },
   {
-    "needle": "GX",
+    "name": "GX",
     "size": 0.09,
     "data": [
       2.261,
@@ -10472,7 +10472,7 @@
     ]
   },
   {
-    "needle": "GY",
+    "name": "GY",
     "size": 0.09,
     "data": [
       2.261,
@@ -10494,7 +10494,7 @@
     ]
   },
   {
-    "needle": "GZ",
+    "name": "GZ",
     "size": 0.09,
     "data": [
       2.261,
@@ -10516,7 +10516,7 @@
     ]
   },
   {
-    "needle": "H1",
+    "name": "H1",
     "size": 0.09,
     "data": [
       2.235,
@@ -10538,7 +10538,7 @@
     ]
   },
   {
-    "needle": "H2",
+    "name": "H2",
     "size": 0.09,
     "data": [
       2.235,
@@ -10560,7 +10560,7 @@
     ]
   },
   {
-    "needle": "H4",
+    "name": "H4",
     "size": 0.09,
     "data": [
       2.261,
@@ -10582,7 +10582,7 @@
     ]
   },
   {
-    "needle": "H6",
+    "name": "H6",
     "size": 0.09,
     "data": [
       2.261,
@@ -10604,7 +10604,7 @@
     ]
   },
   {
-    "needle": "HA",
+    "name": "HA",
     "size": 0.09,
     "data": [
       2.261,
@@ -10626,7 +10626,7 @@
     ]
   },
   {
-    "needle": "HB",
+    "name": "HB",
     "size": 0.09,
     "data": [
       2.261,
@@ -10648,7 +10648,7 @@
     ]
   },
   {
-    "needle": "HC",
+    "name": "HC",
     "size": 0.09,
     "data": [
       2.261,
@@ -10670,7 +10670,7 @@
     ]
   },
   {
-    "needle": "HD",
+    "name": "HD",
     "size": 0.09,
     "data": [
       2.261,
@@ -10692,7 +10692,7 @@
     ]
   },
   {
-    "needle": "HE",
+    "name": "HE",
     "size": 0.09,
     "data": [
       2.286,
@@ -10714,7 +10714,7 @@
     ]
   },
   {
-    "needle": "HF",
+    "name": "HF",
     "size": 0.09,
     "data": [
       2.286,
@@ -10736,7 +10736,7 @@
     ]
   },
   {
-    "needle": "HG",
+    "name": "HG",
     "size": 0.09,
     "data": [
       2.261,
@@ -10758,7 +10758,7 @@
     ]
   },
   {
-    "needle": "HV2",
+    "name": "HV2",
     "size": 0.09,
     "data": [
       2.261,
@@ -10780,7 +10780,7 @@
     ]
   },
   {
-    "needle": "HV3",
+    "name": "HV3",
     "size": 0.09,
     "data": [
       2.261,
@@ -10802,7 +10802,7 @@
     ]
   },
   {
-    "needle": "HV4",
+    "name": "HV4",
     "size": 0.09,
     "data": [
       2.261,
@@ -10824,7 +10824,7 @@
     ]
   },
   {
-    "needle": "JM",
+    "name": "JM",
     "size": 0.09,
     "data": [
       2.261,
@@ -10846,7 +10846,7 @@
     ]
   },
   {
-    "needle": "K",
+    "name": "K",
     "size": 0.1,
     "data": [
       2.54,
@@ -10868,7 +10868,7 @@
     ]
   },
   {
-    "needle": "KA",
+    "name": "KA",
     "size": 0.1,
     "data": [
       2.515,
@@ -10890,7 +10890,7 @@
     ]
   },
   {
-    "needle": "KB",
+    "name": "KB",
     "size": 0.1,
     "data": [
       2.515,
@@ -10912,7 +10912,7 @@
     ]
   },
   {
-    "needle": "KC",
+    "name": "KC",
     "size": 0.1,
     "data": [
       2.515,
@@ -10934,7 +10934,7 @@
     ]
   },
   {
-    "needle": "KD",
+    "name": "KD",
     "size": 0.1,
     "data": [
       2.515,
@@ -10956,7 +10956,7 @@
     ]
   },
   {
-    "needle": "KE",
+    "name": "KE",
     "size": 0.1,
     "data": [
       2.515,
@@ -10978,7 +10978,7 @@
     ]
   },
   {
-    "needle": "KF",
+    "name": "KF",
     "size": 0.1,
     "data": [
       2.515,
@@ -11000,7 +11000,7 @@
     ]
   },
   {
-    "needle": "KG",
+    "name": "KG",
     "size": 0.1,
     "data": [
       2.515,
@@ -11022,7 +11022,7 @@
     ]
   },
   {
-    "needle": "KH",
+    "name": "KH",
     "size": 0.1,
     "data": [
       2.515,
@@ -11044,7 +11044,7 @@
     ]
   },
   {
-    "needle": "KI",
+    "name": "KI",
     "size": 0.1,
     "data": [
       2.489,
@@ -11066,7 +11066,7 @@
     ]
   },
   {
-    "needle": "KK",
+    "name": "KK",
     "size": 0.1,
     "data": [
       2.515,
@@ -11088,7 +11088,7 @@
     ]
   },
   {
-    "needle": "KL",
+    "name": "KL",
     "size": 0.1,
     "data": [
       2.515,
@@ -11110,7 +11110,7 @@
     ]
   },
   {
-    "needle": "KM",
+    "name": "KM",
     "size": 0.1,
     "data": [
       2.515,
@@ -11132,7 +11132,7 @@
     ]
   },
   {
-    "needle": "KN",
+    "name": "KN",
     "size": 0.1,
     "data": [
       2.515,
@@ -11154,7 +11154,7 @@
     ]
   },
   {
-    "needle": "KO",
+    "name": "KO",
     "size": 0.1,
     "data": [
       2.515,
@@ -11176,7 +11176,7 @@
     ]
   },
   {
-    "needle": "KP",
+    "name": "KP",
     "size": 0.1,
     "data": [
       2.515,
@@ -11198,7 +11198,7 @@
     ]
   },
   {
-    "needle": "KQ",
+    "name": "KQ",
     "size": 0.1,
     "data": [
       2.515,
@@ -11220,7 +11220,7 @@
     ]
   },
   {
-    "needle": "KR",
+    "name": "KR",
     "size": 0.1,
     "data": [
       2.515,
@@ -11242,7 +11242,7 @@
     ]
   },
   {
-    "needle": "KS",
+    "name": "KS",
     "size": 0.1,
     "data": [
       2.515,
@@ -11264,7 +11264,7 @@
     ]
   },
   {
-    "needle": "KT",
+    "name": "KT",
     "size": 0.1,
     "data": [
       2.54,
@@ -11286,7 +11286,7 @@
     ]
   },
   {
-    "needle": "KTA",
+    "name": "KTA",
     "size": 0.1,
     "data": [
       2.54,
@@ -11308,7 +11308,7 @@
     ]
   },
   {
-    "needle": "KU",
+    "name": "KU",
     "size": 0.1,
     "data": [
       2.515,
@@ -11330,7 +11330,7 @@
     ]
   },
   {
-    "needle": "KV",
+    "name": "KV",
     "size": 0.1,
     "data": [
       2.515,
@@ -11352,7 +11352,7 @@
     ]
   },
   {
-    "needle": "KW",
+    "name": "KW",
     "size": 0.1,
     "data": [
       2.54,
@@ -11374,7 +11374,7 @@
     ]
   },
   {
-    "needle": "KW1",
+    "name": "KW1",
     "size": 0.1,
     "data": [
       2.54,
@@ -11396,7 +11396,7 @@
     ]
   },
   {
-    "needle": "KW2",
+    "name": "KW2",
     "size": 0.1,
     "data": [
       2.54,
@@ -11418,7 +11418,7 @@
     ]
   },
   {
-    "needle": "KWR",
+    "name": "KWR",
     "size": 0.1,
     "data": [
       2.54,
@@ -11440,7 +11440,7 @@
     ]
   },
   {
-    "needle": "L",
+    "name": "L",
     "size": 0.09,
     "data": [
       2.261,
@@ -11462,7 +11462,7 @@
     ]
   },
   {
-    "needle": "L11",
+    "name": "L11",
     "size": 0.09,
     "data": [
       2.261,
@@ -11484,7 +11484,7 @@
     ]
   },
   {
-    "needle": "L12",
+    "name": "L12",
     "size": 0.09,
     "data": [
       2.261,
@@ -11506,7 +11506,7 @@
     ]
   },
   {
-    "needle": "LB1",
+    "name": "LB1",
     "size": 0.1,
     "data": [
       2.54,
@@ -11528,7 +11528,7 @@
     ]
   },
   {
-    "needle": "LB2",
+    "name": "LB2",
     "size": 0.1,
     "data": [
       2.54,
@@ -11550,7 +11550,7 @@
     ]
   },
   {
-    "needle": "LBA",
+    "name": "LBA",
     "size": 0.1,
     "data": [
       2.54,
@@ -11572,7 +11572,7 @@
     ]
   },
   {
-    "needle": "LFN",
+    "name": "LFN",
     "size": 0.1,
     "data": [
       2.515,
@@ -11594,7 +11594,7 @@
     ]
   },
   {
-    "needle": "LS",
+    "name": "LS",
     "size": 0.09,
     "data": [
       2.235,
@@ -11616,7 +11616,7 @@
     ]
   },
   {
-    "needle": "LS1",
+    "name": "LS1",
     "size": 0.09,
     "data": [
       2.235,
@@ -11638,7 +11638,7 @@
     ]
   },
   {
-    "needle": "M",
+    "name": "M",
     "size": 0.09,
     "data": [
       2.261,
@@ -11660,7 +11660,7 @@
     ]
   },
   {
-    "needle": "M1",
+    "name": "M1",
     "size": 0.09,
     "data": [
       2.261,
@@ -11682,7 +11682,7 @@
     ]
   },
   {
-    "needle": "M2",
+    "name": "M2",
     "size": 0.09,
     "data": [
       2.261,
@@ -11704,7 +11704,7 @@
     ]
   },
   {
-    "needle": "M5",
+    "name": "M5",
     "size": 0.09,
     "data": [
       2.261,
@@ -11726,7 +11726,7 @@
     ]
   },
   {
-    "needle": "M6",
+    "name": "M6",
     "size": 0.09,
     "data": [
       2.261,
@@ -11748,7 +11748,7 @@
     ]
   },
   {
-    "needle": "M7",
+    "name": "M7",
     "size": 0.09,
     "data": [
       2.261,
@@ -11770,7 +11770,7 @@
     ]
   },
   {
-    "needle": "M8",
+    "name": "M8",
     "size": 0.09,
     "data": [
       2.261,
@@ -11792,7 +11792,7 @@
     ]
   },
   {
-    "needle": "M9",
+    "name": "M9",
     "size": 0.09,
     "data": [
       2.261,
@@ -11814,7 +11814,7 @@
     ]
   },
   {
-    "needle": "MA",
+    "name": "MA",
     "size": 0.09,
     "data": [
       2.261,
@@ -11836,7 +11836,7 @@
     ]
   },
   {
-    "needle": "MB",
+    "name": "MB",
     "size": 0.09,
     "data": [
       2.261,
@@ -11858,7 +11858,7 @@
     ]
   },
   {
-    "needle": "MC",
+    "name": "MC",
     "size": 0.1,
     "data": [
       2.54,
@@ -11880,7 +11880,7 @@
     ]
   },
   {
-    "needle": "MME",
+    "name": "MME",
     "size": 0.09,
     "data": [
       2.261,
@@ -11902,7 +11902,7 @@
     ]
   },
   {
-    "needle": "MO",
+    "name": "MO",
     "size": 0.09,
     "data": [
       2.261,
@@ -11924,7 +11924,7 @@
     ]
   },
   {
-    "needle": "MOW",
+    "name": "MOW",
     "size": 0.09,
     "data": [
       2.261,
@@ -11946,7 +11946,7 @@
     ]
   },
   {
-    "needle": "MW",
+    "name": "MW",
     "size": 0.09,
     "data": [
       2.261,
@@ -11968,7 +11968,7 @@
     ]
   },
   {
-    "needle": "O7",
+    "name": "O7",
     "size": 0.09,
     "data": [
       2.261,
@@ -11990,7 +11990,7 @@
     ]
   },
   {
-    "needle": "OA6",
+    "name": "OA6",
     "size": 0.1,
     "data": [
       2.54,
@@ -12012,7 +12012,7 @@
     ]
   },
   {
-    "needle": "OA7",
+    "name": "OA7",
     "size": 0.1,
     "data": [
       2.54,
@@ -12034,7 +12034,7 @@
     ]
   },
   {
-    "needle": "OA8",
+    "name": "OA8",
     "size": 0.1,
     "data": [
       2.54,
@@ -12056,7 +12056,7 @@
     ]
   },
   {
-    "needle": "P4",
+    "name": "P4",
     "size": 0.09,
     "data": [
       2.235,
@@ -12078,7 +12078,7 @@
     ]
   },
   {
-    "needle": "P6",
+    "name": "P6",
     "size": 0.09,
     "data": [
       2.235,
@@ -12100,7 +12100,7 @@
     ]
   },
   {
-    "needle": "P61",
+    "name": "P61",
     "size": 0.09,
     "data": [
       2.235,
@@ -12122,7 +12122,7 @@
     ]
   },
   {
-    "needle": "PJ",
+    "name": "PJ",
     "size": 0.09,
     "data": [
       2.261,
@@ -12144,7 +12144,7 @@
     ]
   },
   {
-    "needle": "QA",
+    "name": "QA",
     "size": 0.09,
     "data": [
       2.261,
@@ -12166,7 +12166,7 @@
     ]
   },
   {
-    "needle": "QW",
+    "name": "QW",
     "size": 0.09,
     "data": [
       2.261,
@@ -12188,7 +12188,7 @@
     ]
   },
   {
-    "needle": "R3",
+    "name": "R3",
     "size": 0.09,
     "data": [
       2.261,
@@ -12210,7 +12210,7 @@
     ]
   },
   {
-    "needle": "R32",
+    "name": "R32",
     "size": 0.09,
     "data": [
       2.235,
@@ -12232,7 +12232,7 @@
     ]
   },
   {
-    "needle": "R6",
+    "name": "R6",
     "size": 0.09,
     "data": [
       2.261,
@@ -12254,7 +12254,7 @@
     ]
   },
   {
-    "needle": "RA",
+    "name": "RA",
     "size": 0.1,
     "data": [
       2.54,
@@ -12276,7 +12276,7 @@
     ]
   },
   {
-    "needle": "RB",
+    "name": "RB",
     "size": 0.1,
     "data": [
       2.515,
@@ -12298,7 +12298,7 @@
     ]
   },
   {
-    "needle": "RC",
+    "name": "RC",
     "size": 0.1,
     "data": [
       2.515,
@@ -12320,7 +12320,7 @@
     ]
   },
   {
-    "needle": "RD",
+    "name": "RD",
     "size": 0.1,
     "data": [
       2.515,
@@ -12342,7 +12342,7 @@
     ]
   },
   {
-    "needle": "RE",
+    "name": "RE",
     "size": 0.1,
     "data": [
       2.515,
@@ -12364,7 +12364,7 @@
     ]
   },
   {
-    "needle": "RF",
+    "name": "RF",
     "size": 0.1,
     "data": [
       2.54,
@@ -12386,7 +12386,7 @@
     ]
   },
   {
-    "needle": "RG",
+    "name": "RG",
     "size": 0.1,
     "data": [
       2.54,
@@ -12408,7 +12408,7 @@
     ]
   },
   {
-    "needle": "RH",
+    "name": "RH",
     "size": 0.1,
     "data": [
       2.54,
@@ -12430,7 +12430,7 @@
     ]
   },
   {
-    "needle": "RI",
+    "name": "RI",
     "size": 0.1,
     "data": [
       2.515,
@@ -12452,7 +12452,7 @@
     ]
   },
   {
-    "needle": "RJ",
+    "name": "RJ",
     "size": 0.1,
     "data": [
       2.54,
@@ -12474,7 +12474,7 @@
     ]
   },
   {
-    "needle": "RK",
+    "name": "RK",
     "size": 0.1,
     "data": [
       2.54,
@@ -12496,7 +12496,7 @@
     ]
   },
   {
-    "needle": "RL",
+    "name": "RL",
     "size": 0.1,
     "data": [
       2.54,
@@ -12518,7 +12518,7 @@
     ]
   },
   {
-    "needle": "RLB",
+    "name": "RLB",
     "size": 0.09,
     "data": [
       2.261,
@@ -12540,7 +12540,7 @@
     ]
   },
   {
-    "needle": "RLS",
+    "name": "RLS",
     "size": 0.09,
     "data": [
       2.261,
@@ -12562,7 +12562,7 @@
     ]
   },
   {
-    "needle": "RN",
+    "name": "RN",
     "size": 0.1,
     "data": [
       2.515,
@@ -12584,7 +12584,7 @@
     ]
   },
   {
-    "needle": "RO",
+    "name": "RO",
     "size": 0.09,
     "data": [
       2.261,
@@ -12606,7 +12606,7 @@
     ]
   },
   {
-    "needle": "RP",
+    "name": "RP",
     "size": 0.1,
     "data": [
       2.515,
@@ -12628,7 +12628,7 @@
     ]
   },
   {
-    "needle": "RR",
+    "name": "RR",
     "size": 0.1,
     "data": [
       2.515,
@@ -12650,7 +12650,7 @@
     ]
   },
   {
-    "needle": "RS",
+    "name": "RS",
     "size": 0.09,
     "data": [
       2.261,
@@ -12672,7 +12672,7 @@
     ]
   },
   {
-    "needle": "RU",
+    "name": "RU",
     "size": 0.1,
     "data": [
       2.54,
@@ -12694,7 +12694,7 @@
     ]
   },
   {
-    "needle": "RV",
+    "name": "RV",
     "size": 0.1,
     "data": [
       2.54,
@@ -12716,7 +12716,7 @@
     ]
   },
   {
-    "needle": "S",
+    "name": "S",
     "size": 0.09,
     "data": [
       2.261,
@@ -12738,7 +12738,7 @@
     ]
   },
   {
-    "needle": "S4",
+    "name": "S4",
     "size": 0.09,
     "data": [
       2.273,
@@ -12760,7 +12760,7 @@
     ]
   },
   {
-    "needle": "S5",
+    "name": "S5",
     "size": 0.09,
     "data": [
       2.273,
@@ -12782,7 +12782,7 @@
     ]
   },
   {
-    "needle": "S6",
+    "name": "S6",
     "size": 0.09,
     "data": [
       2.261,
@@ -12804,7 +12804,7 @@
     ]
   },
   {
-    "needle": "SA",
+    "name": "SA",
     "size": 0.1,
     "data": [
       2.515,
@@ -12826,7 +12826,7 @@
     ]
   },
   {
-    "needle": "SB",
+    "name": "SB",
     "size": 0.1,
     "data": [
       2.515,
@@ -12848,7 +12848,7 @@
     ]
   },
   {
-    "needle": "SC",
+    "name": "SC",
     "size": 0.1,
     "data": [
       2.54,
@@ -12870,7 +12870,7 @@
     ]
   },
   {
-    "needle": "SD",
+    "name": "SD",
     "size": 0.1,
     "data": [
       2.54,
@@ -12892,7 +12892,7 @@
     ]
   },
   {
-    "needle": "SE",
+    "name": "SE",
     "size": 0.1,
     "data": [
       2.54,
@@ -12914,7 +12914,7 @@
     ]
   },
   {
-    "needle": "SF",
+    "name": "SF",
     "size": 0.1,
     "data": [
       2.54,
@@ -12936,7 +12936,7 @@
     ]
   },
   {
-    "needle": "SG",
+    "name": "SG",
     "size": 0.1,
     "data": [
       2.54,
@@ -12958,7 +12958,7 @@
     ]
   },
   {
-    "needle": "SH",
+    "name": "SH",
     "size": 0.1,
     "data": [
       2.515,
@@ -12980,7 +12980,7 @@
     ]
   },
   {
-    "needle": "SJ",
+    "name": "SJ",
     "size": 0.1,
     "data": [
       2.515,
@@ -13002,7 +13002,7 @@
     ]
   },
   {
-    "needle": "SK",
+    "name": "SK",
     "size": 0.1,
     "data": [
       2.515,
@@ -13024,7 +13024,7 @@
     ]
   },
   {
-    "needle": "SL",
+    "name": "SL",
     "size": 0.1,
     "data": [
       2.515,
@@ -13046,7 +13046,7 @@
     ]
   },
   {
-    "needle": "SM",
+    "name": "SM",
     "size": 0.1,
     "data": [
       2.515,
@@ -13068,7 +13068,7 @@
     ]
   },
   {
-    "needle": "SN",
+    "name": "SN",
     "size": 0.1,
     "data": [
       2.515,
@@ -13090,7 +13090,7 @@
     ]
   },
   {
-    "needle": "SO",
+    "name": "SO",
     "size": 0.1,
     "data": [
       2.54,
@@ -13112,7 +13112,7 @@
     ]
   },
   {
-    "needle": "SP",
+    "name": "SP",
     "size": 0.1,
     "data": [
       2.515,
@@ -13134,7 +13134,7 @@
     ]
   },
   {
-    "needle": "SQ",
+    "name": "SQ",
     "size": 0.1,
     "data": [
       2.54,
@@ -13156,7 +13156,7 @@
     ]
   },
   {
-    "needle": "SR",
+    "name": "SR",
     "size": 0.1,
     "data": [
       2.515,
@@ -13178,7 +13178,7 @@
     ]
   },
   {
-    "needle": "SS",
+    "name": "SS",
     "size": 0.1,
     "data": [
       2.515,
@@ -13200,7 +13200,7 @@
     ]
   },
   {
-    "needle": "ST",
+    "name": "ST",
     "size": 0.1,
     "data": [
       2.515,
@@ -13222,7 +13222,7 @@
     ]
   },
   {
-    "needle": "SU",
+    "name": "SU",
     "size": 0.1,
     "data": [
       2.515,
@@ -13244,7 +13244,7 @@
     ]
   },
   {
-    "needle": "SV",
+    "name": "SV",
     "size": 0.1,
     "data": [
       2.515,
@@ -13266,7 +13266,7 @@
     ]
   },
   {
-    "needle": "SW",
+    "name": "SW",
     "size": 0.1,
     "data": [
       2.515,
@@ -13288,7 +13288,7 @@
     ]
   },
   {
-    "needle": "SX",
+    "name": "SX",
     "size": 0.1,
     "data": [
       2.515,
@@ -13310,7 +13310,7 @@
     ]
   },
   {
-    "needle": "SY",
+    "name": "SY",
     "size": 0.1,
     "data": [
       2.515,
@@ -13332,7 +13332,7 @@
     ]
   },
   {
-    "needle": "SZ",
+    "name": "SZ",
     "size": 0.1,
     "data": [
       2.515,
@@ -13354,7 +13354,7 @@
     ]
   },
   {
-    "needle": "TA",
+    "name": "TA",
     "size": 0.1,
     "data": [
       2.515,
@@ -13376,7 +13376,7 @@
     ]
   },
   {
-    "needle": "TB",
+    "name": "TB",
     "size": 0.09,
     "data": [
       2.261,
@@ -13398,7 +13398,7 @@
     ]
   },
   {
-    "needle": "TC",
+    "name": "TC",
     "size": 0.1,
     "data": [
       2.515,
@@ -13420,7 +13420,7 @@
     ]
   },
   {
-    "needle": "TD",
+    "name": "TD",
     "size": 0.1,
     "data": [
       2.515,
@@ -13442,7 +13442,7 @@
     ]
   },
   {
-    "needle": "TE",
+    "name": "TE",
     "size": 0.1,
     "data": [
       2.515,
@@ -13464,7 +13464,7 @@
     ]
   },
   {
-    "needle": "TF",
+    "name": "TF",
     "size": 0.1,
     "data": [
       2.515,
@@ -13486,7 +13486,7 @@
     ]
   },
   {
-    "needle": "TG",
+    "name": "TG",
     "size": 0.1,
     "data": [
       2.515,
@@ -13508,7 +13508,7 @@
     ]
   },
   {
-    "needle": "TH",
+    "name": "TH",
     "size": 0.1,
     "data": [
       2.438,
@@ -13530,7 +13530,7 @@
     ]
   },
   {
-    "needle": "TJ",
+    "name": "TJ",
     "size": 0.1,
     "data": [
       2.515,
@@ -13552,7 +13552,7 @@
     ]
   },
   {
-    "needle": "TK",
+    "name": "TK",
     "size": 0.1,
     "data": [
       2.515,
@@ -13574,7 +13574,7 @@
     ]
   },
   {
-    "needle": "TL",
+    "name": "TL",
     "size": 0.1,
     "data": [
       2.515,
@@ -13596,7 +13596,7 @@
     ]
   },
   {
-    "needle": "TM",
+    "name": "TM",
     "size": 0.1,
     "data": [
       2.515,
@@ -13618,7 +13618,7 @@
     ]
   },
   {
-    "needle": "TN",
+    "name": "TN",
     "size": 0.1,
     "data": [
       2.515,
@@ -13640,7 +13640,7 @@
     ]
   },
   {
-    "needle": "TO",
+    "name": "TO",
     "size": 0.1,
     "data": [
       2.515,
@@ -13662,7 +13662,7 @@
     ]
   },
   {
-    "needle": "TP",
+    "name": "TP",
     "size": 0.1,
     "data": [
       2.515,
@@ -13684,7 +13684,7 @@
     ]
   },
   {
-    "needle": "TR",
+    "name": "TR",
     "size": 0.1,
     "data": [
       2.515,
@@ -13706,7 +13706,7 @@
     ]
   },
   {
-    "needle": "TS",
+    "name": "TS",
     "size": 0.1,
     "data": [
       2.515,
@@ -13728,7 +13728,7 @@
     ]
   },
   {
-    "needle": "TT",
+    "name": "TT",
     "size": 0.1,
     "data": [
       2.512,
@@ -13750,7 +13750,7 @@
     ]
   },
   {
-    "needle": "TU",
+    "name": "TU",
     "size": 0.1,
     "data": [
       2.515,
@@ -13772,7 +13772,7 @@
     ]
   },
   {
-    "needle": "TV",
+    "name": "TV",
     "size": 0.1,
     "data": [
       2.515,
@@ -13794,7 +13794,7 @@
     ]
   },
   {
-    "needle": "TW",
+    "name": "TW",
     "size": 0.1,
     "data": [
       2.515,
@@ -13816,7 +13816,7 @@
     ]
   },
   {
-    "needle": "TX",
+    "name": "TX",
     "size": 0.1,
     "data": [
       2.515,
@@ -13838,7 +13838,7 @@
     ]
   },
   {
-    "needle": "TY",
+    "name": "TY",
     "size": 0.1,
     "data": [
       2.515,
@@ -13860,7 +13860,7 @@
     ]
   },
   {
-    "needle": "TZ",
+    "name": "TZ",
     "size": 0.1,
     "data": [
       2.515,
@@ -13882,7 +13882,7 @@
     ]
   },
   {
-    "needle": "V2",
+    "name": "V2",
     "size": 0.09,
     "data": [
       2.261,
@@ -13904,7 +13904,7 @@
     ]
   },
   {
-    "needle": "V3",
+    "name": "V3",
     "size": 0.09,
     "data": [
       2.261,
@@ -13926,7 +13926,7 @@
     ]
   },
   {
-    "needle": "VS",
+    "name": "VS",
     "size": 0.09,
     "data": [
       2.261,
@@ -13948,7 +13948,7 @@
     ]
   },
   {
-    "needle": "W3",
+    "name": "W3",
     "size": 0.09,
     "data": [
       2.235,
@@ -13970,7 +13970,7 @@
     ]
   },
   {
-    "needle": "WO2",
+    "name": "WO2",
     "size": 0.1,
     "data": [
       2.54,
@@ -13992,7 +13992,7 @@
     ]
   },
   {
-    "needle": "WO3",
+    "name": "WO3",
     "size": 0.1,
     "data": [
       2.54,
@@ -14014,7 +14014,7 @@
     ]
   },
   {
-    "needle": "WO4",
+    "name": "WO4",
     "size": 0.1,
     "data": [
       2.54,
@@ -14036,7 +14036,7 @@
     ]
   },
   {
-    "needle": "WX",
+    "name": "WX",
     "size": 0.09,
     "data": [
       2.261,
@@ -14058,7 +14058,7 @@
     ]
   },
   {
-    "needle": "WX1",
+    "name": "WX1",
     "size": 0.09,
     "data": [
       2.261,
@@ -14080,7 +14080,7 @@
     ]
   },
   {
-    "needle": "ZA",
+    "name": "ZA",
     "size": 0.1,
     "data": [
       2.515,
@@ -14102,7 +14102,7 @@
     ]
   },
   {
-    "needle": "ZB",
+    "name": "ZB",
     "size": 0.1,
     "data": [
       2.515,
@@ -14124,7 +14124,7 @@
     ]
   },
   {
-    "needle": "ZC",
+    "name": "ZC",
     "size": 0.1,
     "data": [
       2.515,
@@ -14146,7 +14146,7 @@
     ]
   },
   {
-    "needle": "ZD",
+    "name": "ZD",
     "size": 0.1,
     "data": [
       2.515,
@@ -14168,7 +14168,7 @@
     ]
   },
   {
-    "needle": "ZE",
+    "name": "ZE",
     "size": 0.1,
     "data": [
       2.515,
@@ -14190,7 +14190,7 @@
     ]
   },
   {
-    "needle": "ZF",
+    "name": "ZF",
     "size": 0.1,
     "data": [
       2.515,
@@ -14212,7 +14212,7 @@
     ]
   },
   {
-    "needle": "ZG",
+    "name": "ZG",
     "size": 0.1,
     "data": [
       2.515,
@@ -14234,7 +14234,7 @@
     ]
   },
   {
-    "needle": "ZH",
+    "name": "ZH",
     "size": 0.1,
     "data": [
       2.515,
@@ -14256,7 +14256,7 @@
     ]
   },
   {
-    "needle": "NA",
+    "name": "NA",
     "size": 0.125,
     "data": [
       3.15,
@@ -14278,7 +14278,7 @@
     ]
   },
   {
-    "needle": "UA",
+    "name": "UA",
     "size": 0.125,
     "data": [
       3.15,
@@ -14300,7 +14300,7 @@
     ]
   },
   {
-    "needle": "UB",
+    "name": "UB",
     "size": 0.125,
     "data": [
       3.15,
@@ -14322,7 +14322,7 @@
     ]
   },
   {
-    "needle": "UC",
+    "name": "UC",
     "size": 0.125,
     "data": [
       3.15,
@@ -14344,7 +14344,7 @@
     ]
   },
   {
-    "needle": "UD",
+    "name": "UD",
     "size": 0.125,
     "data": [
       3.15,
@@ -14366,7 +14366,7 @@
     ]
   },
   {
-    "needle": "UE",
+    "name": "UE",
     "size": 0.125,
     "data": [
       3.15,
@@ -14388,7 +14388,7 @@
     ]
   },
   {
-    "needle": "UF",
+    "name": "UF",
     "size": 0.125,
     "data": [
       3.15,
@@ -14410,7 +14410,7 @@
     ]
   },
   {
-    "needle": "UG",
+    "name": "UG",
     "size": 0.125,
     "data": [
       3.15,
@@ -14432,7 +14432,7 @@
     ]
   },
   {
-    "needle": "UH",
+    "name": "UH",
     "size": 0.125,
     "data": [
       3.15,
@@ -14454,7 +14454,7 @@
     ]
   },
   {
-    "needle": "UI",
+    "name": "UI",
     "size": 0.125,
     "data": [
       3.15,
@@ -14476,7 +14476,7 @@
     ]
   },
   {
-    "needle": "UJ",
+    "name": "UJ",
     "size": 0.125,
     "data": [
       3.15,
@@ -14498,7 +14498,7 @@
     ]
   },
   {
-    "needle": "UK",
+    "name": "UK",
     "size": 0.125,
     "data": [
       3.15,
@@ -14520,7 +14520,7 @@
     ]
   },
   {
-    "needle": "UL",
+    "name": "UL",
     "size": 0.125,
     "data": [
       3.15,
@@ -14542,7 +14542,7 @@
     ]
   },
   {
-    "needle": "UM",
+    "name": "UM",
     "size": 0.125,
     "data": [
       3.15,
@@ -14564,7 +14564,7 @@
     ]
   },
   {
-    "needle": "UN",
+    "name": "UN",
     "size": 0.125,
     "data": [
       3.15,
@@ -14586,7 +14586,7 @@
     ]
   },
   {
-    "needle": "UO",
+    "name": "UO",
     "size": 0.125,
     "data": [
       3.15,
@@ -14608,7 +14608,7 @@
     ]
   },
   {
-    "needle": "UP",
+    "name": "UP",
     "size": 0.125,
     "data": [
       3.15,
@@ -14630,7 +14630,7 @@
     ]
   },
   {
-    "needle": "UR",
+    "name": "UR",
     "size": 0.125,
     "data": [
       3.15,
@@ -14652,7 +14652,7 @@
     ]
   },
   {
-    "needle": "US",
+    "name": "US",
     "size": 0.125,
     "data": [
       3.15,
@@ -14674,7 +14674,7 @@
     ]
   },
   {
-    "needle": "UT",
+    "name": "UT",
     "size": 0.125,
     "data": [
       3.15,
@@ -14696,7 +14696,7 @@
     ]
   },
   {
-    "needle": "UU",
+    "name": "UU",
     "size": 0.125,
     "data": [
       3.15,
@@ -14718,7 +14718,7 @@
     ]
   },
   {
-    "needle": "UV",
+    "name": "UV",
     "size": 0.125,
     "data": [
       3.15,
@@ -14740,7 +14740,7 @@
     ]
   },
   {
-    "needle": "UW",
+    "name": "UW",
     "size": 0.125,
     "data": [
       3.15,
@@ -14762,7 +14762,7 @@
     ]
   },
   {
-    "needle": "UX",
+    "name": "UX",
     "size": 0.125,
     "data": [
       3.15,
@@ -14784,7 +14784,7 @@
     ]
   },
   {
-    "needle": "UY",
+    "name": "UY",
     "size": 0.125,
     "data": [
       3.15,
@@ -14806,7 +14806,7 @@
     ]
   },
   {
-    "needle": "UZ",
+    "name": "UZ",
     "size": 0.125,
     "data": [
       3.15,
@@ -14828,7 +14828,7 @@
     ]
   },
   {
-    "needle": "UVA",
+    "name": "UVA",
     "size": 0.125,
     "data": [
       3.15,
@@ -14850,7 +14850,7 @@
     ]
   },
   {
-    "needle": "UVB",
+    "name": "UVB",
     "size": 0.125,
     "data": [
       3.15,
@@ -14872,7 +14872,7 @@
     ]
   },
   {
-    "needle": "UVC",
+    "name": "UVC",
     "size": 0.125,
     "data": [
       3.15,
@@ -14894,7 +14894,7 @@
     ]
   },
   {
-    "needle": "UVD",
+    "name": "UVD",
     "size": 0.125,
     "data": [
       3.15,
@@ -14916,7 +14916,7 @@
     ]
   },
   {
-    "needle": "UVE",
+    "name": "UVE",
     "size": 0.125,
     "data": [
       3.15,
@@ -14938,7 +14938,7 @@
     ]
   },
   {
-    "needle": "UVF",
+    "name": "UVF",
     "size": 0.125,
     "data": [
       3.15,
@@ -14960,7 +14960,7 @@
     ]
   },
   {
-    "needle": "UVG",
+    "name": "UVG",
     "size": 0.125,
     "data": [
       3.15,
@@ -14982,7 +14982,7 @@
     ]
   },
   {
-    "needle": "UVH",
+    "name": "UVH",
     "size": 0.125,
     "data": [
       3.15,
@@ -15004,7 +15004,7 @@
     ]
   },
   {
-    "needle": "UVI",
+    "name": "UVI",
     "size": 0.125,
     "data": [
       3.15,
@@ -15026,7 +15026,7 @@
     ]
   },
   {
-    "needle": "UVJ",
+    "name": "UVJ",
     "size": 0.125,
     "data": [
       3.15,
@@ -15048,7 +15048,7 @@
     ]
   },
   {
-    "needle": "UVK",
+    "name": "UVK",
     "size": 0.125,
     "data": [
       3.15,
@@ -15070,7 +15070,7 @@
     ]
   },
   {
-    "needle": "UVL",
+    "name": "UVL",
     "size": 0.125,
     "data": [
       3.15,
@@ -15092,7 +15092,7 @@
     ]
   },
   {
-    "needle": "UVM",
+    "name": "UVM",
     "size": 0.125,
     "data": [
       3.15,
@@ -15114,7 +15114,7 @@
     ]
   },
   {
-    "needle": "UVN",
+    "name": "UVN",
     "size": 0.125,
     "data": [
       3.15,
@@ -15136,7 +15136,7 @@
     ]
   },
   {
-    "needle": "UVO",
+    "name": "UVO",
     "size": 0.125,
     "data": [
       3.15,
@@ -15158,7 +15158,7 @@
     ]
   },
   {
-    "needle": "UVP",
+    "name": "UVP",
     "size": 0.125,
     "data": [
       3.15,
@@ -15180,7 +15180,7 @@
     ]
   },
   {
-    "needle": "UVR",
+    "name": "UVR",
     "size": 0.125,
     "data": [
       3.15,
@@ -15202,7 +15202,7 @@
     ]
   },
   {
-    "needle": "UVT",
+    "name": "UVT",
     "size": 0.125,
     "data": [
       3.175,
@@ -15224,7 +15224,7 @@
     ]
   },
   {
-    "needle": "UVU",
+    "name": "UVU",
     "size": 0.125,
     "data": [
       3.15,
@@ -15246,7 +15246,7 @@
     ]
   },
   {
-    "needle": "UVV",
+    "name": "UVV",
     "size": 0.125,
     "data": [
       3.15,
@@ -15268,7 +15268,7 @@
     ]
   },
   {
-    "needle": "UVW",
+    "name": "UVW",
     "size": 0.125,
     "data": [
       3.15,
@@ -15290,7 +15290,7 @@
     ]
   },
   {
-    "needle": "UVX",
+    "name": "UVX",
     "size": 0.125,
     "data": [
       3.15,
@@ -15312,7 +15312,7 @@
     ]
   },
   {
-    "needle": "U25",
+    "name": "U25",
     "size": 0.125,
     "data": [
       3.15,
@@ -15334,7 +15334,7 @@
     ]
   },
   {
-    "needle": "U35",
+    "name": "U35",
     "size": 0.125,
     "data": [
       3.15,
@@ -15356,7 +15356,7 @@
     ]
   },
   {
-    "needle": "U45",
+    "name": "U45",
     "size": 0.125,
     "data": [
       3.15,
@@ -15378,7 +15378,7 @@
     ]
   },
   {
-    "needle": "U50",
+    "name": "U50",
     "size": 0.125,
     "data": [
       3.15,
@@ -15400,7 +15400,7 @@
     ]
   },
   {
-    "needle": "U59",
+    "name": "U59",
     "size": 0.125,
     "data": [
       3.15,
@@ -15422,7 +15422,7 @@
     ]
   },
   {
-    "needle": "U60",
+    "name": "U60",
     "size": 0.125,
     "data": [
       3.15,
@@ -15444,7 +15444,7 @@
     ]
   },
   {
-    "needle": "U70",
+    "name": "U70",
     "size": 0.125,
     "data": [
       3.175,
@@ -15466,7 +15466,7 @@
     ]
   },
   {
-    "needle": "U74",
+    "name": "U74",
     "size": 0.125,
     "data": [
       3.15,
@@ -15488,7 +15488,7 @@
     ]
   },
   {
-    "needle": "U75",
+    "name": "U75",
     "size": 0.125,
     "data": [
       3.175,
@@ -15510,7 +15510,7 @@
     ]
   },
   {
-    "needle": "U76",
+    "name": "U76",
     "size": 0.125,
     "data": [
       3.15,
@@ -15532,7 +15532,7 @@
     ]
   },
   {
-    "needle": "U78",
+    "name": "U78",
     "size": 0.125,
     "data": [
       3.15,
@@ -15554,7 +15554,7 @@
     ]
   },
   {
-    "needle": "U79",
+    "name": "U79",
     "size": 0.125,
     "data": [
       3.15,
@@ -15576,7 +15576,7 @@
     ]
   },
   {
-    "needle": "UO1",
+    "name": "UO1",
     "size": 0.125,
     "data": [
       3.15,

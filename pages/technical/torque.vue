@@ -7,7 +7,7 @@
             <li>
               <nuxt-link to="/">
                 <span class="icon is-small">
-                  <i class="fas fa-home" aria-hidden="true"></i>
+                  <i class="fas fa-home" aria-hidden="true" />
                 </span>
                 <span>Home</span>
               </nuxt-link>
@@ -15,7 +15,7 @@
             <li>
               <nuxt-link to="/technical">
                 <span class="icon is-small">
-                  <i class="fas fa-book" aria-hidden="true"></i>
+                  <i class="fas fa-book" aria-hidden="true" />
                 </span>
                 <span>Technical Info</span>
               </nuxt-link>
@@ -23,14 +23,16 @@
             <li class="is-active">
               <nuxt-link to="">
                 <span class="icon is-small">
-                  <i class="fas fa-wrench" aria-hidden="true"></i>
+                  <i class="fas fa-wrench" aria-hidden="true" />
                 </span>
                 <span>Torque Specs</span>
               </nuxt-link>
             </li>
           </ul>
         </nav>
-        <h1 class="title">Torque Specs</h1>
+        <h1 class="title">
+          Torque Specs
+        </h1>
       </div>
       <template v-for="(table, name, index) in tables">
         <div :key="index" class="column is-12">
@@ -40,15 +42,16 @@
               slot-scope="props"
               class="card-header"
               role="button"
-              aria-controls="contentIdForA11y3">
+              aria-controls="contentIdForA11y3"
+            >
               <h2 class="card-header-title">
                 {{ table.title }}
               </h2>
               <a href="#" class="card-header-icon" aria-label="more options">
                 <b-icon
                   pack="fas"
-                  :icon="props.open ? 'caret-down' : 'caret-up'">
-                </b-icon>
+                  :icon="props.open ? 'caret-down' : 'caret-up'"
+                />
               </a>
             </div>
             <div class="card-content">
@@ -59,7 +62,7 @@
                 :per-page="10"
                 icon-pack="fas"
                 :mobile-cards="false"
-              ></b-table>
+              />
             </div>
           </b-collapse>
         </div>
