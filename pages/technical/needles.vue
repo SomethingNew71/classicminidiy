@@ -156,7 +156,7 @@ export default {
           text: 'Needle Comparison Chart'
         },
         subtitle: {
-          text: 'Source: http://www.mintylamb.co.uk/suneedle/'
+          text: 'Source: <a href="http://www.mintylamb.co.uk/suneedle/">http://www.mintylamb.co.uk/suneedle/</a>'
         },
         // This is the data decleration
         series: StarterNeedles,
