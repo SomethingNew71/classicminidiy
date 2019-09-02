@@ -45,6 +45,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/google-adsense',
     '@bazzite/nuxt-optimized-images',
     'nuxt-compress'
   ],
@@ -53,6 +54,9 @@ export default {
   },
   optimizedImages: {
     optimizeImages: true
+  },
+  'google-adsense': {
+    id: 'ca-pub-0523971861051053'
   },
   // buefy: {
   //   materialDesignIcons: false
