@@ -82,12 +82,6 @@
               <iframe src="https://www.youtube.com/embed//U9tBae3riug" frameborder="0" allowfullscreen />
             </div>
           </div>
-          <div class="column is-12">
-            <adsbygoogle
-              ad-slot="5363889625"
-              ad-format="auto"
-            />
-          </div>
         </div>
       </section>
     </div>
