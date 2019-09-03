@@ -64,12 +64,6 @@
           <span>Support</span>
         </a>
       </div>
-      <div class="column is-12">
-        <adsbygoogle
-          ad-slot="7492387187"
-          ad-format="auto"
-        />
-      </div>
     </div>
   </section>
 </template>
