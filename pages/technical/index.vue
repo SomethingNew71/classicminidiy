@@ -102,7 +102,10 @@ export default {
   },
   head () {
     return {
-      title: 'Technical Toolbox'
+      title: 'Technical Toolbox',
+      meta: [
+        { hid: 'description', name: 'description', content: 'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.' }
+      ]
     }
   }
 }

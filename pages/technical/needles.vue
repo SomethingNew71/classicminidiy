@@ -213,7 +213,10 @@ export default {
   },
   head () {
     return {
-      title: 'Technical - SU Needles Chart'
+      title: 'Technical - SU Needles Chart',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.' }
+      ]
     }
   }
 }
