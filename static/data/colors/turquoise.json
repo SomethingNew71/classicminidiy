@@ -1,0 +1,10 @@
+{
+  "colour": {
+
+    "records": [
+      [227, 17, "BLVC372", "Turquoise MET", "UMA", "1980/84", 1, 1],
+      [331, 17, "BLVC911", "Caribbean Blue PEARL", "UME", "1990/96", 1, 1],
+      [332, 17, "BLVC966", "Polynesian Blue MET", "UMG", "1993/96", 0, 1]
+    ]
+  }
+}
