@@ -65,7 +65,7 @@
                     <span class="panel-icon">
                       <i class="fas fa-book" aria-hidden="true" />
                     </span>
-                    {{ item.nameItem }}
+                    {{ item.name }}
                   </a>
                 </nav>
               </div>
