@@ -122,7 +122,7 @@
           </a>
           <div class="panel-block">
             <button class="button is-primary is-fullwidth" @click="redraw()">
-              Compare these Needles
+              Compare
             </button>
           </div>
         </nav>
@@ -226,6 +226,9 @@ export default {
 .is-fullwidth {
   width: 100%;
 }
+</style>
+
+<style lang="scss">
 .highcharts-credits {
   display: none !important;
 }
