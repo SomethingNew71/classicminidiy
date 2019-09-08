@@ -161,6 +161,11 @@ export default {
     wheels.twelve = await getWheels(12)
     wheels.thirteen = await getWheels(13)
     return { wheels }
+  },
+  head () {
+    return {
+      title: 'Technical - Wheel Dictionary'
+    }
   }
 }
 </script>

@@ -85,6 +85,11 @@ export default {
   async asyncData ({ req }) {
     const diagrams = await getDiagrams()
     return { diagrams }
+  },
+  head () {
+    return {
+      title: 'Technical - Electrical Diagrams'
+    }
   }
 }
 </script>

@@ -28,6 +28,11 @@ export default {
       size: 'is-medium',
       centered: true
     }
+  },
+  head () {
+    return {
+      title: 'Technical Toolbox'
+    }
   }
 }
 </script>
