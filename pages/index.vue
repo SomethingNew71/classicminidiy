@@ -8,8 +8,8 @@
       :background="background"
       :navigation="true"
     />
-    <div class="container">
-      <section class="section">
+    <section class="section">
+      <div class="container">
         <div class="columns is-multiline">
           <div class="column is-8">
             <h3 class="fancy-font-book-oblique">
@@ -43,21 +43,36 @@
             <stats />
           </div>
         </div>
-      </section>
-    </div>
-    <section class="hero hero-carb is-medium">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <p class="title has-text-white">
-            Anything from weather seals to carburetors
-            <br>
-            Classic Mini DIY has you covered.
-          </p>
+      </div>
+    </section>
+    <section class="section animation-section">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-5">
+            <img src="/grey-tool-animation.gif" alt="">
+          </div>
+          <div class="column is-7">
+            <h3 class="fancy-font-book-oblique">
+              THE COMPLETELY FREE
+            </h3>
+            <h3 class="fancy-font-bold is-size-3">
+              Classic Mini Toolbox
+            </h3>
+            <h4 class="fancy-font-book-oblique pt-20">
+              THE TOOLKIT FOR THE DIY MECHANIC
+            </h4>
+            <p>
+              One of the largest reasons for starting this channel, was about making infromation related to working your Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining information from all over the web to bring you one location to find anything you need.
+            </p>
+            <a class="mt-25 button is-medium is-primary" href="/technical">
+              <span>Check it out</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
-    <div class="container">
-      <section class="section">
+    <section class="section">
+      <div class="container">
         <div class="columns is-multiline">
           <div class="column is-7">
             <h3 class="fancy-font-bold is-size-3">
@@ -83,8 +98,8 @@
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
@@ -119,5 +134,8 @@ export default {
 .hero-carb {
   background: #2f2f2f url('/carb.jpg') no-repeat center;
   background-size: cover;
+}
+.animation-section {
+  background-color: #F1F1F1;
 }
 </style>
