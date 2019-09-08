@@ -210,6 +210,11 @@ export default {
       this.selectValues.forEach((needle) => { currentChart.addSeries(needle) })
       currentChart.hideLoading()
     }
+  },
+  head () {
+    return {
+      title: 'Technical - SU Needles Chart'
+    }
   }
 }
 </script>

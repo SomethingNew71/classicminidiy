@@ -75,6 +75,11 @@ export default {
   async asyncData ({ req }) {
     const books = await getBooks()
     return { books }
+  },
+  head () {
+    return {
+      title: 'Technical - Workshop Manuals'
+    }
   }
 }
 </script>

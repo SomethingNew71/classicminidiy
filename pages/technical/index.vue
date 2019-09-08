@@ -99,6 +99,11 @@ export default {
         }
       ]
     }
+  },
+  head () {
+    return {
+      title: 'Technical Toolbox'
+    }
   }
 }
 </script>

@@ -95,6 +95,11 @@ export default {
   async asyncData ({ req }) {
     const tables = await getTables()
     return { tables }
+  },
+  head () {
+    return {
+      title: 'Technical - Torque Specs'
+    }
   }
 }
 </script>

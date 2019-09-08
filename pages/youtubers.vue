@@ -177,6 +177,11 @@ export default {
       this.randomYoutubers = array.sort(() => Math.random() - 0.5)
       this.loading = false
     }
+  },
+  head () {
+    return {
+      title: 'Classic Mini Youtubers'
+    }
   }
 }
 </script>
