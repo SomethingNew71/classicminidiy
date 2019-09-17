@@ -37,31 +37,30 @@
       <div
         v-for="(manual, name) in books.workshop"
         :key="name"
-        class="column is-3"
+        class="column is-12"
       >
-        <div class="card">
-          <div class="card-image">
-            <figure class="image">
+        <article class="media card">
+          <figure class="media-left">
+            <p class="image is-128x128">
               <img :src="manual.imgSource" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-6">
-                  {{ manual.name }}
-                </p>
-                <p class="subtitle is-7">
-                  {{ manual.author }}
-                </p>
-              </div>
+            </p>
+          </figure>
+          <div class="media-content pt-20 pr-20 pb-20">
+            <div class="content">
+              <p>
+                <strong>{{ manual.name }}</strong> <small>by {{manual.author}}</small>
+                <br>
+                {{ manual.desc }}
+              </p>
             </div>
+            <a class="mt-25 button is-medium is-amazon" :href="manual.urlAmazon" target="_blank">
+              <span class="icon">
+                <i class="fab fa-amazon" />
+              </span>
+              <span>Buy on Amazon</span>
+            </a>
           </div>
-          <footer class="card-footer">
-            <a v-if="manual.urlSeven" :href="manual.urlSeven" class="card-footer-item has-text-seven">Seven Mini</a>
-            <a v-if="manual.urlAmazon" :href="manual.urlAmazon" class="card-footer-item has-text-white has-background-amazon">Amazon</a>
-          </footer>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -86,7 +85,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>
