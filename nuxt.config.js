@@ -6,7 +6,7 @@ export default {
   head: {
     title: 'Classic Mini DIY',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
