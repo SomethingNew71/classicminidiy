@@ -29,11 +29,11 @@
               <nuxt-link class="fancy-font-heavy has-text-white navbar-item" to="/technical">
                 Technical Info
               </nuxt-link>
-              <a class="fancy-font-heavy has-text-white navbar-item" target="_blank" href="https://merch.classicminidiy.com">
+              <a class="fancy-font-heavy has-text-white navbar-item" rel="noopener" target="_blank" href="https://merch.classicminidiy.com">
                 Store
               </a>
               <span class="fancy-font-heavy navbar-item">
-                <a class="button is-inverted is-danger" target="_blank" href="https://www.youtube.com/c/classicminidiy?sub_confirmation=1">
+                <a class="button is-inverted is-danger" rel="noopener" target="_blank" href="https://www.youtube.com/c/classicminidiy?sub_confirmation=1">
                   <span class="icon">
                     <i class="fab fa-youtube" />
                   </span>
