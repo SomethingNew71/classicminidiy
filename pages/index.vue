@@ -32,7 +32,7 @@
             <p class="is-size-5 pt-20">
               Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon.
             </p>
-            <a class="mt-25 button is-medium is-patreon" href="https://patreon.com/classicminidiy" target="_blank">
+            <a class="mt-25 button is-medium is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
               <span class="icon">
                 <i class="fab fa-patreon" />
               </span>
@@ -103,7 +103,7 @@
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
-          <strong>Classic Mini DIY</strong> by <a href="https://youtube.com/c/classicminidiy">Cole Gentry</a>.
+          <strong>Classic Mini DIY</strong> by <a rel="noopener" href="https://youtube.com/c/classicminidiy?sub_confirmation=1">Cole Gentry</a>.
         </p>
       </div>
     </footer>
