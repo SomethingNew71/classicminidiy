@@ -48,7 +48,7 @@
           <div class="media-content pt-20 pr-20 pb-20">
             <div class="content">
               <p>
-                <strong>{{ manual.name }}</strong> <small>by {{manual.author}}</small>
+                <strong>{{ manual.name }}</strong> <small>by {{ manual.author }}</small>
                 <br>
                 {{ manual.desc }}
               </p>

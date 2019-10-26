@@ -10,6 +10,7 @@
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item">
+              <!-- eslint-disable-next-line -->
               <img
                 src="/small-logo.png"
                 alt="Logo"
@@ -50,6 +51,7 @@
         <p class="subtitle is-6 has-text-white">
           {{ $attrs.subtitle }}
         </p>
+        <!-- eslint-disable-next-line -->
         <h1 class="title fancy-font-bold has-text-white" :class="{'special-title': $attrs.special}" v-html="$attrs.title" />
       </div>
     </div>
