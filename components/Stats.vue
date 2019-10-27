@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   data () {
@@ -47,27 +47,27 @@ export default {
       videos: null,
       data: null,
       isLoading: true
-    }
+    };
   },
   created () {
-    this.fetchData()
+    this.fetchData();
   },
   methods: {
     fetchData () {
-      const apiKey = 'AIzaSyCbmPC-gSOA2g9xQOAeBboTTwz4tSVRQZ8'
-      const baseURL = 'https://www.googleapis.com/youtube/v3/channels'
-      const id = 'UCZIUfOFhrQ9nrR06IOoAJ2Q'
-      const details = 'snippet,contentDetails,statistics'
-      const feed = `${baseURL}?key=${apiKey}&id=${id}&part=${details}`
+      const apiKey = 'AIzaSyCbmPC-gSOA2g9xQOAeBboTTwz4tSVRQZ8';
+      const baseURL = 'https://www.googleapis.com/youtube/v3/channels';
+      const id = 'UCZIUfOFhrQ9nrR06IOoAJ2Q';
+      const details = 'snippet,contentDetails,statistics';
+      const feed = `${baseURL}?key=${apiKey}&id=${id}&part=${details}`;
 
       axios.get(feed).then((response) => {
-        const items = response.data.items[0].statistics
-        this.views = Number(items.viewCount).toLocaleString()
-        this.subscribers = Number(items.subscriberCount).toLocaleString()
-        this.videos = Number(items.videoCount).toLocaleString()
-        this.isLoading = false
-      })
+        const items = response.data.items[0].statistics;
+        this.views = Number(items.viewCount).toLocaleString();
+        this.subscribers = Number(items.subscriberCount).toLocaleString();
+        this.videos = Number(items.videoCount).toLocaleString();
+        this.isLoading = false;
+      });
     }
   }
-}
+};
 </script>

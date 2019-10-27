@@ -98,7 +98,7 @@ export default {
           to: '/technical/wheels'
         }
       ]
-    }
+    };
   },
   head () {
     return {
@@ -106,9 +106,9 @@ export default {
       meta: [
         { hid: 'description', name: 'description', content: 'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.' }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

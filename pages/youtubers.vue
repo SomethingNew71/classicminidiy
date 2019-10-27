@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import Hero from '~/components/Hero'
+import Hero from '~/components/Hero';
 
 export default {
   components: {
@@ -167,23 +167,14 @@ export default {
           subscribeLink: 'https://www.youtube.com/channel/UCA7LiDkJWz8let3pMbvOkmg?sub_confirmation=1'
         }
       ]
-    }
-  },
-  created () {
-    // this.shuffle(this.youtubers)
-  },
-  methods: {
-    shuffle (array) {
-      this.randomYoutubers = array.sort(() => Math.random() - 0.5)
-      this.loading = false
-    }
+    };
   },
   head () {
     return {
       title: 'Classic Mini Youtubers'
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

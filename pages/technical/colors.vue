@@ -12,7 +12,7 @@ export default {
       background: '/technical.jpg',
       size: 'is-medium',
       centered: true
-    }
+    };
   },
   methods: {
     getColors () {
@@ -40,7 +40,7 @@ export default {
   head () {
     return {
       title: 'Technical - Color Picker'
-    }
+    };
   }
-}
+};
 </script>

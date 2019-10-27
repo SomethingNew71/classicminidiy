@@ -42,74 +42,17 @@
           <p class="panel-heading">
             Choose your Needles
           </p>
-          <a class="panel-block is-fullwidth">
+          <a class="panel-block is-fullwidth" v-for="(value, name) in selectValues" :key="name">
+            <b-button
+              class="remove-button"
+              @click="removeArrayItem(selectValues[name])"
+              type="is-light"
+              icon-pack="fas"
+              icon-right="minus"
+              :disabled="selectValues.length === 1"/>
             <b-field class="is-fullwidth" expanded>
-              <b-select v-model="selectValues[0]" expanded placeholder="Select a name">
-                <option
-                  v-for="needle in allNeedles"
-                  :key="needle.name"
-                  :value="needle"
-                >
-                  {{ needle.name }}
-                </option>
-              </b-select>
-            </b-field>
-          </a>
-          <a class="panel-block is-fullwidth">
-            <b-field class="is-fullwidth" expanded>
-              <b-select v-model="selectValues[1]" expanded placeholder="Select a name">
-                <option
-                  v-for="needle in allNeedles"
-                  :key="needle.name"
-                  :value="needle"
-                >
-                  {{ needle.name }}
-                </option>
-              </b-select>
-            </b-field>
-          </a>
-          <a class="panel-block is-fullwidth">
-            <b-field class="is-fullwidth" expanded>
-              <b-select v-model="selectValues[2]" expanded placeholder="Select a name">
-                <option
-                  v-for="needle in allNeedles"
-                  :key="needle.name"
-                  :value="needle"
-                >
-                  {{ needle.name }}
-                </option>
-              </b-select>
-            </b-field>
-          </a>
-          <a class="panel-block is-fullwidth">
-            <b-field class="is-fullwidth" expanded>
-              <b-select v-model="selectValues[3]" expanded placeholder="Select a name">
-                <option
-                  v-for="needle in allNeedles"
-                  :key="needle.name"
-                  :value="needle"
-                >
-                  {{ needle.name }}
-                </option>
-              </b-select>
-            </b-field>
-          </a>
-          <a class="panel-block is-fullwidth">
-            <b-field class="is-fullwidth" expanded>
-              <b-select v-model="selectValues[4]" expanded placeholder="Select a name">
-                <option
-                  v-for="needle in allNeedles"
-                  :key="needle.name"
-                  :value="needle"
-                >
-                  {{ needle.name }}
-                </option>
-              </b-select>
-            </b-field>
-          </a>
-          <a class="panel-block is-fullwidth">
-            <b-field class="is-fullwidth" expanded>
-              <b-select v-model="selectValues[5]" expanded placeholder="Select a name">
+              <b-select v-model="selectValues[name]" expanded placeholder="Select a name">
+                {{selectValues[name]}}
                 <option
                   v-for="needle in allNeedles"
                   :key="needle.name"
@@ -124,21 +67,27 @@
             <button class="button is-primary is-fullwidth" @click="redraw()">
               Compare
             </button>
+            <b-button
+              @click="addArrayItem()"
+              type="is-light"
+              icon-pack="fas"
+              icon-right="plus"
+              :disabled="selectValues.length === 15"/>
           </div>
         </nav>
       </div>
       <div class="column is-9">
-        <no-ssr>
+        <client-only>
           <vue-highcharts ref="needlesChart" :options="mapOptions" :highcharts="highcharts" />
-        </no-ssr>
+        </client-only>
       </div>
     </div>
   </section>
 </template>
 <script>
-import Highcharts from 'highcharts/highcharts'
-import Needles from '~/static/data/needles.json'
-import StarterNeedles from '~/static/data/default-needles.json'
+import Highcharts from 'highcharts/highcharts';
+import Needles from '~/static/data/needles.json';
+import StarterNeedles from '~/static/data/default-needles.json';
 
 export default {
   data () {
@@ -197,18 +146,28 @@ export default {
           }]
         }
       }
-    }
+    };
   },
   methods: {
     redraw () {
       // Get the local chart instance
-      const currentChart = this.$refs.needlesChart
-      currentChart.delegateMethod('showLoading', 'Loading...')
+      const currentChart = this.$refs.needlesChart;
+      currentChart.delegateMethod('showLoading', 'Loading...');
       // Remove all the needles currently in the list
-      this.mapOptions.series.forEach((item) => { currentChart.removeSeries(item) })
+      this.mapOptions.series.forEach((item) => { currentChart.removeSeries(item) });
       // Add all the new ones
-      this.selectValues.forEach((needle) => { currentChart.addSeries(needle) })
-      currentChart.hideLoading()
+      this.selectValues.forEach((needle) => { currentChart.addSeries(needle) });
+      currentChart.hideLoading();
+    },
+    addArrayItem () {
+      const rand = this.allNeedles[Math.floor(Math.random() * this.allNeedles.length)];
+      this.selectValues.push(rand);
+      this.redraw();
+    },
+    removeArrayItem (currentItem) {
+      const itemIndex = this.selectValues.indexOf(currentItem);
+      this.selectValues.splice(itemIndex, 1);
+      this.redraw();
     }
   },
   head () {
@@ -217,14 +176,17 @@ export default {
       meta: [
         { hid: 'description', name: 'description', content: 'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.' }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .is-fullwidth {
   width: 100%;
+}
+.remove-button {
+  margin-right: 5px;
 }
 </style>
 
