@@ -73,7 +73,7 @@
 
 <script>
 function getTables () {
-  return import(`~/static/data/torqueSpecs.json`).then(m => m.default || m)
+  return import(`~/static/data/torqueSpecs.json`).then(m => m.default || m);
 }
 export default {
   data () {
@@ -90,11 +90,11 @@ export default {
         { label: 'Torque (lb/in)', field: 'lbin' },
         { label: 'Torque (Nm)', field: 'nm' }
       ]
-    }
+    };
   },
   async asyncData ({ req }) {
-    const tables = await getTables()
-    return { tables }
+    const tables = await getTables();
+    return { tables };
   },
   head () {
     return {
@@ -102,7 +102,7 @@ export default {
       meta: [
         { hid: 'description', name: 'description', content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.' }
       ]
-    }
+    };
   }
-}
+};
 </script>

@@ -68,12 +68,12 @@
 
 <script>
 function getBooks () {
-  return import(`~/static/data/manuals.json`).then(m => m.default || m)
+  return import(`~/static/data/manuals.json`).then(m => m.default || m);
 }
 export default {
   async asyncData ({ req }) {
-    const books = await getBooks()
-    return { books }
+    const books = await getBooks();
+    return { books };
   },
   head () {
     return {
@@ -81,7 +81,7 @@ export default {
       meta: [
         { hid: 'description', name: 'description', content: 'Looking for the best workshop manual to get the job done on your Classic Mini? Here you\'ll find the top picks from Classic Mini DIY' }
       ]
-    }
+    };
   }
-}
+};
 </script>

@@ -146,21 +146,21 @@
 
 <script>
 function getWheels (size) {
-  return import(`~/static/data/wheels/${size}.json`).then(m => m.default || m)
+  return import(`~/static/data/wheels/${size}.json`).then(m => m.default || m);
 }
 export default {
   data () {
     return {
       activeTab: 0,
       isLoading: true
-    }
+    };
   },
   async asyncData ({ req }) {
-    const wheels = {}
-    wheels.ten = await getWheels(10)
-    wheels.twelve = await getWheels(12)
-    wheels.thirteen = await getWheels(13)
-    return { wheels }
+    const wheels = {};
+    wheels.ten = await getWheels(10);
+    wheels.twelve = await getWheels(12);
+    wheels.thirteen = await getWheels(13);
+    return { wheels };
   },
   head () {
     return {
@@ -168,9 +168,9 @@ export default {
       meta: [
         { hid: 'description', name: 'description', content: 'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.' }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">

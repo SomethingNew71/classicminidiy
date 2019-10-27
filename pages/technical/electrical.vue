@@ -79,12 +79,12 @@
 
 <script>
 function getDiagrams () {
-  return import(`~/static/data/wiringDiagrams.json`).then(m => m.default || m)
+  return import(`~/static/data/wiringDiagrams.json`).then(m => m.default || m);
 }
 export default {
   async asyncData ({ req }) {
-    const diagrams = await getDiagrams()
-    return { diagrams }
+    const diagrams = await getDiagrams();
+    return { diagrams };
   },
   head () {
     return {
@@ -92,7 +92,7 @@ export default {
       meta: [
         { hid: 'description', name: 'description', content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.' }
       ]
-    }
+    };
   }
-}
+};
 </script>

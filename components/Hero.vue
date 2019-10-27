@@ -62,9 +62,9 @@ export default {
   data () {
     return {
       mobileOpen: false
-    }
+    };
   }
-}
+};
 </script>
 <style lang="scss">
 .hero {

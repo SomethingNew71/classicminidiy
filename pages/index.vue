@@ -111,8 +111,8 @@
 </template>
 
 <script>
-import Stats from '~/components/Stats'
-import Hero from '~/components/Hero'
+import Stats from '~/components/Stats';
+import Hero from '~/components/Hero';
 
 export default {
   components: {
@@ -125,9 +125,9 @@ export default {
       subtitle: 'YOUR FRIENDLY NEIGHBORHOOD',
       background: '/hero.jpg',
       size: 'is-large'
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">

@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import Hero from '~/components/Hero'
+import Hero from '~/components/Hero';
 
 export default {
   components: {
@@ -27,12 +27,12 @@ export default {
       background: '/technical.jpg',
       size: 'is-medium',
       centered: true
-    }
+    };
   },
   head () {
     return {
       title: 'Technical Toolbox'
-    }
+    };
   }
-}
+};
 </script>
