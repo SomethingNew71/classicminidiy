@@ -46,6 +46,7 @@
             <b-button
               class="remove-button"
               @click="removeArrayItem(selectValues[name])"
+              :aria-label="'Click here to remove the ' + selectValues[name] + ' needle'"
               type="is-light"
               icon-pack="fas"
               icon-right="minus"
@@ -64,7 +65,10 @@
             </b-field>
           </a>
           <div class="panel-block">
-            <button class="button is-primary is-fullwidth" @click="redraw()">
+            <button 
+              class="button is-primary is-fullwidth" 
+              aria-label="Click here to Compare your selected Needles"
+              @click="redraw()">
               Compare
             </button>
             <b-button
@@ -72,6 +76,7 @@
               type="is-light"
               icon-pack="fas"
               icon-right="plus"
+              aria-label="Click here to add another needle with a generic value"
               :disabled="selectValues.length === 15"/>
           </div>
         </nav>
