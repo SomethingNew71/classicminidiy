@@ -73,7 +73,7 @@
 
 <script>
 function getTables () {
-  return import(`~/static/data/torqueSpecs.json`).then(m => m.default || m);
+  return import('~/static/data/torqueSpecs.json').then(m => m.default || m);
 }
 export default {
   data () {

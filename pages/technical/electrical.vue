@@ -79,7 +79,7 @@
 
 <script>
 function getDiagrams () {
-  return import(`~/static/data/wiringDiagrams.json`).then(m => m.default || m);
+  return import('~/static/data/wiringDiagrams.json').then(m => m.default || m);
 }
 export default {
   async asyncData ({ req }) {

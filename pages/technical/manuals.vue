@@ -68,7 +68,7 @@
 
 <script>
 function getBooks () {
-  return import(`~/static/data/manuals.json`).then(m => m.default || m);
+  return import('~/static/data/manuals.json').then(m => m.default || m);
 }
 export default {
   async asyncData ({ req }) {
