@@ -65,8 +65,8 @@
             </b-field>
           </a>
           <div class="panel-block">
-            <button 
-              class="button is-primary is-fullwidth" 
+            <button
+              class="button is-primary is-fullwidth"
               aria-label="Click here to Compare your selected Needles"
               @click="redraw()">
               Compare
