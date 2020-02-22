@@ -42,18 +42,19 @@
           <p class="panel-heading">
             Choose your Needles
           </p>
-          <a class="panel-block is-fullwidth" v-for="(value, name) in selectValues" :key="name">
+          <a v-for="(value, name) in selectValues" :key="name" class="panel-block is-fullwidth">
             <b-button
               class="remove-button"
-              @click="removeArrayItem(selectValues[name])"
               :aria-label="'Click here to remove the ' + selectValues[name] + ' needle'"
               type="is-light"
               icon-pack="fas"
               icon-right="minus"
-              :disabled="selectValues.length === 1"/>
+              :disabled="selectValues.length === 1"
+              @click="removeArrayItem(selectValues[name])"
+            />
             <b-field class="is-fullwidth" expanded>
               <b-select v-model="selectValues[name]" expanded placeholder="Select a name">
-                {{selectValues[name]}}
+                {{ selectValues[name] }}
                 <option
                   v-for="needle in allNeedles"
                   :key="needle.name"
@@ -68,16 +69,18 @@
             <button
               class="button is-primary is-fullwidth"
               aria-label="Click here to Compare your selected Needles"
-              @click="redraw()">
+              @click="redraw()"
+            >
               Compare
             </button>
             <b-button
-              @click="addArrayItem()"
               type="is-light"
               icon-pack="fas"
               icon-right="plus"
               aria-label="Click here to add another needle with a generic value"
-              :disabled="selectValues.length === 15"/>
+              :disabled="selectValues.length === 15"
+              @click="addArrayItem()"
+            />
           </div>
         </nav>
       </div>
