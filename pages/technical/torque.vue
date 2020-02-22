@@ -76,6 +76,10 @@ function getTables () {
   return import('~/static/data/torqueSpecs.json').then(m => m.default || m);
 }
 export default {
+  async asyncData ({ req }) {
+    const tables = await getTables();
+    return { tables };
+  },
   data () {
     return {
       pagination: {},
@@ -91,10 +95,6 @@ export default {
         { label: 'Torque (Nm)', field: 'nm' }
       ]
     };
-  },
-  async asyncData ({ req }) {
-    const tables = await getTables();
-    return { tables };
   },
   head () {
     return {
