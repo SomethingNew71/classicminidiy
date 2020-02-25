@@ -103,7 +103,10 @@
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
-          <strong>Classic Mini DIY</strong> by <a rel="noopener" href="https://youtube.com/c/classicminidiy?sub_confirmation=1">Cole Gentry</a>.
+          <strong>Classic Mini DIY</strong> by <a rel="noopener" target="_blank" href="https://youtube.com/c/classicminidiy?sub_confirmation=1">Cole Gentry</a>.
+        </p>
+        <p>
+          <strong>Youtube API</strong> used under Youtube's <a rel="noopener" target="_blank" href="https://developers.google.com/youtube/terms/developer-policies#e-handling-youtube-data-and-content">TOS</a>.
         </p>
       </div>
     </footer>
