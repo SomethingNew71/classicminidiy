@@ -91,11 +91,8 @@
               I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to time I will make mistakes.
             </p>
           </div>
-          <div class="column is-5">
-            <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
-            <div class="embed-container">
-              <iframe title="Youtube Welcome Video" src="https://www.youtube.com/embed//U9tBae3riug" frameborder="0" allowfullscreen />
-            </div>
+          <div class="column is-5 avatar-container">
+            <img src="/avatar.png" alt="Image of my car on jack stands">
           </div>
         </div>
       </div>
@@ -140,5 +137,11 @@ export default {
 }
 .animation-section {
   background-color: #F1F1F1;
+}
+.avatar-container img {
+  max-width: 50%;
+  margin: auto;
+  padding-top: 35px;
+  display: block;
 }
 </style>
