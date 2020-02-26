@@ -103,7 +103,7 @@
           <strong>Classic Mini DIY</strong> by <a rel="noopener" target="_blank" href="https://youtube.com/c/classicminidiy?sub_confirmation=1">Cole Gentry</a>.
         </p>
         <p>
-          <strong>YouTube API</strong> used under YouTube <a rel="noopener" target="_blank" href="https://www.youtube.com/t/terms">TOS</a>.
+          <strong>YouTube API</strong> used under <strong>YouTube</strong> <a rel="noopener" target="_blank" href="https://www.youtube.com/t/terms">TOS</a>.
         </p>
       </div>
     </footer>
