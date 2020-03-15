@@ -38,7 +38,7 @@
             <div class="tile is-ancestor">
               <div v-for="(wheel, name) in wheels.ten" :key="name" class="tile is-parent is-3">
                 <article class="tile is-child box">
-                  <img :src="wheel.imagepath" alt="">
+                  <img :src="require('assets/img' + wheel.imagepath)" alt="">
                   <div class="hover-content pl-5">
                     <h1 class="title is-4 pt-10">
                       {{ wheel.name }}
@@ -73,7 +73,7 @@
             <div class="tile is-ancestor">
               <div v-for="(wheel, name) in wheels.twelve" :key="name" class="tile is-parent is-3">
                 <article class="tile is-child box">
-                  <img :src="wheel.imagepath" alt="">
+                  <img :src="require('assets/img' + wheel.imagepath)" alt="">
                   <div class="hover-content pl-5">
                     <h1 class="title is-4 pt-10">
                       {{ wheel.name }}
@@ -108,7 +108,7 @@
             <div class="tile is-ancestor">
               <div v-for="(wheel, name) in wheels.thirteen" :key="name" class="tile is-parent is-3">
                 <article class="tile is-child box">
-                  <img :src="wheel.imagepath" alt="">
+                  <img :src="require('assets/img' + wheel.imagepath)" alt="">
                   <div class="hover-content pl-5">
                     <h1 class="title is-4 pt-10">
                       {{ wheel.name }}

@@ -22,8 +22,8 @@ export default {
   },
   data () {
     return {
-      title: 'Technical Information',
-      subtitle: 'YOUR DIGITAL MINI TOOLBOX',
+      title: 'Digital Mini Toolbox',
+      subtitle: 'TECHNICAL INFORMATION',
       background: '/technical.jpg',
       size: 'is-medium',
       centered: true

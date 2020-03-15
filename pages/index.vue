@@ -49,7 +49,7 @@
       <div class="container">
         <div class="columns is-multiline">
           <div class="column is-5">
-            <img src="/grey-tool-animation.gif" alt="">
+            <img src="~assets/img/grey-tool-animation.gif" alt="">
           </div>
           <div class="column is-7">
             <h3 class="fancy-font-book-oblique">
@@ -92,7 +92,7 @@
             </p>
           </div>
           <div class="column is-5 avatar-container">
-            <img src="/avatar.png" alt="Image of my car on jack stands">
+            <img src="~/assets/img/avatar.png" alt="Image of my car on jack stands">
           </div>
         </div>
       </div>
@@ -131,10 +131,6 @@ export default {
 </script>
 
 <style lang="scss">
-.hero-carb {
-  background: #2f2f2f url('/carb.jpg') no-repeat center;
-  background-size: cover;
-}
 .animation-section {
   background-color: #F1F1F1;
 }
