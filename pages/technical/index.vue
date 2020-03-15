@@ -41,7 +41,7 @@
             class="panel-block is-active"
           >
             <span class="panel-icon">
-              <img :src="card.image">
+              <img :src="require('assets/img' + card.image)">
             </span>
             {{ card.title }}
           </nuxt-link>

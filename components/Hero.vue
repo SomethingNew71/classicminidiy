@@ -1,15 +1,15 @@
 <template>
   <section
     class="hero"
-    :class="$attrs.size"
-    :style="{ backgroundImage: 'url(' + $attrs.background + ')' }"
+    :class="size"
+    :style="{ backgroundImage: 'url(' + require('assets/img' + background) + ')' }"
   >
     <!-- Hero head: will stick at the top -->
-    <div v-if="$attrs.navigation" class="hero-head">
+    <div v-if="navigation" class="hero-head">
       <b-navbar>
         <template slot="brand">
           <b-navbar-item tag="router-link" :to="{ path: '/' }">
-            <img src="/small-logo.png" alt="Logo" />
+            <img src="~assets/img/small-logo.png" alt="Logo" />
           </b-navbar-item>
         </template>
         <template slot="end">
@@ -34,7 +34,7 @@
                 class="fancy-font-heavy navbar-item"
                 to="/technical"
               >
-                <img src="/icons/Coding-Html.svg" /> All Tools
+                <img src="~assets/img/icons/Coding-Html.svg" /> All Tools
               </nuxt-link>
             </b-navbar-item>
             <b-navbar-item v-for="dropdown in dropdowns" :key="dropdown.title" tag="div">
@@ -42,7 +42,7 @@
                 class="fancy-font-heavy navbar-item"
                 :to="dropdown.to"
               >
-                <img :src="dropdown.image"> {{ dropdown.title }}
+                <img :src="require('assets/img' + dropdown.image)"> {{ dropdown.title }}
               </nuxt-link>
             </b-navbar-item>
           </b-navbar-dropdown>
@@ -65,15 +65,15 @@
       </b-navbar>
     </div>
     <div class="hero-body">
-      <div class="container" :class="{ 'has-text-centered': $attrs.centered }">
+      <div class="container" :class="{ 'has-text-centered': centered }">
         <p class="subtitle is-6 has-text-white">
-          {{ $attrs.subtitle }}
+          {{ subtitle }}
         </p>
         <!-- eslint-disable-next-line -->
         <h1
           class="title fancy-font-bold has-text-white"
-          :class="{ 'special-title': $attrs.special }"
-          v-html="$attrs.title"
+          :class="{ 'special-title': special }"
+          v-html="title"
         />
       </div>
     </div>
@@ -81,6 +81,36 @@
 </template>
 <script>
 export default {
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    subtitle: {
+      type: String,
+      default: ''
+    },
+    size: {
+      type: String,
+      default: ''
+    },
+    special: {
+      type: Boolean,
+      default: false
+    },
+    background: {
+      type: String,
+      default: ''
+    },
+    navigation: {
+      type: Boolean,
+      default: true
+    },
+    centered: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       mobileOpen: false,
