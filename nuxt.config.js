@@ -51,6 +51,10 @@ export default {
     '@bazzite/nuxt-optimized-images',
     'nuxt-compress'
   ],
+  serverMiddleware: [
+    // Will register redirect-ssl npm package
+    'redirect-ssl'
+  ],
   googleAnalytics: {
     id: 'UA-53914731-2'
   },
