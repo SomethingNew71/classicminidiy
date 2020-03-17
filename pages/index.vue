@@ -11,16 +11,23 @@
     <section class="section">
       <div class="container">
         <div class="columns is-multiline">
-          <div class="column is-8">
-            <h3 class="fancy-font-book-oblique">
-              THE MINI MISSION
-            </h3>
-            <h4 class="fancy-font-bold is-size-3">
-              Keeping the Classics on the Road
-            </h4>
-            <p class="is-size-5  pt-20">
-              Since Classic Mini DIY was started out of my small driveway workshop in 2015 I have focused on one thing, keeping these Classic Minis on the road. To do this, I make DIY showing exactly how to complete a wide range of jobs on your Classic Mini to make working on your car more accessible for everyone.
-            </p>
+          <div class="column columns is-multiline is-8">
+            <div class="column is-2">
+              <img src="~/assets/img/avatar.png" alt="Image of my car on jack stands">
+            </div>
+            <div class="column is-10 pt-40">
+              <h3 class="fancy-font-book-oblique">
+                THE MINI MISSION
+              </h3>
+              <h4 class="fancy-font-bold is-size-3">
+                Keeping the Classics on the Road
+              </h4>
+            </div>
+            <div class="column is-12">
+              <p class="is-size-5  pt-20">
+                Since Classic Mini DIY was started out of my small driveway workshop in 2015 I have focused on one thing, keeping these Classic Minis on the road. To do this, I make DIY showing exactly how to complete a wide range of jobs on your Classic Mini to make working on your car more accessible for everyone.
+              </p>
+            </div>
           </div>
           <div class="column is-4">
             <h3 class="fancy-font-book-oblique">
