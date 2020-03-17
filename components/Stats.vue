@@ -54,9 +54,9 @@ export default {
   },
   methods: {
     fetchData () {
-      const apiKey = 'AIzaSyCbmPC-gSOA2g9xQOAeBboTTwz4tSVRQZ8';
+      const apiKey = process.env.youtube.key;
       const baseURL = 'https://www.googleapis.com/youtube/v3/channels';
-      const id = 'UCZIUfOFhrQ9nrR06IOoAJ2Q';
+      const id = process.env.youtube.id;
       const details = 'snippet,contentDetails,statistics';
       const feed = `${baseURL}?key=${apiKey}&id=${id}&part=${details}`;
 

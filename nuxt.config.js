@@ -59,8 +59,7 @@ export default {
     id: 'UA-53914731-2'
   },
   optimizedImages: {
-    optimizeImages: true,
-    optimizeImagesInDev: true
+    optimizeImages: true
   },
   // buefy: {
   //   materialDesignIcons: false
@@ -73,5 +72,11 @@ export default {
   /*
    ** Build configuration
    */
-  build: {}
+  build: {},
+  env: {
+    youtube: {
+      key: 'AIzaSyCbmPC-gSOA2g9xQOAeBboTTwz4tSVRQZ8',
+      id: 'UCZIUfOFhrQ9nrR06IOoAJ2Q'
+    }
+  }
 };
