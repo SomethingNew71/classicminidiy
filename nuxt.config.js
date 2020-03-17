@@ -59,7 +59,8 @@ export default {
     id: 'UA-53914731-2'
   },
   optimizedImages: {
-    optimizeImages: true
+    optimizeImages: true,
+    optimizeImagesInDev: true
   },
   // buefy: {
   //   materialDesignIcons: false
