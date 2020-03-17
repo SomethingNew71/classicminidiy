@@ -124,7 +124,7 @@ export default {
       title: 'Classic Mini <br> DIY',
       subtitle: 'YOUR FRIENDLY NEIGHBORHOOD',
       background: '/hero.jpg',
-      size: 'is-large'
+      size: 'is-medium'
     };
   }
 };
