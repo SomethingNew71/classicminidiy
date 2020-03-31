@@ -8,3 +8,10 @@ p {
   letter-spacing: .01em;
   line-height: 1.8em;
 }
+
+
+@media only screen and (max-width: 768px) {
+  .is-size-3 {
+    font-size: 1.5rem !important;
+  }
+}
