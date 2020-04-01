@@ -36,7 +36,8 @@ export default {
    */
   plugins: [
     '@/plugins/buefy.js',
-    { src: '~plugins/vue-highcharts.js', ssr: false }
+    { src: '~plugins/vue-highcharts.js', ssr: false },
+    { src: '~plugins/vue-navigation-bar.js', ssr: false }
   ],
   /*
    ** Nuxt.js modules

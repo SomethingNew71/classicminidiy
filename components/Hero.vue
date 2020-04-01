@@ -6,69 +6,11 @@
   >
     <!-- Hero head: will stick at the top -->
     <div v-if="navigation" class="hero-head">
-      <b-navbar>
-        <template slot="brand">
-          <b-navbar-item tag="router-link" :to="{ path: '/' }">
-            <img src="~assets/img/small-logo.png" alt="Logo" />
-          </b-navbar-item>
-        </template>
-        <template slot="end">
-          <b-navbar-item tag="div">
-            <nuxt-link
-              class="fancy-font-heavy has-text-white navbar-item"
-              to="/"
-            >
-              Home
-            </nuxt-link>
-          </b-navbar-item>
-          <b-navbar-item
-            href="https://merch.classicminidiy.com"
-            target="_blank"
-            class="fancy-font-heavy has-text-white "
-          >
-            Store
-          </b-navbar-item>
-          <b-navbar-dropdown class="fancy-font-heavy has-text-white dropdown-handle" label="Technical Info">
-            <b-navbar-item tag="div">
-              <nuxt-link
-                class="fancy-font-heavy navbar-item"
-                to="/technical"
-              >
-                <img src="~assets/img/icons/Coding-Html.svg" /> All Tools
-              </nuxt-link>
-            </b-navbar-item>
-            <b-navbar-item v-for="dropdown in dropdowns" :key="dropdown.title" tag="div">
-              <nuxt-link
-                class="fancy-font-heavy navbar-item"
-                :to="dropdown.to"
-              >
-                <img :src="require('assets/img' + dropdown.image)"> {{ dropdown.title }}
-              </nuxt-link>
-            </b-navbar-item>
-          </b-navbar-dropdown>
-          <b-navbar-item tag="div">
-            <span class="fancy-font-heavy navbar-item">
-              <a
-                class="button is-inverted is-danger"
-                rel="noopener"
-                target="_blank"
-                href="https://www.youtube.com/c/classicminidiy?sub_confirmation=1"
-              >
-                <span class="icon">
-                  <i class="fab fa-youtube" />
-                </span>
-                <span>Subscribe</span>
-              </a>
-            </span>
-          </b-navbar-item>
-        </template>
-      </b-navbar>
+      <nav-bar :options="navbarOptions" />
     </div>
     <div class="hero-body">
       <div class="container" :class="{ 'has-text-centered': centered }">
-        <p class="subtitle is-6 has-text-white">
-          {{ subtitle }}
-        </p>
+        <p class="subtitle is-6 has-text-white">{{ subtitle }}</p>
         <!-- eslint-disable-next-line -->
         <h1
           class="title fancy-font-bold has-text-white"
@@ -114,33 +56,92 @@ export default {
   data () {
     return {
       mobileOpen: false,
-      dropdowns: [
-        {
-          title: 'Torque Specs',
-          image: '/icons/Settings-5.svg',
-          to: '/technical/torque'
-        },
-        {
-          title: 'Manuals',
-          image: '/icons/Checklist.svg',
-          to: '/technical/manuals'
-        },
-        {
-          title: 'Electrical Diagrams',
-          image: '/icons/Battery-Charging.svg',
-          to: '/technical/electrical'
-        },
-        {
-          title: 'SU Needle Comparison',
-          image: '/icons/Graph-Magnifier.svg',
-          to: '/technical/needles'
-        },
-        {
-          title: 'Wheel Dictionary',
-          image: '/icons/Bus.svg',
-          to: '/technical/wheels'
-        }
-      ]
+      navbarOptions: {
+        elementId: 'main-navbar',
+        isUsingVueRouter: true,
+        mobileBreakpoint: 992,
+        brandImagePath: './',
+        brandImage: require('../assets/img/black-small-logo.png'),
+        brandImageAltText: 'brand-image',
+        showBrandImageInMobilePopup: true,
+        ariaLabelMainNav: 'Primary Page Navigation',
+        tooltipAnimationType: 'shift-away',
+        menuOptionsRight: [
+          {
+            type: 'link',
+            text: 'Home',
+            path: '/',
+            iconLeft: '<i class="fa fa-house"></i>'
+          },
+          {
+            type: 'link',
+            text: 'Store',
+            path: 'https://merch.classicminidiy.com',
+            iconLeft: '<i class="fa fa-store"></i>'
+          },
+          {
+            type: 'link',
+            text: 'Toolbox',
+            iconLeft: '<i class="fa fa-toolbox"></i>',
+            subMenuOptions: [
+              {
+                type: 'link',
+                text: 'Torque Specs',
+                subText: 'Torque Specs for your entire car',
+                path: '/technical/torque',
+                iconLeft: '<i class="submenu-icon fad fa-ruler-triangle"></i>'
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
+                text: 'Manuals',
+                subText: 'Find some of the best manuals to help you learn to work on your classic mini cooper.',
+                path: '/technical/Manuals',
+                iconLeft: '<i class="submenu-icon fad fa-books"></i>'
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
+                text: 'Electrical Diagrams',
+                subText: 'Complete and new digitally redrawn Classic Mini Wiring diagrams',
+                path: '/technical/electrical',
+                iconLeft: '<i class="submenu-icon fad fa-bolt"></i>'
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
+                text: 'Carb Needle Configurator',
+                subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
+                path: '/technical/needles',
+                iconLeft: '<i class="submenu-icon fad fa-chart-bar"></i>'
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
+                text: 'Wheel Dictionary',
+                subText: 'Looking for the right set of wheels for your Classic Mini? Use our Wheel Dictionary to find the right set for you.',
+                path: '/technical/wheels',
+                iconLeft: '<i class="submenu-icon fad fa-tire"></i>'
+              }
+            ]
+          },
+          {
+            type: 'button',
+            class: 'fancy-font-heavy youtube',
+            text: 'Subscribe Now',
+            path: 'https://www.youtube.com/c/classicminidiy?sub_confirmation=1',
+            iconLeft: '<i class="fab fa-youtube" />'
+          }
+        ]
+      }
     };
   }
 };
@@ -151,41 +152,14 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 
-  .navbar-burger, .dropdown-handle > a {
-    color: #fff;
-  }
-
-  .dropdown-handle {
-    > a:hover {
-      color: #2f2f2f;
+  .vnb {
+    background: rgba(255, 255, 255, 1);
+    .youtube {
+      background-color: #FF0000;
+      padding: 12px 12px;
     }
-    > a:active {
-      color: #2f2f2f;
-    }
-    > a:focus {
-      color: #2f2f2f;
-    }
-  }
-  .navbar-menu.is-active {
-    .navbar-dropdown {
-      .navbar-item {
-        color: #fff;
-      }
-      .navbar-item:hover {
-        color: #2f2f2f;
-      }
-    }
-  }
-
-  .navbar-dropdown {
-    .navbar-item {
-      color: #2f2f2f;
-
-      img {
-        display: inline;
-        position: relative;
-        left: -10px;
-      }
+    .submenu-icon {
+      font-size: 1.7rem;
     }
   }
 
@@ -194,9 +168,6 @@ export default {
   }
 
   @media screen and (max-width: 1023px) {
-    .navbar-menu {
-      background-color: transparent;
-    }
     .special-title {
       font-size: 2rem;
     }
