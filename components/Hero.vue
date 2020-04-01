@@ -4,14 +4,12 @@
     :class="size"
     :style="{ backgroundImage: 'url(' + require('assets/img' + background) + ')' }"
   >
-    <!-- Hero head: will stick at the top -->
-    <div v-if="navigation" class="hero-head">
-      <nav-bar :options="navbarOptions" />
-    </div>
+    <nav-bar :options="navbarOptions" @vnb-item-clicked="vnbItemClicked" />
     <div class="hero-body">
       <div class="container" :class="{ 'has-text-centered': centered }">
-        <p class="subtitle is-6 has-text-white">{{ subtitle }}</p>
-        <!-- eslint-disable-next-line -->
+        <p class="subtitle is-6 has-text-white">
+          {{ subtitle }}
+        </p>
         <h1
           class="title fancy-font-bold has-text-white"
           :class="{ 'special-title': special }"
@@ -74,6 +72,7 @@ export default {
             iconLeft: '<i class="fa fa-house"></i>'
           },
           {
+            isLinkAction: true,
             type: 'link',
             text: 'Store',
             path: 'https://merch.classicminidiy.com',
@@ -134,15 +133,25 @@ export default {
             ]
           },
           {
+            isLinkAction: true,
             type: 'button',
             class: 'fancy-font-heavy youtube',
-            text: 'Subscribe Now',
+            text: 'Subscribe',
             path: 'https://www.youtube.com/c/classicminidiy?sub_confirmation=1',
             iconLeft: '<i class="fab fa-youtube" />'
           }
         ]
       }
     };
+  },
+  methods: {
+    vnbItemClicked (text) {
+      if (text === 'Store') {
+        window.open('https://merch.classicminidiy.com', '_blank');
+      } else if (text === 'Subscribe') {
+        window.open('https://www.youtube.com/c/classicminidiy?sub_confirmation=1', '_blank');
+      }
+    }
   }
 };
 </script>
@@ -160,6 +169,7 @@ export default {
     .youtube {
       background-color: #FF0000;
       padding: 12px 12px;
+      cursor: pointer;
     }
     .submenu-icon {
       font-size: 1.7rem;
