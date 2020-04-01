@@ -54,6 +54,7 @@
     "imagemin-pngquant": "^8.0.0",
     "imagemin-svgo": "^7.1.0",
     "nodemon": "^2.0.2",
-    "nuxt-compress": "^1.1.0"
+    "nuxt-compress": "^1.1.0",
+    "vue-navigation-bar": "^2.0.0"
   }
 }

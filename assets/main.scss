@@ -35,6 +35,9 @@ $link-focus-border: $primary;
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+// I dont like Bulma's Navbar and this one basically is stripes navbar so plug and play baby
+@import "../node_modules/vue-navigation-bar/dist/vue-navigation-bar.css";
+
 // Import all my custom scss
 @import "./bulma-overides.scss";
 @import "./fonts.scss";
