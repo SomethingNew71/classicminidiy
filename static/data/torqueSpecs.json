@@ -1,6 +1,7 @@
 {
   "engineTable": {
      "title": "Engine",
+     "icon": "fad fa-car-mechanic",
      "specialHeaders": false,
      "items": [
         {
@@ -187,6 +188,7 @@
   },
   "suspensionTable": {
      "title": "Suspension",
+     "icon": "fad fa-truck-monster",
      "specialHeaders": false,
      "items": [
         {
@@ -325,6 +327,7 @@
   },
   "electricalTable": {
      "title": "Electrical",
+     "icon": "fad fa-bolt",
      "specialHeaders": true,
      "items": [
         {
@@ -367,6 +370,7 @@
   },
   "gearboxTable": {
      "title": "Gearbox",
+     "icon": "fad fa-cogs",
      "specialHeaders": false,
      "items": [
         {

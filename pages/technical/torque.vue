@@ -23,7 +23,7 @@
             <li class="is-active">
               <nuxt-link to="">
                 <span class="icon is-small">
-                  <i class="fas fa-wrench" aria-hidden="true" />
+                  <i class="fad fa-ruler-triangle" aria-hidden="true" />
                 </span>
                 <span>Torque Specs</span>
               </nuxt-link>
@@ -45,7 +45,8 @@
               aria-controls="contentIdForA11y3"
             >
               <h2 class="card-header-title">
-                {{ table.title }}
+                <i :class="table.icon"></i>
+                <span class="pl-5">{{ table.title }}</span>
               </h2>
               <a href="#" class="card-header-icon" aria-label="more options">
                 <b-icon

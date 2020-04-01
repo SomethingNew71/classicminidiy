@@ -119,16 +119,6 @@ export default {
                 subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
                 path: '/technical/needles',
                 iconLeft: '<i class="submenu-icon fad fa-chart-bar"></i>'
-              },
-              {
-                type: 'hr'
-              },
-              {
-                type: 'link',
-                text: 'Wheel Dictionary',
-                subText: 'Looking for the right set of wheels for your Classic Mini? Use our Wheel Dictionary to find the right set for you.',
-                path: '/technical/wheels',
-                iconLeft: '<i class="submenu-icon fad fa-tire"></i>'
               }
             ]
           },

@@ -4,10 +4,10 @@ $positions: ('top','left','bottom','right');
 @each $size in $sizes {
   @each $position in $positions {
     .m#{str-slice($position, 0, 1)}-#{$size} {
-      margin-#{$position}: $size + px;
+      margin-#{$position}: $size + px + !important;
     }
     .p#{str-slice($position, 0, 1)}-#{$size} {
-      padding-#{$position}: $size + px;
+      padding-#{$position}: $size + px + !important;
     }
   }
 }
@@ -17,4 +17,8 @@ $positions: ('top','left','bottom','right');
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+
+.sentence-case {
+  text-transform: capitalize;
 }
