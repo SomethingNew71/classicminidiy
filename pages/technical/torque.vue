@@ -85,15 +85,38 @@ export default {
     return {
       pagination: {},
       headers: [
-        { label: 'Fastener', field: 'name' },
-        { label: 'Torque (lb/ft)', field: 'lbft' },
-        { label: 'Torque (Nm)', field: 'nm' },
-        { label: 'Notes', field: 'notes' }
+        {
+          label: 'Fastener',
+          searchable: true,
+          field: 'name'
+        },
+        {
+          label: 'Torque (lb/ft)',
+          searchable: true,
+          field: 'lbft'
+        },
+        {
+          label: 'Torque (Nm)',
+          searchable: true,
+          field: 'nm'
+        }
       ],
       specialHeaders: [
-        { label: 'Fastener', field: 'name' },
-        { label: 'Torque (lb/in)', field: 'lbin' },
-        { label: 'Torque (Nm)', field: 'nm' }
+        {
+          label: 'Fastener',
+          searchable: true,
+          field: 'name'
+        },
+        {
+          label: 'Torque (lb/in)',
+          searchable: true,
+          field: 'lbin'
+        },
+        {
+          label: 'Torque (Nm)',
+          searchable: true,
+          field: 'nm'
+        }
       ]
     };
   },
