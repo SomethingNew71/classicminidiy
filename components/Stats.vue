@@ -8,6 +8,7 @@
           </p>
           <p v-if="!isLoading" class="title">
             {{ views }}
+            <!-- <i class="fad fa-history"></i> {{ views }} -->
           </p>
         </div>
       </div>
@@ -18,6 +19,7 @@
           </p>
           <p v-if="!isLoading" class="title">
             {{ subscribers }}
+            <!-- <i class="fad fa-thumbs-up"></i> {{ subscribers }} -->
           </p>
         </div>
       </div>
@@ -28,6 +30,7 @@
           </p>
           <p v-if="!isLoading" class="title">
             {{ videos }}
+            <!-- <i class="fad fa-video"></i> {{ videos }} -->
           </p>
         </div>
       </div>

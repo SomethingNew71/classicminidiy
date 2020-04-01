@@ -23,16 +23,20 @@
             <li class="is-active">
               <nuxt-link to="">
                 <span class="icon is-small">
-                  <i class="fas fa-wrench" aria-hidden="true" />
+                  <i class="fad fa-books" aria-hidden="true"></i>
                 </span>
                 <span>Manuals</span>
               </nuxt-link>
             </li>
           </ul>
         </nav>
+
         <h1 class="title">
           Essential Workshop Manuals
         </h1>
+        <p>
+          To help you work on your Classic Mini Cooper, I have taken the time to currate a list of all my favorite workshop manuals. You can use these to help find all the details you need to work on your Classic Mini at home.
+        </p>
       </div>
       <div
         v-for="(manual, name) in books.workshop"

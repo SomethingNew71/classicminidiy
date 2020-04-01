@@ -23,7 +23,7 @@
             <li class="is-active">
               <nuxt-link to="">
                 <span class="icon is-small">
-                  <i class="fas fa-wrench" aria-hidden="true" />
+                  <i class="fad fa-chart-bar" aria-hidden="true" />
                 </span>
                 <span>Needles</span>
               </nuxt-link>

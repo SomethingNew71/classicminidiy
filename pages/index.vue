@@ -13,7 +13,7 @@
         <div class="columns is-multiline">
           <div class="column is-8">
             <h3 class="fancy-font-book-oblique">
-              THE MINI MISSION
+              <i class="fad fa-book"></i> THE MINI MISSION
             </h3>
             <h4 class="fancy-font-bold is-size-3">
               Keeping the Classics on the Road
@@ -24,7 +24,7 @@
           </div>
           <div class="column is-4">
             <h3 class="fancy-font-book-oblique">
-              SUPPORT THE MISSION
+              <i class="fad fa-gift"></i> SUPPORT THE MISSION
             </h3>
             <h4 class="fancy-font-bold is-size-3">
               Patreon
@@ -53,7 +53,7 @@
           </div>
           <div class="column is-7">
             <h3 class="fancy-font-book-oblique">
-              THE COMPLETELY FREE
+              <i class="fad fa-handshake-alt"></i> THE COMPLETELY FREE
             </h3>
             <h3 class="fancy-font-bold is-size-3">
               Classic Mini Toolbox
@@ -65,7 +65,10 @@
               One of the largest reasons for starting this channel, was about making infromation related to working your Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining information from all over the web to bring you one location to find anything you need.
             </p>
             <a class="mt-25 button is-medium is-primary" href="/technical">
-              <span>Check it out</span>
+              <i class="fa fa-toolbox"></i>
+              <span class="pl-5">
+                Check it out
+              </span>
             </a>
           </div>
         </div>
@@ -76,7 +79,7 @@
         <div class="columns is-multiline">
           <div class="column is-7">
             <h3 class="fancy-font-bold is-size-3">
-              About Me
+              <i class="fad fa-address-card"></i> About Me
             </h3>
             <h4 class="fancy-font-book-oblique pt-20">
               MY NAME IS COLE

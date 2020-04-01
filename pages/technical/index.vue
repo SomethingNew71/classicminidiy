@@ -91,11 +91,6 @@ export default {
           title: 'SU Needle Comparison',
           image: '/icons/Graph-Magnifier.svg',
           to: '/technical/needles'
-        },
-        {
-          title: 'Wheel Dictionary',
-          image: '/icons/Bus.svg',
-          to: '/technical/wheels'
         }
       ]
     };
