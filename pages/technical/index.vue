@@ -7,7 +7,7 @@
             <li>
               <nuxt-link to="/">
                 <span class="icon is-small">
-                  <i class="fas fa-home" aria-hidden="true" />
+                  <i class="fad fa-home" aria-hidden="true" />
                 </span>
                 <span>Home</span>
               </nuxt-link>
@@ -15,7 +15,7 @@
             <li class="is-active">
               <nuxt-link to="/technical">
                 <span class="icon is-small">
-                  <i class="fas fa-book" aria-hidden="true" />
+                  <i class="fad fa-info-circle" aria-hidden="true" />
                 </span>
                 <span>Technical Info</span>
               </nuxt-link>
