@@ -69,19 +69,19 @@ export default {
             type: 'link',
             text: 'Home',
             path: '/',
-            iconLeft: '<i class="fa fa-house"></i>'
+            iconLeft: '<i class="fad fa-house"></i>'
           },
           {
             isLinkAction: true,
             type: 'link',
             text: 'Store',
             path: 'https://merch.classicminidiy.com',
-            iconLeft: '<i class="fa fa-store"></i>'
+            iconLeft: '<i class="fad fa-store"></i>'
           },
           {
             type: 'link',
             text: 'Toolbox',
-            iconLeft: '<i class="fa fa-toolbox"></i>',
+            iconLeft: '<i class="fad fa-toolbox"></i>',
             subMenuOptions: [
               {
                 type: 'link',
