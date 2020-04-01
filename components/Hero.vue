@@ -152,8 +152,11 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 
-  .vnb {
+  nav-bar, nav {
     background: rgba(255, 255, 255, 1);
+    padding-left: 2rem;
+    padding-right: 2rem;
+
     .youtube {
       background-color: #FF0000;
       padding: 12px 12px;
