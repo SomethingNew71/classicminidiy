@@ -134,6 +134,9 @@ export default {
       }
     };
   },
+  mounted () {
+    window.dispatchEvent(new Event('resize'));
+  },
   methods: {
     vnbItemClicked (text) {
       if (text === 'Store') {
@@ -142,9 +145,6 @@ export default {
         window.open('https://www.youtube.com/c/classicminidiy?sub_confirmation=1', '_blank');
       }
     }
-  },
-  mounted () {
-    window.dispatchEvent(new Event('resize'));
   }
 };
 </script>
