@@ -92,12 +92,10 @@ export default {
         },
         {
           label: 'Torque (lb/ft)',
-          searchable: true,
           field: 'lbft'
         },
         {
           label: 'Torque (Nm)',
-          searchable: true,
           field: 'nm'
         }
       ],
@@ -109,12 +107,10 @@ export default {
         },
         {
           label: 'Torque (lb/in)',
-          searchable: true,
           field: 'lbin'
         },
         {
           label: 'Torque (Nm)',
-          searchable: true,
           field: 'nm'
         }
       ]
