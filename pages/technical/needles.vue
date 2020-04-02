@@ -85,9 +85,21 @@
         </nav>
       </div>
       <div class="column is-9">
-        <client-only>
-          <vue-highcharts ref="needlesChart" :options="mapOptions" :highcharts="highcharts" />
-        </client-only>
+        <div class="card">
+          <client-only>
+            <vue-highcharts ref="needlesChart" :options="mapOptions" :highcharts="highcharts" />
+          </client-only>
+        </div>
+      </div>
+      <div class="column is-12">
+        <div class="card">
+          <!-- Needles - Under Chart -->
+          <adsbygoogle
+            ad-slot="7163546981"
+            ad-format="auto"
+            full-width-responsive="true"
+          />
+        </div>
       </div>
     </div>
   </section>
