@@ -52,8 +52,12 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-4 truncate">{{ manual.name }}</p>
-                <p class="subtitle is-6">by {{ manual.author }}</p>
+                <p class="title is-4 truncate">
+                  {{ manual.name }}
+                </p>
+                <p class="subtitle is-6">
+                  by {{ manual.author }}
+                </p>
               </div>
             </div>
           </div>
