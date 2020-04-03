@@ -68,16 +68,16 @@
           </b-collapse>
         </div>
       </template>
-      <div class="column is-12">
+      <!-- <div class="column is-12">
         <div class="card">
-          <!-- Technical - Root -->
+          Technical - Root
           <adsbygoogle
             ad-slot="1744533494"
             ad-format="auto"
             full-width-responsive="true"
           />
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
