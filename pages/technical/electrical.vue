@@ -71,16 +71,16 @@
               </div>
             </b-collapse>
           </div>
-          <div v-if="index === 2" :key="index" class="column is-12">
+          <!-- <div v-if="index === 2" :key="index" class="column is-12">
             <div class="card">
-              <!-- Technical - Root -->
+              Technical - Root
               <adsbygoogle
                 ad-slot="8333513648"
                 ad-format="auto"
                 full-width-responsive="true"
               />
             </div>
-          </div>
+          </div> -->
         </template>
       </div>
     </div>
