@@ -64,16 +64,6 @@
           <span>Support</span>
         </a>
       </div>
-      <!-- <div class="column is-12">
-        <div class="card">
-         Technical - Root
-          <adsbygoogle
-            ad-slot="2877172830"
-            ad-format="auto"
-            full-width-responsive="true"
-          />
-        </div>
-      </div> -->
     </div>
   </section>
 </template>
