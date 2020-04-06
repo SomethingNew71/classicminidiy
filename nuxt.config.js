@@ -50,8 +50,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
     '@bazzite/nuxt-optimized-images',
-    'nuxt-compress',
-    '@nuxtjs/google-adsense'
+    'nuxt-compress'
   ],
   serverMiddleware: [
     // Will register redirect-ssl npm package
@@ -62,9 +61,6 @@ export default {
   },
   optimizedImages: {
     optimizeImages: true
-  },
-  'google-adsense': {
-    id: 'ca-pub-0523971861051053'
   },
   // buefy: {
   //   materialDesignIcons: false
