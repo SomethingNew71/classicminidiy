@@ -20,8 +20,8 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/fgm1hlg.css', media: 'print', onload: 'this.media="all"' }
-    ]
-    // script: [{ src: 'https://kit.fontawesome.com/4e4435c885.js', async: true }]
+    ],
+    script: [{ src: 'https://kit.fontawesome.com/4e4435c885.js', async: true, crossorigin: 'anonymous' }]
   },
   /*
    ** Customize the progress-bar color
@@ -31,7 +31,6 @@ export default {
    ** Global CSS
    */
   css: [
-    '@/node_modules/@fortawesome/fontawesome-pro/css/all.min.css',
     '@/assets/main.scss'
   ],
   /*
