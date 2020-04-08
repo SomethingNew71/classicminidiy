@@ -52,7 +52,6 @@
             <video autoplay loop muted playsinline>
               <source src="~assets/img/grey-tool-animation.webm" type="video/webm">
               <source src="~assets/img/grey-tool-animation.mp4" type="video/mp4">
-              <img src="~assets/img/grey-tool-animation.gif">
             </video>
           </div>
           <div class="column is-7">
