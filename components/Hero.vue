@@ -188,7 +188,7 @@ export default {
       font-size: 2rem;
     }
     .nav-overlay {
-      position: absolute;
+      position: fixed;
       width: 100%;
       height: 100%;
       background: rgba(42, 42, 43, 0.8);
