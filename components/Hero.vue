@@ -4,7 +4,13 @@
     :class="size"
     :style="{ backgroundImage: 'url(' + require('assets/img' + background) + ')' }"
   >
-    <nav-bar :options="navbarOptions" @vnb-item-clicked="vnbItemClicked" />
+    <nav-bar
+      :options="navbarOptions"
+      @vnb-item-clicked="vnbItemClicked"
+      @vnb-mobile-popup-shown="toggleOverlay"
+      @vnb-mobile-popup-hidden="toggleOverlay"
+    />
+    <div v-if="showOverlay" class="nav-overlay"></div>
     <div class="hero-body">
       <div class="container" :class="{ 'has-text-centered': centered }">
         <p class="subtitle is-6 has-text-white">
@@ -53,6 +59,7 @@ export default {
   },
   data () {
     return {
+      showOverlay: false,
       mobileOpen: false,
       navbarOptions: {
         elementId: 'main-navbar',
@@ -144,6 +151,9 @@ export default {
       } else if (text === 'Subscribe') {
         window.open('https://www.youtube.com/c/classicminidiy?sub_confirmation=1', '_blank');
       }
+    },
+    toggleOverlay () {
+      this.showOverlay = !this.showOverlay;
     }
   }
 };
@@ -176,6 +186,13 @@ export default {
   @media screen and (max-width: 1023px) {
     .special-title {
       font-size: 2rem;
+    }
+    .nav-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(42, 42, 43, 0.8);
+      z-index: 99999;
     }
   }
 }
