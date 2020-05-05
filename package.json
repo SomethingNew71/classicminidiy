@@ -26,7 +26,7 @@
     "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/google-analytics": "^2.2.3",
     "highcharts": "^8.0.4",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "nuxt": "^2.12.2",
     "nuxt-buefy": "^0.3.28",
     "redirect-ssl": "^1.4.1",
