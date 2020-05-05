@@ -36,7 +36,7 @@
   "devDependencies": {
     "@bazzite/nuxt-optimized-images": "^0.4.0",
     "@nuxtjs/eslint-config": "^2.0.2",
-    "@nuxtjs/eslint-module": "^1.2.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "decompress": "^4.2.1",
     "eslint": "^6.8.0",
