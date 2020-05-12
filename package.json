@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@bazzite/nuxt-optimized-images": "^0.4.0",
-    "@nuxtjs/eslint-config": "^2.0.2",
+    "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "decompress": "^4.2.1",
@@ -45,7 +45,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.10.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-nuxt": "^0.5.2",
+    "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
