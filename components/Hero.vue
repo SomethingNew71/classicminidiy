@@ -102,6 +102,16 @@ export default {
               },
               {
                 type: 'link',
+                text: 'Color Picker',
+                subText: 'Find the right color swatch for your car',
+                path: '/technical/colors',
+                iconLeft: '<i class="submenu-icon fad fa-palette"></i>'
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
                 text: 'Manuals',
                 subText: 'Find some of the best manuals to help you learn to work on your classic mini cooper.',
                 path: '/technical/Manuals',

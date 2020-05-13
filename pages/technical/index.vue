@@ -78,6 +78,11 @@ export default {
           to: '/technical/torque'
         },
         {
+          title: 'Color Picker',
+          image: '/icons/Pantone.svg',
+          to: '/technical/colors'
+        },
+        {
           title: 'Manuals',
           image: '/icons/Checklist.svg',
           to: '/technical/manuals'
