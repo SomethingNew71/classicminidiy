@@ -48,7 +48,7 @@
           </header>
           <div class="card-content">
             <div class="content">
-              <p>Colors are seperated into general color sections. Please choose the closest main color to your Clasic Mini color swatch as possible.</p>
+              <p>Colors are seperated into general color sections. Please choose the closest main color to your Classic Mini color swatch as possible.</p>
               <b-select
                 v-model="selectedOption"
                 placeholder="Select a Color"
