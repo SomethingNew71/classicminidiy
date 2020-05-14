@@ -64,12 +64,17 @@
                   {{ option }}
                 </option>
               </b-select>
-              <!-- <div v-if="currentColors">
-                <h3>Total {{ selectedOption }} Swatches:</h3>
-                <p>{{currentColors.length}}</p>
-              </div> -->
             </div>
           </div>
+          <footer v-if="currentColors" class="card-footer">
+            <div v-if="currentColors" class="card-footer-item">
+              <h3>
+                <span class="is-size-4 fad fa-swatchbook pr-5"></span>
+                Total {{ selectedOption }} Swatches:
+                <strong>{{ currentColors.length }}</strong>
+              </h3>
+            </div>
+          </footer>
         </div>
       </div>
       <div class="column is-9">
@@ -94,34 +99,51 @@
             class="column is-3"
           >
             <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  {{ color[3] }}
+                </p>
+              </header>
               <div class="card-image">
                 <figure
                   class="image is-4x4"
                 >
                   <img
                     v-if="color[6]"
-                    :src="`http://mini-colours.co.uk/images/swatches/${color[2]}.jpg`"
+                    :src="require(`assets/img/colors/${color[2]}.jpg`)"
                     :alt="`Image of color ${color[2]}`"
                   >
                   <img
                     v-if="!color[6]"
-                    src="http://mini-colours.co.uk/images/swatches/no_swatch.jpg"
+                    src="~assets/img/colors/no-swatch.png"
                     :alt="`No image exists for color ${color[2]}`"
                   >
                 </figure>
               </div>
+              <hr v-if="!color[6]">
               <div class="card-content">
                 <div class="media">
                   <div class="media-content">
-                    <p class="title is-5 truncate" v-html="color[3]"></p>
-                    <p class="subtitle is-6" v-html="color[2]"></p>
-                    <p>
-                      <span class="is-5 fad fa-calendar-alt"></span>
-                      <span class="subtitle is-7" v-html="color[5]"></span>
+                    <p class="title is-5">
+                      {{ color[2] }}
                     </p>
                   </div>
                 </div>
               </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">
+                  <span class="is-size-4 fad fa-calendar-alt pr-5"></span>
+                  <span class="subtitle is-7">
+                    {{ color[5] }}
+                  </span>
+                </p>
+                <p class="card-footer-item">
+                  <span class="is-size-4 fad fa-brackets pr-5"></span>
+                  <span class="subtitle is-7">
+                    ({{ color[4] }})
+                  </span>
+                </p>
+              </footer>
             </div>
           </div>
         </div>
@@ -166,7 +188,7 @@ export default {
       this.currentColors = colors[this.selectedOption.toString().toLowerCase()];
       setTimeout(() => {
         this.loading = false;
-      }, 1500);
+      }, 500);
     }
   },
   head () {
