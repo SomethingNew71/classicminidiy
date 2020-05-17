@@ -28,7 +28,7 @@
     "highcharts": "^8.1.0",
     "node-sass": "^4.14.1",
     "nuxt": "^2.12.2",
-    "nuxt-buefy": "^0.3.29",
+    "nuxt-buefy": "^0.3.30",
     "redirect-ssl": "^1.4.1",
     "sass-loader": "^8.0.2",
     "vue2-highcharts": "^1.2.5"
@@ -43,7 +43,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.13.0",
+    "eslint-plugin-jest": "^23.13.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.3",
