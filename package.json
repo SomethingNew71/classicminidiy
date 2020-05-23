@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.10.3",
-    "@nuxtjs/google-analytics": "^2.2.3",
+    "@nuxtjs/google-analytics": "^2.3.0",
     "highcharts": "^8.1.0",
     "node-sass": "^4.14.1",
     "nuxt": "^2.12.2",
@@ -39,7 +39,7 @@
     "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "decompress": "^4.2.1",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
@@ -57,7 +57,7 @@
     "imagemin-svgo": "^7.1.0",
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.4",
-    "nuxt-compress": "^1.1.0",
+    "nuxt-compress": "^2.0.0",
     "vue-navigation-bar": "^2.0.0",
     "webp-loader": "^0.6.0"
   }
