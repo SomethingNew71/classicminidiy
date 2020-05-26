@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 export default {
   mode: 'universal',
   /*
@@ -56,6 +58,9 @@ export default {
     '@bazzite/nuxt-optimized-images',
     'nuxt-compress'
   ],
+  // buildModules: [
+  //   '@nuxtjs/dotenv'
+  // ],
   serverMiddleware: [
     // Will register redirect-ssl npm package
     'redirect-ssl'
@@ -80,8 +85,8 @@ export default {
   build: {},
   env: {
     youtube: {
-      key: 'AIzaSyCbmPC-gSOA2g9xQOAeBboTTwz4tSVRQZ8',
-      id: 'UCZIUfOFhrQ9nrR06IOoAJ2Q'
+      key: process.env.YoutubeKey,
+      id: process.env.YoutubeID
     }
   }
 };
