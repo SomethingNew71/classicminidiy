@@ -1,3 +1,5 @@
+import redirectSSL from 'redirect-ssl';
+
 require('dotenv').config();
 
 export default {
@@ -63,7 +65,7 @@ export default {
   // ],
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    'redirect-ssl'
+    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
   googleAnalytics: {
     id: 'UA-53914731-2'
