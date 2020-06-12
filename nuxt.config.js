@@ -60,9 +60,6 @@ export default {
     '@bazzite/nuxt-optimized-images',
     'nuxt-compress'
   ],
-  // buildModules: [
-  //   '@nuxtjs/dotenv'
-  // ],
   serverMiddleware: [
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
@@ -73,14 +70,6 @@ export default {
   optimizedImages: {
     optimizeImages: true
   },
-  // buefy: {
-  //   materialDesignIcons: false
-  // },
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
   /*
    ** Build configuration
    */
