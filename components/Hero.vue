@@ -4,12 +4,14 @@
     :class="size"
     :style="{ backgroundImage: 'url(' + require('assets/img' + background) + ')' }"
   >
-    <nav-bar
-      :options="navbarOptions"
-      @vnb-item-clicked="vnbItemClicked"
-      @vnb-mobile-popup-shown="toggleOverlay"
-      @vnb-mobile-popup-hidden="toggleOverlay"
-    />
+    <client-only>
+      <nav-bar
+        :options="navbarOptions"
+        @vnb-item-clicked="vnbItemClicked"
+        @vnb-mobile-popup-shown="toggleOverlay"
+        @vnb-mobile-popup-hidden="toggleOverlay"
+      />
+    </client-only>
     <div v-if="showOverlay" class="nav-overlay"></div>
     <div class="hero-body">
       <div class="container" :class="{ 'has-text-centered': centered }">
