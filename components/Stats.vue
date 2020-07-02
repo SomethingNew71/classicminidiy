@@ -6,8 +6,11 @@
           <p class="heading">
             Minutes Watched
           </p>
-          <p v-if="!isLoading" class="title">
+          <p v-if="!isLoading && views !== '0'" class="title">
             {{ views }}
+          </p>
+          <p v-else>
+            <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
       </div>
@@ -16,8 +19,11 @@
           <p class="heading">
             Subscribers
           </p>
-          <p v-if="!isLoading" class="title">
+          <p v-if="!isLoading && subscribers !== '0'" class="title">
             {{ subscribers }}
+          </p>
+          <p v-else>
+            <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
       </div>
@@ -26,8 +32,11 @@
           <p class="heading">
             videos
           </p>
-          <p v-if="!isLoading" class="title">
+          <p v-if="!isLoading && videos !== '0'" class="title">
             {{ videos }}
+          </p>
+          <p v-else>
+            <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
       </div>
@@ -60,15 +69,22 @@ export default {
       const feed = `${baseURL}?key=${apiKey}&id=${id}&part=${details}`;
 
       if (this.$store.state.data.youtubeStats.length === 0) {
-        await axios.get(feed).then((response) => {
-          const items = response.data.items[0].statistics;
-          this.views = Number(items.viewCount).toLocaleString();
-          this.subscribers = Number(items.subscriberCount).toLocaleString();
-          this.videos = Number(items.videoCount).toLocaleString();
-          // Commit the stats to the store
-          this.$store.commit('data/saveYoutube', items);
-          this.isLoading = false;
-        });
+        await axios.get(feed)
+          .then((response) => {
+            const items = response.data.items[0].statistics;
+            this.views = Number(items.viewCount).toLocaleString();
+            this.subscribers = Number(items.subscriberCount).toLocaleString();
+            this.videos = Number(items.videoCount).toLocaleString();
+            // Commit the stats to the store
+            this.$store.commit('data/saveYoutube', items);
+            this.isLoading = false;
+          })
+          .catch((error) => {
+            console.error('Youtube Error', error);
+            this.views = '0';
+            this.subscribers = '0';
+            this.videos = '0';
+          });
       } else {
         this.views = Number(this.$store.state.data.youtubeStats.viewCount).toLocaleString();
         this.subscribers = Number(this.$store.state.data.youtubeStats.subscriberCount).toLocaleString();
