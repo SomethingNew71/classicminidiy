@@ -2,7 +2,21 @@
   "engineTable": {
      "title": "Engine",
      "icon": "fad fa-car-mechanic",
-     "specialHeaders": false,
+     "columns": [
+        {
+          "label": "Fastener",
+          "searchable": true,
+          "field": "name"
+        },
+        {
+          "label": "Torque (lb/ft)",
+          "field": "lbft"
+        },
+        {
+          "label": "Torque (Nm)",
+          "field": "nm"
+        }
+      ],
      "items": [
         {
            "name": "Camshaft Nut",
@@ -189,7 +203,21 @@
   "suspensionTable": {
      "title": "Suspension",
      "icon": "fad fa-truck-monster",
-     "specialHeaders": false,
+     "columns": [
+        {
+          "label": "Fastener",
+          "searchable": true,
+          "field": "name"
+        },
+        {
+          "label": "Torque (lb/ft)",
+          "field": "lbft"
+        },
+        {
+          "label": "Torque (Nm)",
+          "field": "nm"
+        }
+      ],
      "items": [
         {
            "name": "Drive shaft coupling U bolts (rubber cross inner joints)",
@@ -328,7 +356,21 @@
   "electricalTable": {
      "title": "Electrical",
      "icon": "fad fa-bolt",
-     "specialHeaders": true,
+     "columns": [
+        {
+          "label": "Fastener",
+          "searchable": true,
+          "field": "name"
+        },
+        {
+          "label": "Torque (lb/in)",
+          "field": "lbin"
+        },
+        {
+          "label": "Torque (Nm)",
+          "field": "nm"
+        }
+     ],
      "items": [
         {
            "name": "Alternator (11AC) Brush box fixing screws",
@@ -371,7 +413,21 @@
   "gearboxTable": {
      "title": "Gearbox",
      "icon": "fad fa-cogs",
-     "specialHeaders": false,
+     "columns": [
+        {
+          "label": "Fastener",
+          "searchable": true,
+          "field": "name"
+        },
+        {
+          "label": "Torque (lb/ft)",
+          "field": "lbft"
+        },
+        {
+          "label": "Torque (Nm)",
+          "field": "nm"
+        }
+      ],
      "items": [
         {
            "name": "Third Motion Shaft bearing retainer screws",
