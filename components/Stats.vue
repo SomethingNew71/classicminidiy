@@ -6,10 +6,13 @@
           <p class="heading">
             Minutes Watched
           </p>
+          <p v-if="isLoading">
+            <i class="is-size-3 fa-spin fad fa-spinner"></i>
+          </p>
           <p v-if="!isLoading && views !== '0'" class="title">
             {{ views }}
           </p>
-          <p v-else>
+          <p v-else-if="!isLoading && !views">
             <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
@@ -19,10 +22,13 @@
           <p class="heading">
             Subscribers
           </p>
+          <p v-if="isLoading">
+            <i class="is-size-3 fa-spin fad fa-spinner"></i>
+          </p>
           <p v-if="!isLoading && subscribers !== '0'" class="title">
             {{ subscribers }}
           </p>
-          <p v-else>
+          <p v-else-if="!isLoading && !subscribers">
             <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
@@ -32,15 +38,18 @@
           <p class="heading">
             videos
           </p>
+          <p v-if="isLoading">
+            <i class="is-size-3 fa-spin fad fa-spinner"></i>
+          </p>
           <p v-if="!isLoading && videos !== '0'" class="title">
             {{ videos }}
           </p>
-          <p v-else>
+          <p v-else-if="!isLoading && !videos">
             <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
       </div>
-      <b-loading :is-full-page="false" :active.sync="isLoading" />
+      <!-- <b-loading :is-full-page="false" :active.sync="isLoading" /> -->
     </nav>
   </div>
 </template>

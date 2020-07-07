@@ -31,7 +31,7 @@
     "nuxt": "^2.13.3",
     "nuxt-buefy": "^0.3.31",
     "redirect-ssl": "^2.0.0",
-    "sass-loader": "^9.0.1",
+    "sass-loader": "^9.0.2",
     "vue2-highcharts": "^1.2.5"
   },
   "devDependencies": {
@@ -59,7 +59,7 @@
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.4",
     "nuxt-compress": "^2.0.0",
-    "vue-navigation-bar": "^2.0.0",
+    "vue-navigation-bar": "2.0.0",
     "webp-loader": "^0.6.0"
   }
 }
