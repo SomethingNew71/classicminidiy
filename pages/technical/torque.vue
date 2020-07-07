@@ -58,7 +58,9 @@
             <div class="card-content">
               <b-table
                 :data="table.items"
-                :columns="table.specialHeaders ? specialHeaders : headers"
+                :columns="table.columns"
+                :narrowed="true"
+                :hoverable="true"
                 :paginated="table.items.length >= 14 ? true : false"
                 :per-page="10"
                 icon-pack="fas"
@@ -83,37 +85,7 @@ export default {
   },
   data () {
     return {
-      pagination: {},
-      headers: [
-        {
-          label: 'Fastener',
-          searchable: true,
-          field: 'name'
-        },
-        {
-          label: 'Torque (lb/ft)',
-          field: 'lbft'
-        },
-        {
-          label: 'Torque (Nm)',
-          field: 'nm'
-        }
-      ],
-      specialHeaders: [
-        {
-          label: 'Fastener',
-          searchable: true,
-          field: 'name'
-        },
-        {
-          label: 'Torque (lb/in)',
-          field: 'lbin'
-        },
-        {
-          label: 'Torque (Nm)',
-          field: 'nm'
-        }
-      ]
+      pagination: {}
     };
   },
   head () {
