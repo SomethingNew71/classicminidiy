@@ -36,7 +36,12 @@
       </div>
       <template v-for="(table, name, index) in tables">
         <div :key="index" class="column is-12">
-          <b-collapse :open="index > 0 ? false : true" class="card" aria-id="contentIdForA11y3">
+          <b-collapse
+            :open="index > 0 ? false : true"
+            class="card"
+            aria-id="contentIdForA11y3"
+            animation="slide"
+          >
             <div
               slot="trigger"
               slot-scope="props"
