@@ -188,6 +188,22 @@ export default {
     }
     .submenu-icon {
       font-size: 1.7rem;
+
+      &.fa-ruler-triangle {
+        color: #CD342E;
+      }
+      &.fa-palette {
+        color: #4285F5;
+      }
+      &.fa-books {
+        color: #522B1A;
+      }
+      &.fa-bolt {
+        color: #FF9A00;
+      }
+      &.fa-chart-bar {
+        color: #0D6628;
+      }
     }
   }
 

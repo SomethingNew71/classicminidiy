@@ -30,12 +30,27 @@
             </li>
           </ul>
         </nav>
-        <h4 class="fancy-font-bold is-size-3">
-          SU Carburettor Needles
-        </h4>
-        <p class="is-size-5  pt-20">
-          One of the most confusing things about working on your Classic Mini often is the carburettor needle used on your car. Below you will find a multi-needle comparison chart which will allow you to compare needle profiles of multiple SU needles at the same time. Choose the needles you would like to compare and click Compare which will redraw the chart with new profiles. A huge thank you to the mintylamb site for posting this information publically.
-        </p>
+        <div class="columns">
+          <div class="column is-8">
+            <h4 class="fancy-font-bold is-size-3">
+              SU Carburettor Needles
+            </h4>
+            <p class="is-size-5 pt-20">
+              One of the most confusing things about working on your Classic Mini often is the carburettor needle used on your car. Below you will find a multi-needle comparison chart which will allow you to compare needle profiles of multiple SU needles at the same time. Choose the needles you would like to compare and click Compare which will redraw the chart with new profiles. A huge thank you to the mintylamb site for posting this information publically.
+            </p>
+          </div>
+          <div class="column is-4">
+            <h4 class="fancy-font-bold is-size-3">
+              Find the Needles you need?
+            </h4>
+            <h5 class="fancy-font-book is-size-5 pb-20">
+              Order them on Seven Mini Parts
+            </h5>
+            <a href="https://cmdiy.co/CarbNeedles" target="_blank" alt="Link to Classic Mini Needles">
+              <img class="seven-logo" src="~/assets/img/seven-logo-horiz.png" alt="Seven Mini Parts Logo">
+            </a>
+          </div>
+        </div>
       </div>
       <div class="column is-3">
         <nav class="panel">
@@ -203,5 +218,10 @@ export default {
 <style lang="scss">
 .highcharts-credits {
   display: none !important;
+}
+.seven-logo {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
 }
 </style>
