@@ -2,7 +2,6 @@
   <div>
     <hero
       :title="title"
-      :size="size"
       :subtitle="subtitle"
       :background="background"
       :centered="centered"
@@ -25,7 +24,6 @@ export default {
       title: 'Digital Mini Toolbox',
       subtitle: 'TECHNICAL INFORMATION',
       background: '/technical.jpg',
-      size: 'is-medium',
       centered: true
     };
   },
