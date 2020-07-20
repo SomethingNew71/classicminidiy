@@ -62,10 +62,10 @@
             type="is-toggle"
             position="is-centered"
           >
-            <b-tab-item label="Compare Needles" icon-pack="fas" icon="fas fa-chart-line" class="pt-40">
+            <b-tab-item label="Compare Needles" icon-pack="fas" icon="fas fa-chart-line" class="pt-10">
               <needleConfig />
             </b-tab-item>
-            <b-tab-item label="Needle Charts" icon-pack="fas" icon="fas fa-table" class="columns is-multiline pt-40">
+            <b-tab-item label="Needle Charts" icon-pack="fas" icon="fas fa-table" class="columns is-multiline pt-10">
               <div class="column is-12 has-text-centered">
                 <h5 class="fancy-font-book is-size-5">
                   Information provided by <a href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html" target="_blank">Seven Mini Parts</a>
