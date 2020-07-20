@@ -59,7 +59,7 @@
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.4",
     "nuxt-compress": "^2.0.0",
-    "vue-navigation-bar": "3.0.0",
+    "vue-navigation-bar": "^3.0.0",
     "webp-loader": "^0.6.0"
   }
 }
