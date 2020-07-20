@@ -73,7 +73,9 @@ export default {
   /*
    ** Build configuration
    */
-  build: {},
+  build: {
+    optimizeCSS: true
+  },
   env: {
     youtube: {
       key: process.env.YoutubeKey,
