@@ -103,3 +103,8 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.card-header {
+  background-color: whitesmoke;
+}
+</style>

@@ -57,6 +57,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .card-header {
-  background-color: #E1E1E1;
+  background-color: whitesmoke;
 }
 </style>

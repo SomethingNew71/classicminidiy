@@ -218,3 +218,8 @@ export default {
   background-color: transparent;
 }
 </style>
+<style lang="scss" scoped>
+.card-header {
+  background-color: whitesmoke;
+}
+</style>
