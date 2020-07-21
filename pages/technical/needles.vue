@@ -56,25 +56,21 @@
           </div>
         </div>
       </div>
-      <div class="card column is-12">
-        <div class="card-content">
-          <b-tabs
-            type="is-toggle"
-            position="is-centered"
-          >
-            <b-tab-item label="Compare Needles" icon-pack="fas" icon="fas fa-chart-line" class="pt-10">
-              <needleConfig />
-            </b-tab-item>
-            <b-tab-item label="Needle Charts" icon-pack="fas" icon="fas fa-table" class="columns is-multiline pt-10">
-              <div class="column is-12 has-text-centered">
-                <h5 class="fancy-font-book is-size-5">
-                  Information provided by <a href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html" target="_blank">Seven Mini Parts</a>
-                </h5>
-              </div>
-              <needleTable />
-            </b-tab-item>
-          </b-tabs>
-        </div>
+      <div class="column is-12 hr mt-20"></div>
+      <div class="column is-12">
+        <b-tabs type="is-toggle" position="is-centered">
+          <b-tab-item label="Compare" icon-pack="fas" icon="fas fa-chart-line" class="pt-10">
+            <needleConfig />
+          </b-tab-item>
+          <b-tab-item label="Charts" icon-pack="fas" icon="fas fa-table" class="columns is-multiline pt-10">
+            <div class="column is-12 has-text-centered">
+              <h5 class="fancy-font-book is-size-5">
+                Information provided by <a href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html" target="_blank">Seven Mini Parts</a>
+              </h5>
+            </div>
+            <needleTable />
+          </b-tab-item>
+        </b-tabs>
       </div>
     </div>
   </section>
@@ -107,5 +103,12 @@ export default {
   display: inline-block;
   margin: auto;
   width: 100%;
+}
+.b-tabs .tab-content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.hr {
+  border-top: 1px solid whitesmoke;
 }
 </style>
