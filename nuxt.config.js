@@ -27,7 +27,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/fgm1hlg.css', media: 'print', onload: 'this.media="all"' }
     ]
-    // script: [{ src: '~node_modules/@fortawesome/fontawesome-pro/js/all.js', async: true, crossorigin: 'anonymous' }]
   },
   /*
    ** Customize the progress-bar color
