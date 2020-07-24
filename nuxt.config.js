@@ -26,8 +26,8 @@ export default {
       { rel: 'icon', type: 'image/png', href: '/favicon-16x16.png', sizes: '16x16' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://use.typekit.net/fgm1hlg.css', media: 'print', onload: 'this.media="all"' }
-    ],
-    script: [{ src: 'https://kit.fontawesome.com/4e4435c885.js', async: true, crossorigin: 'anonymous' }]
+    ]
+    // script: [{ src: '~node_modules/@fortawesome/fontawesome-pro/js/all.js', async: true, crossorigin: 'anonymous' }]
   },
   /*
    ** Customize the progress-bar color
