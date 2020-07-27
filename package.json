@@ -29,7 +29,7 @@
     "@nuxtjs/google-analytics": "^2.4.0",
     "highcharts": "^8.1.2",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.13.3",
+    "nuxt": "^2.14.0",
     "nuxt-buefy": "^0.3.31",
     "redirect-ssl": "^2.0.0",
     "sass-loader": "^9.0.2",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@bazzite/nuxt-optimized-images": "^0.4.0",
-    "@nuxtjs/eslint-config": "^3.0.0",
+    "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "decompress": "^4.2.1",
@@ -45,7 +45,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-jest": "^23.18.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -60,7 +60,7 @@
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.4",
     "nuxt-compress": "^2.0.0",
-    "vue-navigation-bar": "^3.0.0",
+    "vue-navigation-bar": "^4.0.2",
     "webp-loader": "^0.6.0"
   }
 }
