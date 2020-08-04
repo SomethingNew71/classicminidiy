@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://www.patreon.com/classicminidiy" target="_blank">
-    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150">
   </a>
 </p>
 
@@ -48,7 +48,7 @@
 #### Note: If you'd like to support hosting costs please consider donating via Patreon. 
 
   <a href="https://www.patreon.com/classicminidiy" target="_blank">
-    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150">
   </a>
 
 
@@ -88,6 +88,6 @@ This software uses the following sources for information:
 ## Support
 
   <a href="https://www.patreon.com/classicminidiy" target="_blank">
-    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150">
   </a>
 
