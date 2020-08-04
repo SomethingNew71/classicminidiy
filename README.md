@@ -21,7 +21,7 @@
   <a href="https://youtube.com/c/classicminidiy">Youtube Channel</a> •
   <a href="#credits">Credits</a> •
   <a href="#related">Related Sites</a> •
-  <a href="#license">License</a>
+  <a href="LICENSE.md">License</a>
 </p>
 
 <div align="center">
