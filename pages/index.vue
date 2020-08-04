@@ -27,16 +27,22 @@
               <i class="fad fa-gift"></i> SUPPORT THE MISSION
             </h3>
             <h4 class="fancy-font-bold is-size-3">
-              Patreon
+              Support
             </h4>
             <p class="is-size-5 pt-20">
-              Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon.
+              Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon or if you have skills in JS and modern web technologies, please consider supporting the open source codebase on github.
             </p>
             <a class="mt-25 button is-medium is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
               <span class="icon">
                 <i class="fab fa-patreon" />
               </span>
-              <span>Support</span>
+              <span>Donate</span>
+            </a>
+            <a class="mt-25 button is-medium" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
+              <span class="icon">
+                <i class="fab fa-github" />
+              </span>
+              <span>Contribute</span>
             </a>
           </div>
           <div class="column is-10 is-offset-1 pt-50">
