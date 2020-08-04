@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://classicminidiy.com"><img src="https://i.imgur.com/3v147Nx.png" alt="Classic Mini DIY Illustrated Image" width="220"></a>
+  <a href="https://classicminidiy.com"><img src="https://i.imgur.com/3v147Nx.png" alt="Classic Mini DIY Illustrated Image" width="120"></a>
   <br>
   Classic Mini DIY
   <br>
