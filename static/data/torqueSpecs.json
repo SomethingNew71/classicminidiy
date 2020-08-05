@@ -32,9 +32,8 @@
         },
         {
            "name": "Crankshaft Pulley Nut",
-           "lbft": "70 to 80",
-           "nm": "95 to 108.8",
-           "notes": "848cc, 998cc"
+           "lbft": "105",
+           "nm": "142"
         },
         {
            "name": "Cylinder Head Stud Nuts",
