@@ -124,6 +124,16 @@ export default {
               },
               {
                 type: 'link',
+                text: 'Essential Tools',
+                subText: 'Find some of the most useful tools to help make tough jobs easier.',
+                path: '/technical/Tools',
+                iconLeft: '<i class="submenu-icon fad fa-wrench"></i>'
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
                 text: 'Electrical Diagrams',
                 subText: 'Complete and new digitally redrawn Classic Mini Wiring diagrams',
                 path: '/technical/electrical',
