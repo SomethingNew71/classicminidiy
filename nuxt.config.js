@@ -53,7 +53,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
-    '@bazzite/nuxt-optimized-images',
+    '@aceforth/nuxt-optimized-images',
     'nuxt-compress'
   ],
   serverMiddleware: [

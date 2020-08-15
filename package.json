@@ -36,12 +36,12 @@
     "vue2-highcharts": "^1.2.5"
   },
   "devDependencies": {
-    "@bazzite/nuxt-optimized-images": "^0.4.0",
+    "@aceforth/nuxt-optimized-images": "^1.1.0",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "decompress": "^4.2.1",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
