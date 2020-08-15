@@ -62,14 +62,25 @@
             </div>
           </div>
           <footer class="card-footer">
-            <a :href="tool.urlVendor" class="card-footer-item is-amazon" target="_blank">
-              <span class="icon">
-                <i :class="tool.iconVendor" />
-              </span>
-              <span>
-                {{ tool.vendor }}
-              </span>
-            </a>
+            <template v-for="(vendor, i) in tool.vendors">
+              <a
+                :key="i"
+                :href="vendor.urlVendor"
+                class="card-footer-item"
+                target="_blank"
+                :class="{
+                  'has-background-amazon has-text-white': vendor.name === 'Amazon',
+                  'has-background-seven has-text-white': vendor.name === '7ent'
+                }"
+              >
+                <span class="icon">
+                  <i :class="{'fab fa-amazon': vendor.name === 'Amazon', 'fas fa-car': vendor.name === '7ent'}" />
+                </span>
+                <span>
+                  {{ vendor.name }}
+                </span>
+              </a>
+            </template>
           </footer>
         </div>
       </div>

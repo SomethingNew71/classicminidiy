@@ -88,6 +88,11 @@ export default {
           to: '/technical/manuals'
         },
         {
+          title: 'Recommended Tools',
+          image: '/icons/Car-Jumper.svg',
+          to: '/technical/tools'
+        },
+        {
           title: 'Electrical Diagrams',
           image: '/icons/Battery-Charging.svg',
           to: '/technical/electrical'

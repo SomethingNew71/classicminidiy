@@ -214,6 +214,9 @@ export default {
       &.fa-chart-bar {
         color: #0D6628;
       }
+      &.fa-wrench {
+        color: #6953bb;
+      }
     }
   }
 
