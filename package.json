@@ -29,8 +29,8 @@
     "@nuxtjs/google-analytics": "^2.4.0",
     "highcharts": "^8.1.2",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.14.1",
-    "nuxt-buefy": "^0.3.31",
+    "nuxt": "^2.14.3",
+    "nuxt-buefy": "^0.4.0",
     "redirect-ssl": "^2.0.0",
     "sass-loader": "^9.0.3",
     "vue2-highcharts": "^1.2.5"
