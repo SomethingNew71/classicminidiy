@@ -19,21 +19,44 @@
       ],
      "items": [
         {
+           "name": "Camshaft Retaining Plate Bolts",
+           "lbft": "8",
+           "nm": "11",
+           "notes": "848cc, 998cc"
+        },
+        {
            "name": "Camshaft Nut",
-           "lbft": "60 to 70",
-           "nm": "81.39 to 95",
+           "lbft": "66",
+           "nm": "90",
            "notes": "848cc, 998cc"
         },
         {
            "name": "Con Rod Big-end Bolts",
-           "lbft": "35 to 38",
-           "nm": "47 to 52",
+           "lbft": "37",
+           "nm": "50",
            "notes": "848cc, 998cc"
         },
         {
-           "name": "Crankshaft Pulley Nut",
-           "lbft": "105",
-           "nm": "142"
+           "name": "Con Rod Big-end Nuts",
+           "lbft": "33",
+           "nm": "45",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Con Rod Big-end Nuts (assemble dry only)",
+           "lbft": "40",
+           "nm": "54",
+           "notes": "970cc, 1071cc, 1275cc"
+        },
+        {
+           "name": "Crankshaft Pulley Bolt (Pre-Oct. 1996)",
+           "lbft": "75",
+           "nm": "102"
+        },
+        {
+           "name": "Crankshaft Pulley Bolt",
+           "lbft": "111",
+           "nm": "150"
         },
         {
            "name": "Cylinder Head Stud Nuts",
@@ -42,39 +65,78 @@
            "notes": "848cc, 998cc"
         },
         {
+           "name": "Cylinder Head Nuts (11 stud head)",
+           "lbft": "42",
+           "nm": "57",
+           "notes": "970cc, 1071cc, 1275cc"
+        },
+        {
+           "name": "Cylinder Head Bolts (11 stud head)",
+           "lbft": "25",
+           "nm": "34",
+           "notes": "970cc, 1071cc, 1275cc"
+        },
+        {
            "name": "Cylinder Side Cover",
            "lbft": "3 to 4",
            "nm": "4 to 5",
            "notes": "848cc, 998cc"
         },
         {
-           "name": "Clutch Spring Housing to Pressure Plate set screws",
+           "name": "Clutch Spring Housing to Pressure Plate Set Screws",
            "lbft": "16",
            "nm": "21.5",
            "notes": "848cc, 998cc"
         },
         {
-           "name": "Driving Strap to Flywheel set screw",
-           "lbft": "16",
-           "nm": "21.5",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Flywheel Center Bolt",
-           "lbft": "110 to 115",
-           "nm": "149 to 156",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Flywheel Housing bolts and stud nuts",
+           "name": "Engine Mount (LH) Bracket to Transmission",
            "lbft": "18",
-           "nm": "24.5",
-           "notes": "848cc, 998cc"
+           "nm": "25"
         },
         {
-           "name": "Gudgeon Pin Clamp Screws",
-           "lbft": "22 to 25",
-           "nm": "29 to 24",
+           "name": "Engine Mount (LH) to Mounting Bracket",
+           "lbft": "16",
+           "nm": "22"
+        },
+        {
+           "name": "Engine Mount (LH) to Subframe",
+           "lbft": "16",
+           "nm": "22"
+        },
+        {
+           "name": "Engine Mount (RH) to Flywheel Housing Cover",
+           "lbft": "13",
+           "nm": "18"
+        },
+        {
+           "name": "Engine Mount (RH) to Subframe",
+           "lbft": "16",
+           "nm": "22"
+        },
+        {
+           "name": "Engine Lower Tie-Bar to Subframe",
+           "lbft": "30",
+           "nm": "40"
+        },
+        {
+           "name": "Engine Lower Tie-Bar to Transmission Bracket",
+           "lbft": "30",
+           "nm": "40"
+        },
+        {
+           "name": "Engine Upper Tie-Bar to Bulkhead",
+           "lbft": "16",
+           "nm": "22"
+        },
+        {
+           "name": "Engine Upper Tie-Bar to Cylinder Head",
+           "lbft": "16",
+           "nm": "22"
+        },
+        {
+           "name": "Gudgeon Pin Clamp Bolt",
+           "lbft": "24",
+           "nm": "32",
            "notes": "848cc, 998cc"
         },
         {
@@ -84,106 +146,10 @@
            "notes": "848cc, 998cc"
         },
         {
-           "name": "Main Bearing set screws",
-           "lbft": "60 to 65",
-           "nm": "81.39 to 88",
+           "name": "Main Bearing Bolts",
+           "lbft": "63",
+           "nm": "85",
            "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Manifold to Cylinder Head",
-           "lbft": "12 to 16",
-           "nm": "16.6 to 21.5",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Oil Filter Brown Center Bolt",
-           "lbft": "12 to 16",
-           "nm": "16.6 to 21.5",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Oil Pump",
-           "lbft": "6 to 9",
-           "nm": "8 to 12",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Oil Pipe banjo",
-           "lbft": "35 to 40",
-           "nm": "47 to 54",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Oil Pressure Release Valve - dome nut",
-           "lbft": "40 to 45",
-           "nm": "53.93 to 60.80",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Rocker Cover",
-           "lbft": "3 to 4",
-           "nm": "4 to 5",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Rocker Shaft Bracket Nuts",
-           "lbft": "22 to 25",
-           "nm": "29 to 34",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Spark Plugs",
-           "lbft": "18",
-           "nm": "24.5",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Timing Cover and Front Plate 1/4in UNF bolts",
-           "lbft": "4 to 6",
-           "nm": "5 to 8",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Timing Cover and Front Plate 5/16in UNF bolts",
-           "lbft": "14 to 18.5",
-           "nm": "19 to 25",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Water Pump",
-           "lbft": "14 to 18",
-           "nm": "18.6 to 24.5",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Water Outlet Elbow",
-           "lbft": "6 to 9",
-           "nm": "8 to 12",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Thermal Transmitter",
-           "lbft": "16",
-           "nm": "21.5",
-           "notes": "848cc, 998cc"
-        },
-        {
-           "name": "Cylinder Head nuts (11 stud head)",
-           "lbft": "42",
-           "nm": "57",
-           "notes": "970cc, 1071cc, 1275cc"
-        },
-        {
-           "name": "Cylinder Head bolt (11 stud head)",
-           "lbft": "25",
-           "nm": "34",
-           "notes": "970cc, 1071cc, 1275cc"
-        },
-        {
-           "name": "Con Rod Big-end nuts (assemble dry only)",
-           "lbft": "40",
-           "nm": "54",
-           "notes": "970cc, 1071cc, 1275cc"
         },
         {
            "name": "Main Bearing set screws (early type)",
@@ -196,6 +162,96 @@
            "lbft": "57",
            "nm": "77",
            "notes": "970cc, 1071cc, 1275cc"
+        },
+        {
+           "name": "Manifold to Cylinder Head",
+           "lbft": "15",
+           "nm": "20",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Oil Filter Housing Bolts",
+           "lbft": "15",
+           "nm": "19",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Oil Pump Bolts",
+           "lbft": "8",
+           "nm": "11",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Oil Pipe Banjo Union",
+           "lbft": "38",
+           "nm": "52",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Oil Pressure Release Valve Dome Nut",
+           "lbft": "44",
+           "nm": "60",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Rocker Cover Bolts",
+           "lbft": "4",
+           "nm": "5",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Rocker Shaft Bracket Nuts",
+           "lbft": "24",
+           "nm": "32",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Spark Plugs",
+           "lbft": "18",
+           "nm": "24.5",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Thermal Transmitter",
+           "lbft": "16",
+           "nm": "21.5",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Thermostat Housing",
+           "lbft": "8",
+           "nm": "11",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Timing Cover and Front Plate 1/4 UNF Bolts",
+           "lbft": "5",
+           "nm": "7",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Timing Cover and Front Plate 5/16 UNF bolts",
+           "lbft": "12",
+           "nm": "16",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Water Pump to Block",
+           "lbft": "16",
+           "nm": "22",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Water Pump Pulley Bolts",
+           "lbft": "6",
+           "nm": "8",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Water Outlet Elbow",
+           "lbft": "6 to 9",
+           "nm": "8 to 12",
+           "notes": "848cc, 998cc"
         }
      ]
   },
@@ -219,45 +275,63 @@
       ],
      "items": [
         {
-           "name": "Drive shaft coupling U bolts (rubber cross inner joints)",
-           "lbft": "8 to 12",
-           "nm": "10.88 to 16.279",
+           "name": "Backplate to rear radius arm bolts",
+           "lbft": "18 to 22",
+           "nm": "24.5 to 29.4",
            "notes": ""
         },
         {
-           "name": "Drive shaft nut (Front Drums Only)",
-           "lbft": "20 to 24",
-           "nm": "27.45 to 32.36",
+           "name": "Caliper retaining bolts",
+           "lbft": "35 to 40",
+           "nm": "47 to 54",
+           "notes": "Mini Cooper 997/998cc only"
+        },
+        {
+           "name": "Driveshaft Coupling U-bolts (rubber cross inner joints)",
+           "lbft": "10",
+           "nm": "14",
+           "notes": ""
+        },
+        {
+           "name": "Driveshaft Retaining Nut - Multiple Split Pin Holes (Disc Brake Models)",
+           "lbft": "153",
+           "nm": "207",
            "notes": "Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!"
         },
         {
-           "name": "Tie rod to front sub-frame",
-           "lbft": "17-20",
-           "nm": "27.45 to 32.36",
+           "name": "Driveshaft Retaining Nut - Single Split Pin Hole (Disc Brake Models)",
+           "lbft": "188-199",
+           "nm": "255-270",
+           "notes": "Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!"
+        },
+        {
+           "name": "Driveshaft Retaining Nut (Drum Brake Models)",
+           "lbft": "61",
+           "nm": "83",
+           "notes": "Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!"
+        },
+        {
+           "name": "Front Suspension Upper Support Arm Pivot Shaft Nut",
+           "lbft": "53",
+           "nm": "72",
            "notes": ""
         },
         {
-           "name": "Tie rod to lower front suspension wishbone",
-           "lbft": "17-20",
-           "nm": "27.45 to 32.36",
+           "name": "Front Suspension Lower Wishbone Pivot Shaft Nut",
+           "lbft": "33",
+           "nm": "45",
            "notes": ""
         },
         {
-           "name": "Front suspension upper support arm pivot shaft nut",
-           "lbft": "45 to 60",
-           "nm": "60.80 to 81.39",
-           "notes": ""
+           "name": "Rear Hub Retaining Nut",
+           "lbft": "60",
+           "nm": "81",
+           "notes": "Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!"
         },
         {
-           "name": "Front suspension lower wishbone pivot shaft nut",
-           "lbft": "30 to 35",
-           "nm": "40.20 to 47.07",
-           "notes": ""
-        },
-        {
-           "name": "Wheel nuts",
-           "lbft": "40 to 45",
-           "nm": "53.93 to 60.80",
+           "name": "Rear Radius Arm Pivot Shaft Nut",
+           "lbft": "53",
+           "nm": "72",
            "notes": ""
         },
         {
@@ -273,34 +347,34 @@
            "notes": ""
         },
         {
-           "name": "Steering track-rod end to steering arm",
-           "lbft": "20 to 24",
-           "nm": "27.45 to 32.36",
+           "name": "Steering Track-rod End to Steering Arm",
+           "lbft": "22",
+           "nm": "30",
            "notes": ""
         },
         {
-           "name": "Steering-wheel nut",
-           "lbft": "32 to 37",
-           "nm": "44.12 to 50",
+           "name": "Steering-wheel Nut",
+           "lbft": "35",
+           "nm": "47",
            "notes": ""
         },
         {
-           "name": "Swivel hub ball joint socket",
+           "name": "Swivel Hub Ball Joint Socket",
            "lbft": "70 to 80",
            "nm": "94 to 108",
            "notes": ""
         },
         {
-           "name": "Swivel hub ball joint to suspension arms",
+           "name": "Swivel Hub Ball Joint to Suspension Arms",
            "lbft": "35 to 40",
            "nm": "47 to 54",
            "notes": ""
         },
         {
-           "name": "Track rod end to steering rack lock nut",
-           "lbft": "35 to 40",
-           "nm": "47 to 54",
-           "notes": ""
+           "name": "Steering Lever ball joint",
+           "lbft": "25 to 30",
+           "nm": "33 to 40",
+           "notes": "Mini Cooper 997/998cc only"
         },
         {
            "name": "Steering rack U-bolts to floor",
@@ -315,40 +389,28 @@
            "notes": ""
         },
         {
-           "name": "Rear suspension rear hub nut",
-           "lbft": "60",
-           "nm": "81.39",
-           "notes": "Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!"
-        },
-        {
-           "name": "Rear radius arm pivot shaft nut",
-           "lbft": "45 to 60",
-           "nm": "60.80 to 81.39",
+           "name": "Tie Rod to Front Subframe",
+           "lbft": "22",
+           "nm": "30",
            "notes": ""
         },
         {
-           "name": "Backplate to rear radius arm bolts",
-           "lbft": "18 to 22",
-           "nm": "24.5 to 29.4",
+           "name": "Tie rod to Lower Front Suspension Wishbone (Ball Joint Nut)",
+           "lbft": "22",
+           "nm": "30",
            "notes": ""
         },
         {
-           "name": "Caliper retaining bolts",
+           "name": "Track Rod End to Steering Rack Lock Nut",
            "lbft": "35 to 40",
            "nm": "47 to 54",
-           "notes": "Mini Cooper 997/998cc only"
+           "notes": ""
         },
         {
-           "name": "Steering Lever ball joint",
-           "lbft": "25 to 30",
-           "nm": "33 to 40",
-           "notes": "Mini Cooper 997/998cc only"
-        },
-        {
-           "name": "Drive Shaft Nut (disc only)",
-           "lbft": "150",
-           "nm": "20.7",
-           "notes": "Disc Brake Hubs Only (Continue tightening until next split pin slot aligns. Do not slacken off until the next slot aligns!)"
+           "name": "Wheel Nuts",
+           "lbft": "44",
+           "nm": "60",
+           "notes": ""
         }
      ]
   },
@@ -410,7 +472,7 @@
      ]
   },
   "gearboxTable": {
-     "title": "Gearbox",
+     "title": "Clutch & Gearbox",
      "icon": "fad fa-cogs",
      "columns": [
         {
@@ -429,81 +491,135 @@
       ],
      "items": [
         {
+           "name": "Bottom Cover set screws 1/4in dia. UNC (change-speed tower)",
+           "lbft": "6",
+           "nm": "7.8",
+           "notes": ""
+        },
+        {
+           "name": "Clutch Slave to Mounting Plate (Verto)",
+           "lbft": "27",
+           "nm": "37",
+           "notes": ""
+        },
+        {
+           "name": "Clutch Slave Mounting Plate to Housing M8 Bolts(Verto)",
+           "lbft": "27",
+           "nm": "37",
+           "notes": ""
+        },
+        {
+           "name": "Clutch Slave Mounting Plate to Housing M5 Bolts(Verto)",
+           "lbft": "5",
+           "nm": "7",
+           "notes": ""
+        },
+        {
+           "name": "Diaphragm Spring Housing to Pressure Plate (non-Verto)",
+           "lbft": "16",
+           "nm": "22",
+           "notes": ""
+        },
+        {
+           "name": "Differential Housing End Cover bolts",
+           "lbft": "18",
+           "nm": "24.5",
+           "notes": ""
+        },
+        {
+           "name": "Driven Gear to Differential Cage",
+           "lbft": "60",
+           "nm": "81.39",
+           "notes": ""
+        },
+        {
+           "name": "Driving Flange to Differential nut (tighten to next split pin hole)",
+           "lbft": "70",
+           "nm": "94",
+           "notes": ""
+        },
+        {
+           "name": "Driving Strap to Flywheel (non-Verto)",
+           "lbft": "16",
+           "nm": "22",
+           "notes": ""
+        },
+        {
+           "name": "Flywheel Center Bolt",
+           "lbft": "111",
+           "nm": "150",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Flywheel Housing 'Wok' Bolts",
+           "lbft": "7",
+           "nm": "10",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Flywheel Housing Nuts and Bolts (3/8 UNF)",
+           "lbft": "26",
+           "nm": "35",
+           "notes": "848cc, 998cc"
+        },
+        {
+           "name": "Flywheel Housing Nuts and Bolts (5/16 UNC/UNF)",
+           "lbft": "18",
+           "nm": "25",
+           "notes": "848cc, 998cc"
+        },
+        {
            "name": "Third Motion Shaft bearing retainer screws",
            "lbft": "13",
            "nm": "17.6",
            "notes": ""
         },
         {
-           "name": "First Motion Shaft nut",
-           "lbft": "150",
-           "nm": "203",
+           "name": "First Motion Shaft Nut",
+           "lbft": "153",
+           "nm": "207",
            "notes": ""
         },
         {
-           "name": "Third Motion Shaft nut",
-           "lbft": "150",
-           "nm": "203",
+           "name": "Third Motion Shaft Nut",
+           "lbft": "153",
+           "nm": "207",
            "notes": ""
         },
         {
-           "name": "Transmission Case to Crankcase",
+           "name": "Transmission Case to Engine",
+           "lbft": "12",
+           "nm": "16",
+           "notes": ""
+        },
+        {
+           "name": "Transmission Drain Plug",
+           "lbft": "25",
+           "nm": "34",
+           "notes": ""
+        },
+        {
+           "name": "Transmission Case Studs 3/8 UNC",
+           "lbft": "8",
+           "nm": "10.8",
+           "notes": ""
+        },
+        {
+           "name": "Transmission Case Studs 5/16 UNC",
            "lbft": "6",
            "nm": "7.8",
            "notes": ""
         },
         {
-           "name": "Transmission drain plug",
-           "lbft": 25,
-           "nm": 34,
+           "name": "Transmission Case Stud Nuts 3/8 UNF",
+           "lbft": "25",
+           "nm": "33",
            "notes": ""
         },
         {
-           "name": "Transmission case studs - 3/8in dia. UNC",
-           "lbft": 8,
-           "nm": 10.8,
-           "notes": ""
-        },
-        {
-           "name": "Transmission case studs - 5/16in dia. UNC",
-           "lbft": 6,
-           "nm": 7.8,
-           "notes": ""
-        },
-        {
-           "name": "Transmission case stud nuts 3/8in UNF",
-           "lbft": 25,
-           "nm": 33,
-           "notes": ""
-        },
-        {
-           "name": "Transmission case stud nuts 5/16in UNF",
-           "lbft": 18,
-           "nm": 24.5,
-           "notes": ""
-        },
-        {
-           "name": "Bottom Cover set screws 1/4in dia. UNC (change-speed tower)",
-           "lbft": 6,
-           "nm": 7.8,
-           "notes": ""
-        },
-        {
-           "name": "Driven Gear to Differential Cage",
-           "lbft": 60,
-           "nm": 81.39,
-           "notes": ""
-        },
-        {
-           "name": "Driving Flange to Differential nut (tighten to next split pin hole)",
-           "lbft": 70,
-           "nm": 94,
-           "notes": ""
-        },
-        {
-           "name": "Differential Housing End Cover bolts",
-           "lbft": 18,
-           "nm": 24.5,
+           "name": "Transmission Case Stud Nuts 5/16 UNF",
+           "lbft": "18",
+           "nm": "24.5",
            "notes": ""
         }
      ]
