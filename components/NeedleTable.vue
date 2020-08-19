@@ -22,7 +22,7 @@
             <a href="#" class="card-header-icon" aria-label="more options">
               <b-icon
                 pack="fas"
-                :icon="props.open ? 'caret-down' : 'caret-up'"
+                :icon="props.open ? 'chevron-down' : 'chevron-up'"
               />
             </a>
           </div>
