@@ -28,7 +28,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-analytics": "^2.4.0",
     "buefy": "^0.9.1",
-    "highcharts": "^8.1.2",
+    "highcharts": "^8.2.0",
     "node-sass": "^4.14.1",
     "nuxt": "^2.14.3",
     "redirect-ssl": "^2.0.0",
