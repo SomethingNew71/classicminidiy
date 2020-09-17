@@ -91,7 +91,15 @@ export default {
     return {
       title: 'Technical - SU Needles Chart',
       meta: [
-        { hid: 'description', name: 'description', content: 'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.' }
+        { hid: 'description', name: 'description', content: 'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.' },
+        {
+          property: 'og:title',
+          content: 'Technical - SU Needles Chart'
+        },
+        {
+          property: 'og:image',
+          content: '/icons/Graph-Magnifier.svg'
+        }
       ]
     };
   }

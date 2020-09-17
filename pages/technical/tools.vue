@@ -101,7 +101,15 @@ export default {
     return {
       title: 'Technical - Essential Tools',
       meta: [
-        { hid: 'description', name: 'description', content: 'Looking for the best tools to make tough jobs easier on your Classic Mini? Here you\'ll find the top picks from Classic Mini DIY' }
+        { hid: 'description', name: 'description', content: 'Looking for the best tools to make tough jobs easier on your Classic Mini? Here you\'ll find the top picks from Classic Mini DIY' },
+        {
+          property: 'og:title',
+          content: 'Technical - Essential Tools'
+        },
+        {
+          property: 'og:image',
+          content: '/icons/Car-Jumper.svg'
+        }
       ]
     };
   }

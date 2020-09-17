@@ -195,7 +195,15 @@ export default {
     return {
       title: 'Technical - Color Picker',
       meta: [
-        { hid: 'description', name: 'description', content: 'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.' }
+        { hid: 'description', name: 'description', content: 'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.' },
+        {
+          property: 'og:title',
+          content: 'Technical - Color Picker'
+        },
+        {
+          property: 'og:image',
+          content: '/icons/Pantone.svg'
+        }
       ]
     };
   }

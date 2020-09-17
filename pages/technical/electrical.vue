@@ -90,7 +90,15 @@ export default {
     return {
       title: 'Technical - Electrical Diagrams',
       meta: [
-        { hid: 'description', name: 'description', content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.' }
+        { hid: 'description', name: 'description', content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.' },
+        {
+          property: 'og:title',
+          content: 'Technical - Electrical Diagrams'
+        },
+        {
+          property: 'og:image',
+          content: '/icons/Battery-Charging.svg'
+        }
       ]
     };
   }

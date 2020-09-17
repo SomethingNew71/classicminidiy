@@ -3,14 +3,14 @@ import redirectSSL from 'redirect-ssl';
 require('dotenv').config();
 
 export default {
-  mode: 'universal',
   /*
    ** Headers of the page
    */
   head: {
     title: 'Classic Mini DIY',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
+      prefix: 'og: https://ogp.me/ns#'
     },
     meta: [
       { charset: 'utf-8' },
@@ -19,6 +19,14 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
+      },
+      {
+        property: 'og:title',
+        content: 'Classic Mini DIY'
+      },
+      {
+        property: 'og:image',
+        content: '/avatar-car.png'
       }
     ],
     link: [
@@ -54,7 +62,8 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
     '@aceforth/nuxt-optimized-images',
-    'nuxt-compress'
+    'nuxt-compress',
+    '@nuxtjs/robots'
   ],
   serverMiddleware: [
     // Will register redirect-ssl npm package

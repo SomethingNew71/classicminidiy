@@ -90,7 +90,15 @@ export default {
     return {
       title: 'Technical - Workshop Manuals',
       meta: [
-        { hid: 'description', name: 'description', content: 'Looking for the best workshop manual to get the job done on your Classic Mini? Here you\'ll find the top picks from Classic Mini DIY' }
+        { hid: 'description', name: 'description', content: 'Looking for the best workshop manual to get the job done on your Classic Mini? Here you\'ll find the top picks from Classic Mini DIY' },
+        {
+          property: 'og:title',
+          content: 'Technical - Workshop Manuals'
+        },
+        {
+          property: 'og:image',
+          content: '/icons/Checklist.svg'
+        }
       ]
     };
   }

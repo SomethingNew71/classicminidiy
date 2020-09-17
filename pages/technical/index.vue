@@ -109,7 +109,19 @@ export default {
     return {
       title: 'Technical Toolbox',
       meta: [
-        { hid: 'description', name: 'description', content: 'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.' }
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.'
+        },
+        {
+          property: 'og:title',
+          content: 'Technical Toolbox'
+        },
+        {
+          property: 'og:image',
+          content: '/icons/toolbox.png'
+        }
       ]
     };
   }

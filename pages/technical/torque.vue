@@ -97,7 +97,15 @@ export default {
     return {
       title: 'Technical - Torque Specs',
       meta: [
-        { hid: 'description', name: 'description', content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.' }
+        { hid: 'description', name: 'description', content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.' },
+        {
+          property: 'og:title',
+          content: 'Technical - Torque Specs'
+        },
+        {
+          property: 'og:image',
+          content: '/icons/Settings-5.svg'
+        }
       ]
     };
   }
