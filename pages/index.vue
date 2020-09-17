@@ -73,7 +73,7 @@
             <p>
               One of the largest reasons for starting this channel, was about making infromation related to working your Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining information from all over the web to bring you one location to find anything you need.
             </p>
-            <a class="mt-25 button is-medium is-primary" href="/technical">
+            <a class="mt-25 button is-medium is-primary" href="/technical" title="Check out the Digital Classic Mini Toolbox" aria-label="Check out the Digital Classic Mini Toolbox">
               <i class="fa fa-toolbox"></i>
               <span class="pl-5">
                 Check it out
