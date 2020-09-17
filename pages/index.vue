@@ -73,12 +73,38 @@
             <p>
               One of the largest reasons for starting this channel, was about making infromation related to working your Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining information from all over the web to bring you one location to find anything you need.
             </p>
-            <a class="mt-25 button is-medium is-primary" href="/technical" title="Check out the Digital Classic Mini Toolbox" aria-label="Check out the Digital Classic Mini Toolbox">
-              <i class="fa fa-toolbox"></i>
-              <span class="pl-5">
-                Check it out
-              </span>
-            </a>
+            <div class="column is-hidden-touch">
+              <div class="tile is-ancestor pt-50">
+                <div v-for="(item, index) in toolboxItems" :key="index" class="tile is-parent">
+                  <nuxt-link :to="item.to" :title="'Link to ' + item.to">
+                    <article class="tile grow is-child has-text-centered">
+                      <img class="panel-icon-home" :src="require('assets/img' + item.image)" aria-hidden="true">
+                      <p class="heading has-text-black">
+                        {{ item.title }}
+                      </p>
+                    </article>
+                  </nuxt-link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="is-hidden-desktop mobile-list column is-12">
+            <nav class="panel">
+              <p class="panel-heading has-background-grey-lighter">
+                Find the Tool You Need
+              </p>
+              <nuxt-link
+                v-for="(item, index) in toolboxItems"
+                :key="index"
+                :to="item.to"
+                class="panel-block is-active"
+              >
+                <span class="panel-icon">
+                  <img :src="require('assets/img' + item.image)">
+                </span>
+                {{ item.title }}
+              </nuxt-link>
+            </nav>
           </div>
         </div>
       </div>
@@ -136,7 +162,39 @@ export default {
       title: 'Classic Mini <br> DIY',
       subtitle: 'YOUR FRIENDLY NEIGHBORHOOD',
       background: '/hero.jpg',
-      size: 'is-medium'
+      size: 'is-medium',
+      toolboxItems: [
+        {
+          title: 'Torque Specs',
+          image: '/icons/Settings-5.svg',
+          to: '/technical/torque'
+        },
+        {
+          title: 'Color Picker',
+          image: '/icons/Pantone.svg',
+          to: '/technical/colors'
+        },
+        {
+          title: 'Manuals',
+          image: '/icons/Checklist.svg',
+          to: '/technical/manuals'
+        },
+        {
+          title: 'Recommended Tools',
+          image: '/icons/Car-Jumper.svg',
+          to: '/technical/tools'
+        },
+        {
+          title: 'Electrical Diagrams',
+          image: '/icons/Battery-Charging.svg',
+          to: '/technical/electrical'
+        },
+        {
+          title: 'SU Needle Comparison',
+          image: '/icons/Graph-Magnifier.svg',
+          to: '/technical/needles'
+        }
+      ]
     };
   }
 };
@@ -151,5 +209,21 @@ export default {
   margin: auto;
   padding-top: 35px;
   display: block;
+}
+</style>
+
+<style lang="scss" scoped>
+.panel-icon-home {
+  max-width: 70px;
+}
+.panel-icon {
+  height: 3em;
+  width: 3em;
+}
+.grow {
+  transition: all .2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.1);
 }
 </style>
