@@ -31,7 +31,7 @@
     "buefy": "^0.9.3",
     "highcharts": "^8.2.0",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.14.5",
+    "nuxt": "^2.14.6",
     "redirect-ssl": "^2.0.0",
     "sass-loader": "^10.0.2",
     "vue2-highcharts": "^1.2.5"
