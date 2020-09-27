@@ -11,7 +11,7 @@
     "url": "git://github.com/SomethingNew71/classicminidiy.git"
   },
   "engines": {
-    "node": "^12.18.1"
+    "node": "^14.12.0"
   },
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
