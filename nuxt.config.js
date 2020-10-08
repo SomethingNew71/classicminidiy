@@ -73,6 +73,7 @@ export default {
     id: 'UA-53914731-2',
     config: {
       linker: {
+        accept_incoming: true,
         domains: [
           'patreon.com/classicminidiy',
           'facebook.com/classicminidiy',
