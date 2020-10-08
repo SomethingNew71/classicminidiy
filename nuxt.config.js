@@ -60,17 +60,27 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics',
     '@aceforth/nuxt-optimized-images',
     'nuxt-compress',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    '@nuxtjs/google-gtag'
   ],
   serverMiddleware: [
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
-  googleAnalytics: {
-    id: 'UA-53914731-2'
+  'google-gtag': {
+    id: 'UA-53914731-2',
+    config: {
+      linker: {
+        domains: [
+          'patreon.com/classicminidiy',
+          'facebook.com/classicminidiy',
+          'youtube.com/c/classicminidiy',
+          'merch.classicminidiy.com'
+        ]
+      }
+    }
   },
   optimizedImages: {
     optimizeImages: true
