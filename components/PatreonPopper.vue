@@ -22,6 +22,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import Cookies from 'js-cookie';
 
 export default {
   data () {
@@ -39,12 +40,14 @@ export default {
   },
   methods: {
     showPopper () {
-      if (!this.hasUserDismissed) {
+      const cookieValue = Cookies.get('popperDismissed');
+      if (!this.hasUserDismissed && cookieValue === undefined) {
         this.popperActive = true;
       }
     },
     dismissPopper () {
       this.$store.commit('data/updatePopperStatus');
+      Cookies.set('popperDismissed', 'yes', { expires: 7 });
     }
   }
 };

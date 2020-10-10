@@ -8,7 +8,7 @@ export const mutations = {
     state.youtubeStats = stats;
   },
   updatePopperStatus (state) {
-    this.popperDismissed = true;
+    state.popperDismissed = true;
   }
 };
 
