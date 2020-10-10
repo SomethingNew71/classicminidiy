@@ -50,7 +50,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/buefy.js',
+    '~/plugins/buefy.js',
     { src: '~plugins/vue-highcharts.js', ssr: false },
     { src: '~plugins/vue-navigation-bar.js', ssr: false }
   ],
