@@ -1,0 +1,75 @@
+<template>
+  <div class="promo-popper columns is-multiline">
+    <div class="column is-hidden-mobile"></div>
+    <b-message
+      v-model="popperActive"
+      class="column is-one-third mr-20 pl-0 pt-0 pr-0 pb-0"
+      title="Like What I'm Doing?"
+      aria-close-label="Close message"
+      has-icon
+      icon-pack="fab"
+      icon="patreon"
+      type="is-patreon"
+      @close="dismissPopper()"
+    >
+      <p>Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel and website alive, please consider supporting ongoing development on Patreon.</p>
+      <a class="mt-25 button is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
+        <span>Become a Member</span>
+      </a>
+    </b-message>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+  data () {
+    return {
+      popperActive: false
+    };
+  },
+  computed: mapGetters({
+    hasUserDismissed: 'data/getPopperStatus'
+  }),
+  created () {
+    setTimeout(() => {
+      this.showPopper();
+    }, 3000);
+  },
+  methods: {
+    showPopper () {
+      if (!this.hasUserDismissed) {
+        this.popperActive = true;
+      }
+    },
+    dismissPopper () {
+      this.$store.commit('data/updatePopperStatus');
+    }
+  }
+};
+</script>
+<style lang="scss" scoped>
+  .promo-popper {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: 100;
+    filter: drop-shadow(0 5px 5px #333);
+
+    .fab.fa-patreon {
+      color: #f96854;
+      &.button-icon {
+        color: #fff;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .promo-popper{
+      .column {
+        margin-right: 50px !important;
+        margin-left: 50px !important;
+      }
+    }
+  }
+</style>
