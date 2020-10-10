@@ -63,7 +63,8 @@ export default {
     '@aceforth/nuxt-optimized-images',
     'nuxt-compress',
     '@nuxtjs/robots',
-    '@nuxtjs/google-gtag'
+    '@nuxtjs/google-gtag',
+    '@nuxtjs/google-adsense'
   ],
   serverMiddleware: [
     // Will register redirect-ssl npm package
@@ -82,6 +83,11 @@ export default {
         ]
       }
     }
+  },
+  'google-adsense': {
+    id: 'ca-pub-0523971861051053',
+    analyticsUacct: 'UA-53914731-2',
+    analyticsDomainName: 'classicminidiy.com'
   },
   optimizedImages: {
     optimizeImages: true

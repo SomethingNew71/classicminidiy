@@ -64,6 +64,16 @@
           <span>Support</span>
         </a>
       </div>
+      <div class="column is-12">
+        <div class="card">
+          <adsbygoogle
+            :ad-style="{ display: 'block', 'text-align': 'center' }"
+            :ad-format="'fluid'"
+            :ad-layout="'in-article'"
+            :ad-slot="'1592065536'"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </template>
