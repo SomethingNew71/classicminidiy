@@ -71,6 +71,15 @@
               </div>
             </b-collapse>
           </div>
+          <div v-if="index === 2" :key="index" class="column is-12">
+            <div class="card">
+              <adsbygoogle
+                :ad-style="{ display: 'block' }"
+                :ad-format="'auto'"
+                :ad-slot="'4877221348'"
+              />
+            </div>
+          </div>
         </template>
       </div>
     </div>
