@@ -76,13 +76,6 @@
             </div>
           </footer>
         </div>
-        <div class="card mt-20 is-hidden-mobile">
-          <adsbygoogle
-            :ad-style="{ display: 'block' }"
-            :ad-format="'auto'"
-            :ad-slot="'2302511977'"
-          />
-        </div>
       </div>
       <div class="column is-9">
         <div
