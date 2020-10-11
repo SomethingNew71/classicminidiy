@@ -1,89 +1,147 @@
 {
-  "tool": {
-    "1": {
-      "name": "Advance Timing Light",
-      "desc": "Use this tool to check your timing advance without relying on timing markers.",
-      "vendors": {
-        "0": {
-          "name": "Amazon",
-          "urlVendor": "https://amzn.to/3kMmjYH"
-        }
-      },
-      "imgSource": "/tools/advance-timing-light.jpg"
-    },
-    "2": {
-      "name": "Ball Joint Separator",
-      "vendors": {
-        "0": {
-          "name": "7ent",
-          "urlVendor": "https://www.7ent.com/products/ball-joint-separator-large-stl0008.html?af=cmdiy1959"
+  "groups": [
+    {
+      "title": "The Basics",
+      "tools": [
+        {
+          "name": "Imperial - Combination Wrench Set",
+          "desc": "Although many people assume the mini has mostly metric nuts and bolts, most are surprised to find that the mini in fact uses Imperial standards on almost all bolts up until the later minis.",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/36Pm2Qa"
+            }
+          },
+          "imgSource": "/tools/tektonImperial.jpg"
         },
-        "1": {
-          "name": "Amazon",
-          "urlVendor": "https://amzn.to/3apWLfc"
-        }
-      },
-      "desc": "Use this tool to separate the interference fit of the top and bottom ball joints.",
-      "imgSource": "/tools/ball-joint-splitter.jpg"
-    },
-    "3": {
-      "name": "Blind Bearing Puller",
-      "vendors": {
-        "0": {
-          "name": "Amazon",
-          "urlVendor": "https://amzn.to/3iOgg3N"
-        }
-      },
-      "desc": "Use this tool to extract the bearing race from the clutch transfer case.",
-      "imgSource": "/tools/blind-bearing-puller.jpg"
-    },
-    "4": {
-      "name": "Flywheel Locking Tool",
-      "vendors": {
-        "0": {
-          "name": "7ent",
-          "urlVendor": "https://www.7ent.com/products/flywheel-locking-tool-tool25.html?af=cmdiy1959"
-        }
-      },
-      "desc": "Use this tool to lock and torque the flywheel and crankshaft bolts.",
-      "imgSource": "/tools/flywheel-locking-tool.jpg"
-    },
-    "5": {
-      "name": "Flywheel Puller Tool",
-      "vendors": {
-        "0": {
-          "name": "7ent",
-          "urlVendor": "https://www.7ent.com/products/flywheel-puller-tool-stl0006.html?af=cmdiy1959"
-        }
-      },
-      "desc": "Use this tool to extract the flywheel and clutch from transfer case.",
-      "imgSource": "/tools/flywheel-pulling-tool.jpg"
-    },
-    "6": {
-      "name": "Gunson Colortune Carb Tuner",
-      "vendors": {
-        "0": {
-          "name": "7ent",
-          "urlVendor": "https://www.7ent.com/products/colortune-carb-tune-up-tool-stl0037.html?af=cmdiy1959"
+        {
+          "name": "Metric - Combination Wrench Set",
+          "desc": "Once you get into the later minis you may find more and more metric bolts popping up. So its always a good idea to have a metric set as well.",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3lysT4y"
+            }
+          },
+          "imgSource": "/tools/tektonMetric.jpg"
         },
-        "1": {
-          "name": "Amazon",
-          "urlVendor": "https://amzn.to/3kMUPCb"
+        {
+          "name": "Advance Timing Light",
+          "desc": "Use this tool to check your timing advance without relying on timing markers.",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3kMmjYH"
+            }
+          },
+          "imgSource": "/tools/advance-timing-light.jpg"
+        },
+        {
+          "name": "Gunson Colortune Carb Tuner",
+          "vendors": {
+            "0": {
+              "name": "7ent",
+              "urlVendor": "https://www.7ent.com/products/colortune-carb-tune-up-tool-stl0037.html?af=cmdiy1959"
+            },
+            "1": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3kMUPCb"
+            }
+          },
+          "desc": "Use this tool to extract the bearing race from the clutch transfer case.",
+          "imgSource": "/tools/gunson-colortune.jpg"
         }
-      },
-      "desc": "Use this tool to extract the bearing race from the clutch transfer case.",
-      "imgSource": "/tools/gunson-colortune.jpg"
+      ]
     },
-    "7": {
-      "name": "Rear Main Seal Installer",
-      "vendors": {
-        "0": {
-          "name": "Amazon",
-          "urlVendor": "https://www.7ent.com/products/rear-main-seal-installer-stl0012.html?af=cmdiy1959"
+    {
+      "title": "Engine Building",
+      "tools": [
+        {
+          "name": "Advance Timing Light",
+          "desc": "Use this tool to check your timing advance without relying on timing markers.",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3kMmjYH"
+            }
+          },
+          "imgSource": "/tools/advance-timing-light.jpg"
+        },
+        {
+          "name": "Ball Joint Separator",
+          "vendors": {
+            "0": {
+              "name": "7ent",
+              "urlVendor": "https://www.7ent.com/products/ball-joint-separator-large-stl0008.html?af=cmdiy1959"
+            },
+            "1": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3apWLfc"
+            }
+          },
+          "desc": "Use this tool to separate the interference fit of the top and bottom ball joints.",
+          "imgSource": "/tools/ball-joint-splitter.jpg"
+        },
+        {
+          "name": "Blind Bearing Puller",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3iOgg3N"
+            }
+          },
+          "desc": "Use this tool to extract the bearing race from the clutch transfer case.",
+          "imgSource": "/tools/blind-bearing-puller.jpg"
+        },
+        {
+          "name": "Flywheel Locking Tool",
+          "vendors": {
+            "0": {
+              "name": "7ent",
+              "urlVendor": "https://www.7ent.com/products/flywheel-locking-tool-tool25.html?af=cmdiy1959"
+            }
+          },
+          "desc": "Use this tool to lock and torque the flywheel and crankshaft bolts.",
+          "imgSource": "/tools/flywheel-locking-tool.jpg"
+        },
+        {
+          "name": "Flywheel Puller Tool",
+          "vendors": {
+            "0": {
+              "name": "7ent",
+              "urlVendor": "https://www.7ent.com/products/flywheel-puller-tool-stl0006.html?af=cmdiy1959"
+            }
+          },
+          "desc": "Use this tool to extract the flywheel and clutch from transfer case.",
+          "imgSource": "/tools/flywheel-pulling-tool.jpg"
+        },
+        {
+          "name": "Gunson Colortune Carb Tuner",
+          "vendors": {
+            "0": {
+              "name": "7ent",
+              "urlVendor": "https://www.7ent.com/products/colortune-carb-tune-up-tool-stl0037.html?af=cmdiy1959"
+            },
+            "1": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3kMUPCb"
+            }
+          },
+          "desc": "Use this tool to extract the bearing race from the clutch transfer case.",
+          "imgSource": "/tools/gunson-colortune.jpg"
+        },
+        {
+          "name": "Rear Main Seal Installer",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://www.7ent.com/products/rear-main-seal-installer-stl0012.html?af=cmdiy1959"
+            }
+          },
+          "desc": "Install the rear main seal with this by bolting it into place with the flywheel bolt.",
+          "imgSource": "/tools/main-seal-installer.jpg"
         }
-      },
-      "desc": "Install the rear main seal with this by bolting it into place with the flywheel bolt.",
-      "imgSource": "/tools/main-seal-installer.jpg"
+      ]
     }
-  }
+  ]
 }
