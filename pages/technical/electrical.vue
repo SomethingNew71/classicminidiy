@@ -71,10 +71,19 @@
               </div>
             </b-collapse>
           </div>
-          <div v-if="index === 2" :key="index" class="column is-12">
+          <div v-if="index === 2" :key="name" class="column is-12">
             <div class="card">
               <no-ssr>
-                <div id="amzn-assoc-ad-e73591bc-42bb-4ff9-9dd2-35ce071552d4"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e73591bc-42bb-4ff9-9dd2-35ce071552d4"></script>
+                <div id="amzn-assoc-ad-e73591bc-42bb-4ff9-9dd2-35ce071552d4"></div>
+                <script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e73591bc-42bb-4ff9-9dd2-35ce071552d4"></script>
+              </no-ssr>
+            </div>
+          </div>
+          <div v-if="index === 4" :key="name" class="column is-12">
+            <div class="card">
+              <no-ssr>
+                <div id="amzn-assoc-ad-71247fc3-eadb-470e-a41c-08b0e2db904d"></div>
+                <script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=71247fc3-eadb-470e-a41c-08b0e2db904d"></script>
               </no-ssr>
             </div>
           </div>
@@ -114,5 +123,8 @@ export default {
 <style lang="scss" scoped>
 .card-header {
   background-color: whitesmoke;
+  .card-header-title {
+    font-size: 20px;
+  }
 }
 </style>
