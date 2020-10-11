@@ -6,9 +6,7 @@
           <p class="heading">
             Minutes Watched
           </p>
-          <p v-if="isLoading">
-            <i class="is-size-3 fa-spin fad fa-spinner"></i>
-          </p>
+          <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
           <p v-if="!isLoading && views !== '0'" class="title">
             {{ views }}
           </p>
@@ -22,9 +20,7 @@
           <p class="heading">
             Subscribers
           </p>
-          <p v-if="isLoading">
-            <i class="is-size-3 fa-spin fad fa-spinner"></i>
-          </p>
+          <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
           <p v-if="!isLoading && subscribers !== '0'" class="title">
             {{ subscribers }}
           </p>
@@ -38,9 +34,7 @@
           <p class="heading">
             videos
           </p>
-          <p v-if="isLoading">
-            <i class="is-size-3 fa-spin fad fa-spinner"></i>
-          </p>
+          <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
           <p v-if="!isLoading && videos !== '0'" class="title">
             {{ videos }}
           </p>
