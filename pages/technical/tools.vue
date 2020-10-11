@@ -35,55 +35,115 @@
           Essential Tools
         </h1>
         <p>
-          To help make some of the tough jobs easier while you work on your Classic Mini Cooper, I have taken the time to currate a list of recommended tools.
+          To help make some of the tough jobs easier while you work on your Classic Mini Cooper, I have taken the time to currate a list of recommended tools. Select the category below to find my suggestions for the best tools to have if you workshop!
         </p>
       </div>
-      <div
-        v-for="(tool, name) in tools.tool"
-        :key="name"
-        class="column is-3"
-      >
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-3by4">
-              <img :src="require('assets/img' + tool.imgSource)" :alt="`${tool.name}`">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4 truncate">
-                  {{ tool.name }}
-                </p>
-                <p class="subtitle is-6">
-                  {{ tool.desc }}
-                </p>
+
+      <template v-for="(group, name, index) in toolGroups.groups">
+        <div :key="index" class="column is-12">
+          <!-- <b-collapse :open="index > 0 ? false : true" class="card"> -->
+          <b-collapse :open="false" class="card">
+            <div
+              slot="trigger"
+              slot-scope="props"
+              class="card-header"
+              role="button"
+              aria-controls="contentIdForA11y3"
+            >
+              <h2 class="card-header-title">
+                {{ group.title }}
+              </h2>
+              <a class="card-header-icon" aria-label="more options">
+                <b-icon
+                  pack="fas"
+                  :icon="props.open ? 'chevron-down' : 'chevron-up'"
+                />
+              </a>
+            </div>
+            <div class="card-content columns is-multiline">
+              <!-- <div
+                v-for="(tool, toolName) in group.tools"
+                :key="toolName"
+                class="column is-3 is-hidden-touch"
+              >
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-3by4">
+                      <img :src="require('assets/img' + tool.imgSource)" :alt="`${tool.name}`">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-content">
+                        <p class="title is-4 truncate">
+                          {{ tool.name }}
+                        </p>
+                        <p class="subtitle is-6">
+                          {{ tool.desc }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <footer class="card-footer">
+                    <template v-for="(vendor, i) in tool.vendors">
+                      <a
+                        :key="i"
+                        :href="vendor.urlVendor"
+                        class="card-footer-item"
+                        target="_blank"
+                        :class="{
+                          'has-background-amazon has-text-white': vendor.name === 'Amazon',
+                          'has-background-seven has-text-white': vendor.name === '7ent'
+                        }"
+                      >
+                        <span class="icon">
+                          <i :class="{'fab fa-amazon': vendor.name === 'Amazon', 'fas fa-car': vendor.name === '7ent'}" />
+                        </span>
+                        <span>
+                          {{ vendor.name }}
+                        </span>
+                      </a>
+                    </template>
+                  </footer>
+                </div>
+              </div> -->
+              <div
+                v-for="(tool, toolName) in group.tools"
+                :key="toolName"
+                class="column is-12"
+              >
+                <article class="media">
+                  <figure class="media-left">
+                    <img class="image" :src="require('assets/img' + tool.imgSource)" :alt="`${tool.name}`">
+                  </figure>
+                  <div class="media-content">
+                    <div class="content">
+                      <h4 class="mb-5 ">
+                        {{ tool.name }}
+                      </h4>
+                      <p>
+                        <br>
+                        {{ tool.desc }}
+                      </p>
+                    </div>
+                    <nav class="level is-mobile">
+                      <div class="level-left">
+                        <template v-for="(vendor, i) in tool.vendors">
+                          <a :key="i" class="level-item">
+                            <span class="icon is-small"><i :class="{'fab fa-amazon': vendor.name === 'Amazon', 'fas fa-car': vendor.name === '7ent'}" /></span>
+                            <span class="pl-5">{{ vendor.name }}</span>
+                          </a>
+                        </template>
+                      </div>
+                    </nav>
+                  </div>
+                </article>
+                <div class="is-divider"></div>
               </div>
             </div>
-          </div>
-          <footer class="card-footer">
-            <template v-for="(vendor, i) in tool.vendors">
-              <a
-                :key="i"
-                :href="vendor.urlVendor"
-                class="card-footer-item"
-                target="_blank"
-                :class="{
-                  'has-background-amazon has-text-white': vendor.name === 'Amazon',
-                  'has-background-seven has-text-white': vendor.name === '7ent'
-                }"
-              >
-                <span class="icon">
-                  <i :class="{'fab fa-amazon': vendor.name === 'Amazon', 'fas fa-car': vendor.name === '7ent'}" />
-                </span>
-                <span>
-                  {{ vendor.name }}
-                </span>
-              </a>
-            </template>
-          </footer>
+          </b-collapse>
         </div>
-      </div>
+      </template>
     </div>
   </section>
 </template>
@@ -94,8 +154,8 @@ function getTools () {
 }
 export default {
   async asyncData ({ req }) {
-    const tools = await getTools();
-    return { tools };
+    const toolGroups = await getTools();
+    return { toolGroups };
   },
   head () {
     return {
@@ -120,5 +180,11 @@ export default {
     color: white;
     font-size: 1rem;
     background-color: #FEBD69;
+  }
+  .media-left .image {
+    max-width: 128px;
+  }
+  .is-divider {
+    border: 1px solid #ededed;
   }
 </style>
