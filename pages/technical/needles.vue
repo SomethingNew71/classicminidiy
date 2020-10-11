@@ -74,11 +74,9 @@
       </div>
       <div class="column is-12">
         <div class="card">
-          <adsbygoogle
-            :ad-style="{ display: 'block' }"
-            :ad-format="'auto'"
-            :ad-slot="'1480384895'"
-          />
+          <no-ssr>
+            <div id="amzn-assoc-ad-e73591bc-42bb-4ff9-9dd2-35ce071552d4"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e73591bc-42bb-4ff9-9dd2-35ce071552d4"></script>
+          </no-ssr>
         </div>
       </div>
     </div>

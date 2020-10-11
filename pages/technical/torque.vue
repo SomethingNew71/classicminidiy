@@ -76,12 +76,9 @@
         </div>
         <div v-if="index === 0" :key="index" class="column is-12">
           <div class="card">
-            <adsbygoogle
-              :ad-style="{ display: 'block' }"
-              :ad-format="'fluid'"
-              :ad-layout-key="'-fb+5w+4e-db+86'"
-              :ad-slot="'3017344763'"
-            />
+            <no-ssr>
+              <div id="amzn-assoc-ad-e73591bc-42bb-4ff9-9dd2-35ce071552d4"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e73591bc-42bb-4ff9-9dd2-35ce071552d4"></script>
+            </no-ssr>
           </div>
         </div>
       </template>
