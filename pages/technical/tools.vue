@@ -50,7 +50,8 @@
               role="button"
               aria-controls="contentIdForA11y3"
             >
-              <h2 class="card-header-title">
+              <h2 class="card-header-title tool-group">
+                <i class="icon is-medium" :class="group.icon"></i>
                 {{ group.title }}
               </h2>
               <a class="card-header-icon" aria-label="more options">
@@ -61,52 +62,6 @@
               </a>
             </div>
             <div class="card-content columns is-multiline">
-              <!-- <div
-                v-for="(tool, toolName) in group.tools"
-                :key="toolName"
-                class="column is-3 is-hidden-touch"
-              >
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-3by4">
-                      <img :src="require('assets/img' + tool.imgSource)" :alt="`${tool.name}`">
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <div class="media">
-                      <div class="media-content">
-                        <p class="title is-4 truncate">
-                          {{ tool.name }}
-                        </p>
-                        <p class="subtitle is-6">
-                          {{ tool.desc }}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <template v-for="(vendor, i) in tool.vendors">
-                      <a
-                        :key="i"
-                        :href="vendor.urlVendor"
-                        class="card-footer-item"
-                        target="_blank"
-                        :class="{
-                          'has-background-amazon has-text-white': vendor.name === 'Amazon',
-                          'has-background-seven has-text-white': vendor.name === '7ent'
-                        }"
-                      >
-                        <span class="icon">
-                          <i :class="{'fab fa-amazon': vendor.name === 'Amazon', 'fas fa-car': vendor.name === '7ent'}" />
-                        </span>
-                        <span>
-                          {{ vendor.name }}
-                        </span>
-                      </a>
-                    </template>
-                  </footer>
-                </div>
-              </div> -->
               <div
                 v-for="(tool, toolName) in group.tools"
                 :key="toolName"
@@ -129,8 +84,25 @@
                     <nav class="level is-mobile">
                       <div class="level-left">
                         <template v-for="(vendor, i) in tool.vendors">
-                          <a :key="i" class="level-item">
-                            <span class="icon is-small"><i :class="{'fab fa-amazon': vendor.name === 'Amazon', 'fas fa-car': vendor.name === '7ent'}" /></span>
+                          <a
+                            :key="i"
+                            :href="vendor.urlVendor"
+                            target="_blank"
+                            :class="{
+                              'is-amazon': vendor.name === 'Amazon',
+                              'is-seven': vendor.name === '7ent',
+                              'is-guessworks': vendor.name === 'Guessworks'
+                            }"
+                            class="button level-item"
+                          >
+                            <span class="icon is-small">
+                              <i
+                                :class="{
+                                  'fab fa-amazon': vendor.name === 'Amazon',
+                                  'fad fa-cogs': vendor.name === 'Guessworks',
+                                  'fas fa-car': vendor.name === '7ent'
+                                }"
+                              /></span>
                             <span class="pl-5">{{ vendor.name }}</span>
                           </a>
                         </template>
@@ -186,5 +158,12 @@ export default {
   }
   .is-divider {
     border: 1px solid #ededed;
+  }
+  .tool-group {
+    font-size: 1.0rem;
+  }
+  .button.is-guessworks {
+    border: none;
+    color: #2f2f2f;
   }
 </style>

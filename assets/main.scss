@@ -6,6 +6,8 @@ $primary: #659CC8;
 $primary-invert: findColorInvert($primary);
 $patreon: #F96854;
 $patreon-invert: findColorInvert($patreon);
+$guessworks: #b8b8b8;
+$guessworks-invert: findColorInvert($guessworks);
 $seven: #D70402;
 $seven-invert: findColorInvert($seven);
 $amazon: #FEBD69;
@@ -23,6 +25,7 @@ $colors: (
   "warning": ($warning, $warning-invert),
   "danger": ($danger, $danger-invert),
   "patreon": ($patreon, $patreon-invert),
+  "guessworks": ($guessworks, $guessworks-invert),
   "seven": ($seven, $seven-invert),
   "amazon": ($amazon, $amazon-invert)
 );
