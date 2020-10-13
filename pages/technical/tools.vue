@@ -41,8 +41,8 @@
 
       <template v-for="(group, name, index) in toolGroups.groups">
         <div :key="index" class="column is-12">
-          <!-- <b-collapse :open="index > 0 ? false : true" class="card"> -->
-          <b-collapse :open="false" class="card">
+          <b-collapse :open="index > 0 ? false : true" class="card">
+          <!-- <b-collapse :open="false" class="card"> -->
             <div
               slot="trigger"
               slot-scope="props"
