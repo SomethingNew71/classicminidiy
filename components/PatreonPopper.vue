@@ -10,10 +10,16 @@
       icon-pack="fab"
       icon="patreon"
       type="is-patreon"
-      @close="dismissPopper()"
+      @close="dismissPopper(false)"
     >
       <p>Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel and website alive, please consider supporting ongoing development on Patreon.</p>
-      <a class="mt-25 button is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
+      <a
+        class="mt-25 button is-patreon"
+        rel="noopener"
+        href="https://patreon.com/classicminidiy"
+        target="_blank"
+        @click="dismissPopper(true)"
+      >
         <span>Become a Member</span>
       </a>
     </b-message>
@@ -45,9 +51,14 @@ export default {
         this.popperActive = true;
       }
     },
-    dismissPopper () {
+    dismissPopper (clickedMember) {
       this.$store.commit('data/updatePopperStatus');
-      Cookies.set('popperDismissed', 'yes', { expires: 7 });
+      if (clickedMember) {
+        Cookies.set('popperDismissed', 'yes', { sameSite: 'Lax', expires: 90 });
+        this.popperActive = false;
+      } else {
+        Cookies.set('popperDismissed', 'yes', { sameSite: 'Lax', expires: 7 });
+      }
     }
   }
 };
