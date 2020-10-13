@@ -2,6 +2,7 @@
   "groups": [
     {
       "title": "The Basics",
+      "icon": "fad fa-car-mechanic",
       "tools": [
         {
           "name": "Imperial - Combination Wrench Set",
@@ -26,6 +27,17 @@
           "imgSource": "/tools/tektonMetric.jpg"
         },
         {
+          "name": "Click Torque Wrench 1/2-Inch Drive (25-250 ft.-lb./33.9-338.9 Nm)",
+          "desc": "When working on the Classic mini eveyrone needs a trusty torque wrench. Can be used in all manner of things on the car.",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3iXO7qI"
+            }
+          },
+          "imgSource": "/tools/torque-wrench.jpg"
+        },
+        {
           "name": "Advance Timing Light",
           "desc": "Use this tool to check your timing advance without relying on timing markers.",
           "vendors": {
@@ -48,25 +60,88 @@
               "urlVendor": "https://amzn.to/3kMUPCb"
             }
           },
-          "desc": "Use this tool to extract the bearing race from the clutch transfer case.",
+          "desc": "This awesome tool will help dial in your idle and get your car off to a great start down the tuning road. A must for any hobby mechanic.",
           "imgSource": "/tools/gunson-colortune.jpg"
         }
       ]
     },
     {
-      "title": "Engine Building",
+      "title": "Engine and Gearbox Building",
+      "icon": "fad fa-tachometer-alt-fast",
       "tools": [
         {
-          "name": "Advance Timing Light",
-          "desc": "Use this tool to check your timing advance without relying on timing markers.",
+          "name": "Blind Bearing Puller",
           "vendors": {
             "0": {
               "name": "Amazon",
-              "urlVendor": "https://amzn.to/3kMmjYH"
+              "urlVendor": "https://amzn.to/3iOgg3N"
             }
           },
-          "imgSource": "/tools/advance-timing-light.jpg"
+          "desc": "Use this tool to extract the bearing race from the clutch transfer case or any other bearing that is hard to access.",
+          "imgSource": "/tools/blind-bearing-puller.jpg"
         },
+        {
+          "name": "Flywheel Locking Tool",
+          "vendors": {
+            "0": {
+              "name": "7ent",
+              "urlVendor": "https://www.7ent.com/products/flywheel-locking-tool-tool25.html?af=cmdiy1959"
+            }
+          },
+          "desc": "If you need to do a clutch job or remove your flywheel for an engine replacement, this tool locks your flywheel in place so you can easily remove the main bolt.",
+          "imgSource": "/tools/flywheel-locking-tool.jpg"
+        },
+        {
+          "name": "Flywheel Puller Tool",
+          "vendors": {
+            "0": {
+              "name": "7ent",
+              "urlVendor": "https://www.7ent.com/products/flywheel-puller-tool-stl0006.html?af=cmdiy1959"
+            }
+          },
+          "desc": "Use this tool to extract the flywheel and clutch from transfer case.",
+          "imgSource": "/tools/flywheel-pulling-tool.jpg"
+        },
+        {
+          "name": "Rear Main Seal Installer",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://www.7ent.com/products/rear-main-seal-installer-stl0012.html?af=cmdiy1959"
+            }
+          },
+          "desc": "Install the rear main seal with this by bolting it into place with the flywheel bolt. Makes insalling it a breeze and much less likely to damage the seal.",
+          "imgSource": "/tools/main-seal-installer.jpg"
+        },
+        {
+          "name": "3rd motion bearing removal tool",
+          "vendors": {
+            "0": {
+              "name": "Guessworks",
+              "urlVendor": "http://www.guess-works.com/Shop/Parts/display.htm?id=491"
+            }
+          },
+          "desc": "3rd motion bearing removal tool. This tool aids in the clean removal of the 3rd motion bearing ( double roller ) from the gearbox. It slips between the 1st gear and bearing allowing the bearing to be tapped out without the use of punches which can damage the bearing.",
+          "imgSource": "/tools/motion-bearing-remover.jpg"
+        },
+        {
+          "name": "Synchro Hub Ball & Spring Fitting Tool",
+          "vendors": {
+            "0": {
+              "name": "Guessworks",
+              "urlVendor": "http://www.guess-works.com/Shop/Parts/display.htm?id=279"
+            }
+          },
+          "desc": "This tool is designed to aid the installation of the balls and springs within the synchronisation gear hubs as fitted to any Mini or Metro with synchromesh gear engagement, or transverse equivalent, such as Midget, Marina, Ital, Moggy Minor. Including 848, 970, 997, 998, 1071, 1098 & 1275 engines. Very simple and easy to use, if you have built a gearbox with one of these tools you will never want to go back to the old method",
+          "imgSource": "/tools/syncrohub-tool.jpg"
+        }
+
+      ]
+    },
+    {
+      "title": "Suspension Work",
+      "icon": "fad fa-car-tilt",
+      "tools": [
         {
           "name": "Ball Joint Separator",
           "vendors": {
@@ -83,63 +158,15 @@
           "imgSource": "/tools/ball-joint-splitter.jpg"
         },
         {
-          "name": "Blind Bearing Puller",
-          "vendors": {
-            "0": {
-              "name": "Amazon",
-              "urlVendor": "https://amzn.to/3iOgg3N"
-            }
-          },
-          "desc": "Use this tool to extract the bearing race from the clutch transfer case.",
-          "imgSource": "/tools/blind-bearing-puller.jpg"
-        },
-        {
-          "name": "Flywheel Locking Tool",
+          "name": "Cone Spring Compressor, Dual Threads",
           "vendors": {
             "0": {
               "name": "7ent",
-              "urlVendor": "https://www.7ent.com/products/flywheel-locking-tool-tool25.html?af=cmdiy1959"
+              "urlVendor": "https://www.7ent.com/products/cone-spring-compressor-dual-threads-stl0010.html?af=cmdiy1959"
             }
           },
-          "desc": "Use this tool to lock and torque the flywheel and crankshaft bolts.",
-          "imgSource": "/tools/flywheel-locking-tool.jpg"
-        },
-        {
-          "name": "Flywheel Puller Tool",
-          "vendors": {
-            "0": {
-              "name": "7ent",
-              "urlVendor": "https://www.7ent.com/products/flywheel-puller-tool-stl0006.html?af=cmdiy1959"
-            }
-          },
-          "desc": "Use this tool to extract the flywheel and clutch from transfer case.",
-          "imgSource": "/tools/flywheel-pulling-tool.jpg"
-        },
-        {
-          "name": "Gunson Colortune Carb Tuner",
-          "vendors": {
-            "0": {
-              "name": "7ent",
-              "urlVendor": "https://www.7ent.com/products/colortune-carb-tune-up-tool-stl0037.html?af=cmdiy1959"
-            },
-            "1": {
-              "name": "Amazon",
-              "urlVendor": "https://amzn.to/3kMUPCb"
-            }
-          },
-          "desc": "Use this tool to extract the bearing race from the clutch transfer case.",
-          "imgSource": "/tools/gunson-colortune.jpg"
-        },
-        {
-          "name": "Rear Main Seal Installer",
-          "vendors": {
-            "0": {
-              "name": "Amazon",
-              "urlVendor": "https://www.7ent.com/products/rear-main-seal-installer-stl0012.html?af=cmdiy1959"
-            }
-          },
-          "desc": "Install the rear main seal with this by bolting it into place with the flywheel bolt.",
-          "imgSource": "/tools/main-seal-installer.jpg"
+          "desc": "Sturdy service tool used to compress the rubber cone spring on dry suspension classic Minis. Suitable for early models with SAE threaded cones and later production with metric threaded cones. Detailed instructions for use are enclosed. See STL0004 if you have a 1976-on Mini and need only the metric threaded tip.",
+          "imgSource": "/tools/cone-compress.jpg"
         }
       ]
     }
