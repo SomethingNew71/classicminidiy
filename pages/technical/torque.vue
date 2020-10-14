@@ -108,11 +108,11 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Torque Specs'
-        },
-        {
-          property: 'og:image',
-          content: '/icons/Settings-5.svg'
         }
+        // {
+        //   property: 'og:image',
+        //   content: '/icons/Settings-5.svg'
+        // }
       ]
     };
   }

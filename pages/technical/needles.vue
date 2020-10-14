@@ -102,11 +102,11 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - SU Needles Chart'
-        },
-        {
-          property: 'og:image',
-          content: '/icons/Graph-Magnifier.svg'
         }
+        // {
+        //   property: 'og:image',
+        //   content: '/icons/Graph-Magnifier.svg'
+        // }
       ]
     };
   }

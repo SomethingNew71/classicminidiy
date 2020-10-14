@@ -137,11 +137,11 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Essential Tools'
-        },
-        {
-          property: 'og:image',
-          content: '/icons/Car-Jumper.svg'
         }
+        // {
+        //   property: 'og:image',
+        //   content: '/icons/Car-Jumper.svg'
+        // }
       ]
     };
   }
