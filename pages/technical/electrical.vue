@@ -110,11 +110,11 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Electrical Diagrams'
-        },
-        {
-          property: 'og:image',
-          content: '/icons/Battery-Charging.svg'
         }
+        // {
+        //   property: 'og:image',
+        //   content: '/icons/Battery-Charging.svg'
+        // }
       ]
     };
   }
