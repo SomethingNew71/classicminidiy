@@ -41,7 +41,7 @@
 
       <template v-for="(group, name, index) in toolGroups.groups">
         <div :key="index" class="column is-12">
-          <b-collapse :open="index > 0 ? false : true" class="card">
+          <b-collapse :open="index === 0 ? false : true" class="card">
             <div
               slot="trigger"
               slot-scope="props"
@@ -168,5 +168,9 @@ export default {
   .button.is-guessworks {
     border: none;
     color: #2f2f2f;
+  }
+  .card-header-title,
+  .card-header-icon {
+    background-color: #f5f5f5;
   }
 </style>
