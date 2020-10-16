@@ -1,6 +1,6 @@
 <template>
-  <div class="card mb-20">
-    <nav class="level pt-20 pb-20">
+  <div class="card mb-5">
+    <nav class="level py-4">
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">

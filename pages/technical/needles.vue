@@ -35,7 +35,7 @@
             <h4 class="fancy-font-bold is-size-3">
               SU Carburettor Needles
             </h4>
-            <p class="is-size-5 pt-20">
+            <p class="is-size-5 pt-5">
               One of the most confusing things about working on your Classic Mini often is the carburettor needle used on your car. Below you will find a multi-needle comparison chart which will allow you to compare needle profiles of multiple SU needles at the same time. Choose the needles you would like to compare and click Compare which will redraw the chart with new profiles. A huge thank you to the mintylamb site for posting this information publically.
             </p>
           </div>
@@ -43,7 +43,7 @@
             <h4 class="fancy-font-bold is-size-3">
               Find the Needles you need?
             </h4>
-            <h5 class="fancy-font-book is-size-5 pb-20">
+            <h5 class="fancy-font-book is-size-5 pb-5">
               Order them on Seven Mini Parts
             </h5>
             <div class="card">
@@ -56,13 +56,13 @@
           </div>
         </div>
       </div>
-      <div class="column is-12 hr mt-20"></div>
+      <div class="column is-12 hr mt-5"></div>
       <div class="column is-12">
         <b-tabs type="is-toggle" position="is-centered">
-          <b-tab-item label="Compare" icon-pack="fas" icon="fas fa-chart-line" class="pt-10">
+          <b-tab-item label="Compare" icon-pack="fas" icon="fas fa-chart-line" class="pt-3">
             <needleConfig />
           </b-tab-item>
-          <b-tab-item label="Charts" icon-pack="fas" icon="fas fa-table" class="columns is-multiline pt-10">
+          <b-tab-item label="Charts" icon-pack="fas" icon="fas fa-table" class="columns is-multiline pt-3">
             <div class="column is-12 has-text-centered">
               <h5 class="fancy-font-book is-size-5">
                 Information provided by <a href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html" target="_blank">Seven Mini Parts</a>

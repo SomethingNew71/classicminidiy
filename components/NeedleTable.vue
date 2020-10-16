@@ -17,7 +17,7 @@
           >
             <h2 class="card-header-title">
               <i :class="table.icon"></i>
-              <span class="pl-5">{{ table.title }}</span>
+              <span class="pl-2">{{ table.title }}</span>
             </h2>
             <a href="#" class="card-header-icon" aria-label="more options">
               <b-icon
