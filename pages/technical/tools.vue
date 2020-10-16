@@ -42,7 +42,6 @@
       <template v-for="(group, name, index) in toolGroups.groups">
         <div :key="index" class="column is-12">
           <b-collapse :open="index > 0 ? false : true" class="card">
-          <!-- <b-collapse :open="false" class="card"> -->
             <div
               slot="trigger"
               slot-scope="props"
@@ -63,21 +62,22 @@
             </div>
             <div class="card-content columns is-multiline">
               <div
-                v-for="(tool, toolName) in group.tools"
-                :key="toolName"
+                v-for="(tool, nestedIndex) in group.tools"
+                :key="nestedIndex"
                 class="column is-12"
               >
                 <article class="media">
-                  <figure class="media-left">
+                  <figure class="media-left is-hidden-mobile">
                     <img class="image" :src="require('assets/img' + tool.imgSource)" :alt="`${tool.name}`">
                   </figure>
                   <div class="media-content">
                     <div class="content">
-                      <h4 class="mb-5 ">
+                      <img class="image is-hidden-tablet" :src="require('assets/img' + tool.imgSource)" :alt="`${tool.name}`">
+                      <br class="is-hidden-tablet">
+                      <h4 class="mb-2">
                         {{ tool.name }}
                       </h4>
                       <p>
-                        <br>
                         {{ tool.desc }}
                       </p>
                     </div>
@@ -103,14 +103,14 @@
                                   'fas fa-car': vendor.name === '7ent'
                                 }"
                               /></span>
-                            <span class="pl-5">{{ vendor.name }}</span>
+                            <span class="pl-1">{{ vendor.name }}</span>
                           </a>
                         </template>
                       </div>
                     </nav>
                   </div>
                 </article>
-                <div class="is-divider"></div>
+                <div v-if="nestedIndex !== group.tools.length -1" class="is-divider"></div>
               </div>
             </div>
           </b-collapse>
@@ -155,6 +155,9 @@ export default {
   }
   .media-left .image {
     max-width: 128px;
+  }
+  .image.is-hidden-tablet {
+    margin: auto;
   }
   .is-divider {
     border: 1px solid #ededed;
