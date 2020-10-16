@@ -35,7 +35,7 @@
           Essential Tools
         </h1>
         <p>
-          To help make some of the tough jobs easier while you work on your Classic Mini Cooper, I have taken the time to currate a list of recommended tools. Select the category below to find my suggestions for the best tools to have if you workshop!
+          Below you’ll find a curated list of recommended tools for working with Classic Mini Coopers. Make difficult jobs easy by adding these essential tools to your workshop.
         </p>
       </div>
 
