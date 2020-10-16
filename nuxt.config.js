@@ -65,6 +65,10 @@ export default {
     '@nuxtjs/robots',
     '@nuxtjs/google-gtag'
   ],
+  robots: {
+    UserAgent: '*',
+    Disallow: '/assets/'
+  },
   serverMiddleware: [
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
