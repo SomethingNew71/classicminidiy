@@ -1,9 +1,8 @@
 <template>
-  <div class="promo-popper columns is-multiline">
-    <div class="column is-hidden-mobile"></div>
+  <div class="promo-popper">
     <b-message
       v-model="popperActive"
-      class="column is-one-third mr-20 pl-0 pt-0 pr-0 pb-0"
+      class="pr-0 pl-0 pb-0 pt-0"
       title="Like What I'm Doing?"
       aria-close-label="Close message"
       has-icon
@@ -14,7 +13,7 @@
     >
       <p>Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel and website alive, please consider supporting ongoing development on Patreon.</p>
       <a
-        class="mt-25 button is-patreon"
+        class="mt-5 button is-patreon"
         rel="noopener"
         href="https://patreon.com/classicminidiy"
         target="_blank"
@@ -65,9 +64,10 @@ export default {
 </script>
 <style lang="scss" scoped>
   .promo-popper {
+    width: 40%;
     position: fixed;
-    bottom: 0px;
-    right: 0px;
+    bottom: 10%;
+    right: 5%;
     z-index: 100;
     filter: drop-shadow(0 5px 5px #333);
 
@@ -80,6 +80,7 @@ export default {
   }
   @media (max-width: 768px) {
     .promo-popper{
+      width: 90%;
       .column {
         margin-right: 50px !important;
         margin-left: 50px !important;
