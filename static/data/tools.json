@@ -49,6 +49,39 @@
           "imgSource": "/tools/advance-timing-light.jpg"
         },
         {
+          "name": "Floor Jack",
+          "desc": "Being able to lift your car up high is one of the nicest things in the garage. This allows you to lift and work on the underside of your car.",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3lZX5Wm"
+            }
+          },
+          "imgSource": "/tools/jack.jpg"
+        },
+        {
+          "name": "Jack Stands",
+          "desc": "Just as important as lifting your car, is being able to support your car safely while underneath it.",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3490qwa"
+            }
+          },
+          "imgSource": "/tools/jackstand.jpg"
+        },
+        {
+          "name": "Drip Tray",
+          "desc": "As you may know, minis leak. Finding those leaks and fixing them is much easier with a drip tray.",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/37kfclU"
+            }
+          },
+          "imgSource": "/tools/drip-tray.jpg"
+        },
+        {
           "name": "Gunson Colortune Carb Tuner",
           "vendors": {
             "0": {
@@ -69,6 +102,17 @@
       "title": "Engine and Gearbox Building",
       "icon": "fad fa-tachometer-alt-fast",
       "tools": [
+        {
+          "name": "Ball Peen Hammer",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3o21IBa "
+            }
+          },
+          "desc": "Having a nice robust ball peen hammer is essential in working on your engine or gearbox. Without it the job will be much more difficult.",
+          "imgSource": "/tools/peen-hammer.jpg"
+        },
         {
           "name": "Blind Bearing Puller",
           "vendors": {
@@ -167,6 +211,45 @@
           },
           "desc": "Sturdy service tool used to compress the rubber cone spring on dry suspension classic Minis. Suitable for early models with SAE threaded cones and later production with metric threaded cones. Detailed instructions for use are enclosed. See STL0004 if you have a 1976-on Mini and need only the metric threaded tip.",
           "imgSource": "/tools/cone-compress.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Electrical Work",
+      "icon": "fad fa-car-tilt",
+      "tools": [
+        {
+          "name": "Multimeter",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3dDlLB1"
+            }
+          },
+          "desc": "This is an awesome multi-use tool, intended to help you identify and fix electrical issues.",
+          "imgSource": "/tools/multimeter.jpg"
+        },
+        {
+          "name": "Battery Tender - Trickle Charger",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3dDmfqP "
+            }
+          },
+          "desc": "For minis that are in the garage a bit more than others, its super helpful to keep your battery charged and happy, so you can start the mini up anytime!",
+          "imgSource": "/tools/trickle.jpg"
+        },
+        {
+          "name": "Test Light",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/3dEVanb"
+            }
+          },
+          "desc": "A simpler version of a multimeter, intended to help test voltage and verify live wires.",
+          "imgSource": "/tools/test-light.jpg"
         }
       ]
     }
