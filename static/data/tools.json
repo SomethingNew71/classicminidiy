@@ -103,6 +103,17 @@
       "icon": "fad fa-tachometer-alt-fast",
       "tools": [
         {
+          "name": "Feeler Gauge",
+          "vendors": {
+            "0": {
+              "name": "Amazon",
+              "urlVendor": "https://amzn.to/2T6BSO3"
+            }
+          },
+          "desc": "When youre doing any sort of valve adjustment, shimming, or spec measurements a set of feelers are practically a requirement.",
+          "imgSource": "/tools/feelers.jpg"
+        },
+        {
           "name": "Ball Peen Hammer",
           "vendors": {
             "0": {
@@ -216,7 +227,7 @@
     },
     {
       "title": "Electrical Work",
-      "icon": "fad fa-car-tilt",
+      "icon": "fad fa-car-battery",
       "tools": [
         {
           "name": "Multimeter",
