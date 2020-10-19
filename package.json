@@ -60,7 +60,7 @@
     "imagemin-pngquant": "^9.0.1",
     "imagemin-svgo": "^8.0.0",
     "multi-loader": "^0.1.0",
-    "nodemon": "^2.0.5",
+    "nodemon": "^2.0.6",
     "nuxt-compress": "^3.0.0",
     "vue-navigation-bar": "^4.0.2",
     "webp-loader": "^0.6.0"
