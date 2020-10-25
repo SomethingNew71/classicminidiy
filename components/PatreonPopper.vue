@@ -41,7 +41,7 @@ export default {
   created () {
     setTimeout(() => {
       this.showPopper();
-    }, 3000);
+    }, 10000);
   },
   methods: {
     showPopper () {
