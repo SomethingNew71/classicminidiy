@@ -34,7 +34,7 @@
     "nuxt": "^2.14.7",
     "redirect-ssl": "^2.0.0",
     "sass": "^1.28.0",
-    "sass-loader": "^10.0.4",
+    "sass-loader": "^10.0.5",
     "vue2-highcharts": "^1.2.5"
   },
   "devDependencies": {
