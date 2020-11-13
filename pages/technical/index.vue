@@ -127,11 +127,11 @@ export default {
         {
           property: 'og:title',
           content: 'Technical Toolbox'
+        },
+        {
+          property: 'og:image',
+          content: '/seo-images/toolbox.png'
         }
-        // {
-        //   property: 'og:image',
-        //   content: '/icons/toolbox.png'
-        // }
       ]
     };
   }

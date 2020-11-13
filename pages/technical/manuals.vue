@@ -94,11 +94,11 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Workshop Manuals'
+        },
+        {
+          property: 'og:image',
+          content: '/seo-images/Checklist.svg'
         }
-        // {
-        //   property: 'og:image',
-        //   content: '/icons/Checklist.svg'
-        // }
       ]
     };
   }

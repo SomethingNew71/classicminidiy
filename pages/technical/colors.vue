@@ -177,11 +177,11 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Color Picker'
+        },
+        {
+          property: 'og:image',
+          content: '/seo-images/Pantone.svg'
         }
-        // {
-        //   property: 'og:image',
-        //   content: '/icons/Pantone.svg'
-        // }
       ]
     };
   },

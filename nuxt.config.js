@@ -26,7 +26,7 @@ export default {
       },
       {
         property: 'og:image',
-        content: '/avatar-car.png'
+        content: '/seo-images/avatar-car.png'
       }
     ],
     link: [

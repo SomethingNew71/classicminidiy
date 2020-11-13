@@ -1,4 +1,4 @@
 import Vue from 'vue';
-import navBar from 'vue-navigation-bar';
+import NavBar from 'vue-navigation-bar';
 
-Vue.component('navBar', navBar);
+Vue.component('NavBar', NavBar);
