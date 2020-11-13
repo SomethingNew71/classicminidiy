@@ -26,7 +26,7 @@ export default {
       },
       {
         property: 'og:image',
-        content: '/seo-images/avatar-car.png'
+        content: 'https://classicminidiy.com/seo-images/avatar-car.png'
       }
     ],
     link: [

@@ -180,7 +180,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: '/seo-images/Pantone.svg'
+          content: 'https://classicminidiy.com/seo-images/Pantone.svg'
         }
       ]
     };

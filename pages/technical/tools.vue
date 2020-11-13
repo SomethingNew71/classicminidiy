@@ -140,7 +140,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: '/seo-images/Car-Jumper.svg'
+          content: 'https://classicminidiy.com/seo-images/Car-Jumper.svg'
         }
       ]
     };

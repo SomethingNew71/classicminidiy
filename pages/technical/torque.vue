@@ -111,7 +111,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: '/seo-images/Settings-5.svg'
+          content: 'https://classicminidiy.com/seo-images/Settings-5.svg'
         }
       ]
     };

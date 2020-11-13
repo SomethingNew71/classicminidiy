@@ -130,7 +130,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: '/seo-images/toolbox.png'
+          content: 'https://classicminidiy.com/seo-images/toolbox.png'
         }
       ]
     };

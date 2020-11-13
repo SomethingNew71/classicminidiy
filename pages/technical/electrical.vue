@@ -113,7 +113,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: '/seo-images/Battery-Charging.svg'
+          content: 'https://classicminidiy.com/seo-images/Battery-Charging.svg'
         }
       ]
     };

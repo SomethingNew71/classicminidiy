@@ -105,7 +105,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: '/seo-images/Graph-Magnifier.svg'
+          content: 'https://classicminidiy.com/seo-images/Graph-Magnifier.svg'
         }
       ]
     };

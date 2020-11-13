@@ -97,7 +97,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: '/seo-images/Checklist.svg'
+          content: 'https://classicminidiy.com/seo-images/Checklist.svg'
         }
       ]
     };
