@@ -110,10 +110,6 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Electrical Diagrams'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.com/seo-images/Battery-Charging.svg'
         }
       ]
     };

@@ -137,10 +137,6 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Essential Tools'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.com/seo-images/Car-Jumper.svg'
         }
       ]
     };

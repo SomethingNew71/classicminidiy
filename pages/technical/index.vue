@@ -127,10 +127,6 @@ export default {
         {
           property: 'og:title',
           content: 'Technical Toolbox'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.com/seo-images/toolbox.png'
         }
       ]
     };

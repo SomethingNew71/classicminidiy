@@ -102,10 +102,6 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - SU Needles Chart'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.com/seo-images/Graph-Magnifier.svg'
         }
       ]
     };

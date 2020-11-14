@@ -94,10 +94,6 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Workshop Manuals'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.com/seo-images/Checklist.svg'
         }
       ]
     };

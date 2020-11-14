@@ -177,10 +177,6 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Color Picker'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.com/seo-images/Pantone.svg'
         }
       ]
     };
