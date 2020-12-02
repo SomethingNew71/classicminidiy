@@ -1,6 +1,39 @@
 <template>
   <div class="columns is-multiline">
     <div class="column is-6">
+      <div class="card py-5">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">
+                Compression Ratio
+              </p>
+              <p class="title">
+                {{ ratio || '?' }}
+              </p>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="column is-6">
+      <div class="card py-5">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">
+                Engine Capacity
+              </p>
+              <p class="title">
+                {{ capacity || '?' }}
+              </p>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="column is-12 py-4"></div>
+    <div class="column is-6">
       <b-field label="Piston Size">
         <b-select v-model="bore" expanded placeholder="Select a piston size in mm" @input="calculateRatio()">
           <optgroup
@@ -59,8 +92,9 @@
         </b-select>
       </b-field>
     </div>
-    <div class="column is-12">
-      <b-field :label="`Piston Dish size (cc) - ${pistonDish}`">
+    <div class="column is-12"></div>
+    <div class="column is-4">
+      <b-field :label="`Piston Dish size (cc)`">
         <b-slider
           v-model="pistonDish"
           size="is-medium"
@@ -69,9 +103,20 @@
           @input="calculateRatio()"
         ></b-slider>
       </b-field>
+      <b-field>
+        <b-input
+          v-model="pistonDish"
+          placeholder="Piston Dish"
+          type="number"
+          min="0.0"
+          max="20.0"
+          validation-message="Value must be between 0 and 20"
+        >
+        </b-input>
+      </b-field>
     </div>
-    <div class="column is-12">
-      <b-field :label="`Cylinder Head Chamber Volume (cc) - ${headVolume}`">
+    <div class="column is-4">
+      <b-field label="Cylinder Head Chamber Volume (cc)">
         <b-slider
           v-model="headVolume"
           size="is-medium"
@@ -81,9 +126,20 @@
           @input="calculateRatio()"
         ></b-slider>
       </b-field>
+      <b-field>
+        <b-input
+          v-model="headVolume"
+          placeholder="Head Volume"
+          type="number"
+          min="15"
+          max="35"
+          validation-message="Value must be between 15 and 35"
+        >
+        </b-input>
+      </b-field>
     </div>
-    <div class="column is-12">
-      <b-field :label="`Piston Deck Height (thou) - ${deckHeight}`">
+    <div class="column is-4">
+      <b-field label="Piston Deck Height (thou)">
         <b-slider
           v-model="deckHeight"
           size="is-medium"
@@ -92,31 +148,19 @@
           @input="calculateRatio()"
         ></b-slider>
       </b-field>
+      <b-feild>
+        <b-input
+          v-model="deckHeight"
+          placeholder="Deck Height"
+          type="number"
+          min="0"
+          max="80"
+          validation-message="Value must be between 0 and 35"
+        >
+        </b-input>
+      </b-feild>
     </div>
-    <div class="column is-12 card py-5 mb-5">
-      <nav class="level">
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">
-              Compression Ratio
-            </p>
-            <p class="title">
-              {{ ratio || '?' }}
-            </p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">
-              Engine Capacity
-            </p>
-            <p class="title">
-              {{ capacity || '?' }}
-            </p>
-          </div>
-        </div>
-      </nav>
-    </div>
+    <div class="column is-12 py-4"></div>
     <div class="column is-12">
       <div class="content has-text-centered">
         <p>
@@ -375,6 +419,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .card {
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.4), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.2), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   }
 </style>
