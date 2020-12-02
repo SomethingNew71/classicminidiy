@@ -1,34 +1,8 @@
 <template>
   <div class="columns is-multiline">
-    <div class="column is-12 card py-5 mb-5">
-      <nav class="level">
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">
-              Compression Ratio
-            </p>
-            <p v-if="!isLoading" class="title">
-              {{ ratio || '?' }}
-            </p>
-            <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">
-              Engine Capacity
-            </p>
-            <p v-if="!isLoading" class="title">
-              {{ capacity || '?' }}
-            </p>
-            <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
-          </div>
-        </div>
-      </nav>
-    </div>
     <div class="column is-6">
       <b-field label="Piston Size">
-        <b-select v-model="bore" expanded placeholder="Select a piston size in mm">
+        <b-select v-model="bore" expanded placeholder="Select a piston size in mm" @input="calculateRatio()">
           <optgroup
             v-for="group in pistonOptions"
             :key="group.label"
@@ -43,7 +17,7 @@
     </div>
     <div class="column is-6">
       <b-field label="Crankshaft">
-        <b-select v-model="stroke" expanded placeholder="Select the stroke of your crankshaft">
+        <b-select v-model="stroke" expanded placeholder="Select the stroke of your crankshaft" @input="calculateRatio()">
           <optgroup
             v-for="group in crankshaftOptions"
             :key="group.label"
@@ -59,7 +33,7 @@
     <div class="column is-12"></div>
     <div class="column is-6">
       <b-field label="Head Gasket">
-        <b-select v-model="gasket" expanded placeholder="Choose your head gasket">
+        <b-select v-model="gasket" expanded placeholder="Choose your head gasket" @input="calculateRatio()">
           <option
             v-for="option in headGasketOptions"
             :key="option.value"
@@ -72,7 +46,7 @@
     </div>
     <div class="column is-6">
       <b-field label="Decompression Plate">
-        <b-select v-model="decomp" expanded placeholder="Choose your de-comp plate if being used">
+        <b-select v-model="decomp" expanded placeholder="Choose your de-comp plate if being used" @input="calculateRatio()">
           <optgroup
             v-for="group in decompPlateOptions"
             :key="group.label"
@@ -92,8 +66,11 @@
           size="is-medium"
           :min="0"
           :max="20"
+          @input="calculateRatio()"
         ></b-slider>
       </b-field>
+    </div>
+    <div class="column is-12">
       <b-field :label="`Cylinder Head Chamber Volume (cc) - ${headVolume}`">
         <b-slider
           v-model="headVolume"
@@ -101,16 +78,44 @@
           :min="15"
           :max="35"
           :step="0.1"
+          @input="calculateRatio()"
         ></b-slider>
       </b-field>
+    </div>
+    <div class="column is-12">
       <b-field :label="`Piston Deck Height (thou) - ${deckHeight}`">
         <b-slider
           v-model="deckHeight"
           size="is-medium"
           :min="0"
           :max="80"
+          @input="calculateRatio()"
         ></b-slider>
       </b-field>
+    </div>
+    <div class="column is-12 card py-5 mb-5">
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">
+              Compression Ratio
+            </p>
+            <p class="title">
+              {{ ratio || '?' }}
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">
+              Engine Capacity
+            </p>
+            <p class="title">
+              {{ capacity || '?' }}
+            </p>
+          </div>
+        </div>
+      </nav>
     </div>
     <div class="column is-12">
       <div class="content has-text-centered">
@@ -123,11 +128,6 @@
           <a href="https://www.jepistons.com/blog/how-to-calculate-engine-compression-ratio-and-displacement" target="_blank" rel="noopener noreferrer">JE Pistons Compression Ratio</a>
         </p>
       </div>
-    </div>
-    <div class="column is-12 has-text-centered">
-      <b-button type="is-primary" size="is-large" :loading="isLoading" @click="calculateRatio">
-        Calculate your Ratio
-      </b-button>
     </div>
   </div>
 </template>
@@ -351,8 +351,7 @@ export default {
       gasket: 3.4,
       decomp: 0,
       ratio: null,
-      capacity: null,
-      isLoading: false
+      capacity: null
     };
   },
   created () {
@@ -368,12 +367,8 @@ export default {
       const vc = this.pistonDish + +this.gasket + +this.headVolume + +deckVolume + +ringland + +this.decomp;
       const preRoundratio = (this.stroke * (boreRadius * boreRadius) * Math.PI + vc) / vc;
       const preRoundcap = (this.stroke * (boreRadius * boreRadius) * Math.PI) * 4;
-
-      setTimeout(() => {
-        this.ratio = Math.round((preRoundratio + Number.EPSILON) * 100) / 100;
-        this.capacity = Math.round((preRoundcap + Number.EPSILON) * 100) / 100;
-        this.isLoading = false;
-      }, 1000);
+      this.ratio = Math.round((preRoundratio + Number.EPSILON) * 100) / 100;
+      this.capacity = Math.round((preRoundcap + Number.EPSILON) * 100) / 100;
     }
   }
 };
