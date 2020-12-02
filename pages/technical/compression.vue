@@ -23,7 +23,7 @@
             <li class="is-active">
               <nuxt-link to="">
                 <span class="icon is-small">
-                  <i class="fad fa-wrench" aria-hidden="true"></i>
+                  <i class="fad fa-compress-arrows-alt" aria-hidden="true"></i>
                 </span>
                 <span>Compression Ratio Calculator</span>
               </nuxt-link>
@@ -34,8 +34,8 @@
         <h1 class="title">
           Compression Ratio Calculator
         </h1>
-        <p>
-          Below you’ll find a curated list of recommended tools for working with Classic Mini Coopers. Make difficult jobs easy by adding these essential tools to your workshop.
+        <p class="pb-4">
+          When building a performance classic mini engine one of the most important figures to determine, is the compression ratio. Using the Classic Mini DIY Compression Ratio Calculator below, you can determine the ideal compression for your new engine build.
         </p>
       </div>
       <div class="column is-12">
