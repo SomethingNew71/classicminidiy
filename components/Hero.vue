@@ -195,6 +195,13 @@ export default {
       background-color: #FF0000;
       padding: 12px 12px;
       cursor: pointer;
+
+      @media screen and (max-width: 991px) {
+        color: white;
+        width: 75%;
+        margin: auto;
+        border-radius: 10px;
+      }
     }
     .submenu-icon {
       font-size: 1.7rem;
