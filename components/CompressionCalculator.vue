@@ -89,6 +89,7 @@
       <b-field :label="`Piston Dish size (cc) - ${pistonDish}`">
         <b-slider
           v-model="pistonDish"
+          size="is-medium"
           :min="0"
           :max="20"
         ></b-slider>
@@ -96,6 +97,7 @@
       <b-field :label="`Cylinder Head Chamber Volume (cc) - ${headVolume}`">
         <b-slider
           v-model="headVolume"
+          size="is-medium"
           :min="15"
           :max="35"
           :step="0.1"
@@ -104,10 +106,23 @@
       <b-field :label="`Piston Deck Height (thou) - ${deckHeight}`">
         <b-slider
           v-model="deckHeight"
+          size="is-medium"
           :min="0"
           :max="80"
         ></b-slider>
       </b-field>
+    </div>
+    <div class="column is-12">
+      <div class="content has-text-centered">
+        <p>
+          Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building your engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one source. The mathematical equations used in this tool can be found here: <a href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344" target="_blank" rel="noopener noreferrer"> Source Equation Code</a>
+        </p>
+        <p>
+          Alternate Source:
+          <a href="https://www.calverst.com/technical-info/compression-ratio-%E2%80%93-working-it-out/" target="_blank" rel="noopener noreferrer">Calver Compression Ratio</a>,
+          <a href="https://www.jepistons.com/blog/how-to-calculate-engine-compression-ratio-and-displacement" target="_blank" rel="noopener noreferrer">JE Pistons Compression Ratio</a>
+        </p>
+      </div>
     </div>
     <div class="column is-12 has-text-centered">
       <b-button type="is-primary" size="is-large" :loading="isLoading" @click="calculateRatio">
@@ -328,28 +343,31 @@ export default {
           ]
         }
       ],
-      pistonDish: 0,
+      pistonDish: 18,
       headVolume: 25.5,
       deckHeight: 20,
-      bore: 6.29,
-      stroke: 6.826,
-      gasket: 2.4,
+      bore: 7.1108,
+      stroke: 8.128,
+      gasket: 3.4,
       decomp: 0,
       ratio: null,
       capacity: null,
       isLoading: false
     };
   },
+  created () {
+    this.calculateRatio();
+  },
   methods: {
     calculateRatio () {
       this.isLoading = true;
       const boreRadius = this.bore / 2;
       const deckHeight = this.deckHeight * 0.0254;
-      const deckVolume = boreRadius * boreRadius * (deckHeight / 10) * 3.14125;
+      const deckVolume = boreRadius * boreRadius * (deckHeight / 10) * Math.PI;
       const ringland = this.bore * 0.0476190; // Correct for 18cc Accrallite 73.5mm pistons
       const vc = this.pistonDish + +this.gasket + +this.headVolume + +deckVolume + +ringland + +this.decomp;
-      const preRoundratio = (this.stroke * (boreRadius * boreRadius) * 3.14125 + vc) / vc;
-      const preRoundcap = (this.stroke * (boreRadius * boreRadius) * 3.14125) * 4;
+      const preRoundratio = (this.stroke * (boreRadius * boreRadius) * Math.PI + vc) / vc;
+      const preRoundcap = (this.stroke * (boreRadius * boreRadius) * Math.PI) * 4;
 
       setTimeout(() => {
         this.ratio = Math.round((preRoundratio + Number.EPSILON) * 100) / 100;
