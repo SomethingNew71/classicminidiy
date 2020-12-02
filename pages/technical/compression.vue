@@ -35,7 +35,7 @@
           Compression Ratio Calculator
         </h1>
         <p class="pb-4">
-          When building a performance classic mini engine one of the most important figures to determine, is the compression ratio. Using the Classic Mini DIY Compression Ratio Calculator below, you can determine the ideal compression for your new engine build.
+          When building a performance Classic Mini engine one of the most important figures to determine is the compression ratio. Using the Classic Mini DIY Compression Ratio Calculator below, you can determine the ideal compression for your new engine build.
         </p>
       </div>
       <div class="column is-12">
