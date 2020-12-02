@@ -1,37 +1,5 @@
 <template>
   <div class="columns is-multiline">
-    <div class="column is-6">
-      <div class="card py-5">
-        <nav class="level">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="heading">
-                Compression Ratio
-              </p>
-              <p class="title">
-                {{ ratio || '?' }}
-              </p>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <div class="column is-6">
-      <div class="card py-5">
-        <nav class="level">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="heading">
-                Engine Capacity
-              </p>
-              <p class="title">
-                {{ capacity || '?' }}
-              </p>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
     <div class="column is-12 py-4"></div>
     <div class="column is-6">
       <b-field label="Piston Size">
@@ -103,13 +71,13 @@
           @input="calculateRatio()"
         ></b-slider>
       </b-field>
-      <b-field>
+      <b-field message="Please choose a value between 0 and 20">
         <b-input
           v-model="pistonDish"
           placeholder="Piston Dish"
           type="number"
-          min="0.0"
-          max="20.0"
+          min="0"
+          max="20"
           validation-message="Value must be between 0 and 20"
         >
         </b-input>
@@ -126,14 +94,12 @@
           @input="calculateRatio()"
         ></b-slider>
       </b-field>
-      <b-field>
+      <b-field message="Please type a decimal value between 15 and 35">
         <b-input
           v-model="headVolume"
           placeholder="Head Volume"
-          type="number"
-          min="15"
-          max="35"
-          validation-message="Value must be between 15 and 35"
+          type="text"
+          lazy
         >
         </b-input>
       </b-field>
@@ -148,7 +114,7 @@
           @input="calculateRatio()"
         ></b-slider>
       </b-field>
-      <b-feild>
+      <b-field message="Please choose a value between 0 and 80">
         <b-input
           v-model="deckHeight"
           placeholder="Deck Height"
@@ -158,7 +124,44 @@
           validation-message="Value must be between 0 and 35"
         >
         </b-input>
-      </b-feild>
+      </b-field>
+    </div>
+    <div class="column is-12">
+      <h2 class="title is-4">
+        Results:
+      </h2>
+    </div>
+    <div class="column is-6">
+      <div class="card py-5">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">
+                Compression Ratio
+              </p>
+              <p class="title">
+                {{ ratio || '?' }}
+              </p>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="column is-6">
+      <div class="card py-5">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">
+                Engine Capacity
+              </p>
+              <p class="title">
+                {{ capacity || '?' }}
+              </p>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
     <div class="column is-12 py-4"></div>
     <div class="column is-12">
@@ -419,6 +422,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   .card {
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.2), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+    box-shadow:  none;
+    background-color: #fafafa;
   }
 </style>
