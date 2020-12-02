@@ -104,6 +104,16 @@ export default {
               },
               {
                 type: 'link',
+                text: 'Compression Ratio Calculator',
+                subText: 'Calculate the compression ratio for your next engine build',
+                path: '/technical/compression',
+                iconLeft: '<i class="submenu-icon fad fa-compress-arrows-alt"></i>'
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
                 text: 'Color Picker',
                 subText: 'Find the right color swatch for your car',
                 path: '/technical/colors',
@@ -224,6 +234,9 @@ export default {
       &.fa-wrench {
         color: #6953bb;
       }
+      // &.fa-compress-arrows-alt {
+        // color: none
+      // }
     }
   }
 
