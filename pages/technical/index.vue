@@ -98,6 +98,11 @@ export default {
           to: '/technical/manuals'
         },
         {
+          title: 'Compression Ratio Calculator',
+          image: '/icons/Mind-Map-Paper.svg',
+          to: '/technical/compression'
+        },
+        {
           title: 'Recommended Tools',
           image: '/icons/Car-Jumper.svg',
           to: '/technical/tools'
