@@ -75,10 +75,8 @@
         <b-input
           v-model="pistonDish"
           placeholder="Piston Dish"
-          type="number"
-          min="0"
-          max="20"
-          validation-message="Value must be between 0 and 20"
+          type="text"
+          lazy
         >
         </b-input>
       </b-field>
@@ -118,10 +116,8 @@
         <b-input
           v-model="deckHeight"
           placeholder="Deck Height"
-          type="number"
-          min="0"
-          max="80"
-          validation-message="Value must be between 0 and 35"
+          type="text"
+          lazy
         >
         </b-input>
       </b-field>
@@ -407,13 +403,14 @@ export default {
   methods: {
     calculateRatio () {
       this.isLoading = true;
+      const pi = Math.PI;
       const boreRadius = this.bore / 2;
       const deckHeight = this.deckHeight * 0.0254;
-      const deckVolume = boreRadius * boreRadius * (deckHeight / 10) * Math.PI;
+      const deckVolume = boreRadius * boreRadius * (deckHeight / 10) * pi;
       const ringland = this.bore * 0.0476190; // Correct for 18cc Accrallite 73.5mm pistons
       const vc = this.pistonDish + +this.gasket + +this.headVolume + +deckVolume + +ringland + +this.decomp;
-      const preRoundratio = (this.stroke * (boreRadius * boreRadius) * Math.PI + vc) / vc;
-      const preRoundcap = (this.stroke * (boreRadius * boreRadius) * Math.PI) * 4;
+      const preRoundratio = (this.stroke * (boreRadius * boreRadius) * pi + vc) / vc;
+      const preRoundcap = (this.stroke * (boreRadius * boreRadius) * pi) * 4;
       this.ratio = Math.round((preRoundratio + Number.EPSILON) * 100) / 100;
       this.capacity = Math.round((preRoundcap + Number.EPSILON) * 100) / 100;
     }
