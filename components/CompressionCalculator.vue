@@ -163,7 +163,7 @@
     <div class="column is-12">
       <div class="content has-text-centered">
         <p>
-          Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building your engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one source. The mathematical equations used in this tool can be found here: <a href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344" target="_blank" rel="noopener noreferrer"> Source Equation Code</a>
+          Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building your engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one source. The mathematical equations used in this tool can be found here: <a href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344" target="_blank" rel="noopener noreferrer"> Equation Source Code</a>
         </p>
         <p>
           Alternate Source:
@@ -197,19 +197,19 @@ export default {
               value: 6.458
             },
             {
-              label: '+20 65.08mm',
+              label: '998/1098 +20 - 65.08mm',
               value: 6.5088
             },
             {
-              label: '+40 65.59mm',
+              label: '998/1098 +40 - 65.59mm',
               value: 6.5596
             },
             {
-              label: '+60 66.10mm',
+              label: '998/1098 +60 - 66.10mm',
               value: 6.6104
             },
             {
-              label: '+80 66.61mm',
+              label: '998/1098 +80 - 66.61mm',
               value: 6.6612
             }
           ]
@@ -222,19 +222,19 @@ export default {
               value: 7.06
             },
             {
-              label: '+20 71.10mm',
+              label: '1275 +20 - 71.10mm',
               value: 7.1108
             },
             {
-              label: '+40 71.61mm',
+              label: '1275 +40 - 71.61mm',
               value: 7.1616
             },
             {
-              label: '+60 72.12mm',
+              label: '1275 +60 - 72.12mm',
               value: 7.2124
             },
             {
-              label: '+80 72.62mm',
+              label: '1275 +80 - 72.62mm',
               value: 7.262
             }
           ]
