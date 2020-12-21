@@ -78,7 +78,7 @@
                 <div v-for="(item, index) in toolboxItems" :key="index" class="tile is-parent">
                   <nuxt-link :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
-                      <img class="panel-icon-home" :src="require('assets/img' + item.image)" aria-hidden="true">
+                      <img class="panel-icon-home" :src="require('assets/img' + item.image)" aria-hidden="true" :alt="item.title + 'image'">
                       <p class="heading has-text-black">
                         {{ item.title }}
                       </p>
@@ -100,7 +100,10 @@
                 class="panel-block is-active"
               >
                 <span class="panel-icon">
-                  <img :src="require('assets/img' + item.image)">
+                  <img
+                    :src="require('assets/img' + item.image)"
+                    :alt="item.title + 'image'"
+                  >
                 </span>
                 {{ item.title }}
               </nuxt-link>
@@ -230,5 +233,10 @@ export default {
 }
 .grow:hover {
   transform: scale(1.1);
+}
+.footer {
+  a {
+    font-weight: bold;
+  }
 }
 </style>
