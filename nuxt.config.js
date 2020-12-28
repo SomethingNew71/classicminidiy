@@ -63,7 +63,7 @@ export default {
     '@aceforth/nuxt-optimized-images',
     'nuxt-compress',
     '@nuxtjs/robots',
-    '@nuxtjs/google-gtag'
+    '@nuxtjs/gtm'
   ],
   robots: {
     UserAgent: '*',
@@ -73,19 +73,8 @@ export default {
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
-  'google-gtag': {
-    id: 'UA-53914731-2',
-    config: {
-      linker: {
-        accept_incoming: true,
-        domains: [
-          'patreon.com/classicminidiy',
-          'facebook.com/classicminidiy',
-          'youtube.com/c/classicminidiy',
-          'merch.classicminidiy.com'
-        ]
-      }
-    }
+  gtm: {
+    id: 'G-FBH0E64HM1'
   },
   optimizedImages: {
     optimizeImages: true
