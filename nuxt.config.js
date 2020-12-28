@@ -74,7 +74,8 @@ export default {
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
   gtm: {
-    id: 'G-FBH0E64HM1'
+    id: 'G-FBH0E64HM1',
+    pageTracking: true
   },
   optimizedImages: {
     optimizeImages: true
