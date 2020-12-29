@@ -63,7 +63,7 @@ export default {
     '@aceforth/nuxt-optimized-images',
     'nuxt-compress',
     '@nuxtjs/robots',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-gtag'
   ],
   robots: {
     UserAgent: '*',
@@ -73,7 +73,7 @@ export default {
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
-  googleAnalytics: {
+  'google-gtag': {
     id: 'G-FBH0E64HM1'
   },
   optimizedImages: {
