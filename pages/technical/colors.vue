@@ -85,7 +85,7 @@
           <h2 class="title">
             Choose a color
           </h2>
-          <img :src="require('assets/img/color-filler.png')" alt="">
+          <b-image :src="require('assets/img/color-filler.png')" alt="" />
         </div>
         <div v-if="loading">
           <b-notification :closable="false">
@@ -108,16 +108,16 @@
                 <figure
                   class="image is-4x4"
                 >
-                  <img
+                  <b-image
                     v-if="color[6]"
-                    :src="require(`assets/img/colors/${color[2]}.jpg`)"
+                    :src="`https://classicminidiy.s3.amazonaws.com/colors/${color[2]}.jpg`"
                     :alt="`Image of color ${color[2]}`"
-                  >
-                  <img
+                  />
+                  <b-image
                     v-if="!color[6]"
-                    src="~assets/img/colors/no-swatch.png"
+                    src="https://classicminidiy.s3.amazonaws.com/colors/no-swatch.png"
                     :alt="`No image exists for color ${color[2]}`"
-                  >
+                  />
                 </figure>
               </div>
               <hr v-if="!color[6]">

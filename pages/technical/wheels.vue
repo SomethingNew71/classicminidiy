@@ -125,7 +125,7 @@
                   </b-tooltip>
                 </div>
               </div>
-              <img :src="wheel.imagepath" :alt="`Image of ${wheel.name}`">
+              <b-image :src="wheel.imagepath" :alt="`Image of ${wheel.name}`" />
               <div class="hover-content has-text-centered pt-3">
                 <h2 class="title is-4">
                   {{ wheel.name }}

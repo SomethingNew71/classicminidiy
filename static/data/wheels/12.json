@@ -1,6 +1,6 @@
 [
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/denovoclubman.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/denovoclubman.jpg",
     "name":"Denovo, Clubman",
     "size":"4.5x12",
     "offset":"",
@@ -8,7 +8,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/denoco1275gt.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/denoco1275gt.jpg",
     "name":"Denovo, Clubman 1275GT",
     "size":"4.5x12",
     "offset":"",
@@ -16,7 +16,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/firsatinno90l.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/firsatinno90l.jpg",
     "name":"Firsat/Innocenti 90L/120L",
     "size":"",
     "offset":"",
@@ -24,7 +24,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/standart45x12_3.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/standart45x12_3.jpg",
     "name":"Australian 1275 LS",
     "size":"4.5x12",
     "offset":"ET34",
@@ -32,7 +32,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/standart45x12_2.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/standart45x12_2.jpg",
     "name":"Austin-Rover/Rover standard steelrim",
     "size":"4.5x12",
     "offset":"ET35",
@@ -40,7 +40,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/standart45x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/standart45x12.jpg",
     "name":"Austin-Rover/Rover standard steelrim",
     "size":"4.5x12",
     "offset":"ET35",
@@ -48,7 +48,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/metroxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/metroxx12.jpg",
     "name":"Metro Mk1",
     "size":"",
     "offset":"",
@@ -56,7 +56,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/wolfracepepperpot5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/wolfracepepperpot5x12.jpg",
     "name":"Wolfrace",
     "size":"5x12",
     "offset":"",
@@ -64,7 +64,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/inno90xx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/inno90xx12.jpg",
     "name":"Firsat / Innocenti 90L",
     "size":"4x12",
     "offset":"",
@@ -72,7 +72,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cfr4x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cfr4x12.jpg",
     "name":"CFR / Innocenti 90L",
     "size":"4x12",
     "offset":"",
@@ -80,7 +80,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/innostahl_12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/innostahl_12.jpg",
     "name":"Firsat? Innocenti 90L",
     "size":"",
     "offset":"",
@@ -88,7 +88,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/roh4x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/roh4x12.jpg",
     "name":"ROH",
     "size":"4x12",
     "offset":"",
@@ -96,7 +96,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/smiths45x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/smiths45x12.jpg",
     "name":"Smiths",
     "size":"4.5x12",
     "offset":"",
@@ -104,7 +104,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/metrostahlxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/metrostahlxx12.jpg",
     "name":"Metro Steelrim, R315x105",
     "size":"",
     "offset":"",
@@ -112,7 +112,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/weller5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/weller5x12.jpg",
     "name":"Weller Wheels",
     "size":"5x12",
     "offset":"",
@@ -120,7 +120,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/weller5x12_2.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/weller5x12_2.jpg",
     "name":"Weller Wheels",
     "size":"5x12",
     "offset":"",
@@ -128,7 +128,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/weller6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/weller6x12.jpg",
     "name":"Weller Wheels, 6x12",
     "size":"",
     "offset":"",
@@ -136,7 +136,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/wellerxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/wellerxx12.jpg",
     "name":"Weller Wheels, ?x12",
     "size":"",
     "offset":"",
@@ -144,7 +144,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/wellergtxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/wellergtxx12.jpg",
     "name":"Weller Wheels 'GT', ?x12",
     "size":"",
     "offset":"",
@@ -152,7 +152,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_stahl1.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_stahl1.jpg",
     "name":"Unknown Dunlop. Maybe Metro?, ?x12",
     "size":"",
     "offset":"",
@@ -160,7 +160,7 @@
     "type":"steel"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/minilite2.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/minilite2.jpg",
     "name":"Rover",
     "size":"4.5x12",
     "type":"minilite",
@@ -168,7 +168,7 @@
     "notes":"NOTE: Holes for wheel studs are in line with the spokes! Came with the RSP Cooper and Mini 30 (1990)"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/minilite.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/minilite.jpg",
     "name":"Rover",
     "size":"4.5x12",
     "type":"minilite",
@@ -176,7 +176,7 @@
     "notes":"Available with black spokes or in white too. ID n° RRC 10339. Made for Rover by Melber."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/gbxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/gbxx12.jpg",
     "name":"BWA 'GB'",
     "size":"5x12",
     "type":"minilite",
@@ -184,7 +184,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/carmonamistral5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/carmonamistral5x12.jpg",
     "name":"Carmona Mistral",
     "size":"5x12",
     "type":"minilite",
@@ -192,7 +192,7 @@
     "notes":"Made in Italy"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/rosepetal55x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/rosepetal55x12.jpg",
     "name":"Rosepetal, magnesium",
     "size":"5.5x12",
     "type":"minilite",
@@ -200,7 +200,7 @@
     "notes":"Only a few sets ever made. Probably around 7."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cr5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cr5x12.jpg",
     "name":"CR Wheels",
     "size":"5x12",
     "type":"minilite",
@@ -208,7 +208,7 @@
     "notes":"Rosepetal replica."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cr6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cr6x12.jpg",
     "name":"CR Wheels",
     "size":"6x12",
     "type":"minilite",
@@ -216,7 +216,7 @@
     "notes":"Rosepetal replica. Was fitted to the Downton Club Sport (not the original Downton!) in the 1990's."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/mwsrosepetal5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/mwsrosepetal5x12.jpg",
     "name":"MWS Rosepetal",
     "size":"5x12",
     "type":"minilite",
@@ -224,7 +224,7 @@
     "notes":"Rosepetal replica. Was fitted to the Downton Club Sport (not the original Downton!) in the 1990's."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/minilite5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/minilite5x12.jpg",
     "name":"Minilite",
     "size":"5x12",
     "type":"minilite",
@@ -232,7 +232,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/deltamini6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/deltamini6x12.jpg",
     "name":"Delta-Mini",
     "size":"6x12",
     "type":"minilite",
@@ -240,7 +240,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/performance55x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/performance55x12.jpg",
     "name":"Performance Superlite",
     "size":"5.5x12",
     "type":"minilite",
@@ -248,7 +248,7 @@
     "notes":"Made in Australia</a>"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/ultralite5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/ultralite5x12.jpg",
     "name":"Ultralite",
     "size":"5x12",
     "type":"minilite",
@@ -256,7 +256,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/ultralite55x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/ultralite55x12.jpg",
     "name":"Ultralite",
     "size":"5.5x12",
     "type":"minilite",
@@ -264,7 +264,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/minator5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/minator5x12.jpg",
     "name":"Minator",
     "size":"5x12",
     "type":"minilite",
@@ -272,7 +272,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/worksmagnesium6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/worksmagnesium6x12.jpg",
     "name":"Minilite Works Magnesium",
     "size":"6x12",
     "type":"minilite",
@@ -280,7 +280,7 @@
     "notes":"Used on the last Works Minis."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/minilite7x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/minilite7x12.jpg",
     "name":"Minilite Magnesium, 7x12",
     "size":"",
     "type":"minilite",
@@ -288,7 +288,7 @@
     "notes":"A bit wider than your average 12 wheel!"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/minilifeworksreplica5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/minilifeworksreplica5x12.jpg",
     "name":"Mini life Special Tuning Works Replica, Diamond Cut",
     "size":"5x12",
     "type":"minilite",
@@ -296,7 +296,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/minilight5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/minilight5x12.jpg",
     "name":"Minilight",
     "size":"5x12",
     "type":"minilite",
@@ -304,7 +304,7 @@
     "notes":"Mini Light Alloy Wheels & Made in UK"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/roh5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/roh5x12.jpg",
     "name":"ROH Contesta",
     "size":"5x12",
     "type":"minilite",
@@ -312,7 +312,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/watanabexx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/watanabexx12.jpg",
     "name":"RS Watanabe",
     "size":"5x12",
     "type":"minilite",
@@ -320,7 +320,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/rswatanabe6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/rswatanabe6x12.jpg",
     "name":"RS Watanabe",
     "size":"6x12",
     "type":"minilite",
@@ -328,7 +328,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/superlight55x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/superlight55x12.jpg",
     "name":"Superlight",
     "size":"5.5x12",
     "type":"minilite",
@@ -336,7 +336,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/superlight6x12et-7.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/superlight6x12et-7.jpg",
     "name":"Superlight",
     "size":"6x12",
     "type":"minilite",
@@ -352,7 +352,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/starcorpracing5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/starcorpracing5x12.jpg",
     "name":"Starcorp Racing",
     "size":"5x12",
     "type":"minilite",
@@ -360,7 +360,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/twogateswheels5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/twogateswheels5x12.jpg",
     "name":"Two Gates Wheels",
     "size":"5x12",
     "type":"minilite",
@@ -368,7 +368,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/peg5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/peg5x12.jpg",
     "name":"PEG",
     "size":"5x12",
     "type":"minilite",
@@ -376,7 +376,7 @@
     "notes":"Looks very similar to the Two Gates Wheels wheel."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/turtlerswatanabe5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/turtlerswatanabe5x12.jpg",
     "name":"RS Watanabe",
     "size":"6x12",
     "type":"minilite",
@@ -384,7 +384,7 @@
     "notes":"Available by Turtle Trading of Japan. 5\" version on offer too."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_6.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_6.jpg",
     "name":"100+",
     "size":"5x12",
     "type":"other",
@@ -392,7 +392,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/100plus5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/100plus5x12.jpg",
     "name":"100+",
     "size":"5x12",
     "type":"other",
@@ -400,7 +400,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/aungerclassic5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/aungerclassic5x12.jpg",
     "name":"Aunger Classic",
     "size":"5x12",
     "type":"other",
@@ -408,7 +408,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/ats.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/ats.jpg",
     "name":"ATS",
     "size":"4.5x12 or 5x12",
     "type":"other",
@@ -416,7 +416,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/alcan5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/alcan5x12.jpg",
     "name":"Alcan",
     "size":"5x12",
     "type":"other",
@@ -424,7 +424,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/aunger5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/aunger5x12.jpg",
     "name":"Aunger",
     "size":"5x12",
     "type":"other",
@@ -432,7 +432,7 @@
     "notes":"Or maybe Cheviot 'Jellybean'?"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/avon45x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/avon45x12.jpg",
     "name":"Avon Safety Wheel",
     "size":"4.5x12",
     "type":"other",
@@ -440,7 +440,7 @@
     "notes":"The Avon Safety Wheel avoids the detachment of a deflated tyre by having a much shallower central recess within the interior of the wheel. The recess is so shallow that the tyre is prevented from twisting, what would allow it to slip over the edge of the rim, so it is retained. Such a shallow recess would also prevent the fitment of new tyres, if it weren't for the inclusion of a deep channel, allowing the bead of the tyre to enter the channel to permit fitting. The channel is covered by a metal band that is tightened around the wheel after the tyre is fitted but before it is inflated."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/bachtel45x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/bachtel45x12.jpg",
     "name":"Bachtel",
     "size":"4.5x12",
     "type":"other",
@@ -448,7 +448,7 @@
     "notes":"Swiss made!"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/bbs5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/bbs5x12.jpg",
     "name":"BBS",
     "size":"5x12",
     "type":"other",
@@ -456,7 +456,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/bwa5x12_3.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/bwa5x12_3.jpg",
     "name":"BWA",
     "size":"5x12",
     "type":"other",
@@ -464,7 +464,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/bwaxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/bwaxx12.jpg",
     "name":"BWA",
     "size":"5x12",
     "type":"other",
@@ -472,7 +472,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/centerlinexx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/centerlinexx12.jpg",
     "name":"Centerline(?)",
     "size":"5x12",
     "type":"other",
@@ -480,7 +480,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cosmic5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cosmic5x12.jpg",
     "name":"Cosmic",
     "size":"5x12",
     "type":"other",
@@ -488,7 +488,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cosmic5x12_3.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cosmic5x12_3.jpg",
     "name":"Cosmic",
     "size":"5x12",
     "type":"other",
@@ -496,7 +496,7 @@
     "notes":"Flat outer lip!"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cosmicslot5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cosmicslot5x12.jpg",
     "name":"Cosmic",
     "size":"5x12",
     "type":"other",
@@ -504,7 +504,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cosmicxx12_4.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cosmicxx12_4.jpg",
     "name":"Cosmic",
     "size":"5x12",
     "type":"other",
@@ -512,7 +512,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cosmicmk3xx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cosmicmk3xx12.jpg",
     "name":"Cosmic MkIII",
     "size":"5x12",
     "type":"other",
@@ -520,7 +520,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cosmic5x12_2.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cosmic5x12_2.jpg",
     "name":"Cosmic",
     "size":"5x12",
     "type":"other",
@@ -528,7 +528,7 @@
     "notes":"Not 100% sure wheter they are 'Cosmic'"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/csaxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/csaxx12.jpg",
     "name":"CSA",
     "size":"",
     "type":"other",
@@ -536,7 +536,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cobra6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cobra6x12.jpg",
     "name":"Cobra(?)",
     "size":"6x12",
     "type":"other",
@@ -544,7 +544,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/compomotivetwelvespokexx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/compomotivetwelvespokexx12.jpg",
     "name":"Compomotive",
     "size":"",
     "type":"other",
@@ -552,7 +552,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/cricket5x12deltajapan.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/cricket5x12deltajapan.jpg",
     "name":"Cricket",
     "size":"5x12",
     "type":"other",
@@ -560,7 +560,7 @@
     "notes":"Sold exclusivly by Mini-Delta.co.jp from Japan!"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/dunloplp922.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/dunloplp922.jpg",
     "name":"Dunlop LP928/D1",
     "size":"5x12",
     "type":"other",
@@ -568,7 +568,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/dunlopd15x12ado16.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/dunlopd15x12ado16.jpg",
     "name":"Dunlop LP9??/D1",
     "size":"5x12",
     "type":"other",
@@ -576,7 +576,7 @@
     "notes":"Much higher offset to fit the BMC ADO16 range!"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/jbwd15x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/jbwd15x12.jpg",
     "name":"John Brown Wheels 'D1'",
     "size":"5x12",
     "type":"other",
@@ -584,7 +584,7 @@
     "notes":"Copy of the old D1/LP928. John Brown Wheels is a brand of Midland Wheels"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/deltamics45x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/deltamics45x12.jpg",
     "name":"Delta Mics",
     "size":"4.5x12",
     "type":"other",
@@ -592,7 +592,7 @@
     "notes":"Two component two piece wheel. The center is made of cast alloy, the outer rim/dish is made of steel. The center is vertical screwed on from the inside."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/forceracing6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/forceracing6x12.jpg",
     "name":"Force Racing",
     "size":"6x12 and 6.5x12",
     "type":"other",
@@ -600,7 +600,7 @@
     "notes":"Can be bought here: www.Force-Racing.co.uk"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/forceracingbisgdishxxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/forceracingbisgdishxxx12.jpg",
     "name":"Force Racing 'Big Dish'",
     "size":"4.75x12 - 7x12",
     "type":"other",
@@ -608,7 +608,7 @@
     "notes":"Uses a 13\" center, no tyre well."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/fps45x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/fps45x12.jpg",
     "name":"FPS",
     "size":"4.5x12",
     "type":"other",
@@ -616,7 +616,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/inno120l.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/inno120l.jpg",
     "name":"Maifrini BS/Innocenti DeTomaso",
     "size":"4.5x12",
     "type":"other",
@@ -624,7 +624,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/maifrinimini5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/maifrinimini5x12.jpg",
     "name":"Maifrini 'mini'",
     "size":"5x12",
     "type":"other",
@@ -632,7 +632,7 @@
     "notes":"Clearly a different wheel to the above DeTomaso wheel!"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/detomaso.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/detomaso.jpg",
     "name":"Innocenti DeTomaso Turbo",
     "size":"",
     "type":"other",
@@ -640,7 +640,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_15.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_15.jpg",
     "name":"Leyland Trophy wheels",
     "size":"",
     "type":"other",
@@ -648,7 +648,7 @@
     "notes":"Official wheel of the late 70's Leyland Trophy as used on Innocenti DeTomasos ond Innocenti 120s."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/gkn5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/gkn5x12.jpg",
     "name":"GKN Silverstone",
     "size":"5x12",
     "type":"other",
@@ -656,7 +656,7 @@
     "notes":"The same wheels as used in the 1275GT cup in the 70ies and 80ies."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unipartgkn5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unipartgkn5x12.jpg",
     "name":"Unipart GAW122 Made by GKN",
     "size":"5x12",
     "type":"other",
@@ -664,7 +664,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/gotti55x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/gotti55x12.jpg",
     "name":"Gotti",
     "size":"5.5x12",
     "type":"other",
@@ -672,7 +672,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/gotti07355x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/gotti07355x12.jpg",
     "name":"Gotti '073' (or 'Nouvelle D6')",
     "size":"5.5x12",
     "type":"other",
@@ -680,7 +680,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/gottimeca5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/gottimeca5x12.jpg",
     "name":"Gotti Meca",
     "size":"5x12",
     "type":"other",
@@ -688,7 +688,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/gottigtxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/gottigtxx12.jpg",
     "name":"GT',",
     "size":"",
     "type":"other",
@@ -696,7 +696,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/globe6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/globe6x12.jpg",
     "name":"Globe",
     "size":"6x12",
     "type":"other",
@@ -704,7 +704,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/gt6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/gt6x12.jpg",
     "name":"MAG Products 'GT'",
     "size":"6x12",
     "type":"other",
@@ -712,7 +712,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/mambarepro6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/mambarepro6x12.jpg",
     "name":"Mamba Replica",
     "size":"6x12",
     "type":"other",
@@ -720,7 +720,7 @@
     "notes":"This is replica of the 12 Mamba wheel. Which was originaly 5.5x12 ET23 and of which 2 gates Wheels only ever made 6 piece before the went down. Now MiniSpares are selling this repro wheel."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/magproductsuperlight5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/magproductsuperlight5x12.jpg",
     "name":"MAG Products 'Super Light'",
     "size":"5x12",
     "type":"other",
@@ -728,7 +728,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_7.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_7.jpg",
     "name":"Melber",
     "size":"5x12",
     "type":"other",
@@ -736,7 +736,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/mmaa5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/mmaa5x12.jpg",
     "name":"MMAA 'Mk1'",
     "size":"5x12",
     "type":"other",
@@ -744,7 +744,7 @@
     "notes":"MMAA = 'Midland Metallics Auto Accesories Limited', from Coventry."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/midlandwheelssupanova5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/midlandwheelssupanova5x12.jpg",
     "name":"MMAA 'MkII'",
     "size":"5x12",
     "type":"other",
@@ -752,7 +752,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/momo5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/momo5x12.jpg",
     "name":"Momo",
     "size":"5x12",
     "type":"other",
@@ -768,7 +768,7 @@
     "notes":"This is branded as a Momo. Also carries the Austin-Rover logo, so probably from the early/mid 80's."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/knjupiter5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/knjupiter5x12.jpg",
     "name":"KN Jupiter",
     "size":"5x12",
     "type":"other",
@@ -776,7 +776,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/knmeteorxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/knmeteorxx12.jpg",
     "name":"KN Meteor",
     "size":"",
     "type":"other",
@@ -784,7 +784,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/innocenti.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/innocenti.jpg",
     "name":"Maifrini",
     "size":"5x12",
     "type":"other",
@@ -792,7 +792,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/rover-wolfrace-oder.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/rover-wolfrace-oder.jpg",
     "name":"MG Metro Mk1",
     "size":"",
     "type":"other",
@@ -800,7 +800,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_12.jpg",
     "name":"Mille Miglia, Type 'Derek'",
     "size":"5x12",
     "type":"other",
@@ -808,7 +808,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/millemigliaxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/millemigliaxx12.jpg",
     "name":"Mille Miglia",
     "size":"",
     "type":"other",
@@ -816,7 +816,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/fondmetalxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/fondmetalxx12.jpg",
     "name":"Fondmetal",
     "size":"",
     "type":"other",
@@ -824,7 +824,7 @@
     "notes":"Note: looks almost like the MG Metro Mk1's wheel, but valve location differs and outer rim is flat."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_13.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_13.jpg",
     "name":"MiniSport's Moke replica wheels. Made in China.",
     "size":"",
     "type":"other",
@@ -832,7 +832,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/oscam55x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/oscam55x12.jpg",
     "name":"Oscam",
     "size":"5.5x12",
     "type":"other",
@@ -840,7 +840,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/performanceturbo6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/performanceturbo6x12.jpg",
     "name":"Performance 'Turbo'",
     "size":"6x12",
     "type":"other",
@@ -848,7 +848,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/revolutionrfx5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/revolutionrfx5x12.jpg",
     "name":"Revolution RFX",
     "size":"5x12",
     "type":"other",
@@ -856,7 +856,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/revolution5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/revolution5x12.jpg",
     "name":"Revolution",
     "size":"5x12",
     "type":"other",
@@ -864,7 +864,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/revolution6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/revolution6x12.jpg",
     "name":"Revolution",
     "size":"6x12",
     "type":"other",
@@ -872,7 +872,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/RuG RGF.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/RuG RGF.jpg",
     "name":"R&G 'RGF'",
     "size":"5x12",
     "type":"other",
@@ -880,7 +880,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/revolite6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/revolite6x12.jpg",
     "name":"Revolite",
     "size":"6x12",
     "type":"other",
@@ -888,7 +888,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/roh6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/roh6x12.jpg",
     "name":"ROH",
     "size":"6x12",
     "type":"other",
@@ -896,7 +896,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/spectrum6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/spectrum6x12.jpg",
     "name":"Spectrum",
     "size":"6x12",
     "type":"other",
@@ -904,7 +904,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/superstar6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/superstar6x12.jpg",
     "name":"Superstar",
     "size":"6x12",
     "type":"other",
@@ -912,7 +912,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/ssrxx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/ssrxx12.jpg",
     "name":"SSR",
     "size":"",
     "type":"other",
@@ -920,7 +920,7 @@
     "notes":"Either a variation of the 'StarShark' or 'Mesh' wheel series. Any info? Please tell! ;-)"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/mbracing6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/mbracing6x12.jpg",
     "name":"MB Racing",
     "size":"6x12",
     "type":"other",
@@ -928,7 +928,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/nam607145x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/nam607145x12.jpg",
     "name":"Rover NAM6071",
     "size":"4.5x12",
     "type":"other",
@@ -936,7 +936,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/pepperpot.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/pepperpot.jpg",
     "name":"Rover \"Pepperpot\"",
     "size":"4.5x12",
     "type":"other",
@@ -944,7 +944,7 @@
     "notes":"Made for Rover by 'Speedline' in Italy."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_5.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_5.jpg",
     "name":"/ACP/Redline (GER)",
     "size":"5x12",
     "type":"other",
@@ -952,7 +952,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/ruspa5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/ruspa5x12.jpg",
     "name":"Ruspa",
     "size":"5x12",
     "type":"other",
@@ -960,7 +960,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/saxon6x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/saxon6x12.jpg",
     "name":"Saxon",
     "size":"6x12",
     "type":"other",
@@ -968,7 +968,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/spiderpoint45x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/spiderpoint45x12.jpg",
     "name":"Spider-Point",
     "size":"5x12",
     "type":"other",
@@ -976,7 +976,7 @@
     "notes":"Copy of Cromodora wheel for Fiat Spider, but in 12 and with 4x4\" PCD. Made for and sold by www.spider-point.com"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/stilauto5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/stilauto5x12.jpg",
     "name":"Stilauto",
     "size":"5x12",
     "type":"other",
@@ -984,7 +984,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/stilautogrifo95x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/stilautogrifo95x12.jpg",
     "name":"Stilauto Grifo 9",
     "size":"5x12",
     "type":"other",
@@ -992,7 +992,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/tspeedtypec5x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/tspeedtypec5x12.jpg",
     "name":"T-Speed Type C",
     "size":"5x12 and 6x12",
     "type":"other",
@@ -1000,7 +1000,7 @@
     "notes":"Availabe from Thames Garage in Japan."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_16.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_16.jpg",
     "name":"T-Speed Type V",
     "size":"6x12",
     "type":"other",
@@ -1008,7 +1008,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unbek_8.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_8.jpg",
     "name":"Valtain",
     "size":"5x12",
     "type":"other",
@@ -1016,7 +1016,7 @@
     "notes":"Weighs only 3.6kg. From Japan"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/wolfracexx12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/wolfracexx12.jpg",
     "name":"Wolfrace",
     "size":"5x12",
     "type":"other",
@@ -1024,7 +1024,7 @@
     "notes":""
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/minichallenge45x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/minichallenge45x12.jpg",
     "name":"RG 'Type James B'",
     "size":"4.5x12",
     "type":"other",
@@ -1032,7 +1032,7 @@
     "notes":"Also refered too as 'Mini Challenge Wheel'."
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/unnamed7x12.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/unnamed7x12.jpg",
     "name":"(Unnamed)",
     "size":"7x12",
     "type":"other",
@@ -1040,7 +1040,7 @@
     "notes":"Available from Trademe New Zealand"
   },
   {
-    "imagepath":"https://classicminidiy-images.s3.amazonaws.com/wheels/12/gullideckel.jpg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/gullideckel.jpg",
     "name":"The famous Rover Gullideckel",
     "size":"",
     "type":"other",

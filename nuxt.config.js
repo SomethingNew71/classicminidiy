@@ -83,7 +83,7 @@ export default {
     optimizeCSS: true
   },
   env: {
-    s3BaseURL: 'https://classicminidiy-images.s3.amazonaws.com/',
+    s3BaseURL: process.env.s3Base,
     youtube: {
       key: process.env.YoutubeKey,
       id: process.env.YoutubeID
