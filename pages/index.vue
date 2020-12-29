@@ -78,7 +78,7 @@
                 <div v-for="(item, index) in toolboxItems" :key="index" class="column is-3">
                   <nuxt-link :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
-                      <img class="panel-icon-home" :src="require('assets/img' + item.image)" aria-hidden="true" :alt="item.title + 'image'">
+                      <b-image class="panel-icon-home" :src="item.image" aria-hidden="true" :alt="item.title + ' image'" />
                       <p class="heading has-text-black">
                         {{ item.title }}
                       </p>
@@ -100,10 +100,10 @@
                 class="panel-block is-active"
               >
                 <span class="panel-icon">
-                  <img
-                    :src="require('assets/img' + item.image)"
-                    :alt="item.title + 'image'"
-                  >
+                  <b-image
+                    :src="item.image"
+                    :alt="item.title + ' image'"
+                  />
                 </span>
                 {{ item.title }}
               </nuxt-link>
@@ -169,42 +169,42 @@ export default {
       toolboxItems: [
         {
           title: 'Torque Specs',
-          image: '/cloud-icon/icons8-blueprint-zoom-100.png',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
           to: '/technical/torque'
         },
         {
           title: 'Color Picker',
-          image: '/cloud-icon/icons8-color-palette-100.png',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
           to: '/technical/colors'
         },
         {
           title: 'Manuals',
-          image: '/cloud-icon/icons8-book-reading-100.png',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
           to: '/technical/manuals'
         },
         {
           title: 'Compression Ratio Calculator',
-          image: '/cloud-icon/icons8-calculator-100.png',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
           to: '/technical/compression'
         },
         {
           title: 'Recommended Tools',
-          image: '/cloud-icon/icons8-toolbox-100.png',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png',
           to: '/technical/tools'
         },
         {
           title: 'Electrical Diagrams',
-          image: '/cloud-icon/icons8-lightning-bolt-100.png',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
           to: '/technical/electrical'
         },
         {
           title: 'SU Needle Comparison',
-          image: '/cloud-icon/icons8-increase-100.png',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
           to: '/technical/needles'
         },
         {
           title: 'Wheel Library',
-          image: '/cloud-icon/icons8-fiat-500-100.png',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
           to: '/technical/wheels'
         }
       ]
@@ -228,6 +228,7 @@ export default {
 <style lang="scss" scoped>
 .panel-icon-home {
   max-width: 70px;
+  margin: auto;
 }
 .panel-icon {
   height: 3em;
