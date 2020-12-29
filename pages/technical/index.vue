@@ -84,38 +84,43 @@ export default {
       cards: [
         {
           title: 'Torque Specs',
-          image: '/icons/Settings-5.svg',
+          image: '/cloud-icon/icons8-blueprint-zoom-100.png',
           to: '/technical/torque'
         },
         {
           title: 'Color Picker',
-          image: '/icons/Pantone.svg',
+          image: '/cloud-icon/icons8-color-palette-100.png',
           to: '/technical/colors'
         },
         {
           title: 'Manuals',
-          image: '/icons/Checklist.svg',
+          image: '/cloud-icon/icons8-book-reading-100.png',
           to: '/technical/manuals'
         },
         {
           title: 'Compression Ratio Calculator',
-          image: '/icons/Mind-Map-Paper.svg',
+          image: '/cloud-icon/icons8-calculator-100.png',
           to: '/technical/compression'
         },
         {
           title: 'Recommended Tools',
-          image: '/icons/Car-Jumper.svg',
+          image: '/cloud-icon/icons8-toolbox-100.png',
           to: '/technical/tools'
         },
         {
           title: 'Electrical Diagrams',
-          image: '/icons/Battery-Charging.svg',
+          image: '/cloud-icon/icons8-lightning-bolt-100.png',
           to: '/technical/electrical'
         },
         {
           title: 'SU Needle Comparison',
-          image: '/icons/Graph-Magnifier.svg',
+          image: '/cloud-icon/icons8-increase-100.png',
           to: '/technical/needles'
+        },
+        {
+          title: 'Wheel Library',
+          image: '/cloud-icon/icons8-fiat-500-100.png',
+          to: '/technical/wheels'
         }
       ]
     };
@@ -140,12 +145,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon-image {
-  max-width: 50%;
-  margin: auto;
-}
 .panel-icon {
-  height: 3em;
-  width: 3em;
+  height: 3.5em;
+  width: 3.5em;
 }
 </style>

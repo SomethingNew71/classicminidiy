@@ -158,6 +158,16 @@ export default {
                 subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
                 path: '/technical/needles',
                 iconLeft: '<i class="submenu-icon fad fa-chart-bar"></i>'
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
+                text: 'Wheel Library',
+                subText: 'Looking for your new wheels? Check out the Wheel Library',
+                path: '/technical/wheels',
+                iconLeft: '<i class="submenu-icon fad fa-tire"></i>'
               }
             ]
           },

@@ -74,8 +74,8 @@
               One of the largest reasons for starting this channel, was about making infromation related to working your Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining information from all over the web to bring you one location to find anything you need.
             </p>
             <div class="column is-hidden-touch">
-              <div class="tile is-ancestor pt-50">
-                <div v-for="(item, index) in toolboxItems" :key="index" class="tile is-parent">
+              <div class="columns is-centered pt-50 is-multiline">
+                <div v-for="(item, index) in toolboxItems" :key="index" class="column is-3">
                   <nuxt-link :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
                       <img class="panel-icon-home" :src="require('assets/img' + item.image)" aria-hidden="true" :alt="item.title + 'image'">
@@ -169,38 +169,43 @@ export default {
       toolboxItems: [
         {
           title: 'Torque Specs',
-          image: '/icons/Settings-5.svg',
+          image: '/cloud-icon/icons8-blueprint-zoom-100.png',
           to: '/technical/torque'
         },
         {
           title: 'Color Picker',
-          image: '/icons/Pantone.svg',
+          image: '/cloud-icon/icons8-color-palette-100.png',
           to: '/technical/colors'
         },
         {
           title: 'Manuals',
-          image: '/icons/Checklist.svg',
+          image: '/cloud-icon/icons8-book-reading-100.png',
           to: '/technical/manuals'
         },
         {
           title: 'Compression Ratio Calculator',
-          image: '/icons/Mind-Map-Paper.svg',
+          image: '/cloud-icon/icons8-calculator-100.png',
           to: '/technical/compression'
         },
         {
           title: 'Recommended Tools',
-          image: '/icons/Car-Jumper.svg',
+          image: '/cloud-icon/icons8-toolbox-100.png',
           to: '/technical/tools'
         },
         {
           title: 'Electrical Diagrams',
-          image: '/icons/Battery-Charging.svg',
+          image: '/cloud-icon/icons8-lightning-bolt-100.png',
           to: '/technical/electrical'
         },
         {
           title: 'SU Needle Comparison',
-          image: '/icons/Graph-Magnifier.svg',
+          image: '/cloud-icon/icons8-increase-100.png',
           to: '/technical/needles'
+        },
+        {
+          title: 'Wheel Library',
+          image: '/cloud-icon/icons8-fiat-500-100.png',
+          to: '/technical/wheels'
         }
       ]
     };
