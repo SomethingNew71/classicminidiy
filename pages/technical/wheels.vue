@@ -50,23 +50,22 @@
           Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel Library comes in. Using the same data from the now non-functional site www.wheeldictionary.net you can search for the right wheel for your Classic Mini Cooper.
         </p>
 
-        <h3 class="is-bold">
-          Choose the Wheel Size
-        </h3>
-        <b-field>
-          <b-radio-button v-model="selectedSize" native-value="10" type="is-primary">
-            10 Inch
-          </b-radio-button>
-          <b-radio-button v-model="selectedSize" native-value="12" type="is-primary">
-            12 Inch
-          </b-radio-button>
-          <b-radio-button v-model="selectedSize" native-value="13" type="is-primary">
-            13 Inch
-          </b-radio-button>
-        </b-field>
-        <h3>
-          Choose a size above to get
-        </h3>
+        <div class="column is-one-third card mb-3">
+          <h3 class="subtitle">
+            Choose a Wheel Size
+          </h3>
+          <b-field class="pb-2">
+            <b-radio-button v-model="selectedSize" native-value="10" type="is-primary">
+              10 Inch
+            </b-radio-button>
+            <b-radio-button v-model="selectedSize" native-value="12" type="is-primary">
+              12 Inch
+            </b-radio-button>
+            <b-radio-button v-model="selectedSize" native-value="13" type="is-primary">
+              13 Inch
+            </b-radio-button>
+          </b-field>
+        </div>
         <div v-if="isLoading && selectedSize !== ''" class="tile is-ancestor">
           <div v-for="(item, index) in 4" :key="index" class="tile is-parent is-3">
             <article class="tile is-child box">
@@ -125,7 +124,7 @@
                   </b-tooltip>
                 </div>
               </div>
-              <b-image :src="wheel.imagepath" :alt="`Image of ${wheel.name}`" />
+              <b-image rounded :ratio="'190by190'" :src="wheel.imagepath" :alt="`Image of ${wheel.name}`" />
               <div class="hover-content has-text-centered pt-3">
                 <h2 class="title is-4">
                   {{ wheel.name }}
@@ -155,7 +154,7 @@ import wheels13 from '~/static/data/wheels/13.json';
 export default {
   data () {
     return {
-      selectedSize: '',
+      selectedSize: '10',
       selectedWheels: wheels10,
       isLoading: true
     };
@@ -174,8 +173,12 @@ export default {
       this.loadWheels();
     }
   },
+  mounted () {
+    this.loadWheels();
+  },
   methods: {
     loadWheels () {
+      this.isLoading = true;
       switch (this.selectedSize) {
         case '10':
           this.selectedWheels = wheels10;
@@ -189,7 +192,9 @@ export default {
         default:
           break;
       }
-      this.isLoading = false;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 600);
     }
   }
 };
@@ -211,7 +216,6 @@ export default {
   img {
     display: block;
     max-width: 190px;
-    border-radius: 50%;
     margin: auto;
   }
   .skeleton-image .b-skeleton-item {

@@ -368,7 +368,7 @@
   "notes": ""
   },
   {
-  "imagepath": "/icons/missing.svg",
+  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
   "name": "Melber RL92c",
   "size": "6x13",
   "type": "minilite",
@@ -640,7 +640,7 @@
   "notes": ""
   },
   {
-  "imagepath": "/icons/missing.svg",
+  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
   "name": "Campagnolo",
   "size": "5.5x13",
   "type": "other",
@@ -952,7 +952,7 @@
   "notes": "This is a radial, non-metric wheel. Featuring 4 smal covers for the wheel nuts."
   },
   {
-  "imagepath": "/icons/missing.svg",
+  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
   "name": "MG Metro",
   "size": "5.5x13",
   "type": "other",

@@ -817,7 +817,7 @@
   },
   {
   "type": "other",
-  "imagepath": "/icons/missing.svg",
+  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
   "name": "Avon Safety Wheels",
   "size": "4.5x10",
   "offset": "",
@@ -2489,7 +2489,7 @@
   },
   {
   "type": "other",
-  "imagepath": "/icons/missing.svg",
+  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
   "name": "The rare Motolita not-a-steering wheel!",
   "size": "",
   "offset": "",
