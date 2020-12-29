@@ -49,49 +49,99 @@
         <p class="pb-5">
           Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel Library comes in. Using the same data from the now non-functional site www.wheeldictionary.net you can search for the right wheel for your Classic Mini Cooper.
         </p>
-        <b-tabs v-model="activeTab" type="is-centered is-toggle is-medium">
-          <b-tab-item v-for="(wheelSet, property) in wheels" :key="property" :label="property">
-            <div class="tile is-ancestor">
-              <div v-for="(wheel, name) in wheelSet" :key="name" class="tile is-parent is-3">
-                <article class="tile is-child box">
-                  <div class="columns">
-                    <div class="column has-text-left">
-                      <p class="is-size-5">
-                        <i class="fad fa-expand-arrows-alt"></i> {{ wheel.size || "N/A" }}
-                      </p>
-                    </div>
-                    <div class="column has-text-right">
-                      <b-tooltip
-                        v-if="wheel.notes !== ''"
-                        :label="wheel.notes"
-                        multilined
-                        animated
-                        position="is-bottom"
-                      >
-                        <i class="special-notes fad fa-info-circle"></i>
-                        <!-- <b-button class="button is-primary" icon-right="info-circle" icon-pack="fad" /> -->
-                      </b-tooltip>
-                    </div>
-                  </div>
-                  <img :src="require('assets/img' + wheel.imagepath)" alt="">
-                  <div class="hover-content has-text-centered pt-3">
-                    <h2 class="title is-4">
-                      {{ wheel.name }}
-                    </h2>
-                    <div class="columns bottom-details">
-                      <div class="column has-text-left">
-                        <i class="fad fa-arrow-alt-from-left"></i> {{ wheel.offset || "N/A" }}
-                      </div>
-                      <div class="column has-text-right">
-                        <i class="fad fa-box-full"></i>  {{ wheel.type || "N/A" }}
-                      </div>
-                    </div>
-                  </div>
-                </article>
+
+        <h3 class="is-bold">
+          Choose the Wheel Size
+        </h3>
+        <b-field>
+          <b-radio-button v-model="selectedSize" native-value="10" type="is-primary">
+            10 Inch
+          </b-radio-button>
+          <b-radio-button v-model="selectedSize" native-value="12" type="is-primary">
+            12 Inch
+          </b-radio-button>
+          <b-radio-button v-model="selectedSize" native-value="13" type="is-primary">
+            13 Inch
+          </b-radio-button>
+        </b-field>
+        <h3>
+          Choose a size above to get
+        </h3>
+        <div v-if="isLoading && selectedSize !== ''" class="tile is-ancestor">
+          <div v-for="(item, index) in 4" :key="index" class="tile is-parent is-3">
+            <article class="tile is-child box">
+              <div class="columns">
+                <div class="column has-text-left">
+                  <span class="icon is-small">
+                    <b-skeleton></b-skeleton>
+                  </span>
+                </div>
+                <div class="column has-text-right">
+                  <span class="icon is-small">
+                    <b-skeleton></b-skeleton>
+                  </span>
+                </div>
               </div>
-            </div>
-          </b-tab-item>
-        </b-tabs>
+              <div class="skeleton-image">
+                <b-skeleton circle width="190px" height="190px"></b-skeleton>
+              </div>
+              <div class="hover-content has-text-centered pt-3">
+                <b-skeleton active></b-skeleton>
+                <div class="columns bottom-details">
+                  <div class="column has-text-left">
+                    <span class="icon is-small">
+                      <b-skeleton></b-skeleton>
+                    </span>
+                  </div>
+                  <div class="column has-text-right">
+                    <span class="icon is-small">
+                      <b-skeleton></b-skeleton>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div v-if="!isLoading" class="tile is-ancestor">
+          <div v-for="(wheel, name) in selectedWheels" :key="name" class="tile is-parent is-3">
+            <article class="tile is-child box">
+              <div class="columns">
+                <div class="column has-text-left">
+                  <p class="is-size-5">
+                    <i class="fad fa-expand-arrows-alt"></i> {{ wheel.size || "N/A" }}
+                  </p>
+                </div>
+                <div class="column has-text-right">
+                  <b-tooltip
+                    v-if="wheel.notes !== ''"
+                    :label="wheel.notes"
+                    multilined
+                    animated
+                    position="is-bottom"
+                  >
+                    <i class="special-notes fad fa-info-circle"></i>
+                    <!-- <b-button class="button is-primary" icon-right="info-circle" icon-pack="fad" /> -->
+                  </b-tooltip>
+                </div>
+              </div>
+              <img :src="wheel.imagepath" :alt="`Image of ${wheel.name}`">
+              <div class="hover-content has-text-centered pt-3">
+                <h2 class="title is-4">
+                  {{ wheel.name }}
+                </h2>
+                <div class="columns bottom-details">
+                  <div class="column has-text-left">
+                    <i class="fad fa-arrow-alt-from-left"></i> {{ wheel.offset || "N/A" }}
+                  </div>
+                  <div class="column has-text-right">
+                    <i class="fad fa-box-full"></i>  {{ wheel.type || "N/A" }}
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -105,13 +155,9 @@ import wheels13 from '~/static/data/wheels/13.json';
 export default {
   data () {
     return {
-      activeTab: 0,
-      isLoading: true,
-      wheels: {
-        '10 inch': wheels10,
-        '12 inch': wheels12,
-        '13 inch': wheels13
-      }
+      selectedSize: '',
+      selectedWheels: wheels10,
+      isLoading: true
     };
   },
   head () {
@@ -122,23 +168,28 @@ export default {
       ]
     };
   },
-  computed: {
-    computedLabel (index) {
-      let label;
-      switch (index) {
-        case 0:
-          label = '10 inch';
+  computed: {},
+  watch: {
+    selectedSize () {
+      this.loadWheels();
+    }
+  },
+  methods: {
+    loadWheels () {
+      switch (this.selectedSize) {
+        case '10':
+          this.selectedWheels = wheels10;
           break;
-        case 1:
-          label = '12 inch';
+        case '12':
+          this.selectedWheels = wheels12;
           break;
-        case 2:
-          label = '13 inch';
+        case '13':
+          this.selectedWheels = wheels13;
           break;
         default:
           break;
       }
-      return label;
+      this.isLoading = false;
     }
   }
 };
@@ -154,7 +205,6 @@ export default {
   .fa-arrow-alt-from-left {
     color: #0D6628;
   }
-
   .is-ancestor {
     flex-wrap: wrap;
   }
@@ -162,6 +212,9 @@ export default {
     display: block;
     max-width: 190px;
     border-radius: 50%;
+    margin: auto;
+  }
+  .skeleton-image .b-skeleton-item {
     margin: auto;
   }
   .special-notes {
