@@ -120,7 +120,6 @@
                     position="is-bottom"
                   >
                     <i class="special-notes fad fa-info-circle"></i>
-                    <!-- <b-button class="button is-primary" icon-right="info-circle" icon-pack="fad" /> -->
                   </b-tooltip>
                 </div>
               </div>
