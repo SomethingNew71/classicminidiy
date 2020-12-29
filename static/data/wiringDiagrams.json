@@ -89,33 +89,33 @@
      "items": [
         {
            "name": "Mini 1000 Saloon(Canada)",
-           "from": "",
+           "from": "1959",
            "to": "1976",
-           "link": "https://drive.google.com/open?id=1nzdkU0267AOLpPt7tKp1B_5zyE10oeyO"
+           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1000+SALOON+(CANADA)+TO+1976.PDF"
         },
         {
            "name": "Mini 850 Deluxe/Van/Pickup with Alternator and Rocker Switches",
            "from": "",
            "to": "1976",
-           "link": "https://drive.google.com/open?id=1iUluOTuVnB32O0ogWD5M6GBHxyxBZvDk"
+           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+850+DE-LUXE+SALOON%2C+VAN%2C+AND+PICKUP+WITH+ALTERNATOR+%26+ROCKER+SWITCHES.PDF"
         },
         {
            "name": "Mini 1000 Special Deluxe with Alternator and Rocker Switches",
            "from": "",
            "to": "1976",
-           "link": "https://drive.google.com/open?id=1TvBus3_J3L7ci8nJ5PEXNnYq2ihOPkd6"
+           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1000+SPECIAL+DE-LUXE+SALOON+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
         },
         {
            "name": "Mini Clubman Saloon/Estate with Alternator and Rocker Switches",
            "from": "",
            "to": "1976",
-           "link": "https://drive.google.com/open?id=12gemHi8Dd8pnz-MbtO4pwIOhPTjltImw"
+           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+CLUBMAN+SALOON+AND+ESTATE+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
         },
         {
            "name": "Mini 1275 GT with Alternator and Rocker Switches",
            "from": "",
            "to": "1976",
-           "link": "https://drive.google.com/open?id=19uXlx2mh1Wghlzp7URbLtoN9BZnlW6QH"
+           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1275+GT+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
         }
      ]
   },
