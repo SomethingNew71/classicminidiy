@@ -344,7 +344,7 @@
     "notes":""
   },
   {
-    "imagepath":"/icons/missing.svg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
     "name":"Supa light",
     "size":"6x12",
     "type":"minilite",
@@ -760,7 +760,7 @@
     "notes":""
   },
   {
-    "imagepath":"/icons/missing.svg",
+    "imagepath":"https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
     "name":"Momo",
     "size":"5x12",
     "type":"other",
