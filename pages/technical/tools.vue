@@ -68,11 +68,11 @@
               >
                 <article class="media">
                   <figure class="media-left is-hidden-mobile">
-                    <img class="image" :src="require('assets/img' + tool.imgSource)" :alt="`${tool.name}`">
+                    <img class="image" :src="tool.imgSource" :alt="`${tool.name}`">
                   </figure>
                   <div class="media-content">
                     <div class="content">
-                      <img class="image is-hidden-tablet" :src="require('assets/img' + tool.imgSource)" :alt="`${tool.name}`">
+                      <img class="image is-hidden-tablet" :src="tool.imgSource" :alt="`${tool.name}`">
                       <br class="is-hidden-tablet">
                       <h4 class="mb-2">
                         {{ tool.name }}

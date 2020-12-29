@@ -46,7 +46,7 @@
         <div class="card">
           <div class="card-image">
             <figure class="image is-3by4">
-              <img :src="require('assets/img' + manual.imgSource)" :alt="`Image of the cover of the manual - ${manual.name}`">
+              <img :src="manual.imgSource" :alt="`Image of the cover of the manual - ${manual.name}`">
             </figure>
           </div>
           <div class="card-content">
