@@ -30,112 +30,107 @@
             </li>
           </ul>
         </nav>
-        <div class="columns">
-          <div class="column">
-            <h1 class="title">
-              Wheel Library
-            </h1>
-          </div>
-          <div class="column is-one-third"></div>
-          <div class="column">
-            <p class="is-size-7 px-2 py-2 card legend">
-              Special Info - <i class="special-notes fad fa-info-circle pr-3"></i>
-              Size - <i class="fad fa-expand-arrows-alt pr-3"></i>
-              Offset - <i class="fad fa-arrow-alt-from-left pr-3"></i>
-              Material - <i class="fad fa-box-full pr-3"></i>
-            </p>
-          </div>
-        </div>
+        <h1 class="title">
+          Wheel Library
+        </h1>
         <p class="pb-5">
           Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel Library comes in. Using the same data from the now non-functional site www.wheeldictionary.net you can search for the right wheel for your Classic Mini Cooper.
         </p>
 
-        <div class="column is-one-third card mb-3">
-          <h3 class="subtitle">
-            Choose a Wheel Size
-          </h3>
-          <b-field class="pb-2">
-            <b-radio-button v-model="selectedSize" native-value="10" type="is-primary">
-              10 Inch
-            </b-radio-button>
-            <b-radio-button v-model="selectedSize" native-value="12" type="is-primary">
-              12 Inch
-            </b-radio-button>
-            <b-radio-button v-model="selectedSize" native-value="13" type="is-primary">
-              13 Inch
-            </b-radio-button>
-          </b-field>
-        </div>
-        <div v-if="isLoading && selectedSize !== ''" class="tile is-ancestor">
-          <div v-for="(item, index) in 4" :key="index" class="tile is-parent is-3">
-            <article class="tile is-child box">
-              <div class="columns">
-                <div class="column has-text-left">
-                  <span class="icon is-small">
-                    <b-skeleton></b-skeleton>
-                  </span>
-                </div>
-                <div class="column has-text-right">
-                  <span class="icon is-small">
-                    <b-skeleton></b-skeleton>
-                  </span>
-                </div>
-              </div>
-              <div class="skeleton-image">
-                <b-skeleton circle width="190px" height="190px"></b-skeleton>
-              </div>
-              <div class="hover-content has-text-centered pt-3">
-                <b-skeleton active></b-skeleton>
-                <div class="columns bottom-details">
-                  <div class="column has-text-left">
-                    <span class="icon is-small">
-                      <b-skeleton></b-skeleton>
-                    </span>
-                  </div>
-                  <div class="column has-text-right">
-                    <span class="icon is-small">
-                      <b-skeleton></b-skeleton>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </article>
+        <div class="columns">
+          <div class="column">
+            <p class="is-size-6 legend">
+              Special Info - <i class="special-notes fad fa-info-circle pr-3"></i>
+              Size - <i class="fad fa-expand-arrows-alt pr-3"></i>
+              Offset - <i class="fad fa-arrow-alt-from-left pr-3"></i>
+              Material - <i class="fad fa-box-full"></i>
+            </p>
+          </div>
+          <div class="column is-half mb-3 has-text-right">
+            <b-field class="pb-2" position="is-right">
+              <b-radio-button v-model="selectedSize" native-value="10" type="is-primary">
+                10 Inch
+              </b-radio-button>
+              <b-radio-button v-model="selectedSize" native-value="12" type="is-primary">
+                12 Inch
+              </b-radio-button>
+              <b-radio-button v-model="selectedSize" native-value="13" type="is-primary">
+                13 Inch
+              </b-radio-button>
+            </b-field>
           </div>
         </div>
-        <div v-if="!isLoading" class="tile is-ancestor">
-          <div v-for="(wheel, name) in selectedWheels" :key="name" class="tile is-parent is-3">
-            <article class="tile is-child box">
-              <div class="columns">
-                <div class="column has-text-left">
-                  <p class="is-size-5">
-                    <i class="fad fa-expand-arrows-alt"></i> {{ wheel.size || "N/A" }}
-                  </p>
-                </div>
-                <div class="column has-text-right">
-                  <b-tooltip
-                    v-if="wheel.notes !== ''"
-                    :label="wheel.notes"
-                    multilined
-                    animated
-                    position="is-bottom"
-                  >
-                    <i class="special-notes fad fa-info-circle"></i>
-                  </b-tooltip>
-                </div>
-              </div>
-              <b-image :ratio="'190by190'" :src="wheel.imagepath" :alt="`Image of ${wheel.name}`" />
-              <div class="hover-content has-text-centered pt-3">
-                <h2 class="title is-4" v-html="wheel.name"></h2>
-                <div class="columns bottom-details">
-                  <div class="column has-text-left">
-                    <i class="fad fa-arrow-alt-from-left"></i> {{ wheel.offset || "N/A" }}
+        <div class="columns">
+          <div class="column">
+            <div v-if="isLoading && selectedSize !== ''" class="tile is-ancestor">
+              <div v-for="(item, index) in 8" :key="index" class="tile is-parent is-3">
+                <article class="tile is-child box">
+                  <div class="columns">
+                    <div class="column has-text-left">
+                      <span class="icon is-small">
+                        <b-skeleton></b-skeleton>
+                      </span>
+                    </div>
+                    <div class="column has-text-right">
+                      <span class="icon is-small">
+                        <b-skeleton></b-skeleton>
+                      </span>
+                    </div>
                   </div>
-                  <div class="column has-text-right">
-                    <i class="fad fa-box-full"></i>  {{ wheel.type || "N/A" }}
+                  <div class="skeleton-image">
+                    <b-skeleton circle width="190px" height="190px"></b-skeleton>
                   </div>
-                </div>
+                  <div class="hover-content has-text-centered pt-3">
+                    <b-skeleton active></b-skeleton>
+                    <div class="columns bottom-details">
+                      <div class="column has-text-left">
+                        <span class="icon is-small">
+                          <b-skeleton></b-skeleton>
+                        </span>
+                      </div>
+                      <div class="column has-text-right">
+                        <span class="icon is-small">
+                          <b-skeleton></b-skeleton>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </article>
+            </div>
+            <div v-if="!isLoading" class="tile is-ancestor">
+              <div v-for="(wheel, name) in selectedWheels" :key="name" class="tile is-parent is-3">
+                <article class="tile is-child card">
+                  <div class="card-image">
+                    <figure class="image is-square">
+                      <img :src="wheel.imagepath" :alt="`Image of ${wheel.name}`">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <div class="media mb-1">
+                      <div class="media-content">
+                        <b-tooltip label="Wheel Size" animated type="is-dark">
+                          <i class="fad fa-expand-arrows-alt pr-1"></i> {{ wheel.size || "N/A" }}
+                        </b-tooltip>
+                        <b-tooltip label="Wheel Offset" animated type="is-dark">
+                          <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i> {{ wheel.offset || "N/A" }}
+                        </b-tooltip>
+                        <b-tooltip label="Wheel Material" animated type="is-dark">
+                          <i class="fad fa-box-full pr-1 pl-2"></i> {{ wheel.type || "N/A" }}
+                        </b-tooltip>
+                        <p class="title is-4 pt-3 pb-1" v-html="wheel.name"></p>
+                      </div>
+                    </div>
+                    <div class="content">
+                      {{ wheel.notes }}
+                    </div>
+                    <p class="suggest-changes">
+                      <a :href="`mailto:wheels@classicminidiy.com?subject=Update%20to%20${wheel.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel.name}%0D%0ASize%3A%20${wheel.size}%0D%0AOffset%3A%20${wheel.offset}%0D%0AMaterial%3A%20${wheel.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Suggest Changes</a>
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -210,9 +205,6 @@ export default {
   .is-ancestor {
     flex-wrap: wrap;
   }
-  .image img {
-    border-radius: 5px;
-  }
   .skeleton-image .b-skeleton-item {
     margin: auto;
   }
@@ -222,11 +214,15 @@ export default {
     font-size: 1.5rem;
   }
   .legend {
-    max-width: 348px;
-
     .special-notes {
-      font-size: 0.75rem
+      font-size: 1rem;
+      cursor: initial;
     }
+  }
+  .suggest-changes {
+    bottom: 10px;
+    position: absolute;
+    right: 10px;
   }
   .bottom-details {
     margin-top: auto;
