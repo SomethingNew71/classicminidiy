@@ -123,7 +123,7 @@
                   </b-tooltip>
                 </div>
               </div>
-              <b-image rounded :ratio="'190by190'" :src="wheel.imagepath" :alt="`Image of ${wheel.name}`" />
+              <b-image :ratio="'190by190'" :src="wheel.imagepath" :alt="`Image of ${wheel.name}`" />
               <div class="hover-content has-text-centered pt-3">
                 <h2 class="title is-4" v-html="wheel.name"></h2>
                 <div class="columns bottom-details">
@@ -210,10 +210,8 @@ export default {
   .is-ancestor {
     flex-wrap: wrap;
   }
-  img {
-    display: block;
-    max-width: 190px;
-    margin: auto;
+  .image img {
+    border-radius: 5px;
   }
   .skeleton-image .b-skeleton-item {
     margin: auto;
