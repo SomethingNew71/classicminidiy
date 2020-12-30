@@ -48,6 +48,14 @@
   "type": "steel"
   },
   {
+  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/Aus-lynx.jpg",
+  "name": "Australian Lynx",
+  "offset": "",
+  "notes": "A Hunter and Delbridge 6x10. Magnesium centre riveted on a chromium plate steel rim. As fitted to Australian made Buckle Monacos circa 1965/66.",
+  "size": "6x10",
+  "type": "steel"
+  },
+  {
   "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/lp882.jpg",
   "name": "Dunlop LP882",
   "offset": "ET46",
