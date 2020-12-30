@@ -64,35 +64,21 @@
           <div class="column">
             <div v-if="isLoading && selectedSize !== ''" class="tile is-ancestor">
               <div v-for="(item, index) in 8" :key="index" class="tile is-parent is-3">
-                <article class="tile is-child box">
-                  <div class="columns">
-                    <div class="column has-text-left">
-                      <span class="icon is-small">
-                        <b-skeleton></b-skeleton>
-                      </span>
-                    </div>
-                    <div class="column has-text-right">
-                      <span class="icon is-small">
-                        <b-skeleton></b-skeleton>
-                      </span>
-                    </div>
+                <article class="tile is-child card">
+                  <div class="card-image">
+                    <b-skeleton position="is-centered" height="200px"></b-skeleton>
                   </div>
-                  <div class="skeleton-image">
-                    <b-skeleton circle width="190px" height="190px"></b-skeleton>
-                  </div>
-                  <div class="hover-content has-text-centered pt-3">
-                    <b-skeleton active></b-skeleton>
-                    <div class="columns bottom-details">
-                      <div class="column has-text-left">
-                        <span class="icon is-small">
-                          <b-skeleton></b-skeleton>
-                        </span>
+                  <div class="card-content">
+                    <div class="media mb-1">
+                      <div class="media-content">
+                        <span class="icon is-small"><b-skeleton></b-skeleton></span>
+                        <span class="icon is-small"><b-skeleton></b-skeleton></span>
+                        <span class="icon is-small"><b-skeleton></b-skeleton></span>
+                        <b-skeleton></b-skeleton>
                       </div>
-                      <div class="column has-text-right">
-                        <span class="icon is-small">
-                          <b-skeleton></b-skeleton>
-                        </span>
-                      </div>
+                    </div>
+                    <div class="content">
+                      <b-skeleton height="80px"></b-skeleton>
                     </div>
                   </div>
                 </article>
