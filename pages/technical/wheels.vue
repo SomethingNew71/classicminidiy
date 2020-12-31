@@ -89,7 +89,11 @@
                 <article class="tile is-child card">
                   <div class="card-image">
                     <figure class="image is-square">
-                      <img :src="wheel.imagepath" :alt="`Image of ${wheel.name}`">
+                      <img
+                        :src="wheel.imagewebp"
+                        :webp-fallback="wheel.imagepath"
+                        :alt="`Image of ${wheel.name}`"
+                      >
                     </figure>
                   </div>
                   <div class="card-content">
