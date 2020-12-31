@@ -49,7 +49,7 @@
             <div class="card">
               <div class="card-content">
                 <a href="https://cmdiy.co/CarbNeedles" target="_blank" alt="Link to Classic Mini Needles">
-                  <img class="seven-logo" src="~/assets/img/seven-logo-horiz.png" alt="Seven Mini Parts Logo">
+                  <b-image class="seven-logo" src="https://classicminidiy.s3.amazonaws.com/misc/seven-logo-horiz.webp" webp-fallback="https://classicminidiy.s3.amazonaws.com/misc/seven-logo-horiz.png" alt="Seven Mini Parts Logo" />
                 </a>
               </div>
             </div>

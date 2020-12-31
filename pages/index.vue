@@ -56,8 +56,8 @@
         <div class="columns is-multiline">
           <div class="column is-5">
             <video autoplay loop muted playsinline>
-              <source src="~assets/img/grey-tool-animation.webm" type="video/webm">
-              <source src="~assets/img/grey-tool-animation.mp4" type="video/mp4">
+              <source src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.webm" type="video/webm">
+              <source src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.mp4" type="video/mp4">
             </video>
           </div>
           <div class="column is-7">
@@ -78,7 +78,7 @@
                 <div v-for="(item, index) in toolboxItems" :key="index" class="column is-3">
                   <nuxt-link :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
-                      <b-image class="panel-icon-home" :src="item.image" aria-hidden="true" :alt="item.title + ' image'" />
+                      <b-image class="panel-icon-home" :src="item.webp" :webp-fallback="item.image" aria-hidden="true" :alt="item.title + ' image'" />
                       <p class="heading has-text-black">
                         {{ item.title }}
                       </p>
@@ -101,7 +101,8 @@
               >
                 <span class="panel-icon">
                   <b-image
-                    :src="item.image"
+                    :src="item.webp"
+                    :webp-fallback="item.image"
                     :alt="item.title + ' image'"
                   />
                 </span>
@@ -133,7 +134,7 @@
             </p>
           </div>
           <div class="column is-5 avatar-container">
-            <img src="~/assets/img/avatar.png" alt="Image of my car on jack stands">
+            <b-image src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png" alt="Image of my car on jack stands" />
           </div>
         </div>
       </div>
@@ -170,41 +171,49 @@ export default {
         {
           title: 'Torque Specs',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
           to: '/technical/torque'
         },
         {
           title: 'Color Picker',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp',
           to: '/technical/colors'
         },
         {
           title: 'Manuals',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp',
           to: '/technical/manuals'
         },
         {
           title: 'Compression Ratio Calculator',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
           to: '/technical/compression'
         },
         {
           title: 'Recommended Tools',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.webp',
           to: '/technical/tools'
         },
         {
           title: 'Electrical Diagrams',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',
           to: '/technical/electrical'
         },
         {
           title: 'SU Needle Comparison',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp',
           to: '/technical/needles'
         },
         {
           title: 'Wheel Library',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp',
           to: '/technical/wheels'
         }
       ]
