@@ -68,11 +68,11 @@
               >
                 <article class="media">
                   <figure class="media-left is-hidden-mobile">
-                    <b-image class="image" :src="tool.imgSourcewebp" :webp-fallback="wheel.imgSource" :alt="`${tool.name}`" />
+                    <b-image class="image" :src="tool.imgSourcewebp" :webp-fallback="tool.imgSource" :alt="`${tool.name}`" />
                   </figure>
                   <div class="media-content">
                     <div class="content">
-                      <b-image class="image is-hidden-tablet" :src="tool.imgSourcewebp" :webp-fallback="wheel.imgSource" :alt="`${tool.name}`" />
+                      <b-image class="image is-hidden-tablet" :src="tool.imgSourcewebp" :webp-fallback="tool.imgSource" :alt="`${tool.name}`" />
                       <br class="is-hidden-tablet">
                       <h4 class="mb-2">
                         {{ tool.name }}

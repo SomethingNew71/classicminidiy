@@ -209,6 +209,7 @@ export default {
 .no-colors {
   img {
     width: 50%;
+    margin: auto;
   }
 }
 .select {
