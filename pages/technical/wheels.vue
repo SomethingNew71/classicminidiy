@@ -115,7 +115,7 @@
                       {{ wheel.notes }}
                     </div>
                     <p class="suggest-changes">
-                      <a :href="`mailto:wheels@classicminidiy.com?subject=Update%20to%20${wheel.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel.name}%0D%0ASize%3A%20${wheel.size}%0D%0AOffset%3A%20${wheel.offset}%0D%0AMaterial%3A%20${wheel.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Suggest Changes</a>
+                      <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel.name}%0D%0ASize%3A%20${wheel.size}%0D%0AOffset%3A%20${wheel.offset}%0D%0AMaterial%3A%20${wheel.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Suggest Changes</a>
                     </p>
                   </div>
                 </article>
