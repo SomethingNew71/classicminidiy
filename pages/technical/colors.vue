@@ -85,7 +85,7 @@
           <h2 class="title">
             Choose a color
           </h2>
-          <b-image :src="require('assets/img/color-filler.png')" alt="" />
+          <b-image src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp" webp-fallback="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png" alt="" />
         </div>
         <div v-if="loading">
           <b-notification :closable="false">
