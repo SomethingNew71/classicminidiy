@@ -13,7 +13,8 @@
               "urlVendor": "https://amzn.to/36Pm2Qa"
             }
           },
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/tektonImperial.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/tektonImperial.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/tektonImperial.webp"
         },
         {
           "name": "Metric - Combination Wrench Set",
@@ -24,7 +25,8 @@
               "urlVendor": "https://amzn.to/3lysT4y"
             }
           },
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/tektonMetric.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/tektonMetric.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/tektonMetric.webp"
         },
         {
           "name": "Click Torque Wrench 1/2-Inch Drive (25-250 ft.-lb./33.9-338.9 Nm)",
@@ -35,7 +37,8 @@
               "urlVendor": "https://amzn.to/3iXO7qI"
             }
           },
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/torque-wrench.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/torque-wrench.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/torque-wrench.webp"
         },
         {
           "name": "Advance Timing Light",
@@ -46,7 +49,8 @@
               "urlVendor": "https://amzn.to/3kMmjYH"
             }
           },
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/advance-timing-light.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/advance-timing-light.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/advance-timing-light.webp"
         },
         {
           "name": "Floor Jack",
@@ -57,7 +61,8 @@
               "urlVendor": "https://amzn.to/3lZX5Wm"
             }
           },
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/jack.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/jack.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/jack.webp"
         },
         {
           "name": "Jack Stands",
@@ -68,7 +73,8 @@
               "urlVendor": "https://amzn.to/3490qwa"
             }
           },
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/jackstand.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/jackstand.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/jackstand.webp"
         },
         {
           "name": "Drip Tray",
@@ -79,7 +85,8 @@
               "urlVendor": "https://amzn.to/37kfclU"
             }
           },
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/drip-tray.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/drip-tray.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/drip-tray.webp"
         },
         {
           "name": "Gunson Colortune Carb Tuner",
@@ -94,7 +101,8 @@
             }
           },
           "desc": "This awesome tool will help dial in your idle and get your car off to a great start down the tuning road. A must for any hobby mechanic.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/gunson-colortune.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/gunson-colortune.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/gunson-colortune.webp"
         }
       ]
     },
@@ -111,7 +119,8 @@
             }
           },
           "desc": "When youre doing any sort of valve adjustment, shimming, or spec measurements a set of feelers are practically a requirement.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/feelers.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/feelers.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/feelers.webp"
         },
         {
           "name": "Ball Peen Hammer",
@@ -122,7 +131,8 @@
             }
           },
           "desc": "Having a nice robust ball peen hammer is essential in working on your engine or gearbox. Without it the job will be much more difficult.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/peen-hammer.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/peen-hammer.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/peen-hammer.webp"
         },
         {
           "name": "Blind Bearing Puller",
@@ -133,7 +143,8 @@
             }
           },
           "desc": "Use this tool to extract the bearing race from the clutch transfer case or any other bearing that is hard to access.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/blind-bearing-puller.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/blind-bearing-puller.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/blind-bearing-puller.webp"
         },
         {
           "name": "Flywheel Locking Tool",
@@ -144,7 +155,8 @@
             }
           },
           "desc": "If you need to do a clutch job or remove your flywheel for an engine replacement, this tool locks your flywheel in place so you can easily remove the main bolt.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/flywheel-locking-tool.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/flywheel-locking-tool.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/flywheel-locking-tool.webp"
         },
         {
           "name": "Flywheel Puller Tool",
@@ -155,7 +167,8 @@
             }
           },
           "desc": "Use this tool to extract the flywheel and clutch from transfer case.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/flywheel-pulling-tool.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/flywheel-pulling-tool.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/flywheel-pulling-tool.webp"
         },
         {
           "name": "Rear Main Seal Installer",
@@ -166,7 +179,8 @@
             }
           },
           "desc": "Install the rear main seal with this by bolting it into place with the flywheel bolt. Makes insalling it a breeze and much less likely to damage the seal.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/main-seal-installer.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/main-seal-installer.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/main-seal-installer.webp"
         },
         {
           "name": "3rd motion bearing removal tool",
@@ -177,7 +191,8 @@
             }
           },
           "desc": "3rd motion bearing removal tool. This tool aids in the clean removal of the 3rd motion bearing ( double roller ) from the gearbox. It slips between the 1st gear and bearing allowing the bearing to be tapped out without the use of punches which can damage the bearing.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/motion-bearing-remover.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/motion-bearing-remover.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/motion-bearing-remover.webp"
         },
         {
           "name": "Synchro Hub Ball & Spring Fitting Tool",
@@ -188,7 +203,8 @@
             }
           },
           "desc": "This tool is designed to aid the installation of the balls and springs within the synchronisation gear hubs as fitted to any Mini or Metro with synchromesh gear engagement, or transverse equivalent, such as Midget, Marina, Ital, Moggy Minor. Including 848, 970, 997, 998, 1071, 1098 & 1275 engines. Very simple and easy to use, if you have built a gearbox with one of these tools you will never want to go back to the old method",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/syncrohub-tool.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/syncrohub-tool.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/syncrohub-tool.webp"
         }
 
       ]
@@ -210,7 +226,8 @@
             }
           },
           "desc": "Use this tool to separate the interference fit of the top and bottom ball joints.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/ball-joint-splitter.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/ball-joint-splitter.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/ball-joint-splitter.webp"
         },
         {
           "name": "Cone Spring Compressor, Dual Threads",
@@ -221,7 +238,8 @@
             }
           },
           "desc": "Sturdy service tool used to compress the rubber cone spring on dry suspension classic Minis. Suitable for early models with SAE threaded cones and later production with metric threaded cones. Detailed instructions for use are enclosed. See STL0004 if you have a 1976-on Mini and need only the metric threaded tip.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/cone-compress.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/cone-compress.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/cone-compress.webp"
         }
       ]
     },
@@ -238,7 +256,8 @@
             }
           },
           "desc": "This is an awesome multi-use tool, intended to help you identify and fix electrical issues.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/multimeter.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/multimeter.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/multimeter.webp"
         },
         {
           "name": "Battery Tender - Trickle Charger",
@@ -249,7 +268,8 @@
             }
           },
           "desc": "For minis that are in the garage a bit more than others, its super helpful to keep your battery charged and happy, so you can start the mini up anytime!",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/trickle.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/trickle.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/trickle.webp"
         },
         {
           "name": "Test Light",
@@ -260,7 +280,8 @@
             }
           },
           "desc": "A simpler version of a multimeter, intended to help test voltage and verify live wires.",
-          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/test-light.jpg"
+          "imgSource": "https://classicminidiy.s3.amazonaws.com/tools/test-light.jpg",
+          "imgSourcewebp": "https://classicminidiy.s3.amazonaws.com/tools/test-light.webp"
         }
       ]
     }
