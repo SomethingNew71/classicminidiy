@@ -1899,13 +1899,13 @@
   "notes": ""
   },
   {
-  "type": "other",
+  "type": "Alloy",
   "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/lega35-5x10.jpg",
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/lega35-5x10.webp",
-  "name": "Lega? Cosmic?, 3.5 ",
+  "name": "Brown & Geeson",
   "size": "5x10",
   "offset": "",
-  "notes": "Not entirely sure yet, if available with 4x4\" PCD, but assumed.    Made as 5x12\" and 5.5x13\" wheel as well.    Note: Not sure of the actual name, maybe it came from the italian '<i>cerchi in lega #x##\"</i>' and was assumed as brand-name...?        <font color=\"#FF0000>Update</font>: Maybe it is a Cosmic wheel! Any confirmation?"
+  "notes": "Made as 5x12\" and 5.5x13\" wheel as well."
   },
   {
   "type": "other",
