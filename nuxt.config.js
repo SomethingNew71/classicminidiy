@@ -71,7 +71,8 @@ export default {
   },
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
+    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' }),
+    { path: '/api/wheels', handler: '~/api/wheels.js' }
   ],
   'google-gtag': {
     // id: 'G-FBH0E64HM1',
@@ -99,6 +100,11 @@ export default {
     youtube: {
       key: process.env.YoutubeKey,
       id: process.env.YoutubeID
+    },
+    elastisearch: {
+      un: process.env.elastisearchUN,
+      pw: process.env.elastisearchPW,
+      endpoint: process.env.elastisearchAPI
     }
   }
 };

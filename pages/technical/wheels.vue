@@ -42,6 +42,14 @@
 
         <div class="columns">
           <div class="column">
+            <b-field label="Search for a Wheel">
+              <b-input v-model="searchString" type="search"></b-input>
+              <p class="control">
+                <b-button class="button is-primary" @click="requestWheels(selectedSize, searchString)">
+                  Search
+                </b-button>
+              </p>
+            </b-field>
             <p class="is-size-6 legend">
               Special Info - <i class="special-notes fad fa-info-circle pr-3"></i>
               Size - <i class="fad fa-expand-arrows-alt pr-3"></i>
@@ -93,9 +101,9 @@
                   <div class="card-image">
                     <figure class="image is-square">
                       <img
-                        :src="wheel.imagewebp"
-                        :webp-fallback="wheel.imagepath"
-                        :alt="`Image of ${wheel.name}`"
+                        :src="wheel._source.imagewebp"
+                        :webp-fallback="wheel._source.imagepath"
+                        :alt="`Image of ${wheel._source.name}`"
                       >
                     </figure>
                   </div>
@@ -103,22 +111,22 @@
                     <div class="media mb-1">
                       <div class="media-content">
                         <b-tooltip label="Wheel Size" animated type="is-dark">
-                          <i class="fad fa-expand-arrows-alt pr-1"></i> {{ wheel.size || "N/A" }}
+                          <i class="fad fa-expand-arrows-alt pr-1"></i> {{ wheel._source.size || "N/A" }}
                         </b-tooltip>
                         <b-tooltip label="Wheel Offset" animated type="is-dark">
-                          <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i> {{ wheel.offset || "N/A" }}
+                          <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i> {{ wheel._source.offset || "N/A" }}
                         </b-tooltip>
                         <b-tooltip label="Wheel Material" animated type="is-dark">
-                          <i class="fad fa-box-full pr-1 pl-2"></i> {{ wheel.type || "N/A" }}
+                          <i class="fad fa-box-full pr-1 pl-2"></i> {{ wheel._source.type || "N/A" }}
                         </b-tooltip>
-                        <p class="title is-4 pt-3 pb-1" v-html="wheel.name"></p>
+                        <p class="title is-4 pt-3 pb-1" v-html="wheel._source.name"></p>
                       </div>
                     </div>
                     <div class="content">
-                      {{ wheel.notes }}
+                      {{ wheel._source.notes }}
                     </div>
                     <p class="suggest-changes">
-                      <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel.name}%0D%0ASize%3A%20${wheel.size}%0D%0AOffset%3A%20${wheel.offset}%0D%0AMaterial%3A%20${wheel.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Suggest Changes</a>
+                      <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel._source.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel._source.name}%0D%0ASize%3A%20${wheel._source.size}%0D%0AOffset%3A%20${wheel._source.offset}%0D%0AMaterial%3A%20${wheel._source.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Suggest Changes</a>
                     </p>
                   </div>
                 </article>
@@ -132,15 +140,14 @@
 </template>
 
 <script>
-import wheels10 from '~/static/data/wheels/10.json';
-import wheels12 from '~/static/data/wheels/12.json';
-import wheels13 from '~/static/data/wheels/13.json';
+import axios from 'axios';
 
 export default {
   data () {
     return {
+      searchString: 'Minilite',
       selectedSize: '10',
-      selectedWheels: wheels10,
+      selectedWheels: null,
       isLoading: true
     };
   },
@@ -155,31 +162,45 @@ export default {
   computed: {},
   watch: {
     selectedSize () {
-      this.loadWheels();
+      this.requestWheels(this.selectedSize, this.searchString);
     }
   },
   mounted () {
-    this.loadWheels();
+    this.requestWheels(this.selectedSize, this.searchString);
   },
   methods: {
-    loadWheels () {
+    async requestWheels (wheelSize, searchString) {
       this.isLoading = true;
-      switch (this.selectedSize) {
-        case '10':
-          this.selectedWheels = wheels10;
-          break;
-        case '12':
-          this.selectedWheels = wheels12;
-          break;
-        case '13':
-          this.selectedWheels = wheels13;
-          break;
-        default:
-          break;
-      }
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 600);
+      const token = Buffer
+        .from(`${process.env.elastisearch.un}:${process.env.elastisearch.pw}`, 'utf8')
+        .toString('base64');
+      const searchURL = `${process.env.elastisearch.endpoint}/_search`;
+      const searchPayload = {
+        query: {
+          bool: {
+            must: {
+              term: { majorSize: wheelSize }
+            },
+            should: [
+              { match: { name: searchString } },
+              { match: { size: searchString } },
+              { match: { type: searchString } },
+              { match: { offset: searchString } },
+              { match: { notes: searchString } }
+            ]
+          }
+        }
+      };
+
+      const response = await axios.post(searchURL, searchPayload, {
+        headers: {
+          Authorization: `Basic ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      this.selectedWheels = response.data.hits.hits;
+      this.isLoading = false;
     }
   }
 };
