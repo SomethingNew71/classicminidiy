@@ -33,6 +33,9 @@
         <h1 class="title">
           Wheel Library
         </h1>
+        <h2 class="subtitle">
+          All data collected and currated by Jan W. from <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer">Mini-Forum.de</a>.
+        </h2>
         <p class="pb-5">
           Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel Library comes in. Using the same data from the now non-functional site www.wheeldictionary.net you can search for the right wheel for your Classic Mini Cooper.
         </p>
