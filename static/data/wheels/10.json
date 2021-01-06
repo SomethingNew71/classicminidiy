@@ -6,6 +6,7 @@
   "offset": "",
   "notes": "Very early wheel. Larger vents and riveted. Used until about september '61. Later wheels were spotwelded as the rivets proofed unreliable.",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -15,6 +16,7 @@
   "offset": "ET29",
   "notes": "60's standard wheel Part 21A881",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -24,6 +26,7 @@
   "offset": "ET24",
   "notes": "70's standard wheel",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -33,6 +36,7 @@
   "offset": "",
   "notes": "Std. steel wheel made by Fergat for Innocenti.",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -42,6 +46,7 @@
   "offset": "",
   "notes": "Std. steel wheel, this time made by Firestone.",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -51,6 +56,7 @@
   "offset": "",
   "notes": "Made for Innocenti Minis. Stamping: 1004.",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -60,6 +66,7 @@
   "offset": "",
   "notes": "A Hunter and Delbridge 6x10. Magnesium centre riveted on a chromium plate steel rim. As fitted to Australian made Buckle Monacos circa 1965/66.",
   "size": "6x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -69,6 +76,7 @@
   "offset": "ET46",
   "notes": "",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -78,6 +86,7 @@
   "offset": "ET46",
   "notes": "Copy of the LP882",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -87,6 +96,7 @@
   "offset": "ET24",
   "notes": "Holes like LP882 but has the standard rim's offset!",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -96,6 +106,7 @@
   "offset": "",
   "notes": "Hubcap clamps/noses welded on! There's another version without clamps/noses, propably for competiton purposes (where hubcaps are not neccesary).",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -105,6 +116,7 @@
   "offset": "ET36",
   "notes": "",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -114,6 +126,7 @@
   "offset": "",
   "notes": "Identical to LP883, this one is from 1968",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -123,6 +136,7 @@
   "offset": "",
   "notes": "Copy of the LP882, made of alloy. Manufactured by Griffin (JAP).",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -132,6 +146,7 @@
   "offset": "",
   "notes": "Another copy of the LP883, made of alloy. Manufactured by Griffin (JAP) and sold at Minisport UK",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -141,6 +156,7 @@
   "offset": "ET16",
   "notes": "Those wheels were never a standard fitment. But they were available by aftermarked dealers. And by Leyland ST. Wheels sold by Leyland ST are not stamped 'LP918', but 'AHT182' (Leyland ST part C-AHT182).",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -150,6 +166,7 @@
   "offset": "",
   "notes": " Chromed and riveted instead of being welded",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -159,6 +176,7 @@
   "offset": "",
   "notes": "Ultra rare 5 - reverse rim.",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -168,6 +186,7 @@
   "offset": "",
   "notes": "Reproduction of the sought after 3.5\" 'S' wheel. Sold by both MiniSport and MiniSpares UK. Look in the link section!",
   "size": "3.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -177,6 +196,7 @@
   "offset": "",
   "notes": "About £60 inc VAT: Sold by both MiniSport and MiniSpares UK. Look in the link section!",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -186,6 +206,7 @@
   "offset": "",
   "notes": "",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -195,6 +216,7 @@
   "offset": "",
   "notes": "Can you spot the difference? Small impressions around the spokes.",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -204,6 +226,7 @@
   "offset": "",
   "notes": "Small impressions around spokes. But note: both CMR and Firsat came either with or without them, there's no fast rule.",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -213,6 +236,7 @@
   "offset": "",
   "notes": "",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -222,6 +246,7 @@
   "offset": "",
   "notes": "",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -231,6 +256,7 @@
   "offset": "",
   "notes": "Same wheel, different manufacturer. 'Firestone 4½Jx10 1 75' stamped into outer rim.",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -240,6 +266,7 @@
   "offset": "",
   "notes": "Same wheel, this time by Fergat. This wheels were used on late Authi 1300 Coopers, the cousin of the Innocenti Cooper 1300. Earlyer wheels were plain silver, the later ones got a two tone colour (black/silver).",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -249,6 +276,7 @@
   "offset": "ET -15/ET14",
   "notes": "Made of alloy. Made to fit over 8.4\" brake. NOTE: It has a HUGE offset, so the rim fits not over the brake but literaly stands BESIDE the brake caliper! Needs BIG wheel arches (Sportspack)! Sold at Minispeed UK Note: It looks like there are TWO versions of this wheel! One with ET-15 to fit over 8.4\" discs, and one with ET14 which does NOT clear the 8.4\" discs, but any 7.5 & 7.9\" discs!",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -258,6 +286,7 @@
   "offset": "",
   "notes": "Not much is know yet, they seem to come from Italy. Probably a aftermarket replacement wheel.",
   "size": "5.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -267,6 +296,7 @@
   "offset": "",
   "notes": "Made in the 60's.",
   "size": "6x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -276,6 +306,7 @@
   "offset": "",
   "notes": "Standard wheel centres, available too!",
   "size": "4.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -285,6 +316,7 @@
   "offset": "",
   "notes": "Made by Weller, but with standart 3.5\" wheel centre with its stampings!",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -294,6 +326,7 @@
   "offset": "",
   "notes": "Half an inch wider...",
   "size": "5.5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -303,6 +336,7 @@
   "offset": "",
   "notes": "One inch wider...",
   "size": "6x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -312,6 +346,7 @@
   "offset": "",
   "notes": "",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -321,6 +356,7 @@
   "offset": "",
   "notes": "",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -330,6 +366,7 @@
   "offset": "",
   "notes": "Note: Not 100% sure, wheter they are Weller (not dished!).",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -339,6 +376,7 @@
   "offset": "",
   "notes": "",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -348,6 +386,7 @@
   "offset": "",
   "notes": "",
   "size": "6x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -357,6 +396,7 @@
   "offset": "",
   "notes": "",
   "size": "6x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -366,6 +406,7 @@
   "offset": "",
   "notes": "Not the official name but to differentiate from other Weller wheels named \"four spoke\".",
   "size": "6x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -375,6 +416,7 @@
   "offset": "",
   "notes": "Not the official name but to differentiate from other Weller wheels named \"five spoke\".Very similar to the above 4 spoke wheel, but with on spoke more. Spokey!",
   "size": "",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -384,6 +426,7 @@
   "offset": "",
   "notes": "",
   "size": "",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -393,6 +436,7 @@
   "offset": "",
   "notes": "",
   "size": "",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -402,6 +446,7 @@
   "offset": "",
   "notes": "Only 50 ever made for single seater race cars in the USA.",
   "size": "10x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -411,6 +456,7 @@
   "offset": "",
   "notes": "Weller copy or Weller? Named 'California Star' at back.",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -420,6 +466,7 @@
   "offset": "",
   "notes": "Weller look-a-like",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -429,6 +476,7 @@
   "offset": "",
   "notes": "Another Weller look-a-like",
   "size": "5x10",
+  "majorSize": "10",
   "type": "steel"
   },
   {
@@ -437,6 +485,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/realrosepetal45x10.webp",
   "name": "Cooper Car Company 'Rosepetal'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "The original 8 spoke design wheel. Made by the Cooper Car Company. It's a 'copy' of the wheels used by Cooper   for Formula racers. The Minilite design was copied from the 'Rosepetal', but is more famous today."
   },
@@ -446,6 +495,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/rosepetal6x10.webp",
   "name": "Rosepetal",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Picture (c) Casper Sparsöe. | Made for 18 times Danish Champ winner Erik Hoejer by Ole Rytter (Denmark). The same man who also, in '66-'68, made the first alloy 7 port heads,   which were the brainchild of Erik Hoejer's race mechanic Poul Heickendorff. The heads which later became the base for the iron copys by AKM (and then MiniSport).   Only 2 sets know to exist."
   },
@@ -455,6 +505,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/coopercarco80errosepetal.webp",
   "name": "Rosepetal', recast",
   "size": "4.75x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "80's Cooper Car Co. cast of the Rosepetal"
   },
@@ -464,6 +515,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/rosepetal475x10.webp",
   "name": "Vortz 'Rosepetal'",
   "size": "4.75x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Vortz bought the Cooper Car Co's original tooling and continues to make the 'original' Rosepetal. Added 'Vortz' logo on oter edge."
   },
@@ -473,6 +525,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/vortzrosepetal475x10.webp",
   "name": "Vortz 'Rosepetal'",
   "size": "4.75x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Limited batch made without the 'Vortz' logo."
   },
@@ -482,6 +535,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/c21a1071minisparesrosepetal475x10.webp",
   "name": "MiniSpares Center 'Rosepetal'",
   "size": "4.75x10",
+  "majorSize": "10",
   "offset": "ET40",
   "notes": "Modern reproduction by MiniSpares Ltd. Part n° C-21A1071."
   },
@@ -491,6 +545,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cr45x10.webp",
   "name": "CR wheels",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -500,6 +555,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/crwheels5x10.webp",
   "name": "CR wheels",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Fit w/ 165/70 tyres w/out arches Still in production in small numbers in Japan. Copy of the famous Rose Petals"
   },
@@ -509,6 +565,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/crmagnesium5x10.webp",
   "name": "CR wheels magnesium",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -518,6 +575,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/earlyminilitemagnesium.webp",
   "name": "Early Minilite Magnesium",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "The groove dissapeared ~1967"
   },
@@ -527,6 +585,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minilitemagnesium45x10.webp",
   "name": "Minilite Magnesium",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -536,6 +595,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minilitemagnesium55x10.webp",
   "name": "Minilite Magnesium",
   "size": "5.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -545,6 +605,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minilitealoy45x10.webp",
   "name": "Minilite alloy",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -554,6 +615,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minilite6x10.webp",
   "name": "Minilite alloy",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -563,6 +625,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minilitegen26x10.webp",
   "name": "Minilite Generation II",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET-15",
   "notes": "Modern designed, 'dished' Minilite. 3.4kg."
   },
@@ -572,6 +635,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/100plus_minilites5x10.webp",
   "name": "100+",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -581,6 +645,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/rswatanabe6x10.webp",
   "name": "RS Watanabe",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -590,6 +655,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/enkeie15245x10.webp",
   "name": "Enkei [E152?]",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "ET40",
   "notes": ""
   },
@@ -599,6 +665,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/enkei5x10_2.webp",
   "name": "Enkei",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET16",
   "notes": ""
   },
@@ -608,6 +675,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/aunger6x10.webp",
   "name": "Span Mag",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Made in New Zealand by Papakura Metal Foundry. Available in a range of widths up to 9inches."
   },
@@ -617,6 +685,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/aldicxx10.webp",
   "name": "Ward",
   "size": "5.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Originally made as Ward wheels in Palmerston North  N.Z.  Were later made better and with a nicer finish by Aldic and   became regulation wheel for N.Z. Mini seven racing, Group NB."
   },
@@ -626,6 +695,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/aldic55x10.webp",
   "name": "Aldic",
   "size": "5.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -635,6 +705,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/fraser55x10.webp",
   "name": "Fraser",
   "size": "5.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Again a copy of the Ward wheel. Fraser made about 100 of them. Any more info greatly appreciated!"
   },
@@ -644,6 +715,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minilife45x10.webp",
   "name": "Mini<u>life</u> works replica",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Fits without wheel arch extensions."
   },
@@ -653,6 +725,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minilight6x10.webp",
   "name": "Minilight",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -662,6 +735,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gbearly.webp",
   "name": "BWA Racing 'GB', early design (70's)",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -671,6 +745,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gb5x10.webp",
   "name": "BWA Racing 'GB', later design",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET21",
   "notes": "Commonly only known as 'GB'. Manufactured by <a href=\"http://www.bwawheels.it\">'BWA Racing'</a>"
   },
@@ -680,6 +755,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/bwa6x10_2.webp",
   "name": "BWA Racing 'GB'",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -689,6 +765,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/boomerang5x10.webp",
   "name": "Boomerang",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Italian made"
   },
@@ -698,6 +775,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_46.webp",
   "name": "Unknown 46",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Unknown Minilite-Style wheel, most probably from Italy. No marks. Can anyone identifie this wheel? Looks similar to the   Carmona, but has much smaler seats for nuts. Nuts are a combination of sleeve & tapered seat."
   },
@@ -707,6 +785,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/carmona5x10.webp",
   "name": "Carmona",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -716,6 +795,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minator5x10.webp",
   "name": "KN Minator",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET19",
   "notes": ""
   },
@@ -725,6 +805,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minator6x10.webp",
   "name": "KN Minator",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET6",
   "notes": ""
   },
@@ -734,6 +815,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mws45x10.webp",
   "name": "MWS",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -743,6 +825,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mws5x10.webp",
   "name": "MWS",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "This 5X10 wheel was designed for use with drum brakes and will not fit the Cooper S brake."
   },
@@ -752,6 +835,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_10.webp",
   "name": "PEG Mistral",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Came out std. fitment in quite a few Minis in South Africa"
   },
@@ -761,6 +845,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/performanceminilite5x10.webp",
   "name": "Performance",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Performance Australia"
   },
@@ -770,6 +855,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/rohcontesta45x10.webp",
   "name": "ROH 'Contesta'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Also came in 5x12 and 6x13. Compliments from GT mowog in Oz."
   },
@@ -779,6 +865,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/roh5x10.webp",
   "name": "ROH 'Contesta'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note how the 'spokes' are recessed below the outer edge."
   },
@@ -788,6 +875,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ultralite6x10.webp",
   "name": "Ultralite",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -797,6 +885,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/valtain_minilight.webp",
   "name": "Valtain",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -806,6 +895,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_50.webp",
   "name": "Unknown 50",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Lettering: MINI 5J-10"
   },
@@ -815,6 +905,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/100plus5x10.webp",
   "name": "100+",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -824,6 +915,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/100plus_2.webp",
   "name": "100+",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -833,6 +925,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/abarthcromodora.webp",
   "name": "Abarth Cromodora",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -842,6 +935,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/alcan5x10.webp",
   "name": "Alcan",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -851,6 +945,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/allycatxx10.webp",
   "name": "Allycat",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -860,6 +955,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/amosmags.webp",
   "name": "Amos mags",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Amos made a hubcap which looked exactely like the alloy wheel but was noticably cheaper."
   },
@@ -869,6 +965,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/assomini4x10.webp",
   "name": "Asso Mini",
   "size": "4x10",
+  "majorSize": "10",
   "offset": "ET40",
   "notes": "Possibly Honda fitment"
   },
@@ -878,6 +975,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_5.webp",
   "name": "Astrali",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -887,6 +985,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ats5x10_3.webp",
   "name": "ATS '4 Stern'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -896,6 +995,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ats5x10frueh.webp",
   "name": "Early ATS",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -905,6 +1005,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ats3.webp",
   "name": "ATS",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: No raising around the centre cap hole."
   },
@@ -914,6 +1015,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ats5x10.webp",
   "name": "ATS",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET15",
   "notes": "Survey for German TÜV"
   },
@@ -923,6 +1025,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/atpxx10.webp",
   "name": "ATP",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -932,6 +1035,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
   "name": "Avon Safety Wheels",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "The Avon Safety Wheel avoids the detachment of a deflated tyre by having a much shallower central recess   within the interior of the wheel. The recess is so shallow that the tyre is prevented from twisting, what   would allow it to slip over the edge of the rim, so it is retained. Such a shallow recess would   also prevent the fitment of new tyres, if it weren't for the inclusion of a deep channel, allowing the bead   of the tyre to enter the channel to permit fitting. The channel is covered by a metal band that is tightened   around the wheel after the tyre is fitted but before it is inflated."
   },
@@ -941,6 +1045,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/avenger.webp",
   "name": "Avenger",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "From South Africa, probably 80's."
   },
@@ -950,6 +1055,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/azor5x10.webp",
   "name": "Azor",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -959,6 +1065,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/bachtel5x10.webp",
   "name": "Bachtel",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Swiss made!"
   },
@@ -968,6 +1075,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_7.webp",
   "name": "BG (Brown & Geeson)",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -977,6 +1085,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_35.webp",
   "name": "Borrani 'Dial'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Yes; Borrani didn't do wire wheels only! In the 60's & 70's they made a range of alloy wheels too."
   },
@@ -986,6 +1095,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/braid6x10.webp",
   "name": "Braid",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -995,6 +1105,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/braidtenracemonobloc568x10.webp",
   "name": "Braid Tenrace Monobloc",
   "size": "5/6/8x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1004,6 +1115,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/bwa45x10.webp",
   "name": "BWA",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1013,6 +1125,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/bwa5x10_4.webp",
   "name": "BWA",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1022,6 +1135,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/bwa6x10.webp",
   "name": "BWA",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Noticably deeper 'dish'."
   },
@@ -1031,6 +1145,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/bwa5x10_3.webp",
   "name": "BWA",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1040,6 +1155,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_9.webp",
   "name": "BWA",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1049,6 +1165,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_25.webp",
   "name": "BWA",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1058,6 +1175,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/campagnolomagnesium4x10.webp",
   "name": "Campagnolo 0450, 4 o",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Very light magnesium wheel!"
   },
@@ -1067,6 +1185,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cfr.webp",
   "name": "CFR",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1076,6 +1195,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_8.webp",
   "name": "Cromodora",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1085,6 +1205,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cromodoracd2345x10.webp",
   "name": "Cromodora CD23",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1094,6 +1215,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cromodora45x10.webp",
   "name": "Cromodora Fergat",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: this wheel has a 'CROMODORA 0.8029 FERGAT 10x 4 1/2' lettering,   whilst the above wheel only carys a 'CROMODORA 10x4 1/2J' lettering on the front side. Black paint is factory applied!"
   },
@@ -1103,6 +1225,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cmwsplitrims.webp",
   "name": "CMW split rims",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Comes in two forms: with the center spokes either behind or in front of the mounting lip.   They are lighter than true Minilight magnesium wheels of the same size."
   },
@@ -1112,6 +1235,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/canonica5x10.webp",
   "name": "Canonica (by Fondmetal)",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Sold by and through Canonica, but cast by Fondmetal!"
   },
@@ -1121,6 +1245,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cobratcsupaslot5x10.webp",
   "name": "100+",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET10",
   "notes": ""
   },
@@ -1130,6 +1255,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cobratcsupaslot_2.webp",
   "name": "Cobra T.C. Supa Slot",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: Flat outer rim and lettering 'Cobra T.C. Supaslot' & 'Made in england' & '5x10 x [??] Offset' in it."
   },
@@ -1139,6 +1265,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/jellybean5x10.webp",
   "name": "Cheviot Jellybean",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1148,6 +1275,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/compomotive.webp",
   "name": "Compomotive Twelve Spoke",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET21",
   "notes": ""
   },
@@ -1157,6 +1285,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmicmk1_1.webp",
   "name": "Cosmic Mk1 (Magnesium?)",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1166,6 +1295,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmicmk1_2.webp",
   "name": "Cosmic Mk1",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Ribbed."
   },
@@ -1175,6 +1305,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmicmk1_5.webp",
   "name": "Cosmic 'RW10'",
   "size": "4x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Large cutouts, no kidney-shape."
   },
@@ -1184,6 +1315,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmicmk1_6.webp",
   "name": "Cosmic 'RW10' old style",
   "size": "4x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Ribbed."
   },
@@ -1193,6 +1325,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmicrw10s.webp",
   "name": "Cosmic 'RW10S'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "ET19",
   "notes": "Square cutouts, instead of kidney shaped ones.    Has the Cooper 'S's offset. Made for group II & V (and road of course).        Picture taken from 1966 Cosmic cataloque at <a href=\"http://mk1-performance-conversions.co.uk/mk1_the_tuning_archive.htm\">mk1-performance-conversions.co.uk</a>"
   },
@@ -1202,6 +1335,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/turtlecosmic4x10.webp",
   "name": "Copy of Cosmic Mk1 by Turtle Trading",
   "size": "4x10",
+  "majorSize": "10",
   "offset": "ET15",
   "notes": "Reproduction of the famous Cosmic wheel by <a href=\"http://www.turtle-trading.co.jp/s_cart/top.php?path=01_item.html&page_no=&kind=&car_code=MS1&genre_code=&view_type=photo&goods_code=P0005731&quick=undefined\">Turtle Trading.co.jp</a> of Japan"
   },
@@ -1211,6 +1345,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/wardcosmiccopyxx10.webp",
   "name": "Ward, copy of Cosmic Mk1",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: Spinners are custom made!"
   },
@@ -1220,6 +1355,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmicmk245x10.webp",
   "name": "Cosmic MkII",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1229,6 +1365,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmic5x10.webp",
   "name": "Cosmic MkII",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1238,6 +1375,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmicmk2flat.webp",
   "name": "Cosmic MkII",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: flat outer face"
   },
@@ -1247,6 +1385,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmic6x10.webp",
   "name": "Cosmic MkII",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Comparison Cosmi and 6x10: <img src=\"https://classicminidiy.s3.amazonaws.com/wheels/10/cosmic-vergleich.jpg\">"
   },
@@ -1256,6 +1395,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmic6x10deepdish.webp",
   "name": "Cosmic MkII",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Deep dished version."
   },
@@ -1265,6 +1405,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmikmk3.webp",
   "name": "Cosmic MkIII",
   "size": "4.5x10 - 5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Do note the centre is a custom."
   },
@@ -1274,6 +1415,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmic.webp",
   "name": "Cosmic",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Propabl."
   },
@@ -1283,6 +1425,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmic6x10_2.webp",
   "name": "Cosmic",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET7",
   "notes": "Stampped 'Made in Engand, Cosmic RW119.    Looks like the wheel above, but with deeper dish and some minor differences."
   },
@@ -1292,6 +1435,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/cosmic_2.webp",
   "name": "Cosmic RW081",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1301,6 +1445,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_47.webp",
   "name": "Cosmic Ribster",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "This  wheel has finaly been identified as a Cosmic Ribster!"
   },
@@ -1310,6 +1455,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_16.webp",
   "name": "GKN",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "There seem to be two different wheels around; the one has squares on the mounting face, the other is flat.    <img src=\"https://classicminidiy.s3.amazonaws.com/wheels/10/gknvergleich.jpg\">"
   },
@@ -1319,6 +1465,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/daengineering5x10.webp",
   "name": "D&A Engineering",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "This wheel has a lettering on the inseide; \"D&A ENGINEERING LTD. OF SURBITON\". And some subtle differences in the center cap area.   The center cap hole seems smaler and recessed. This is subject of speculation; but probably D&A Engineering bought the original moulds from GKN when   the original wheel was discontinued. If anyone can shed more light on this, I'm happy to hear about!"
   },
@@ -1328,6 +1475,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/e-tcrosswire45x10.webp",
   "name": "E-T 'cross wire'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "ET26",
   "notes": "Made in the 60's and 70's by E-T in California. They still sell classic drag and race wheels under the 'E-T' brand, the manufacturer is called   'Team III Wheels' today."
   },
@@ -1337,6 +1485,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/edgarschwyn5x10.webp",
   "name": "Edgar Schwyn",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Edgar Schwyn was a Swiss tuner. Apparently he designed & sold this wheel which was then produced by another company (not uncommon as a own fundry   is not economical for small batches of wheels)."
   },
@@ -1346,6 +1495,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_3.webp",
   "name": "Same design as above, but no lettering at all.",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Seemingly this is the same wheel as the 'Edgar Schwyn' wheel. Maybe Edgar Schwyn had a batch made under his own name but the (unknown)   manufacturer sold they'r own unbranded version of the wheel? If anyone has anymore information about it - I'm very glad to hear about! :-)"
   },
@@ -1355,6 +1505,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/esap.webp",
   "name": "ESAP",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1364,6 +1515,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/esapmontecarlo45x10.webp",
   "name": "ESAP 'Monte Carlo'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1373,6 +1525,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/esapsplitxx10.webp",
   "name": "ESAP",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Three piece modular split wheel. ESAP was a divison from 'Speedline'."
   },
@@ -1382,6 +1535,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/enkeimag45x10.webp",
   "name": "Enkei",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1391,6 +1545,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/enkei4x10.webp",
   "name": "Enkei",
   "size": "4x10",
+  "majorSize": "10",
   "offset": "ET40",
   "notes": "Possibly Hona fitment"
   },
@@ -1400,6 +1555,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/enkeicrossfever45x10.webp",
   "name": "Enkei 'Cross Fever'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "ET38",
   "notes": ""
   },
@@ -1409,6 +1565,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/exacton5x10.webp",
   "name": "Exacton/Leyland FAM8932",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET15.5",
   "notes": "As fitted to Mayfair Sport, Mini Special and many other 'limited' editions in the 80s.    Pictured with correct wheelnut covers and centrecap. Some have part. n° GAW 113."
   },
@@ -1418,6 +1575,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/dragway4spoke6x10.webp",
   "name": "Dragway '4 Spoke'",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Made in Australia"
   },
@@ -1427,6 +1585,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/eleco5x10.webp",
   "name": "Eleco'/'Falcon'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: not sure wheter 'Eleco' is the type or the manufacturer.    Other sources refere to it as 'Falcon'.    Weights only 2.7kg - propably made of magnesium-alloy.    'Made in England'."
   },
@@ -1436,6 +1595,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_20.webp",
   "name": "FAB",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1445,6 +1605,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracing.webp",
   "name": "Force Racing V1",
   "size": "4x10 to 10x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "See Forceracing homepage: <a href=\"http://www.force-racing.co.uk/\">www.force-racing.co.uk/</a>.   All Force-Racing wheels & conversions listed here can be bought there."
   },
@@ -1454,6 +1615,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracingv2.webp",
   "name": "Force Racing V2",
   "size": "4x10 to 10x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "New design."
   },
@@ -1463,6 +1625,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracingv34-10x10.webp",
   "name": "Force Racing V3",
   "size": "4x10 to 10x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "New design, slightly 'dished' spokes."
   },
@@ -1472,6 +1635,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracingv44-10x10.webp",
   "name": "Force Racing V4",
   "size": "4x10 to 10x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "New design, slightly 'dished' and convex spokes."
   },
@@ -1481,6 +1645,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracingv5xx10.webp",
   "name": "Force Racing V5",
   "size": "4x10 to 10x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Derived from 13\" wheel design. As allways available from <a href=\"http://www.force-racing.co.uk/\">www.force-racing.co.uk/</a>"
   },
@@ -1490,6 +1655,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracingmamba510x10.webp",
   "name": "Force Racing 'Mamba'",
   "size": "4x10 to 10x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1499,6 +1665,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracingfn7x10.webp",
   "name": "Force Racing 'FN', 7 to 10x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Newest design by Force Racing. Pictured centre lock, also available with 4 stud pattern. Large offset build in centre. Get them whilst they'r hot,   as always only from <a href=\"http://www.force-racing.co.uk/\">www.force-racing.co.uk/</a>"
   },
@@ -1508,6 +1675,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/specialsplitxx10.webp",
   "name": "Force Racing, based o Exacton, 5-7x10",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "2 pieces, available at Force Racing."
   },
@@ -1517,6 +1685,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracingminilifesplitxx10.webp",
   "name": "Force Racing split MiniSpares MiniLife, 5,6,6.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Split wheel conversion based on MiniSpares Centre's 4.5\" MiniLife wheels."
   },
@@ -1526,6 +1695,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_15.webp",
   "name": "Cobra Superslot, widened 2 piece conversion by Force Racing, 5-7x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "<img src=\"https://classicminidiy.s3.amazonaws.com/wheels/10/force_racing_cobras.jpg\"> 2 piece conversion"
   },
@@ -1535,6 +1705,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/forceracingeuromxx10.webp",
   "name": "Force Racing 'Euro M', up to 8x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "See Forceracing homepage: <a href=\"http://www.force-racing.co.uk/\">www.force-racing.co.uk/</a>.   Various colors available. Blind bolts threaded from the rear."
   },
@@ -1544,6 +1715,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/fps.webp",
   "name": "FPS (5x10?)",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1553,6 +1725,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/rial5x10.webp",
   "name": "FPS",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "FPS stands for: Fratelli Pedrini Sarezzo (Pedrini Brothers in Sarezzo town)"
   },
@@ -1562,6 +1735,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gemini5x10.webp",
   "name": "Gemini",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1571,6 +1745,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_17.webp",
   "name": "Gemini",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Other design"
   },
@@ -1580,6 +1755,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gemini5x10_2.webp",
   "name": "Gemini",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Second design but with filled spokes..."
   },
@@ -1589,6 +1765,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gkn5x10_2.webp",
   "name": "GKN",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1598,6 +1775,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_49.webp",
   "name": "Early Globe",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Steel outer/alloy inner construction. Globe later moved to full alloy wheels."
   },
@@ -1607,6 +1785,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/globerallymaster5x10.webp",
   "name": "Globe Rallymaster",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1616,6 +1795,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/globe.webp",
   "name": "Globe",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "From Australia!"
   },
@@ -1625,6 +1805,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gt5x10.webp",
   "name": "GT",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "French producer, near Lyon"
   },
@@ -1634,6 +1815,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gt5x10_2.webp",
   "name": "GT",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note the different outer rim on this one!"
   },
@@ -1643,6 +1825,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gotti55x10.webp",
   "name": "Gotti, 5.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Gotti is a french company that used to make wheels for Renault (Alpine, 8...)    they are curently rebuilding some wheels for the Mini, they will probably be in 10    <a href=\"http://www.gbsalpine.com/wheel/gotti/fr.html\">Gotti Wheels</a>"
   },
@@ -1652,6 +1835,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gotti3piece6x10.webp",
   "name": "Gotti Split Rim",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "This is the wheel which is going to be reproduced.    It's a 3 piece deisgn and available i too."
   },
@@ -1661,6 +1845,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gottimagnesiumxx10.webp",
   "name": "Gotti",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "This is a magnesium wheel!"
   },
@@ -1670,6 +1855,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gotti073axx10.webp",
   "name": "Gotti",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Various widths and offests. Beauty of the split design ;-)"
   },
@@ -1679,6 +1865,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_29.webp",
   "name": "Grand Prix'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1688,6 +1875,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_26.webp",
   "name": "Hamilton Mag, 5.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Made in New Plymouth. N.Z."
   },
@@ -1697,6 +1885,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/hayashistreetmini45x10.webp",
   "name": "Hayashi Racing 'Street Mini'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "ET35",
   "notes": ""
   },
@@ -1706,6 +1895,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/hayashistreettypecr6x10.webp",
   "name": "Hayashi Racing 'Street'",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1715,6 +1905,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/sampsonengineering5x10.webp",
   "name": "Sampson Engineering",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "A copy of the famous Hayashi 'Street', most probably made by \"Sampson Engineering\" in Adelaide,   South Australia, in the late 70's/early 80's. Eventhough that's not confirmed yet..."
   },
@@ -1724,6 +1915,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/hayashiracingstreet-ii4x10.webp",
   "name": "Hayashi Racing 'Street-II'",
   "size": "4x10",
+  "majorSize": "10",
   "offset": "38",
   "notes": "Note: maybe Honda fitment!"
   },
@@ -1733,6 +1925,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/heroesracingspyro45x10.webp",
   "name": "Heroes Racing 'Spyro'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1742,6 +1935,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/heroesracing43x10.webp",
   "name": "Heroes Racing, 4⅓x10",
   "size": "",
+  "majorSize": "10",
   "offset": "ET40",
   "notes": "Weird size, not impossibly Honda fitment."
   },
@@ -1751,6 +1945,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ira.webp",
   "name": "IRA",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1760,6 +1955,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/imagebillet1077x10.webp",
   "name": "Image 'Billet 107', 6-7x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1769,6 +1965,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/image_365x10.webp",
   "name": "Image, 6.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1778,6 +1975,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/inidianapolis5x10_1.webp",
   "name": "Indianapolis' or 'FPS'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Also being made in 12 and 13\", probably cast by FPS. Distributed in France by a company named 'Indianapolis' (Paris area)."
   },
@@ -1787,6 +1985,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/indianapolis5x10_2.webp",
   "name": "Indianapolis' or 'FPS'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "See above wheel..."
   },
@@ -1796,6 +1995,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/japearcemagnawheels.webp",
   "name": "J.A. Pearce Magnawheels (5x10?)",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1805,6 +2005,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/japearce5x10.webp",
   "name": "J.A. Pearce Magnawheels",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1814,6 +2015,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/japearce6x10.webp",
   "name": "J.A. Pearce Magnawheels(?)",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1823,6 +2025,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_42.webp",
   "name": "JA Pearce Magnawheels",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1832,6 +2035,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/jip5x10.webp",
   "name": "JIP",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1841,6 +2045,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/kad.webp",
   "name": "KAD F1 Style magnesium wheel, 6&7x10",
   "size": "",
+  "majorSize": "10",
   "offset": "6x10: +6 7x10: -22",
   "notes": "Can be bought here:  <a href=\"http://www.kad-uk.com\">http://www.kad-uk.com</a>    Weights only 2.12kg (6x10)/2.52kg (7Jx10)"
   },
@@ -1850,6 +2055,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_13.webp",
   "name": "KN Jupiter",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: not entirely sure if KN did them or JPC."
   },
@@ -1859,6 +2065,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/knmercury6x10.webp",
   "name": "KN Mercury",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1868,6 +2075,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/knmercury6x10_2.webp",
   "name": "KN Mercury",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: This one has no cast in letters and manucaturer."
   },
@@ -1877,6 +2085,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/kodiak45-65x10.webp",
   "name": "Kodiak, 4.5-6.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Alumnium, 3 piece, Made in Canada."
   },
@@ -1886,6 +2095,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/kodiakxx10_2.webp",
   "name": "Kodiak, 4.5-6.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1895,6 +2105,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_45.webp",
   "name": "Lynx",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1904,6 +2115,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/lega35-5x10.webp",
   "name": "Brown & Geeson",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Made as 5x12\" and 5.5x13\" wheel as well."
   },
@@ -1913,6 +2125,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_11.webp",
   "name": "Delta Mics?",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1922,6 +2135,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/jlmarnatxx10.webp",
   "name": "JL Marnat?",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Very similar to the Delta Mics wheel, but made by an ex F3 driver and sold by JL Marnat, France."
   },
@@ -1931,6 +2145,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/lp922.webp",
   "name": "Dunlop D1/LP922",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1940,6 +2155,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/midlandwheelsd15x10.webp",
   "name": "!!</b> Midlandwheels D1",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "+17",
   "notes": "COPY of the Dunlop D1/LP922.  Sold on <a href=\"http://www.gbcarparts.com/proddetail.asp?prod=Wheel10x5Dunlop\">Great British Cars</a>"
   },
@@ -1949,6 +2165,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/tasmanmk15x10.webp",
   "name": "Tasman MkI",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Dunlop D1 look-a-like"
   },
@@ -1958,6 +2175,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/tasmanmk25x10.webp",
   "name": "Tasman MkII",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: On Tasman MkI, the ribs go inwards and outwars on Tasman MkII"
   },
@@ -1967,6 +2185,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/exacton1.webp",
   "name": "Exacton",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1976,6 +2195,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/knturbo5x10.webp",
   "name": "KN Turbo",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -1985,6 +2205,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_18.webp",
   "name": "Leyland Trophy, 4.5 o.",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Was used for the <i>Leyland Innocenti Trophy</i> in France in the mid 70s and made by some manufacturers like Momo, Delta Mics and others. Maybe   the producing firm changed during the years."
   },
@@ -1994,6 +2215,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/leylandtrophy6x10.webp",
   "name": "Leyland Trophy, 5.75 or 6x10.",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Same as above, but wider. On some the name of the driver was engraved on the inside."
   },
@@ -2003,6 +2225,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/leylandtrophy5x10_4.webp",
   "name": "Leyland Trophy, (4.5/5?)x10.",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Same as above, flat centre (no cast Leyland logo)."
   },
@@ -2012,6 +2235,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/millemigliamk15x10_2.webp",
   "name": "Maifrini Mille Miglia MkI",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: this is belived to be a very early wheel; it has no spokes that join the embossed center."
   },
@@ -2021,6 +2245,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/maifrini5x10.webp",
   "name": "Maifrini Mille Miglia MkI",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2030,6 +2255,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/millemiglia5x10.webp",
   "name": "Maifrini Mille Miglia MkII",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2039,6 +2265,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/magproducts_2.webp",
   "name": "Mag Product 'SM493'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2048,6 +2275,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/magproducts6x10.webp",
   "name": "Mag Product, 'GT'",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2057,6 +2285,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_23.webp",
   "name": "MAG Product 'Super Light'(SL500)",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2066,6 +2295,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mamba8x10.webp",
   "name": "Mamba, 8x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "This is an sand cast 8\" wheel used on a 'Terrapin' single seater racer in the late 60's. Allan Staniforth and some friends where in desperate need   of some wide wheels for theyr Terrapin single seaters. After banded steel wheels got banned by the regulations, they decided to cast theyr own wheels.   That's how the 'Mamba' project started. There where probably less than 30 8\" wheels being cast (sand cast by hand!). At the time being, it was as light   and solid as a magnesium Minilite, but much cheaper to get - so it got quite a popular wheel back then and still is."
   },
@@ -2075,6 +2305,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mamba5x10.webp",
   "name": "Mamba",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Mamba lightweight alloy wheels were made by John Thornton, back around 1966-67. They were designed for Minis and were available   in 5\", 5 1/2\" & 6\" as standard. Any other size on special order; these large sizes were used on single seaters of the day. John Thornton was also   a friend of Alan Staniforth the designer/constructor of a Mini-based world record holding home made single seater called the Terrapin.   The Mamba project was sold in the early 70's and has passed through many hands since, the last firm to make Mambas was probably MWS some years ago."
   },
@@ -2084,6 +2315,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mamba5x10_2.webp",
   "name": "Mamba",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "The early edition had valve stem \"inside\" rim hidden amongst the spokes (see above) while later version had valve stem in outer rim.   The wheel pictured is believed to be a very late made wheel due to the general 'softer' appearance."
   },
@@ -2093,6 +2325,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mamba6x10_2.webp",
   "name": "Mamba",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2102,6 +2335,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mamba6x10.webp",
   "name": "Mamba",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "There are japanese copys around; the main difference is where the valve comes out of the rim,    the \"real\" ones come out straight from the outer rim and the japanese ones come out of the black bit and on a 45° angle     Also available a"
   },
@@ -2111,6 +2345,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mamba5x10_replica.webp",
   "name": "Mamba",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "The newest reincarnation of the Mamba wheel. Sold by MiniSpares and MiniMania (US)."
   },
@@ -2120,6 +2355,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mamba6x10_replica.webp",
   "name": "Mamba",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "The newest reincarnation of the Mamba wheel. Sold by MiniMania (US) and MiniSpares."
   },
@@ -2129,6 +2365,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mawer8x10.webp",
   "name": "Mawer, 8x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2138,6 +2375,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mbracing.webp",
   "name": "MB Racing (5-7x10 available)",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2147,6 +2385,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mbracing_2.webp",
   "name": "MB Racing, (7x10??)",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2156,6 +2395,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mcnally75x10.webp",
   "name": "McNally Engineering, 7.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Especially designed to take Dunlop Mini Racing tyres.    Also available in 5, 5.5, 6 and 6.5x10"
   },
@@ -2165,6 +2405,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mcnally55x10.webp",
   "name": "McNally Engineering, 5.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2174,6 +2415,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/melber45x10.webp",
   "name": "Melber",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2183,6 +2425,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/melber5x10.webp",
   "name": "Melber",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Not as bulbous in the inside and flat outer edge."
   },
@@ -2192,6 +2435,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mmaa5x10_1.webp",
   "name": "MMAA 'Mk1'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "\"MMAA Conventry, made in england\". MMAA</b> stands for M</b>idland \"M</b>etallics A</b>uto A</b>ccesories Limited\", from Coventry."
   },
@@ -2201,6 +2445,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mmaa5x10_2.webp",
   "name": "MMAA 'Mk1'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: the first MMAA Mk1 has insert for std. wheel nuts, this one needs sleeved nuts!"
   },
@@ -2210,6 +2455,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/mmaa5x10_3.webp",
   "name": "MMAA 'Mk1'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: This one too requires sleeve nuts, but has a different outer rim design!"
   },
@@ -2219,6 +2465,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/carbonracingwheel.webp",
   "name": "MiniMan Carbon Race Rims",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2228,6 +2475,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minimanrim2.webp",
   "name": "Another rim from TheMiniMan",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Made up for speedway Minis, runs a bead lock system and zues fasteners for a mud plate too"
   },
@@ -2237,6 +2485,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/momo5x10.webp",
   "name": "Momo",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "The 4 Momo wheels below are sold by MOMO, but not cast by Momo. Momo did never have a foundry. So they might be cast by a big company like FONDMETAL.   There's still much reasearch to do. There's actually no proof yet who realy did cast them.       So it depends of what you call them... Momos, Fondmetals, - they seem to be commonly known as both.    <img src=\"https://classicminidiy.s3.amazonaws.com/wheels/10/momo5x10_vergleich.jpg\">    Centrecaps part of casting, clamped in lid, as opposed to the next wheel."
   },
@@ -2246,6 +2495,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/momo5x10_4.webp",
   "name": "Momo",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET21",
   "notes": "Those have cast '5.00x10' and '2r' into the outer lip.   Although they look masive and heavy, they are comparably light; 3.3kg/wheel."
   },
@@ -2255,6 +2505,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/momo5x10_5.webp",
   "name": "Momo",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Same markings, but in different orientation."
   },
@@ -2264,6 +2515,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/momo575x10.webp",
   "name": "Momo",
   "size": "5.75x10",
+  "majorSize": "10",
   "offset": "ET3",
   "notes": ""
   },
@@ -2273,6 +2525,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/momo575x10_2.webp",
   "name": "Momo",
   "size": "5.75/6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Real hubcaps instead of cast in raising with clamped in metal lid. Some are stamped 'Made in italy, MomoJ'. It seems they came   in two widths? I know a set which is 5.75\" wide and one that is 6\"."
   },
@@ -2282,6 +2535,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/momo5x10_2.webp",
   "name": "Momo",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "This is branded as Momo (cast lettering)"
   },
@@ -2291,6 +2545,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/momo2.webp",
   "name": "Momo",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "This is a real Momo (marked)"
   },
@@ -2300,6 +2555,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/momo2_2.webp",
   "name": "Momo",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: different non-flat outer rim!"
   },
@@ -2309,6 +2565,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/oliwade7x10.webp",
   "name": "Oliwade Custom Wheels",
   "size": "7x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2318,6 +2575,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/oscam5x10.webp",
   "name": "Oscam",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2327,6 +2585,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_31.webp",
   "name": "Oscam 'Indianapolis'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2336,6 +2595,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/oz_2.webp",
   "name": "OZ, 5.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2345,6 +2605,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/oz.webp",
   "name": "OZ (5x10?)",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2354,6 +2615,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/autotecnic65x10.webp",
   "name": "OZ? Autotecnic?, 6.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Shows some similarities to the above OZ wheel.    But is different. Lettered 'Autotecnic'."
   },
@@ -2363,6 +2625,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/pegspeedy45x10.webp",
   "name": "PEG Speedy",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2372,6 +2635,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/personal5x10.webp",
   "name": "Personal",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2381,6 +2645,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/personal5x10_2.webp",
   "name": "Personal",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note the different design where the spokes meet the outer rim!"
   },
@@ -2390,6 +2655,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/potenza7x10.webp",
   "name": "Potenza",
   "size": "7x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2399,6 +2665,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/plssplitrims7x10.webp",
   "name": "PLS Split rim",
   "size": "7x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2408,6 +2675,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/remotec5x10.webp",
   "name": "Remotec",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2417,6 +2685,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/revolution5x10.webp",
   "name": "Revolution",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2426,6 +2695,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/revolution6x10.webp",
   "name": "Revolution",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET13",
   "notes": "Also available i and 7x10. Design divers slightly during the years. There are also some copys around!"
   },
@@ -2435,6 +2705,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/revolution7x10.webp",
   "name": "Revolution",
   "size": "7x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2444,6 +2715,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/revolite6x10.webp",
   "name": "Revolite",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Revolution copy."
   },
@@ -2453,6 +2725,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/indianapolisstella45x10.webp",
   "name": "FPS 'Indianapolis Stella'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Shows an logo with 'FPS' and 'Indianapolis Stella' is cast in as lettering.    So propably an early 'FPS' wheel. Found in Italy."
   },
@@ -2462,6 +2735,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ronal5x10.webp",
   "name": "Ronal",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2471,6 +2745,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ronal2.webp",
   "name": "Ronal - other design!",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2480,6 +2755,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ruspa5x10.webp",
   "name": "Ruspa",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2489,6 +2765,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ruspa2.webp",
   "name": "Ruspa",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Different design, smaler lip."
   },
@@ -2498,6 +2775,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/revolution45x10.webp",
   "name": "RS Watanabe, Type 4S",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "ET38",
   "notes": "This ist NOT</b>, as first believed, a Revolution wheel, but a   <a href=\"http://www.rs-watanabe.co.jp/seihin/8supo-ku.htm\" target=\"_blank\">RS Watanabe from Japan</a>."
   },
@@ -2507,6 +2785,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/specialistcomponents6x10.webp",
   "name": "Specialist Components",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Only 25 sets of wheels ever made!"
   },
@@ -2516,6 +2795,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/spectrumracingxx10.webp",
   "name": "Spectrum",
   "size": "",
+  "majorSize": "10",
   "offset": "ET0",
   "notes": ""
   },
@@ -2525,6 +2805,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/spectrum6x10.webp",
   "name": "Spectrum",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET0",
   "notes": ""
   },
@@ -2534,6 +2815,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/minispeedspectrumreplica7x10.webp",
   "name": "Minispeed",
   "size": "7x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Replica of the Spectrum wheel above."
   },
@@ -2543,6 +2825,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/speedline.webp",
   "name": "Speedline, 7 or 7.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2552,6 +2835,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/speedwell.webp",
   "name": "Speedwell (4,5x10 o)?",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2561,6 +2845,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/speedysprintwire55x10.webp",
   "name": "Speedy Wheels 'Sprintwire' 5.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "Made in Sydney, Australia."
   },
@@ -2570,6 +2855,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ssrstarshark45x10.webp",
   "name": "SSR 'Star Shark'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Note: the wheel pictured has a 4x110 PCD to fit Honda (N600 & Z600). Likely they were made with a 4x4\" PCD too."
   },
@@ -2579,6 +2865,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ssrfl26x10.webp",
   "name": "SSR Speedstar FL-II",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET3",
   "notes": ""
   },
@@ -2588,6 +2875,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ssrfl265x10.webp",
   "name": "SSR Speedstar FL-II, 6.5x10",
   "size": "",
+  "majorSize": "10",
   "offset": "ET-3",
   "notes": ""
   },
@@ -2597,6 +2885,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/ssrspeedstar6x10.webp",
   "name": "SSR Speedstar FL-II 3 piece.",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET3",
   "notes": "Mini Delta sells another version with +5 offset.   <a href=\"http://www.delta-mini.com/cgi-bin/parts_shop.cgi?call=dopen&ids=SU0054\">Mini Delta, Japan</a>"
   },
@@ -2606,6 +2895,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/campagnoloxx10.webp",
   "name": "SSR 'Star Formula'",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": "SSR, not Compomotive. Confirmed as SSR. But not sure ifcalled 'Mesh' or 'Star Formula' or simply 'Formula'. Sources vary."
   },
@@ -2615,6 +2905,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/starmag6x10.webp",
   "name": "Starmag",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2624,6 +2915,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/starmag6x10_2.webp",
   "name": "Starmag",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET7",
   "notes": "New design"
   },
@@ -2633,6 +2925,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/stilauto5x10.webp",
   "name": "Stilauto",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2642,6 +2935,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/speedstar5x10.webp",
   "name": "Speedstar'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "From Japan"
   },
@@ -2651,6 +2945,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/speedstar6x10.webp",
   "name": "Speedstar'",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "From Japan"
   },
@@ -2660,6 +2955,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_38.webp",
   "name": "Stromberg.",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "\"Stromberg\" branded wheel, same brand as the carburettors but 'Made in Spain'. Sand cast alloy."
   },
@@ -2669,6 +2965,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/tornado5x10.webp",
   "name": "Telcast Ltd. 'Tornado'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2678,6 +2975,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/targa5x10.webp",
   "name": "Targa",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2687,6 +2985,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/targa45x10.webp",
   "name": "Targa",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2696,6 +2995,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/tspeedtyper45x10.webp",
   "name": "T-Speed Type R",
   "size": "4.5/6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Availabe from <a href=\"http://www.thames.jp\" target=\"_blank\">Thames Garage in Japan</a>."
   },
@@ -2705,6 +3005,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/tspeedtypes6x10.webp",
   "name": "T-Speed Type S",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET2",
   "notes": ""
   },
@@ -2714,6 +3015,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/tspeedtypev45x10.webp",
   "name": "T-Speed Type V",
   "size": "4.5/6x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2723,6 +3025,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_19.webp",
   "name": "Valtain Magnesium",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Quoted with an incredible weight of only a mere 1.9kg/4.18lbs!"
   },
@@ -2732,6 +3035,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/valtainvartan5x10.webp",
   "name": "Valtain Vartan",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET-10",
   "notes": "Available in Japan: <a href=\"http://www.alecmini.co.jp/parts/valtain.html\">http://www.alecmini.co.jp/parts/valtain.html</a>    Weights 2.6kg."
   },
@@ -2741,6 +3045,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/valtaintyper5x10.webp",
   "name": "Valtain Type-R",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "ET-10",
   "notes": "With 2.4kg it's a bit lighter."
   },
@@ -2750,6 +3055,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/vartan1.webp",
   "name": "Valtain?",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET-3",
   "notes": ""
   },
@@ -2759,6 +3065,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/vsfahrzeugtechnik.webp",
   "name": "VS Fahrzeugtechnik",
   "size": "6x10",
+  "majorSize": "10",
   "offset": "ET15",
   "notes": "Designed and sold by '<a href=\"http://www.minicooperboerse.de\" target=\"_blank\">Redline</a>' (GER),   with survey for german TÜV!/Mit TÜV Gutachten. Type 6010-70."
   },
@@ -2768,6 +3075,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/workequipe45x10.webp",
   "name": "Work/Equip '03'",
   "size": "4.5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2777,6 +3085,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/wolfrace5x10.webp",
   "name": "Wolfrace, 'Slotmag'",
   "size": "5x10",
+  "majorSize": "10",
   "offset": "",
   "notes": "Wolfrace introduced the name 'Slotmag'.    This name is now popular and used for any kind of similar designed wheel."
   },
@@ -2786,6 +3095,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unnamed7x10.webp",
   "name": "(Unnamed)",
   "size": "7x10",
+  "majorSize": "10",
   "offset": "ET0",
   "notes": "Available here: <a href=\"http://www.trademe.co.nz/Trade-Me-Motors/Car-parts-accessories/Wheels-tyres/Alloy-/wheels/auction-169978141.htm\">Trademe New Zealand</a>"
   },
@@ -2795,6 +3105,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/matewheel7x10.webp",
   "name": "Wheel Mate 'P series' ",
   "size": "7x10",
+  "majorSize": "10",
   "offset": "ET-15.5",
   "notes": "They are originaly designed for golf carts.   Maybe there are situations on a road car where they don't offer sufficient strengh to obtain security."
   },
@@ -2804,6 +3115,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/hustlerxx10.webp",
   "name": "Seen on 'HUSTLER' (Mini-based kit-car) Sixwheeler. Unknown origin.",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   },
@@ -2813,6 +3125,7 @@
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
   "name": "The rare Motolita not-a-steering wheel!",
   "size": "",
+  "majorSize": "10",
   "offset": "",
   "notes": ""
   }

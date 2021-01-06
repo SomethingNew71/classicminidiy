@@ -23,6 +23,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@elastic/elasticsearch": "^7.10.0",
     "@fortawesome/fontawesome-pro": "^5.15.1",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/dotenv": "^1.4.1",
