@@ -225,7 +225,7 @@ export default {
                 term: { majorSize: this.selectedSize }
               },
               filter: {
-                term: { name: this.searchString.toLowerCase() }
+                regexp: { name: `${this.searchString.toLowerCase()}.*` }
               }
             }
           }
