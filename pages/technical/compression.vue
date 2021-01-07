@@ -41,6 +41,13 @@
       <div class="column is-12">
         <compressionCalc />
       </div>
+      <div class="column is-12">
+        <div class="card">
+          <div class="card-content">
+            <adsbygoogle ad-slot="5146110190" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>

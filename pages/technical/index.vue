@@ -64,6 +64,13 @@
           <span>Support</span>
         </a>
       </div>
+      <div class="column is-12">
+        <div class="card">
+          <div class="card-content">
+            <adsbygoogle ad-slot="7951209261" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>

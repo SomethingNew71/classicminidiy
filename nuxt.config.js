@@ -64,7 +64,8 @@ export default {
     '@aceforth/nuxt-optimized-images',
     'nuxt-compress',
     '@nuxtjs/robots',
-    '@nuxtjs/google-gtag'
+    '@nuxtjs/google-gtag',
+    '@nuxtjs/google-adsense'
   ],
   robots: {
     UserAgent: '*',
@@ -75,6 +76,7 @@ export default {
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
   'google-gtag': {
+    // TODO: Implement this new tag when gtag supports it.
     // id: 'G-FBH0E64HM1',
     id: 'UA-53914731-2',
     config: {
@@ -88,6 +90,11 @@ export default {
         ]
       }
     }
+  },
+  'google-adsense': {
+    id: 'ca-pub-0523971861051053',
+    analyticsUacct: 'UA-53914731-2',
+    analyticsDomainName: 'classicminidiy.com'
   },
   optimizedImages: {
     optimizeImages: true
