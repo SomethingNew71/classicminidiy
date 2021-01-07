@@ -141,11 +141,11 @@
                         <b-tooltip label="Wheel Material" animated type="is-dark">
                           <i class="fad fa-box-full pr-1 pl-2"></i> {{ wheel._source.type || "N/A" }}
                         </b-tooltip>
-                        <p class="title is-4 pt-3 pb-1" v-html="wheel._source.name"></p>
+                        <p class="title is-5 pt-3 pb-1" v-html="wheel._source.name"></p>
                       </div>
                     </div>
                     <div class="content">
-                      {{ wheel._source.notes }}
+                      <p v-html="wheel._source.notes"></p>
                     </div>
                     <p class="suggest-changes">
                       <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel._source.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel._source.name}%0D%0ASize%3A%20${wheel._source.size}%0D%0AOffset%3A%20${wheel._source.offset}%0D%0AMaterial%3A%20${wheel._source.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Suggest Changes</a>
