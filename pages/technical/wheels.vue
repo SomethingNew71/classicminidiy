@@ -118,41 +118,60 @@
               </div>
             </div>
             <div v-if="!isLoading" class="tile is-ancestor">
-              <div v-for="(wheel, name) in selectedWheels" :key="name" class="tile is-parent is-3">
-                <article class="tile is-child card">
-                  <div class="card-image">
-                    <figure class="image is-square">
-                      <img
-                        :src="wheel._source.imagewebp"
-                        :webp-fallback="wheel._source.imagepath"
-                        :alt="`Image of ${wheel._source.name}`"
-                      >
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <div class="media mb-1">
-                      <div class="media-content">
-                        <b-tooltip label="Wheel Size" animated type="is-dark">
-                          <i class="fad fa-expand-arrows-alt pr-1"></i> {{ wheel._source.size || "N/A" }}
-                        </b-tooltip>
-                        <b-tooltip label="Wheel Offset" animated type="is-dark">
-                          <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i> {{ wheel._source.offset || "N/A" }}
-                        </b-tooltip>
-                        <b-tooltip label="Wheel Material" animated type="is-dark">
-                          <i class="fad fa-box-full pr-1 pl-2"></i> {{ wheel._source.type || "N/A" }}
-                        </b-tooltip>
-                        <p class="title is-5 pt-3 pb-1" v-html="wheel._source.name"></p>
+              <template v-for="(wheel, index, name) in selectedWheels" class="tile is-parent is-3">
+                <div :key="index" class="tile is-parent is-3">
+                  <article class="tile is-child card">
+                    <div class="card-image">
+                      <figure class="image is-square">
+                        <img
+                          :src="wheel._source.imagewebp"
+                          :webp-fallback="wheel._source.imagepath"
+                          :alt="`Image of ${wheel._source.name}`"
+                        >
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                      <div class="media mb-1">
+                        <div class="media-content">
+                          <b-tooltip label="Wheel Size" animated type="is-dark">
+                            <i class="fad fa-expand-arrows-alt pr-1"></i> {{ wheel._source.size || "N/A" }}
+                          </b-tooltip>
+                          <b-tooltip label="Wheel Offset" animated type="is-dark">
+                            <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i> {{ wheel._source.offset || "N/A" }}
+                          </b-tooltip>
+                          <b-tooltip label="Wheel Material" animated type="is-dark">
+                            <i class="fad fa-box-full pr-1 pl-2"></i> {{ wheel._source.type || "N/A" }}
+                          </b-tooltip>
+                          <p class="title is-5 pt-3 pb-1" v-html="wheel._source.name"></p>
+                        </div>
                       </div>
+                      <div v-if="wheel._source.notes" class="content">
+                        <b-collapse
+                          animation="slide"
+                          :open="false"
+                          position="is-top"
+                        >
+                          <a slot="trigger" slot-scope="props">
+                            <b-icon pack="fad" :icon="!props.open ? 'chevron-down' : 'chevron-up'"></b-icon>
+                            {{ !props.open ? 'Additional details' : 'Hide details' }}
+                          </a>
+                          <p v-html="wheel._source.notes"></p>
+                        </b-collapse>
+                      </div>
+                      <p class="suggest-changes">
+                        <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel._source.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel._source.name}%0D%0ASize%3A%20${wheel._source.size}%0D%0AOffset%3A%20${wheel._source.offset}%0D%0AMaterial%3A%20${wheel._source.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Edit</a>
+                      </p>
                     </div>
-                    <div class="content">
-                      <p v-html="wheel._source.notes"></p>
+                  </article>
+                </div>
+                <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="tile is-parent is-3">
+                  <article class="tile is-child card">
+                    <div class="card-content">
+                      <adsbygoogle ad-slot="4011964258" ad-format="fluid" ad-layout-key="+49+ph+3e-9y+4p" />
                     </div>
-                    <p class="suggest-changes">
-                      <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel._source.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel._source.name}%0D%0ASize%3A%20${wheel._source.size}%0D%0AOffset%3A%20${wheel._source.offset}%0D%0AMaterial%3A%20${wheel._source.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Suggest Changes</a>
-                    </p>
-                  </div>
-                </article>
-              </div>
+                  </article>
+                </div>
+              </template>
             </div>
           </div>
         </div>

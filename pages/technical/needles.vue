@@ -72,6 +72,13 @@
           </b-tab-item>
         </b-tabs>
       </div>
+      <div class="column is-12">
+        <div class="card">
+          <div class="card-content">
+            <adsbygoogle ad-slot="1918786408" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
