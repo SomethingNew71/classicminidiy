@@ -42,14 +42,27 @@
 
         <div class="columns">
           <div class="column">
-            <b-field label="Search for a Wheel">
-              <b-input v-model="searchString" type="search"></b-input>
+            <b-field label="Search for a Wheel" class="mb-0">
+              <b-input
+                v-model="searchString"
+                type="search"
+                @keyup.enter.native="requestWheels()"
+              ></b-input>
               <p class="control">
-                <b-button class="button is-primary" @click="requestWheels(selectedSize, searchString)">
+                <b-button
+                  v-debounce:500ms="requestWheels"
+                  debounce-events="click"
+                  class="button is-primary"
+                >
                   Search
                 </b-button>
               </p>
             </b-field>
+            <p class="pb-3">
+              <a v-debounce:500ms="searchAll" debounce-events="click">
+                View All
+              </a>
+            </p>
             <p class="is-size-6 legend">
               Special Info - <i class="special-notes fad fa-info-circle pr-3"></i>
               Size - <i class="fad fa-expand-arrows-alt pr-3"></i>
@@ -72,6 +85,15 @@
           </div>
         </div>
         <div class="columns">
+          <div v-if="!isLoading && noResults" class="column is-3 no-results">
+            <div class="card">
+              <header class="card-header has-text-centered">
+                <p class="card-header-title has-text-centered">
+                  <i class="fad fa-sad-tear pr-2"></i> No Results found
+                </p>
+              </header>
+            </div>
+          </div>
           <div class="column">
             <div v-if="isLoading && selectedSize !== ''" class="tile is-ancestor">
               <div v-for="(item, index) in 8" :key="index" class="tile is-parent is-3">
@@ -148,7 +170,8 @@ export default {
       searchString: 'Minilite',
       selectedSize: '10',
       selectedWheels: null,
-      isLoading: true
+      isLoading: true,
+      noResults: false
     };
   },
   head () {
@@ -162,35 +185,52 @@ export default {
   computed: {},
   watch: {
     selectedSize () {
-      this.requestWheels(this.selectedSize, this.searchString);
+      this.requestWheels();
     }
   },
   mounted () {
-    this.requestWheels(this.selectedSize, this.searchString);
+    this.requestWheels();
   },
   methods: {
-    async requestWheels (wheelSize, searchString) {
+    searchAll () {
+      this.searchString = '';
       this.isLoading = true;
+      this.requestWheels();
+    },
+    async requestWheels () {
+      this.isLoading = true;
+      this.noResults = false;
       const token = Buffer
         .from(`${process.env.elastisearch.un}:${process.env.elastisearch.pw}`, 'utf8')
         .toString('base64');
       const searchURL = `${process.env.elastisearch.endpoint}/_search`;
-      const searchPayload = {
-        query: {
-          bool: {
-            must: {
-              term: { majorSize: wheelSize }
-            },
-            should: [
-              { match: { name: searchString } },
-              { match: { size: searchString } },
-              { match: { type: searchString } },
-              { match: { offset: searchString } },
-              { match: { notes: searchString } }
-            ]
+      let searchPayload;
+      if (this.searchString === '') {
+        searchPayload = {
+          size: 1000,
+          query: {
+            bool: {
+              must: {
+                term: { majorSize: this.selectedSize }
+              }
+            }
           }
-        }
-      };
+        };
+      } else {
+        searchPayload = {
+          size: 1000,
+          query: {
+            bool: {
+              must: {
+                term: { majorSize: this.selectedSize }
+              },
+              filter: {
+                term: { name: this.searchString.toLowerCase() }
+              }
+            }
+          }
+        };
+      }
 
       const response = await axios.post(searchURL, searchPayload, {
         headers: {
@@ -200,7 +240,12 @@ export default {
       });
 
       this.selectedWheels = response.data.hits.hits;
-      this.isLoading = false;
+      setTimeout(() => {
+        this.isLoading = false;
+        if (this.selectedWheels.length < 1) {
+          this.noResults = true;
+        }
+      }, 1000);
     }
   }
 };
@@ -218,6 +263,9 @@ export default {
   }
   .is-ancestor {
     flex-wrap: wrap;
+  }
+  .no-results {
+    font-size: 1.2rem;
   }
   .skeleton-image .b-skeleton-item {
     margin: auto;

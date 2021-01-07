@@ -51,6 +51,7 @@ export default {
    */
   plugins: [
     '~/plugins/buefy.js',
+    '~/plugins/vue-debounce.js',
     { src: '~plugins/vue-highcharts.js', ssr: false },
     { src: '~plugins/vue-navigation-bar.js', ssr: false }
   ],
@@ -71,8 +72,7 @@ export default {
   },
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' }),
-    { path: '/api/wheels', handler: '~/api/wheels.js' }
+    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
   'google-gtag': {
     // id: 'G-FBH0E64HM1',
