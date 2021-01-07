@@ -36,6 +36,8 @@
     "redirect-ssl": "^2.0.0",
     "sass": "^1.32.0",
     "sass-loader": "^10.1.0",
+    "throttle-debounce": "^3.0.1",
+    "vue-debounce": "^2.6.0",
     "vue2-highcharts": "^1.2.5"
   },
   "devDependencies": {
