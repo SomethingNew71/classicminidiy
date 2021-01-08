@@ -41,37 +41,8 @@
         </p>
 
         <div class="columns">
-          <div class="column">
-            <b-field label="Search for a Wheel" class="mb-0">
-              <b-input
-                v-model="searchString"
-                type="search"
-                @keyup.enter.native="requestWheels()"
-              ></b-input>
-              <p class="control">
-                <b-button
-                  v-debounce:500ms="requestWheels"
-                  debounce-events="click"
-                  class="button is-primary"
-                >
-                  Search
-                </b-button>
-              </p>
-            </b-field>
-            <p class="pb-3">
-              <a v-debounce:500ms="searchAll" debounce-events="click">
-                View All
-              </a>
-            </p>
-            <p class="is-size-6 legend">
-              Special Info - <i class="special-notes fad fa-info-circle pr-3"></i>
-              Size - <i class="fad fa-expand-arrows-alt pr-3"></i>
-              Offset - <i class="fad fa-arrow-alt-from-left pr-3"></i>
-              Material - <i class="fad fa-box-full"></i>
-            </p>
-          </div>
-          <div class="column is-half mb-3 has-text-right">
-            <b-field class="pb-2" position="is-right">
+          <div class="column is-half mb-3">
+            <b-field class="pb-2" position="is-left">
               <b-radio-button v-model="selectedSize" native-value="10" type="is-primary">
                 10 Inch
               </b-radio-button>
@@ -83,8 +54,50 @@
               </b-radio-button>
             </b-field>
           </div>
+          <div class="column">
+            <b-field class="mb-4" position="is-right">
+              <b-tooltip position="is-top" :always="helperTooltip" type="is-danger">
+                <b-input
+                  v-model="searchString"
+                  type="search"
+                  @keyup.enter.native="standardSearch()"
+                ></b-input>
+                <template #content>
+                  <i class="fad fa-reply tooltip-helper" :animated="true"></i> Try our new Search
+                </template>
+              </b-tooltip>
+              <p class="control">
+                <b-button
+                  v-debounce:500ms="standardSearch"
+                  debounce-events="click"
+                  class="button is-primary search-button"
+                >
+                  Search <i class="fad fa-search"></i>
+                </b-button>
+              </p>
+              <p class="pl-3">
+                <b-button
+                  v-debounce:500ms="searchAll"
+                  debounce-events="click"
+                  class="button is-secondary"
+                >
+                  View All {{ selectedSize }} inch Wheels
+                </b-button>
+              </p>
+            </b-field>
+          </div>
         </div>
-        <div class="columns">
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <h2 class="subtitle">
+              All Results:
+            </h2>
+          </div>
+          <div v-if="selectedWheels" class="column is-6 has-text-right has-text-weight-bold">
+            <h2 class="subtitle">
+              Total Results: {{ selectedWheels.length }}
+            </h2>
+          </div>
           <div v-if="!isLoading && noResults" class="column is-3 no-results">
             <div class="card">
               <header class="card-header has-text-centered">
@@ -167,7 +180,7 @@
                 <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="tile is-parent is-3">
                   <article class="tile is-child card">
                     <div class="card-content">
-                      <adsbygoogle ad-slot="4011964258" ad-format="fluid" ad-layout-key="+49+ph+3e-9y+4p" />
+                      <adsbygoogle ad-slot="4011964258" ad-format="fluid" ad-layout-key="+2a+rs+2z-6m+25" />
                     </div>
                   </article>
                 </div>
@@ -190,7 +203,8 @@ export default {
       selectedSize: '10',
       selectedWheels: null,
       isLoading: true,
-      noResults: false
+      noResults: false,
+      helperTooltip: false
     };
   },
   head () {
@@ -204,67 +218,50 @@ export default {
   computed: {},
   watch: {
     selectedSize () {
-      this.requestWheels();
+      this.standardSearch();
     }
   },
   mounted () {
-    this.requestWheels();
+    this.standardSearch();
+    setTimeout(() => {
+      this.helperTooltip = true;
+    }, 2000);
   },
   methods: {
-    searchAll () {
+    async performSearch (searchPayload) {
+      const token = Buffer.from(`${process.env.elastisearch.un}:${process.env.elastisearch.pw}`, 'utf8').toString('base64');
+      const searchURL = `${process.env.elastisearch.endpoint}/_search`;
+      const response = await axios.post(searchURL, searchPayload, {
+        headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' }
+      });
+      this.isLoading = false;
+      if (response.data.hits.hits < 1) {
+        this.noResults = true;
+      }
+      return response.data.hits.hits;
+    },
+    async searchAll () {
       this.searchString = '';
       this.isLoading = true;
-      this.requestWheels();
-    },
-    async requestWheels () {
-      this.isLoading = true;
-      this.noResults = false;
-      const token = Buffer
-        .from(`${process.env.elastisearch.un}:${process.env.elastisearch.pw}`, 'utf8')
-        .toString('base64');
-      const searchURL = `${process.env.elastisearch.endpoint}/_search`;
-      let searchPayload;
-      if (this.searchString === '') {
-        searchPayload = {
-          size: 1000,
-          query: {
-            bool: {
-              must: {
-                term: { majorSize: this.selectedSize }
-              }
-            }
-          }
-        };
-      } else {
-        searchPayload = {
-          size: 1000,
-          query: {
-            bool: {
-              must: {
-                term: { majorSize: this.selectedSize }
-              },
-              filter: {
-                regexp: { name: `${this.searchString.toLowerCase()}.*` }
-              }
-            }
-          }
-        };
-      }
-
-      const response = await axios.post(searchURL, searchPayload, {
-        headers: {
-          Authorization: `Basic ${token}`,
-          'Content-Type': 'application/json'
+      this.selectedWheels = await this.performSearch({
+        size: 1000,
+        query: {
+          bool: { must: { term: { majorSize: this.selectedSize } } }
         }
       });
-
-      this.selectedWheels = response.data.hits.hits;
-      setTimeout(() => {
-        this.isLoading = false;
-        if (this.selectedWheels.length < 1) {
-          this.noResults = true;
+    },
+    async standardSearch () {
+      this.isLoading = true;
+      this.noResults = false;
+      this.selectedWheels = await this.performSearch({
+        size: 1000,
+        query: {
+          bool: {
+            must: { term: { majorSize: this.selectedSize } },
+            filter: { regexp: { name: `${this.searchString.toLowerCase()}.*` } }
+          }
         }
-      }, 1000);
+      });
     }
   }
 };
@@ -294,11 +291,11 @@ export default {
     cursor: pointer;
     font-size: 1.5rem;
   }
-  .legend {
-    .special-notes {
-      font-size: 1rem;
-      cursor: initial;
-    }
+  .search-button {
+    border-radius: 0px 4px 4px 0px !important;
+  }
+  .tooltip-helper {
+    transform: rotate(242Deg);
   }
   .suggest-changes {
     bottom: 10px;
@@ -307,5 +304,11 @@ export default {
   }
   .bottom-details {
     margin-top: auto;
+  }
+  .b-tooltip.is-primary .tooltip-content {
+    background: #ee404f !important;
+    &::before {
+      border-top-color: #ee404f !important;
+    }
   }
 </style>
