@@ -94,9 +94,15 @@ export default {
               {
                 type: 'link',
                 text: 'Torque Specs',
-                subText: 'Torque Specs for your entire car',
+                // subText: 'Torque Specs for your entire car',
                 path: '/technical/torque',
-                iconLeft: '<i class="submenu-icon fad fa-ruler-triangle"></i>'
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png">
+                  </picture>
+                `
               },
               {
                 type: 'hr'
@@ -104,9 +110,15 @@ export default {
               {
                 type: 'link',
                 text: 'Compression Ratio Calculator',
-                subText: 'Calculate the compression ratio for your next engine build',
+                // subText: 'Calculate the compression ratio for your next engine build',
                 path: '/technical/compression',
-                iconLeft: '<i class="submenu-icon fad fa-compress-arrows-alt"></i>'
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png">
+                  </picture>
+                `
               },
               {
                 type: 'hr'
@@ -114,9 +126,15 @@ export default {
               {
                 type: 'link',
                 text: 'Color Picker',
-                subText: 'Find the right color swatch for your car',
+                // subText: 'Find the right color swatch for your car',
                 path: '/technical/colors',
-                iconLeft: '<i class="submenu-icon fad fa-palette"></i>'
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png">
+                  </picture>
+                `
               },
               {
                 type: 'hr'
@@ -124,9 +142,15 @@ export default {
               {
                 type: 'link',
                 text: 'Manuals',
-                subText: 'Find some of the best manuals to help you learn to work on your classic mini cooper.',
+                // subText: 'Find some of the best manuals to help you learn to work on your classic mini cooper.',
                 path: '/technical/Manuals',
-                iconLeft: '<i class="submenu-icon fad fa-books"></i>'
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png">
+                  </picture>
+                `
               },
               {
                 type: 'hr'
@@ -134,9 +158,15 @@ export default {
               {
                 type: 'link',
                 text: 'Essential Tools',
-                subText: 'Find some of the most useful tools to help make tough jobs easier.',
+                // subText: 'Find some of the most useful tools to help make tough jobs easier.',
                 path: '/technical/Tools',
-                iconLeft: '<i class="submenu-icon fad fa-wrench"></i>'
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png">
+                  </picture>
+                `
               },
               {
                 type: 'hr'
@@ -144,9 +174,15 @@ export default {
               {
                 type: 'link',
                 text: 'Electrical Diagrams',
-                subText: 'Complete and new digitally redrawn Classic Mini Wiring diagrams',
+                // subText: 'Complete and new digitally redrawn Classic Mini Wiring diagrams',
                 path: '/technical/electrical',
-                iconLeft: '<i class="submenu-icon fad fa-bolt"></i>'
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png">
+                  </picture>
+                `
               },
               {
                 type: 'hr'
@@ -154,9 +190,15 @@ export default {
               {
                 type: 'link',
                 text: 'Carb Needle Configurator',
-                subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
+                // subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
                 path: '/technical/needles',
-                iconLeft: '<i class="submenu-icon fad fa-chart-bar"></i>'
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png">
+                  </picture>
+                `
               },
               {
                 type: 'hr'
@@ -164,9 +206,15 @@ export default {
               {
                 type: 'link',
                 text: 'Wheel Library',
-                subText: 'Looking for your new wheels? Check out the Wheel Library',
+                // subText: 'Looking for your new wheels? Check out the Wheel Library',
                 path: '/technical/wheels',
-                iconLeft: '<i class="submenu-icon fad fa-tire"></i>'
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png">
+                  </picture>
+                `
               }
             ]
           },
@@ -222,30 +270,11 @@ export default {
         border-radius: 10px;
       }
     }
-    .submenu-icon {
-      font-size: 1.7rem;
-
-      &.fa-ruler-triangle {
-        color: #CD342E;
-      }
-      &.fa-palette {
-        color: #4285F5;
-      }
-      &.fa-books {
-        color: #522B1A;
-      }
-      &.fa-bolt {
-        color: #FF9A00;
-      }
-      &.fa-chart-bar {
-        color: #0D6628;
-      }
-      &.fa-wrench {
-        color: #6953bb;
-      }
-      // &.fa-compress-arrows-alt {
-        // color: none
-      // }
+    .vnb__sub-menu-options__option__link__icon--left {
+      max-width: 50px;
+    }
+    .vnb__sub-menu-options__option__link {
+      padding: 0px 12px;
     }
   }
 
