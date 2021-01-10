@@ -43,13 +43,13 @@
         <div class="columns">
           <div class="column is-half mb-3">
             <b-field class="pb-2" position="is-left">
-              <b-radio-button v-model="selectedSize" native-value="10" type="is-primary">
+              <b-radio-button v-model="selectedSize" :native-value="10" type="is-primary">
                 10 Inch
               </b-radio-button>
-              <b-radio-button v-model="selectedSize" native-value="12" type="is-primary">
+              <b-radio-button v-model="selectedSize" :native-value="12" type="is-primary">
                 12 Inch
               </b-radio-button>
-              <b-radio-button v-model="selectedSize" native-value="13" type="is-primary">
+              <b-radio-button v-model="selectedSize" :native-value="13" type="is-primary">
                 13 Inch
               </b-radio-button>
             </b-field>
@@ -200,7 +200,7 @@ export default {
   data () {
     return {
       searchString: 'Minilite',
-      selectedSize: '10',
+      selectedSize: 10,
       selectedWheels: null,
       isLoading: true,
       noResults: false,
@@ -215,10 +215,13 @@ export default {
       ]
     };
   },
-  computed: {},
   watch: {
     selectedSize () {
-      this.standardSearch();
+      if (this.searchString === '') {
+        this.searchAll();
+      } else {
+        this.standardSearch();
+      }
     }
   },
   mounted () {
@@ -235,20 +238,30 @@ export default {
         headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' }
       });
       this.isLoading = false;
-      if (response.data.hits.hits < 1) {
-        this.noResults = true;
-      }
+      if (response.data.hits.hits < 1) { this.noResults = true }
       return response.data.hits.hits;
     },
     async searchAll () {
       this.searchString = '';
       this.isLoading = true;
-      this.selectedWheels = await this.performSearch({
-        size: 1000,
-        query: {
-          bool: { must: { term: { majorSize: this.selectedSize } } }
-        }
-      });
+      console.log(this.$store.state.data.allWheels);
+
+      // Verify there is no data for the "all wheels" search you are doing in the store already
+      // If there isn't run the search, if there is use that instead.
+      if (
+        !this.$store.state.data.allWheels.wheels[this.selectedSize].length ||
+        this.selectedSize !== this.$store.state.data.allWheels.currentSize) {
+        this.selectedWheels = await this.performSearch({
+          size: 1000,
+          query: { bool: { must: { term: { majorSize: this.selectedSize } } } }
+        });
+        // If a search runs save the data to state.
+        this.$store.commit('data/setCurrentSize', this.selectedSize);
+        this.$store.commit('data/saveAllWheels', this.selectedWheels);
+      } else {
+        this.selecteWheels = await this.$store.state.data.allWheels.wheels[this.selectedSize];
+        this.isLoading = false;
+      }
     },
     async standardSearch () {
       this.isLoading = true;
