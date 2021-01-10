@@ -56,31 +56,19 @@
           </div>
           <div class="column">
             <b-field class="mb-4" position="is-right">
-              <b-tooltip position="is-top" :always="helperTooltip" type="is-danger">
-                <b-input
-                  v-model="searchString"
-                  type="search"
-                  @keyup.enter.native="standardSearch()"
-                ></b-input>
-                <template #content>
-                  <i class="fad fa-reply tooltip-helper" :animated="true"></i> Try our new Search
-                </template>
-              </b-tooltip>
+              <b-input
+                v-model="searchString"
+                placeholder="Ex. Minilite"
+                type="search"
+                @keyup.enter.native="standardSearch()"
+              ></b-input>
               <p class="control">
-                <b-button
-                  v-debounce:500ms="standardSearch"
-                  debounce-events="click"
-                  class="button is-primary search-button"
-                >
+                <b-button v-debounce:500ms="standardSearch" debounce-events="click" class="button is-primary search-button">
                   Search <i class="fad fa-search"></i>
                 </b-button>
               </p>
               <p class="pl-3">
-                <b-button
-                  v-debounce:500ms="searchAll"
-                  debounce-events="click"
-                  class="button is-secondary"
-                >
+                <b-button v-debounce:500ms="searchAll" debounce-events="click" class="button is-secondary">
                   View All {{ selectedSize }} inch Wheels
                 </b-button>
               </p>
@@ -88,24 +76,16 @@
           </div>
         </div>
         <div class="columns is-multiline">
-          <div class="column is-6">
-            <h2 class="subtitle">
-              All Results:
-            </h2>
-          </div>
-          <div v-if="selectedWheels" class="column is-6 has-text-right has-text-weight-bold">
-            <h2 class="subtitle">
-              Total Results: {{ selectedWheels.length }}
-            </h2>
-          </div>
-          <div v-if="!isLoading && noResults" class="column is-3 no-results">
-            <div class="card">
-              <header class="card-header has-text-centered">
-                <p class="card-header-title has-text-centered">
-                  <i class="fad fa-sad-tear pr-2"></i> No Results found
-                </p>
-              </header>
-            </div>
+          <div v-if="selectedWheels" class="column is-12">
+            <h3 class="has-text-weight-bold">
+              Total Results:
+              <template v-if="!isLoading">
+                {{ selectedWheels.length }}
+              </template>
+              <template v-else>
+                <i class="fad fa-spinner fa-spin"></i>
+              </template>
+            </h3>
           </div>
           <div class="column">
             <div v-if="isLoading && selectedSize !== ''" class="tile is-ancestor">
@@ -186,6 +166,14 @@
                 </div>
               </template>
             </div>
+            <div v-if="!isLoading && noResults" class="column is-half is-offset-one-quarter no-results">
+              <div class="card">
+                <div class="card-content has-text-centered">
+                  <i class="fad fa-sad-tear pb-3"></i>
+                  <h3>No Results found for "{{ searchString }}"</h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -195,16 +183,17 @@
 
 <script>
 import axios from 'axios';
+import initialWheels from '~/static/data/wheels/initial-wheels.json';
 
 export default {
   data () {
     return {
-      searchString: 'Minilite',
+      searchString: '',
       selectedSize: 10,
-      selectedWheels: null,
-      isLoading: true,
+      selectedWheels: initialWheels,
+      isLoading: false,
       noResults: false,
-      helperTooltip: false
+      initalPageLoad: true
     };
   },
   head () {
@@ -224,12 +213,6 @@ export default {
       }
     }
   },
-  mounted () {
-    this.standardSearch();
-    setTimeout(() => {
-      this.helperTooltip = true;
-    }, 2000);
-  },
   methods: {
     async performSearch (searchPayload) {
       const token = Buffer.from(`${process.env.elastisearch.un}:${process.env.elastisearch.pw}`, 'utf8').toString('base64');
@@ -238,14 +221,13 @@ export default {
         headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' }
       });
       this.isLoading = false;
+      if (this.initalPageLoad) { this.initalPageLoad = false }
       if (response.data.hits.hits < 1) { this.noResults = true }
       return response.data.hits.hits;
     },
     async searchAll () {
       this.searchString = '';
       this.isLoading = true;
-      console.log(this.$store.state.data.allWheels);
-
       // Verify there is no data for the "all wheels" search you are doing in the store already
       // If there isn't run the search, if there is use that instead.
       if (
@@ -295,6 +277,9 @@ export default {
   }
   .no-results {
     font-size: 1.2rem;
+    i {
+      font-size: 3.5rem;
+    }
   }
   .skeleton-image .b-skeleton-item {
     margin: auto;
