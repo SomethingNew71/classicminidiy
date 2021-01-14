@@ -72,6 +72,10 @@ export default {
     UserAgent: '*',
     Disallow: '/assets/'
   },
+  sitemap: {
+    hostname: 'https://classicminidiy.com',
+    gzip: true
+  },
   serverMiddleware: [
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
