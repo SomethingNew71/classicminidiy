@@ -65,7 +65,8 @@ export default {
     'nuxt-compress',
     '@nuxtjs/robots',
     '@nuxtjs/google-gtag',
-    '@nuxtjs/google-adsense'
+    '@nuxtjs/google-adsense',
+    '@nuxtjs/sitemap'
   ],
   robots: {
     UserAgent: '*',
