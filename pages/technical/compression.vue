@@ -43,8 +43,11 @@
       </div>
       <div class="column is-12">
         <div class="card">
-          <div class="card-content">
+          <div v-if="adsEnabled" class="card-content">
             <adsbygoogle ad-slot="5146110190" />
+          </div>
+          <div v-else class="card-content">
+            <ad-backfill />
           </div>
         </div>
       </div>
@@ -53,10 +56,13 @@
 </template>
 
 <script>
+import AdBackfill from '~/components/AdBackfill';
 import compressionCalc from '~/components/CompressionCalculator';
+
 export default {
   components: {
-    compressionCalc
+    compressionCalc,
+    AdBackfill
   },
   head () {
     return {
@@ -69,6 +75,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    adsEnabled () {
+      return this.$store.state.data.adsEnabled;
+    }
   }
 };
 </script>

@@ -159,8 +159,11 @@
                 </div>
                 <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="tile is-parent is-3">
                   <article class="tile is-child card">
-                    <div class="card-content">
+                    <div v-if="adsEnabled" class="card-content">
                       <adsbygoogle ad-slot="4011964258" ad-format="fluid" ad-layout-key="+2a+rs+2z-6m+25" />
+                    </div>
+                    <div v-else class="card-content">
+                      <ad-backfill />
                     </div>
                   </article>
                 </div>
@@ -184,8 +187,12 @@
 <script>
 import axios from 'axios';
 import initialWheels from '~/static/data/wheels/initial-wheels.json';
+import AdBackfill from '~/components/AdBackfill';
 
 export default {
+  components: {
+    AdBackfill
+  },
   data () {
     return {
       searchString: '',
@@ -203,6 +210,11 @@ export default {
         { hid: 'description', name: 'description', content: 'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.' }
       ]
     };
+  },
+  computed: {
+    adsEnabled () {
+      return this.$store.state.data.adsEnabled;
+    }
   },
   watch: {
     selectedSize () {
