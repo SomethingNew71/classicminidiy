@@ -66,8 +66,11 @@
       </div>
       <div class="column is-12">
         <div class="card">
-          <div class="card-content">
+          <div v-if="adsEnabled" class="card-content">
             <adsbygoogle ad-slot="7951209261" />
+          </div>
+          <div v-else class="card-content">
+            <ad-backfill />
           </div>
         </div>
       </div>
@@ -75,7 +78,12 @@
   </section>
 </template>
 <script>
+import AdBackfill from '~/components/AdBackfill';
+
 export default {
+  components: {
+    AdBackfill
+  },
   data () {
     return {
       cards: [
@@ -145,6 +153,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    adsEnabled () {
+      return this.$store.state.data.adsEnabled;
+    }
   }
 };
 </script>

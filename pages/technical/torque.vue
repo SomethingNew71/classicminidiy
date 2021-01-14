@@ -76,8 +76,11 @@
         </div>
         <div v-if="index === 1" :key="index" class="column is-12">
           <div class="card">
-            <div class="card-content">
+            <div v-if="adsEnabled" class="card-content">
               <adsbygoogle ad-slot="9364363281" />
+            </div>
+            <div v-else class="card-content">
+              <ad-backfill />
             </div>
           </div>
         </div>
@@ -87,10 +90,15 @@
 </template>
 
 <script>
+import AdBackfill from '~/components/AdBackfill';
+
 function getTables () {
   return import('~/static/data/torqueSpecs.json').then(m => m.default || m);
 }
 export default {
+  components: {
+    AdBackfill
+  },
   async asyncData ({ req }) {
     const tables = await getTables();
     return { tables };
@@ -111,6 +119,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    adsEnabled () {
+      return this.$store.state.data.adsEnabled;
+    }
   }
 };
 </script>

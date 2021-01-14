@@ -93,59 +93,67 @@
           </b-notification>
         </div>
         <div v-if="!loading" class="columns is-multiline">
-          <div
-            v-for="(color, index) in currentColors"
-            :key="index"
-            class="column is-3"
-          >
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  {{ color[3] }}
-                </p>
-              </header>
-              <div class="card-image">
-                <figure
-                  class="image is-4x4"
-                >
-                  <b-image
-                    v-if="color[6]"
-                    :src="`https://classicminidiy.s3.amazonaws.com/colors/${color[2]}.jpg`"
-                    :alt="`Image of color ${color[2]}`"
-                  />
-                  <b-image
-                    v-if="!color[6]"
-                    src="https://classicminidiy.s3.amazonaws.com/colors/no-swatch.png"
-                    :alt="`No image exists for color ${color[2]}`"
-                  />
-                </figure>
-              </div>
-              <hr v-if="!color[6]">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-5">
-                      {{ color[2] }}
-                    </p>
+          <template v-for="(color, index, name) in currentColors">
+            <div :key="index" class="column is-4">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">
+                    {{ color[3] }}
+                  </p>
+                </header>
+                <div class="card-image">
+                  <figure
+                    class="image is-4x4"
+                  >
+                    <b-image
+                      v-if="color[6]"
+                      :src="`https://classicminidiy.s3.amazonaws.com/colors/${color[2]}.jpg`"
+                      :alt="`Image of color ${color[2]}`"
+                    />
+                    <b-image
+                      v-if="!color[6]"
+                      src="https://classicminidiy.s3.amazonaws.com/colors/no-swatch.png"
+                      :alt="`No image exists for color ${color[2]}`"
+                    />
+                  </figure>
+                </div>
+                <hr v-if="!color[6]">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-5">
+                        {{ color[2] }}
+                      </p>
+                    </div>
                   </div>
                 </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                    <span class="is-size-4 fad fa-calendar-alt pr-5"></span>
+                    <span class="subtitle is-7">
+                      {{ color[5] }}
+                    </span>
+                  </p>
+                  <p class="card-footer-item">
+                    <span class="is-size-4 fad fa-brackets pr-5"></span>
+                    <span class="subtitle is-7">
+                      ({{ color[4] }})
+                    </span>
+                  </p>
+                </footer>
               </div>
-              <footer class="card-footer">
-                <p class="card-footer-item">
-                  <span class="is-size-4 fad fa-calendar-alt pr-5"></span>
-                  <span class="subtitle is-7">
-                    {{ color[5] }}
-                  </span>
-                </p>
-                <p class="card-footer-item">
-                  <span class="is-size-4 fad fa-brackets pr-5"></span>
-                  <span class="subtitle is-7">
-                    ({{ color[4] }})
-                  </span>
-                </p>
-              </footer>
             </div>
-          </div>
+            <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="column is-4">
+              <div class="card">
+                <div v-if="adsEnabled" class="card-content">
+                  <adsbygoogle ad-slot="8473398533" ad-format="fluid" ad-layout-key="+2a+rx+1+2-3" />
+                </div>
+                <div v-else class="card-content">
+                  <ad-backfill :size="'small'" />
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -153,8 +161,12 @@
 </template>
 <script>
 import colors from '~/static/data/colors.json';
+import AdBackfill from '~/components/AdBackfill';
 
 export default {
+  components: {
+    AdBackfill
+  },
   data () {
     return {
       title: 'Technical Information',
@@ -180,6 +192,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    adsEnabled () {
+      return this.$store.state.data.adsEnabled;
+    }
   },
   methods: {
     getColors () {

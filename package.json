@@ -34,8 +34,8 @@
     "js-cookie": "^2.2.1",
     "nuxt": "^2.14.12",
     "redirect-ssl": "^2.0.0",
-    "sass": "^1.32.2",
-    "sass-loader": "^10.1.0",
+    "sass": "^1.32.4",
+    "sass-loader": "^10.1.1",
     "vue-debounce": "^2.6.0",
     "vue2-highcharts": "^1.2.5"
   },
