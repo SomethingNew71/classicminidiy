@@ -52,8 +52,9 @@ export default {
   plugins: [
     '~/plugins/buefy.js',
     '~/plugins/vue-debounce.js',
-    { src: '~plugins/vue-highcharts.js', ssr: false },
-    { src: '~plugins/vue-navigation-bar.js', ssr: false }
+    { src: '~plugins/vue-highcharts.js', mode: 'client' },
+    { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
+    { src: '~/plugins/vue-gtag.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js modules
@@ -64,7 +65,7 @@ export default {
     '@aceforth/nuxt-optimized-images',
     'nuxt-compress',
     '@nuxtjs/robots',
-    '@nuxtjs/google-gtag',
+    // '@nuxtjs/google-gtag',
     '@nuxtjs/google-adsense',
     '@nuxtjs/sitemap'
   ],
@@ -80,22 +81,22 @@ export default {
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
-  'google-gtag': {
-    // TODO: Implement this new tag when gtag supports it.
-    // id: 'G-FBH0E64HM1',
-    id: 'UA-53914731-2',
-    config: {
-      linker: {
-        accept_incoming: true,
-        domains: [
-          'patreon.com/classicminidiy',
-          'facebook.com/classicminidiy',
-          'youtube.com/c/classicminidiy',
-          'merch.classicminidiy.com'
-        ]
-      }
-    }
-  },
+  // 'google-gtag': {
+  //   // TODO: Implement this new tag when gtag supports it.
+  //   // id: 'G-FBH0E64HM1',
+  //   id: 'UA-53914731-2',
+  //   config: {
+  //     linker: {
+  //       accept_incoming: true,
+  //       domains: [
+  //         'patreon.com/classicminidiy',
+  //         'facebook.com/classicminidiy',
+  //         'youtube.com/c/classicminidiy',
+  //         'merch.classicminidiy.com'
+  //       ]
+  //     }
+  //   }
+  // },
   'google-adsense': {
     id: 'ca-pub-0523971861051053',
     analyticsUacct: 'UA-53914731-2',

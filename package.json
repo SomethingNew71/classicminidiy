@@ -65,6 +65,7 @@
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.7",
     "nuxt-compress": "^4.1.0",
+    "vue-gtag": "^1.10.0",
     "vue-navigation-bar": "^4.1.0",
     "webp-loader": "^0.6.0"
   }
