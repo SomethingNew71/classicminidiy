@@ -66,6 +66,7 @@ export default {
     'nuxt-compress',
     '@nuxtjs/robots',
     // '@nuxtjs/google-gtag',
+    'nuxt-facebook-pixel-module',
     '@nuxtjs/google-adsense',
     '@nuxtjs/sitemap'
   ],
@@ -101,6 +102,10 @@ export default {
     id: 'ca-pub-0523971861051053',
     analyticsUacct: 'UA-53914731-2',
     analyticsDomainName: 'classicminidiy.com'
+  },
+  facebook: {
+    pixelId: '3553629671319283',
+    autoPageView: true
   },
   optimizedImages: {
     optimizeImages: true
