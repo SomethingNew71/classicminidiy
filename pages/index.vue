@@ -19,7 +19,7 @@
               Keeping the Classics on the Road
             </h4>
             <p class="is-size-5  pt-20">
-              Since Classic Mini DIY was started out of my small driveway workshop in 2015 I have focused on one thing, keeping these Classic Minis on the road. To do this, I make DIY showing exactly how to complete a wide range of jobs on your Classic Mini to make working on your car more accessible for everyone.
+              Classic Mini DIY started out of my small driveway workshop in 2015. I always focus on two things: keeping your Classic Mini on the road and making DIY car work accessible for all skill levels. I make DIY videos and tutorials showing exactly how to complete a wide range of jobs on your Classic Mini. I also partner with world-class manufacturers to deliver top-of-the-line products to personalize and ensure the performance of your Classic Mini.
             </p>
           </div>
           <div class="column is-4">
