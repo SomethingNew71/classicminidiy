@@ -122,6 +122,7 @@ export default {
     elastisearch: {
       un: process.env.elastisearchUN,
       pw: process.env.elastisearchPW,
+      // apiKey: process.env.elasticsearchAPIKey,
       endpoint: process.env.elastisearchAPI
     }
   }

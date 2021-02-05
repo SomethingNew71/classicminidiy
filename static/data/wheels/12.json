@@ -513,9 +513,9 @@
     "imagepath":"https://classicminidiy.s3.amazonaws.com/wheels/12/ats.jpg",
     "imagewebp":"https://classicminidiy.s3.amazonaws.com/wheels/12/ats.webp",
     "name":"ATS",
-    "size":"4.5x12 or 5x12",
+    "size":"5x12",
     "majorSize": "12",
-    "type":"other",
+    "type":"Alloy",
     "offset":"",
     "notes":""
   },

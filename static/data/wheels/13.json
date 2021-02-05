@@ -722,11 +722,11 @@
   {
   "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13.jpg",
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13.webp",
-  "name": "ATS(!?)",
+  "name": "ATS",
   "size": "5.5x13",
   "majorSize": "13",
   "type": "other",
-  "offset": "ET20",
+  "offset": "ET29",
   "notes": ""
   },
   {
