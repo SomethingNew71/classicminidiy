@@ -730,13 +730,13 @@
   "notes": ""
   },
   {
-  "type": "minilite",
+  "type": "Alloy",
   "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/gbearly.jpg",
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/gbearly.webp",
   "name": "BWA Racing 'GB', early design (70's)",
   "size": "5x10",
   "majorSize": "10",
-  "offset": "",
+  "offset": "ET15",
   "notes": ""
   },
   {
@@ -970,11 +970,11 @@
   "notes": "Possibly Honda fitment"
   },
   {
-  "type": "other",
+  "type": "Alloy",
   "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_5.jpg",
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/unbek_5.webp",
   "name": "Astrali",
-  "size": "",
+  "size": "5x10",
   "majorSize": "10",
   "offset": "",
   "notes": ""
@@ -1030,9 +1030,9 @@
   "notes": ""
   },
   {
-  "type": "other",
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
+  "type": "Alloy",
+  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/avon-safety.jpg",
+  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/avon-safety.webp",
   "name": "Avon Safety Wheels",
   "size": "4.5x10",
   "majorSize": "10",
@@ -1230,7 +1230,7 @@
   "notes": "Comes in two forms: with the center spokes either behind or in front of the mounting lip.   They are lighter than true Minilight magnesium wheels of the same size."
   },
   {
-  "type": "other",
+  "type": "Alloy",
   "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/canonica5x10.jpg",
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/canonica5x10.webp",
   "name": "Canonica (by Fondmetal)",
@@ -1710,11 +1710,11 @@
   "notes": "See Forceracing homepage: <a href=\"http://www.force-racing.co.uk/\">www.force-racing.co.uk/</a>.   Various colors available. Blind bolts threaded from the rear."
   },
   {
-  "type": "other",
+  "type": "Alloy",
   "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/fps.jpg",
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/fps.webp",
-  "name": "FPS (5x10?)",
-  "size": "",
+  "name": "FPS",
+  "size": "4.5x10",
   "majorSize": "10",
   "offset": "",
   "notes": ""
@@ -3110,14 +3110,14 @@
   "notes": "They are originaly designed for golf carts.   Maybe there are situations on a road car where they don't offer sufficient strengh to obtain security."
   },
   {
-  "type": "other",
+  "type": "Magnesium",
   "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/10/hustlerxx10.jpg",
   "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/10/hustlerxx10.webp",
-  "name": "Seen on 'HUSTLER' (Mini-based kit-car) Sixwheeler. Unknown origin.",
-  "size": "",
+  "name": "McNally Alloy",
+  "size": "5x10",
   "majorSize": "10",
   "offset": "",
-  "notes": ""
+  "notes": "Seen on 'HUSTLER' (Mini-based kit-car) Sixwheeler. Unknown origin."
   },
   {
   "type": "other",
