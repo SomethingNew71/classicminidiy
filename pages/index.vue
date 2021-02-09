@@ -15,10 +15,10 @@
             <h3 class="fancy-font-book-oblique">
               <i class="fad fa-book"></i> THE MINI MISSION
             </h3>
-            <h4 class="fancy-font-bold is-size-3">
+            <h4 class="fancy-font-bold is-size-3 pt-2 pb-3">
               Keeping the Classics on the Road
             </h4>
-            <p class="is-size-5  pt-20">
+            <p class="is-size-5">
               Classic Mini DIY started out of my small driveway workshop in 2015. I always focus on two things: keeping your Classic Mini on the road and making DIY car work accessible for all skill levels. I make DIY videos and tutorials showing exactly how to complete a wide range of jobs on your Classic Mini. I also partner with world-class manufacturers to deliver top-of-the-line products to personalize and ensure the performance of your Classic Mini.
             </p>
           </div>
@@ -26,10 +26,10 @@
             <h3 class="fancy-font-book-oblique">
               <i class="fad fa-gift"></i> SUPPORT THE MISSION
             </h3>
-            <h4 class="fancy-font-bold is-size-3">
+            <h4 class="fancy-font-bold is-size-3 pt-2 pb-3">
               Support
             </h4>
-            <p class="is-size-5 pt-20">
+            <p class="is-size-5 pt-2 pb-3">
               Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon or if you have skills in JS and modern web technologies, please consider supporting the open source codebase on github.
             </p>
             <a class="mt-25 button is-medium is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
