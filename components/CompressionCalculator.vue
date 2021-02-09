@@ -123,6 +123,11 @@
       </b-field>
     </div>
     <div class="column is-12">
+      <a @click="confirmCustom">
+        <b-icon pack="fas" :icon="'question'" /> How do I measure these values?
+      </a>
+    </div>
+    <div class="column is-12">
       <h2 class="title is-4">
         Results:
       </h2>
@@ -386,7 +391,7 @@ export default {
           ]
         }
       ],
-      pistonDish: 18,
+      pistonDish: 6.5,
       headVolume: 25.5,
       deckHeight: 20,
       bore: 7.1108,
@@ -401,6 +406,15 @@ export default {
     this.calculateRatio();
   },
   methods: {
+    confirmCustom () {
+      this.$buefy.dialog.confirm({
+        title: 'Measuring your chambers and deck',
+        message: '<img src="https://classicminidiy.s3.amazonaws.com/misc/measure.jpg" alt="Image illustrating measurement techniques">',
+        cancelText: 'Cancel',
+        confirmText: 'Ok',
+        type: 'is-primary'
+      });
+    },
     calculateRatio () {
       this.isLoading = true;
       const pi = Math.PI;
