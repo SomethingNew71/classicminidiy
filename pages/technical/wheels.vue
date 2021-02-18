@@ -54,7 +54,7 @@
               </b-radio-button>
             </b-field>
           </div>
-          <div class="column">
+          <div class="column is-hidden-touch">
             <b-field class="mb-4" position="is-right">
               <b-input
                 v-model="searchString"
@@ -73,6 +73,24 @@
                 </b-button>
               </p>
             </b-field>
+          </div>
+          <div class="column is-hidden-desktop">
+            <b-field class="mb-4" position="is-left">
+              <b-input
+                v-model="searchString"
+                placeholder="Ex. Minilite"
+                type="search"
+                @keyup.enter.native="standardSearch()"
+              ></b-input>
+            </b-field>
+            <p>
+              <b-button v-debounce:500ms="standardSearch" debounce-events="click" class="button is-primary">
+                Search <i class="fad fa-search"></i>
+              </b-button>
+              <b-button v-debounce:500ms="searchAll" debounce-events="click" class="button is-secondary">
+                View All {{ selectedSize }} inch Wheels
+              </b-button>
+            </p>
           </div>
         </div>
         <div class="columns is-multiline">
