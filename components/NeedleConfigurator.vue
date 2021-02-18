@@ -16,7 +16,12 @@
             @click="removeArrayItem(selectValues[name])"
           />
           <b-field class="is-fullwidth" expanded>
-            <b-select v-model="selectValues[name]" expanded placeholder="Select a name">
+            <b-select
+              v-model="selectValues[name]"
+              expanded
+              placeholder="Select a Needle"
+              @input="updateArrayItem(value, selectValues[name])"
+            >
               {{ selectValues[name] }}
               <option
                 v-for="needle in allNeedles"
@@ -29,21 +34,17 @@
           </b-field>
         </a>
         <div class="panel-block">
-          <button
-            class="button is-primary is-fullwidth"
-            aria-label="Click here to Compare your selected Needles"
-            @click="redraw()"
-          >
-            Compare
-          </button>
           <b-button
-            type="is-light"
+            type="is-primary"
             icon-pack="fas"
-            icon-right="plus"
+            icon-left="plus"
+            expanded
             aria-label="Click here to add another needle with a generic value"
             :disabled="selectValues.length === 10"
             @click="addArrayItem()"
-          />
+          >
+            Add Needle
+          </b-button>
         </div>
       </nav>
     </div>
@@ -67,33 +68,23 @@ export default {
   data () {
     return {
       allNeedles: Needles,
-      selectValues: [
-        ...StarterNeedles
-      ],
+      selectValues: [...StarterNeedles],
       highcharts: Highcharts,
       mapOptions: {
-        chart: {
-          zoomType: 'x'
-        },
-        title: {
-          text: 'Needle Comparison Chart'
-        },
+        chart: { zoomType: 'x' },
+        title: { text: 'Needle Comparison Chart' },
         subtitle: {
           text: 'Source: <a target="_blank" href="http://www.mintylamb.co.uk/suneedle/">http://www.mintylamb.co.uk/suneedle/</a>'
         },
         // This is the data decleration
         series: StarterNeedles,
         yAxis: {
-          title: {
-            text: 'Richness'
-          },
+          title: { text: 'Richness' },
           labels: false,
           reversed: true
         },
         xAxis: {
-          title: {
-            text: 'RPMs'
-          },
+          title: { text: 'RPMs' },
           labels: false
         },
         legend: {
@@ -101,15 +92,10 @@ export default {
           align: 'right',
           verticalAlign: 'middle'
         },
-        tooltip: {
-          headerFormat: 'Richness:<br>',
-          shared: true
-        },
+        tooltip: { headerFormat: 'Richness:<br>', shared: true },
         responsive: {
           rules: [{
-            condition: {
-              maxWidth: 500
-            },
+            condition: { maxWidth: 500 },
             chartOptions: {
               legend: {
                 layout: 'horizontal',
@@ -123,13 +109,21 @@ export default {
     };
   },
   methods: {
+    updateArrayItem () {
+      // When someone changes a needle value, update the chart
+      this.mapOptions.series = this.selectValues;
+    },
     addArrayItem () {
+      // Pick out a random needle from all the needles
       const rand = this.allNeedles[Math.floor(Math.random() * this.allNeedles.length)];
+      // Update the needle values which automatically triggers a redraw
       StarterNeedles.push(rand);
       this.selectValues.push(rand);
     },
     removeArrayItem (currentItem) {
-      const itemIndex = StarterNeedles.indexOf(currentItem);
+      // Find the index of the item you wanna remove
+      const itemIndex = this.selectValues.indexOf(currentItem);
+      // Remove the specific needle value which automatically triggers a redraw
       StarterNeedles.splice(itemIndex, 1);
       this.selectValues.splice(itemIndex, 1);
     }
