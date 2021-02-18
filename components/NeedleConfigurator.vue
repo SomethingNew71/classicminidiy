@@ -41,7 +41,7 @@
             icon-pack="fas"
             icon-right="plus"
             aria-label="Click here to add another needle with a generic value"
-            :disabled="selectValues.length === 15"
+            :disabled="selectValues.length === 10"
             @click="addArrayItem()"
           />
         </div>
@@ -49,19 +49,21 @@
     </div>
     <div class="column is-9">
       <div class="card">
-        <client-only>
-          <vue-highcharts ref="needlesChart" :options="mapOptions" :highcharts="highcharts" />
-        </client-only>
+        <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
       </div>
     </div>
   </div>
 </template>
 <script>
 import Highcharts from 'highcharts/highcharts';
+import { Chart } from 'highcharts-vue';
 import Needles from '~/static/data/needles.json';
 import StarterNeedles from '~/static/data/default-needles.json';
 
 export default {
+  components: {
+    highcharts: Chart
+  },
   data () {
     return {
       allNeedles: Needles,
@@ -121,25 +123,15 @@ export default {
     };
   },
   methods: {
-    redraw () {
-      // Get the local chart instance
-      const currentChart = this.$refs.needlesChart;
-      currentChart.delegateMethod('showLoading', 'Loading...');
-      // Remove all the needles currently in the list
-      this.mapOptions.series.forEach((item) => { currentChart.removeSeries(item) });
-      // Add all the new ones
-      this.selectValues.forEach((needle) => { currentChart.addSeries(needle) });
-      currentChart.hideLoading();
-    },
     addArrayItem () {
       const rand = this.allNeedles[Math.floor(Math.random() * this.allNeedles.length)];
+      StarterNeedles.push(rand);
       this.selectValues.push(rand);
-      this.redraw();
     },
     removeArrayItem (currentItem) {
-      const itemIndex = this.selectValues.indexOf(currentItem);
+      const itemIndex = StarterNeedles.indexOf(currentItem);
+      StarterNeedles.splice(itemIndex, 1);
       this.selectValues.splice(itemIndex, 1);
-      this.redraw();
     }
   }
 };
