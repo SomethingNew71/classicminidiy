@@ -2,7 +2,7 @@
   <section
     class="hero"
     :class="size"
-    :style="{ backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background})` }"
+    :style="[{backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background}.webp)`}]"
   >
     <client-only>
       <nav-bar

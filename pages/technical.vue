@@ -23,7 +23,7 @@ export default {
     return {
       title: 'Digital Mini Toolbox',
       subtitle: 'TECHNICAL INFORMATION',
-      background: '/technical.jpg',
+      background: '/technical',
       centered: true
     };
   },

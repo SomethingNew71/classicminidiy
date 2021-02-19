@@ -165,7 +165,7 @@ export default {
     return {
       title: 'Classic Mini <br> DIY',
       subtitle: 'YOUR FRIENDLY NEIGHBORHOOD',
-      background: '/hero.jpg',
+      background: '/hero',
       size: 'is-medium',
       toolboxItems: [
         {
