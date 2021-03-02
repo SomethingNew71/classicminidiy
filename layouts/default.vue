@@ -1,12 +1,17 @@
 <template>
   <div>
     <nuxt />
+    <patreon-popper></patreon-popper>
   </div>
 </template>
 <script>
 import axios from 'axios';
+import patreonPopper from '~/components/PatreonPopper';
 
 export default {
+  components: {
+    patreonPopper
+  },
   mounted () {
     this.attemptAdLoad();
   },

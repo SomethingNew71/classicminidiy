@@ -8,7 +8,6 @@ export const state = () => ({
       13: []
     }
   },
-  popperDismissed: false,
   adsEnabled: true
 });
 
@@ -22,18 +21,12 @@ export const mutations = {
   setCurrentSize (state, currentSize) {
     state.allWheels.currentSize = currentSize;
   },
-  updatePopperStatus (state) {
-    state.popperDismissed = true;
-  },
   setAdStatus (state, isEnabled) {
     state.adsEnabled = isEnabled;
   }
 };
 
 export const getters = {
-  getPopperStatus (state) {
-    return state.popperDismissed;
-  },
   getWheels (state) {
     return state.allWheels;
   },

@@ -54,7 +54,8 @@ export default {
     '~/plugins/vue-debounce.js',
     { src: '~plugins/highcharts-vue.js' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
-    { src: '~/plugins/vue-gtag.js', mode: 'client' }
+    { src: '~/plugins/vue-gtag.js', mode: 'client' },
+    { src: '~/plugins/vue-cookie-law.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js modules
