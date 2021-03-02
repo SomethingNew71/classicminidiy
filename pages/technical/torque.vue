@@ -35,7 +35,7 @@
         </h1>
       </div>
       <template v-for="(table, name, index) in tables">
-        <div :key="index" class="column is-12">
+        <div :key="`${name}-${index}`" class="column is-12">
           <b-collapse
             :open="index > 0 ? false : true"
             class="card"
