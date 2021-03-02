@@ -8,7 +8,7 @@
         <p>
           Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel and website alive, please consider supporting ongoing development on Patreon.
         </p>
-        <p class="mt-5">
+        <p class="mt-5 mb-5">
           <a
             class="button is-patreon"
             rel="noopener"
