@@ -11,7 +11,7 @@
     "url": "git://github.com/SomethingNew71/classicminidiy.git"
   },
   "engines": {
-    "node": "^14.15.5"
+    "node": "^14.16.0"
   },
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.4.0",
-    "@nuxtjs/eslint-config": "^5.0.0",
+    "@nuxtjs/eslint-config": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "babel-eslint": "^10.1.0",
     "decompress": "^4.2.1",
@@ -51,7 +51,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.5",
+    "eslint-plugin-jest": "^24.1.9",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
@@ -61,7 +61,7 @@
     "imagemin": "^7.0.1",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
-    "imagemin-pngquant": "^9.0.1",
+    "imagemin-pngquant": "^9.0.2",
     "imagemin-svgo": "^9.0.0",
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.7",
