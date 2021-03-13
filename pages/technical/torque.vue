@@ -99,7 +99,7 @@ export default {
   components: {
     AdBackfill
   },
-  async asyncData ({ req }) {
+  async asyncData () {
     const tables = await getTables();
     return { tables };
   },

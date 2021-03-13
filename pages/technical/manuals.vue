@@ -45,9 +45,7 @@
       >
         <div class="card">
           <div class="card-image">
-            <figure class="image is-3by4">
-              <b-image :src="manual.imgSourcewebp" :webp-fallback="manual.imgSource" :alt="`Image of the cover of the manual - ${manual.name}`" />
-            </figure>
+            <b-image ratio="is-3by4" :src="manual.imgSourcewebp" :webp-fallback="manual.imgSource" :alt="`Image of the cover of the manual - ${manual.name}`" />
           </div>
           <div class="card-content">
             <div class="media">
