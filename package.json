@@ -1,14 +1,22 @@
 {
   "name": "classicminidiy",
-  "version": "3.0.0",
+  "version": "3.5.4",
   "description": "Classic Mini DIY - The Classic Mini Knowledgebase",
-  "author": "cole-gentry",
+  "author": {
+    "name": "Cole Gentry",
+    "email": "hello@colegentry.io",
+    "url": "https://github.com/SomethingNew71"
+  },
   "license": "GPL-3.0",
   "private": false,
   "fix-absolute": "sed -i '/  .basedir.: /d' .nuxt/dist/server-bundle.json",
   "repository": {
     "type": "git",
     "url": "git://github.com/SomethingNew71/classicminidiy.git"
+  },
+  "homepage": "https://classicminidiy.com",
+  "bugs": {
+    "url": "https://github.com/SomethingNew71/classicminidiy/issues"
   },
   "engines": {
     "node": "^14.16.0"
