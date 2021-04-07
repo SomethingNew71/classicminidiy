@@ -276,6 +276,24 @@ export default {
     .vnb__sub-menu-options__option__link {
       padding: 0px 12px;
     }
+    .vnb__menu-options__option__link {
+      @keyframes wiggle {
+        0% { transform: rotate(0deg); }
+        80% { transform: rotate(0deg); }
+        85% { transform: rotate(10deg); }
+        95% { transform: rotate(-10deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      &[aria-label="Store"] {
+        display: inline-block;
+        animation: wiggle 1.5s infinite;
+      }
+
+      &[aria-label="Store"]:hover {
+        animation: none;
+      }
+    }
   }
 
   .special-title {
