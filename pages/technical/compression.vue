@@ -41,7 +41,7 @@
       <div class="column is-12">
         <compressionCalc />
       </div>
-      <div class="column is-12">
+      <!-- <div class="column is-12">
         <div class="card">
           <div v-if="adsEnabled" class="card-content">
             <adsbygoogle ad-slot="5146110190" />
@@ -50,19 +50,29 @@
             <ad-backfill />
           </div>
         </div>
+      </div> -->
+      <div class="column is-10 is-offset-1">
+        <div class="divider">
+          More
+        </div>
+      </div>
+      <div class="column is-12">
+        <store-promo />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import AdBackfill from '~/components/AdBackfill';
+// import AdBackfill from '~/components/AdBackfill';
 import compressionCalc from '~/components/CompressionCalculator';
+import StorePromo from '~/components/StorePromo';
 
 export default {
   components: {
     compressionCalc,
-    AdBackfill
+    StorePromo
+    // AdBackfill
   },
   head () {
     return {
