@@ -110,6 +110,14 @@
               </nuxt-link>
             </nav>
           </div>
+          <div class="column is-10 is-offset-1">
+            <div class="divider">
+              More
+            </div>
+          </div>
+          <div class="column is-12">
+            <store-promo />
+          </div>
         </div>
       </div>
     </section>
@@ -155,11 +163,13 @@
 <script>
 import Stats from '~/components/Stats';
 import Hero from '~/components/Hero';
+import StorePromo from '~/components/StorePromo';
 
 export default {
   components: {
     Hero,
-    Stats
+    Stats,
+    StorePromo
   },
   data () {
     return {

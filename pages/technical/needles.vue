@@ -72,7 +72,7 @@
           </b-tab-item>
         </b-tabs>
       </div>
-      <div class="column is-12">
+      <!-- <div class="column is-12">
         <div class="card">
           <div v-if="adsEnabled" class="card-content">
             <adsbygoogle ad-slot="1918786408" />
@@ -81,6 +81,14 @@
             <ad-backfill />
           </div>
         </div>
+      </div> -->
+      <div class="column is-10 is-offset-1">
+        <div class="divider">
+          More
+        </div>
+      </div>
+      <div class="column is-12">
+        <store-promo />
       </div>
     </div>
   </section>
@@ -88,13 +96,15 @@
 <script>
 import needleConfig from '~/components/NeedleConfigurator';
 import needleTable from '~/components/NeedleTable';
-import AdBackfill from '~/components/AdBackfill';
+import StorePromo from '~/components/StorePromo';
+// import AdBackfill from '~/components/AdBackfill';
 
 export default {
   components: {
     needleConfig,
     needleTable,
-    AdBackfill
+    StorePromo
+    // AdBackfill
   },
   data () {
     return {};
