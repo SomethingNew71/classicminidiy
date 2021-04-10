@@ -27,6 +27,10 @@ export default {
       {
         property: 'og:image',
         content: 'https://classicminidiy.com/seo-images/avatar.jpg'
+      },
+      {
+        property: 'fb:pages',
+        content: '615159745295369'
       }
     ],
     link: [
