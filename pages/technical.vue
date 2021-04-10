@@ -10,14 +10,17 @@
     <div class="container">
       <nuxt-child />
     </div>
+    <facebook-chat-overlay />
   </div>
 </template>
 <script>
 import Hero from '~/components/Hero';
+import facebookChatOverlay from '~/components/FacebookChatOverlay';
 
 export default {
   components: {
-    Hero
+    Hero,
+    facebookChatOverlay
   },
   data () {
     return {
