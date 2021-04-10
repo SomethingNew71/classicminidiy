@@ -181,7 +181,7 @@
                       <adsbygoogle ad-slot="4011964258" ad-format="fluid" ad-layout-key="+2a+rs+2z-6m+25" />
                     </div>
                     <div v-else class="card-content">
-                      <ad-backfill />
+                      <ad-backfill size="small" />
                     </div>
                   </article>
                 </div>

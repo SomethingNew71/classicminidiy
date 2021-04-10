@@ -48,23 +48,9 @@
         </nav>
       </div>
       <div class="column is-8">
-        <p class="is-size-5 pt-5">
+        <p class="is-size-5 pt-5 pb-5">
           One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com.
         </p>
-        <h3 class="fancy-font-book-oblique pt-5 is-size-4">
-          SUPPORT THE SITE
-        </h3>
-        <p class="is-size-5 pt-5">
-          Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive, or covering hosting costs consider supporting on Patreon.
-        </p>
-        <a class="mt-5 button is-medium is-patreon" href="https://patreon.com/classicminidiy" target="_blank">
-          <span class="icon">
-            <i class="fab fa-patreon" />
-          </span>
-          <span>Support</span>
-        </a>
-      </div>
-      <div class="column is-12">
         <div class="card">
           <div v-if="adsEnabled" class="card-content">
             <adsbygoogle ad-slot="7951209261" />
