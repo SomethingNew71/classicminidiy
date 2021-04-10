@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt />
-    <patreon-popper></patreon-popper>
+    <patreon-popper />
   </div>
 </template>
 <script>
