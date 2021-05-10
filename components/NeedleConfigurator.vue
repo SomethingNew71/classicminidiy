@@ -50,7 +50,9 @@
     </div>
     <div class="column is-9">
       <div class="card">
-        <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
+        <client-only>
+          <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
+        </client-only>
       </div>
     </div>
   </div>
@@ -80,12 +82,16 @@ export default {
         series: StarterNeedles,
         yAxis: {
           title: { text: 'Richness' },
-          labels: false,
+          labels: {
+            enabled: false
+          },
           reversed: true
         },
         xAxis: {
           title: { text: 'RPMs' },
-          labels: false
+          labels: {
+            enabled: false
+          }
         },
         legend: {
           layout: 'vertical',
