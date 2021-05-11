@@ -74,7 +74,7 @@
     "imagemin-svgo": "^9.0.0",
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.7",
-    "nuxt-compress": "^4.1.1",
+    "nuxt-compress": "^5.0.0",
     "sass": "^1.32.12",
     "sass-loader": "^10.1.1",
     "vue-cookie-law": "^1.13.3",
