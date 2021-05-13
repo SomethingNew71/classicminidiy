@@ -109,6 +109,22 @@ export default {
               },
               {
                 type: 'link',
+                text: 'Engine Sizes',
+                // subText: 'Torque Specs for your entire car',
+                path: '/technical/enginesize',
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png">
+                  </picture>
+                `
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
                 text: 'Compression Ratio Calculator',
                 // subText: 'Calculate the compression ratio for your next engine build',
                 path: '/technical/compression',
