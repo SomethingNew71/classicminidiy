@@ -15,3 +15,20 @@ p {
     font-size: 1.5rem !important;
   }
 }
+
+// .callout-card {
+//   @keyframes wiggleSmall {
+//     0% { transform: rotate(0deg); }
+//     80% { transform: rotate(0deg); }
+//     85% { transform: rotate(3deg); }
+//     95% { transform: rotate(-3deg); }
+//     100% { transform: rotate(0deg); }
+//   }
+
+//   display: inline-block;
+//   animation: wiggleSmall 3s infinite;
+
+//   &:hover {
+//     animation: none;
+//   }
+// }
