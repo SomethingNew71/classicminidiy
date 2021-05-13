@@ -420,37 +420,6 @@ export default {
           torque: '----'
         }
       ]
-      // columns: [
-      //   {
-      //     field: 'group',
-      //     label: 'Group',
-      //     width: '100'
-      //   },
-      //   {
-      //     field: 'engineSize',
-      //     label: 'Engine Size'
-      //   },
-      //   {
-      //     field: 'overBore',
-      //     label: 'Over Bore'
-      //   },
-      //   {
-      //     field: 'boreSize',
-      //     label: 'Bore Size'
-      //   },
-      //   {
-      //     field: 'stroke',
-      //     label: 'Stroke'
-      //   },
-      //   {
-      //     field: 'power',
-      //     label: 'Power (est)'
-      //   },
-      //   {
-      //     field: 'torque',
-      //     label: 'Torque (est)'
-      //   }
-      // ]
     };
   },
   head () {
@@ -464,7 +433,7 @@ export default {
         },
         {
           property: 'og:title',
-          content: 'Technical - Workshop Manuals'
+          content: 'Technical - Engine Sizes/Displacements'
         }
       ]
     };
