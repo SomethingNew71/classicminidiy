@@ -42,7 +42,7 @@
           </div>
           <div class="column is-4">
             <nuxt-link :to="'/technical/compression'" :title="'Link to Compression Calculator'">
-              <div class="card">
+              <div class="card callout-card">
                 <div class="card-content">
                   <div class="media">
                     <div class="media-left">
@@ -67,19 +67,44 @@
           </div>
         </div>
       </div>
+      <div class="column is-justify-content-end">
+        <i class="fas fa-circle pl-1 has-text-success"></i> Standard
+        <i class="fas fa-circle pl-1 has-text-primary"></i> Standard Overbore
+        <i class="fas fa-circle pl-1 has-text-danger"></i> Different Stroke
+      </div>
       <div class="column is-12">
-        <p class="pb-3">
-          Note: All specs below are based on <strong>standard stroke</strong> engines.
-        </p>
         <div class="card">
           <div class="card-content">
             <b-table
               :data="data"
-              :columns="columns"
-              :selected.sync="selected"
+              narrowed
               :hoverable="true"
               :row-class="(row, index) => row.group !== '' && 'has-background-light has-text-weight-bold'"
             >
+              <b-table-column v-slot="props" field="group" label="Group">
+                {{ props.row.group }}
+              </b-table-column>
+              <b-table-column v-slot="props" field="engineSize" label="Engine Size">
+                <template v-if="props.row.group === ''">
+                  <i class="ref-icons fas fa-circle pl-1" :class="props.row.color"></i>
+                </template>
+                {{ props.row.engineSize }}
+              </b-table-column>
+              <b-table-column v-slot="props" field="overBore" label="Over Bore">
+                {{ props.row.overBore }}
+              </b-table-column>
+              <b-table-column v-slot="props" field="boreSize" label="Bore Size">
+                {{ props.row.boreSize }}
+              </b-table-column>
+              <b-table-column v-slot="props" field="stroke" label="Stroke">
+                {{ props.row.stroke }}
+              </b-table-column>
+              <b-table-column v-slot="props" field="power" label="Power">
+                {{ props.row.power }}
+              </b-table-column>
+              <b-table-column v-slot="props" field="torque" label="Torque">
+                {{ props.row.torque }}
+              </b-table-column>
             </b-table>
           </div>
         </div>
@@ -95,180 +120,337 @@ export default {
       data: [
         // 850cc Engines
         {
-          group: '850\'s',
+          group: '850',
+          type: '',
+          color: '',
           engineSize: '',
           boreSize: '',
           overBore: '',
+          stroke: '',
           power: '',
           torque: ''
         },
         {
           group: '',
+          type: '',
+          color: 'has-text-success',
           engineSize: '850cc',
           boreSize: '2.58" / 62.9mm',
           overBore: '----',
+          stroke: '2.688" / 68.26mm (std)',
           power: '34bhp',
           torque: '44lb/ft'
         },
+        // 997cc Cooper Engines
         {
-          group: '',
-          engineSize: '----',
-          boreSize: '----',
-          overBore: '+020',
-          power: '',
-          torque: ''
-        },
-        {
-          group: '',
-          engineSize: '----',
-          boreSize: '----',
-          overBore: '+030',
-          power: '',
-          torque: ''
-        },
-        {
-          group: '',
-          engineSize: '----',
-          boreSize: '----',
-          overBore: '+040',
-          power: '',
-          torque: ''
-        },
-        // 998cc Engines
-        {
-          group: '998\'s',
+          group: '997',
+          type: '',
+          color: '',
           engineSize: '',
           boreSize: '',
           overBore: '',
+          stroke: '',
           power: '',
           torque: ''
         },
         {
           group: '',
+          type: '',
+          color: 'has-text-success',
+          engineSize: '997cc',
+          boreSize: '2.458 / 62.43mm',
+          overBore: '----',
+          stroke: '3.200" / 81.28mm (std)',
+          power: '55bhp',
+          torque: '54lb/ft'
+        },
+        // 998cc Engines
+        {
+          group: '998',
+          type: '',
+          color: '',
+          engineSize: '',
+          boreSize: '',
+          overBore: '',
+          stroke: '',
+          power: '',
+          torque: ''
+        },
+        {
+          group: '',
+          type: '',
+          color: 'has-text-success',
           engineSize: '998cc',
           boreSize: '2.543" / 64.57mm',
           overBore: '----',
+          stroke: '3.000" / 76.20mm (std)',
           power: '41bhp',
           torque: '52lb/ft'
         },
         {
           group: '',
+          type: '',
+          color: 'has-text-primary',
           engineSize: '1014cc',
-          boreSize: '----',
+          boreSize: '2.563" / 65.09mm',
           overBore: '+020',
-          power: '',
-          torque: ''
+          stroke: '3.000" / 76.20mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
           group: '',
-          engineSize: '----',
-          boreSize: '----',
-          overBore: '+030',
-          power: '',
-          torque: ''
-        },
-        {
-          group: '',
-          engineSize: '----',
-          boreSize: '----',
+          type: '',
+          color: 'has-text-primary',
+          engineSize: '1030cc',
+          boreSize: '2.583" / 65.60mm',
           overBore: '+040',
-          power: '',
-          torque: ''
+          stroke: '3.000" / 76.20mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
-          group: '1275\'s',
-          engineSize: '',
-          boreSize: '',
-          overBore: '',
-          power: '',
-          torque: ''
+          group: '',
+          type: '',
+          color: 'has-text-primary',
+          engineSize: '1046cc',
+          boreSize: '2.603" / 66.10mm',
+          overBore: '+060',
+          stroke: '3.000" / 76.20mm (std)',
+          power: '----',
+          torque: '----'
+        },
+        {
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1098cc',
+          boreSize: '2.543" / 64.58mm',
+          overBore: '----',
+          stroke: '3.296" / 83.72mm',
+          power: '45bhp',
+          torque: '56ft/lb'
+        },
+        {
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1114cc',
+          boreSize: '2.563" / 65.09mm',
+          overBore: '+020',
+          stroke: '3.296" / 83.72mm',
+          power: '----',
+          torque: '----'
+        },
+        {
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1132cc',
+          boreSize: '2.583" / 65.60mm',
+          overBore: '+040',
+          stroke: '3.296" / 83.72mm',
+          power: '----',
+          torque: '----'
+        },
+        {
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1149cc',
+          boreSize: '2.603" / 66.10mm',
+          overBore: '+060',
+          stroke: '3.296" / 83.72mm',
+          power: '----',
+          torque: '----'
         },
         // 1275cc Engines
         {
+          group: '1275',
+          type: '',
+          color: '',
+          engineSize: '',
+          boreSize: '',
+          overBore: '',
+          stroke: '',
+          power: '',
+          torque: ''
+        },
+        {
           group: '',
+          type: '',
+          color: 'has-text-success',
           engineSize: '1275cc',
           boreSize: '2.78" / 70.6mm',
           overBore: '----',
+          stroke: '3.200" / 81.28mm (std)',
           power: '63bhp',
           torque: '70lb/ft'
         },
         {
           group: '',
+          type: '',
+          color: 'has-text-primary',
           engineSize: '1293cc',
           boreSize: '2.801" / 71.145mm',
           overBore: '+020',
-          power: '',
-          torque: ''
+          stroke: '3.200" / 81.28mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
           group: '',
+          type: '',
+          color: 'has-text-primary',
           engineSize: '1302cc',
           boreSize: '2.811" / 71.4mm',
           overBore: '+030',
-          power: '',
-          torque: ''
+          stroke: '3.200" / 81.28mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
           group: '',
+          type: '',
+          color: 'has-text-primary',
           engineSize: '1311cc',
           boreSize: '2.821" / 71.65mm',
           overBore: '+040',
-          power: '',
-          torque: ''
+          stroke: '3.200" / 81.28mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
           group: '',
+          type: '',
+          color: 'has-text-primary',
           engineSize: '1330cc',
           boreSize: '2.841" / 72.16mm',
           overBore: '+060',
-          power: '',
-          torque: ''
+          stroke: '3.200" / 81.28mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
           group: '',
-          engineSize: '----',
-          boreSize: '2.8745" / 73.01mm',
-          overBore: '+094',
-          power: '',
-          torque: ''
+          type: '',
+          color: 'has-text-primary',
+          engineSize: '1361cc',
+          boreSize: '73mm',
+          overBore: '73.00',
+          stroke: '3.200" / 81.28mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
           group: '',
-          engineSize: '1380',
-          boreSize: '2.894" / 73.51mm',
-          overBore: '+1135',
-          power: '',
-          torque: ''
-        }
-      ],
-      selected: null,
-      columns: [
-        {
-          field: 'group',
-          label: 'Group',
-          width: '100'
+          type: '',
+          color: 'has-text-primary',
+          engineSize: '1379cc',
+          boreSize: '73.5mm',
+          overBore: '73.50',
+          stroke: '3.200" / 81.28mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
-          field: 'engineSize',
-          label: 'Engine Size'
+          group: '',
+          type: '',
+          color: 'has-text-primary',
+          engineSize: '1398cc',
+          boreSize: '74mm',
+          overBore: '74.00',
+          stroke: '3.200" / 81.28mm (std)',
+          power: '----',
+          torque: '----'
         },
         {
-          field: 'overBore',
-          label: 'Over Bore'
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1406cc',
+          boreSize: '73mm',
+          overBore: '73.00',
+          stroke: '84.00mm',
+          power: '----',
+          torque: '----'
         },
         {
-          field: 'boreSize',
-          label: 'Bore Size'
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1426cc',
+          boreSize: '73.5mm',
+          overBore: '73.50',
+          stroke: '84.00mm',
+          power: '----',
+          torque: '----'
         },
         {
-          field: 'power',
-          label: 'Power (est)'
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1440cc',
+          boreSize: '73mm',
+          overBore: '73.00',
+          stroke: '86.00mm',
+          power: '----',
+          torque: '----'
         },
         {
-          field: 'torque',
-          label: 'Torque (est)'
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1460cc',
+          boreSize: '73.5mm',
+          overBore: '73.50',
+          stroke: '86.00mm',
+          power: '----',
+          torque: '----'
+        },
+        {
+          group: '',
+          type: '',
+          color: 'has-text-danger',
+          engineSize: '1479cc',
+          boreSize: '74mm',
+          overBore: '74.00',
+          stroke: '86.00mm',
+          power: '----',
+          torque: '----'
         }
       ]
+      // columns: [
+      //   {
+      //     field: 'group',
+      //     label: 'Group',
+      //     width: '100'
+      //   },
+      //   {
+      //     field: 'engineSize',
+      //     label: 'Engine Size'
+      //   },
+      //   {
+      //     field: 'overBore',
+      //     label: 'Over Bore'
+      //   },
+      //   {
+      //     field: 'boreSize',
+      //     label: 'Bore Size'
+      //   },
+      //   {
+      //     field: 'stroke',
+      //     label: 'Stroke'
+      //   },
+      //   {
+      //     field: 'power',
+      //     label: 'Power (est)'
+      //   },
+      //   {
+      //     field: 'torque',
+      //     label: 'Torque (est)'
+      //   }
+      // ]
     };
   },
   head () {
@@ -289,10 +471,10 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-.is-amazon {
-  color: white;
-  font-size: 1rem;
-  background-color: #febd69;
+<style lang="scss" scoped>
+.ref-icons {
+  font-size: 0.5rem;
+  vertical-align: middle;
+  padding-bottom: 2px;
 }
 </style>
