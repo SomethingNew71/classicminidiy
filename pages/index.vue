@@ -188,6 +188,12 @@ export default {
           to: '/technical/torque'
         },
         {
+          title: 'Engine Sizes',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
+          to: '/technical/enginesize'
+        },
+        {
           title: 'Color Picker',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
           webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp',
