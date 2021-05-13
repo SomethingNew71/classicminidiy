@@ -92,6 +92,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Workshop Manuals'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png'
         }
       ]
     };

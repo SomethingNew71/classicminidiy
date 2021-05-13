@@ -110,6 +110,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Compression Ratio Calculator'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png'
         }
       ]
     };

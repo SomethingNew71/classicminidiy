@@ -189,6 +189,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Color Picker'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png'
         }
       ]
     };

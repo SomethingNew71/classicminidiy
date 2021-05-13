@@ -137,6 +137,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Essential Tools'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png'
         }
       ]
     };

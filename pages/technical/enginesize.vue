@@ -434,6 +434,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Engine Sizes/Displacements'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png'
         }
       ]
     };

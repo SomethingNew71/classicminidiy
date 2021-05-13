@@ -117,6 +117,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - SU Needles Chart'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png'
         }
       ]
     };

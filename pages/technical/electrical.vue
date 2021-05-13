@@ -109,6 +109,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Electrical Diagrams'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png'
         }
       ]
     };

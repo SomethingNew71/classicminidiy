@@ -116,6 +116,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Torque Specs'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png'
         }
       ]
     };

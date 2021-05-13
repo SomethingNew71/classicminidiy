@@ -229,6 +229,10 @@ export default {
         {
           property: 'og:title',
           content: 'Technical - Wheel Dictionary'
+        },
+        {
+          property: 'og:image',
+          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png'
         }
       ]
     };
