@@ -77,11 +77,10 @@
           <div class="card-content">
             <b-table
               :data="data"
-              narrowed
               :hoverable="true"
               :row-class="(row, index) => row.group !== '' && 'has-background-light has-text-weight-bold'"
             >
-              <b-table-column v-slot="props" field="group" label="Group">
+              <b-table-column v-slot="props" field="group" label="Group" narrowed="false">
                 {{ props.row.group }}
                 <template v-if="props.row.group === ''">
                   <i class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1" :class="props.row.color"></i>
