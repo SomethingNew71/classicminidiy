@@ -83,10 +83,13 @@
             >
               <b-table-column v-slot="props" field="group" label="Group">
                 {{ props.row.group }}
+                <template v-if="props.row.group === ''">
+                  <i class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1" :class="props.row.color"></i>
+                </template>
               </b-table-column>
               <b-table-column v-slot="props" field="engineSize" label="Engine Size">
                 <template v-if="props.row.group === ''">
-                  <i class="ref-icons fas fa-circle pl-1" :class="props.row.color"></i>
+                  <i class="is-hidden-mobile ref-icons fas fa-circle pl-1" :class="props.row.color"></i>
                 </template>
                 {{ props.row.engineSize }}
               </b-table-column>
@@ -449,5 +452,9 @@ export default {
   font-size: 0.5rem;
   vertical-align: middle;
   padding-bottom: 2px;
+  &.mobile-v {
+    font-size: 0.75rem;
+  }
 }
+
 </style>
