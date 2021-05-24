@@ -111,12 +111,24 @@
           </div>
         </div>
       </div>
+      <div class="column is-12">
+        <div class="card">
+          <div class="card-content">
+            <ad-backfill />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import AdBackfill from '~/components/AdBackfill';
+
 export default {
+  components: {
+    AdBackfill
+  },
   data () {
     return {
       data: [
