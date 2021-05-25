@@ -44,7 +44,7 @@
     "js-cookie": "^2.2.1",
     "nuxt": "^2.15.6",
     "nuxt-facebook-pixel-module": "^1.5.0",
-    "redirect-ssl": "^2.0.1",
+    "redirect-ssl": "^3.0.0",
     "vue-debounce": "^2.6.0",
     "vue-gtag": "^1.16.1",
     "vue-navigation-bar": "^4.1.0"
@@ -74,7 +74,7 @@
     "imagemin-svgo": "^9.0.0",
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.7",
-    "nuxt-compress": "^4.1.1",
+    "nuxt-compress": "^5.0.0",
     "sass": "^1.34.0",
     "sass-loader": "^10.1.1",
     "vue-cookie-law": "^1.13.3",
