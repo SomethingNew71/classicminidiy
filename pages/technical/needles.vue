@@ -58,33 +58,25 @@
       </div>
       <div class="column is-12 hr mt-5"></div>
       <div class="column is-12">
-        <b-tabs type="is-toggle" position="is-centered">
-          <b-tab-item label="Compare" icon-pack="fas" icon="fas fa-chart-line" class="pt-3">
-            <needleConfig />
-          </b-tab-item>
-          <b-tab-item label="Charts" icon-pack="fas" icon="fas fa-table" class="columns is-multiline pt-3">
-            <div class="column is-12 has-text-centered">
-              <h5 class="fancy-font-book is-size-5">
-                Information provided by <a href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html" target="_blank">Seven Mini Parts</a>
-              </h5>
-            </div>
-            <needleTable />
-          </b-tab-item>
-        </b-tabs>
+        <needleConfig />
       </div>
-      <!-- <div class="column is-12">
-        <div class="card">
-          <div v-if="adsEnabled" class="card-content">
-            <adsbygoogle ad-slot="1918786408" />
-          </div>
-          <div v-else class="card-content">
-            <ad-backfill />
-          </div>
-        </div>
-      </div> -->
       <div class="column is-10 is-offset-1">
         <div class="divider">
-          More
+          Needle Charts
+        </div>
+      </div>
+      <div class="column is-12 has-text-centered">
+        <h4 class="fancy-font-book is-size-3">
+          Find the needle for your carb
+        </h4>
+        <h5 class="fancy-font-book is-size-5">
+          Information provided by <a href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html" target="_blank">Seven Mini Parts</a>
+        </h5>
+      </div>
+      <needleTable />
+      <div class="column is-10 is-offset-1">
+        <div class="divider">
+          Support
         </div>
       </div>
       <div class="column is-12">
@@ -97,14 +89,12 @@
 import needleConfig from '~/components/NeedleConfigurator';
 import needleTable from '~/components/NeedleTable';
 import StorePromo from '~/components/StorePromo';
-// import AdBackfill from '~/components/AdBackfill';
 
 export default {
   components: {
     needleConfig,
     needleTable,
     StorePromo
-    // AdBackfill
   },
   data () {
     return {};

@@ -50,28 +50,20 @@
     </div>
     <div class="column is-9">
       <div class="card">
-        <client-only>
-          <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
-        </client-only>
+        <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
       </div>
     </div>
   </div>
 </template>
 <script>
-import Highcharts from 'highcharts/highcharts';
-import { Chart } from 'highcharts-vue';
 import Needles from '~/static/data/needles.json';
 import StarterNeedles from '~/static/data/default-needles.json';
 
 export default {
-  components: {
-    highcharts: Chart
-  },
   data () {
     return {
       allNeedles: Needles,
       selectValues: [...StarterNeedles],
-      highcharts: Highcharts,
       mapOptions: {
         chart: { zoomType: 'x' },
         title: { text: 'Needle Comparison Chart' },
