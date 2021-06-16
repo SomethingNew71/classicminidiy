@@ -114,7 +114,7 @@
       <div class="column is-12">
         <div class="card">
           <div class="card-content">
-            <ad-backfill />
+            <ad-backfill size="large" />
           </div>
         </div>
       </div>

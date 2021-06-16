@@ -75,7 +75,7 @@
             <adsbygoogle ad-slot="5146110190" />
           </div>
           <div v-else class="card-content">
-            <ad-backfill />
+            <ad-backfill size="large" />
           </div>
         </div>
       </div> -->

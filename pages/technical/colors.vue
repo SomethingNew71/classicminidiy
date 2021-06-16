@@ -145,10 +145,7 @@
             </div>
             <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="column is-4">
               <div class="card">
-                <div v-if="adsEnabled" class="card-content">
-                  <adsbygoogle ad-slot="8473398533" ad-format="fluid" ad-layout-key="+2a+rx+1+2-3" />
-                </div>
-                <div v-else class="card-content">
+                <div class="card-content">
                   <ad-backfill :size="'small'" />
                 </div>
               </div>

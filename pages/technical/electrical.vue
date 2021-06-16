@@ -73,11 +73,8 @@
           </div>
           <div v-if="index === 2" :key="`ad-${index}`" class="column is-12">
             <div class="card">
-              <div v-if="adsEnabled" class="card-content">
-                <adsbygoogle ad-slot="2698882588" />
-              </div>
-              <div v-else class="card-content">
-                <ad-backfill />
+              <div class="card-content">
+                <ad-backfill size="large" />
               </div>
             </div>
           </div>

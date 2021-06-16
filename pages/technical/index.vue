@@ -52,11 +52,8 @@
           One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com.
         </p>
         <div class="card">
-          <div v-if="adsEnabled" class="card-content">
-            <adsbygoogle ad-slot="7951209261" />
-          </div>
-          <div v-else class="card-content">
-            <ad-backfill />
+          <div class="card-content">
+            <ad-backfill size="large" />
           </div>
         </div>
       </div>
