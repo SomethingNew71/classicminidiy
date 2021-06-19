@@ -40,7 +40,7 @@
           Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel Library comes in. Using the same data from the now non-functional site www.wheeldictionary.net you can search for the right wheel for your Classic Mini Cooper.
         </p>
 
-        <div class="columns">
+        <div id="scrollLocation" class="columns">
           <div class="column is-half mb-3">
             <b-field class="pb-2" position="is-left">
               <b-radio-button v-model="selectedSize" :native-value="10" type="is-primary">
@@ -129,7 +129,7 @@
               </div>
             </div>
             <div v-if="!isLoading" class="tile is-ancestor">
-              <template v-for="(wheel, index, name) in selectedWheels" class="tile is-parent is-3">
+              <template v-for="(wheel, index) in paginatedItems" class="tile is-parent is-3">
                 <div :key="index" class="tile is-parent is-3">
                   <article class="tile is-child card">
                     <div class="card-image">
@@ -175,20 +175,47 @@
                     </div>
                   </article>
                 </div>
-                <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="tile is-parent is-3">
-                  <article class="tile is-child card">
-                    <div class="card-content">
-                      <patreon-card size="small" />
-                    </div>
-                  </article>
-                </div>
               </template>
+            </div>
+            <div class="column is-half is-offset-one-quarter ">
+              <b-button v-debounce:500ms="searchAll" debounce-events="click" expanded type="is-primary">
+                View all 10 inch Wheels
+              </b-button>
+            </div>
+            <div v-if="!isLoading && total > perPage" class="column is-12">
+              <b-pagination
+                v-model="currentPage"
+                :total="total"
+                :range-before="2"
+                :range-after="2"
+                :order="'is-centered'"
+                :per-page="perPage"
+                :icon-pack="'fad'"
+                aria-next-label="Next page"
+                aria-previous-label="Previous page"
+                aria-page-label="Page"
+                aria-current-label="Current page"
+                @change="changePages()"
+              >
+              </b-pagination>
             </div>
             <div v-if="!isLoading && noResults" class="column is-half is-offset-one-quarter no-results">
               <div class="card">
                 <div class="card-content has-text-centered">
                   <i class="fad fa-sad-tear pb-3"></i>
                   <h3>No Results found for "{{ searchString }}"</h3>
+                </div>
+              </div>
+            </div>
+            <div class="column is-10 is-offset-1">
+              <div class="divider">
+                Support
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-content">
+                  <patreon-card size="large" />
                 </div>
               </div>
             </div>
@@ -215,7 +242,9 @@ export default {
       selectedWheels: initialWheels,
       isLoading: false,
       noResults: false,
-      initalPageLoad: true
+      initalPageLoad: true,
+      currentPage: 1,
+      perPage: 8
     };
   },
   head () {
@@ -235,8 +264,14 @@ export default {
     };
   },
   computed: {
-    adsEnabled () {
-      return this.$store.state.data.adsEnabled;
+    // Computed value of the total amount of wheels in the selected results.
+    total () {
+      return this.selectedWheels.length;
+    },
+    // Items for the current page you are on.
+    paginatedItems () {
+      const pageNumber = this.currentPage - 1;
+      return this.selectedWheels.slice(pageNumber * this.perPage, (pageNumber + 1) * this.perPage);
     }
   },
   watch: {
@@ -249,6 +284,16 @@ export default {
     }
   },
   methods: {
+    changePages () {
+      // Scroll you to the top of the page
+      document.getElementById('scrollLocation').scrollIntoView();
+      // Start loading animation
+      this.isLoading = true;
+      // Artifically show loading items for 1000ms
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
+    },
     async performSearch (searchPayload) {
       const token = Buffer.from(`${process.env.elastisearch.un}:${process.env.elastisearch.pw}`, 'utf8').toString('base64');
       const searchURL = `${process.env.elastisearch.endpoint}/_search`;
@@ -261,6 +306,7 @@ export default {
       return response.data.hits.hits;
     },
     async searchAll () {
+      document.getElementById('scrollLocation').scrollIntoView();
       this.searchString = '';
       this.isLoading = true;
       // Verify there is no data for the "all wheels" search you are doing in the store already
