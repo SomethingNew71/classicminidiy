@@ -74,7 +74,7 @@
           <div v-if="index === 2" :key="`ad-${index}`" class="column is-12">
             <div class="card">
               <div class="card-content">
-                <ad-backfill size="large" />
+                <patreon-card size="large" />
               </div>
             </div>
           </div>
@@ -85,14 +85,14 @@
 </template>
 
 <script>
-import AdBackfill from '~/components/AdBackfill';
+import PatreonCard from '~/components/PatreonCard';
 
 function getDiagrams () {
   return import('~/static/data/wiringDiagrams.json').then(m => m.default || m);
 }
 export default {
   components: {
-    AdBackfill
+    PatreonCard
   },
   async asyncData ({ req }) {
     const diagrams = await getDiagrams();

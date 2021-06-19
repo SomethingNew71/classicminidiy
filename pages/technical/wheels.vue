@@ -178,7 +178,7 @@
                 <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="tile is-parent is-3">
                   <article class="tile is-child card">
                     <div class="card-content">
-                      <ad-backfill size="small" />
+                      <patreon-card size="small" />
                     </div>
                   </article>
                 </div>
@@ -202,11 +202,11 @@
 <script>
 import axios from 'axios';
 import initialWheels from '~/static/data/wheels/initial-wheels.json';
-import AdBackfill from '~/components/AdBackfill';
+import PatreonCard from '~/components/PatreonCard';
 
 export default {
   components: {
-    AdBackfill
+    PatreonCard
   },
   data () {
     return {

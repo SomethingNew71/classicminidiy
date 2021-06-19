@@ -146,7 +146,7 @@
             <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="column is-4">
               <div class="card">
                 <div class="card-content">
-                  <ad-backfill :size="'small'" />
+                  <patreon-card :size="'small'" />
                 </div>
               </div>
             </div>
@@ -158,11 +158,11 @@
 </template>
 <script>
 import colors from '~/static/data/colors.json';
-import AdBackfill from '~/components/AdBackfill';
+import PatreonCard from '~/components/PatreonCard';
 
 export default {
   components: {
-    AdBackfill
+    PatreonCard
   },
   data () {
     return {

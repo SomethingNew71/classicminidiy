@@ -75,7 +75,7 @@
             <adsbygoogle ad-slot="5146110190" />
           </div>
           <div v-else class="card-content">
-            <ad-backfill size="large" />
+            <patreon-card size="large" />
           </div>
         </div>
       </div> -->
@@ -92,7 +92,7 @@
 </template>
 
 <script>
-// import AdBackfill from '~/components/AdBackfill';
+// import PatreonCard from '~/components/PatreonCard';
 import compressionCalc from '~/components/CompressionCalculator';
 import StorePromo from '~/components/StorePromo';
 
@@ -100,7 +100,7 @@ export default {
   components: {
     compressionCalc,
     StorePromo
-    // AdBackfill
+    // PatreonCard
   },
   head () {
     return {

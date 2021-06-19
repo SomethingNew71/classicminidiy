@@ -53,7 +53,7 @@
         </p>
         <div class="card">
           <div class="card-content">
-            <ad-backfill size="large" />
+            <patreon-card size="large" />
           </div>
         </div>
       </div>
@@ -61,11 +61,11 @@
   </section>
 </template>
 <script>
-import AdBackfill from '~/components/AdBackfill';
+import PatreonCard from '~/components/PatreonCard';
 
 export default {
   components: {
-    AdBackfill
+    PatreonCard
   },
   data () {
     return {

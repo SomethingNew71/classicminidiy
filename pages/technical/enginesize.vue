@@ -114,7 +114,7 @@
       <div class="column is-12">
         <div class="card">
           <div class="card-content">
-            <ad-backfill size="large" />
+            <patreon-card size="large" />
           </div>
         </div>
       </div>
@@ -123,11 +123,11 @@
 </template>
 
 <script>
-import AdBackfill from '~/components/AdBackfill';
+import PatreonCard from '~/components/PatreonCard';
 
 export default {
   components: {
-    AdBackfill
+    PatreonCard
   },
   data () {
     return {

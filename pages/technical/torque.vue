@@ -77,7 +77,7 @@
         <div v-if="index === 1" :key="index" class="column is-12">
           <div class="card">
             <div class="card-content">
-              <ad-backfill size="large" />
+              <patreon-card size="large" />
             </div>
           </div>
         </div>
@@ -87,14 +87,14 @@
 </template>
 
 <script>
-import AdBackfill from '~/components/AdBackfill';
+import PatreonCard from '~/components/PatreonCard';
 
 function getTables () {
   return import('~/static/data/torqueSpecs.json').then(m => m.default || m);
 }
 export default {
   components: {
-    AdBackfill
+    PatreonCard
   },
   async asyncData () {
     const tables = await getTables();
