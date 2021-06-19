@@ -113,11 +113,6 @@ export default {
         }
       ]
     };
-  },
-  computed: {
-    adsEnabled () {
-      return this.$store.state.data.adsEnabled;
-    }
   }
 };
 </script>
