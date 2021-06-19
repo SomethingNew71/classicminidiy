@@ -177,9 +177,9 @@
                 </div>
               </template>
             </div>
-            <div class="column is-half is-offset-one-quarter ">
+            <div v-if="initalPageLoad" class="column is-half is-offset-one-quarter">
               <b-button v-debounce:500ms="searchAll" debounce-events="click" expanded type="is-primary">
-                View all 10 inch Wheels
+                View all {{ selectedSize }} inch Wheels
               </b-button>
             </div>
             <div v-if="!isLoading && total > perPage" class="column is-12">
