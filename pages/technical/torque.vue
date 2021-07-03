@@ -74,14 +74,14 @@
             </div>
           </b-collapse>
         </div>
-        <div v-if="index === 1" :key="index" class="column is-12">
-          <div class="card">
-            <div class="card-content">
-              <patreon-card size="large" />
-            </div>
+      </template>
+      <div class="column is-12">
+        <div class="card">
+          <div class="card-content">
+            <patreon-card size="large" />
           </div>
         </div>
-      </template>
+      </div>
     </div>
   </section>
 </template>
