@@ -7,8 +7,7 @@ export const state = () => ({
       12: [],
       13: []
     }
-  },
-  adsEnabled: true
+  }
 });
 
 export const mutations = {
@@ -20,17 +19,11 @@ export const mutations = {
   },
   setCurrentSize (state, currentSize) {
     state.allWheels.currentSize = currentSize;
-  },
-  setAdStatus (state, isEnabled) {
-    state.adsEnabled = isEnabled;
   }
 };
 
 export const getters = {
   getWheels (state) {
     return state.allWheels;
-  },
-  getAdsStatus (state) {
-    return state.adsEnabled;
   }
 };

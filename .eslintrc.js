@@ -4,9 +4,6 @@ module.exports = {
     browser: true,
     node: true
   },
-  ignorePatterns: [
-    'components/FacebookChatOverlay.vue'
-  ],
   parserOptions: {
     parser: 'babel-eslint'
   },
