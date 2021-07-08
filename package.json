@@ -72,9 +72,9 @@
     "imagemin-pngquant": "^9.0.2",
     "imagemin-svgo": "^9.0.0",
     "multi-loader": "^0.1.0",
-    "nodemon": "^2.0.9",
+    "nodemon": "^2.0.10",
     "nuxt-compress": "^5.0.0",
-    "sass": "^1.35.1",
+    "sass": "^1.35.2",
     "sass-loader": "^10.1.1",
     "vue-cookie-law": "^1.13.3",
     "webp-loader": "^0.6.0"
