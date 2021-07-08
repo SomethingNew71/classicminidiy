@@ -69,16 +69,6 @@
       <div class="column is-12">
         <compressionCalc />
       </div>
-      <!-- <div class="column is-12">
-        <div class="card">
-          <div v-if="adsEnabled" class="card-content">
-            <adsbygoogle ad-slot="5146110190" />
-          </div>
-          <div v-else class="card-content">
-            <patreon-card size="large" />
-          </div>
-        </div>
-      </div> -->
       <div class="column is-10 is-offset-1">
         <div class="divider">
           More
@@ -92,7 +82,6 @@
 </template>
 
 <script>
-// import PatreonCard from '~/components/PatreonCard';
 import compressionCalc from '~/components/CompressionCalculator';
 import StorePromo from '~/components/StorePromo';
 
@@ -100,7 +89,6 @@ export default {
   components: {
     compressionCalc,
     StorePromo
-    // PatreonCard
   },
   head () {
     return {

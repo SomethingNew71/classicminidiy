@@ -157,7 +157,6 @@
         </p>
       </div>
     </footer>
-    <!-- <facebook-chat-overlay /> -->
   </div>
 </template>
 
@@ -165,14 +164,11 @@
 import Stats from '~/components/Stats';
 import Hero from '~/components/Hero';
 import StorePromo from '~/components/StorePromo';
-// import facebookChatOverlay from '~/components/FacebookChatOverlay';
-
 export default {
   components: {
     Hero,
     Stats,
     StorePromo
-    // facebookChatOverlay
   },
   data () {
     return {

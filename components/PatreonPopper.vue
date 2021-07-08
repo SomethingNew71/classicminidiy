@@ -1,5 +1,5 @@
 <template>
-  <cookie-law>
+  <cookie-law v-if="showPopper">
     <div slot-scope="props" class="columns is-multiline">
       <div class="column">
         <h3 class="title is-5 has-text-white">
@@ -32,6 +32,26 @@
     </div>
   </cookie-law>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      showPopper: false
+    };
+  },
+  mounted () {
+    this.triggerDelay();
+  },
+  methods: {
+    triggerDelay () {
+      setTimeout(() => {
+        this.showPopper = true;
+      }, 4000);
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
   .button.is-text {
