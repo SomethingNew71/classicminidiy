@@ -184,10 +184,34 @@ export default {
           to: '/technical/torque'
         },
         {
+          title: 'Electrical Diagrams',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',
+          to: '/technical/electrical'
+        },
+        {
           title: 'Engine Sizes',
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
           webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
           to: '/technical/enginesize'
+        },
+        {
+          title: 'SU Needle Comparison',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp',
+          to: '/technical/needles'
+        },
+        {
+          title: 'Wheel Library',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp',
+          to: '/technical/wheels'
+        },
+        {
+          title: 'Compression Ratio Calculator',
+          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
+          to: '/technical/compression'
         },
         {
           title: 'Color Picker',
@@ -212,24 +236,6 @@ export default {
           image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png',
           webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.webp',
           to: '/technical/tools'
-        },
-        {
-          title: 'Electrical Diagrams',
-          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
-          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',
-          to: '/technical/electrical'
-        },
-        {
-          title: 'SU Needle Comparison',
-          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
-          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp',
-          to: '/technical/needles'
-        },
-        {
-          title: 'Wheel Library',
-          image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
-          webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp',
-          to: '/technical/wheels'
         }
       ]
     };

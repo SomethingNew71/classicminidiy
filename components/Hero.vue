@@ -109,6 +109,22 @@ export default {
               },
               {
                 type: 'link',
+                text: 'Electrical Diagrams',
+                // subText: 'Complete and new digitally redrawn Classic Mini Wiring diagrams',
+                path: '/technical/electrical',
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png">
+                  </picture>
+                `
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
                 text: 'Engine Sizes',
                 // subText: 'Torque Specs for your entire car',
                 path: '/technical/enginesize',
@@ -117,6 +133,38 @@ export default {
                     <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp" type="image/webp">
                     <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png" type="image/png">
                     <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png">
+                  </picture>
+                `
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
+                text: 'Carb Needle Configurator',
+                // subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
+                path: '/technical/needles',
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png">
+                  </picture>
+                `
+              },
+              {
+                type: 'hr'
+              },
+              {
+                type: 'link',
+                text: 'Wheel Library',
+                // subText: 'Looking for your new wheels? Check out the Wheel Library',
+                path: '/technical/wheels',
+                iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png">
                   </picture>
                 `
               },
@@ -181,54 +229,6 @@ export default {
                     <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.webp" type="image/webp">
                     <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png" type="image/png">
                     <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png">
-                  </picture>
-                `
-              },
-              {
-                type: 'hr'
-              },
-              {
-                type: 'link',
-                text: 'Electrical Diagrams',
-                // subText: 'Complete and new digitally redrawn Classic Mini Wiring diagrams',
-                path: '/technical/electrical',
-                iconLeft: `
-                  <picture class="submenu-icon">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp" type="image/webp">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png" type="image/png">
-                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png">
-                  </picture>
-                `
-              },
-              {
-                type: 'hr'
-              },
-              {
-                type: 'link',
-                text: 'Carb Needle Configurator',
-                // subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
-                path: '/technical/needles',
-                iconLeft: `
-                  <picture class="submenu-icon">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp" type="image/webp">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png" type="image/png">
-                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png">
-                  </picture>
-                `
-              },
-              {
-                type: 'hr'
-              },
-              {
-                type: 'link',
-                text: 'Wheel Library',
-                // subText: 'Looking for your new wheels? Check out the Wheel Library',
-                path: '/technical/wheels',
-                iconLeft: `
-                  <picture class="submenu-icon">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp" type="image/webp">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png" type="image/png">
-                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png">
                   </picture>
                 `
               }
