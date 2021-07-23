@@ -10381,10 +10381,10 @@ vue-cookie-law@^1.13.3:
   dependencies:
     tiny-cookie "^2.1.1"
 
-vue-debounce@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/vue-debounce/-/vue-debounce-3.0.0.tgz#5f2c90e073943144f9788aed827ed3cb5f6dc71d"
-  integrity sha512-VxdPMm5FwMCKM37WIEuFbaPnA6ibqDiPcaAOER+yf+Ftmhc0Andv4O/frL3HDf3YvEKcPMQHblkW80r0eWyO7w==
+vue-debounce@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vue-debounce/-/vue-debounce-3.0.1.tgz#5975e37efdb5d9a15ffa7d206a85b4aa97f09f51"
+  integrity sha512-UzE4KDcopDihw0I5TmdK7syyuhu5+iuRD+AXhrRL7Y5C5o2EOZYwDhUNOAP4Z050hPmIj5U8vhMcYzePCTMAJw==
 
 vue-eslint-parser@^7.1.1, vue-eslint-parser@^7.8.0:
   version "7.8.0"

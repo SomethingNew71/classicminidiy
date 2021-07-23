@@ -44,7 +44,7 @@
     "nuxt": "^2.15.7",
     "nuxt-facebook-pixel-module": "^1.5.0",
     "redirect-ssl": "^3.0.0",
-    "vue-debounce": "^3.0.0",
+    "vue-debounce": "^3.0.1",
     "vue-gtag": "^1.16.1",
     "vue-navigation-bar": "^4.1.0"
   },
