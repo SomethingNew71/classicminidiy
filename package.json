@@ -74,7 +74,7 @@
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.12",
     "nuxt-compress": "^5.0.0",
-    "sass": "^1.35.2",
+    "sass": "^1.36.0",
     "sass-loader": "^10.1.1",
     "vue-cookie-law": "^1.13.3",
     "webp-loader": "^0.6.0"
