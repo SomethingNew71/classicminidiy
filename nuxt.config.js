@@ -70,7 +70,7 @@ export default {
     '@aceforth/nuxt-optimized-images',
     'nuxt-compress',
     '@nuxtjs/robots',
-    // '@nuxtjs/google-gtag',
+    '@nuxt/image',
     'nuxt-facebook-pixel-module',
     '@nuxtjs/sitemap'
   ],
