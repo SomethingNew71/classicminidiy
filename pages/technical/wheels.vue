@@ -202,7 +202,7 @@
                 </div>
               </div>
             </div>
-            <div v-if="!isLoading && (initalPageLoad || searchString !== '')" class="column is-half is-offset-one-quarter">
+            <div v-if="!isLoading && (searchString !== '')" class="column is-half is-offset-one-quarter">
               <b-button v-debounce:500ms="searchAll" debounce-events="click" expanded type="is-primary">
                 View all {{ selectedSize }} inch Wheels
               </b-button>
@@ -227,7 +227,7 @@
 </template>
 
 <script>
-import initialWheels from '~/static/data/wheels/initial-wheels.json';
+import Fuse from 'fuse.js';
 import tenInchWheels from '~/static/data/wheels/10.json';
 import twelveInchWheels from '~/static/data/wheels/12.json';
 import thirteenInchWheels from '~/static/data/wheels/13.json';
@@ -241,10 +241,9 @@ export default {
     return {
       searchString: '',
       selectedSize: 10,
-      selectedWheels: initialWheels,
+      selectedWheels: tenInchWheels,
       isLoading: false,
       noResults: false,
-      initalPageLoad: true,
       currentPage: 1,
       perPage: 8
     };
@@ -297,54 +296,56 @@ export default {
       }, 500);
     },
 
-    async searchAll () {
+    searchAll () {
+      this.isLoading = true;
       document.getElementById('scrollLocation').scrollIntoView();
+      this.noResults = false;
       this.searchString = '';
-      this.isLoading = true;
-      this.noResults = false;
-      this.initalPageLoad = false;
-      // Verify there is no data for the "all wheels" search you are doing in the store already
-      // If there isn't run the search, if there is use that instead.
-      await this.filterResults(this.searchString);
-      await setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
-    },
-
-    async standardSearch () {
-      this.isLoading = true;
-      this.noResults = false;
-      await this.filterResults(this.searchString.toLowerCase());
-      this.initalPageLoad = false;
-      await setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
-    },
-
-    async filterResults (searchString) {
-      let wheelToSearch;
+      this.currentPage = 1;
       switch (this.selectedSize) {
         case 10:
-          wheelToSearch = tenInchWheels;
+          this.selectedWheels = tenInchWheels;
           break;
         case 12:
-          wheelToSearch = twelveInchWheels;
+          this.selectedWheels = twelveInchWheels;
           break;
         case 13:
-          wheelToSearch = thirteenInchWheels;
+          this.selectedWheels = thirteenInchWheels;
           break;
         default:
-          wheelToSearch = initialWheels;
+          this.noResults = true;
           break;
       }
-      if (searchString === '') {
-        this.selectedWheels = await wheelToSearch;
-      } else {
-        this.selectedWheels = await wheelToSearch.filter((wheel) => {
-          return wheel.name.toLowerCase().includes(searchString);
-        });
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 500);
+    },
+
+    standardSearch () {
+      this.isLoading = true;
+      this.noResults = false;
+      this.currentPage = 1;
+      const keysToSearch = ['name', 'notes', 'type', 'size', 'offset'];
+      let fuse;
+      switch (this.selectedSize) {
+        case 10:
+          fuse = new Fuse(tenInchWheels, { keys: keysToSearch });
+          break;
+        case 12:
+          fuse = new Fuse(twelveInchWheels, { keys: keysToSearch });
+          break;
+        case 13:
+          fuse = new Fuse(thirteenInchWheels, { keys: keysToSearch });
+          break;
+        default:
+          this.noResults = true;
+          break;
       }
+      this.selectedWheels = fuse.search(this.searchString.toLowerCase()).map(result => result.item);
       this.noResults = this.selectedWheels.length === 0;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 500);
     }
   }
 };
