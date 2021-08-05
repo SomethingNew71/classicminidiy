@@ -31,6 +31,10 @@ export default {
       {
         property: 'fb:pages',
         content: '615159745295369'
+      },
+      {
+        name: 'facebook-domain-verification',
+        content: 'hiuvhh3rwnxby3zewibo4t94tapz6u'
       }
     ],
     link: [

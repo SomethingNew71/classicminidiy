@@ -31,7 +31,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.15.3",
+    "@fortawesome/fontawesome-pro": "^5.15.4",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-gtag": "^1.0.4",
@@ -75,7 +75,7 @@
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.12",
     "nuxt-compress": "^5.0.0",
-    "sass": "^1.37.2",
+    "sass": "^1.37.5",
     "sass-loader": "^10.1.1",
     "webp-loader": "^0.6.0"
   }

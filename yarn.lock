@@ -955,10 +955,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fortawesome/fontawesome-pro@^5.15.3":
-  version "5.15.3"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/5.15.3/fontawesome-pro-5.15.3.tgz#6d039e215b88da6c2a17475810804348993bf3d0"
-  integrity sha512-JAf7zDYGVtcJIqnWAzZ8KRqSHQ2+KnJi4K916Zxti4ONfaVw87jaUoxtfxtNsc3kgTmCmbwgPsi2nOA/1fEnzQ==
+"@fortawesome/fontawesome-pro@^5.15.4":
+  version "5.15.4"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/5.15.4/fontawesome-pro-5.15.4.tgz#aae79a86621a79ae972772ad2906a13ade650a06"
+  integrity sha512-ApOqpDdKgA79xfLZH3B5PucZxj+TZyQUSrZ4bKkbJCR+zjmveQ4/gp/uXc5bNNhsdtJUy16BYJ/lAVydca2Y5Q==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
@@ -9285,10 +9285,10 @@ sass-loader@^10.1.1:
     schema-utils "^3.0.0"
     semver "^7.3.2"
 
-sass@^1.37.2:
-  version "1.37.2"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.37.2.tgz#eb87c01a1e6ec12e50fa69571b69628ea043a372"
-  integrity sha512-+XMg8QOg7OGLo4F5R3fLYEti/3MxFkyX0NxYbqWycU8xYMAhPDN5FuCO2ZJudnM1wcnZ3CeJRnpqUBZpLOitCQ==
+sass@^1.37.5:
+  version "1.37.5"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.37.5.tgz#f6838351f7cc814c4fcfe1d9a20e0cabbd1e7b3c"
+  integrity sha512-Cx3ewxz9QB/ErnVIiWg2cH0kiYZ0FPvheDTVC6BsiEGBTZKKZJ1Gq5Kq6jy3PKtL6+EJ8NIoaBW/RSd2R6cZOA==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
