@@ -75,7 +75,6 @@ export default {
     '@aceforth/nuxt-optimized-images',
     'nuxt-compress',
     '@nuxtjs/robots',
-    '@nuxt/image',
     'nuxt-facebook-pixel-module',
     '@nuxtjs/sitemap'
   ],

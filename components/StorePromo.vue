@@ -28,7 +28,7 @@
           >
             <b-carousel-item v-for="(carousel, i) in cardElements" :key="i">
               <span class="image">
-                <nuxt-picture :src="carousel.image"></nuxt-picture>
+                <img :src="carousel.image">
               </span>
               <!-- <section :class="`hero is-medium is-${carousel.color}`">
                 <div class="hero-body has-text-centered">
