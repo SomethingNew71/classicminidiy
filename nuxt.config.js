@@ -43,6 +43,12 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet preconnect dns-prefetch', href: 'https://use.typekit.net/fgm1hlg.css', media: 'print', onload: 'this.media="all"' }
     ]
+    // script: [
+    //   {
+    //     defer: true,
+    //     src: '~/node_modules/@fortawesome/fontawesome-pro/js/all.min.js'
+    //   }
+    // ]
   },
   /*
    ** Customize the progress-bar color
@@ -63,7 +69,8 @@ export default {
     { src: '~plugins/highcharts-vue.js', mode: 'client' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },
-    { src: '~/plugins/vue-cookie-law.js', mode: 'client' }
+    { src: '~/plugins/vue-cookie-law.js', mode: 'client' },
+    { src: '~/node_modules/@fortawesome/fontawesome-pro/js/all.min.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js modules

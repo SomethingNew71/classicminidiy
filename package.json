@@ -31,7 +31,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.15.4",
+    "@fortawesome/fontawesome-pro": "^6.0.0-beta1",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-gtag": "^1.0.4",
@@ -67,7 +67,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-vue": "^7.15.1",
-    "imagemin": "^7.0.1",
+    "imagemin": "^8.0.0",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.2",
