@@ -46,8 +46,7 @@ $link-focus-border: $primary;
 // I dont like Bulma's Navbar and this one basically is stripes navbar so plug and play baby
 @import "../node_modules/vue-navigation-bar/dist/vue-navigation-bar.css";
 // If I need all the icons later uncomment this and comment in the other
-// @import "../node_modules/@fortawesome/fontawesome-pro/css/all.min.css";
-// Add Font awesome here so it can be bundled
+@import "../node_modules/@fortawesome/fontawesome-pro/css/all.css";
 
 
 // Import all my custom scss
