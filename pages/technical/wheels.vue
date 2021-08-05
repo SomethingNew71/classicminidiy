@@ -135,9 +135,9 @@
                     <div class="card-image">
                       <figure class="image is-square">
                         <img
-                          :src="wheel._source.imagewebp"
-                          :webp-fallback="wheel._source.imagepath"
-                          :alt="`Image of ${wheel._source.name}`"
+                          :src="wheel.imagewebp"
+                          :webp-fallback="wheel.imagepath"
+                          :alt="`Image of ${wheel.name}`"
                         >
                       </figure>
                     </div>
@@ -145,18 +145,18 @@
                       <div class="media mb-1">
                         <div class="media-content">
                           <b-tooltip label="Wheel Size" animated type="is-dark">
-                            <i class="fad fa-expand-arrows-alt pr-1"></i> {{ wheel._source.size || "N/A" }}
+                            <i class="fad fa-expand-arrows-alt pr-1"></i> {{ wheel.size || "N/A" }}
                           </b-tooltip>
                           <b-tooltip label="Wheel Offset" animated type="is-dark">
-                            <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i> {{ wheel._source.offset || "N/A" }}
+                            <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i> {{ wheel.offset || "N/A" }}
                           </b-tooltip>
                           <b-tooltip label="Wheel Material" animated type="is-dark">
-                            <i class="fad fa-box-full pr-1 pl-2"></i> {{ wheel._source.type || "N/A" }}
+                            <i class="fad fa-box-full pr-1 pl-2"></i> {{ wheel.type || "N/A" }}
                           </b-tooltip>
-                          <p class="title is-5 pt-3 pb-1" v-html="wheel._source.name"></p>
+                          <p class="title is-5 pt-3 pb-1" v-html="wheel.name"></p>
                         </div>
                       </div>
-                      <div v-if="wheel._source.notes" class="content">
+                      <div v-if="wheel.notes" class="content">
                         <b-collapse
                           animation="slide"
                           :open="false"
@@ -166,21 +166,16 @@
                             <b-icon pack="fad" :icon="!props.open ? 'chevron-down' : 'chevron-up'"></b-icon>
                             {{ !props.open ? 'Additional details' : 'Hide details' }}
                           </a>
-                          <p v-html="wheel._source.notes"></p>
+                          <p v-html="wheel.notes"></p>
                         </b-collapse>
                       </div>
                       <p class="suggest-changes">
-                        <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel._source.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel._source.name}%0D%0ASize%3A%20${wheel._source.size}%0D%0AOffset%3A%20${wheel._source.offset}%0D%0AMaterial%3A%20${wheel._source.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Edit</a>
+                        <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel.name}%0D%0ASize%3A%20${wheel.size}%0D%0AOffset%3A%20${wheel.offset}%0D%0AMaterial%3A%20${wheel.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Edit</a>
                       </p>
                     </div>
                   </article>
                 </div>
               </template>
-            </div>
-            <div v-if="initalPageLoad" class="column is-half is-offset-one-quarter">
-              <b-button v-debounce:500ms="searchAll" debounce-events="click" expanded type="is-primary">
-                View all {{ selectedSize }} inch Wheels
-              </b-button>
             </div>
             <div v-if="!isLoading && total > perPage" class="column is-12">
               <b-pagination
@@ -199,13 +194,18 @@
               >
               </b-pagination>
             </div>
-            <div v-if="!isLoading && noResults" class="column is-half is-offset-one-quarter no-results">
+            <div v-if="!isLoading && noResults" class="column is-10 is-offset-1 no-results">
               <div class="card">
                 <div class="card-content has-text-centered">
                   <i class="fad fa-sad-tear pb-3"></i>
                   <h3>No Results found for "{{ searchString }}"</h3>
                 </div>
               </div>
+            </div>
+            <div v-if="!isLoading && (initalPageLoad || searchString !== '')" class="column is-half is-offset-one-quarter">
+              <b-button v-debounce:500ms="searchAll" debounce-events="click" expanded type="is-primary">
+                View all {{ selectedSize }} inch Wheels
+              </b-button>
             </div>
             <div class="column is-10 is-offset-1">
               <div class="divider">
@@ -227,8 +227,10 @@
 </template>
 
 <script>
-import axios from 'axios';
 import initialWheels from '~/static/data/wheels/initial-wheels.json';
+import tenInchWheels from '~/static/data/wheels/10.json';
+import twelveInchWheels from '~/static/data/wheels/12.json';
+import thirteenInchWheels from '~/static/data/wheels/13.json';
 import PatreonCard from '~/components/PatreonCard';
 
 export default {
@@ -292,52 +294,57 @@ export default {
       // Artifically show loading items for 1000ms
       setTimeout(() => {
         this.isLoading = false;
-      }, 1000);
+      }, 500);
     },
-    async performSearch (searchPayload) {
-      const token = Buffer.from(`${process.env.elastisearch.un}:${process.env.elastisearch.pw}`, 'utf8').toString('base64');
-      const searchURL = `${process.env.elastisearch.endpoint}/_search`;
-      const response = await axios.post(searchURL, searchPayload, {
-        headers: { Authorization: `Basic ${token}`, 'Content-Type': 'application/json' }
-      });
-      this.isLoading = false;
-      if (this.initalPageLoad) { this.initalPageLoad = false }
-      if (response.data.hits.hits < 1) { this.noResults = true }
-      return response.data.hits.hits;
-    },
+
     async searchAll () {
       document.getElementById('scrollLocation').scrollIntoView();
       this.searchString = '';
       this.isLoading = true;
+      this.noResults = false;
+      this.initalPageLoad = false;
       // Verify there is no data for the "all wheels" search you are doing in the store already
       // If there isn't run the search, if there is use that instead.
-      if (
-        !this.$store.state.data.allWheels.wheels[this.selectedSize].length ||
-        this.selectedSize !== this.$store.state.data.allWheels.currentSize) {
-        this.selectedWheels = await this.performSearch({
-          size: 1000,
-          query: { bool: { must: { term: { majorSize: this.selectedSize } } } }
-        });
-        // If a search runs save the data to state.
-        this.$store.commit('data/setCurrentSize', this.selectedSize);
-        this.$store.commit('data/saveAllWheels', this.selectedWheels);
-      } else {
-        this.selecteWheels = await this.$store.state.data.allWheels.wheels[this.selectedSize];
+      await this.filterResults(this.searchString);
+      await setTimeout(() => {
         this.isLoading = false;
-      }
+      }, 500);
     },
+
     async standardSearch () {
       this.isLoading = true;
       this.noResults = false;
-      this.selectedWheels = await this.performSearch({
-        size: 1000,
-        query: {
-          bool: {
-            must: { term: { majorSize: this.selectedSize } },
-            filter: { regexp: { name: `${this.searchString.toLowerCase()}.*` } }
-          }
-        }
-      });
+      await this.filterResults(this.searchString.toLowerCase());
+      this.initalPageLoad = false;
+      await setTimeout(() => {
+        this.isLoading = false;
+      }, 500);
+    },
+
+    async filterResults (searchString) {
+      let wheelToSearch;
+      switch (this.selectedSize) {
+        case 10:
+          wheelToSearch = tenInchWheels;
+          break;
+        case 12:
+          wheelToSearch = twelveInchWheels;
+          break;
+        case 13:
+          wheelToSearch = thirteenInchWheels;
+          break;
+        default:
+          wheelToSearch = initialWheels;
+          break;
+      }
+      if (searchString === '') {
+        this.selectedWheels = await wheelToSearch;
+      } else {
+        this.selectedWheels = await wheelToSearch.filter((wheel) => {
+          return wheel.name.toLowerCase().includes(searchString);
+        });
+      }
+      this.noResults = this.selectedWheels.length === 0;
     }
   }
 };

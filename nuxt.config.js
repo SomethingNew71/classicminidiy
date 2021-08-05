@@ -69,8 +69,8 @@ export default {
     { src: '~plugins/highcharts-vue.js', mode: 'client' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },
-    { src: '~/plugins/vue-cookie-law.js', mode: 'client' },
-    { src: '~/node_modules/@fortawesome/fontawesome-pro/js/all.min.js', mode: 'client' }
+    { src: '~/plugins/vue-cookie-law.js', mode: 'client' }
+    // { src: '~/node_modules/@fortawesome/fontawesome-pro/js/all.min.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js modules
