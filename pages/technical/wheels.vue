@@ -117,7 +117,7 @@
                   filtered results of {{ totalAll.induvidualWheels[selectedSize] }} wheels.
                 </p>
                 <p v-else class="has-text-weight-bold">
-                  Displaying all {{ selectedSize }} wheels.
+                  Displaying all {{ selectedSize }} inch wheels.
                 </p>
               </div>
               <div v-if="selectedWheels && !isLoading && totalResults > perPage" class="column is-6">
@@ -145,6 +145,23 @@
                 <div :key="index" class="column is-4">
                   <article class="card">
                     <div class="card-image">
+                      <b-tooltip
+                        label="Suggest changes to the details of this wheel"
+                        animated
+                        multilined
+                        type="is-light"
+                        position="is-left"
+                        class="edit-icon-link"
+                      >
+                        <b-button
+                          aria-label="Suggest changes to the details of this wheel"
+                          type="is-primary"
+                          icon-right="pencil"
+                          :icon-pack="'fad'"
+                          :tag="'a'"
+                          :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel.name}%0D%0ASize%3A%20${wheel.size}%0D%0AOffset%3A%20${wheel.offset}%0D%0AMaterial%3A%20${wheel.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"
+                        />
+                      </b-tooltip>
                       <figure class="image is-square">
                         <img
                           :src="wheel.imagewebp"
@@ -181,9 +198,6 @@
                           <p v-html="wheel.notes"></p>
                         </b-collapse>
                       </div>
-                      <p class="suggest-changes">
-                        <a :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel.name}%0D%0ASize%3A%20${wheel.size}%0D%0AOffset%3A%20${wheel.offset}%0D%0AMaterial%3A%20${wheel.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"><i class="fad fa-pencil-alt"></i> Edit</a>
-                      </p>
                     </div>
                   </article>
                 </div>
@@ -395,6 +409,12 @@ export default {
     i {
       font-size: 3.5rem;
     }
+  }
+  .edit-icon-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10000;
   }
   .skeleton-image .b-skeleton-item {
     margin: auto;
