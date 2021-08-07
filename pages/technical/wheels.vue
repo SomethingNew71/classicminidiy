@@ -30,108 +30,120 @@
             </li>
           </ul>
         </nav>
-        <h1 class="title">
+        <h1 id="scrollLocation" class="title">
           Wheel Library
         </h1>
         <h2 class="subtitle">
           All data collected and currated by Jan W. from <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer">Mini-Forum.de</a>.
         </h2>
         <p class="pb-5">
-          Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel Library comes in. Using the same data from the now non-functional site www.wheeldictionary.net you can search for the right wheel for your Classic Mini Cooper.
+          Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel Library comes in. Using the same data from the now retired site, <i class="fad fa-tombstone"></i>www.wheeldictionary.net you can search for the right wheel for your Classic Mini Cooper. With <strong>{{ totalAll.amount }} wheels in the library</strong> and growing, we hope you'll be able to find exactly the wheel you are looking for.
         </p>
 
-        <div id="scrollLocation" class="columns">
-          <div class="column is-half mb-3">
-            <b-field class="pb-2" position="is-left">
-              <b-radio-button v-model="selectedSize" :native-value="10" type="is-primary">
-                10 Inch
-              </b-radio-button>
-              <b-radio-button v-model="selectedSize" :native-value="12" type="is-primary">
-                12 Inch
-              </b-radio-button>
-              <b-radio-button v-model="selectedSize" :native-value="13" type="is-primary">
-                13 Inch
-              </b-radio-button>
-            </b-field>
-          </div>
-          <div class="column is-hidden-touch">
-            <b-field class="mb-4" position="is-right">
-              <b-input
-                v-model="searchString"
-                placeholder="Ex. Minilite"
-                type="search"
-                @keyup.enter.native="standardSearch()"
-              ></b-input>
-              <p class="control">
-                <b-button v-debounce:500ms="standardSearch" debounce-events="click" class="button is-primary search-button">
-                  Search <i class="fad fa-search"></i>
-                </b-button>
-              </p>
-              <p class="pl-3">
-                <b-button v-debounce:500ms="searchAll" debounce-events="click" class="button is-secondary">
-                  View All {{ selectedSize }} inch Wheels
-                </b-button>
-              </p>
-            </b-field>
-          </div>
-          <div class="column is-hidden-desktop">
-            <b-field class="mb-4" position="is-left">
-              <b-input
-                v-model="searchString"
-                placeholder="Ex. Minilite"
-                type="search"
-                @keyup.enter.native="standardSearch()"
-              ></b-input>
-            </b-field>
-            <p>
-              <b-button v-debounce:500ms="standardSearch" debounce-events="click" class="button is-primary">
-                Search <i class="fad fa-search"></i>
-              </b-button>
-              <b-button v-debounce:500ms="searchAll" debounce-events="click" class="button is-secondary">
-                View All {{ selectedSize }} inch Wheels
-              </b-button>
-            </p>
-          </div>
-        </div>
         <div class="columns is-multiline">
-          <div v-if="selectedWheels" class="column is-12">
-            <h3 class="has-text-weight-bold">
-              Total Results:
-              <template v-if="!isLoading">
-                {{ selectedWheels.length }}
-              </template>
-              <template v-else>
-                <i class="fad fa-spinner fa-spin"></i>
-              </template>
-            </h3>
-          </div>
-          <div class="column">
-            <div v-if="isLoading && selectedSize !== ''" class="tile is-ancestor">
-              <div v-for="(item, index) in 8" :key="index" class="tile is-parent is-3">
-                <article class="tile is-child card">
-                  <div class="card-image">
-                    <b-skeleton position="is-centered" height="200px"></b-skeleton>
-                  </div>
-                  <div class="card-content">
-                    <div class="media mb-1">
-                      <div class="media-content">
-                        <span class="icon is-small"><b-skeleton></b-skeleton></span>
-                        <span class="icon is-small"><b-skeleton></b-skeleton></span>
-                        <span class="icon is-small"><b-skeleton></b-skeleton></span>
-                        <b-skeleton></b-skeleton>
-                      </div>
-                    </div>
-                    <div class="content">
-                      <b-skeleton height="80px"></b-skeleton>
-                    </div>
-                  </div>
-                </article>
+          <div class="column is-12"></div>
+          <div class="column is-4-tablet is-3-desktop">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  Find a wheel
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <b-field class="pb-2" label="Wheel Size">
+                    <b-select v-model="selectedSize" placeholder="Select a wheel size" expanded>
+                      <option :value="10">
+                        10 inch
+                      </option>
+                      <option :value="12">
+                        12 inch
+                      </option>
+                      <option :value="13">
+                        13 inch
+                      </option>
+                    </b-select>
+                  </b-field>
+                  <p>Use the search below to search by wheel name, offset, size or material.</p>
+                  <b-field class="mb-4" position="is-left">
+                    <b-input
+                      v-model="searchString"
+                      placeholder="Ex. Minilite"
+                      @keyup.enter.native="standardSearch()"
+                    ></b-input>
+                    <p class="control">
+                      <b-button v-debounce:500ms="standardSearch" debounce-events="click" class="button is-primary search-button" aria-label="Search box for wheels">
+                        <i class="fad fa-search"></i>
+                      </b-button>
+                    </p>
+                  </b-field>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <div class="card-footer-item">
+                  <b-button v-if="searchString !== '' && !allWheelsVisible" v-debounce:500ms="searchAll" debounce-events="click" expanded class="button is-primary">
+                    View All {{ selectedSize }}in Wheels
+                  </b-button>
+                  <b-tooltip v-else :label="`Already displaying all ${ selectedSize } inch wheels`">
+                    <b-button disabled expanded class="button is-primary">
+                      View All {{ selectedSize }}in Wheels
+                    </b-button>
+                  </b-tooltip>
+                </div>
+              </footer>
+            </div>
+            <div class="column is-10 is-offset-1 is-hidden-mobile">
+              <div class="divider">
+                Support
               </div>
             </div>
-            <div v-if="!isLoading" class="tile is-ancestor">
-              <template v-for="(wheel, index) in paginatedItems" class="tile is-parent is-3">
-                <div :key="index" class="tile is-parent is-3">
-                  <article class="tile is-child card">
+            <div class="card is-hidden-mobile">
+              <div class="card-content">
+                <patreon-card size="small" />
+              </div>
+            </div>
+          </div>
+          <div class="column is-8-tablet is-9-desktop">
+            <div class="columns is-multiline">
+              <div class="column is-6">
+                <p v-if="searchString !== '' && !allWheelsVisible" class="has-text-weight-bold">
+                  Displaying
+                  <template v-if="!isLoading">
+                    {{ totalResults }}
+                  </template>
+                  <template v-else>
+                    <i class="fad fa-spinner fa-spin"></i>
+                  </template>
+                  filtered results of {{ totalAll.induvidualWheels[selectedSize] }} wheels.
+                </p>
+                <p v-else class="has-text-weight-bold">
+                  Displaying all {{ selectedSize }} wheels.
+                </p>
+              </div>
+              <div v-if="selectedWheels && !isLoading && totalResults > perPage" class="column is-6">
+                <b-pagination
+                  v-model="currentPage"
+                  :total="totalResults"
+                  :simple="true"
+                  :range-before="2"
+                  :range-after="2"
+                  :order="'is-right'"
+                  :per-page="perPage"
+                  :icon-pack="'fa'"
+                  aria-next-label="Next page"
+                  aria-previous-label="Previous page"
+                  aria-page-label="Page"
+                  aria-current-label="Current page"
+                  @change="changePages()"
+                >
+                </b-pagination>
+              </div>
+            </div>
+            <skeleton-loader v-if="isLoading && selectedSize !== ''" :amount="3"></skeleton-loader>
+            <div v-if="!isLoading && !noResults" class="columns is-multiline">
+              <template v-for="(wheel, index) in paginatedItems">
+                <div :key="index" class="column is-4">
+                  <article class="card">
                     <div class="card-image">
                       <figure class="image is-square">
                         <img
@@ -177,10 +189,18 @@
                 </div>
               </template>
             </div>
-            <div v-if="!isLoading && total > perPage" class="column is-12">
+            <div v-if="!isLoading && noResults" class="column is-10 is-offset-1 no-results">
+              <div class="card">
+                <div class="card-content has-text-centered">
+                  <i class="fad fa-sad-tear pb-3"></i>
+                  <h3>No Results found for "{{ searchString }}"</h3>
+                </div>
+              </div>
+            </div>
+            <div v-if="!isLoading && totalResults > perPage && !noResults" class="column is-12">
               <b-pagination
                 v-model="currentPage"
-                :total="total"
+                :total="totalResults"
                 :range-before="2"
                 :range-after="2"
                 :order="'is-centered'"
@@ -194,29 +214,16 @@
               >
               </b-pagination>
             </div>
-            <div v-if="!isLoading && noResults" class="column is-10 is-offset-1 no-results">
-              <div class="card">
-                <div class="card-content has-text-centered">
-                  <i class="fad fa-sad-tear pb-3"></i>
-                  <h3>No Results found for "{{ searchString }}"</h3>
-                </div>
-              </div>
-            </div>
-            <div v-if="!isLoading && (searchString !== '')" class="column is-half is-offset-one-quarter">
-              <b-button v-debounce:500ms="searchAll" debounce-events="click" expanded type="is-primary">
-                View all {{ selectedSize }} inch Wheels
-              </b-button>
-            </div>
+          </div>
+          <div class="column is-12 is-hidden-tablet">
             <div class="column is-10 is-offset-1">
               <div class="divider">
                 Support
               </div>
             </div>
-            <div class="column">
-              <div class="card">
-                <div class="card-content">
-                  <patreon-card size="large" />
-                </div>
+            <div class="card">
+              <div class="card-content">
+                <patreon-card size="large" />
               </div>
             </div>
           </div>
@@ -232,20 +239,23 @@ import tenInchWheels from '~/static/data/wheels/10.json';
 import twelveInchWheels from '~/static/data/wheels/12.json';
 import thirteenInchWheels from '~/static/data/wheels/13.json';
 import PatreonCard from '~/components/PatreonCard';
+import SkeletonLoader from '~/components/SkeletonLoader';
 
 export default {
   components: {
-    PatreonCard
+    PatreonCard,
+    SkeletonLoader
   },
   data () {
     return {
+      allWheelsVisible: true,
       searchString: '',
       selectedSize: 10,
       selectedWheels: tenInchWheels,
       isLoading: false,
       noResults: false,
       currentPage: 1,
-      perPage: 8
+      perPage: 9
     };
   },
   head () {
@@ -266,8 +276,18 @@ export default {
   },
   computed: {
     // Computed value of the total amount of wheels in the selected results.
-    total () {
+    totalResults () {
       return this.selectedWheels.length;
+    },
+    totalAll () {
+      return {
+        amount: tenInchWheels.length + twelveInchWheels.length + thirteenInchWheels.length,
+        induvidualWheels: {
+          10: tenInchWheels.length,
+          12: twelveInchWheels.length,
+          13: thirteenInchWheels.length
+        }
+      };
     },
     // Items for the current page you are on.
     paginatedItems () {
@@ -298,6 +318,7 @@ export default {
 
     searchAll () {
       this.isLoading = true;
+      this.allWheelsVisible = true;
       document.getElementById('scrollLocation').scrollIntoView();
       this.noResults = false;
       this.searchString = '';
@@ -322,30 +343,35 @@ export default {
     },
 
     standardSearch () {
-      this.isLoading = true;
-      this.noResults = false;
-      this.currentPage = 1;
-      const keysToSearch = ['name', 'notes', 'type', 'size', 'offset'];
-      let fuse;
-      switch (this.selectedSize) {
-        case 10:
-          fuse = new Fuse(tenInchWheels, { keys: keysToSearch });
-          break;
-        case 12:
-          fuse = new Fuse(twelveInchWheels, { keys: keysToSearch });
-          break;
-        case 13:
-          fuse = new Fuse(thirteenInchWheels, { keys: keysToSearch });
-          break;
-        default:
-          this.noResults = true;
-          break;
+      if (this.searchString === '') {
+        this.searchAll();
+      } else {
+        this.isLoading = true;
+        this.allWheelsVisible = false;
+        this.noResults = false;
+        this.currentPage = 1;
+        const keysToSearch = ['name', 'notes', 'type', 'size', 'offset'];
+        let fuse;
+        switch (this.selectedSize) {
+          case 10:
+            fuse = new Fuse(tenInchWheels, { keys: keysToSearch });
+            break;
+          case 12:
+            fuse = new Fuse(twelveInchWheels, { keys: keysToSearch });
+            break;
+          case 13:
+            fuse = new Fuse(thirteenInchWheels, { keys: keysToSearch });
+            break;
+          default:
+            this.noResults = true;
+            break;
+        }
+        this.selectedWheels = fuse.search(this.searchString.toLowerCase()).map(result => result.item);
+        this.noResults = this.selectedWheels.length === 0;
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 500);
       }
-      this.selectedWheels = fuse.search(this.searchString.toLowerCase()).map(result => result.item);
-      this.noResults = this.selectedWheels.length === 0;
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
     }
   }
 };
