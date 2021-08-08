@@ -139,7 +139,7 @@
                 </b-pagination>
               </div>
             </div>
-            <skeleton-loader v-if="isLoading && selectedSize !== ''" :amount="3"></skeleton-loader>
+            <skeleton-loader v-if="isLoading && selectedSize !== ''" :amount="perPage"></skeleton-loader>
             <div v-if="!isLoading && !noResults" class="columns is-multiline">
               <template v-for="(wheel, index) in paginatedItems">
                 <div :key="index" class="column is-4">
