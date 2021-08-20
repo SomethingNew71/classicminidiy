@@ -19,7 +19,7 @@
     "url": "https://github.com/SomethingNew71/classicminidiy/issues"
   },
   "engines": {
-    "node": "^14.16.0"
+    "node": "^16.6.2"
   },
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -38,10 +38,11 @@
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
     "buefy": "^0.9.8",
-    "core-js": "^3.16.1",
+    "core-js": "^3.16.2",
     "fuse.js": "^6.4.6",
-    "highcharts": "^9.1.2",
+    "highcharts": "^9.2.1",
     "highcharts-vue": "^1.4.0",
+    "kute.js": "^2.1.2",
     "nuxt": "^2.15.8",
     "nuxt-facebook-pixel-module": "^1.5.0",
     "redirect-ssl": "^3.0.0",
@@ -60,11 +61,11 @@
     "@nuxtjs/eslint-module": "^3.0.2",
     "decompress": "^4.2.1",
     "eslint": "^7.32.0",
-    "eslint-plugin-nuxt": "^2.0.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-import": "^2.24.1",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^7.16.0",
     "imagemin": "^8.0.1",
@@ -72,10 +73,11 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.2",
     "imagemin-svgo": "^9.0.0",
+    "img-loader": "^4.0.0",
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.12",
     "nuxt-compress": "^5.0.0",
-    "sass": "^1.37.5",
+    "sass": "^1.38.0",
     "sass-loader": "^10.1.1",
     "webp-loader": "^0.6.0"
   }

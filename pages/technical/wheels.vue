@@ -414,7 +414,7 @@ export default {
     position: absolute;
     top: 10px;
     right: 10px;
-    z-index: 10000;
+    z-index: 1;
   }
   .skeleton-image .b-skeleton-item {
     margin: auto;
