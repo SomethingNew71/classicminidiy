@@ -70,10 +70,9 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    'nuxt-compress',
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
-    '@aceforth/nuxt-optimized-images',
-    'nuxt-compress',
     '@nuxtjs/robots',
     'nuxt-facebook-pixel-module',
     '@nuxtjs/sitemap'
@@ -109,9 +108,6 @@ export default {
   facebook: {
     pixelId: '3553629671319283',
     autoPageView: true
-  },
-  optimizedImages: {
-    optimizeImages: true
   },
   build: {
     optimizeCSS: true
