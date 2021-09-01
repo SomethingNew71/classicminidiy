@@ -38,7 +38,7 @@
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
     "buefy": "^0.9.10",
-    "core-js": "^2.6.12",
+    "core-js": "^3.16.4",
     "fuse.js": "^6.4.6",
     "highcharts": "^9.2.2",
     "highcharts-vue": "^1.4.0",
