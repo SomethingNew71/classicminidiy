@@ -118,6 +118,9 @@ export default {
       key: process.env.YoutubeKey,
       id: process.env.YoutubeID
     },
+    github: {
+      key: process.env.githubKey
+    },
     elastisearch: {
       un: process.env.elastisearchUN,
       pw: process.env.elastisearchPW,

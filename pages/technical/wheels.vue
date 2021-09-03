@@ -158,8 +158,7 @@
                           type="is-primary"
                           icon-right="pencil"
                           :icon-pack="'fad'"
-                          :tag="'a'"
-                          :href="`mailto:wheels@classicminidiy.com?subject=Wheel%20Update%20to%20${wheel.name}&body=Current%20Details%3A%0D%0A%0D%0AName%3A%20${wheel.name}%0D%0ASize%3A%20${wheel.size}%0D%0AOffset%3A%20${wheel.offset}%0D%0AMaterial%3A%20${wheel.type}%0D%0A%0D%0A------------------%0D%0APlease%20make%20your%20suggestions%20below%0D%0A%0D%0ASuggested%20Details%3A%0D%0A%0D%0AName%3A%0D%0ASize%3A%0D%0AOffset%3A%0D%0AMaterial%3A%0D%0A%0D%0A`"
+                          @click="editWheel(wheel)"
                         />
                       </b-tooltip>
                       <figure class="image is-square">
@@ -254,6 +253,7 @@ import twelveInchWheels from '~/static/data/wheels/12.json';
 import thirteenInchWheels from '~/static/data/wheels/13.json';
 import PatreonCard from '~/components/PatreonCard';
 import SkeletonLoader from '~/components/SkeletonLoader';
+import WheelEditForm from '~/components/WheelEditForm';
 
 export default {
   components: {
@@ -386,6 +386,19 @@ export default {
           this.isLoading = false;
         }, 500);
       }
+    },
+
+    editWheel (wheel) {
+      this.$buefy.modal.open({
+        parent: this,
+        props: {
+          wheel
+        },
+        component: WheelEditForm,
+        hasModalCard: true,
+        trapFocus: true,
+        canCancel: ['escape', 'outside']
+      });
     }
   }
 };
