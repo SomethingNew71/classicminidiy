@@ -87,7 +87,9 @@ export default {
   },
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
+    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' }),
+    // Will handle all external API calls
+    { path: 'api', handler: '~/api/index.js' }
   ],
   // 'google-gtag': {
   //   // TODO: Implement this new tag when gtag supports it.
@@ -113,19 +115,6 @@ export default {
     optimizeCSS: true
   },
   env: {
-    s3BaseURL: process.env.s3Base,
-    youtube: {
-      key: process.env.YoutubeKey,
-      id: process.env.YoutubeID
-    },
-    github: {
-      key: process.env.githubKey
-    },
-    elastisearch: {
-      un: process.env.elastisearchUN,
-      pw: process.env.elastisearchPW,
-      // apiKey: process.env.elasticsearchAPIKey,
-      endpoint: process.env.elastisearchAPI
-    }
+    s3BaseURL: process.env.s3Base
   }
 };

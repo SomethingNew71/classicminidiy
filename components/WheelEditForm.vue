@@ -118,8 +118,7 @@
   </form>
 </template>
 <script>
-import { request } from '@octokit/request';
-import fixIndent from 'outdent';
+import axios from 'axios';
 
 export default {
   props: {
@@ -160,38 +159,9 @@ export default {
   methods: {
     async updateWheel () {
       this.processing = true;
-      const apiKey = process.env.github.key;
-      await request('POST /repos/SomethingNew71/classicminidiy/issues', {
-        headers: {
-          authorization: apiKey,
-          accept: 'application/vnd.github.v3+json'
-        },
-        title: `Update ${this.wheel.name} - ${this.wheel.size}`,
-        labels: ['Wheel Update'],
-        assignees: ['SomethingNew71'],
-        body: fixIndent`
-        ## Old Details
-
-          | Category | Value                   |
-          |----------|-------------------------|
-          | Name     | ${this.wheel.name}      |
-          | Offset   | ${this.wheel.offset}    |
-          | Size     | ${this.wheel.majorSize} |
-          | Width    | ${this.wheel.size}      |
-          | Material | ${this.wheel.type}      |
-          | Notes    | ${this.wheel.notes}     |
-
-        ## New Details
-
-          | Category | Value                        |
-          |----------|------------------------------|
-          | Name     | ${this.newDetails.name}      |
-          | Offset   | ${this.newDetails.offset}    |
-          | Size     | ${this.newDetails.majorSize} |
-          | Width    | ${this.newDetails.size}      |
-          | Material | ${this.newDetails.type}      |
-          | Notes    | ${this.newDetails.notes}     |
-        `
+      await axios.post('/api/github/issues', {
+        wheel: this.wheel,
+        newDetails: this.newDetails
       }).then((response) => {
         this.issueCreated = true;
         this.apiError = false;
@@ -199,16 +169,10 @@ export default {
           number: response.data.number,
           url: response.data.html_url
         };
-      }).catch((error) => {
-        if (error.status === 503) {
-          this.issueCreated = false;
-          this.apiError = true;
-          this.apiMessage = 'GitHub API is currently unavailable. Please try again later.';
-        } else {
-          this.issueCreated = false;
-          this.apiError = true;
-          this.apiMessage = error;
-        }
+      }).catch(() => {
+        this.issueCreated = false;
+        this.apiError = true;
+        this.apiMessage = 'GitHub API is currently unavailable. Please try again later.';
       }).finally(() => {
         this.processing = false;
       });

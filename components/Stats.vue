@@ -65,35 +65,19 @@ export default {
   },
   methods: {
     async fetchData () {
-      const apiKey = process.env.youtube.key;
-      const baseURL = 'https://www.googleapis.com/youtube/v3/channels';
-      const id = process.env.youtube.id;
-      const details = 'snippet,contentDetails,statistics';
-      const feed = `${baseURL}?key=${apiKey}&id=${id}&part=${details}`;
-
-      if (this.$store.state.data.youtubeStats.length === 0) {
-        await axios.get(feed)
-          .then((response) => {
-            const items = response.data.items[0].statistics;
-            this.views = Number(items.viewCount).toLocaleString();
-            this.subscribers = Number(items.subscriberCount).toLocaleString();
-            this.videos = Number(items.videoCount).toLocaleString();
-            // Commit the stats to the store
-            this.$store.commit('data/saveYoutube', items);
-            this.isLoading = false;
-          })
-          .catch((error) => {
-            console.error('Youtube Error', error);
-            this.views = '0';
-            this.subscribers = '0';
-            this.videos = '0';
-          });
-      } else {
-        this.views = Number(this.$store.state.data.youtubeStats.viewCount).toLocaleString();
-        this.subscribers = Number(this.$store.state.data.youtubeStats.subscriberCount).toLocaleString();
-        this.videos = Number(this.$store.state.data.youtubeStats.videoCount).toLocaleString();
-        this.isLoading = false;
-      }
+      await axios.get('/api/youtube')
+        .then((response) => {
+          const items = response.data.items[0].statistics;
+          this.views = Number(items.viewCount).toLocaleString();
+          this.subscribers = Number(items.subscriberCount).toLocaleString();
+          this.videos = Number(items.videoCount).toLocaleString();
+        }).catch(() => {
+          this.views = 'X';
+          this.subscribers = 'X';
+          this.videos = 'X';
+        }).finally(() => {
+          this.isLoading = false;
+        });
     }
   }
 };
