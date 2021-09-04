@@ -20,6 +20,7 @@ module.exports = {
     semi: ['error', 'always', { omitLastInOneLineBlock: true }],
     'vue/html-self-closing': 0,
     'vue/no-v-html': 0,
-    'no-console': 'off'
+    'no-console': 'off',
+    'no-unused-vars': 'warn'
   }
 };
