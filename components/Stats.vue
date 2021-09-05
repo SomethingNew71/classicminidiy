@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     async fetchData () {
-      await axios.get('/api/youtube')
+      await axios.get('https://uw0jl2qw25.execute-api.us-east-1.amazonaws.com/dev/youtube')
         .then((response) => {
           const items = response.data.items[0].statistics;
           this.views = Number(items.viewCount).toLocaleString();

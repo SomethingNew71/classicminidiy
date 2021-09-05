@@ -87,9 +87,7 @@ export default {
   },
   serverMiddleware: [
     // Will register redirect-ssl npm package
-    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' }),
-    // Will handle all external API calls
-    { path: 'api', handler: '~/api/index.js' }
+    redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
   // 'google-gtag': {
   //   // TODO: Implement this new tag when gtag supports it.
