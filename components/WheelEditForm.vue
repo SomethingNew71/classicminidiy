@@ -159,7 +159,7 @@ export default {
   methods: {
     async updateWheel () {
       this.processing = true;
-      await axios.post('/api/github/issues', {
+      await axios.post('https://6a3qc67rl0.execute-api.us-east-1.amazonaws.com/dev/github/issues', {
         wheel: this.wheel,
         newDetails: this.newDetails
       }).then((response) => {
