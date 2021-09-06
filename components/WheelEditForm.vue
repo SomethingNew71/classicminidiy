@@ -76,6 +76,21 @@
         <div class="columns is-multiline pt-3">
           <div class="column is-12">
             <h2>
+              <strong>Contact Info:</strong>
+            </h2>
+          </div>
+          <div class="column is-half">
+            <b-field class="pb-3" :label-position="'on-border'" label="Your Name (Optional)">
+              <b-input v-model="newDetails.submittedBy" maxlength="50" icon="signature" icon-pack="fad"></b-input>
+            </b-field>
+          </div>
+          <div class="column is-half">
+            <b-field class="pb-3" :label-position="'on-border'" label="Your Email (Optional)">
+              <b-input v-model="newDetails.submittedByEmail" maxlength="50" type="email" icon="at" icon-pack="fad"></b-input>
+            </b-field>
+          </div>
+          <div class="column is-12">
+            <h2>
               <strong>Suggested Changes:</strong>
             </h2>
           </div>
@@ -147,7 +162,9 @@ export default {
         notes: '',
         size: '',
         majorSize: '',
-        type: ''
+        type: '',
+        submittedBy: '',
+        submittedByEmail: ''
       },
       issueCreated: false,
       apiError: false,
