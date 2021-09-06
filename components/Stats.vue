@@ -7,10 +7,10 @@
             Minutes Watched
           </p>
           <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
-          <p v-if="!isLoading && views !== '0'" class="title">
-            {{ views }}
+          <p v-if="!isLoading && stats.views" class="title">
+            {{ stats.views }}
           </p>
-          <p v-else-if="!isLoading && !views">
+          <p v-else-if="!isLoading && !stats.views || apiError" class="pt-2 fa-beat">
             <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
@@ -21,10 +21,10 @@
             Subscribers
           </p>
           <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
-          <p v-if="!isLoading && subscribers !== '0'" class="title">
-            {{ subscribers }}
+          <p v-if="!isLoading && stats.subscribers" class="title">
+            {{ stats.subscribers }}
           </p>
-          <p v-else-if="!isLoading && !subscribers">
+          <p v-else-if="!isLoading && !stats.subscribers || apiError" class="pt-2 fa-beat">
             <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
@@ -35,10 +35,10 @@
             videos
           </p>
           <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
-          <p v-if="!isLoading && videos !== '0'" class="title">
-            {{ videos }}
+          <p v-if="!isLoading && stats.videos" class="title">
+            {{ stats.videos }}
           </p>
-          <p v-else-if="!isLoading && !videos">
+          <p v-else-if="!isLoading && !stats.videos || apiError" class="pt-2 fa-beat">
             <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
@@ -54,10 +54,13 @@ import axios from 'axios';
 export default {
   data () {
     return {
-      views: null,
-      subscribers: null,
-      videos: null,
-      isLoading: true
+      stats: {
+        views: undefined,
+        subscribers: undefined,
+        videos: undefined
+      },
+      isLoading: true,
+      apiError: false
     };
   },
   created () {
@@ -67,14 +70,15 @@ export default {
     async fetchData () {
       await axios.get('https://uw0jl2qw25.execute-api.us-east-1.amazonaws.com/dev/youtube')
         .then((response) => {
-          const items = response.data.items[0].statistics;
-          this.views = Number(items.viewCount).toLocaleString();
-          this.subscribers = Number(items.subscriberCount).toLocaleString();
-          this.videos = Number(items.videoCount).toLocaleString();
+          this.stats = { ...response.data };
+          this.apiError = false;
         }).catch(() => {
-          this.views = 'X';
-          this.subscribers = 'X';
-          this.videos = 'X';
+          this.stats = {
+            views: undefined,
+            subscribers: undefined,
+            videos: undefined
+          };
+          this.apiError = true;
         }).finally(() => {
           this.isLoading = false;
         });
