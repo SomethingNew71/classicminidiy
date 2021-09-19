@@ -39,7 +39,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@octokit/request": "^5.6.1",
     "buefy": "^0.9.10",
-    "core-js": "^3.17.3",
+    "core-js": "^3.18.0",
     "express": "^4.17.1",
     "fuse.js": "^6.4.6",
     "highcharts": "^9.2.2",
@@ -55,9 +55,9 @@
     "vue-navigation-bar": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.15.4",
+    "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
-    "@babel/eslint-parser": "^7.15.4",
+    "@babel/eslint-parser": "^7.15.7",
     "@creativebulma/bulma-divider": "^1.1.0",
     "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
