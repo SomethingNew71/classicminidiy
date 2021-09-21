@@ -1,3 +1,23 @@
+@font-face {
+  font-family: discord;
+  src: url("~assets/fonts/discord-thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: discord-bold;
+  src: url("~assets/fonts/discord-bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: whitney-book;
+  src: url("~assets/fonts/whitneybook.woff") format("opentype");
+}
+
+@font-face {
+  font-family: whitney-semibold;
+  src: url("~assets/fonts/whitneysemibold.woff") format("opentype");
+}
+
 // Futura PT Heavy
 .fancy-font-heavy {
   font-family: futura-pt, sans-serif;
