@@ -14,6 +14,7 @@ module.exports = {
   ],
   plugins: [
     // Add plugins here if you want to in the future
+    '@babel/plugin-proposal-private-property-in-object', { 'loose': true }
   ],
   // add your custom rules here
   rules: {

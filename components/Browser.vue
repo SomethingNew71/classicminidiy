@@ -166,7 +166,7 @@ img {
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url(~/assets/img/patreon-promo.png);
+  background-image: url(~assets/img/patreon-promo.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
