@@ -6,7 +6,6 @@ export default {
   /*
    ** Headers of the page
    */
-  target: 'static',
   head: {
     title: 'Classic Mini DIY',
     htmlAttrs: {
