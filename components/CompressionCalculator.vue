@@ -123,7 +123,7 @@
       </b-field>
     </div>
     <div class="column is-12">
-      <a @click="confirmCustom">
+      <a @click="isCardModalActive = true">
         <b-icon pack="fas" :icon="'question'" /> How do I measure these values?
       </a>
     </div>
@@ -177,6 +177,60 @@
         </p>
       </div>
     </div>
+    <b-modal v-model="isCardModalActive" :width="640" scroll="keep">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Measuring your chambers and deck
+          </p>
+          <div class="card-header-icon">
+            <span class="icon">
+              <i class="fad fa-ruler-triangle" aria-hidden="true"></i>
+            </span>
+          </div>
+        </header>
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <iframe
+              class="has-ratio"
+              allowfullscreen
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/GxlgkbrfK2Y"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="~/static/hre.jpg" alt="Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">
+                Our Friend Paul Hickey
+              </p>
+              <p class="subtitle is-6">
+                <a href="https://www.youtube.com/watch?v=GxlgkbrfK2Y">@hreirl</a> on Youtube
+              </p>
+            </div>
+          </div>
+
+          <div class="content">
+            <p>
+              If you need any assistance measuring these values for the calculator, check out the video above by Paul Hickey at HRE IRL. Where he covers the entire measurement process on the Classic Mini.
+            </p>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <a class="card-footer-item" @click="isCardModalActive = false">Close</a>
+        </footer>
+      </div>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -399,22 +453,14 @@ export default {
       gasket: 3.4,
       decomp: 0,
       ratio: null,
-      capacity: null
+      capacity: null,
+      isCardModalActive: false
     };
   },
   created () {
     this.calculateRatio();
   },
   methods: {
-    confirmCustom () {
-      this.$buefy.dialog.confirm({
-        title: 'Measuring your chambers and deck',
-        message: '<img src="https://classicminidiy.s3.amazonaws.com/misc/measure.jpg" alt="Image illustrating measurement techniques">',
-        cancelText: 'Cancel',
-        confirmText: 'Ok',
-        type: 'is-primary'
-      });
-    },
     calculateRatio () {
       this.isLoading = true;
       const pi = Math.PI;
