@@ -37,7 +37,7 @@
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
-    "@octokit/request": "^5.6.1",
+    "@octokit/request": "^5.6.2",
     "buefy": "^0.9.10",
     "core-js": "^3.18.1",
     "express": "^4.17.1",
