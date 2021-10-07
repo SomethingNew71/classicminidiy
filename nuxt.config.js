@@ -76,7 +76,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
     '@nuxtjs/robots',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/recaptcha'
   ],
   robots: {
     UserAgent: '*',
@@ -90,6 +91,13 @@ export default {
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
+  recaptcha: {
+    hideBadge: true,
+    version: 3,
+    siteKey: process.env.recaptcha
+    // siteKey: process.env.recaptchaServer
+    // size: String
+  },
   build: {
     optimizeCSS: true
   },
