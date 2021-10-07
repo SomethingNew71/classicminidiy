@@ -29,6 +29,9 @@
               world-class manufacturers to deliver top-of-the-line products to
               personalize and ensure the performance of your Classic Mini.
             </p>
+            <p>
+              <contact-form></contact-form>
+            </p>
           </div>
           <div class="column is-4">
             <h3 class="fancy-font-book-oblique">
@@ -67,7 +70,7 @@
               <span>Contribute</span>
             </a>
           </div>
-          <div class="column is-10 is-offset-1 pt-50">
+          <div class="column is-10 is-offset-1 pt-6">
             <stats />
           </div>
           <div class="column is-12 pt-20">
@@ -285,15 +288,15 @@ import RecentVideos from '~/components/RecentVideos';
 import Hero from '~/components/Hero';
 import Phone from '~/components/Phone';
 import Browser from '~/components/Browser';
-// import StorePromo from '~/components/StorePromo';
+import ContactForm from '~/components/ContactForm';
 export default {
   components: {
     Hero,
     Stats,
     RecentVideos,
     Phone,
-    Browser
-    // StorePromo
+    Browser,
+    ContactForm
   },
   data () {
     return {
