@@ -75,7 +75,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/eslint-module',
     '@nuxtjs/robots',
-    'nuxt-facebook-pixel-module',
     '@nuxtjs/sitemap'
   ],
   robots: {
@@ -106,10 +105,6 @@ export default {
   //     }
   //   }
   // },
-  facebook: {
-    pixelId: '3553629671319283',
-    autoPageView: true
-  },
   build: {
     optimizeCSS: true
   },

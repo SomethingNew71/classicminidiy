@@ -46,7 +46,6 @@
     "highcharts-vue": "^1.4.0",
     "kute.js": "^2.1.2",
     "nuxt": "^2.15.8",
-    "nuxt-facebook-pixel-module": "^1.5.0",
     "outdent": "^0.8.0",
     "redirect-ssl": "^3.0.0",
     "vue-cookie-law": "^1.13.3",
