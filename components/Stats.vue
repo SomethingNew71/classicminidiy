@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     async fetchData () {
-      await axios.get('https://uw0jl2qw25.execute-api.us-east-1.amazonaws.com/dev/youtube')
+      await axios.get(`${process.env.serverlessEndpoint}/stats`)
         .then((response) => {
           this.stats = { ...response.data };
           this.apiError = false;

@@ -89,26 +89,11 @@ export default {
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
-  // 'google-gtag': {
-  //   // TODO: Implement this new tag when gtag supports it.
-  //   // id: 'G-FBH0E64HM1',
-  //   id: 'UA-53914731-2',
-  //   config: {
-  //     linker: {
-  //       accept_incoming: true,
-  //       domains: [
-  //         'patreon.com/classicminidiy',
-  //         'facebook.com/classicminidiy',
-  //         'youtube.com/c/classicminidiy',
-  //         'merch.classicminidiy.com'
-  //       ]
-  //     }
-  //   }
-  // },
   build: {
     optimizeCSS: true
   },
   env: {
-    s3BaseURL: process.env.s3Base
+    s3BaseURL: process.env.s3Base,
+    serverlessEndpoint: process.env.serverlessEndpoint
   }
 };
