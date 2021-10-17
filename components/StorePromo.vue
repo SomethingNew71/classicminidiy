@@ -13,7 +13,7 @@
       <p class="pt-5">
         <a class="mt-25 button is-medium is-primary" rel="noopener" href="https://store.classicminidiy.com/" target="_blank">
           <span class="icon">
-            <i class="fad fa-store" />
+            <i class="fad fa-store"></i>
           </span>
           <span>Check out the Merch</span>
         </a>

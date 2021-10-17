@@ -44,6 +44,9 @@ export default {
       { rel: 'icon', type: 'image/png', href: '/favicon-16x16.png', sizes: '16x16' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet preconnect dns-prefetch', href: 'https://use.typekit.net/fgm1hlg.css', media: 'print', onload: 'this.media="all"' }
+    ],
+    script: [
+      { src: 'https://kit.fontawesome.com/4e4435c885.js', crossorigin: 'anonymous' }
     ]
   },
   /*
@@ -92,7 +95,7 @@ export default {
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
   recaptcha: {
-    hideBadge: true,
+    // hideBadge: true,
     version: 3,
     siteKey: process.env.recaptcha
     // siteKey: process.env.recaptchaServer

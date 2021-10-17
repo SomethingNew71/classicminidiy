@@ -29,7 +29,7 @@
               world-class manufacturers to deliver top-of-the-line products to
               personalize and ensure the performance of your Classic Mini.
             </p>
-            <p>
+            <p class="pt-3">
               <contact-form></contact-form>
             </p>
           </div>
@@ -255,6 +255,9 @@
               ability. I will also accept feedback in the event that I get
               something incorrect. I am an enthusiast and not a complete expert
               so from time to time I will make mistakes.
+            </p>
+            <p class="pt-3">
+              <contact-form></contact-form>
             </p>
           </div>
           <div class="column is-5 avatar-container">
