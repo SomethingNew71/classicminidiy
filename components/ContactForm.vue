@@ -30,7 +30,7 @@
             <h1 class="modal-card-title">
               Ask a Question!
             </h1>
-            <button type="button" class="delete" @click="$emit('close')" />
+            <button type="button" class="delete" @click="isComponentModalActive = false" />
           </header>
           <section class="modal-card-body">
             <p class="pb-5">
