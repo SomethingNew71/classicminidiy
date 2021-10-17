@@ -145,6 +145,7 @@ export default {
   },
   methods: {
     async onSubmit () {
+      this.processing = true;
       await this.$recaptcha.execute('login').catch((e) => {
         console.error(e);
       });
