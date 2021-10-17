@@ -1,9 +1,9 @@
 <template>
   <div>
     <b-button
-      label="Launch component modal"
+      label="Ask me a Question!"
       type="is-primary"
-      size="is-medium"
+      :size="size"
       @click="isComponentModalActive = true"
     />
 
@@ -17,7 +17,7 @@
       aria-modal
     >
       <form action="">
-        <div v-if="processing" class="modal-card">
+        <div v-if="processing && !questionSent && !apiError" class="modal-card">
           <div class="modal-card-body has-text-centered pt-5">
             <i class="is-size-1 has-text-primary fa-duotone fa-arrows-rotate fa-spin fa-beat mt-5 mb-2"></i>
             <h1 class="is-size-3 pb-1">
@@ -38,8 +38,8 @@
             </p>
             <b-field label="Email">
               <b-input
+                v-model="email"
                 type="email"
-                :value="email"
                 required
               >
               </b-input>
@@ -47,8 +47,8 @@
 
             <b-field label="Name">
               <b-input
+                v-model="name"
                 type="text"
-                :value="name"
                 required
               >
               </b-input>
@@ -56,8 +56,8 @@
 
             <b-field label="Your Question">
               <b-input
+                v-model="body"
                 type="textarea"
-                :value="body"
                 minlength="10"
                 maxlength="100"
                 required
@@ -67,8 +67,8 @@
 
             <b-field label="Mini Information">
               <b-input
+                v-model="miniInfo"
                 type="textarea"
-                :value="miniInfo"
                 minlength="10"
                 maxlength="100"
                 required
@@ -78,7 +78,7 @@
           </section>
           <footer class="modal-card-foot">
             <b-button label="Close" @click="isComponentModalActive=false" />
-            <b-button label="Login" type="is-primary" @click="onSubmit()" />
+            <b-button label="Send your Email" type="is-primary" @click="onSubmit()" />
           </footer>
         </div>
         <div v-if="!processing && questionSent && !apiError" class="modal-card">
@@ -117,6 +117,13 @@
 import axios from 'axios';
 
 export default {
+  props: {
+    size: {
+      required: false,
+      default: 'is-medium',
+      type: String
+    }
+  },
   data () {
     return {
       isComponentModalActive: false,
@@ -143,15 +150,11 @@ export default {
       await this.$recaptcha.execute('login').catch((e) => {
         console.error(e);
       });
-      await axios.post('https://t0k3hjzq09.execute-api.us-east-1.amazonaws.com/dev/mailjet/email', {
-        formEmail: 'fasdfjhalsdkfjasd',
-        // formEmail: this.email,
-        formName: 'sadakljsdhhhhj',
-        // formName: this.name,
-        formBody: 'dasdasaasd',
-        // formBody: this.body,
-        formMiniInfo: 'fjaiosyatksndbafkdsjbf'
-        // formMiniInfo: this.miniInfo
+      await axios.post(`${process.env.serverlessEndpoint}/mailjet/email`, {
+        formEmail: this.email,
+        formName: this.name,
+        formBody: this.body,
+        formMiniInfo: this.miniInfo
       }).then(() => {
         this.questionSent = true;
         this.apiError = false;
