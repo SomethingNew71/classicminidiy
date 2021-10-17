@@ -95,7 +95,7 @@ export default {
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' })
   ],
   recaptcha: {
-    // hideBadge: true,
+    hideBadge: true,
     version: 3,
     siteKey: process.env.recaptcha
     // siteKey: process.env.recaptchaServer
