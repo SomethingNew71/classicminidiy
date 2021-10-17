@@ -127,14 +127,13 @@ export default {
   data () {
     return {
       isComponentModalActive: false,
-      email: undefined,
-      name: undefined,
-      body: undefined,
-      miniInfo: undefined,
+      email: '',
+      name: '',
+      body: '',
+      miniInfo: '',
       questionSent: false,
       apiError: false,
       processing: false
-
     };
   },
   async mounted () {
@@ -146,7 +145,6 @@ export default {
   },
   methods: {
     async onSubmit () {
-      this.processing = true;
       await this.$recaptcha.execute('login').catch((e) => {
         console.error(e);
       });
