@@ -62,6 +62,7 @@ export default {
   plugins: [
     '~/plugins/buefy.js',
     '~/plugins/vue-debounce.js',
+    { src: '~plugins/window-resize.js', mode: 'client' },
     { src: '~plugins/highcharts-vue.js', mode: 'client' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },

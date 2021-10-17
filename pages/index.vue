@@ -70,6 +70,9 @@
           <div class="column is-10 is-offset-1 pt-50">
             <stats />
           </div>
+          <div class="column is-12 pt-20">
+            <recent-videos></recent-videos>
+          </div>
         </div>
       </div>
     </section>
@@ -278,6 +281,7 @@
 
 <script>
 import Stats from '~/components/Stats';
+import RecentVideos from '~/components/RecentVideos';
 import Hero from '~/components/Hero';
 import Phone from '~/components/Phone';
 import Browser from '~/components/Browser';
@@ -286,6 +290,7 @@ export default {
   components: {
     Hero,
     Stats,
+    RecentVideos,
     Phone,
     Browser
     // StorePromo

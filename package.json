@@ -45,13 +45,15 @@
     "highcharts": "^9.2.2",
     "highcharts-vue": "^1.4.0",
     "kute.js": "^2.1.2",
+    "luxon": "^2.0.2",
     "nuxt": "^2.15.8",
     "outdent": "^0.8.0",
     "redirect-ssl": "^3.0.0",
     "vue-cookie-law": "^1.13.3",
     "vue-debounce": "^3.0.1",
     "vue-gtag": "^1.16.1",
-    "vue-navigation-bar": "^4.1.0"
+    "vue-navigation-bar": "^4.1.0",
+    "vue-window-size": "^0.6.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
@@ -64,7 +66,7 @@
     "eslint": "^7.27.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-jest": "^25.2.0",
+    "eslint-plugin-jest": "^25.2.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-promise": "^5.1.0",
