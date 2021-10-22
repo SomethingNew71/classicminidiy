@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-multiline">
+  <div class="columns is-multiline configurator-component">
     <div class="column is-3">
       <nav class="panel">
         <p class="panel-heading">
@@ -141,5 +141,9 @@ export default {
 <style lang="scss">
 .highcharts-credits {
   display: none !important;
+}
+.configurator-component .button .icon, .button .icon.is-small {
+  height: 1rem;
+  width: 1rem;
 }
 </style>
