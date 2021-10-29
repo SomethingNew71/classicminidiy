@@ -2,11 +2,11 @@
   <cookie-law v-if="showPopper">
     <div slot-scope="props" class="columns is-multiline">
       <div class="column">
-        <h3 class="title is-5 has-text-white">
-          Like this website?
-        </h3>
+        <h3 class="title is-5 has-text-white">Like this website?</h3>
         <p>
-          Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel and website alive, please consider supporting ongoing development on Patreon.
+          Classic Mini DIY is supported by our viewers. If you are interested in
+          helping to keep the channel and website alive, please consider
+          supporting ongoing development on Patreon.
         </p>
         <p class="mt-5 mb-5">
           <a
@@ -34,23 +34,23 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      showPopper: false
-    };
-  },
-  mounted () {
-    this.triggerDelay();
-  },
-  methods: {
-    triggerDelay () {
-      setTimeout(() => {
-        this.showPopper = true;
-      }, 4000);
-    }
-  }
-};
+  export default {
+    data() {
+      return {
+        showPopper: false,
+      };
+    },
+    mounted() {
+      this.triggerDelay();
+    },
+    methods: {
+      triggerDelay() {
+        setTimeout(() => {
+          this.showPopper = true;
+        }, 4000);
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>

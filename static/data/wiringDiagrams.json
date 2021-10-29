@@ -1,356 +1,356 @@
 {
   "positiveGround": {
-     "title": "Positive Ground",
-     "icon": "plus",
-     "items": [
-        {
-           "name": "Mini Super/Super Deluxe/Countryman/Traveller/Cooper",
-           "from": 1959,
-           "to": 1964,
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+SUPER+-+SUPER+DE-LUXE+-+COUNTRYMAN+-+TRAVELLER+AND+COOPER+-UP+TO+1964.PDF"
-        },
-        {
-           "name": "Mini Standard and Deluxe",
-           "from": 1959,
-           "to": 1964,
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+STANDARD+AND+DE-LUXE+-+UP+TO+1964.PDF"
-        },
-        {
-           "name": "Mini Saloon/Van/Pickup",
-           "from": 1964,
-           "to": 1967,
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+SALOON%2C+VAN%2C+AND+PICK-UP+-+1964+TO+1967.PDF"
-        },
-        {
-           "name": "Mini Cooper/Cooper S/Countryman/Traveller/Super Deluxe",
-           "from": 1964,
-           "to": 1967,
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+COOPER%2C+COOPER+S%2C+COUNTRYMAN%2C+TRAVELLER%2C+AND+SUPER+DE-LUXE+1964+TO+1967.PDF"
-        },
-        {
-           "name": "Mini Super Deluxe/Countryman/Traveller/Cooper/Cooper S Mk2",
-           "from": "",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+SUPER+DE-LUXE%2C+COUNTRYMAN%2C+TRAVELLER.+COOPER.+AND+COOPER+S+MARK+II.PDF"
-        },
-        {
-           "name": "Mini Standard Saloon/Van/Pickup Mk2",
-           "from": "",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+STANDARD+SALOON%2C+VAN%2C+AND+PICK-UP+MARK+II.PDF"
-        },
-        {
-           "name": "Mini Moke",
-           "from": "1959",
-           "to": "1967",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI-MOKE+UP+TO+1967.PDF"
-        },
-        {
-           "name": "Mini Moke Mk2",
-           "from": "",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI-MOKE+MARK+II.PDF"
-        }
-     ]
+    "title": "Positive Ground",
+    "icon": "plus",
+    "items": [
+      {
+        "name": "Mini Super/Super Deluxe/Countryman/Traveller/Cooper",
+        "from": 1959,
+        "to": 1964,
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+SUPER+-+SUPER+DE-LUXE+-+COUNTRYMAN+-+TRAVELLER+AND+COOPER+-UP+TO+1964.PDF"
+      },
+      {
+        "name": "Mini Standard and Deluxe",
+        "from": 1959,
+        "to": 1964,
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+STANDARD+AND+DE-LUXE+-+UP+TO+1964.PDF"
+      },
+      {
+        "name": "Mini Saloon/Van/Pickup",
+        "from": 1964,
+        "to": 1967,
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+SALOON%2C+VAN%2C+AND+PICK-UP+-+1964+TO+1967.PDF"
+      },
+      {
+        "name": "Mini Cooper/Cooper S/Countryman/Traveller/Super Deluxe",
+        "from": 1964,
+        "to": 1967,
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+COOPER%2C+COOPER+S%2C+COUNTRYMAN%2C+TRAVELLER%2C+AND+SUPER+DE-LUXE+1964+TO+1967.PDF"
+      },
+      {
+        "name": "Mini Super Deluxe/Countryman/Traveller/Cooper/Cooper S Mk2",
+        "from": "",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+SUPER+DE-LUXE%2C+COUNTRYMAN%2C+TRAVELLER.+COOPER.+AND+COOPER+S+MARK+II.PDF"
+      },
+      {
+        "name": "Mini Standard Saloon/Van/Pickup Mk2",
+        "from": "",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI+STANDARD+SALOON%2C+VAN%2C+AND+PICK-UP+MARK+II.PDF"
+      },
+      {
+        "name": "Mini Moke",
+        "from": "1959",
+        "to": "1967",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI-MOKE+UP+TO+1967.PDF"
+      },
+      {
+        "name": "Mini Moke Mk2",
+        "from": "",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Positive+Ground/MINI-MOKE+MARK+II.PDF"
+      }
+    ]
   },
   "negativeGround": {
-     "title": "Negative Ground",
-     "icon": "minus",
-     "items": [
-        {
-           "name": "Mini 850 Deluxe Saloon/Van/Pickup",
-           "from": "",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/MINI+850+DE-LUXE+SALOON%2C+VAN%2C+AND+PICKUP.PDF"
-        },
-        {
-           "name": "Mini 1000 Special Deluxe Saloon/Cooper S Mk3",
-           "from": "",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/MINI+1000+SPECIAL+DE-LUXE+SALOON+AND+COOPER+S+Mk.+III.PDF"
-        },
-        {
-           "name": "Mini 1275 GT",
-           "from": "",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/MINI+1275+GT.PDF"
-        },
-        {
-           "name": "Mini Clubman Saloon/Estate",
-           "from": "",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/MINI+CLUBMAN+SALOON+AND+ESTATE.PDF"
-        },
-        {
-           "name": "Innocenti 1300 Export",
-           "from": "",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/Inno-1300-export.pdf"
-        }
-     ]
+    "title": "Negative Ground",
+    "icon": "minus",
+    "items": [
+      {
+        "name": "Mini 850 Deluxe Saloon/Van/Pickup",
+        "from": "",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/MINI+850+DE-LUXE+SALOON%2C+VAN%2C+AND+PICKUP.PDF"
+      },
+      {
+        "name": "Mini 1000 Special Deluxe Saloon/Cooper S Mk3",
+        "from": "",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/MINI+1000+SPECIAL+DE-LUXE+SALOON+AND+COOPER+S+Mk.+III.PDF"
+      },
+      {
+        "name": "Mini 1275 GT",
+        "from": "",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/MINI+1275+GT.PDF"
+      },
+      {
+        "name": "Mini Clubman Saloon/Estate",
+        "from": "",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/MINI+CLUBMAN+SALOON+AND+ESTATE.PDF"
+      },
+      {
+        "name": "Innocenti 1300 Export",
+        "from": "",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Negative+Ground/Inno-1300-export.pdf"
+      }
+    ]
   },
   "britishLeyland": {
-     "title": "British Leyland",
-     "icon": "car",
-     "items": [
-        {
-           "name": "Mini 1000 Saloon(Canada)",
-           "from": "1959",
-           "to": "1976",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1000+SALOON+(CANADA)+TO+1976.PDF"
-        },
-        {
-           "name": "Mini 850 Deluxe/Van/Pickup with Alternator and Rocker Switches",
-           "from": "",
-           "to": "1976",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+850+DE-LUXE+SALOON%2C+VAN%2C+AND+PICKUP+WITH+ALTERNATOR+%26+ROCKER+SWITCHES.PDF"
-        },
-        {
-           "name": "Mini 1000 Special Deluxe with Alternator and Rocker Switches",
-           "from": "",
-           "to": "1976",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1000+SPECIAL+DE-LUXE+SALOON+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
-        },
-        {
-           "name": "Mini Clubman Saloon/Estate with Alternator and Rocker Switches",
-           "from": "",
-           "to": "1976",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+CLUBMAN+SALOON+AND+ESTATE+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
-        },
-        {
-           "name": "Mini 1275 GT with Alternator and Rocker Switches",
-           "from": "",
-           "to": "1976",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1275+GT+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
-        }
-     ]
+    "title": "British Leyland",
+    "icon": "car",
+    "items": [
+      {
+        "name": "Mini 1000 Saloon(Canada)",
+        "from": "1959",
+        "to": "1976",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1000+SALOON+(CANADA)+TO+1976.PDF"
+      },
+      {
+        "name": "Mini 850 Deluxe/Van/Pickup with Alternator and Rocker Switches",
+        "from": "",
+        "to": "1976",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+850+DE-LUXE+SALOON%2C+VAN%2C+AND+PICKUP+WITH+ALTERNATOR+%26+ROCKER+SWITCHES.PDF"
+      },
+      {
+        "name": "Mini 1000 Special Deluxe with Alternator and Rocker Switches",
+        "from": "",
+        "to": "1976",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1000+SPECIAL+DE-LUXE+SALOON+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
+      },
+      {
+        "name": "Mini Clubman Saloon/Estate with Alternator and Rocker Switches",
+        "from": "",
+        "to": "1976",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+CLUBMAN+SALOON+AND+ESTATE+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
+      },
+      {
+        "name": "Mini 1275 GT with Alternator and Rocker Switches",
+        "from": "",
+        "to": "1976",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/British+Leyland/MINI+1275+GT+WITH+ALTERNATOR+AND+ROCKER+SWITCHES.PDF"
+      }
+    ]
   },
   "earlyRover": {
-     "title": "Early Rover",
-     "icon": "car",
-     "items": [
-        {
-           "name": "Mini 850 Saloon/Van/Pickup",
-           "from": "1976",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+850+SALOON+VAN+AND+PICK-UP+1976+ON+-+PAGE+86-3.PDF"
-        },
-        {
-           "name": "Mini 1000 - Mini Special",
-           "from": "1976",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+1000+SALOON+-+MINI+SPECIAL+1976+ON+-+PAGE+86-5.PDF"
-        },
-        {
-           "name": "Mini Clubman/Estate/1275GT",
-           "from": "1976",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+CLUBMAN%2C+ESATE+AND+1275GT+1976-ON+-+PAGE+86-7.PDF"
-        },
-        {
-           "name": "Mini Special",
-           "from": "1977",
-           "to": "1978",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+SPECIAL+-+1977-78+-+PAGE+86-9.PDF"
-        },
-        {
-           "name": "Mini Single Instrument Pack",
-           "from": "1984",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+SINGLE+INSTRUMENT+PACK+1984-ON+-+PAGE+86-34.PDF"
-        },
-        {
-           "name": "Mini Multi-Instrument Pack",
-           "from": "1984",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+MULTI+INSTRUMENT+PACK+1984-ON+-+PAGE+86-36.PDF"
-        },
-        {
-           "name": "Mini",
-           "from": "1988",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+1988-ON+-+PAGE+86-49.PDF"
-        },
-        {
-           "name": "Twin Gauge Instrument Pack With Integral Voltage Stabilizer",
-           "from": "",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/TWIN+GAUGE+INSTRUMENT+PACK+WITH+INTEGRAL+VOLTAGE+STABILISER+-+PAGE+86-50.PDF"
-        },
-        {
-           "name": "Triple Gauge Instrument Pack With Intergral Voltage Stabilizer",
-           "from": "",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/TRIPLE+GAUGE+INSTRUMENT+PACK+WITH+INTEGRAL+VOLTAGE+STABILISER+-+PAGE+86-50.PDF"
-        },
-        {
-           "name": "Mini Turbo Model",
-           "from": "",
-           "to": "1989",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+TURBO+MODEL+-+PAGE+86-53.PDF"
-        }
-     ]
+    "title": "Early Rover",
+    "icon": "car",
+    "items": [
+      {
+        "name": "Mini 850 Saloon/Van/Pickup",
+        "from": "1976",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+850+SALOON+VAN+AND+PICK-UP+1976+ON+-+PAGE+86-3.PDF"
+      },
+      {
+        "name": "Mini 1000 - Mini Special",
+        "from": "1976",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+1000+SALOON+-+MINI+SPECIAL+1976+ON+-+PAGE+86-5.PDF"
+      },
+      {
+        "name": "Mini Clubman/Estate/1275GT",
+        "from": "1976",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+CLUBMAN%2C+ESATE+AND+1275GT+1976-ON+-+PAGE+86-7.PDF"
+      },
+      {
+        "name": "Mini Special",
+        "from": "1977",
+        "to": "1978",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+SPECIAL+-+1977-78+-+PAGE+86-9.PDF"
+      },
+      {
+        "name": "Mini Single Instrument Pack",
+        "from": "1984",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+SINGLE+INSTRUMENT+PACK+1984-ON+-+PAGE+86-34.PDF"
+      },
+      {
+        "name": "Mini Multi-Instrument Pack",
+        "from": "1984",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+MULTI+INSTRUMENT+PACK+1984-ON+-+PAGE+86-36.PDF"
+      },
+      {
+        "name": "Mini",
+        "from": "1988",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+1988-ON+-+PAGE+86-49.PDF"
+      },
+      {
+        "name": "Twin Gauge Instrument Pack With Integral Voltage Stabilizer",
+        "from": "",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/TWIN+GAUGE+INSTRUMENT+PACK+WITH+INTEGRAL+VOLTAGE+STABILISER+-+PAGE+86-50.PDF"
+      },
+      {
+        "name": "Triple Gauge Instrument Pack With Intergral Voltage Stabilizer",
+        "from": "",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/TRIPLE+GAUGE+INSTRUMENT+PACK+WITH+INTEGRAL+VOLTAGE+STABILISER+-+PAGE+86-50.PDF"
+      },
+      {
+        "name": "Mini Turbo Model",
+        "from": "",
+        "to": "1989",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Early+Rover/MINI+TURBO+MODEL+-+PAGE+86-53.PDF"
+      }
+    ]
   },
   "laterRover": {
-     "title": "Later Rover",
-     "icon": "car",
-     "items": [
-        {
-           "name": "Power Distribution - Carburetter Models",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/POWER+DISTRIBUTION+-+CARBURETTER+MODELS+-+WIRING+DIAGRAMS+PAGE+4.PDF"
-        },
-        {
-           "name": "Power Distribution - SPI Models",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/POWER+DISTRIBUTION+-+SPI+MODELS+-+WIRING+DIAGRAMS+PAGE+6.PDF"
-        },
-        {
-           "name": "Exterior Lamps and Horn",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/EXTERIOR+LAMPS+AND+HORN+-+WIRING+DIAGRAMS+PAGE+8.PDF"
-        },
-        {
-           "name": "Driving and Fog Lamps",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/DRIVING+AND+FOG+LAMP+CIRCUITS+WIRING+DIAGRAMS+PAGE+10.PDF"
-        },
-        {
-           "name": "Reverse Lamps/Brake Lamps/Heated Rear Window Circuit",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/REVERSE+LAMPS%2C+BRAKE+LAMPS+AND+HEATED+REAR+WINDOW+CIRCUIT+WIREING+DIAGRAMS+PAGE+11.PDF"
-        },
-        {
-           "name": "Direction Indicator and Hazard Warning",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/DIRECTION+INDICATOR+AND+HAZARD+WARNING+-WIRING+DIAGRAMS+PAGE+12.PDF"
-        },
-        {
-           "name": "Instruments",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/INSTRUMENTS+-+WIRING+DIAGRAMS+PAGE+14.PDF"
-        },
-        {
-           "name": "Interior Lamp Circuit",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/INTERIOR+LAMP+CIRCUIT+-+WIRING+DIAGRAMS+PAGE+16.PDF"
-        },
-        {
-           "name": "Heater & Automatic Gearbox Selector Illumination Circuitsheater & Automatic Gearbox Selector Illumination Circuits",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/HEATER+%26+AUTOMATIC+GEARBOX+SELECTOR+ILLUMINATION+CIRCUITS+-+WIRING+DIAGRAMS+PAGE+17.PDF"
-        },
-        {
-           "name": "Engine Management",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/ENGINE+MANAGEMENT+-+WIRING+DIAGRAMS+PAGE+19.PDF"
-        },
-        {
-           "name": "Anti-Theft Alarm",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/ANTI-THEFT+ALARM+-+WIRING+DIAGRAMS+PAGE+20.PDF"
-        },
-        {
-           "name": "Wash Wipe Circuit",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/WASH+WIPE+CIRCUIT+-+WIRING+DIAGRAMS+PAGE+22.PDF"
-        },
-        {
-           "name": "Auxiliary Cooling Fan and Brake Test Circuits",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/AUXILIARY+COOLING+FAN+AND+BRAKE+TEST+CIRCUITS+-+WIRING+DIAGRAMS+PAGE+23.PDF"
-        },
-        {
-           "name": "Radio Cassette Player",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/RADIO+CASSETTE+PLAYER+-+WIRING+DIAGRAMS+PAGE+24.PDF"
-        },
-        {
-           "name": "Sunroof Circuit",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/SUN+ROOF+CIRCUIT+-+WIRING+DIAGRAMS+PAGE+25.PDF"
-        },
-        {
-           "name": "Headlamp Levelling Circuit(Germany)",
-           "from": "1992",
-           "to": "1996",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/HEADLAMP+LEVELLING+CIRCUIT+(GERMANY)+-+WIRING+DIAGRAMS+PAGE+26.PDF"
-        }
-     ]
+    "title": "Later Rover",
+    "icon": "car",
+    "items": [
+      {
+        "name": "Power Distribution - Carburetter Models",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/POWER+DISTRIBUTION+-+CARBURETTER+MODELS+-+WIRING+DIAGRAMS+PAGE+4.PDF"
+      },
+      {
+        "name": "Power Distribution - SPI Models",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/POWER+DISTRIBUTION+-+SPI+MODELS+-+WIRING+DIAGRAMS+PAGE+6.PDF"
+      },
+      {
+        "name": "Exterior Lamps and Horn",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/EXTERIOR+LAMPS+AND+HORN+-+WIRING+DIAGRAMS+PAGE+8.PDF"
+      },
+      {
+        "name": "Driving and Fog Lamps",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/DRIVING+AND+FOG+LAMP+CIRCUITS+WIRING+DIAGRAMS+PAGE+10.PDF"
+      },
+      {
+        "name": "Reverse Lamps/Brake Lamps/Heated Rear Window Circuit",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/REVERSE+LAMPS%2C+BRAKE+LAMPS+AND+HEATED+REAR+WINDOW+CIRCUIT+WIREING+DIAGRAMS+PAGE+11.PDF"
+      },
+      {
+        "name": "Direction Indicator and Hazard Warning",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/DIRECTION+INDICATOR+AND+HAZARD+WARNING+-WIRING+DIAGRAMS+PAGE+12.PDF"
+      },
+      {
+        "name": "Instruments",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/INSTRUMENTS+-+WIRING+DIAGRAMS+PAGE+14.PDF"
+      },
+      {
+        "name": "Interior Lamp Circuit",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/INTERIOR+LAMP+CIRCUIT+-+WIRING+DIAGRAMS+PAGE+16.PDF"
+      },
+      {
+        "name": "Heater & Automatic Gearbox Selector Illumination Circuitsheater & Automatic Gearbox Selector Illumination Circuits",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/HEATER+%26+AUTOMATIC+GEARBOX+SELECTOR+ILLUMINATION+CIRCUITS+-+WIRING+DIAGRAMS+PAGE+17.PDF"
+      },
+      {
+        "name": "Engine Management",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/ENGINE+MANAGEMENT+-+WIRING+DIAGRAMS+PAGE+19.PDF"
+      },
+      {
+        "name": "Anti-Theft Alarm",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/ANTI-THEFT+ALARM+-+WIRING+DIAGRAMS+PAGE+20.PDF"
+      },
+      {
+        "name": "Wash Wipe Circuit",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/WASH+WIPE+CIRCUIT+-+WIRING+DIAGRAMS+PAGE+22.PDF"
+      },
+      {
+        "name": "Auxiliary Cooling Fan and Brake Test Circuits",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/AUXILIARY+COOLING+FAN+AND+BRAKE+TEST+CIRCUITS+-+WIRING+DIAGRAMS+PAGE+23.PDF"
+      },
+      {
+        "name": "Radio Cassette Player",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/RADIO+CASSETTE+PLAYER+-+WIRING+DIAGRAMS+PAGE+24.PDF"
+      },
+      {
+        "name": "Sunroof Circuit",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/SUN+ROOF+CIRCUIT+-+WIRING+DIAGRAMS+PAGE+25.PDF"
+      },
+      {
+        "name": "Headlamp Levelling Circuit(Germany)",
+        "from": "1992",
+        "to": "1996",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/HEADLAMP+LEVELLING+CIRCUIT+(GERMANY)+-+WIRING+DIAGRAMS+PAGE+26.PDF"
+      }
+    ]
   },
   "hornetElf": {
-     "title": "Hornet/Elf",
-     "icon": "car",
-     "items": [
-        {
-           "name": "Hornet and Elf",
-           "from": "1961",
-           "to": "1964",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Hornet+and+Elf/HORNET+AND+ELF+-+1961+TO+1964.PDF"
-        },
-        {
-           "name": "Hornet and Elf",
-           "from": "1964",
-           "to": "1967",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Hornet+and+Elf/HORNET+AND+ELF+-+1964+TO+1967.PDF"
-        },
-        {
-           "name": "Hornet and Elf",
-           "from": "1967",
-           "to": "onwards",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Hornet+and+Elf/HORNET+AND+ELF+-+1967+ONWARDS.PDF"
-        }
-     ]
+    "title": "Hornet/Elf",
+    "icon": "car",
+    "items": [
+      {
+        "name": "Hornet and Elf",
+        "from": "1961",
+        "to": "1964",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Hornet+and+Elf/HORNET+AND+ELF+-+1961+TO+1964.PDF"
+      },
+      {
+        "name": "Hornet and Elf",
+        "from": "1964",
+        "to": "1967",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Hornet+and+Elf/HORNET+AND+ELF+-+1964+TO+1967.PDF"
+      },
+      {
+        "name": "Hornet and Elf",
+        "from": "1967",
+        "to": "onwards",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Hornet+and+Elf/HORNET+AND+ELF+-+1967+ONWARDS.PDF"
+      }
+    ]
   },
   "ausMinis": {
-     "title": "Aus Minis",
-     "icon": "car",
-     "items": [
-        {
-           "name": "Australian Standard Saloon/Van",
-           "from": "1969",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+STANDARD+SALOON+AND+VAN.PDF"
-        },
-        {
-           "name": "Australian BMC Moke with Alternator",
-           "from": "1969",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+BMC+MOKE+WITH+ALTERNATOR.PDF"
-        },
-        {
-           "name": "Australian Mini and BMC Moke with Generator",
-           "from": "1969",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+MINI+AND+BMC+MOKE+WITH+GENERATOR.PDF"
-        },
-        {
-           "name": "Australian Mini 1000k/1100STD/Van/Mini Matic(1100)/Cooper S(Alternator)",
-           "from": "1969",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+MINI+1000+K%2C++1100+STD%2C+VAN%2C+MINI+MATIC+(1100)%2C+COOPER+S+(WITH+ALTERNATOR).PDF"
-        },
-        {
-           "name": "Australian Mini Cooper S with Generator",
-           "from": "1969",
-           "to": "",
-           "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+MINI+COOPER+S+WITH+GENERATOR+CHARGING+SYSTEM.PDF"
-        }
-     ]
+    "title": "Aus Minis",
+    "icon": "car",
+    "items": [
+      {
+        "name": "Australian Standard Saloon/Van",
+        "from": "1969",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+STANDARD+SALOON+AND+VAN.PDF"
+      },
+      {
+        "name": "Australian BMC Moke with Alternator",
+        "from": "1969",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+BMC+MOKE+WITH+ALTERNATOR.PDF"
+      },
+      {
+        "name": "Australian Mini and BMC Moke with Generator",
+        "from": "1969",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+MINI+AND+BMC+MOKE+WITH+GENERATOR.PDF"
+      },
+      {
+        "name": "Australian Mini 1000k/1100STD/Van/Mini Matic(1100)/Cooper S(Alternator)",
+        "from": "1969",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+MINI+1000+K%2C++1100+STD%2C+VAN%2C+MINI+MATIC+(1100)%2C+COOPER+S+(WITH+ALTERNATOR).PDF"
+      },
+      {
+        "name": "Australian Mini Cooper S with Generator",
+        "from": "1969",
+        "to": "",
+        "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Aus+Minis/AUSTRALIAN+MINI+COOPER+S+WITH+GENERATOR+CHARGING+SYSTEM.PDF"
+      }
+    ]
   }
 }

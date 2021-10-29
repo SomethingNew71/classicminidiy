@@ -8,7 +8,16 @@
     [7, 1, "BLVC111", "Cosmic Blue MET", "JMK", "1973/76", 1, 1],
     [139, 1, "BLVC17", "Delft Blue", "JAB", "1974/75", 1, 1],
     [141, 1, "BLVC140", "Astral Blue MET", "JAF, JMR", "1975/77", 1, 1],
-    [142, 1, "BLVC249", "Demin Blue MET Vogue Blue MET", "JAH, JCL, JMY", "1977/82", 1, 1],
+    [
+      142,
+      1,
+      "BLVC249",
+      "Demin Blue MET Vogue Blue MET",
+      "JAH, JCL, JMY",
+      "1977/82",
+      1,
+      1
+    ],
     [143, 1, "BLVC515", "Marine Blue", "JCC", "1984/00", 1, 1],
     [144, 1, "BLVC236", "Atlantis Blue", "JCF", "1976/79", 1, 1],
     [145, 1, "BLVC241", "Persian Aqua MET", "JCG, JMW", "1978/83", 1, 1],
@@ -103,7 +112,7 @@
   ],
   "brown": [
     [21, 4, "BLVC205", "Russet Brown", "AAE, CCH", "1977/82", 1, 1],
-    [22,4,"BLVC63","Buff, Sand Glow","AAJ, AMF, FCD","1975/83",1,1],
+    [22, 4, "BLVC63", "Buff, Sand Glow", "AAJ, AMF, FCD", "1975/83", 1, 1],
     [23, 4, "BLVC520", "Arizona Tan", "ABA", "1984/00", 1, 1],
     [24, 4, "BLVC508", "Sahara Dust", "ACD", "1984/00", 1, 1],
     [25, 4, "BLVC214", "Brazilia", "ACM", "1976/80", 1, 1],
@@ -137,7 +146,16 @@
     [1550, 9, "", "brigitte mini", "", "1980", 0, 0]
   ],
   "green": [
-    [109, 10, "BLVC254", "British Racing Green", "HAA, HDJ, HMN", "1975/77", 1, 1],
+    [
+      109,
+      10,
+      "BLVC254",
+      "British Racing Green",
+      "HAA, HDJ, HMN",
+      "1975/77",
+      1,
+      1
+    ],
     [110, 10, "BLVC208", "Java Green", "HAB", "1974/80", 1, 1],
     [111, 10, "BLVC148", "Tara Green MET", "HAD", "1976/83", 1, 1],
     [112, 10, "BLVC169", "Brookland Green", "HAE, HMM", "1975/82", 1, 1],
@@ -236,7 +254,16 @@
     [52, 2, "BLVC378", "Masai Red", "CCC", "1970/00", 1, 1],
     [55, 2, "BLVC432", "Bordeaux Red MET", "CCK", "1981/84", 1, 1],
     [56, 2, "BLVC440", "Venetian Red", "CCL", "1981/84", 1, 1],
-    [57, 2, "BLVC287", "Carnelean Red, Monza Red, Sebring Red", "CDE", "1978/84", 1, 1],
+    [
+      57,
+      2,
+      "BLVC287",
+      "Carnelean Red, Monza Red, Sebring Red",
+      "CDE",
+      "1978/84",
+      1,
+      1
+    ],
     [58, 2, "BLVC258", "Signal Red", "CDF, CMD", "1969/77", 1, 1],
     [59, 2, "BLVC211", "Damson Red, Richeliue Red", "CDG", "1976/80", 1, 1],
     [61, 2, "BLVC302", "Imperial Crimson", "CDM", "1981/84", 1, 1],
@@ -271,9 +298,27 @@
   ],
   "silver": [
     [186, 12, "BLVC229", "Oyster MET", "MAA, MMA", "1976/82", 1, 1],
-    [187, 12, "BLVC216", "Argent Silver MET, Silver Frost MET", "MCA, MDD", "1976/84", 1, 1],
+    [
+      187,
+      12,
+      "BLVC216",
+      "Argent Silver MET, Silver Frost MET",
+      "MCA, MDD",
+      "1976/84",
+      1,
+      1
+    ],
     [188, 12, "BLVC396", "Rhodium Grey MET", "MCB, MDE", "1980/84", 1, 1],
-    [189, 12, "BLVC403", "Sierra Silver MET,  Silver Birch MET", "MCD, MMC", "1981/84", 1, 1],
+    [
+      189,
+      12,
+      "BLVC403",
+      "Sierra Silver MET,  Silver Birch MET",
+      "MCD, MMC",
+      "1981/84",
+      1,
+      1
+    ],
     [190, 12, "BLVC524", "Astral Silver MET", "MCH", "1985/00", 1, 1],
     [193, 12, "BLVC202", "Silver MET", "MMB", "1977/82", 1, 1],
     [195, 12, "BLVC377", "Pewter MET", "MMD", "1980/82", 1, 1],
@@ -292,15 +337,42 @@
   ],
   "white": [
     [199, 13, "BLVC206", "New White", "NAB", "1976/78", 1, 1],
-    [200, 13, "BLVC243", "Layland White, Porcelaine White, Ermine White", "NAF, NCG, NMC, NME", "1976/81", 1, 1],
+    [
+      200,
+      13,
+      "BLVC243",
+      "Layland White, Porcelaine White, Ermine White",
+      "NAF, NCG, NMC, NME",
+      "1976/81",
+      1,
+      1
+    ],
     [201, 13, "BLVC507", "Artic White", "NCA", "1984/00", 1, 1],
     [202, 13, "BLVC417", "Aran Beige", "NCC", "1981/84", 1, 1],
-    [203, 13, "BLVC215", "Pendelican White, Tudor White", "NCF, NDC", "1975/84", 1, 1],
+    [
+      203,
+      13,
+      "BLVC215",
+      "Pendelican White, Tudor White",
+      "NCF, NDC",
+      "1975/84",
+      1,
+      1
+    ],
     [205, 13, "BLVC516", "Limestone", "NCJ", "1985/00", 1, 1],
     [206, 13, "BLVC523", "Ivory, Chamonix", "NCM", "1984/00", 1, 1],
     [207, 13, "BLVC250", "Old English White", "NDB", "1971/77", 1, 1],
     [209, 13, "BLVC59", "Glacier White", "NMA", "1969/77", 1, 1],
-    [210, 13, "BLVC4090", "British Police Leyland White", "NMB", "1979/00", 1, 1],
+    [
+      210,
+      13,
+      "BLVC4090",
+      "British Police Leyland White",
+      "NMB",
+      "1979/00",
+      1,
+      1
+    ],
     [213, 13, "BLVC449", "Arum White", "NMF", "1981/86", 1, 1],
     [214, 13, "BLVC655", "White Diamond", "NMN", "1985/00", 1, 1],
     [215, 13, "BLVC4051", "Police White", "", "1976/00", 1, 1],
@@ -312,7 +384,16 @@
   ],
   "yellow": [
     [83, 8, "BLVC207", "Inca Yellow", "FAB", "1976/83", 1, 1],
-    [84, 8, "BLVC212", "Tumeric,  Cotswold Yellow", "FCB, FDE", "1976/80", 1, 1],
+    [
+      84,
+      8,
+      "BLVC212",
+      "Tumeric,  Cotswold Yellow",
+      "FCB, FDE",
+      "1976/80",
+      1,
+      1
+    ],
     [86, 8, "BLVC387", "Barley Yellow", "FCE", "1978/84", 1, 1],
     [87, 8, "BLVC252", "Green Sand", "FDA", "1972/73", 1, 1],
     [88, 8, "BLVC266", "Yellow", "FDD", "1976/78", 1, 1],

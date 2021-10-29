@@ -30,12 +30,14 @@
             </li>
           </ul>
         </nav>
-        <h1 class="title">
-          Electrical Diagrams
-        </h1>
+        <h1 class="title">Electrical Diagrams</h1>
         <template v-for="(diagram, name, index) in diagrams">
           <div :key="`${name}-${index}`" class="column is-12">
-            <b-collapse :open="index > 0 ? false : true" class="card" aria-id="contentIdForA11y3">
+            <b-collapse
+              :open="index > 0 ? false : true"
+              class="card"
+              aria-id="contentIdForA11y3"
+            >
               <div
                 slot="trigger"
                 slot-scope="props"
@@ -85,42 +87,50 @@
 </template>
 
 <script>
-import PatreonCard from '~/components/PatreonCard';
+  import PatreonCard from '~/components/PatreonCard';
 
-function getDiagrams () {
-  return import('~/static/data/wiringDiagrams.json').then(m => m.default || m);
-}
-export default {
-  components: {
-    PatreonCard
-  },
-  async asyncData ({ req }) {
-    const diagrams = await getDiagrams();
-    return { diagrams };
-  },
-  head () {
-    return {
-      title: 'Technical - Electrical Diagrams',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.' },
-        {
-          property: 'og:title',
-          content: 'Technical - Electrical Diagrams'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png'
-        }
-      ]
-    };
+  function getDiagrams() {
+    return import('~/static/data/wiringDiagrams.json').then(
+      (m) => m.default || m
+    );
   }
-};
+  export default {
+    components: {
+      PatreonCard,
+    },
+    async asyncData({ req }) {
+      const diagrams = await getDiagrams();
+      return { diagrams };
+    },
+    head() {
+      return {
+        title: 'Technical - Electrical Diagrams',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content:
+              'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+          },
+          {
+            property: 'og:title',
+            content: 'Technical - Electrical Diagrams',
+          },
+          {
+            property: 'og:image',
+            content:
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+          },
+        ],
+      };
+    },
+  };
 </script>
 <style lang="scss" scoped>
-.card-header {
-  background-color: whitesmoke;
-  .card-header-title {
-    font-size: 20px;
+  .card-header {
+    background-color: whitesmoke;
+    .card-header-title {
+      font-size: 20px;
+    }
   }
-}
 </style>

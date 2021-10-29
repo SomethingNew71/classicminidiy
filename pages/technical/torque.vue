@@ -30,9 +30,7 @@
             </li>
           </ul>
         </nav>
-        <h1 class="title">
-          Torque Specs
-        </h1>
+        <h1 class="title">Torque Specs</h1>
       </div>
       <template v-for="(table, name, index) in tables">
         <div :key="`${name}-${index}`" class="column is-12">
@@ -87,44 +85,50 @@
 </template>
 
 <script>
-import PatreonCard from '~/components/PatreonCard';
+  import PatreonCard from '~/components/PatreonCard';
 
-function getTables () {
-  return import('~/static/data/torqueSpecs.json').then(m => m.default || m);
-}
-export default {
-  components: {
-    PatreonCard
-  },
-  async asyncData () {
-    const tables = await getTables();
-    return { tables };
-  },
-  data () {
-    return {
-      pagination: {}
-    };
-  },
-  head () {
-    return {
-      title: 'Technical - Torque Specs',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.' },
-        {
-          property: 'og:title',
-          content: 'Technical - Torque Specs'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png'
-        }
-      ]
-    };
+  function getTables() {
+    return import('~/static/data/torqueSpecs.json').then((m) => m.default || m);
   }
-};
+  export default {
+    components: {
+      PatreonCard,
+    },
+    async asyncData() {
+      const tables = await getTables();
+      return { tables };
+    },
+    data() {
+      return {
+        pagination: {},
+      };
+    },
+    head() {
+      return {
+        title: 'Technical - Torque Specs',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content:
+              'Detailed torque specifications can be found online right here at Classic Mini DIY.',
+          },
+          {
+            property: 'og:title',
+            content: 'Technical - Torque Specs',
+          },
+          {
+            property: 'og:image',
+            content:
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+          },
+        ],
+      };
+    },
+  };
 </script>
 <style lang="scss" scoped>
-.card-header {
-  background-color: whitesmoke;
-}
+  .card-header {
+    background-color: whitesmoke;
+  }
 </style>

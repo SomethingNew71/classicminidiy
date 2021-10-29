@@ -45,7 +45,7 @@
 
 ### To use this resource simply visit [classicminidiy.com](https://classicminidiy.com) and start exploring. This resource is free...thats right **FREE**
 
-#### Note: If you'd like to support hosting costs please consider donating via Patreon. 
+#### Note: If you'd like to support hosting costs please consider donating via Patreon.
 
   <a href="https://www.patreon.com/classicminidiy" target="_blank">
     <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150">
@@ -54,7 +54,7 @@
 
 ## Contributing
 
-### Notice something incorrect on the site or have an idea for a new feature? 
+### Notice something incorrect on the site or have an idea for a new feature?
 
 This codebase is completely open source so pull down the repo and start working on the code and submit some PR's. I will review and maybe even pull that code in and send it live on the site!
 

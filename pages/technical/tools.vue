@@ -31,11 +31,11 @@
           </ul>
         </nav>
 
-        <h1 class="title">
-          Essential Tools
-        </h1>
+        <h1 class="title">Essential Tools</h1>
         <p>
-          Below you’ll find a curated list of recommended tools for working with Classic Mini Coopers. Make difficult jobs easy by adding these essential tools to your workshop.
+          Below you’ll find a curated list of recommended tools for working with
+          Classic Mini Coopers. Make difficult jobs easy by adding these
+          essential tools to your workshop.
         </p>
       </div>
 
@@ -68,12 +68,22 @@
               >
                 <article class="media">
                   <figure class="media-left is-hidden-mobile">
-                    <b-image class="image" :src="tool.imgSourcewebp" :webp-fallback="tool.imgSource" :alt="`${tool.name}`" />
+                    <b-image
+                      class="image"
+                      :src="tool.imgSourcewebp"
+                      :webp-fallback="tool.imgSource"
+                      :alt="`${tool.name}`"
+                    />
                   </figure>
                   <div class="media-content">
                     <div class="content">
-                      <b-image class="image is-hidden-tablet" :src="tool.imgSourcewebp" :webp-fallback="tool.imgSource" :alt="`${tool.name}`" />
-                      <br class="is-hidden-tablet">
+                      <b-image
+                        class="image is-hidden-tablet"
+                        :src="tool.imgSourcewebp"
+                        :webp-fallback="tool.imgSource"
+                        :alt="`${tool.name}`"
+                      />
+                      <br class="is-hidden-tablet" />
                       <h4 class="mb-2">
                         {{ tool.name }}
                       </h4>
@@ -91,7 +101,7 @@
                             :class="{
                               'is-amazon': vendor.name === 'Amazon',
                               'is-seven': vendor.name === '7ent',
-                              'is-guessworks': vendor.name === 'Guessworks'
+                              'is-guessworks': vendor.name === 'Guessworks',
                             }"
                             class="button level-item"
                           >
@@ -100,9 +110,9 @@
                                 :class="{
                                   'fab fa-amazon': vendor.name === 'Amazon',
                                   'fad fa-cogs': vendor.name === 'Guessworks',
-                                  'fas fa-car': vendor.name === '7ent'
+                                  'fas fa-car': vendor.name === '7ent',
                                 }"
-                              /></span>
+                            /></span>
                             <span class="pl-1">{{ vendor.name }}</span>
                           </a>
                         </template>
@@ -110,7 +120,10 @@
                     </nav>
                   </div>
                 </article>
-                <div v-if="nestedIndex !== group.tools.length -1" class="is-divider"></div>
+                <div
+                  v-if="nestedIndex !== group.tools.length - 1"
+                  class="is-divider"
+                ></div>
               </div>
             </div>
           </b-collapse>
@@ -121,37 +134,43 @@
 </template>
 
 <script>
-function getTools () {
-  return import('~/static/data/tools.json').then(m => m.default || m);
-}
-export default {
-  async asyncData ({ req }) {
-    const toolGroups = await getTools();
-    return { toolGroups };
-  },
-  head () {
-    return {
-      title: 'Technical - Essential Tools',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Looking for the best tools to make tough jobs easier on your Classic Mini? Here you\'ll find the top picks from Classic Mini DIY' },
-        {
-          property: 'og:title',
-          content: 'Technical - Essential Tools'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png'
-        }
-      ]
-    };
+  function getTools() {
+    return import('~/static/data/tools.json').then((m) => m.default || m);
   }
-};
+  export default {
+    async asyncData({ req }) {
+      const toolGroups = await getTools();
+      return { toolGroups };
+    },
+    head() {
+      return {
+        title: 'Technical - Essential Tools',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content:
+              "Looking for the best tools to make tough jobs easier on your Classic Mini? Here you'll find the top picks from Classic Mini DIY",
+          },
+          {
+            property: 'og:title',
+            content: 'Technical - Essential Tools',
+          },
+          {
+            property: 'og:image',
+            content:
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png',
+          },
+        ],
+      };
+    },
+  };
 </script>
 <style lang="scss">
   .is-amazon {
     color: white;
     font-size: 1rem;
-    background-color: #FEBD69;
+    background-color: #febd69;
   }
   .media-left .image {
     max-width: 128px;
@@ -163,7 +182,7 @@ export default {
     border: 1px solid #ededed;
   }
   .tool-group {
-    font-size: 1.0rem;
+    font-size: 1rem;
   }
   .button.is-guessworks {
     border: none;

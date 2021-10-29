@@ -36,7 +36,9 @@
         <div class="card">
           <div class="card-image">
             <figure class="image">
-              <a :href="list.videoUrl" target="_blank"><img :src="list.thumbnailUrl" /></a>
+              <a :href="list.videoUrl" target="_blank"
+                ><img :src="list.thumbnailUrl"
+              /></a>
             </figure>
           </div>
           <div class="card-content">
@@ -56,78 +58,83 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { DateTime } from 'luxon';
+  import axios from 'axios';
+  import { DateTime } from 'luxon';
 
-export default {
-  data () {
-    return {
-      videos: undefined,
-      isLoading: true,
-      apiError: false,
-      value: 0,
-      // add a new state
-      breakpoint: '',
-      itemsToShow: 2,
-      viewportWidth: undefined
-    };
-  },
-  watch: {
-    windowWidth (newWidth) {
-      this.handleResize(newWidth);
-    }
-  },
-  created () {
-    this.fetchData();
-  },
-  mounted () {
-    this.handleResize();
-  },
-  methods: {
-    async fetchData () {
-      await axios.get(`${process.env.serverlessEndpoint}/videos`)
-        .then((response) => {
-          this.videos = response.data.map((video) => {
-            return {
-              title: video.title,
-              thumbnailUrl: video.thumbnailUrl.url,
-              publishedOn: DateTime.fromISO(video.publishedOn).toFormat('LLL dd, yyyy'),
-              videoUrl: video.videoUrl
-            };
-          });
-          this.apiError = false;
-        }).catch(() => {
-          this.videos = undefined;
-          this.apiError = true;
-        }).finally(() => {
-          this.isLoading = false;
-        });
+  export default {
+    data() {
+      return {
+        videos: undefined,
+        isLoading: true,
+        apiError: false,
+        value: 0,
+        // add a new state
+        breakpoint: '',
+        itemsToShow: 2,
+        viewportWidth: undefined,
+      };
     },
-    handleResize (newWidth) {
-      if (newWidth) {
-        this.viewportWidth = newWidth;
-      } else {
-        this.viewportWidth = window.innerWidth;
-      }
+    watch: {
+      windowWidth(newWidth) {
+        this.handleResize(newWidth);
+      },
+    },
+    created() {
+      this.fetchData();
+    },
+    mounted() {
+      this.handleResize();
+    },
+    methods: {
+      async fetchData() {
+        await axios
+          .get(`${process.env.serverlessEndpoint}/videos`)
+          .then((response) => {
+            this.videos = response.data.map((video) => {
+              return {
+                title: video.title,
+                thumbnailUrl: video.thumbnailUrl.url,
+                publishedOn: DateTime.fromISO(video.publishedOn).toFormat(
+                  'LLL dd, yyyy'
+                ),
+                videoUrl: video.videoUrl,
+              };
+            });
+            this.apiError = false;
+          })
+          .catch(() => {
+            this.videos = undefined;
+            this.apiError = true;
+          })
+          .finally(() => {
+            this.isLoading = false;
+          });
+      },
+      handleResize(newWidth) {
+        if (newWidth) {
+          this.viewportWidth = newWidth;
+        } else {
+          this.viewportWidth = window.innerWidth;
+        }
 
-      if (this.viewportWidth >= 1280) {
-        this.itemsToShow = 4;
-      } else if (this.viewportWidth >= 1024) {
-        this.itemsToShow = 3;
-      } else if (this.viewportWidth >= 756) {
-        this.itemsToShow = 2;
-      } else if (this.viewportWidth >= 576) {
-        this.itemsToShow = 1;
-      } else {
-        this.itemsToShow = 1;
-      }
-    }
-  }
-};
+        if (this.viewportWidth >= 1280) {
+          this.itemsToShow = 4;
+        } else if (this.viewportWidth >= 1024) {
+          this.itemsToShow = 3;
+        } else if (this.viewportWidth >= 756) {
+          this.itemsToShow = 2;
+        } else if (this.viewportWidth >= 576) {
+          this.itemsToShow = 1;
+        } else {
+          this.itemsToShow = 1;
+        }
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.has-shadow {
-  box-shadow: none;
-}
+  .has-shadow {
+    box-shadow: none;
+  }
 </style>
