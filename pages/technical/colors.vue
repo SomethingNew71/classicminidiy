@@ -31,24 +31,28 @@
           </ul>
         </nav>
 
-        <h1 class="title">
-          Classic Mini Color Picker
-        </h1>
+        <h1 class="title">Classic Mini Color Picker</h1>
         <p>
-          In an effort to make more information availble, Classic Mini DIY has partnered with <a href="http://mini-colours.co.uk">mini-colours.co.uk</a> to provide you with a comprehensive list of the colors used on the Classic Mini throughout the years.
+          In an effort to make more information availble, Classic Mini DIY has
+          partnered with
+          <a href="http://mini-colours.co.uk">mini-colours.co.uk</a> to provide
+          you with a comprehensive list of the colors used on the Classic Mini
+          throughout the years.
         </p>
-        <hr>
+        <hr />
       </div>
       <div class="column is-3">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">
-              Choose a Color
-            </p>
+            <p class="card-header-title">Choose a Color</p>
           </header>
           <div class="card-content">
             <div class="content">
-              <p>Colors are seperated into general color sections. Please choose the closest main color to your Classic Mini color swatch as possible.</p>
+              <p>
+                Colors are seperated into general color sections. Please choose
+                the closest main color to your Classic Mini color swatch as
+                possible.
+              </p>
               <b-select
                 v-model="selectedOption"
                 placeholder="Select a Color"
@@ -82,10 +86,12 @@
           v-if="!currentColors && !loading"
           class="has-text-centered no-colors"
         >
-          <h2 class="title">
-            Choose a color
-          </h2>
-          <b-image src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp" webp-fallback="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png" alt="" />
+          <h2 class="title">Choose a color</h2>
+          <b-image
+            src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp"
+            webp-fallback="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png"
+            alt=""
+          />
         </div>
         <div v-if="loading">
           <b-notification :closable="false">
@@ -102,9 +108,7 @@
                   </p>
                 </header>
                 <div class="card-image">
-                  <figure
-                    class="image is-4x4"
-                  >
+                  <figure class="image is-4x4">
                     <b-image
                       v-if="color[6]"
                       :src="`https://classicminidiy.s3.amazonaws.com/colors/${color[2]}.jpg`"
@@ -117,7 +121,7 @@
                     />
                   </figure>
                 </div>
-                <hr v-if="!color[6]">
+                <hr v-if="!color[6]" />
                 <div class="card-content">
                   <div class="media">
                     <div class="media-content">
@@ -136,14 +140,16 @@
                   </p>
                   <p class="card-footer-item">
                     <span class="is-size-4 fad fa-brackets pr-5"></span>
-                    <span class="subtitle is-7">
-                      ({{ color[4] }})
-                    </span>
+                    <span class="subtitle is-7"> ({{ color[4] }}) </span>
                   </p>
                 </footer>
               </div>
             </div>
-            <div v-if="index === 3 || index === 9 || index === 20" :key="name" class="column is-4">
+            <div
+              v-if="index === 3 || index === 9 || index === 20"
+              :key="name"
+              class="column is-4"
+            >
               <div class="card">
                 <div class="card-content">
                   <patreon-card :size="'small'" />
@@ -157,46 +163,70 @@
   </section>
 </template>
 <script>
-import colors from '~/static/data/colors.json';
-import PatreonCard from '~/components/PatreonCard';
+  import colors from '~/static/data/colors.json';
+  import PatreonCard from '~/components/PatreonCard';
 
-export default {
-  components: {
-    PatreonCard
-  },
-  data () {
-    return {
-      title: 'Technical Information',
-      subtitle: 'YOUR DIGITAL MINI TOOLBOX',
-      background: '/technical.jpg',
-      size: 'is-medium',
-      centered: true,
-      colors,
-      colorRefs: ['Beige', 'Black', 'Blue', 'Bronze', 'Brown', 'Gold', 'Green', 'Grey', 'Maroon', 'Orange', 'Pink', 'Purple', 'Red', 'Silver', 'Turquoise', 'White', 'Yellow'],
-      selectedOption: null,
-      currentColors: null,
-      loading: false
-    };
-  },
-  head () {
-    return {
-      title: 'Technical - Color Picker',
-      meta: [
-        { hid: 'description', name: 'description', content: 'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.' },
-        {
-          property: 'og:title',
-          content: 'Technical - Color Picker'
-        },
-        {
-          property: 'og:image',
-          content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png'
-        }
-      ]
-    };
-  },
-  methods: {
-    getColors () {
-      /*
+  export default {
+    components: {
+      PatreonCard,
+    },
+    data() {
+      return {
+        title: 'Technical Information',
+        subtitle: 'YOUR DIGITAL MINI TOOLBOX',
+        background: '/technical.jpg',
+        size: 'is-medium',
+        centered: true,
+        colors,
+        colorRefs: [
+          'Beige',
+          'Black',
+          'Blue',
+          'Bronze',
+          'Brown',
+          'Gold',
+          'Green',
+          'Grey',
+          'Maroon',
+          'Orange',
+          'Pink',
+          'Purple',
+          'Red',
+          'Silver',
+          'Turquoise',
+          'White',
+          'Yellow',
+        ],
+        selectedOption: null,
+        currentColors: null,
+        loading: false,
+      };
+    },
+    head() {
+      return {
+        title: 'Technical - Color Picker',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content:
+              'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
+          },
+          {
+            property: 'og:title',
+            content: 'Technical - Color Picker',
+          },
+          {
+            property: 'og:image',
+            content:
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+          },
+        ],
+      };
+    },
+    methods: {
+      getColors() {
+        /*
       // This is the order the colors appear in the JSON object
       "columns": [
         "colour_id",
@@ -209,35 +239,36 @@ export default {
         "colour_approved"
       ]
     */
-      this.loading = true;
-      this.currentColors = colors[this.selectedOption.toString().toLowerCase()];
-      setTimeout(() => {
-        this.loading = false;
-      }, 500);
-    }
-  }
-};
+        this.loading = true;
+        this.currentColors =
+          colors[this.selectedOption.toString().toLowerCase()];
+        setTimeout(() => {
+          this.loading = false;
+        }, 500);
+      },
+    },
+  };
 </script>
 <style lang="scss">
-.no-colors {
-  img {
-    width: 50%;
-    margin: auto;
+  .no-colors {
+    img {
+      width: 50%;
+      margin: auto;
+    }
   }
-}
-.select {
-  width: 100%;
-  select {
+  .select {
     width: 100%;
+    select {
+      width: 100%;
+    }
   }
-}
-.notification {
-  height: 300px;
-  background-color: transparent;
-}
+  .notification {
+    height: 300px;
+    background-color: transparent;
+  }
 </style>
 <style lang="scss" scoped>
-.card-header {
-  background-color: whitesmoke;
-}
+  .card-header {
+    background-color: whitesmoke;
+  }
 </style>

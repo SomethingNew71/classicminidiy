@@ -212,33 +212,33 @@
   },
   "SingleHS6": {
     "title": "Single HS6 1.75\"",
-      "columns": [
-        {
-          "label": "Engine Size",
-          "field": "engineSize",
-          "renderHtml": true
-        },
-        {
-          "label": "Needle Std",
-          "field": "needleStd",
-          "renderHtml": true
-        },
-        {
-          "label": "Needle Rich",
-          "field": "needleRich",
-          "renderHtml": true
-        },
-        {
-          "label": "Needle Lean",
-          "field": "needleLean",
-          "renderHtml": true
-        },
-        {
-          "label": "Spring Type",
-          "field": "springType",
-          "renderHtml": true
-        }
-      ],
+    "columns": [
+      {
+        "label": "Engine Size",
+        "field": "engineSize",
+        "renderHtml": true
+      },
+      {
+        "label": "Needle Std",
+        "field": "needleStd",
+        "renderHtml": true
+      },
+      {
+        "label": "Needle Rich",
+        "field": "needleRich",
+        "renderHtml": true
+      },
+      {
+        "label": "Needle Lean",
+        "field": "needleLean",
+        "renderHtml": true
+      },
+      {
+        "label": "Spring Type",
+        "field": "springType",
+        "renderHtml": true
+      }
+    ],
     "items": [
       {
         "engineSize": "1275 GT",

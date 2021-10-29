@@ -5,11 +5,11 @@
   </div>
 </template>
 <script>
-import patreonPopper from '~/components/PatreonPopper';
+  import patreonPopper from '~/components/PatreonPopper';
 
-export default {
-  components: {
-    patreonPopper
-  }
-};
+  export default {
+    components: {
+      patreonPopper,
+    },
+  };
 </script>

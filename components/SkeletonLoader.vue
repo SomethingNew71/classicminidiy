@@ -24,12 +24,12 @@
 </template>
 
 <script>
-export default {
-  props: {
-    amount: {
-      type: Number,
-      default: 3
-    }
-  }
-};
+  export default {
+    props: {
+      amount: {
+        type: Number,
+        default: 3,
+      },
+    },
+  };
 </script>

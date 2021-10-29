@@ -44,19 +44,19 @@
   </div>
 </template>
 <script>
-import needlesTables from '~/static/data/suggestedNeedles.json';
+  import needlesTables from '~/static/data/suggestedNeedles.json';
 
-export default {
-  data () {
-    return {
-      pagination: {},
-      tables: needlesTables
-    };
-  }
-};
+  export default {
+    data() {
+      return {
+        pagination: {},
+        tables: needlesTables,
+      };
+    },
+  };
 </script>
 <style lang="scss" scoped>
-.card-header {
-  background-color: whitesmoke;
-}
+  .card-header {
+    background-color: whitesmoke;
+  }
 </style>

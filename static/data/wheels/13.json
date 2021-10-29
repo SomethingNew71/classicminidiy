@@ -1,1752 +1,1752 @@
 [
   {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetmk1xx13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetmk1xx13_2.webp",
-  "name": "Early Midget",
-  "size": "",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetmk1xx13_1.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetmk1xx13_1.webp",
-  "name": "Early Midget",
-  "size": "",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetxx13.webp",
-  "name": "MG Midget",
-  "size": "",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": "Rostyle' design wheel for MG Midget. Fits Mini as well. Probably needs banding to take the Mini's low profile tyre (as they seem very smal)."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidget_3.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidget_3.webp",
-  "name": "MG Midget",
-  "size": "",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/moke5x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/moke5x13.webp",
-  "name": "Mini Moke, 5x13",
-  "size": "",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sunraysiadrum.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sunraysiadrum.webp",
-  "name": "Sunraysia",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": "This is the wheel fitted to Mokes from '78 to '79 untill the 1275cc Moke 'Californian' was intruduced which had disc brakes and needed a slightly different wheel to clear the calipers. Compliments from GT mowog in Oz."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sunraysiadisc.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sunraysiadisc.webp",
-  "name": "Sunraysia",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": "Disc brake type wheel. Slightly less 'bulbous' spokes, offset is the same. Compliments from GT mowog in Oz!"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/pecostarxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/pecostarxx13.webp",
-  "name": "Peco Star",
-  "size": "",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller55x13.webp",
-  "name": "Weller",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller6x13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller6x13_2.webp",
-  "name": "Weller motorsport",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wellermotorsport6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wellermotorsport6x13.webp",
-  "name": "Weller motorsport",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": "Note: those have 2 PCDs to fit Mini and Ford. Plus some minor differences."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller55x13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller55x13_2.webp",
-  "name": "Weller",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": "Different style, not dished like Weller 'Motorsport'."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller7x13.webp",
-  "name": "Weller",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wellerxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wellerxx13.webp",
-  "name": "Weller",
-  "size": "",
-  "majorSize": "13",
-  "type": "steel",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rosepetal6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rosepetal6x13.webp",
-  "name": "Rosepetal",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13.webp",
-  "name": "Allycat",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "0",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotiveml8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotiveml8x13.webp",
-  "name": "Compomotive ML",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": "Note: Look like Alleycat, but spokes are more triangular"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/carmona6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/carmona6x13.webp",
-  "name": "Carmona",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/imagewheels65x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/imagewheels65x13.webp",
-  "name": "Image wheels",
-  "size": "6.5x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/imagesplit8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/imagesplit8x13.webp",
-  "name": "Image wheels",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minator5x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minator5x13.webp",
-  "name": "KN Minator",
-  "size": "5x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minator6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minator6x13.webp",
-  "name": "KN Minator",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/knminator7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/knminator7x13.webp",
-  "name": "KN Minator",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilitexx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilitexx13.webp",
-  "name": "Minilite",
-  "size": "",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilite7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilite7x13.webp",
-  "name": "Minilite",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": "New generation with flat outer lip, undished."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilite7x13deepdish.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilite7x13deepdish.webp",
-  "name": "Minilite, deep dish",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/panasportracing7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/panasportracing7x13.webp",
-  "name": "Panasport Racing, deep dish",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancesuperlight7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancesuperlight7x13.webp",
-  "name": "Performance Superlight",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/peg6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/peg6x13.webp",
-  "name": "PEG",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rohxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rohxx13.webp",
-  "name": "ROH",
-  "size": "",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": "Not 100% sure if they have the 4x4\" PCD"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rswatanabe55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rswatanabe55x13.webp",
-  "name": "RS Watanabe",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rswatanabebtype7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rswatanabebtype7x13.webp",
-  "name": "RS Watanabe 'B Type'",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "ET8",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rotarb8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rotarb8x13.webp",
-  "name": "Rota 'RB'",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sonic7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sonic7x13.webp",
-  "name": "Sonic",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": "Made in AU."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/smoorroadster7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/smoorroadster7x13.webp",
-  "name": "Smoor Roadster",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/supersport8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/supersport8x13.webp",
-  "name": "Supersport",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sportspack.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sportspack.webp",
-  "name": "ROVER Sportspack",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "ET22",
-  "notes": "Genuine wheels can easily be identified. They'r marked as 'Rover' on the rear side (part of the cast). Also the manufacturer, 'Speedline', is named there."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sportspackkopie6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sportspackkopie6x13.webp",
-  "name": "Rover Sportspack wheel - Copy",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "ET20",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/supalightxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/supalightxx13.webp",
-  "name": "Superlite",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "ET7",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/superlightsoftline7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/superlightsoftline7x13.webp",
-  "name": "Superlight Softline",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/twogateswheels7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/twogateswheels7x13.webp",
-  "name": "Two Gates Wheels",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralight7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralight7x13.webp",
-  "name": "Ultralight Extreme",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "-7",
-  "notes": "Available in antracite, black and silver"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralite6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralite6x13.webp",
-  "name": "Ultralite",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "ET10",
-  "notes": "Available in antracite, black and silver, various widths"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralite8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralite8x13.webp",
-  "name": "Ultralite",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/racinghartxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/racinghartxx13.webp",
-  "name": "Racing Hart",
-  "size": "",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mwsminilight6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mwsminilight6x13.webp",
-  "name": "MWS Minilight",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
-  "name": "Melber RL92c",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "ET32",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/vtoclassic855x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/vtoclassic855x13.webp",
-  "name": "VTO 'Classic 8'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "minilite",
-  "offset": "",
-  "notes": "From the USA."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/100plusxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/100plusxx13.webp",
-  "name": "100+",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Not yet sure if the have a 4x4\" PCD."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/bbse767x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/bbse767x13.webp",
-  "name": "BBS E76",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Not yet sure if the have a 4x4\" PCD."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mahlebbsxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mahlebbsxx13.webp",
-  "name": "Mahle / BBS",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Not yet sure if the have a 4x4\" PCD."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/volkracingxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/volkracingxx13.webp",
-  "name": "Volk Racing",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivesplit7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivesplit7x13.webp",
-  "name": "Compomotive",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/melber6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/melber6x13.webp",
-  "name": "Melber",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET13",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rimmstock6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rimmstock6x13.webp",
-  "name": "Rimmstock",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET13",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ritter13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ritter13.webp",
-  "name": "Ritter(?)",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rial5x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rial5x13.webp",
-  "name": "Rial",
-  "size": "5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/bbs.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/bbs.webp",
-  "name": "Claimed as BBS",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/exipexim6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/exipexim6x13.webp",
-  "name": "EXIP Exim",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET13",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetroxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetroxx13.webp",
-  "name": "MG Metro",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_16.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_16.webp",
-  "name": "Performance 'Prospoke'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive6x13.webp",
-  "name": "Compomotive",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET13",
-  "notes": "Compomotive'stamped to outer rim."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive8x13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive8x13_2.webp",
-  "name": "Compomotive",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrstarformula5x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrstarformula5x13.webp",
-  "name": "SSR 'Star Formula'",
-  "size": "5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET20",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrmesh9x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrmesh9x13.webp",
-  "name": "SSR 'Mesh'",
-  "size": "9x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET20",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/allycattornado55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/allycattornado55x13.webp",
-  "name": "Allycat 'Tornado'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET12",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat7x13.webp",
-  "name": "Allycat",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "-7",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13.webp",
-  "name": "Allycat",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13_2.webp",
-  "name": "Allycat",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/allycat6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/allycat6x13.webp",
-  "name": "Allycat",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/amtcentra6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/amtcentra6x13.webp",
-  "name": "AMT Centra",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_7.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_7.webp",
-  "name": "ATIWE",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET20",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13.webp",
-  "name": "ATS",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET29",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13_2.webp",
-  "name": "ATS",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Might have a 100mm PCD."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_1.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_1.webp",
-  "name": "Avanti",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/azev7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/azev7x13.webp",
-  "name": "Azev Typ-E",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET11",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/braidserie5classicconcept75x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/braidserie5classicconcept75x13.webp",
-  "name": "Braid Serie 5, Classic Concept",
-  "size": "7.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/bwa55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/bwa55x13.webp",
-  "name": "BWA",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/bwa65x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/bwa65x13.webp",
-  "name": "BWA",
-  "size": "6.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_10.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_10.webp",
-  "name": "BSA Racing 187",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
-  "name": "Campagnolo",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET19",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cheviotturbo6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cheviotturbo6x13.webp",
-  "name": "Cheviot 'Turbo'",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Made in New Zealand, available in 5\", 5.5\", 6\" up to 7\". Not all of them have a 4x4\" PCD, but some."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13_3.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13_3.webp",
-  "name": "Compomotive",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive.webp",
-  "name": "Compomotive",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13.webp",
-  "name": "Compomotive",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET24",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13_2.webp",
-  "name": "Compomotive",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivecompetion7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivecompetion7x13.webp",
-  "name": "Compomotive TH 3pc",
-  "size": "5.5-11x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Looks very similar to Schmidt TH line. Centres available in gold, black, silver, black or pewter grey."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicrw13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicrw13.webp",
-  "name": "Cosmic RW13",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET27 (1 1/16\")",
-  "notes": "Square cutouts, instead of kidney shaped ones."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicmk1_3.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicmk1_3.webp",
-  "name": "Cosmic Mk1",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Larger cutouts, vents go down a bit."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicmk1_4.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicmk1_4.webp",
-  "name": "Cosmic Mk1",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Ribbed, no 'flat' surface."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmic6x13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmic6x13_2.webp",
-  "name": "Cosmic MkII",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicribsterxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicribsterxx13.webp",
-  "name": "Cosmic Ribster",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicoderlega55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicoderlega55x13.webp",
-  "name": "Cosmic Lega",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Not entirely sure yet, if available with 4x4\" PCD, but assumed. Made as 5x12\" and 3.5&5x10\" wheel as well. Note: Not sure of the actual name, maybe it came from the italian 'cerchi in lega' and was assumed as brand-name. Update: Maybe it is a Cosmic wheel! Any confirmation?"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cobra55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cobra55x13.webp",
-  "name": "Cobra 'Supaslot'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cobradragslottc7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cobradragslottc7x13.webp",
-  "name": "Cobra 'Drag Slot T.C.'",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Made for Hillman Imp. Offset might be not suitable for a Mini. PCD is 4x4\"."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cragarssxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cragarssxx13.webp",
-  "name": "Cragar 'SS'",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Made in the USA. Production stopped about 2000. Though Cragar Wheels is still in buiseness with classic 5 spoke wheels with similar design."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/diecalxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/diecalxx13.webp",
-  "name": "Die-Cal",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/lp922xx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/lp922xx13.webp",
-  "name": "Dunlop LP92?(?)/D1",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/jbw55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/jbw55x13.webp",
-  "name": "John Brown Wheels 'D1'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Copy of the old D1. John Brown Wheels is a brand of Midland Wheels"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/deltamics6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/deltamics6x13.webp",
-  "name": "Delta Mics",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET22",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracingxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracingxx13.webp",
-  "name": "Force Racing",
-  "size": "5.5-8.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Weight: 3.4kg for the 7\" wide wheel."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracingdsyxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracingdsyxx13.webp",
-  "name": "Force Racing 'DSY'",
-  "size": "5.5-8.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracing55-8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracing55-8x13.webp",
-  "name": "Force Racing",
-  "size": "5.5-8.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Second design."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/fondmetal55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/fondmetal55x13.webp",
-  "name": "Fondmetal",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/fpsxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/fpsxx13.webp",
-  "name": "FPS",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/formulajedi6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/formulajedi6x13.webp",
-  "name": "Furmula Jedi",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Made exclusively for Formula Jedi single seater race cars."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/camillegottixx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/camillegottixx13.webp",
-  "name": "Camille Gotti Design'/OZ?",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Not sure, wheter they have a 4\" PCD, but assumed."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti073s55-10x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti073s55-10x13.webp",
-  "name": "Gotti 073S",
-  "size": "5.5-10x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "PCD could be ordered from 4x95 to 114.3mm. Not initialy a 4x4\" wheel!"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti5t55-10x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti5t55-10x13.webp",
-  "name": "Gotti 5T",
-  "size": "5.5-10x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "PCD could be ordered from 4x95 to 120.6mm. Not initialy a 4x4\" wheel!"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti6x13_4.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti6x13_4.webp",
-  "name": "Gotti",
-  "size": "5.5-10x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_25.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_25.webp",
-  "name": "JA Pearce Magna",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Note: the wheel has multiple PCDs! From the early 70's."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/jensen55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/jensen55x13.webp",
-  "name": "Jensen",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/knjupiterxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/knjupiterxx13.webp",
-  "name": "KN Jupiter",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/knmercury6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/knmercury6x13.webp",
-  "name": "KN Mercury",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_5.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_5.webp",
-  "name": "Team Dynamics 'Super Tourer'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/teamdynamics55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/teamdynamics55x13.webp",
-  "name": "Team Dynamics, \"DTM style\"",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mawer9x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mawer9x13.webp",
-  "name": "Mawer",
-  "size": "9x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mbracingmagnesium6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mbracingmagnesium6x13.webp",
-  "name": "MB Racing magnesium",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetroradial.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetroradial.webp",
-  "name": "MG Metro Turbo (early)",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "This is a radial, non-metric wheel. Featuring 4 small covers for the wheel nuts."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
-  "name": "MG Metro",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "There are two versions of this wheel; one being a metric 'TD' wheel for Runonflat tyres (R315 160, Denovo succesor). These wheels have a large single cap to cover both center & wheel nuts."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetro5x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetro5x13.webp",
-  "name": "MG Metro",
-  "size": "5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Late MG Metro, fitted 1985-87. Part number NAM5849. Note: Those wheels were used on MG Maestros and probably some other models too. Apparently there are two versions of that wheel: metric and non-metric tyre fitment. It's actually between 12 and 13 (R315x120) at around 12.5\" dia."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/maggt55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/maggt55x13.webp",
-  "name": "MAG Product",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Offset probably meant to fit Midget or Hillman Imp in first instance."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambaxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambaxx13.webp",
-  "name": "Mamba",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Not 100% sure if it is a 'real' Mamba yet."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambarepro7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambarepro7x13.webp",
-  "name": "Mamba replica",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "This is a replica Mamba wheel sold by MiniMania USA."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambasolar8-9x10.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambasolar8-9x10.webp",
-  "name": "Mamba 'Solar'",
-  "size": "8x13 & 9x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Offset probably meant to fit Midget or Hillman Imp in first instance."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/maifrini55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/maifrini55x13.webp",
-  "name": "Maifrini",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/milano8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/milano8x13.webp",
-  "name": "Milano",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/momooscamindianapolisxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/momooscamindianapolisxx13.webp",
-  "name": "Momo/Oscam 'Indianapolis'",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "This wheel was apparently sold by both Momo & Oscam. Though Momo were true pioneers in 'branding'."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ozxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ozxx13.webp",
-  "name": "OZ",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancespitfire55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancespitfire55x13.webp",
-  "name": "Performance Wheels 'Spitfire'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancewheels8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancewheels8x13.webp",
-  "name": "Performance Wheels 'Spitfire'",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_12.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_12.webp",
-  "name": "Performance wheels [AU], 'Challenger'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Replica of the Globe 'Bathurst' wheel."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/plsxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/plsxx13.webp",
-  "name": "PLS",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_4.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_4.webp",
-  "name": "PLS Silverstone",
-  "size": "5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "->",
-  "notes": "Free choice of offset</a>"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/pls400a55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/pls400a55x13.webp",
-  "name": "PLS 400a",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/racinghart55x13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/racinghart55x13_2.webp",
-  "name": "Racing Hart",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Designeted for local South African market  dual stud pattern, 4x4 and 4x4.5 i.e. Mini and Nissan 1400 ½ ton pickup (based on the old Datsun 120Y)    They look similar to the old Opel Kadet Superboss 15 rim."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionrfx.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionrfx.webp",
-  "name": "Revolution RFX",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionrfx7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionrfx7x13.webp",
-  "name": "Revolution RFX",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET11",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolution8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolution8x13.webp",
-  "name": "Revolution \"Motorsport edition\"",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolution10x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolution10x13.webp",
-  "name": "Revolution",
-  "size": "10x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims8x13.webp",
-  "name": "Revolution split rims",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims10x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims10x13.webp",
-  "name": "Revolution split rims",
-  "size": "10x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims11x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims11x13.webp",
-  "name": "Revolution split rims",
-  "size": "11x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolite7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolite7x13.webp",
-  "name": "Revolite",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rebelxx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rebelxx13.webp",
-  "name": "Rebel",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Not intentionally for Mini use, but available with 4x4\" PCD."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rial55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rial55x13.webp",
-  "name": "Rial",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rota55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rota55x13.webp",
-  "name": "Rota",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ronalmetrochallengexx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ronalmetrochallengexx13.webp",
-  "name": "Ronal/Metro Challenge",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "This was the wheel use for the MG Metro challenge cars."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/stilauto6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/stilauto6x13.webp",
-  "name": "Stilauto 'Pentastar'",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET10",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/shelbyviper5x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/shelbyviper5x13.webp",
-  "name": "Shelby Viper",
-  "size": "5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/tsw55x13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/tsw55x13_2.webp",
-  "name": "TSW",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET30",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rialchallenge7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rialchallenge7x13.webp",
-  "name": "Rial Challenge",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "Various",
-  "notes": "Not initially for use with Mini, but available with 4x4\" PCD."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rimmstockstar6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rimmstockstar6x13.webp",
-  "name": "Rimmstock(?)",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_19.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_19.webp",
-  "name": "Propably RSL 'Cult'",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_13.webp",
-  "name": "Rimmtech",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/schmidtthline8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/schmidtthline8x13.webp",
-  "name": "Schmidt TH Line",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "-10(?)",
-  "notes": "3 piece, from 6-10x13"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/spectrumracing7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/spectrumracing7x13.webp",
-  "name": "Spectrum Racing",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/splitrim8x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/splitrim8x13.webp",
-  "name": "Split Rims",
-  "size": "8x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/supermini7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/supermini7x13.webp",
-  "name": "SuperMini",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET2/22",
-  "notes": "Original design. Available from Sun MOtorsport Iimport Ltd."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/supertrax7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/supertrax7x13.webp",
-  "name": "Supertrax",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/superstar7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/superstar7x13.webp",
-  "name": "Ultralite(??) Superstar",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/starmag7x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/starmag7x13.webp",
-  "name": "Starmag",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "+6",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/eraturbo6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/eraturbo6x13.webp",
-  "name": "Compomotive 'Trackstar'/ERA Turbo",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET15",
-  "notes": "The wheel used on the ERA Turbo, made by Compomotive. Exact lettering: 'TRACKSTAR Made in england 6.0Jx13 D1360 ET15'. Under the centre cap is 'COMPOMOTIVE' cast in. Beware: later wheels did not have   the exact lettering as above! ERA's were not equipet with them!"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/trackstar6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/trackstar6x13.webp",
-  "name": "Compomotive(?) 'Trackstar'",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET22",
-  "notes": "Seemingly the same as the above ERA wheel, but shows some differences: no manufacturer in the centre and ET22. Lettering: 'TRACKSTAR Made in england 6.0Jx13 ET22*35[38?] D1360[80?]'."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/lux6x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/lux6x13.webp",
-  "name": "Named \"Lux\" in Rover catalogue",
-  "size": "6x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Seemingly the same as used on the ERA Turbo. But with different center cap.    Believed to be made by Compomotive as well, resp. they made a bunch of this wheels for Rover too."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/roverlux6x13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/roverlux6x13_2.webp",
-  "name": "Same wheel as above",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "This one has a different position for the valve!"
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrspeedstarmk27x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrspeedstarmk27x13.webp",
-  "name": "SSR Speedstar MkII",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET11",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrspeedstarmk37x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrspeedstarmk37x13.webp",
-  "name": "SSR Speedstar MkIII",
-  "size": "7x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "ET11",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/vtoretro455x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/vtoretro455x13.webp",
-  "name": "VTO 'Retro 4'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "From the USA."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfracexx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfracexx13.webp",
-  "name": "Wolfrace",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/triumpgdolomitesprint55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/triumpgdolomitesprint55x13.webp",
-  "name": "GKN",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Stock wheel for the Triumph Dolomite Sprint, made by GKN."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfracexx13_2.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfracexx13_2.webp",
-  "name": "Wolfrace",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Other design..."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfraceturbo55x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfraceturbo55x13.webp",
-  "name": "Wolfrace 'Turbo'",
-  "size": "5.5x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": ""
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/westernwheelshurricanexx13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/westernwheelshurricanexx13.webp",
-  "name": "Western Wheels 'Hurricane'/'Cyclone II'",
-  "size": "",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Named 'Cyclone II' in the US, 'Cyclone I' had twice as many spokes. Slotted lugs for multi PCD use."
-  },
-  {
-  "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/chevron12x13.jpg",
-  "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/chevron12x13.webp",
-  "name": "Chevron",
-  "size": "12x13",
-  "majorSize": "13",
-  "type": "other",
-  "offset": "",
-  "notes": "Magnesium centre."
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetmk1xx13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetmk1xx13_2.webp",
+    "name": "Early Midget",
+    "size": "",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetmk1xx13_1.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetmk1xx13_1.webp",
+    "name": "Early Midget",
+    "size": "",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidgetxx13.webp",
+    "name": "MG Midget",
+    "size": "",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": "Rostyle' design wheel for MG Midget. Fits Mini as well. Probably needs banding to take the Mini's low profile tyre (as they seem very smal)."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidget_3.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmidget_3.webp",
+    "name": "MG Midget",
+    "size": "",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/moke5x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/moke5x13.webp",
+    "name": "Mini Moke, 5x13",
+    "size": "",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sunraysiadrum.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sunraysiadrum.webp",
+    "name": "Sunraysia",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": "This is the wheel fitted to Mokes from '78 to '79 untill the 1275cc Moke 'Californian' was intruduced which had disc brakes and needed a slightly different wheel to clear the calipers. Compliments from GT mowog in Oz."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sunraysiadisc.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sunraysiadisc.webp",
+    "name": "Sunraysia",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": "Disc brake type wheel. Slightly less 'bulbous' spokes, offset is the same. Compliments from GT mowog in Oz!"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/pecostarxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/pecostarxx13.webp",
+    "name": "Peco Star",
+    "size": "",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller55x13.webp",
+    "name": "Weller",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller6x13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller6x13_2.webp",
+    "name": "Weller motorsport",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wellermotorsport6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wellermotorsport6x13.webp",
+    "name": "Weller motorsport",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": "Note: those have 2 PCDs to fit Mini and Ford. Plus some minor differences."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller55x13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller55x13_2.webp",
+    "name": "Weller",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": "Different style, not dished like Weller 'Motorsport'."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/weller7x13.webp",
+    "name": "Weller",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wellerxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wellerxx13.webp",
+    "name": "Weller",
+    "size": "",
+    "majorSize": "13",
+    "type": "steel",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rosepetal6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rosepetal6x13.webp",
+    "name": "Rosepetal",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13.webp",
+    "name": "Allycat",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "0",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotiveml8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotiveml8x13.webp",
+    "name": "Compomotive ML",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": "Note: Look like Alleycat, but spokes are more triangular"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/carmona6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/carmona6x13.webp",
+    "name": "Carmona",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/imagewheels65x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/imagewheels65x13.webp",
+    "name": "Image wheels",
+    "size": "6.5x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/imagesplit8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/imagesplit8x13.webp",
+    "name": "Image wheels",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minator5x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minator5x13.webp",
+    "name": "KN Minator",
+    "size": "5x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minator6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minator6x13.webp",
+    "name": "KN Minator",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/knminator7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/knminator7x13.webp",
+    "name": "KN Minator",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilitexx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilitexx13.webp",
+    "name": "Minilite",
+    "size": "",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilite7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilite7x13.webp",
+    "name": "Minilite",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": "New generation with flat outer lip, undished."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilite7x13deepdish.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/minilite7x13deepdish.webp",
+    "name": "Minilite, deep dish",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/panasportracing7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/panasportracing7x13.webp",
+    "name": "Panasport Racing, deep dish",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancesuperlight7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancesuperlight7x13.webp",
+    "name": "Performance Superlight",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/peg6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/peg6x13.webp",
+    "name": "PEG",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rohxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rohxx13.webp",
+    "name": "ROH",
+    "size": "",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": "Not 100% sure if they have the 4x4\" PCD"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rswatanabe55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rswatanabe55x13.webp",
+    "name": "RS Watanabe",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rswatanabebtype7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rswatanabebtype7x13.webp",
+    "name": "RS Watanabe 'B Type'",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "ET8",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rotarb8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rotarb8x13.webp",
+    "name": "Rota 'RB'",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sonic7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sonic7x13.webp",
+    "name": "Sonic",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": "Made in AU."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/smoorroadster7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/smoorroadster7x13.webp",
+    "name": "Smoor Roadster",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/supersport8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/supersport8x13.webp",
+    "name": "Supersport",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sportspack.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sportspack.webp",
+    "name": "ROVER Sportspack",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "ET22",
+    "notes": "Genuine wheels can easily be identified. They'r marked as 'Rover' on the rear side (part of the cast). Also the manufacturer, 'Speedline', is named there."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/sportspackkopie6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/sportspackkopie6x13.webp",
+    "name": "Rover Sportspack wheel - Copy",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "ET20",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/supalightxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/supalightxx13.webp",
+    "name": "Superlite",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "ET7",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/superlightsoftline7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/superlightsoftline7x13.webp",
+    "name": "Superlight Softline",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/twogateswheels7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/twogateswheels7x13.webp",
+    "name": "Two Gates Wheels",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralight7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralight7x13.webp",
+    "name": "Ultralight Extreme",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "-7",
+    "notes": "Available in antracite, black and silver"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralite6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralite6x13.webp",
+    "name": "Ultralite",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "ET10",
+    "notes": "Available in antracite, black and silver, various widths"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralite8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ultralite8x13.webp",
+    "name": "Ultralite",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/racinghartxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/racinghartxx13.webp",
+    "name": "Racing Hart",
+    "size": "",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mwsminilight6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mwsminilight6x13.webp",
+    "name": "MWS Minilight",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
+    "name": "Melber RL92c",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "ET32",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/vtoclassic855x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/vtoclassic855x13.webp",
+    "name": "VTO 'Classic 8'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "minilite",
+    "offset": "",
+    "notes": "From the USA."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/100plusxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/100plusxx13.webp",
+    "name": "100+",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Not yet sure if the have a 4x4\" PCD."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/bbse767x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/bbse767x13.webp",
+    "name": "BBS E76",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Not yet sure if the have a 4x4\" PCD."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mahlebbsxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mahlebbsxx13.webp",
+    "name": "Mahle / BBS",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Not yet sure if the have a 4x4\" PCD."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/volkracingxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/volkracingxx13.webp",
+    "name": "Volk Racing",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivesplit7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivesplit7x13.webp",
+    "name": "Compomotive",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/melber6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/melber6x13.webp",
+    "name": "Melber",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET13",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rimmstock6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rimmstock6x13.webp",
+    "name": "Rimmstock",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET13",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ritter13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ritter13.webp",
+    "name": "Ritter(?)",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rial5x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rial5x13.webp",
+    "name": "Rial",
+    "size": "5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/bbs.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/bbs.webp",
+    "name": "Claimed as BBS",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/exipexim6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/exipexim6x13.webp",
+    "name": "EXIP Exim",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET13",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetroxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetroxx13.webp",
+    "name": "MG Metro",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_16.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_16.webp",
+    "name": "Performance 'Prospoke'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive6x13.webp",
+    "name": "Compomotive",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET13",
+    "notes": "Compomotive'stamped to outer rim."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive8x13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive8x13_2.webp",
+    "name": "Compomotive",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrstarformula5x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrstarformula5x13.webp",
+    "name": "SSR 'Star Formula'",
+    "size": "5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET20",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrmesh9x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrmesh9x13.webp",
+    "name": "SSR 'Mesh'",
+    "size": "9x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET20",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/allycattornado55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/allycattornado55x13.webp",
+    "name": "Allycat 'Tornado'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET12",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat7x13.webp",
+    "name": "Allycat",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "-7",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13.webp",
+    "name": "Allycat",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/alleycat8x13_2.webp",
+    "name": "Allycat",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/allycat6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/allycat6x13.webp",
+    "name": "Allycat",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/amtcentra6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/amtcentra6x13.webp",
+    "name": "AMT Centra",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_7.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_7.webp",
+    "name": "ATIWE",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET20",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13.webp",
+    "name": "ATS",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET29",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/atsxx13_2.webp",
+    "name": "ATS",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Might have a 100mm PCD."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_1.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_1.webp",
+    "name": "Avanti",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/azev7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/azev7x13.webp",
+    "name": "Azev Typ-E",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET11",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/braidserie5classicconcept75x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/braidserie5classicconcept75x13.webp",
+    "name": "Braid Serie 5, Classic Concept",
+    "size": "7.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/bwa55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/bwa55x13.webp",
+    "name": "BWA",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/bwa65x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/bwa65x13.webp",
+    "name": "BWA",
+    "size": "6.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_10.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_10.webp",
+    "name": "BSA Racing 187",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
+    "name": "Campagnolo",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET19",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cheviotturbo6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cheviotturbo6x13.webp",
+    "name": "Cheviot 'Turbo'",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Made in New Zealand, available in 5\", 5.5\", 6\" up to 7\". Not all of them have a 4x4\" PCD, but some."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13_3.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13_3.webp",
+    "name": "Compomotive",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotive.webp",
+    "name": "Compomotive",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13.webp",
+    "name": "Compomotive",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET24",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivexx13_2.webp",
+    "name": "Compomotive",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivecompetion7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/compomotivecompetion7x13.webp",
+    "name": "Compomotive TH 3pc",
+    "size": "5.5-11x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Looks very similar to Schmidt TH line. Centres available in gold, black, silver, black or pewter grey."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicrw13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicrw13.webp",
+    "name": "Cosmic RW13",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET27 (1 1/16\")",
+    "notes": "Square cutouts, instead of kidney shaped ones."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicmk1_3.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicmk1_3.webp",
+    "name": "Cosmic Mk1",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Larger cutouts, vents go down a bit."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicmk1_4.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicmk1_4.webp",
+    "name": "Cosmic Mk1",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Ribbed, no 'flat' surface."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmic6x13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmic6x13_2.webp",
+    "name": "Cosmic MkII",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicribsterxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicribsterxx13.webp",
+    "name": "Cosmic Ribster",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicoderlega55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cosmicoderlega55x13.webp",
+    "name": "Cosmic Lega",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Not entirely sure yet, if available with 4x4\" PCD, but assumed. Made as 5x12\" and 3.5&5x10\" wheel as well. Note: Not sure of the actual name, maybe it came from the italian 'cerchi in lega' and was assumed as brand-name. Update: Maybe it is a Cosmic wheel! Any confirmation?"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cobra55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cobra55x13.webp",
+    "name": "Cobra 'Supaslot'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cobradragslottc7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cobradragslottc7x13.webp",
+    "name": "Cobra 'Drag Slot T.C.'",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Made for Hillman Imp. Offset might be not suitable for a Mini. PCD is 4x4\"."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/cragarssxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/cragarssxx13.webp",
+    "name": "Cragar 'SS'",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Made in the USA. Production stopped about 2000. Though Cragar Wheels is still in buiseness with classic 5 spoke wheels with similar design."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/diecalxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/diecalxx13.webp",
+    "name": "Die-Cal",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/lp922xx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/lp922xx13.webp",
+    "name": "Dunlop LP92?(?)/D1",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/jbw55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/jbw55x13.webp",
+    "name": "John Brown Wheels 'D1'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Copy of the old D1. John Brown Wheels is a brand of Midland Wheels"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/deltamics6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/deltamics6x13.webp",
+    "name": "Delta Mics",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET22",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracingxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracingxx13.webp",
+    "name": "Force Racing",
+    "size": "5.5-8.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Weight: 3.4kg for the 7\" wide wheel."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracingdsyxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracingdsyxx13.webp",
+    "name": "Force Racing 'DSY'",
+    "size": "5.5-8.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracing55-8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/forceracing55-8x13.webp",
+    "name": "Force Racing",
+    "size": "5.5-8.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Second design."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/fondmetal55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/fondmetal55x13.webp",
+    "name": "Fondmetal",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/fpsxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/fpsxx13.webp",
+    "name": "FPS",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/formulajedi6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/formulajedi6x13.webp",
+    "name": "Furmula Jedi",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Made exclusively for Formula Jedi single seater race cars."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/camillegottixx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/camillegottixx13.webp",
+    "name": "Camille Gotti Design'/OZ?",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Not sure, wheter they have a 4\" PCD, but assumed."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti073s55-10x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti073s55-10x13.webp",
+    "name": "Gotti 073S",
+    "size": "5.5-10x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "PCD could be ordered from 4x95 to 114.3mm. Not initialy a 4x4\" wheel!"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti5t55-10x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti5t55-10x13.webp",
+    "name": "Gotti 5T",
+    "size": "5.5-10x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "PCD could be ordered from 4x95 to 120.6mm. Not initialy a 4x4\" wheel!"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti6x13_4.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/gotti6x13_4.webp",
+    "name": "Gotti",
+    "size": "5.5-10x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_25.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_25.webp",
+    "name": "JA Pearce Magna",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Note: the wheel has multiple PCDs! From the early 70's."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/jensen55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/jensen55x13.webp",
+    "name": "Jensen",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/knjupiterxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/knjupiterxx13.webp",
+    "name": "KN Jupiter",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/knmercury6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/knmercury6x13.webp",
+    "name": "KN Mercury",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_5.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_5.webp",
+    "name": "Team Dynamics 'Super Tourer'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/teamdynamics55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/teamdynamics55x13.webp",
+    "name": "Team Dynamics, \"DTM style\"",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mawer9x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mawer9x13.webp",
+    "name": "Mawer",
+    "size": "9x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mbracingmagnesium6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mbracingmagnesium6x13.webp",
+    "name": "MB Racing magnesium",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetroradial.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetroradial.webp",
+    "name": "MG Metro Turbo (early)",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "This is a radial, non-metric wheel. Featuring 4 small covers for the wheel nuts."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.webp",
+    "name": "MG Metro",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "There are two versions of this wheel; one being a metric 'TD' wheel for Runonflat tyres (R315 160, Denovo succesor). These wheels have a large single cap to cover both center & wheel nuts."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetro5x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mgmetro5x13.webp",
+    "name": "MG Metro",
+    "size": "5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Late MG Metro, fitted 1985-87. Part number NAM5849. Note: Those wheels were used on MG Maestros and probably some other models too. Apparently there are two versions of that wheel: metric and non-metric tyre fitment. It's actually between 12 and 13 (R315x120) at around 12.5\" dia."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/maggt55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/maggt55x13.webp",
+    "name": "MAG Product",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Offset probably meant to fit Midget or Hillman Imp in first instance."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambaxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambaxx13.webp",
+    "name": "Mamba",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Not 100% sure if it is a 'real' Mamba yet."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambarepro7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambarepro7x13.webp",
+    "name": "Mamba replica",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "This is a replica Mamba wheel sold by MiniMania USA."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambasolar8-9x10.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/mambasolar8-9x10.webp",
+    "name": "Mamba 'Solar'",
+    "size": "8x13 & 9x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Offset probably meant to fit Midget or Hillman Imp in first instance."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/maifrini55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/maifrini55x13.webp",
+    "name": "Maifrini",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/milano8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/milano8x13.webp",
+    "name": "Milano",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/momooscamindianapolisxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/momooscamindianapolisxx13.webp",
+    "name": "Momo/Oscam 'Indianapolis'",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "This wheel was apparently sold by both Momo & Oscam. Though Momo were true pioneers in 'branding'."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ozxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ozxx13.webp",
+    "name": "OZ",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancespitfire55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancespitfire55x13.webp",
+    "name": "Performance Wheels 'Spitfire'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancewheels8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/performancewheels8x13.webp",
+    "name": "Performance Wheels 'Spitfire'",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_12.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_12.webp",
+    "name": "Performance wheels [AU], 'Challenger'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Replica of the Globe 'Bathurst' wheel."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/plsxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/plsxx13.webp",
+    "name": "PLS",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_4.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_4.webp",
+    "name": "PLS Silverstone",
+    "size": "5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "->",
+    "notes": "Free choice of offset</a>"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/pls400a55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/pls400a55x13.webp",
+    "name": "PLS 400a",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/racinghart55x13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/racinghart55x13_2.webp",
+    "name": "Racing Hart",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Designeted for local South African market  dual stud pattern, 4x4 and 4x4.5 i.e. Mini and Nissan 1400 ½ ton pickup (based on the old Datsun 120Y)    They look similar to the old Opel Kadet Superboss 15 rim."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionrfx.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionrfx.webp",
+    "name": "Revolution RFX",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionrfx7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionrfx7x13.webp",
+    "name": "Revolution RFX",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET11",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolution8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolution8x13.webp",
+    "name": "Revolution \"Motorsport edition\"",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolution10x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolution10x13.webp",
+    "name": "Revolution",
+    "size": "10x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims8x13.webp",
+    "name": "Revolution split rims",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims10x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims10x13.webp",
+    "name": "Revolution split rims",
+    "size": "10x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims11x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolutionsplitrims11x13.webp",
+    "name": "Revolution split rims",
+    "size": "11x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolite7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/revolite7x13.webp",
+    "name": "Revolite",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rebelxx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rebelxx13.webp",
+    "name": "Rebel",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Not intentionally for Mini use, but available with 4x4\" PCD."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rial55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rial55x13.webp",
+    "name": "Rial",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rota55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rota55x13.webp",
+    "name": "Rota",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ronalmetrochallengexx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ronalmetrochallengexx13.webp",
+    "name": "Ronal/Metro Challenge",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "This was the wheel use for the MG Metro challenge cars."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/stilauto6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/stilauto6x13.webp",
+    "name": "Stilauto 'Pentastar'",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET10",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/shelbyviper5x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/shelbyviper5x13.webp",
+    "name": "Shelby Viper",
+    "size": "5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/tsw55x13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/tsw55x13_2.webp",
+    "name": "TSW",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET30",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rialchallenge7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rialchallenge7x13.webp",
+    "name": "Rial Challenge",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "Various",
+    "notes": "Not initially for use with Mini, but available with 4x4\" PCD."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/rimmstockstar6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/rimmstockstar6x13.webp",
+    "name": "Rimmstock(?)",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_19.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_19.webp",
+    "name": "Propably RSL 'Cult'",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/unbek_13.webp",
+    "name": "Rimmtech",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/schmidtthline8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/schmidtthline8x13.webp",
+    "name": "Schmidt TH Line",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "-10(?)",
+    "notes": "3 piece, from 6-10x13"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/spectrumracing7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/spectrumracing7x13.webp",
+    "name": "Spectrum Racing",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/splitrim8x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/splitrim8x13.webp",
+    "name": "Split Rims",
+    "size": "8x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/supermini7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/supermini7x13.webp",
+    "name": "SuperMini",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET2/22",
+    "notes": "Original design. Available from Sun MOtorsport Iimport Ltd."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/supertrax7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/supertrax7x13.webp",
+    "name": "Supertrax",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/superstar7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/superstar7x13.webp",
+    "name": "Ultralite(??) Superstar",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/starmag7x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/starmag7x13.webp",
+    "name": "Starmag",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "+6",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/eraturbo6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/eraturbo6x13.webp",
+    "name": "Compomotive 'Trackstar'/ERA Turbo",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET15",
+    "notes": "The wheel used on the ERA Turbo, made by Compomotive. Exact lettering: 'TRACKSTAR Made in england 6.0Jx13 D1360 ET15'. Under the centre cap is 'COMPOMOTIVE' cast in. Beware: later wheels did not have   the exact lettering as above! ERA's were not equipet with them!"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/trackstar6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/trackstar6x13.webp",
+    "name": "Compomotive(?) 'Trackstar'",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET22",
+    "notes": "Seemingly the same as the above ERA wheel, but shows some differences: no manufacturer in the centre and ET22. Lettering: 'TRACKSTAR Made in england 6.0Jx13 ET22*35[38?] D1360[80?]'."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/lux6x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/lux6x13.webp",
+    "name": "Named \"Lux\" in Rover catalogue",
+    "size": "6x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Seemingly the same as used on the ERA Turbo. But with different center cap.    Believed to be made by Compomotive as well, resp. they made a bunch of this wheels for Rover too."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/roverlux6x13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/roverlux6x13_2.webp",
+    "name": "Same wheel as above",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "This one has a different position for the valve!"
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrspeedstarmk27x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrspeedstarmk27x13.webp",
+    "name": "SSR Speedstar MkII",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET11",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrspeedstarmk37x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/ssrspeedstarmk37x13.webp",
+    "name": "SSR Speedstar MkIII",
+    "size": "7x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "ET11",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/vtoretro455x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/vtoretro455x13.webp",
+    "name": "VTO 'Retro 4'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "From the USA."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfracexx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfracexx13.webp",
+    "name": "Wolfrace",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/triumpgdolomitesprint55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/triumpgdolomitesprint55x13.webp",
+    "name": "GKN",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Stock wheel for the Triumph Dolomite Sprint, made by GKN."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfracexx13_2.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfracexx13_2.webp",
+    "name": "Wolfrace",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Other design..."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfraceturbo55x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/wolfraceturbo55x13.webp",
+    "name": "Wolfrace 'Turbo'",
+    "size": "5.5x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": ""
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/westernwheelshurricanexx13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/westernwheelshurricanexx13.webp",
+    "name": "Western Wheels 'Hurricane'/'Cyclone II'",
+    "size": "",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Named 'Cyclone II' in the US, 'Cyclone I' had twice as many spokes. Slotted lugs for multi PCD use."
+  },
+  {
+    "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/13/chevron12x13.jpg",
+    "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/13/chevron12x13.webp",
+    "name": "Chevron",
+    "size": "12x13",
+    "majorSize": "13",
+    "type": "other",
+    "offset": "",
+    "notes": "Magnesium centre."
   }
-  ]
+]
