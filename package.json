@@ -39,7 +39,7 @@
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
     "@octokit/request": "^5.6.2",
-    "buefy": "^0.9.10",
+    "buefy": "^0.9.11",
     "core-js": "^3.19.0",
     "express": "^4.17.1",
     "fuse.js": "^6.4.6",
