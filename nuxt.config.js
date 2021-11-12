@@ -1,7 +1,5 @@
 import redirectSSL from 'redirect-ssl';
 
-require('dotenv').config();
-
 export default {
   /*
    ** Headers of the page
@@ -81,7 +79,6 @@ export default {
   plugins: [
     '~/plugins/buefy.js',
     '~/plugins/vue-debounce.js',
-    { src: '~plugins/window-resize.js', mode: 'client' },
     { src: '~plugins/highcharts-vue.js', mode: 'client' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },
@@ -121,8 +118,10 @@ export default {
   build: {
     optimizeCSS: true,
   },
-  env: {
-    s3BaseURL: process.env.s3Base,
-    serverlessEndpoint: process.env.serverlessEndpoint,
+  publicRuntimeConfig: {
+    s3BaseURL: process.env.s3Base || 'https://classicminidiy.s3.amazonaws.com/',
+    serverlessEndpoint:
+      process.env.serverlessEndpoint ||
+      'https://still-brook-3pnz2.cloud.serverless.com',
   },
 };
