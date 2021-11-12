@@ -3,6 +3,7 @@
     <h3 class="fancy-font-bold is-size-3 has-text-centered pb-5">
       Recent Videos
     </h3>
+
     <template v-if="isLoading">
       <div class="columns is-multiline">
         <div v-for="(item, index) in 2" :key="index" class="column is-half">
@@ -60,18 +61,18 @@
 <script>
   import axios from 'axios';
   import { DateTime } from 'luxon';
+  import { vueWindowSizeMixin } from 'vue-window-size';
 
   export default {
+    mixins: [vueWindowSizeMixin],
     data() {
       return {
         videos: undefined,
         isLoading: true,
         apiError: false,
         value: 0,
-        // add a new state
         breakpoint: '',
         itemsToShow: 2,
-        viewportWidth: undefined,
       };
     },
     watch: {
@@ -88,7 +89,7 @@
     methods: {
       async fetchData() {
         await axios
-          .get(`${process.env.serverlessEndpoint}/videos`)
+          .get(`${this.$config.serverlessEndpoint}/videos`)
           .then((response) => {
             this.videos = response.data.map((video) => {
               return {
@@ -111,19 +112,20 @@
           });
       },
       handleResize(newWidth) {
-        if (newWidth) {
-          this.viewportWidth = newWidth;
+        let widthToTest;
+        if (this.newWidth) {
+          widthToTest = newWidth;
         } else {
-          this.viewportWidth = window.innerWidth;
+          widthToTest = this.windowWidth;
         }
 
-        if (this.viewportWidth >= 1280) {
+        if (widthToTest >= 1280) {
           this.itemsToShow = 4;
-        } else if (this.viewportWidth >= 1024) {
+        } else if (widthToTest >= 1024) {
           this.itemsToShow = 3;
-        } else if (this.viewportWidth >= 756) {
+        } else if (widthToTest >= 756) {
           this.itemsToShow = 2;
-        } else if (this.viewportWidth >= 576) {
+        } else if (widthToTest >= 576) {
           this.itemsToShow = 1;
         } else {
           this.itemsToShow = 1;

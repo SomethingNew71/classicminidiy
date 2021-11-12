@@ -177,7 +177,7 @@
           console.error(e);
         });
         await axios
-          .post(`${process.env.serverlessEndpoint}/mailjet/email`, {
+          .post(`${this.$config.serverlessEndpoint}/mailjet/email`, {
             formEmail: this.email,
             formName: this.name,
             formBody: this.body,
