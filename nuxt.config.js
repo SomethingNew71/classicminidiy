@@ -119,9 +119,7 @@ export default {
     optimizeCSS: true,
   },
   publicRuntimeConfig: {
-    s3BaseURL: process.env.s3Base || 'https://classicminidiy.s3.amazonaws.com/',
-    serverlessEndpoint:
-      process.env.serverlessEndpoint ||
-      'https://still-brook-3pnz2.cloud.serverless.com',
+    s3BaseURL: process.env.s3Base,
+    serverlessEndpoint: process.env.serverlessEndpoint,
   },
 };
