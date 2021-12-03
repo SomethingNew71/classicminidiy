@@ -22,5 +22,6 @@ module.exports = {
     'vue/no-v-html': 0,
     'no-console': 'off',
     'no-unused-vars': 'warn',
+    'vue/multi-word-component-names': 'off',
   },
 };

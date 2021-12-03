@@ -3,13 +3,7 @@
     <div v-if="processing" class="modal-card">
       <div class="modal-card-body has-text-centered pt-5">
         <i
-          class="
-            is-size-1
-            has-text-primary
-            fa-duotone fa-arrows-rotate fa-spin fa-beat
-            mt-5
-            mb-2
-          "
+          class="is-size-1 has-text-primary fa-duotone fa-arrows-rotate fa-spin fa-beat mt-5 mb-2"
         ></i>
         <h1 class="is-size-3 pb-1">Processing</h1>
       </div>
@@ -20,13 +14,7 @@
     >
       <div class="modal-card-body has-text-centered pt-5">
         <i
-          class="
-            is-size-1
-            has-text-success
-            fa-duotone fa-box-check fa-beat
-            pt-5
-            pb-2
-          "
+          class="is-size-1 has-text-success fa-duotone fa-box-check fa-beat pt-5 pb-2"
         ></i>
         <h1 class="is-size-3 pb-1">Thank you!</h1>
         <h2 class="is-size-5 pb-4">Your suggestion has been submitted</h2>
@@ -46,13 +34,7 @@
     <div v-if="!processing && !issueCreated && apiError" class="modal-card">
       <div class="modal-card-body has-text-centered pt-5">
         <i
-          class="
-            is-size-1
-            has-text-danger
-            fa-duotone fa-triangle-exclamation fa-flash
-            pt-5
-            pb-2
-          "
+          class="is-size-1 has-text-danger fa-duotone fa-triangle-exclamation fa-flash pt-5 pb-2"
           style="--fa-flash-opacity: 0.67; --fa-flash-scale: 1.075"
         ></i>
         <h1 class="is-size-3 pb-1">I'm sorry!</h1>

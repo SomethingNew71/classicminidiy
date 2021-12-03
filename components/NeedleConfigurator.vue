@@ -50,6 +50,51 @@
             Add Needle
           </b-button>
         </div>
+        <div class="panel-block">
+          <b-button
+            type="is-secondary"
+            icon-pack="fas"
+            icon-left="info"
+            expanded
+            @click="isComponentModalActive = true"
+          >
+            What do these values mean?
+          </b-button>
+
+          <b-modal
+            v-model="isComponentModalActive"
+            has-modal-card
+            trap-focus
+            :destroy-on-hide="true"
+            aria-role="dialog"
+            aria-label="Example Modal"
+            aria-modal
+          >
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <h1 class="modal-card-title">Diagram of Needle Measurements</h1>
+                <button
+                  type="button"
+                  class="delete"
+                  @click="isComponentModalActive = false"
+                />
+              </header>
+              <section class="modal-card-body">
+                <img
+                  class="diagram"
+                  src="/diagram.jpg"
+                  alt="Diagram of Needle Measurements"
+                />
+              </section>
+              <footer class="modal-card-foot">
+                <b-button
+                  label="Close"
+                  @click="isComponentModalActive = false"
+                />
+              </footer>
+            </div>
+          </b-modal>
+        </div>
       </nav>
     </div>
     <div class="column is-9">
@@ -66,6 +111,7 @@
   export default {
     data() {
       return {
+        isComponentModalActive: false,
         allNeedles: Needles,
         selectValues: [...StarterNeedles],
         mapOptions: {
@@ -77,16 +123,16 @@
           // This is the data decleration
           series: StarterNeedles,
           yAxis: {
-            title: { text: 'Richness' },
+            title: { text: 'Needle Diameter (mm)' },
             labels: {
-              enabled: false,
+              enabled: true,
             },
             reversed: true,
           },
           xAxis: {
-            title: { text: 'RPMs' },
+            title: { text: 'Needle Station' },
             labels: {
-              enabled: false,
+              enabled: true,
             },
           },
           legend: {
@@ -142,6 +188,13 @@
   }
   .remove-button {
     margin-right: 5px;
+  }
+
+  .diagram {
+    max-height: 600px;
+    width: auto;
+    margin: auto;
+    display: inline-block;
   }
 </style>
 
