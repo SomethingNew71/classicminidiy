@@ -1,4 +1,3 @@
-
 <h1 align="center">
   <br>
   <a href="https://classicminidiy.com"><img src="https://i.imgur.com/3v147Nx.png" alt="Classic Mini DIY Illustrated Image" width="120"></a>
@@ -30,15 +29,15 @@
 
 ## Key Features
 
-* Searchable Torque Specs
+- Searchable Torque Specs
   - Instantly search and access torque specifications for the Classic mini anywhere you have internet access
-* Electrical Diagrams
+- Electrical Diagrams
   - Access to free, expertly drawn wiring diagrams from a range of Classic Minis generations
-* Carb Needle Configurator and Charts
+- Carb Needle Configurator and Charts
   - One of the hardest jobs on the mini is learning about how to tune your carb. With the help of our comparison charts and tables tuning your mini has never been easier!
-* Interactive Color Picker
+- Interactive Color Picker
   - Track down and find the color of your mini using our relational color picker. Now with images and paint codes!
-* Reccomended Reading
+- Reccomended Reading
   - Looking for ways to up your Classic Mini knowledge? Check out our recommended manuals.
 
 ## How To Use
@@ -50,7 +49,6 @@
   <a href="https://www.patreon.com/classicminidiy" target="_blank">
     <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150">
   </a>
-
 
 ## Contributing
 
@@ -90,4 +88,3 @@ This software uses the following sources for information:
   <a href="https://www.patreon.com/classicminidiy" target="_blank">
     <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150">
   </a>
-

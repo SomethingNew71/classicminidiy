@@ -1,37 +1,76 @@
 // Import Bulma's core
-@import "~bulma/sass/utilities/_all";
+@import '~bulma/sass/utilities/_all';
 
 // Set your colors
-$primary: #659CC8;
+$primary: #659cc8;
 $primary-invert: findColorInvert($primary);
 $danger: #b22222;
 $danger-invert: findColorInvert($danger);
 $success: #4a7023;
 $success-invert: findColorInvert($success);
-$patreon: #F96854;
+$patreon: #f96854;
 $patreon-invert: findColorInvert($patreon);
 $guessworks: #b8b8b8;
 $guessworks-invert: findColorInvert($guessworks);
-$seven: #D70402;
+$seven: #d70402;
 $seven-invert: findColorInvert($seven);
-$amazon: #FEBD69;
+$amazon: #febd69;
 $amazon-invert: findColorInvert($amazon);
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
-  "white": ($white, $black),
-  "black": ($black, $white),
-  "light": ($light, $light-invert),
-  "dark": ($dark, $dark-invert),
-  "primary": ($primary, $primary-invert),
-  "info": ($info, $info-invert),
-  "success": ($success, $success-invert),
-  "warning": ($warning, $warning-invert),
-  "danger": ($danger, $danger-invert),
-  "patreon": ($patreon, $patreon-invert),
-  "guessworks": ($guessworks, $guessworks-invert),
-  "seven": ($seven, $seven-invert),
-  "amazon": ($amazon, $amazon-invert)
+  'white': (
+    $white,
+    $black,
+  ),
+  'black': (
+    $black,
+    $white,
+  ),
+  'light': (
+    $light,
+    $light-invert,
+  ),
+  'dark': (
+    $dark,
+    $dark-invert,
+  ),
+  'primary': (
+    $primary,
+    $primary-invert,
+  ),
+  'info': (
+    $info,
+    $info-invert,
+  ),
+  'success': (
+    $success,
+    $success-invert,
+  ),
+  'warning': (
+    $warning,
+    $warning-invert,
+  ),
+  'danger': (
+    $danger,
+    $danger-invert,
+  ),
+  'patreon': (
+    $patreon,
+    $patreon-invert,
+  ),
+  'guessworks': (
+    $guessworks,
+    $guessworks-invert,
+  ),
+  'seven': (
+    $seven,
+    $seven-invert,
+  ),
+  'amazon': (
+    $amazon,
+    $amazon-invert,
+  ),
 );
 
 // Links
@@ -40,15 +79,14 @@ $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
 // Import Bulma and Buefy styles
-@import "~bulma";
-@import "~buefy/src/scss/buefy";
-@import "~@creativebulma/bulma-divider";
+@import '~bulma';
+@import '~buefy/src/scss/buefy';
+@import '~@creativebulma/bulma-divider';
 // I dont like Bulma's Navbar and this one basically is stripes navbar so plug and play baby
-@import "../node_modules/vue-navigation-bar/dist/vue-navigation-bar.css";
-
+@import '../node_modules/vue-navigation-bar/dist/vue-navigation-bar.css';
 
 // Import all my custom scss
-@import "./bulma-overides.scss";
-@import "./fonts.scss";
-@import "./spacing.scss";
-@import "./transitions.scss";
+@import './bulma-overides.scss';
+@import './fonts.scss';
+@import './spacing.scss';
+@import './transitions.scss';

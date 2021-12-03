@@ -111,14 +111,7 @@
                 {{ props.row.group }}
                 <template v-if="props.row.group === ''">
                   <i
-                    class="
-                      ref-icons
-                      mobile-v
-                      is-hidden-tablet
-                      fas
-                      fa-circle
-                      pt-1
-                    "
+                    class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1"
                     :class="props.row.color"
                   ></i>
                 </template>
