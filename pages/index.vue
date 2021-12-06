@@ -29,9 +29,9 @@
               world-class manufacturers to deliver top-of-the-line products to
               personalize and ensure the performance of your Classic Mini.
             </p>
-            <p class="pt-3">
+            <!-- <p class="pt-3">
               <contact-form></contact-form>
-            </p>
+            </p> -->
           </div>
           <div class="column is-4">
             <h3 class="fancy-font-book-oblique">
@@ -244,9 +244,9 @@
               something incorrect. I am an enthusiast and not a complete expert
               so from time to time I will make mistakes.
             </p>
-            <p class="pt-3">
+            <!-- <p class="pt-3">
               <contact-form></contact-form>
-            </p>
+            </p> -->
           </div>
           <div class="column is-5 avatar-container">
             <b-image
@@ -289,7 +289,7 @@
   import Hero from '~/components/Hero';
   import Phone from '~/components/Phone';
   import Browser from '~/components/Browser';
-  import ContactForm from '~/components/ContactForm';
+  // import ContactForm from '~/components/ContactForm';
   export default {
     components: {
       Hero,
@@ -297,7 +297,7 @@
       RecentVideos,
       Phone,
       Browser,
-      ContactForm,
+      // ContactForm,
     },
     data() {
       return {
