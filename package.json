@@ -39,11 +39,11 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@octokit/request": "^5.6.2",
     "buefy": "^0.9.13",
-    "core-js": "^3.19.3",
+    "core-js": "^3.20.0",
     "fuse.js": "^6.4.6",
     "highcharts": "^9.3.2",
     "highcharts-vue": "^1.4.0",
-    "luxon": "^2.1.1",
+    "luxon": "^2.2.0",
     "nuxt": "^2.15.8",
     "redirect-ssl": "^3.0.0",
     "vue-cookie-law": "^1.13.3",
@@ -53,11 +53,11 @@
     "vue-window-size": "0.6.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.3",
+    "@babel/eslint-parser": "^7.16.5",
     "@nuxtjs/eslint-config": "8.0.0",
     "@nuxtjs/eslint-module": "3.0.2",
     "decompress": "^4.2.1",
-    "eslint": "8.4.1",
+    "eslint": "8.5.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-nuxt": "3.1.0",
     "eslint-plugin-prettier": "4.0.0",
@@ -65,7 +65,7 @@
     "nodemon": "^2.0.15",
     "nuxt-compress": "^5.0.0",
     "prettier": "2.5.1",
-    "sass": "^1.44.0",
+    "sass": "^1.45.0",
     "sass-loader": "^10.1.1",
     "webp-loader": "^0.6.0"
   }
