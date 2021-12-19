@@ -92,7 +92,7 @@
         <div class="divider">Support</div>
       </div>
       <div class="column is-12">
-        <store-promo />
+        <patreon-card size="large" />
       </div>
     </div>
   </section>
@@ -100,13 +100,13 @@
 <script>
   import needleConfig from '~/components/NeedleConfigurator';
   import needleTable from '~/components/NeedleTable';
-  import StorePromo from '~/components/StorePromo';
+  import PatreonCard from '~/components/PatreonCard';
 
   export default {
     components: {
       needleConfig,
       needleTable,
-      StorePromo,
+      PatreonCard,
     },
     data() {
       return {};

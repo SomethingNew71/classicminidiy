@@ -90,7 +90,7 @@
         <div class="divider">More</div>
       </div>
       <div class="column is-12">
-        <store-promo />
+        <patreon-card size="large" />
       </div>
     </div>
   </section>
@@ -98,12 +98,12 @@
 
 <script>
   import compressionCalc from '~/components/CompressionCalculator';
-  import StorePromo from '~/components/StorePromo';
+  import PatreonCard from '~/components/PatreonCard';
 
   export default {
     components: {
       compressionCalc,
-      StorePromo,
+      PatreonCard,
     },
     head() {
       return {
