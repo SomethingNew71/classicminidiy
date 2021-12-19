@@ -1,13 +1,11 @@
 <template>
   <div class="columns is-multiline configurator-component">
-    <div class="column is-8 is-offset-2 card">
+    <div class="column is-4 card">
       <div class="card-content">
         <h3 class="fancy-font-bold is-size-4 pb-3">Add a Needle To Compare</h3>
         <p class="pb-3">
-          Adding a needle is as simple as starting to type the name of the
-          needle in the box below. You can also use the dropdown menu to scroll
-          through the list of availble options. Unsure of what the graph values
-          mean? Check out
+          Start typing the name of the needles you would like to compate. Unsure
+          of what the graph values mean? Check out
           <a
             class="has-text-weight-bold"
             href="#"
@@ -34,10 +32,9 @@
             aria-label="Click here to add another needle with a generic value"
             :disabled="selectValues.length === 10 || !addNeedleSelection"
             @click="addArrayItem()"
-          ></b-button>
-          <b-message v-if="existsError" type="is-warning" class="my-3">
-            This needle already exists on the chart.
-          </b-message>
+          >
+            Add
+          </b-button>
         </b-field>
         <b-field grouped group-multiline>
           <div
@@ -60,9 +57,12 @@
             </b-tag>
           </div>
         </b-field>
+        <b-message v-if="existsError" type="is-warning" class="my-3">
+          This needle already exists on the chart.
+        </b-message>
       </div>
     </div>
-    <div class="column is-12">
+    <div class="column is-8">
       <div class="card">
         <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
       </div>
@@ -169,7 +169,8 @@
             needle.name
               .toString()
               .toLowerCase()
-              .includes(this.addNeedleValue.toLowerCase()) >= 0
+              // eslint-disable-next-line
+              .indexOf(this.addNeedleValue.toLowerCase()) >= 0
           );
         });
       },
