@@ -39,15 +39,15 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@octokit/request": "^5.6.2",
     "buefy": "^0.9.13",
-    "core-js": "^3.20.0",
-    "fuse.js": "^6.4.6",
+    "core-js": "^3.20.1",
+    "fuse.js": "^6.5.3",
     "highcharts": "^9.3.2",
     "highcharts-vue": "^1.4.0",
     "luxon": "^2.2.0",
     "nuxt": "^2.15.8",
     "redirect-ssl": "^3.0.0",
     "vue-cookie-law": "^1.13.3",
-    "vue-debounce": "^3.0.1",
+    "vue-debounce": "^3.0.2",
     "vue-gtag": "^1.16.1",
     "vue-navigation-bar": "^4.1.0",
     "vue-window-size": "0.6.2"
@@ -65,7 +65,7 @@
     "nodemon": "^2.0.15",
     "nuxt-compress": "^5.0.0",
     "prettier": "2.5.1",
-    "sass": "^1.45.0",
+    "sass": "^1.45.1",
     "sass-loader": "^10.1.1",
     "webp-loader": "^0.6.0"
   }
