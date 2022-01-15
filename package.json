@@ -65,7 +65,7 @@
     "nodemon": "^2.0.15",
     "nuxt-compress": "^5.0.0",
     "prettier": "2.5.1",
-    "sass": "^1.45.2",
+    "sass": "^1.48.0",
     "sass-loader": "^10.1.1"
   }
 }
