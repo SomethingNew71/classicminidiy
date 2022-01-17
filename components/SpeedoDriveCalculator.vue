@@ -118,7 +118,7 @@
         Cable Turns Per Mile: <b>{{ speedoDetails.turnsPerMile || '---' }}</b>
       </h3>
     </div>
-    <div class="column is-4">
+    <div class="column is-6">
       <nav class="panel">
         <p class="panel-heading">Tire Details</p>
         <p class="panel-block">
@@ -126,7 +126,7 @@
             <i class="is-size-5 fa-duotone fa-arrow-right-arrow-left"></i>
           </span>
           <span class="pt-1 pl-1 has-text-weight-medium">
-            Width: {{ tireDetails.tireWidth || '---' }}
+            Width: {{ tireDetails.tireWidth || '---' }}mm
           </span>
         </p>
         <p class="panel-block">
@@ -134,7 +134,7 @@
             <i class="is-size-5 fa-regular fa-tire"></i>
           </span>
           <span class="pt-1 pl-1 has-text-weight-medium">
-            Profile: {{ tireDetails.tireProfile || '---' }}
+            Profile: {{ tireDetails.tireProfile || '---' }}mm
           </span>
         </p>
         <p class="panel-block">
@@ -142,7 +142,7 @@
             <i class="is-size-5 fa-duotone fa-arrow-left-to-line"></i>
           </span>
           <span class="pt-1 pl-1 has-text-weight-medium">
-            Wheel Size: {{ tireDetails.wheelSize || '---' }}
+            Wheel Size: {{ tireDetails.wheelSize || '---' }}in
           </span>
         </p>
         <p class="panel-block">
@@ -152,7 +152,7 @@
             ></i>
           </span>
           <span class="pt-1 pl-1 has-text-weight-medium">
-            Tire Diameter: {{ tireDetails.tireDiameter || '---' }}</span
+            Tire Diameter: {{ tireDetails.tireDiameter || '---' }}mm</span
           >
         </p>
         <p class="panel-block">
@@ -160,7 +160,7 @@
             <i class="is-size-5 fa-regular fa-circle" aria-hidden="true"></i>
           </span>
           <span class="pt-1 pl-1 has-text-weight-medium">
-            Circumfrence: {{ tireDetails.circumfrence || '---' }}
+            Circumfrence: {{ tireDetails.circumfrence || '---' }}mm
           </span>
         </p>
         <p class="panel-block">
@@ -173,7 +173,7 @@
         </p>
       </nav>
     </div>
-    <div class="column is-8">
+    <div class="column is-6">
       <nav class="panel">
         <p class="panel-heading">Speedo Details</p>
         <p
@@ -199,6 +199,11 @@
         <div class="card-content">
           <b-table :data="tableData" :columns="tableHeaders"></b-table>
         </div>
+      </div>
+    </div>
+    <div class="column is-6">
+      <div class="card">
+        <!-- PUT HIGHCHARTS HERE -->
       </div>
     </div>
     <!-- <div class="column is-4">
