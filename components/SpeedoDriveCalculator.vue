@@ -115,6 +115,25 @@
         </b-select>
       </b-field>
     </div>
+    <div class="column is-6">
+      <b-field label="Maximum RPM">
+        <b-slider
+          v-model="max_rpm"
+          size="is-medium pl-3 pr-3"
+          :min="6000"
+          :max="9000"
+          :step="500"
+          @input="calculateRatio()"
+        >
+          <b-slider-tick
+            v-for="val in [6000, 6500, 7000, 7500, 8000, 8500, 9000]"
+            :key="val"
+            :value="val"
+            >{{ val }}</b-slider-tick
+          >
+        </b-slider>
+      </b-field>
+    </div>
     <div class="column is-10 is-offset-1">
       <div class="divider">Results</div>
     </div>
@@ -484,6 +503,7 @@
         gear_ratios: [2.583, 1.644, 1.25, 1.0],
         drop_gear: 1,
         speedo_drive: 0.3529,
+        max_rpm: 6500,
         tire_type: {
           width: 145,
           profile: 80,
@@ -665,7 +685,7 @@
 
         this.tableDataGearing = this.gear_ratios.map((gear, index) => {
           const maxSpeed = Math.round(
-            (6500 / this.drop_gear / gear / this.final_drive) *
+            (this.max_rpm / this.drop_gear / gear / this.final_drive) *
               this.typeCircInMiles *
               60
           );
@@ -687,7 +707,7 @@
         this.gear_ratios.forEach((gear, index) => {
           const speedData = [];
           let gearName = '';
-          for (let rpm = 1000; rpm <= 6500; rpm = rpm + 500) {
+          for (let rpm = 1000; rpm <= this.max_rpm; rpm = rpm + 500) {
             speedData.push(
               Math.round(
                 (rpm / this.drop_gear / gear / this.final_drive) *
@@ -722,3 +742,8 @@
     },
   };
 </script>
+<style lang="scss">
+  .b-slider.is-medium .b-slider-tick-label {
+    top: calc(0.625rem * 0.5 + 10px);
+  }
+</style>
