@@ -23,21 +23,22 @@
             <li class="is-active">
               <nuxt-link to="">
                 <span class="icon is-small">
-                  <i class="fad fa-compress-arrows-alt" aria-hidden="true"></i>
+                  <i class="fad fa-gear fa-spin" aria-hidden="true"></i>
                 </span>
-                <span>Speedo Gear Calculator</span>
+                <span>Gearbox Calculator</span>
               </nuxt-link>
             </li>
           </ul>
         </nav>
         <div class="columns">
           <div class="column is-8">
-            <h1 class="title">Speedo Gear Calculator</h1>
+            <h1 class="title">Gearbox Calculator</h1>
             <p class="pb-4">
-              When building a performance Classic Mini engine one of the most
-              important figures to determine is the compression ratio. Using the
-              Classic Mini DIY Speedo Gear Calculator below, you can determine
-              the ideal compression for your new engine build.
+              When building or rebuilding a gearbox, updaing your gear ratios,
+              or changing out your speedometer sometimes you need to update some
+              things. Using the Classic Mini DIY Gear Calculator below, you can
+              determine the correct gearing for your for your new engine build
+              and find the right speedo gear to use as well.
             </p>
           </div>
           <div class="column is-4">

@@ -108,69 +108,56 @@
     <div class="column is-10 is-offset-1">
       <div class="divider">Results</div>
     </div>
-
     <div class="column is-12">
-      <h2 class="title is-4">Results:</h2>
-      <h3 class="is-size-5">
-        Revs Per Mile: <b>{{ speedoDetails.engineRevsMile || '---' }}</b>
-      </h3>
-      <h3 class="is-size-5">
-        Cable Turns Per Mile: <b>{{ speedoDetails.turnsPerMile || '---' }}</b>
-      </h3>
-    </div>
-    <div class="column is-6">
-      <nav class="panel">
-        <p class="panel-heading">Tire Details</p>
-        <p class="panel-block">
-          <span class="panel-icon">
-            <i class="is-size-5 fa-duotone fa-arrow-right-arrow-left"></i>
-          </span>
-          <span class="pt-1 pl-1 has-text-weight-medium">
-            Width: {{ tireDetails.tireWidth || '---' }}mm
-          </span>
-        </p>
-        <p class="panel-block">
-          <span class="panel-icon">
-            <i class="is-size-5 fa-regular fa-tire"></i>
-          </span>
-          <span class="pt-1 pl-1 has-text-weight-medium">
-            Profile: {{ tireDetails.tireProfile || '---' }}mm
-          </span>
-        </p>
-        <p class="panel-block">
-          <span class="panel-icon">
-            <i class="is-size-5 fa-duotone fa-arrow-left-to-line"></i>
-          </span>
-          <span class="pt-1 pl-1 has-text-weight-medium">
-            Wheel Size: {{ tireDetails.wheelSize || '---' }}in
-          </span>
-        </p>
-        <p class="panel-block">
-          <span class="panel-icon">
-            <i
-              class="fa-duotone fa-arrow-down-left-and-arrow-up-right-to-center"
-            ></i>
-          </span>
-          <span class="pt-1 pl-1 has-text-weight-medium">
-            Tire Diameter: {{ tireDetails.tireDiameter || '---' }}mm</span
-          >
-        </p>
-        <p class="panel-block">
-          <span class="panel-icon">
-            <i class="is-size-5 fa-regular fa-circle" aria-hidden="true"></i>
-          </span>
-          <span class="pt-1 pl-1 has-text-weight-medium">
-            Circumfrence: {{ tireDetails.circumfrence || '---' }}mm
-          </span>
-        </p>
-        <p class="panel-block">
-          <span class="panel-icon">
-            <i class="is-size-5 fa-duotone fa-sync fa-spin"></i>
-          </span>
-          <span class="pt-1 pl-1 has-text-weight-medium">
-            Tire Turns per Mile: {{ tireDetails.tireTurnsPerMile || '---' }}
-          </span>
-        </p>
+      <nav class="level pb-5">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Tire Width</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireDetails.tireWidth || '---' }}mm
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Tire Profile</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireDetails.tireProfile || '---' }}in
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Wheel Size</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireDetails.wheelSize || '---' }}in
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Tire Diameter</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireDetails.tireDiameter || '---' }}mm
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Circumfrence</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireDetails.circumfrence || '---' }}mm
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Turns Per Mile</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireDetails.tireTurnsPerMile || '---' }}
+            </p>
+          </div>
+        </div>
       </nav>
     </div>
     <div class="column is-6">
@@ -201,9 +188,31 @@
         </div>
       </div>
     </div>
-    <div class="column is-6">
+    <div class="column is-12">
+      <nav class="level pb-5">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Revolutions per/Mile</p>
+            <p class="title">{{ speedoDetails.engineRevsMile || '---' }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Cable Turns per/Mile</p>
+            <p class="title">{{ speedoDetails.turnsPerMile || '---' }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Top Speed</p>
+            <p class="title">{{ topSpeed || '---' }}mph</p>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="column is-12">
       <div class="card">
-        <!-- PUT HIGHCHARTS HERE -->
+        <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
       </div>
     </div>
     <!-- <div class="column is-4">
@@ -258,26 +267,11 @@
           more than one source. The mathematical equations used in this tool can
           be found here:
           <a
-            href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344"
+            href="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
             target="_blank"
             rel="noopener noreferrer"
           >
             Equation Source Code</a
-          >
-        </p>
-        <p>
-          Alternate Source:
-          <a
-            href="https://www.calverst.com/technical-info/compression-ratio-%E2%80%93-working-it-out/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Calver Compression Ratio</a
-          >,
-          <a
-            href="https://www.jepistons.com/blog/how-to-calculate-engine-compression-ratio-and-displacement"
-            target="_blank"
-            rel="noopener noreferrer"
-            >JE Pistons Compression Ratio</a
           >
         </p>
       </div>
@@ -445,6 +439,10 @@
             label: 'Aftermarket Gearsets',
             options: [
               {
+                value: [2.583, 1.644, 1.25, 1.0],
+                label: 'Minispares Evolution Helical Heavy Duty Kit - C-STN48',
+              },
+              {
                 value: [2.583, 1.711, 1.25, 1.0],
                 label:
                   'Minispares (Clubman ratios CR/SC) C-STN39 or TRAN-X (Clubman ratios CR/SC)',
@@ -462,15 +460,17 @@
           },
         ],
         // Default Values for form elements
-        final_drive: 3.765,
-        gear_ratios: [3.647, 2.185, 1.425, 1.0],
+        final_drive: 3.444,
+        gear_ratios: [2.583, 1.644, 1.25, 1.0],
         drop_gear: 1,
-        speedo_drive: 0.4667,
+        speedo_drive: 0.3529,
         tyre_type: {
           tireWidth: 145,
           tireProfile: 80,
           wheelSize: 10,
         },
+        typeCircInMiles: undefined,
+        topSpeed: undefined,
         // Object for displaying Tire Facts
         tireDetails: {
           tireWidth: undefined,
@@ -486,7 +486,8 @@
           turnsPerMile: undefined,
           speedos: [],
         },
-        // Object for displaying Chart Facts
+        // Section for Table Data
+        tableData: undefined,
         tableHeaders: [
           {
             field: 'gear',
@@ -502,7 +503,66 @@
             centered: true,
           },
         ],
-        tableData: [],
+        // Section for Chart Data
+        chartData: [],
+        mapOptions: {
+          chart: { zoomType: 'x' },
+          title: { text: 'Speed and RPM' },
+          exporting: {
+            buttons: {
+              contextButton: {
+                symbol: 'download',
+              },
+            },
+          },
+          // subtitle: {
+          //   text: 'Source: <a target="_blank" href="http://www.mintylamb.co.uk/suneedle/">http://www.mintylamb.co.uk/suneedle/</a>',
+          // },
+          // This is the data decleration
+          series: [],
+          plotOptions: {
+            series: {
+              // label: {
+              //   connectorAllowed: false,
+              // },
+              pointStart: 1000,
+              pointInterval: 500,
+            },
+          },
+          yAxis: {
+            title: { text: 'Speed (MPH)' },
+            labels: {
+              enabled: true,
+            },
+          },
+          xAxis: {
+            title: { text: 'RPM' },
+            labels: {
+              enabled: true,
+              step: 0.5,
+            },
+          },
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+          },
+          tooltip: { headerFormat: 'Speed:<br>', shared: true },
+          responsive: {
+            rules: [
+              {
+                condition: { maxWidth: 500 },
+                chartOptions: {
+                  legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                  },
+                },
+              },
+            ],
+          },
+        },
       };
     },
     created() {
@@ -526,7 +586,7 @@
         this.tireDetails.circumfrence = Math.round(
           3.14159 * this.tireDetails.tireDiameter
         ); // in mm
-        const typeCircInMiles = this.tireDetails.circumfrence / (1760 * 914.4); // in miles
+        this.typeCircInMiles = this.tireDetails.circumfrence / (1760 * 914.4); // in miles
 
         // calculate tyre turns per mile 1760 yards in a mile, 914.4 mm in a yard
         this.tireDetails.tireTurnsPerMile = Math.round(
@@ -594,72 +654,22 @@
         });
 
         this.tableData = this.gear_ratios.map((gear, index) => {
+          const maxSpeed = Math.round(
+            (6500 / this.drop_gear / gear / this.final_drive) *
+              this.typeCircInMiles *
+              60
+          );
+          if (index === 3) {
+            this.topSpeed = maxSpeed;
+          }
           return {
             gear: index + 1,
             ratio: gear,
-            maxSpeed: `${Math.round(
-              (6500 / this.drop_gear / gear / this.final_drive) *
-                typeCircInMiles *
-                60
-            )}mph`,
+            maxSpeed: `${maxSpeed}mph`,
           };
         });
 
-        this.chartData = undefined;
-
-        let data1 = 'data[1]=';
-        let data2 = 'data[2]=';
-        let data3 = 'data[3]=';
-        let data4 = 'data[4]=';
-        let gear1Speed;
-        let gear2Speed;
-        let gear3Speed;
-
-        for (let rpm = 1000; rpm <= 6500; rpm = rpm + 500) {
-          data1 +=
-            rpm / 100 +
-            ':' +
-            (rpm / this.drop_gear / this.gear_ratios[0] / this.final_drive) *
-              typeCircInMiles *
-              60;
-
-          let currSpeed =
-            (rpm / this.drop_gear / this.gear_ratios[1] / this.final_drive) *
-            typeCircInMiles *
-            60;
-          if (currSpeed > gear1Speed) {
-            data2 += rpm / 100 + ':' + currSpeed;
-          } else {
-            data2 += rpm / 100 + ':' + gear1Speed;
-          }
-
-          currSpeed =
-            (rpm / this.drop_gear / this.gear_ratios[2] / this.final_drive) *
-            typeCircInMiles *
-            60;
-          if (currSpeed > gear2Speed) {
-            data3 += rpm / 100 + ':' + currSpeed;
-          } else {
-            data3 += rpm / 100 + ':' + gear2Speed;
-          }
-
-          currSpeed =
-            (rpm / this.drop_gear / this.gear_ratios[3] / this.final_drive) *
-            typeCircInMiles *
-            60;
-          if (currSpeed > gear3Speed) {
-            data4 += rpm / 100 + ':' + currSpeed;
-          } else {
-            data4 += rpm / 100 + ':' + gear3Speed;
-          }
-
-          if (rpm < 6500) {
-            data1 += ',';
-            data2 += ',';
-            data3 += ',';
-            data4 += ',';
-          }
-        }
+        this.generateChartData();
       },
       generateSpeedoText(speedo) {
         if (speedo.vari > 100) {
@@ -677,6 +687,43 @@
         return Math.round(
           (this.speedoDetails.turnsPerMile / vari) * 100 * this.drop_gear
         );
+      },
+      generateChartData() {
+        this.chartData = [];
+        this.gear_ratios.forEach((gear, index) => {
+          const speedData = [];
+          let gearName = '';
+          for (let rpm = 1000; rpm <= 6500; rpm = rpm + 500) {
+            speedData.push(
+              Math.round(
+                (rpm / this.drop_gear / gear / this.final_drive) *
+                  this.typeCircInMiles *
+                  60
+              )
+            );
+          }
+          switch (index) {
+            case 0:
+              gearName = '1st Gear';
+              break;
+            case 1:
+              gearName = '2nd Gear';
+              break;
+            case 2:
+              gearName = '3rd Gear';
+              break;
+            case 3:
+              gearName = '4th Gear';
+              break;
+            default:
+              break;
+          }
+          this.chartData.push({
+            name: gearName,
+            data: speedData,
+          });
+        });
+        this.mapOptions.series = this.chartData;
       },
     },
   };

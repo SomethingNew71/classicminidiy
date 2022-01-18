@@ -84,6 +84,13 @@
             to: '/technical/enginesize',
           },
           {
+            title: 'Gearbox Calculator',
+            image:
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
+            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.webp',
+            to: '/technical/gearing',
+          },
+          {
             title: 'Color Picker',
             image:
               'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
