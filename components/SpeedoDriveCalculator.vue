@@ -4,8 +4,10 @@
     <div class="column is-6">
       <b-field label="Tire Size">
         <b-select
-          v-model="tyre_type"
+          v-model="tire_type"
           expanded
+          icon-pack="fad"
+          icon="tire"
           placeholder="Choose your tire size"
           @input="calculateRatio()"
         >
@@ -30,6 +32,8 @@
         <b-select
           v-model="final_drive"
           expanded
+          icon-pack="fad"
+          icon="gear"
           placeholder="Choose your final drive gear size"
           @input="calculateRatio()"
         >
@@ -49,6 +53,8 @@
         <b-select
           v-model="speedo_drive"
           expanded
+          icon-pack="fad"
+          icon="percent"
           placeholder="Select the ratio of your current speedo drive"
           @input="calculateRatio()"
         >
@@ -67,6 +73,8 @@
         <b-select
           v-model="drop_gear"
           expanded
+          icon-pack="fad"
+          icon="gear"
           placeholder="Select the size of your drop gear"
           @input="calculateRatio()"
         >
@@ -86,6 +94,8 @@
         <b-select
           v-model="gear_ratios"
           expanded
+          icon-pack="fad"
+          icon="gear"
           placeholder="Choose ratio of your actual gearsets"
           @input="calculateRatio()"
         >
@@ -112,86 +122,6 @@
       <nav class="level pb-5">
         <div class="level-item has-text-centered">
           <div>
-            <p class="heading">Tire Width</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireDetails.tireWidth || '---' }}mm
-            </p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Tire Profile</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireDetails.tireProfile || '---' }}in
-            </p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Wheel Size</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireDetails.wheelSize || '---' }}in
-            </p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Tire Diameter</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireDetails.tireDiameter || '---' }}mm
-            </p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Circumfrence</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireDetails.circumfrence || '---' }}mm
-            </p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Turns Per Mile</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireDetails.tireTurnsPerMile || '---' }}
-            </p>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <div class="column is-6">
-      <nav class="panel">
-        <p class="panel-heading">Speedo Details</p>
-        <p
-          v-for="speedo in speedoDetails.speedos"
-          :key="speedo.tpm"
-          class="panel-block pt-2 pb-2"
-        >
-          {{ speedo.desc }}:
-          <b :class="speedo.class" class="pl-2">{{ speedo.text || '---' }}</b>
-        </p>
-      </nav>
-    </div>
-    <div class="column is-6">
-      <div class="card">
-        <div class="card-header">
-          <p class="card-header-title">
-            <span class="icon">
-              <i class="fa-duotone fa-gear"></i>
-            </span>
-            <span class="has-text-weight-bold">Gearing Information</span>
-          </p>
-        </div>
-        <div class="card-content">
-          <b-table :data="tableData" :columns="tableHeaders"></b-table>
-        </div>
-      </div>
-    </div>
-    <div class="column is-12">
-      <nav class="level pb-5">
-        <div class="level-item has-text-centered">
-          <div>
             <p class="heading">Revolutions per/Mile</p>
             <p class="title">{{ speedoDetails.engineRevsMile || '---' }}</p>
           </div>
@@ -211,53 +141,117 @@
       </nav>
     </div>
     <div class="column is-12">
+      <nav class="level pb-5">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Tire Width</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireInfo.width || '---' }}mm
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Tire Profile</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireInfo.profile || '---' }}in
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Wheel Size</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireInfo.size || '---' }}in
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Tire Diameter</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireInfo.diameter || '---' }}mm
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Circumfrence</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireInfo.circ || '---' }}mm
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Turns Per Mile</p>
+            <p class="subtitle has-text-weight-bold">
+              {{ tireInfo.tireTurnsPerMile || '---' }}
+            </p>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="column is-7">
+      <div class="card">
+        <div class="card-header">
+          <p class="card-header-title">
+            <span class="icon is-size-4">
+              <i class="fa-duotone fa-gauge"></i>
+            </span>
+            <span class="pl-3 has-text-weight-bold">Speedo Information</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <b-table :data="tableDataSpeedos">
+            <b-table-column
+              v-slot="props"
+              field="status"
+              label=""
+              narrowed="false"
+            >
+              <i class="fas fa-circle pt-1" :class="props.row.status"></i>
+            </b-table-column>
+            <b-table-column v-slot="props" field="tpm" label="TPM">
+              {{ props.row.tpm }}
+            </b-table-column>
+            <b-table-column
+              v-slot="props"
+              field="speedometer"
+              label="Speedometer"
+            >
+              {{ props.row.speedometer }}
+            </b-table-column>
+            <b-table-column v-slot="props" field="result" label="Result">
+              {{ props.row.result }}
+            </b-table-column>
+          </b-table>
+        </div>
+      </div>
+    </div>
+    <div class="column is-5">
+      <div class="card">
+        <div class="card-header">
+          <p class="card-header-title">
+            <span class="icon is-size-4">
+              <i class="fa-duotone fa-gear fa-spin"></i>
+            </span>
+            <span class="pl-3 has-text-weight-bold">Gearing Information</span>
+          </p>
+        </div>
+        <div class="card-content">
+          <b-table
+            :data="tableDataGearing"
+            :columns="tableHeadersGearing"
+          ></b-table>
+        </div>
+      </div>
+    </div>
+    <div class="column is-12">
       <div class="card">
         <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
       </div>
     </div>
-    <!-- <div class="column is-4">
-      <nav class="panel">
-        <p class="panel-heading">Gearing</p>
-        <a class="panel-block is-active">
-          <span class="panel-icon">
-            <i class="fas fa-book" aria-hidden="true"></i>
-          </span>
-          Width: {{ tireDetails.tireWidth || '---' }}
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fas fa-book" aria-hidden="true"></i>
-          </span>
-          Profile: {{ tireDetails.tireProfile || '---' }}
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fas fa-book" aria-hidden="true"></i>
-          </span>
-          Wheel Size: {{ tireDetails.wheelSize || '---' }}
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fas fa-book" aria-hidden="true"></i>
-          </span>
-          Tire Diameter: {{ tireDetails.tirediameter || '---' }}
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fas fa-circle" aria-hidden="true"></i>
-          </span>
-          Circumfrence: {{ tireDetails.circumfrence || '---' }}
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fas fa-loading" aria-hidden="true"></i>
-          </span>
-          Tire Turns per Mile: {{ tireDetails.tireTurnsPerMile || '---' }}
-        </a>
-      </nav>
-    </div> -->
-    <div class="column is-8"></div>
-    <div class="column is-12 py-4"></div>
     <div class="column is-12">
       <div class="content has-text-centered">
         <p>
@@ -289,17 +283,17 @@
               {
                 label: '145/80r10',
                 value: {
-                  tireWidth: 145,
-                  tireProfile: 80,
-                  wheelSize: 10,
+                  width: 145,
+                  profile: 80,
+                  size: 10,
                 },
               },
               {
                 label: '165/70r10',
                 value: {
-                  tireWidth: 165,
-                  tireProfile: 70,
-                  wheelSize: 10,
+                  width: 165,
+                  profile: 70,
+                  size: 10,
                 },
               },
             ],
@@ -310,25 +304,25 @@
               {
                 label: '145/80r12',
                 value: {
-                  tireWidth: 145,
-                  tireProfile: 80,
-                  wheelSize: 12,
+                  width: 145,
+                  profile: 80,
+                  size: 12,
                 },
               },
               {
                 label: '155/80r12',
                 value: {
-                  tireWidth: 155,
-                  tireProfile: 80,
-                  wheelSize: 12,
+                  width: 155,
+                  profile: 80,
+                  size: 12,
                 },
               },
               {
                 label: '165/60r12',
                 value: {
-                  tireWidth: 165,
-                  tireProfile: 60,
-                  wheelSize: 12,
+                  width: 165,
+                  profile: 60,
+                  size: 12,
                 },
               },
             ],
@@ -339,9 +333,9 @@
               {
                 label: '175/50r13',
                 value: {
-                  tireWidth: 175,
-                  tireProfile: 50,
-                  wheelSize: 13,
+                  width: 175,
+                  profile: 50,
+                  size: 13,
                 },
               },
             ],
@@ -459,24 +453,51 @@
             ],
           },
         ],
-        // Default Values for form elements
+        speedoMeterOptions: [
+          {
+            tpm: 1408,
+            name: 'Smiths Centre',
+          },
+          {
+            tpm: 1300,
+            name: '110Mph Nippon Seiki',
+          },
+          {
+            tpm: 1280,
+            name: 'Smiths centre',
+          },
+          {
+            tpm: 1248,
+            name: 'Smiths centre',
+          },
+          {
+            tpm: 1242,
+            name: '90Mph Nippon Seiki',
+          },
+          {
+            tpm: 1216,
+            name: '90Mph Smiths (clubman)',
+          },
+        ],
+        // Default Values for form elements _ values are form values
         final_drive: 3.444,
         gear_ratios: [2.583, 1.644, 1.25, 1.0],
         drop_gear: 1,
         speedo_drive: 0.3529,
-        tyre_type: {
-          tireWidth: 145,
-          tireProfile: 80,
-          wheelSize: 10,
+        tire_type: {
+          width: 145,
+          profile: 80,
+          size: 10,
         },
+        // Component variables
         typeCircInMiles: undefined,
         topSpeed: undefined,
         // Object for displaying Tire Facts
-        tireDetails: {
-          tireWidth: undefined,
-          tireProfile: undefined,
-          wheelSize: undefined,
-          tireDiameter: undefined,
+        tireInfo: {
+          width: undefined,
+          profile: undefined,
+          size: undefined,
+          diameter: undefined,
           circumfrence: undefined,
           tireTurnsPerMile: undefined,
         },
@@ -484,11 +505,11 @@
         speedoDetails: {
           engineRevsMile: undefined,
           turnsPerMile: undefined,
-          speedos: [],
         },
         // Section for Table Data
-        tableData: undefined,
-        tableHeaders: [
+        tableDataGearing: undefined,
+        tableDataSpeedos: undefined,
+        tableHeadersGearing: [
           {
             field: 'gear',
             label: 'Gear',
@@ -500,6 +521,25 @@
           {
             field: 'maxSpeed',
             label: 'Max Speed (mph)',
+            centered: true,
+          },
+        ],
+        tableHeadersSpeedos: [
+          {
+            field: 'status',
+            label: '',
+          },
+          {
+            field: 'speedometer',
+            label: 'Speedometer',
+          },
+          {
+            field: 'tpm',
+            label: 'TPM',
+          },
+          {
+            field: 'result',
+            label: 'Result',
             centered: true,
           },
         ],
@@ -570,90 +610,60 @@
     },
     methods: {
       calculateRatio() {
-        // return;
-        /* eslint-disable no-unreachable */
         this.isLoading = true;
         // Assign tire Details and working values
-        this.tireDetails.tireWidth = this.tyre_type.tireWidth;
-        this.tireDetails.tireProfile = this.tyre_type.tireProfile;
-        this.tireDetails.wheelSize = this.tyre_type.wheelSize;
-        this.tireDetails.tireDiameter = Math.round(
-          this.tireDetails.tireWidth *
-            (this.tireDetails.tireProfile / 100) *
-            2 +
-            this.tireDetails.wheelSize * 25.4
+        this.tireInfo.width = this.tire_type.width;
+        this.tireInfo.profile = this.tire_type.profile;
+        this.tireInfo.size = this.tire_type.size;
+        this.tireInfo.diameter = Math.round(
+          this.tireInfo.width * (this.tireInfo.profile / 100) * 2 +
+            this.tireInfo.size * 25.4
         );
-        this.tireDetails.circumfrence = Math.round(
-          3.14159 * this.tireDetails.tireDiameter
-        ); // in mm
-        this.typeCircInMiles = this.tireDetails.circumfrence / (1760 * 914.4); // in miles
+        this.tireInfo.circ = Math.round(3.14159 * this.tireInfo.diameter); // in mm
+        this.typeCircInMiles = this.tireInfo.circ / (1760 * 914.4); // in miles
 
-        // calculate tyre turns per mile 1760 yards in a mile, 914.4 mm in a yard
-        this.tireDetails.tireTurnsPerMile = Math.round(
-          1760 / (this.tireDetails.circumfrence / 914.4)
+        // calculate tire turns per mile 1760 yards in a mile, 914.4 mm in a yard
+        this.tireInfo.tireTurnsPerMile = Math.round(
+          1760 / (this.tireInfo.circ / 914.4)
         );
 
-        // calculate tyre turns per mile
+        // calculate tire turns per mile
         this.speedoDetails.turnsPerMile = Math.round(
-          this.tireDetails.tireTurnsPerMile *
-            this.final_drive *
-            this.speedo_drive
+          this.tireInfo.tireTurnsPerMile * this.final_drive * this.speedo_drive
         );
         // calculate engine revs per mile including drop gear
         this.speedoDetails.engineRevsMile = Math.round(
-          this.tireDetails.tireTurnsPerMile * this.final_drive * this.drop_gear
+          this.tireInfo.tireTurnsPerMile * this.final_drive * this.drop_gear
         );
 
-        this.speedoDetails.speedos = [
-          {
-            tpm: '1408',
-            desc: '1408 TPM Smiths Centre',
-            vari: this.calculateVariation(1408),
-            text: '',
-            class: '',
-          },
-          {
-            tpm: '1300',
-            desc: '1300 TPM 110Mph Nippon Seiki',
-            vari: this.calculateVariation(1300),
-            text: '',
-            class: '',
-          },
-          {
-            tpm: '1280',
-            desc: '1280 TPM Smiths centre',
-            vari: this.calculateVariation(1280),
-            text: '',
-            class: '',
-          },
-          {
-            tpm: '1248',
-            desc: '1248 TPM Smiths centre',
-            vari: this.calculateVariation(1248),
-            text: '',
-            class: '',
-          },
-          {
-            tpm: '1242',
-            desc: '1242 TPM 90Mph Nippon Seiki',
-            vari: this.calculateVariation(1242),
-            text: '',
-            class: '',
-          },
-          {
-            tpm: '1216',
-            desc: '1216 TPM 90Mph Smiths (clubman)',
-            vari: this.calculateVariation(1216),
-            text: '',
-            class: '',
-          },
-        ];
+        this.tableDataSpeedos = this.speedoMeterOptions.map((speedometer) => {
+          const variation = Math.round(
+            (this.speedoDetails.turnsPerMile / speedometer.tpm) *
+              100 *
+              this.drop_gear
+          );
+          let result = '';
+          let status = '';
 
-        this.speedoDetails.speedos.forEach((speedo) => {
-          speedo.text = this.generateSpeedoText(speedo);
+          if (variation > 100) {
+            status = 'has-text-danger';
+            result = `Over ${variation - 100}%`;
+          } else if (variation === 100) {
+            status = 'has-text-success';
+            result = `Read correct!`;
+          } else if (variation < 100) {
+            status = 'has-text-info';
+            result = `Under ${100 - variation}%`;
+          }
+          return {
+            status,
+            speedometer: speedometer.name,
+            tpm: speedometer.tpm,
+            result,
+          };
         });
 
-        this.tableData = this.gear_ratios.map((gear, index) => {
+        this.tableDataGearing = this.gear_ratios.map((gear, index) => {
           const maxSpeed = Math.round(
             (6500 / this.drop_gear / gear / this.final_drive) *
               this.typeCircInMiles *
@@ -671,23 +681,7 @@
 
         this.generateChartData();
       },
-      generateSpeedoText(speedo) {
-        if (speedo.vari > 100) {
-          speedo.class = 'has-text-danger';
-          return `read over ${speedo.vari - 100}%`;
-        } else if (speedo.vari === 100) {
-          speedo.class = 'has-text-success';
-          return `will be correct!`;
-        } else if (speedo.vari < 100) {
-          speedo.class = 'has-text-info';
-          return `read under ${100 - speedo.vari}%`;
-        }
-      },
-      calculateVariation(vari) {
-        return Math.round(
-          (this.speedoDetails.turnsPerMile / vari) * 100 * this.drop_gear
-        );
-      },
+
       generateChartData() {
         this.chartData = [];
         this.gear_ratios.forEach((gear, index) => {
