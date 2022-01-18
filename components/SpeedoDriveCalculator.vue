@@ -37,13 +37,19 @@
           placeholder="Choose your final drive gear size"
           @input="calculateRatio()"
         >
-          <option
-            v-for="option in diffOptions"
-            :key="option.label"
-            :value="option.value"
+          <optgroup
+            v-for="group in diffOptions"
+            :key="group.label"
+            :label="group.label"
           >
-            {{ option.label }}
-          </option>
+            <option
+              v-for="option in group.options"
+              :key="option.label"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </option>
+          </optgroup>
         </b-select>
       </b-field>
     </div>
@@ -361,44 +367,60 @@
           },
         ],
         diffOptions: [
-          { value: 4.6, label: '4.6 (12/56)' },
-          { value: 4.333, label: '4.333 (15/65)' },
-          { value: 4.1, label: '4.1 (13/53)' },
-          { value: 3.938, label: '3.938 (16/63)' },
           {
-            value: 3.765,
-            label:
-              '3.765 (17/64) Austin Seven, Minor, Cooper, Countryman/Trav, Pickup, Mini 850',
+            label: 'Factory Options',
+            options: [
+              { value: 2.76, label: '2.760:1 21/58 ' },
+              { value: 2.95, label: "2.950:1 20/59 ( Metro 1.3 HLE '85 on )" },
+              {
+                value: 3.105,
+                label: "3.105:1 19/59 ( Metro 1.0 HLE and Some 1.3 HLE's )",
+              },
+              { value: 3.211, label: '3.211:1 19/61 ( MG Metro Turbo )' },
+              {
+                value: 3.444,
+                label: "3.444:1 18/62 ( Most Mini's and post '84 Metro's )",
+              },
+              {
+                value: 3.647,
+                label: '3.647:1 17/62 ( Metro City, L and Van ) ',
+              },
+              {
+                value: 3.765,
+                label: "3.765:1 17/64 ( MKI Mini, 850's and Vans) ",
+              },
+              {
+                value: 3.939,
+                label: '3.939:1 16/63 ( Option on Cooper "S" MKI/II/III )',
+              },
+            ],
           },
           {
-            value: 3.647,
-            label: "3.647 (17/62) Early 1275 GT's (1969 - 1971)",
-          },
-          { value: 3.444, label: '3.444 (18/62) Most Minis and Metros' },
-          { value: 3.27, label: '3.27 (22/72) Mini Automatic' },
-          { value: 3.211, label: '3.211 (19/61) Metro Turbo' },
-          {
-            value: 3.105,
-            label:
-              '3.105 (19/59) Mini City / Mayfair with 12" Wheels / Metro HLE',
+            label: 'Aftermarket Options',
+            options: [
+              { value: 4.133, label: '4.133:1 15/62' },
+              { value: 4.267, label: '4.267:1 15/64' },
+              { value: 4.35, label: '4.350:1 15/65' },
+            ],
           },
           {
-            value: 2.95,
-            label: '2.95 (20/59) Mini City / Mayfair with 10" Wheels',
+            label: 'Special Options',
+            options: [
+              { value: 3.667, label: '3.667:1 15/55 ( Straight Cut )' },
+              { value: 3.875, label: '3.875:1 16/62 ( Special )' },
+              { value: 4.35, label: '4.307:1 13/56 ( Special )' },
+              { value: 4.571, label: '4.571:1 14/64 ( Special )' },
+            ],
           },
-          { value: 2.76, label: '2.76 (21/58) Twin Point Mini' },
         ],
         speedoRatioOptions: [
-          { value: 0.4667, label: '7/15' },
-          { value: 0.4375, label: '7/16 for a 12" Mini with 3,105 diff' },
-          { value: 0.4117, label: '7/17 for a 10" Mini with 2,95 diff' },
+          { value: 0.2777, label: '5/18 - 12" Mini / 3.2 diff' },
+          { value: 0.2941, label: '5/17 - Metro 1275 / 3.44 diff' },
           { value: 0.375, label: '6/16' },
-          { value: 0.3529, label: '6/17 for a 10" Mini with 3,44 diff' },
-          {
-            value: 0.2777,
-            label: '5/18 for a 12" Mini (12A engine TBi) with 3,2 diff',
-          },
-          { value: 0.2941, label: '5/17 for a Metro 1275 with 3,44 diff' },
+          { value: 0.3529, label: '6/17 - 10" Mini / 3.44 diff' },
+          { value: 0.4667, label: '7/15' },
+          { value: 0.4375, label: '7/16 - 12" Mini / 3.105 diff' },
+          { value: 0.4117, label: '7/17 - 10" Mini / 2.95 diff' },
         ],
         dropGearOptions: [
           {
@@ -451,7 +473,7 @@
             ],
           },
           {
-            label: 'Aftermarket Gearsets',
+            label: 'Aftermarket SyncroHub Gearsets',
             options: [
               {
                 value: [2.583, 1.644, 1.25, 1.0],
@@ -469,36 +491,50 @@
               },
               {
                 value: [2.313, 1.567, 1.187, 1.0],
-                label: 'Minispares (Metro Challenge CR/SC) nla?',
+                label: 'Minispares (Metro Challenge CR/SC)',
+              },
+            ],
+          },
+          {
+            label: 'Aftermarket Dogbox Gearsets',
+            options: [
+              {
+                value: [2.173, 1.493, 1.197, 1.0],
+                label: 'KAD 4 speed Dog Kit (2.173:1 1st)',
+              },
+              {
+                value: [2.239, 1.568, 1.244, 1.0],
+                label: 'MED 4 speed Dog Kit (2.239:1 1st)',
+              },
+              {
+                value: [2.309, 1.56, 1.197, 1.0],
+                label: 'Quaife 4 speed Dog Kit (2.3:1 1st)',
+              },
+              {
+                value: [2.093, 1.493, 1.197, 1.0],
+                label: 'Quaife 4 speed Dog Kit (2.1:1 1st)',
+              },
+              {
+                value: [1.692, 1.441, 1.197, 1.0],
+                label: 'Quaife/Swiftune 4 speed Dog Kit (US Spec 1.692:1 1st)',
               },
             ],
           },
         ],
         speedoMeterOptions: [
-          {
-            tpm: 1408,
-            name: 'Smiths Centre',
-          },
-          {
-            tpm: 1300,
-            name: '110Mph Nippon Seiki',
-          },
-          {
-            tpm: 1280,
-            name: 'Smiths centre',
-          },
-          {
-            tpm: 1248,
-            name: 'Smiths centre',
-          },
-          {
-            tpm: 1242,
-            name: '90Mph Nippon Seiki',
-          },
-          {
-            tpm: 1216,
-            name: '90Mph Smiths (clubman)',
-          },
+          { tpm: 1440, name: '100mph Smiths' },
+          { tpm: 1408, name: "110mph Smiths central ('60s Cooper)" },
+          { tpm: 1376, name: '90mph Smiths central (850)' },
+          { tpm: 1312, name: "90mph Smiths Early tri'clock" },
+          { tpm: 1300, name: 'Late Cooper 110mph Nippon Seiki' },
+          { tpm: 1280, name: '120mph Cooper S Smiths central' },
+          { tpm: 1280, name: "90mph Smiths central Pre '84" },
+          { tpm: 1248, name: '900mph Smiths central' },
+          { tpm: 1248, name: '100mph Smiths (Austin 1300GT)' },
+          { tpm: 1248, name: '120mph Smiths (1275 GT/25/1100 Special)' },
+          { tpm: 1242, name: '90mph Nippon Seike' },
+          { tpm: 1216, name: "90mph Smiths post '84" },
+          { tpm: 1000, name: "All Metro's and Most modern aftermarket" },
         ],
         // Default Values for form elements _ values are form values
         final_drive: 3.444,
