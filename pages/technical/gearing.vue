@@ -108,22 +108,22 @@
     },
     head() {
       return {
-        title: 'Technical - Compression Ratio Calculator',
+        title: 'Technical - Gearing Calculator',
         meta: [
           {
             hid: 'description',
             name: 'description',
             content:
-              "Planning your next engine build? Use our brand new compression ratio calculator to generate the new ratio for your Classic Mini's engine.",
+              "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
           },
           {
             property: 'og:title',
-            content: 'Technical - Compression Ratio Calculator',
+            content: 'Technical - Gearing Calculator',
           },
           {
             property: 'og:image',
             content:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
           },
         ],
       };
