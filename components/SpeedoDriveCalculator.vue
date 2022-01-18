@@ -333,6 +333,14 @@
             label: '12 inch',
             options: [
               {
+                label: '145/70r12',
+                value: {
+                  width: 145,
+                  profile: 70,
+                  size: 12,
+                },
+              },
+              {
                 label: '145/80r12',
                 value: {
                   width: 145,
@@ -341,10 +349,34 @@
                 },
               },
               {
+                label: '155/70r12',
+                value: {
+                  width: 155,
+                  profile: 70,
+                  size: 12,
+                },
+              },
+              {
                 label: '155/80r12',
                 value: {
                   width: 155,
                   profile: 80,
+                  size: 12,
+                },
+              },
+              {
+                label: '160/65r12',
+                value: {
+                  width: 155,
+                  profile: 80,
+                  size: 12,
+                },
+              },
+              {
+                label: '165/55r12',
+                value: {
+                  width: 165,
+                  profile: 55,
                   size: 12,
                 },
               },
@@ -362,9 +394,57 @@
             label: '13 inch',
             options: [
               {
+                label: '150/65r13',
+                value: {
+                  width: 150,
+                  profile: 65,
+                  size: 13,
+                },
+              },
+              {
+                label: '160/65r13',
+                value: {
+                  width: 160,
+                  profile: 65,
+                  size: 13,
+                },
+              },
+              {
                 label: '175/50r13',
                 value: {
                   width: 175,
+                  profile: 50,
+                  size: 13,
+                },
+              },
+              {
+                label: '185/55r13',
+                value: {
+                  width: 185,
+                  profile: 55,
+                  size: 13,
+                },
+              },
+              {
+                label: '185/70r13',
+                value: {
+                  width: 185,
+                  profile: 70,
+                  size: 13,
+                },
+              },
+              {
+                label: '195/45r13',
+                value: {
+                  width: 195,
+                  profile: 45,
+                  size: 13,
+                },
+              },
+              {
+                label: '195/50r13',
+                value: {
+                  width: 195,
                   profile: 50,
                   size: 13,
                 },
