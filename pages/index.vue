@@ -335,6 +335,13 @@
             to: '/technical/needles',
           },
           {
+            title: 'Gearbox Calculator',
+            image:
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
+            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.webp',
+            to: '/technical/gearing',
+          },
+          {
             title: 'Wheel Library',
             image:
               'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',

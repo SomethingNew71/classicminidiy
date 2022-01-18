@@ -162,6 +162,22 @@
                 },
                 {
                   type: 'link',
+                  text: 'Gearbox Calculator',
+                  // subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
+                  path: '/technical/gearing',
+                  iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png">
+                  </picture>
+                `,
+                },
+                {
+                  type: 'hr',
+                },
+                {
+                  type: 'link',
                   text: 'Wheel Library',
                   // subText: 'Looking for your new wheels? Check out the Wheel Library',
                   path: '/technical/wheels',
