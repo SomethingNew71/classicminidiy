@@ -84,13 +84,19 @@
           placeholder="Select the size of your drop gear"
           @input="calculateRatio()"
         >
-          <option
-            v-for="option in dropGearOptions"
-            :key="option.label"
-            :value="option.value"
+          <optgroup
+            v-for="group in dropGearOptions"
+            :key="group.label"
+            :label="group.label"
           >
-            {{ option.label }}
-          </option>
+            <option
+              v-for="option in group.options"
+              :key="option.label"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </option>
+          </optgroup>
         </b-select>
       </b-field>
     </div>
@@ -424,12 +430,46 @@
         ],
         dropGearOptions: [
           {
-            label: 'Standard (29 tooth)',
-            value: 1,
+            label: 'Standard',
+            options: [
+              {
+                value: 1,
+                label: 'Standard 1:1 (29 tooth)',
+              },
+              {
+                value: 0.967,
+                label: 'Overdrive 0.9670:1 (30 tooth)',
+              },
+            ],
           },
           {
-            label: 'Overdrive (30 tooth)',
-            value: 0.967,
+            label: 'Aftermarket Helical',
+            options: [
+              {
+                value: 0.9655,
+                label: '0.9666:1 (30/29)',
+              },
+              {
+                value: 0.9655,
+                label: '0.9655:1 (29/28)',
+              },
+              {
+                value: 0.9333,
+                label: '0.9333:1 (30/28)',
+              },
+            ],
+          },
+          {
+            label: 'Aftermarket Straight Cut',
+            options: [
+              { value: 0.958, label: '0.9580:1 (24/23)' },
+              { value: 1.0416, label: '1.0416:1 (24/25)' },
+              { value: 1.0435, label: '1.0435:1 (23/24)' },
+              { value: 1.045, label: '1.0450:1 (22/23)' },
+              { value: 1.0869, label: '1.0869:1 (23/25)' },
+              { value: 1.09, label: '1.0900:1 (22/24)' },
+              { value: 1.1364, label: '1.1364:1 (22/25)' },
+            ],
           },
         ],
         gearRatioOptions: [
