@@ -446,6 +446,18 @@
             label: '1275 - 3.4cc',
             value: 3.4,
           },
+          {
+            label: 'MED Cometic 1275 - 3.01cc',
+            value: 3.01,
+          },
+          {
+            label: 'MED Cometic 1380 - 3.15cc',
+            value: 3.15,
+          },
+          {
+            label: 'Specialist Components GEG300 - 3.4cc',
+            value: 3.4001,
+          },
         ],
         decompPlateOptions: [
           {
