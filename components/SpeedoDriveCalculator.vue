@@ -361,7 +361,9 @@
           },
         ],
         diffOptions: [
+          { value: 4.6, label: '4.6 (12/56)' },
           { value: 4.333, label: '4.333 (15/65)' },
+          { value: 4.1, label: '4.1 (13/53)' },
           { value: 3.938, label: '3.938 (16/63)' },
           {
             value: 3.765,
