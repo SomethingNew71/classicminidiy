@@ -1,6 +1,30 @@
 <template>
   <div class="columns is-multiline">
     <div class="column is-12 py-4"></div>
+    <div class="column is-4">
+      <b-field label="Imperial or Metric">
+        <b-radio-button
+          v-model="metric"
+          native-value="mph"
+          type="is-primary is-outlined"
+          @input="calculateRatio()"
+        >
+          <i class="pr-2 fa-duotone fa-flag-usa"></i>
+          <span>MPH</span>
+        </b-radio-button>
+
+        <b-radio-button
+          v-model="metric"
+          native-value="kph"
+          type="is-primary is-outlined"
+          @input="calculateRatio()"
+        >
+          <i class="pr-2 fa-duotone fa-earth-europe"></i>
+          <span>KM/H</span>
+        </b-radio-button>
+      </b-field>
+    </div>
+    <div class="column is-12"></div>
     <div class="column is-6">
       <b-field label="Tire Size">
         <b-select
@@ -166,7 +190,7 @@
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Top Speed</p>
-            <p class="title">{{ topSpeed || '---' }}mph</p>
+            <p class="title">{{ topSpeed || '---' }}</p>
           </div>
         </div>
       </nav>
@@ -657,6 +681,7 @@
           { tpm: 1000, name: "All Metro's and Most modern aftermarket" },
         ],
         // Default Values for form elements _ values are form values
+        metric: 'mph',
         final_drive: 3.444,
         gear_ratios: [2.583, 1.644, 1.25, 1.0],
         drop_gear: 1,
@@ -748,7 +773,7 @@
             },
           },
           yAxis: {
-            title: { text: 'Speed (MPH)' },
+            title: { text: 'Speed' },
             labels: {
               enabled: true,
             },
@@ -788,7 +813,14 @@
     },
     methods: {
       calculateRatio() {
-        this.isLoading = true;
+        // Assign headers to match metric/imperial
+        if (this.metric === 'kph') {
+          this.tableHeadersGearing[2].label = 'Max Speed (km/h)';
+          this.mapOptions.yAxis.title.text = 'Speed (km/h)';
+        } else {
+          this.tableHeadersGearing[2].label = 'Max Speed (mph)';
+          this.mapOptions.yAxis.title.text = 'Speed (mph)';
+        }
         // Assign tire Details and working values
         this.tireInfo.width = this.tire_type.width;
         this.tireInfo.profile = this.tire_type.profile;
@@ -842,18 +874,28 @@
         });
 
         this.tableDataGearing = this.gear_ratios.map((gear, index) => {
-          const maxSpeed = Math.round(
+          let maxSpeed = Math.round(
             (this.max_rpm / this.drop_gear / gear / this.final_drive) *
               this.typeCircInMiles *
               60
           );
+
+          // Correctly display max speed in mph or kph
+          if (this.metric === 'kph') {
+            maxSpeed = `${Math.round(maxSpeed * 1.60934)}km/h`;
+          } else {
+            maxSpeed = `${maxSpeed}mph`;
+          }
+
+          // Assign the topspeed value for display based no top gear max speed
           if (index === 3) {
             this.topSpeed = maxSpeed;
           }
+
           return {
             gear: index + 1,
             ratio: gear,
-            maxSpeed: `${maxSpeed}mph`,
+            maxSpeed,
           };
         });
 
@@ -866,13 +908,17 @@
           const speedData = [];
           let gearName = '';
           for (let rpm = 1000; rpm <= this.max_rpm; rpm = rpm + 500) {
-            speedData.push(
-              Math.round(
-                (rpm / this.drop_gear / gear / this.final_drive) *
-                  this.typeCircInMiles *
-                  60
-              )
+            let speed = Math.round(
+              (rpm / this.drop_gear / gear / this.final_drive) *
+                this.typeCircInMiles *
+                60
             );
+            // Correctly display max speed in mph or kph
+            if (this.metric === 'kph') {
+              speed = Math.round(speed * 1.60934);
+            }
+
+            speedData.push(speed);
           }
           switch (index) {
             case 0:
