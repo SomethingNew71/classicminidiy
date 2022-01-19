@@ -1,15 +1,15 @@
 <template>
   <div>
     <nuxt />
-    <patreon-popper />
+    <!-- <patreon-popper /> -->
   </div>
 </template>
 <script>
-  import patreonPopper from '~/components/PatreonPopper';
+  // import patreonPopper from '~/components/PatreonPopper';
 
   export default {
     components: {
-      patreonPopper,
+      // patreonPopper,
     },
   };
 </script>
