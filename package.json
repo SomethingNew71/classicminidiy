@@ -37,7 +37,7 @@
     "@nuxtjs/recaptcha": "^1.0.4",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
-    "@octokit/request": "^5.6.2",
+    "@octokit/request": "^5.6.3",
     "buefy": "^0.9.14",
     "core-js": "^3.20.3",
     "fuse.js": "^6.5.3",
@@ -65,7 +65,7 @@
     "nodemon": "^2.0.15",
     "nuxt-compress": "^5.0.0",
     "prettier": "2.5.1",
-    "sass": "^1.48.0",
+    "sass": "^1.49.0",
     "sass-loader": "^10.1.1"
   }
 }
