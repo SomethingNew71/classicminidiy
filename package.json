@@ -39,9 +39,9 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@octokit/request": "^5.6.3",
     "buefy": "^0.9.14",
-    "core-js": "^3.20.3",
+    "core-js": "^3.21.0",
     "fuse.js": "^6.5.3",
-    "highcharts": "^9.3.2",
+    "highcharts": "^9.3.3",
     "highcharts-vue": "^1.4.0",
     "luxon": "^2.3.0",
     "nuxt": "^2.15.8",
@@ -53,11 +53,11 @@
     "vue-window-size": "0.6.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-parser": "^7.17.0",
     "@nuxtjs/eslint-config": "8.0.0",
     "@nuxtjs/eslint-module": "3.0.2",
     "decompress": "^4.2.1",
-    "eslint": "8.8.0",
+    "eslint": "8.9.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-nuxt": "3.1.0",
     "eslint-plugin-prettier": "4.0.0",
@@ -65,7 +65,7 @@
     "nodemon": "^2.0.15",
     "nuxt-compress": "^5.0.0",
     "prettier": "2.5.1",
-    "sass": "^1.49.0",
+    "sass": "^1.49.7",
     "sass-loader": "^10.1.1"
   }
 }
