@@ -33,11 +33,7 @@
         <h1 class="title">Electrical Diagrams</h1>
         <template v-for="(diagram, name, index) in diagrams">
           <div :key="`${name}-${index}`" class="column is-12">
-            <b-collapse
-              :open="index > 0 ? false : true"
-              class="card"
-              aria-id="contentIdForA11y3"
-            >
+            <b-collapse class="card" aria-id="contentIdForA11y3">
               <div
                 slot="trigger"
                 slot-scope="props"
