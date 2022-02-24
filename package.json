@@ -43,7 +43,7 @@
     "fuse.js": "^6.5.3",
     "highcharts": "^9.3.3",
     "highcharts-vue": "^1.4.0",
-    "luxon": "^2.3.0",
+    "luxon": "^2.3.1",
     "nuxt": "^2.15.8",
     "redirect-ssl": "^3.0.0",
     "vue-cookie-law": "^1.13.3",
