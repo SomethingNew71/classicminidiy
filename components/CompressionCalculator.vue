@@ -67,6 +67,18 @@
           </option>
         </b-select>
       </b-field>
+      <b-field v-if="gasket === 'custom'" label="Custom Head Gasket Volume">
+        <b-numberinput
+          v-model="customGasket"
+          min="0"
+          icon-pack="fas"
+          :max="7.0"
+          :step="isDisabled ? '.1' : '1'"
+          controls-position="compact"
+          @input="calculateRatio()"
+        >
+        </b-numberinput>
+      </b-field>
     </div>
     <div class="column is-6">
       <b-field label="Decompression Plate">
@@ -458,6 +470,10 @@
             label: 'Specialist Components GEG300 - 3.4cc',
             value: 3.4001,
           },
+          {
+            label: 'Custom Volume',
+            value: 'custom',
+          },
         ],
         decompPlateOptions: [
           {
@@ -511,6 +527,8 @@
         stroke: 8.128,
         gasket: 3.4,
         decomp: 0,
+        customGasket: 0.1,
+        isDisabled: true,
         ratio: null,
         capacity: null,
         isCardModalActive: false,
@@ -527,9 +545,15 @@
         const deckHeight = this.deckHeight * 0.0254;
         const deckVolume = boreRadius * boreRadius * (deckHeight / 10) * pi;
         const ringland = this.bore * 0.047619; // Correct for 18cc Accrallite 73.5mm pistons
+        let gasketVolume;
+        if (this.gasket === 'custom') {
+          gasketVolume = this.customGasket;
+        } else {
+          gasketVolume = this.gasket;
+        }
         const vc =
           this.pistonDish +
-          +this.gasket +
+          +gasketVolume +
           +this.headVolume +
           +deckVolume +
           +ringland +
