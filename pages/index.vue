@@ -231,7 +231,7 @@
             </h3>
             <h4 class="fancy-font-book-oblique pt-20">MY NAME IS COLE</h4>
             <p>
-              I am a 30-year-old Web Developer working in the financial
+              I am a {{ age }}-year-old Web Developer working in the financial
               industry. My experience in the automotive industry comes from 2
               years of training on heavy diesel machinery and 8 years of Classic
               Mini ownership. With this experience, I do my best to provide the
@@ -284,6 +284,7 @@
 </template>
 
 <script>
+  import { DateTime } from 'luxon';
   import Stats from '~/components/Stats';
   import RecentVideos from '~/components/RecentVideos';
   import Hero from '~/components/Hero';
@@ -305,6 +306,9 @@
         subtitle: 'YOUR FRIENDLY NEIGHBORHOOD',
         background: '/hero',
         size: 'is-medium',
+        birthday: DateTime.local(1989, 5, 11),
+        today: DateTime.now(),
+        age: undefined,
         toolboxItems: [
           {
             title: 'Torque Specs',
@@ -385,6 +389,12 @@
           },
         ],
       };
+    },
+    created() {
+      this.age = this.today
+        .diff(this.birthday, 'years')
+        .toObject()
+        .years.toFixed(0);
     },
   };
 </script>
