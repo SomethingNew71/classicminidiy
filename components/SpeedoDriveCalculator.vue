@@ -531,6 +531,7 @@
           { value: 0.4667, label: '7/15' },
           { value: 0.4375, label: '7/16 - 12" Mini / 3.105 diff' },
           { value: 0.4117, label: '7/17 - 10" Mini / 2.95 diff' },
+          { value: 0.3888, label: '7/18' },
         ],
         dropGearOptions: [
           {
