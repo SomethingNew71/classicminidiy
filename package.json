@@ -34,12 +34,12 @@
   "dependencies": {
     "@creativebulma/bulma-divider": "^1.1.0",
     "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/recaptcha": "^1.1.0",
+    "@nuxtjs/recaptcha": "^1.1.1",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
     "@octokit/request": "^5.6.3",
     "buefy": "^0.9.21",
-    "core-js": "^3.22.6",
+    "core-js": "^3.22.7",
     "fuse.js": "^6.6.2",
     "highcharts": "^10.1.0",
     "highcharts-vue": "^1.4.0",
@@ -53,7 +53,7 @@
     "vue-window-size": "0.6.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.17.0",
+    "@babel/eslint-parser": "^7.18.2",
     "@nuxtjs/eslint-config": "10.0.0",
     "@nuxtjs/eslint-module": "3.1.0",
     "decompress": "^4.2.1",
