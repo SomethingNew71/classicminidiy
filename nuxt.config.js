@@ -96,6 +96,14 @@ export default {
     '@nuxtjs/recaptcha',
     '@nuxtjs/pwa',
   ],
+  pwa: {
+    meta: {
+      name: 'Classic Mini Toolbox',
+    },
+    manifest: {
+      name: 'Classic Mini Toolbox',
+      start_url: '/technical',
+  },
   robots: {
     UserAgent: '*',
     Disallow: '/assets/',
