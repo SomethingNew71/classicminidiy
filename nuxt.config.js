@@ -98,13 +98,12 @@ export default {
   ],
   pwa: {
     meta: {
-      name: 'Classic Mini Toolbox',
+      name: 'Mini Tools',
     },
     manifest: {
-      name: 'Classic Mini Toolbox',
-      short_name: 'Classic Mini Toolbox',
-      start_url: '/technical',
-      publicPath: '/technical',
+      name: 'Mini Tools',
+      short_name: 'Mini Tools',
+      start_url: '/technical?standalone=true',
     },
   },
   robots: {

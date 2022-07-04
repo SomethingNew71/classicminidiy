@@ -1,15 +1,15 @@
 <template>
   <div>
+    <!-- <install-prompt /> -->
     <nuxt />
-    <!-- <patreon-popper /> -->
   </div>
 </template>
 <script>
-  // import patreonPopper from '~/components/PatreonPopper';
+  // import installPrompt from '~/components/InstallPrompt';
 
   export default {
     components: {
-      // patreonPopper,
+      // installPrompt,
     },
   };
 </script>
