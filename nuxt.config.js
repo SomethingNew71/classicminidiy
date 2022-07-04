@@ -103,6 +103,7 @@ export default {
     manifest: {
       name: 'Classic Mini Toolbox',
       start_url: '/technical',
+    },
   },
   robots: {
     UserAgent: '*',
