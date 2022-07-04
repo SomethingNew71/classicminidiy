@@ -102,7 +102,9 @@ export default {
     },
     manifest: {
       name: 'Classic Mini Toolbox',
+      short_name: 'Classic Mini Toolbox',
       start_url: '/technical',
+      publicPath: '/technical',
     },
   },
   robots: {
