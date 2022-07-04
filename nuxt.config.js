@@ -78,7 +78,6 @@ export default {
    */
   plugins: [
     '~/plugins/buefy.js',
-    '~/plugins/vue-debounce.js',
     { src: '~plugins/highcharts-vue.js', mode: 'client' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },
@@ -95,6 +94,7 @@ export default {
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@nuxtjs/recaptcha',
+    '@nuxtjs/pwa',
   ],
   robots: {
     UserAgent: '*',

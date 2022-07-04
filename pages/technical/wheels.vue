@@ -83,10 +83,9 @@
                     ></b-input>
                     <p class="control">
                       <b-button
-                        v-debounce:500ms="standardSearch"
-                        debounce-events="click"
                         class="button is-primary search-button"
                         aria-label="Search box for wheels"
+                        @click="standardSearch"
                       >
                         <i class="fad fa-search"></i>
                       </b-button>
@@ -98,10 +97,9 @@
                 <div class="card-footer-item">
                   <b-button
                     v-if="searchString !== '' && !allWheelsVisible"
-                    v-debounce:500ms="searchAll"
-                    debounce-events="click"
                     expanded
                     class="button is-primary"
+                    @click="searchAll"
                   >
                     View All {{ selectedSize }}in Wheels
                   </b-button>
@@ -307,6 +305,7 @@
 
 <script>
   import Fuse from 'fuse.js';
+  import { debounce } from 'debounce';
   import tenInchWheels from '~/static/data/wheels/10.json';
   import twelveInchWheels from '~/static/data/wheels/12.json';
   import thirteenInchWheels from '~/static/data/wheels/13.json';
@@ -388,6 +387,10 @@
           this.standardSearch();
         }
       },
+    },
+    created() {
+      this.searchAll = debounce(this.searchAll, 500);
+      this.standardSearch = debounce(this.standardSearch, 500);
     },
     methods: {
       changePages() {

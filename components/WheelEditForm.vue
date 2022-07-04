@@ -198,18 +198,14 @@
       </section>
       <footer class="modal-card-foot">
         <b-button label="Close" @click="$emit('close')" />
-        <b-button
-          v-debounce:500ms="updateWheel"
-          label="Submit"
-          type="is-primary"
-          debounce-events="click"
-        />
+        <b-button label="Submit" type="is-primary" @click="updateWheel" />
       </footer>
     </div>
   </form>
 </template>
 <script>
   import axios from 'axios';
+  import { debounce } from 'debounce';
 
   export default {
     props: {
@@ -248,6 +244,9 @@
         suggestion: undefined,
         processing: false,
       };
+    },
+    created() {
+      this.updateWheel = debounce(this.updateWheel, 500);
     },
     methods: {
       async updateWheel() {
