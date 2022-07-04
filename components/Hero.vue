@@ -258,10 +258,10 @@
             {
               isLinkAction: true,
               type: 'button',
-              class: 'fancy-font-heavy youtube',
-              text: 'Subscribe',
-              path: 'https://www.youtube.com/c/classicminidiy?sub_confirmation=1',
-              iconLeft: '<i class="fab fa-youtube" />',
+              class: 'fancy-font-heavy donate',
+              text: 'Buy me a Coffee',
+              path: 'https://ko-fi.com/classicminidiy',
+              iconLeft: '<i class="fad fa-mug-saucer" />',
             },
           ],
         },
@@ -274,11 +274,8 @@
       vnbItemClicked(text) {
         if (text === 'Store') {
           window.open('https://merch.classicminidiy.com', '_blank');
-        } else if (text === 'Subscribe') {
-          window.open(
-            'https://www.youtube.com/c/classicminidiy?sub_confirmation=1',
-            '_blank'
-          );
+        } else if (text === 'Buy me a Coffee') {
+          window.open('https://ko-fi.com/classicminidiy', '_blank');
         }
       },
       toggleOverlay() {
@@ -299,8 +296,8 @@
       padding-left: 2rem;
       padding-right: 2rem;
 
-      .youtube {
-        background-color: #ff0000;
+      .donate {
+        background-color: #45a65e;
         padding: 12px 12px;
         cursor: pointer;
 
@@ -311,11 +308,6 @@
           border-radius: 10px;
         }
       }
-      // .submenu-icon {
-      //   width: 100%;
-      //   max-height: 50px;
-      //   margin-right: 10px;
-      // }
       .vnb__popup__top__close-button__image {
         max-height: 20px;
       }
@@ -374,7 +366,7 @@
     }
 
     @media screen and (max-width: 992px) {
-      .youtube {
+      .donate {
         display: none;
       }
       .vnb__popup__bottom__menu-options__option__link {
