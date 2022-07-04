@@ -48,8 +48,8 @@
     "nuxt": "^2.15.8",
     "redirect-ssl": "^3.0.0",
     "vue-cookie-law": "^1.13.3",
-    "vue-gtag": "^1.16.1",
-    "vue-navigation-bar": "^4.1.0",
+    "vue-gtag": "1.16.1",
+    "vue-navigation-bar": "4.1.0",
     "vue-window-size": "0.6.2"
   },
   "devDependencies": {
@@ -67,6 +67,6 @@
     "nuxt-compress": "^5.0.0",
     "prettier": "2.7.1",
     "sass": "^1.53.0",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "10.1.1"
   }
 }
