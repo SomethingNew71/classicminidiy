@@ -37,7 +37,7 @@
     "@nuxtjs/recaptcha": "^1.1.1",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
-    "@octokit/request": "^6.0.2",
+    "@octokit/request": "^6.1.0",
     "buefy": "^0.9.21",
     "core-js": "^3.23.4",
     "debounce": "^1.2.1",
