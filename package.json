@@ -39,7 +39,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "@octokit/request": "^6.2.0",
     "buefy": "^0.9.21",
-    "core-js": "^3.23.5",
+    "core-js": "^3.24.0",
     "debounce": "^1.2.1",
     "fuse.js": "^6.6.2",
     "highcharts": "^10.2.0",
