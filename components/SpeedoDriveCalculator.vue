@@ -209,7 +209,7 @@
           <div>
             <p class="heading">Tire Profile</p>
             <p class="subtitle has-text-weight-bold">
-              {{ tireInfo.profile || '---' }}in
+              {{ tireInfo.profile || '---' }}%
             </p>
           </div>
         </div>
