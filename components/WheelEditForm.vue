@@ -252,7 +252,7 @@
       async updateWheel() {
         this.processing = true;
         await axios
-          .post(`${this.$config.serverlessEndpoint}/github/issues`, {
+          .post(`${this.$config.public.serverlessEndpoint}/github/issues`, {
             wheel: this.wheel,
             newDetails: this.newDetails,
           })

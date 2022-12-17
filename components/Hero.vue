@@ -221,38 +221,6 @@
                   </picture>
                 `,
                 },
-                {
-                  type: 'hr',
-                },
-                {
-                  type: 'link',
-                  text: 'Manuals',
-                  // subText: 'Find some of the best manuals to help you learn to work on your classic mini cooper.',
-                  path: '/technical/Manuals',
-                  iconLeft: `
-                  <picture class="submenu-icon">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp" type="image/webp">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png" type="image/png">
-                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png">
-                  </picture>
-                `,
-                },
-                {
-                  type: 'hr',
-                },
-                {
-                  type: 'link',
-                  text: 'Essential Tools',
-                  // subText: 'Find some of the most useful tools to help make tough jobs easier.',
-                  path: '/technical/Tools',
-                  iconLeft: `
-                  <picture class="submenu-icon">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.webp" type="image/webp">
-                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png" type="image/png">
-                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png">
-                  </picture>
-                `,
-                },
               ],
             },
             {

@@ -1,6 +1,7 @@
 import redirectSSL from 'redirect-ssl';
+import { defineNuxtConfig } from '@nuxt/bridge';
 
-export default {
+export default defineNuxtConfig({
   /*
    ** Headers of the page
    */
@@ -81,55 +82,37 @@ export default {
     { src: '~plugins/highcharts-vue.js', mode: 'client' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },
-    { src: '~/plugins/vue-cookie-law.js', mode: 'client' },
   ],
   /*
    ** Nuxt.js modules
    */
   buildModules: ['@nuxtjs/eslint-module'],
-  modules: [
-    'nuxt-compress',
-    '@nuxtjs/axios',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/recaptcha',
-    '@nuxtjs/pwa',
-  ],
-  pwa: {
-    meta: {
-      name: 'Mini Tools',
-    },
-    manifest: {
-      name: 'Mini Tools',
-      short_name: 'Mini Tools',
-      start_url: '/technical?standalone=true',
-    },
-  },
+  modules: ['nuxt-compress', '@nuxtjs/eslint-module', '@nuxtjs/robots'],
+  // pwa: {
+  //   meta: {
+  //     name: 'Mini Tools',
+  //   },
+  //   manifest: {
+  //     name: 'Mini Tools',
+  //     short_name: 'Mini Tools',
+  //     start_url: '/technical?standalone=true',
+  //   },
+  // },
   robots: {
     UserAgent: '*',
     Disallow: '/assets/',
-  },
-  sitemap: {
-    hostname: 'https://classicminidiy.com',
-    gzip: true,
   },
   serverMiddleware: [
     // Will register redirect-ssl npm package
     redirectSSL.create({ enabled: process.env.NODE_ENV === 'production' }),
   ],
-  recaptcha: {
-    hideBadge: true,
-    version: 3,
-    siteKey: process.env.recaptcha,
-    // siteKey: process.env.recaptchaServer
-    // size: String
-  },
   build: {
     optimizeCSS: true,
   },
-  publicRuntimeConfig: {
-    s3BaseURL: process.env.s3Base,
-    serverlessEndpoint: process.env.serverlessEndpoint,
+  runtimeConfig: {
+    public: {
+      s3BaseURL: process.env.s3Base,
+      serverlessEndpoint: process.env.serverlessEndpoint,
+    },
   },
-};
+});

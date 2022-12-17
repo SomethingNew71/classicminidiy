@@ -72,7 +72,7 @@
     methods: {
       async fetchData() {
         await axios
-          .get(`${this.$config.serverlessEndpoint}/stats`)
+          .get(`${this.$config.public.serverlessEndpoint}/stats`)
           .then((response) => {
             this.stats = { ...response.data };
             this.apiError = false;

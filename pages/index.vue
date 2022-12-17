@@ -244,9 +244,6 @@
               something incorrect. I am an enthusiast and not a complete expert
               so from time to time I will make mistakes.
             </p>
-            <!-- <p class="pt-3">
-              <contact-form></contact-form>
-            </p> -->
           </div>
           <div class="column is-5 avatar-container">
             <b-image
@@ -290,7 +287,6 @@
   import Hero from '~/components/Hero';
   import Phone from '~/components/Phone';
   import Browser from '~/components/Browser';
-  // import ContactForm from '~/components/ContactForm';
   export default {
     components: {
       Hero,
@@ -298,7 +294,6 @@
       RecentVideos,
       Phone,
       Browser,
-      // ContactForm,
     },
     data() {
       return {
@@ -367,25 +362,11 @@
             to: '/technical/colors',
           },
           {
-            title: 'Manuals',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp',
-            to: '/technical/manuals',
-          },
-          {
             title: 'Compression Ratio Calculator',
             image:
               'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
             to: '/technical/compression',
-          },
-          {
-            title: 'Recommended Tools',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.webp',
-            to: '/technical/tools',
           },
         ],
       };

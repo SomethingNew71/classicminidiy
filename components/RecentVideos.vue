@@ -89,7 +89,7 @@
     methods: {
       async fetchData() {
         await axios
-          .get(`${this.$config.serverlessEndpoint}/videos`)
+          .get(`${this.$config.public.serverlessEndpoint}/videos`)
           .then((response) => {
             this.videos = response.data.map((video) => {
               return {

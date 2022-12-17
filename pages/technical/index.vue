@@ -98,25 +98,11 @@
             to: '/technical/colors',
           },
           {
-            title: 'Manuals',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp',
-            to: '/technical/manuals',
-          },
-          {
             title: 'Compression Ratio Calculator',
             image:
               'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
             to: '/technical/compression',
-          },
-          {
-            title: 'Recommended Tools',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-toolbox-100.webp',
-            to: '/technical/tools',
           },
           {
             title: 'Electrical Diagrams',
