@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="column is-12">
-        <speedoCalc />
+        <gearboxCalc />
       </div>
       <div class="column is-10 is-offset-1">
         <div class="divider">More</div>
@@ -98,12 +98,12 @@
 </template>
 
 <script>
-  import SpeedoCalc from '~/components/SpeedoDriveCalculator';
+  import GearboxCalc from '~/components/GearboxCalculator';
   import PatreonCard from '~/components/PatreonCard';
 
   export default {
     components: {
-      SpeedoCalc,
+      GearboxCalc,
       PatreonCard,
     },
     head() {

@@ -387,6 +387,15 @@
               },
             ],
           },
+          {
+            label: 'Special - Non-Standard',
+            options: [
+              {
+                label: 'Russel Engineering 72.5mm',
+                value: 7.25,
+              },
+            ],
+          },
         ],
         crankshaftOptions: [
           {

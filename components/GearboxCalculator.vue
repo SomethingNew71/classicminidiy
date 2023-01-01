@@ -586,12 +586,12 @@
                 label: "MKI Mini Pre '64 (Magic Wand)",
               },
               {
-                value: [3.52, 2.21, 1.43, 1.0],
+                value: [3.52, 2.21, 1.43, 1.001],
                 label: "MKI/II Mini Post '64 (Magic Wand)",
               },
               {
                 value: [3.2, 1.916, 1.357, 1.0],
-                label: "MkI/II Cooper &amp; MkI/II/III Cooper 'S'",
+                label: "MkI/II Cooper & MkI/II/III Cooper 'S'",
               },
               {
                 value: [2.573, 1.722, 1.255, 1.0],
@@ -604,15 +604,15 @@
             options: [
               {
                 value: [3.33, 2.094, 1.353, 1.0],
-                label: "MkIII Cooper 'S' &amp; 1275 GT (Close Ratio)",
+                label: "MkIII Cooper 'S' & 1275 GT (Close Ratio)",
               },
               {
                 value: [3.52, 2.21, 1.43, 1.0],
-                label: "MKIII/IV Mini &amp; Metro (pre A+ <'84)",
+                label: "MKIII/IV Mini & Metro (pre A+ <'84)",
               },
               {
                 value: [3.647, 2.185, 1.425, 1.0],
-                label: "MKV/VI/VII Mini, ERA Turbo &amp; Metro (A+ >'84)",
+                label: "MKV/VI/VII Mini, ERA Turbo & Metro (A+ >'84)",
               },
               { value: [4.004, 2.307, 1.435, 1.0], label: 'Metro 1.0 HLE' },
             ],
