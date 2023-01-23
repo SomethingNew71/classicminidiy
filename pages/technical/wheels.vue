@@ -53,77 +53,66 @@
 
         <div class="columns is-multiline">
           <div class="column is-12"></div>
-          <div class="column is-4-tablet is-3-desktop">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">Find a wheel</p>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <b-field class="pb-2" label="Wheel Size">
-                    <b-select
-                      v-model="selectedSize"
-                      placeholder="Select a wheel size"
-                      expanded
-                    >
-                      <option :value="10">10 inch</option>
-                      <option :value="12">12 inch</option>
-                      <option :value="13">13 inch</option>
-                    </b-select>
-                  </b-field>
-                  <p>
-                    Use the search below to search by wheel name, offset, size
-                    or material.
-                  </p>
-                  <b-field class="mb-4" position="is-left">
-                    <b-input
-                      v-model="searchString"
-                      placeholder="Ex. Minilite"
-                      @keyup.enter.native="standardSearch()"
-                    ></b-input>
-                    <p class="control">
-                      <b-button
-                        class="button is-primary search-button"
-                        aria-label="Search box for wheels"
-                        @click="standardSearch"
-                      >
-                        <i class="fad fa-search"></i>
-                      </b-button>
-                    </p>
-                  </b-field>
-                </div>
-              </div>
-              <footer class="card-footer">
-                <div class="card-footer-item">
-                  <b-button
-                    v-if="searchString !== '' && !allWheelsVisible"
-                    expanded
-                    class="button is-primary"
-                    @click="searchAll"
+          <div class="card column is-6">
+            <header class="card-header">
+              <p class="card-header-title">Find a wheel</p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <b-field class="pb-2" label="Wheel Size">
+                  <b-select
+                    v-model="selectedSize"
+                    placeholder="Select a wheel size"
                   >
+                    <option :value="10">10 inch</option>
+                    <option :value="12">12 inch</option>
+                    <option :value="13">13 inch</option>
+                  </b-select>
+                </b-field>
+                <p>
+                  Use the search below to search by wheel name, offset, size or
+                  material.
+                </p>
+                <b-field class="mb-4" position="is-left">
+                  <b-input
+                    v-model="searchString"
+                    placeholder="Ex. Minilite"
+                    @keyup.enter.native="standardSearch()"
+                  ></b-input>
+                  <p class="control">
+                    <b-button
+                      class="button is-primary search-button"
+                      aria-label="Search box for wheels"
+                      @click="standardSearch"
+                    >
+                      <i class="fad fa-search"></i>
+                    </b-button>
+                  </p>
+                </b-field>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <div class="card-footer-item">
+                <b-button
+                  v-if="searchString !== '' && !allWheelsVisible"
+                  expanded
+                  class="button is-primary"
+                  @click="searchAll"
+                >
+                  View All {{ selectedSize }}in Wheels
+                </b-button>
+                <b-tooltip
+                  v-else
+                  :label="`Already displaying all ${selectedSize} inch wheels`"
+                >
+                  <b-button disabled expanded class="button is-primary">
                     View All {{ selectedSize }}in Wheels
                   </b-button>
-                  <b-tooltip
-                    v-else
-                    :label="`Already displaying all ${selectedSize} inch wheels`"
-                  >
-                    <b-button disabled expanded class="button is-primary">
-                      View All {{ selectedSize }}in Wheels
-                    </b-button>
-                  </b-tooltip>
-                </div>
-              </footer>
-            </div>
-            <div class="column is-10 is-offset-1 is-hidden-mobile">
-              <div class="divider">Support</div>
-            </div>
-            <div class="card is-hidden-mobile">
-              <div class="card-content">
-                <patreon-card size="small" />
+                </b-tooltip>
               </div>
-            </div>
+            </footer>
           </div>
-          <div class="column is-8-tablet is-9-desktop">
+          <div class="column is-12">
             <div class="columns is-multiline">
               <div class="column is-6">
                 <p
