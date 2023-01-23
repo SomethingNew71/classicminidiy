@@ -40,6 +40,21 @@
           </div>
         </b-collapse>
       </div>
+      <div
+        v-if="index === 2 || index === 4"
+        :key="`${name}-${index}-ad`"
+        class="column is-12"
+      >
+        <Adsense
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-0523971861051053"
+          data-ad-slot="1918786408"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        >
+        </Adsense>
+      </div>
     </template>
   </div>
 </template>

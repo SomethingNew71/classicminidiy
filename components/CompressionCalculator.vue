@@ -202,7 +202,17 @@
         </nav>
       </div>
     </div>
-    <div class="column is-12 py-4"></div>
+    <div class="column is-12 py-4">
+      <Adsense
+        class="adsbygoogle"
+        style="display: block"
+        data-ad-client="ca-pub-0523971861051053"
+        data-ad-slot="5146110190"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      >
+      </Adsense>
+    </div>
     <div class="column is-12">
       <div class="content has-text-centered">
         <p>
