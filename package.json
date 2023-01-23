@@ -46,8 +46,10 @@
     "nuxt-edge": "latest",
     "redirect-ssl": "^3.0.0",
     "vue-cookie-law": "^1.13.3",
+    "vue-google-adsense": "^1.10.1",
     "vue-gtag": "1.16.1",
     "vue-navigation-bar": "4.1.0",
+    "vue-script2": "^2.1.0",
     "vue-window-size": "0.6.2"
   },
   "devDependencies": {

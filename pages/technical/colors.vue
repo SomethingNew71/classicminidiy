@@ -41,7 +41,7 @@
         </p>
         <hr />
       </div>
-      <div class="column is-3">
+      <div class="column is-6">
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">Choose a Color</p>
@@ -81,7 +81,7 @@
           </footer>
         </div>
       </div>
-      <div class="column is-9">
+      <div class="column is-12">
         <div
           v-if="!currentColors && !loading"
           class="has-text-centered no-colors"
@@ -95,7 +95,10 @@
         </div>
         <div v-if="loading">
           <b-notification :closable="false">
-            <b-loading :is-full-page="false" :active.sync="loading"></b-loading>
+            <b-loading
+              v-model:active="loading"
+              :is-full-page="false"
+            ></b-loading>
           </b-notification>
         </div>
         <div v-if="!loading" class="columns is-multiline">
@@ -153,6 +156,25 @@
               <div class="card">
                 <div class="card-content">
                   <patreon-card :size="'small'" />
+                </div>
+              </div>
+            </div>
+            <div
+              v-if="index === 3 || index === 9 || index === 20"
+              :key="name"
+              class="column is-4"
+            >
+              <div class="card">
+                <div class="card-content">
+                  <InFeedAdsense
+                    data-ad-layout-key="+2a+rx+1+2-3"
+                    data-ad-client="ca-pub-0523971861051053"
+                    data-ad-slot="8473398533"
+                    class="adsbygoogle"
+                    style="display: block"
+                    data-ad-format="fluid"
+                  >
+                  </InFeedAdsense>
                 </div>
               </div>
             </div>

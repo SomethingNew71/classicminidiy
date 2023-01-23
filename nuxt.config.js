@@ -87,6 +87,7 @@ export default defineNuxtConfig({
     { src: '~plugins/highcharts-vue.js', mode: 'client' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },
+    { src: '~/plugins/vue-google-adsense', mode: 'client' },
   ],
   /*
    ** Nuxt.js modules
