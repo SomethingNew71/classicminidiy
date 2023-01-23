@@ -64,6 +64,11 @@ export default defineNuxtConfig({
         src: 'https://kit.fontawesome.com/4e4435c885.js',
         crossorigin: 'anonymous',
       },
+      {
+        async: true,
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0523971861051053',
+        crossorigin: 'anonymous',
+      },
     ],
   },
   /*
