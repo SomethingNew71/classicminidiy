@@ -4,7 +4,7 @@
       <div :key="index" class="column is-12">
         <b-collapse
           animation="slide"
-          :open="index > 0 ? false : true"
+          :open="true"
           class="card"
           aria-id="contentIdForA11y3"
         >
