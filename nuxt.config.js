@@ -93,17 +93,22 @@ export default defineNuxtConfig({
    ** Nuxt.js modules
    */
   buildModules: ['@nuxtjs/eslint-module'],
-  modules: ['nuxt-compress', '@nuxtjs/eslint-module', '@nuxtjs/robots'],
-  // pwa: {
-  //   meta: {
-  //     name: 'Mini Tools',
-  //   },
-  //   manifest: {
-  //     name: 'Mini Tools',
-  //     short_name: 'Mini Tools',
-  //     start_url: '/technical?standalone=true',
-  //   },
-  // },
+  modules: [
+    'nuxt-compress',
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/robots',
+    'nuxt-pwa-bridge',
+  ],
+  pwa: {
+    meta: {
+      name: 'Mini Tools',
+    },
+    manifest: {
+      name: 'Mini Tools',
+      short_name: 'Mini Tools',
+      start_url: '/technical?standalone=true',
+    },
+  },
   robots: {
     UserAgent: '*',
     Disallow: '/assets/',
