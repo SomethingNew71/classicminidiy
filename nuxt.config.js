@@ -5,8 +5,7 @@ export default defineNuxtConfig({
   /*
    ** Headers of the page
    */
-  ssr: false,
-  target: 'static',
+  ssr: true,
   head: {
     title: 'Classic Mini DIY',
     htmlAttrs: {
