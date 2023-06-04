@@ -6,6 +6,11 @@ export default defineNuxtConfig({
    ** Headers of the page
    */
   ssr: true,
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
   head: {
     title: 'Classic Mini DIY',
     htmlAttrs: {

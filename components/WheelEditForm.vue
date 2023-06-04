@@ -204,8 +204,8 @@
   </form>
 </template>
 <script>
-  import axios from 'axios';
   import { debounce } from 'debounce';
+  const axios = require('axios').default;
 
   export default {
     props: {
