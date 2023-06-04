@@ -9,15 +9,15 @@
         <div v-for="(item, index) in 2" :key="index" class="column is-half">
           <div class="card">
             <div class="card-image">
-              <b-skeleton height="100px"></b-skeleton>
+              <o-skeleton height="100px"></o-skeleton>
             </div>
             <div class="card-content">
               <div class="content">
                 <p class="title is-6">
-                  <b-skeleton></b-skeleton>
+                  <o-skeleton></o-skeleton>
                 </p>
                 <p class="subtitle is-7 pt-2">
-                  <b-skeleton></b-skeleton>
+                  <o-skeleton></o-skeleton>
                 </p>
               </div>
             </div>
@@ -25,36 +25,38 @@
         </div>
       </div>
     </template>
-    <b-carousel-list
+    <o-carousel
       v-if="!isLoading"
-      :data="videos"
+      :v-model="videos"
       :items-to-show="itemsToShow"
       :repeat="true"
+      :has-drag="true"
+      :items-to-list="4"
       :icon-pack="'fad'"
       :icon-size="'is-medium'"
     >
-      <template #item="list">
+      <o-carousel-item v-for="(video, i) in videos" :key="i">
         <div class="card">
           <div class="card-image">
             <figure class="image">
-              <a :href="list.videoUrl" target="_blank"
-                ><img :src="list.thumbnailUrl"
+              <a :href="video.videoUrl" target="_blank"
+                ><img :src="video.thumbnailUrl"
               /></a>
             </figure>
           </div>
           <div class="card-content">
             <div class="content">
               <p class="title is-6">
-                {{ list.title }}
+                {{ video.title }}
               </p>
               <p class="subtitle is-7 pt-2">
-                published on {{ list.publishedOn }}
+                published on {{ video.publishedOn }}
               </p>
             </div>
           </div>
         </div>
-      </template>
-    </b-carousel-list>
+      </o-carousel-item>
+    </o-carousel>
   </div>
 </template>
 

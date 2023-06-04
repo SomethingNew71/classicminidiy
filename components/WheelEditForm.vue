@@ -85,33 +85,33 @@
             </h2>
           </div>
           <div class="column is-half">
-            <b-field
+            <o-field
               class="pb-3"
               :label-position="'on-border'"
               label="Your Name (Optional)"
             >
-              <b-input
+              <o-input
                 v-model="newDetails.submittedBy"
                 maxlength="50"
                 icon="signature"
                 icon-pack="fad"
-              ></b-input>
-            </b-field>
+              ></o-input>
+            </o-field>
           </div>
           <div class="column is-half">
-            <b-field
+            <o-field
               class="pb-3"
               :label-position="'on-border'"
               label="Your Email (Optional)"
             >
-              <b-input
+              <o-input
                 v-model="newDetails.submittedByEmail"
                 maxlength="50"
                 type="email"
                 icon="at"
                 icon-pack="fad"
-              ></b-input>
-            </b-field>
+              ></o-input>
+            </o-field>
           </div>
           <div class="column is-12">
             <h2>
@@ -119,86 +119,86 @@
             </h2>
           </div>
           <div class="column is-half">
-            <b-field
+            <o-field
               class="pb-3"
               :label-position="'on-border'"
               label="Wheel Name"
             >
-              <b-input
+              <o-input
                 v-model="newDetails.name"
                 icon="drivers-license"
                 icon-pack="fad"
                 :placeholder="wheel.name || 'ex. Cool Wheel'"
-              ></b-input>
-            </b-field>
-            <b-field
+              ></o-input>
+            </o-field>
+            <o-field
               class="pb-3"
               :label-position="'on-border'"
               label="Wheel Offset"
             >
-              <b-input
+              <o-input
                 v-model="newDetails.offset"
                 icon="arrow-alt-from-left"
                 icon-pack="fad"
                 :placeholder="wheel.offset || 'ex. ET24'"
-              ></b-input>
-            </b-field>
-            <b-field
+              ></o-input>
+            </o-field>
+            <o-field
               class="pb-3"
               :label-position="'on-border'"
               label="Wheel Width"
             >
-              <b-input
+              <o-input
                 v-model="newDetails.size"
                 icon="text-width"
                 icon-pack="fad"
                 :placeholder="wheel.size || 'ex. 10x5'"
-              ></b-input>
-            </b-field>
+              ></o-input>
+            </o-field>
           </div>
           <div class="column is-half">
-            <b-field
+            <o-field
               class="pb-3"
               :label-position="'on-border'"
               label="Wheel Size"
             >
-              <b-input
+              <o-input
                 v-model="newDetails.majorSize"
                 icon="expand-arrows-alt"
                 icon-pack="fad"
                 :placeholder="wheel.majorSize || 'ex. 10inch'"
-              ></b-input>
-            </b-field>
-            <b-field
+              ></o-input>
+            </o-field>
+            <o-field
               class="pb-3"
               :label-position="'on-border'"
               label="Wheel Material"
             >
-              <b-input
+              <o-input
                 v-model="newDetails.type"
                 icon="box-full"
                 icon-pack="fad"
                 :placeholder="wheel.type || 'ex. Steel'"
-              ></b-input>
-            </b-field>
+              ></o-input>
+            </o-field>
           </div>
           <div class="column is-12">
-            <b-field :label-position="'on-border'" label="Wheel Notes">
-              <b-input
+            <o-field :label-position="'on-border'" label="Wheel Notes">
+              <o-input
                 v-model="newDetails.notes"
                 maxlength="200"
                 type="textarea"
                 :placeholder="
                   wheel.notes || 'ex. Wheel was only produced from 1959 to 1960'
                 "
-              ></b-input>
-            </b-field>
+              ></o-input>
+            </o-field>
           </div>
         </div>
       </section>
       <footer class="modal-card-foot">
-        <b-button label="Close" @click="$emit('close')" />
-        <b-button label="Submit" type="is-primary" @click="updateWheel" />
+        <o-button label="Close" @click="$emit('close')" />
+        <o-button label="Submit" type="is-primary" @click="updateWheel" />
       </footer>
     </div>
   </form>

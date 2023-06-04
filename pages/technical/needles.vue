@@ -57,10 +57,9 @@
                   target="_blank"
                   alt="Link to Classic Mini Needles"
                 >
-                  <b-image
+                  <img
                     class="seven-logo"
-                    src="https://classicminidiy.s3.amazonaws.com/misc/seven-logo-horiz.webp"
-                    webp-fallback="https://classicminidiy.s3.amazonaws.com/misc/seven-logo-horiz.png"
+                    src="https://classicminidiy.s3.amazonaws.com/misc/seven-logo-horiz.png"
                     alt="Seven Mini Parts Logo"
                   />
                 </a>

@@ -4,7 +4,7 @@
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Minutes Watched</p>
-          <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
+          <o-skeleton v-if="isLoading" :size="'is-large'" animated></o-skeleton>
           <p v-if="!isLoading && stats.views" class="title">
             {{ stats.views }}
           </p>
@@ -19,7 +19,7 @@
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Subscribers</p>
-          <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
+          <o-skeleton v-if="isLoading" :size="'is-large'" animated></o-skeleton>
           <p v-if="!isLoading && stats.subscribers" class="title">
             {{ stats.subscribers }}
           </p>
@@ -34,7 +34,7 @@
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">videos</p>
-          <b-skeleton v-if="isLoading" :size="'is-large'" animated></b-skeleton>
+          <o-skeleton v-if="isLoading" :size="'is-large'" animated></o-skeleton>
           <p v-if="!isLoading && stats.videos" class="title">
             {{ stats.videos }}
           </p>
@@ -46,7 +46,7 @@
           </p>
         </div>
       </div>
-      <!-- <b-loading :is-full-page="false" :active.sync="isLoading" /> -->
+      <!-- <o-loading :is-full-page="false" :active.sync="isLoading" /> -->
     </nav>
   </div>
 </template>

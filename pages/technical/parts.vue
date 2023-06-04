@@ -34,7 +34,7 @@
       </div>
       <template v-for="(table, name, index) in tables">
         <div :key="`${name}-${index}`" class="column is-12">
-          <b-collapse
+          <o-collapse
             class="card"
             aria-id="contentIdForA11y3"
             animation="slide"
@@ -51,7 +51,7 @@
                 <span class="pl-1">{{ table.title }}</span>
               </h2>
               <a href="#" class="card-header-icon" aria-label="more options">
-                <b-icon
+                <o-icon
                   pack="fas"
                   :icon="props.open ? 'chevron-down' : 'chevron-up'"
                 />
@@ -59,7 +59,7 @@
             </div>
             <div class="card-content">
               <client-only>
-                <b-table
+                <o-table
                   :data="table.items"
                   :columns="table.columns"
                   :narrowed="true"
@@ -71,7 +71,7 @@
                 />
               </client-only>
             </div>
-          </b-collapse>
+          </o-collapse>
         </div>
         <div
           v-if="index === 1 || index === 3"

@@ -2,8 +2,8 @@
   <div class="columns is-multiline">
     <div class="column is-12 py-4"></div>
     <div class="column is-6">
-      <b-field label="Piston Size">
-        <b-select
+      <o-field label="Piston Size">
+        <o-select
           v-model="bore"
           expanded
           placeholder="Select a piston size in mm"
@@ -22,12 +22,12 @@
               {{ option.label }}
             </option>
           </optgroup>
-        </b-select>
-      </b-field>
+        </o-select>
+      </o-field>
     </div>
     <div class="column is-6">
-      <b-field label="Crankshaft">
-        <b-select
+      <o-field label="Crankshaft">
+        <o-select
           v-model="stroke"
           expanded
           placeholder="Select the stroke of your crankshaft"
@@ -46,13 +46,13 @@
               {{ option.label }}
             </option>
           </optgroup>
-        </b-select>
-      </b-field>
+        </o-select>
+      </o-field>
     </div>
     <div class="column is-12"></div>
     <div class="column is-6">
-      <b-field label="Head Gasket">
-        <b-select
+      <o-field label="Head Gasket">
+        <o-select
           v-model="gasket"
           expanded
           placeholder="Choose your head gasket"
@@ -65,10 +65,10 @@
           >
             {{ option.label }}
           </option>
-        </b-select>
-      </b-field>
-      <b-field v-if="gasket === 'custom'" label="Custom Head Gasket Volume">
-        <b-numberinput
+        </o-select>
+      </o-field>
+      <o-field v-if="gasket === 'custom'" label="Custom Head Gasket Volume">
+        <o-numberinput
           v-model="customGasket"
           min="0"
           icon-pack="fas"
@@ -77,12 +77,12 @@
           controls-position="compact"
           @input="calculateRatio()"
         >
-        </b-numberinput>
-      </b-field>
+        </o-numberinput>
+      </o-field>
     </div>
     <div class="column is-6">
-      <b-field label="Decompression Plate">
-        <b-select
+      <o-field label="Decompression Plate">
+        <o-select
           v-model="decomp"
           expanded
           placeholder="Choose your de-comp plate if being used"
@@ -101,74 +101,74 @@
               {{ option.label }}
             </option>
           </optgroup>
-        </b-select>
-      </b-field>
+        </o-select>
+      </o-field>
     </div>
     <div class="column is-12"></div>
     <div class="column is-4">
-      <b-field :label="`Piston Dish size (cc)`">
-        <b-slider
+      <o-field :label="`Piston Dish size (cc)`">
+        <o-slider
           v-model="pistonDish"
           size="is-medium"
           :min="0"
           :max="20"
           @input="calculateRatio()"
-        ></b-slider>
-      </b-field>
-      <b-field message="Please choose a value between 0 and 20">
-        <b-input
+        ></o-slider>
+      </o-field>
+      <o-field message="Please choose a value between 0 and 20">
+        <o-input
           v-model="pistonDish"
           placeholder="Piston Dish"
           type="text"
           lazy
         >
-        </b-input>
-      </b-field>
+        </o-input>
+      </o-field>
     </div>
     <div class="column is-4">
-      <b-field label="Cylinder Head Chamber Volume (cc)">
-        <b-slider
+      <o-field label="Cylinder Head Chamber Volume (cc)">
+        <o-slider
           v-model="headVolume"
           size="is-medium"
           :min="15"
           :max="35"
           :step="0.1"
           @input="calculateRatio()"
-        ></b-slider>
-      </b-field>
-      <b-field message="Please type a decimal value between 15 and 35">
-        <b-input
+        ></o-slider>
+      </o-field>
+      <o-field message="Please type a decimal value between 15 and 35">
+        <o-input
           v-model="headVolume"
           placeholder="Head Volume"
           type="text"
           lazy
         >
-        </b-input>
-      </b-field>
+        </o-input>
+      </o-field>
     </div>
     <div class="column is-4">
-      <b-field label="Piston Deck Height (thou)">
-        <b-slider
+      <o-field label="Piston Deck Height (thou)">
+        <o-slider
           v-model="deckHeight"
           size="is-medium"
           :min="0"
           :max="80"
           @input="calculateRatio()"
-        ></b-slider>
-      </b-field>
-      <b-field message="Please choose a value between 0 and 80">
-        <b-input
+        ></o-slider>
+      </o-field>
+      <o-field message="Please choose a value between 0 and 80">
+        <o-input
           v-model="deckHeight"
           placeholder="Deck Height"
           type="text"
           lazy
         >
-        </b-input>
-      </b-field>
+        </o-input>
+      </o-field>
     </div>
     <div class="column is-12">
       <a @click="isCardModalActive = true">
-        <b-icon pack="fas" :icon="'question'" /> How do I measure these values?
+        <o-icon pack="fas" :icon="'question'" /> How do I measure these values?
       </a>
     </div>
     <div class="column is-12">
@@ -246,7 +246,7 @@
         </p>
       </div>
     </div>
-    <b-modal v-model="isCardModalActive" :width="640" scroll="keep">
+    <o-modal v-model="isCardModalActive" :width="640" scroll="keep">
       <div class="card">
         <header class="card-header">
           <p class="card-header-title">Measuring your chambers and deck</p>
@@ -303,7 +303,7 @@
           >
         </footer>
       </div>
-    </b-modal>
+    </o-modal>
   </div>
 </template>
 <script>

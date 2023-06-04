@@ -33,7 +33,7 @@
         <h1 class="title">Electrical Diagrams</h1>
         <template v-for="(diagram, name, index) in diagrams">
           <div :key="`${name}-${index}`" class="column is-12">
-            <b-collapse class="card" aria-id="contentIdForA11y3">
+            <o-collapse class="card" aria-id="contentIdForA11y3">
               <div
                 slot="trigger"
                 slot-scope="props"
@@ -45,7 +45,7 @@
                   {{ diagram.title }}
                 </h2>
                 <a class="card-header-icon" aria-label="more options">
-                  <b-icon
+                  <o-icon
                     pack="fas"
                     :icon="props.open ? 'chevron-down' : 'chevron-up'"
                   />
@@ -67,7 +67,7 @@
                   </a>
                 </nav>
               </div>
-            </b-collapse>
+            </o-collapse>
           </div>
           <div
             v-if="index === 0 || index === 2 || index === 4"
