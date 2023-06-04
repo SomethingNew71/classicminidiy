@@ -25,7 +25,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "dev": "nuxi dev",
-    "build": "npm run fa && nuxi build",
+    "build": "nuxi build",
     "start": "nuxi preview",
     "fa": "npm config set \"@fortawesome:registry\" https://npm.fontawesome.com/ npm config set \"//npm.fontawesome.com/:_authToken\" ${fontAwesome}",
     "format": "prettier --write ."
