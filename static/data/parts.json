@@ -1,0 +1,106 @@
+{
+  "airFilters": {
+    "title": "Air Filters",
+    "icon": "fa-duotone fa-wind-turbine",
+    "columns": [
+      {
+        "label": "Brand",
+        "field": "brand"
+      },
+      {
+        "label": "Part Number",
+        "field": "part"
+      },
+      {
+        "label": "Usage Info",
+        "field": "info"
+      }
+    ],
+    "items": [
+      {
+        "brand": "K&N",
+        "part": "E-9172",
+        "info": "SPI and MPI - Fuel Injected models"
+      },
+      {
+        "brand": "K&N",
+        "part": "E-2601",
+        "info": "1275 single carb 1.5\" Stock air box also fits AA - Carburetor models 1982 onwards"
+      },
+      {
+        "brand": "K&N",
+        "part": "E-9001",
+        "info": "Use 2 for Cooper S or 1 Mini 850 - Carburetor models 1959 to 1974"
+      },
+      {
+        "brand": "K&N",
+        "part": "E-2600",
+        "info": "Stock 1 3/4 air box  - Carburetor models 1974 to 1982"
+      }
+    ]
+  },
+  "oilFilters": {
+    "title": "Oil Filters",
+    "icon": "fa-duotone fa-oil-can-drip",
+    "columns": [
+      {
+        "label": "Brand",
+        "field": "brand"
+      },
+      {
+        "label": "Part Number",
+        "field": "part"
+      }
+    ],
+    "items": [
+      { "brand": "AC DELCO", "part": "93156323" },
+      { "brand": "AC DELCO", "part": "25011520 (PF 53)" },
+      { "brand": "AMSOIL", "part": "SDF-57" },
+      { "brand": "BECK/ARNLEY", "part": "0418988" },
+      { "brand": "BOSCH", "part": "72150" },
+      { "brand": "BOSCH DistancePlus", "part": "D3330" },
+      { "brand": "FRAM", "part": "PH966B" },
+      { "brand": "FRAM", "part": "PH2870A" },
+      { "brand": "FRAM", "part": "PH3614" },
+      { "brand": "K&N", "part": "HP1002" },
+      { "brand": "K&N", "part": "PS-1002" },
+      { "brand": "MANN", "part": "056 115 561G" },
+      { "brand": "NAPA", "part": "1374" },
+      { "brand": "PUROLATOR", "part": "L10028" },
+      { "brand": "PUROLATOR", "part": "L10241 Metro 1.3L" },
+      { "brand": "UNIPART", "part": "GFE148" },
+      { "brand": "WIX", "part": "WL7142" },
+      { "brand": "MOBIL", "part": "M1 102" }
+    ]
+  },
+  "alternators": {
+    "title": "Alternators",
+    "icon": "fa-brands fa-first-order-alt",
+    "columns": [
+      {
+        "label": "Brand",
+        "field": "brand"
+      },
+      {
+        "label": "Part Number",
+        "field": "part"
+      },
+      {
+        "label": "Usage Info",
+        "field": "info"
+      }
+    ],
+    "items": [
+      {
+        "brand": "Bosch",
+        "part": "13107",
+        "info": "('79 Ford Fiesta) alternators are a bolt-on replacement (with removal or replacement of plastic alt. plug) for alternator equipped Minis"
+      },
+      {
+        "brand": "Delco",
+        "part": "25011520 (PF 53)",
+        "info": " (Saturn et al) alternators can also be made to work in a Mini."
+      }
+    ]
+  }
+}

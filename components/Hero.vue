@@ -210,6 +210,22 @@
                 },
                 {
                   type: 'link',
+                  text: 'Parts Equivalency',
+                  // subText: 'Calculate the compression ratio for your next engine build',
+                  path: '/technical/parts',
+                  iconLeft: `
+                  <picture class="submenu-icon">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.webp" type="image/webp">
+                    <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png" type="image/png">
+                    <img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png">
+                  </picture>
+                `,
+                },
+                {
+                  type: 'hr',
+                },
+                {
+                  type: 'link',
                   text: 'Color Picker',
                   // subText: 'Find the right color swatch for your car',
                   path: '/technical/colors',
