@@ -58,16 +58,18 @@
               </a>
             </div>
             <div class="card-content">
-              <b-table
-                :data="table.items"
-                :columns="table.columns"
-                :narrowed="true"
-                :hoverable="true"
-                :paginated="table.items.length >= 14 ? true : false"
-                :per-page="10"
-                icon-pack="fas"
-                :mobile-cards="false"
-              />
+              <client-only>
+                <b-table
+                  :data="table.items"
+                  :columns="table.columns"
+                  :narrowed="true"
+                  :hoverable="true"
+                  :paginated="table.items.length >= 14 ? true : false"
+                  :per-page="10"
+                  icon-pack="fas"
+                  :mobile-cards="false"
+                />
+              </client-only>
             </div>
           </b-collapse>
         </div>
