@@ -793,11 +793,11 @@
     "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/12/detomaso.jpg",
     "imagewebp": "https://classicminidiy.s3.amazonaws.com/wheels/12/detomaso.webp",
     "name": "Innocenti DeTomaso Turbo",
-    "size": "",
+    "size": "R315",
     "majorSize": "12",
     "type": "other",
     "offset": "",
-    "notes": ""
+    "notes": "Metric sized wheels. They need a Michelin TRX R315 tire which is very hard to come by these days."
   },
   {
     "imagepath": "https://classicminidiy.s3.amazonaws.com/wheels/12/unbek_15.jpg",
