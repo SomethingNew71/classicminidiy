@@ -105,6 +105,13 @@
             to: '/technical/compression',
           },
           {
+            title: 'Parts Equivalency',
+            image:
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.webp',
+            to: '/technical/parts',
+          },
+          {
             title: 'Electrical Diagrams',
             image:
               'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
