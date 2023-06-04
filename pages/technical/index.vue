@@ -37,7 +37,7 @@
             class="panel-block is-active"
           >
             <span class="panel-icon">
-              <b-image :src="card.webp" :webp-fallback="card.image" />
+              <img :src="card.image" />
             </span>
             {{ card.title }}
           </nuxt-link>

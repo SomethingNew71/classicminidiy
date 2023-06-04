@@ -87,7 +87,7 @@ export default defineNuxtConfig({
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/buefy.js',
+    '~/plugins/oruga.js',
     { src: '~plugins/highcharts-vue.js', mode: 'client' },
     { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },

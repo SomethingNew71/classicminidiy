@@ -53,7 +53,7 @@
                 the closest main color to your Classic Mini color swatch as
                 possible.
               </p>
-              <b-select
+              <o-select
                 v-model="selectedOption"
                 placeholder="Select a Color"
                 icon="tint"
@@ -67,7 +67,7 @@
                 >
                   {{ option }}
                 </option>
-              </b-select>
+              </o-select>
             </div>
           </div>
           <footer v-if="currentColors" class="card-footer">
@@ -87,19 +87,18 @@
           class="has-text-centered no-colors"
         >
           <h2 class="title">Choose a color</h2>
-          <b-image
-            src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp"
-            webp-fallback="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png"
+          <img
+            src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png"
             alt=""
           />
         </div>
         <div v-if="loading">
-          <b-notification :closable="false">
-            <b-loading
+          <o-notification :closable="false">
+            <o-loading
               v-model:active="loading"
               :is-full-page="false"
-            ></b-loading>
-          </b-notification>
+            ></o-loading>
+          </o-notification>
         </div>
         <div v-if="!loading" class="columns is-multiline">
           <template v-for="(color, index, name) in currentColors">
@@ -112,12 +111,12 @@
                 </header>
                 <div class="card-image">
                   <figure class="image is-4x4">
-                    <b-image
+                    <img
                       v-if="color[6]"
                       :src="`https://classicminidiy.s3.amazonaws.com/colors/${color[2]}.jpg`"
                       :alt="`Image of color ${color[2]}`"
                     />
-                    <b-image
+                    <img
                       v-if="!color[6]"
                       src="https://classicminidiy.s3.amazonaws.com/colors/no-swatch.png"
                       :alt="`No image exists for color ${color[2]}`"

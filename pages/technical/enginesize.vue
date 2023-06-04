@@ -93,7 +93,7 @@
       <div class="column is-12">
         <div class="card">
           <div class="card-content">
-            <b-table
+            <o-table
               :data="data"
               :hoverable="true"
               :row-class="
@@ -102,7 +102,7 @@
                   'has-background-light has-text-weight-bold'
               "
             >
-              <b-table-column
+              <o-table-column
                 v-slot="props"
                 field="group"
                 label="Group"
@@ -115,8 +115,8 @@
                     :class="props.row.color"
                   ></i>
                 </template>
-              </b-table-column>
-              <b-table-column
+              </o-table-column>
+              <o-table-column
                 v-slot="props"
                 field="engineSize"
                 label="Engine Size"
@@ -128,23 +128,23 @@
                   ></i>
                 </template>
                 {{ props.row.engineSize }}
-              </b-table-column>
-              <b-table-column v-slot="props" field="overBore" label="Over Bore">
+              </o-table-column>
+              <o-table-column v-slot="props" field="overBore" label="Over Bore">
                 {{ props.row.overBore }}
-              </b-table-column>
-              <b-table-column v-slot="props" field="boreSize" label="Bore Size">
+              </o-table-column>
+              <o-table-column v-slot="props" field="boreSize" label="Bore Size">
                 {{ props.row.boreSize }}
-              </b-table-column>
-              <b-table-column v-slot="props" field="stroke" label="Stroke">
+              </o-table-column>
+              <o-table-column v-slot="props" field="stroke" label="Stroke">
                 {{ props.row.stroke }}
-              </b-table-column>
-              <b-table-column v-slot="props" field="power" label="Power">
+              </o-table-column>
+              <o-table-column v-slot="props" field="power" label="Power">
                 {{ props.row.power }}
-              </b-table-column>
-              <b-table-column v-slot="props" field="torque" label="Torque">
+              </o-table-column>
+              <o-table-column v-slot="props" field="torque" label="Torque">
                 {{ props.row.torque }}
-              </b-table-column>
-            </b-table>
+              </o-table-column>
+            </o-table>
           </div>
         </div>
       </div>

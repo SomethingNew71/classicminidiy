@@ -59,56 +59,57 @@
             </header>
             <div class="card-content">
               <div class="content">
-                <b-field class="pb-2" label="Wheel Size">
-                  <b-select
+                <o-field class="pb-2" label="Wheel Size">
+                  <o-select
                     v-model="selectedSize"
                     placeholder="Select a wheel size"
                   >
                     <option :value="10">10 inch</option>
                     <option :value="12">12 inch</option>
                     <option :value="13">13 inch</option>
-                  </b-select>
-                </b-field>
+                  </o-select>
+                </o-field>
                 <p>
                   Use the search below to search by wheel name, offset, size or
                   material.
                 </p>
-                <b-field class="mb-4" position="is-left">
-                  <b-input
+                <o-field class="mb-4" position="left">
+                  <o-input
                     v-model="searchString"
                     placeholder="Ex. Minilite"
                     @keyup.enter.native="standardSearch()"
-                  ></b-input>
+                  ></o-input>
                   <p class="control">
-                    <b-button
+                    <o-button
                       class="button is-primary search-button"
                       aria-label="Search box for wheels"
                       @click="standardSearch"
                     >
                       <i class="fad fa-search"></i>
-                    </b-button>
+                    </o-button>
                   </p>
-                </b-field>
+                </o-field>
               </div>
             </div>
             <footer class="card-footer">
               <div class="card-footer-item">
-                <b-button
+                <o-button
                   v-if="searchString !== '' && !allWheelsVisible"
                   expanded
                   class="button is-primary"
                   @click="searchAll"
                 >
                   View All {{ selectedSize }}in Wheels
-                </b-button>
-                <b-tooltip
+                </o-button>
+                <o-tooltip
                   v-else
+                  position="top"
                   :label="`Already displaying all ${selectedSize} inch wheels`"
                 >
-                  <b-button disabled expanded class="button is-primary">
+                  <o-button disabled expanded class="button is-primary">
                     View All {{ selectedSize }}in Wheels
-                  </b-button>
-                </b-tooltip>
+                  </o-button>
+                </o-tooltip>
               </div>
             </footer>
           </div>
@@ -137,7 +138,7 @@
                 v-if="selectedWheels && !isLoading && totalResults > perPage"
                 class="column is-6"
               >
-                <b-pagination
+                <o-pagination
                   v-model="currentPage"
                   :total="totalResults"
                   :simple="true"
@@ -152,7 +153,7 @@
                   aria-current-label="Current page"
                   @change="changePages()"
                 >
-                </b-pagination>
+                </o-pagination>
               </div>
             </div>
             <skeleton-loader
@@ -164,22 +165,22 @@
                 <div :key="index" class="column is-4">
                   <article class="card">
                     <div class="card-image">
-                      <b-tooltip
+                      <o-tooltip
                         label="Suggest changes to the details of this wheel"
                         animated
                         multilined
                         type="is-light"
-                        position="is-left"
+                        position="left"
                         class="edit-icon-link"
                       >
-                        <b-button
+                        <o-button
                           aria-label="Suggest changes to the details of this wheel"
                           type="is-primary"
                           icon-right="pencil"
                           :icon-pack="'fad'"
                           @click="editWheel(wheel)"
                         />
-                      </b-tooltip>
+                      </o-tooltip>
                       <figure class="image is-square">
                         <img
                           :src="wheel.imagewebp"
@@ -191,26 +192,26 @@
                     <div class="card-content">
                       <div class="media mb-1">
                         <div class="media-content">
-                          <b-tooltip label="Wheel Size" animated type="is-dark">
+                          <o-tooltip label="Wheel Size" animated type="is-dark">
                             <i class="fad fa-expand-arrows-alt pr-1"></i>
                             {{ wheel.size || 'N/A' }}
-                          </b-tooltip>
-                          <b-tooltip
+                          </o-tooltip>
+                          <o-tooltip
                             label="Wheel Offset"
                             animated
                             type="is-dark"
                           >
                             <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i>
                             {{ wheel.offset || 'N/A' }}
-                          </b-tooltip>
-                          <b-tooltip
+                          </o-tooltip>
+                          <o-tooltip
                             label="Wheel Material"
                             animated
                             type="is-dark"
                           >
                             <i class="fad fa-box-full pr-1 pl-2"></i>
                             {{ wheel.type || 'N/A' }}
-                          </b-tooltip>
+                          </o-tooltip>
                           <p
                             class="title is-5 pt-3 pb-1"
                             v-html="wheel.name"
@@ -218,18 +219,18 @@
                         </div>
                       </div>
                       <div v-if="wheel.notes" class="content">
-                        <b-collapse
+                        <o-collapse
                           animation="slide"
                           :open="false"
-                          position="is-top"
+                          position="top"
                         >
                           <a slot="trigger" slot-scope="props">
-                            <b-icon
+                            <o-icon
                               pack="fad"
                               :icon="
                                 !props.open ? 'chevron-down' : 'chevron-up'
                               "
-                            ></b-icon>
+                            ></o-icon>
                             {{
                               !props.open
                                 ? 'Additional details'
@@ -237,7 +238,7 @@
                             }}
                           </a>
                           <p v-html="wheel.notes"></p>
-                        </b-collapse>
+                        </o-collapse>
                       </div>
                     </div>
                   </article>
@@ -278,7 +279,7 @@
               v-if="!isLoading && totalResults > perPage && !noResults"
               class="column is-12"
             >
-              <b-pagination
+              <o-pagination
                 v-model="currentPage"
                 :total="totalResults"
                 :range-before="2"
@@ -292,7 +293,7 @@
                 aria-current-label="Current page"
                 @change="changePages()"
               >
-              </b-pagination>
+              </o-pagination>
             </div>
           </div>
           <div class="column is-12 is-hidden-tablet">

@@ -14,8 +14,8 @@
           >
           to learn more.
         </p>
-        <b-field class="is-fullwidth" expanded>
-          <b-autocomplete
+        <o-field class="is-fullwidth" expanded>
+          <o-autocomplete
             v-model="addNeedleValue"
             expanded
             :data="filteredDataObj"
@@ -24,9 +24,9 @@
             field="name"
             @select="(option) => (addNeedleSelection = option)"
           >
-          </b-autocomplete>
-          <b-button
-            type="is-primary"
+          </o-autocomplete>
+          <o-button
+            variant="primary"
             icon-pack="fas"
             icon-left="plus"
             aria-label="Click here to add another needle with a generic value"
@@ -34,32 +34,31 @@
             @click="addArrayItem()"
           >
             Add
-          </b-button>
-        </b-field>
-        <b-field grouped group-multiline>
+          </o-button>
+        </o-field>
+        <o-field grouped group-multiline>
           <div
             v-for="(value, needle) in selectValues"
             :key="needle"
             class="control"
           >
-            <b-tag
-              type="is-primary is-light"
-              size="is-medium"
-              attached
-              closable
+            <o-button
+              variant="primary"
+              icon-pack="fas"
+              icon-right="close"
               :disabled="selectValues.length === 1"
               :aria-close-label="
                 'Click here to remove the ' + selectValues[needle] + ' needle'
               "
-              @close="removeArrayItem(selectValues[needle])"
+              @click="removeArrayItem(selectValues[needle])"
             >
               {{ selectValues[needle].name }}
-            </b-tag>
+            </o-button>
           </div>
-        </b-field>
-        <b-message v-if="existsError" type="is-warning" class="my-3">
+        </o-field>
+        <o-message v-if="existsError" type="is-warning" class="my-3">
           This needle already exists on the chart.
-        </b-message>
+        </o-message>
       </div>
     </div>
     <div class="column is-8">
@@ -67,7 +66,7 @@
         <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
       </div>
     </div>
-    <b-modal
+    <o-modal
       v-model="isComponentModalActive"
       has-modal-card
       trap-focus
@@ -93,10 +92,10 @@
           />
         </section>
         <footer class="modal-card-foot">
-          <b-button label="Close" @click="isComponentModalActive = false" />
+          <o-button label="Close" @click="isComponentModalActive = false" />
         </footer>
       </div>
-    </b-modal>
+    </o-modal>
   </div>
 </template>
 <script>
@@ -254,10 +253,5 @@
 <style lang="scss">
   .highcharts-credits {
     display: none !important;
-  }
-  .configurator-component .button .icon,
-  .button .icon.is-small {
-    height: 1rem;
-    width: 1rem;
   }
 </style>

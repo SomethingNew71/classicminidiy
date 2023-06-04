@@ -3,7 +3,7 @@
     <template v-if="size === 'large'">
       <div class="columns">
         <div class="column is-3 avatar-container">
-          <b-image
+          <img
             src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
             alt="Image of my car on jack stands"
           />

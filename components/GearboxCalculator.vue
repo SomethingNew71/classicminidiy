@@ -2,8 +2,8 @@
   <div class="columns is-multiline">
     <div class="column is-12 py-4"></div>
     <div class="column is-4">
-      <b-field label="Imperial or Metric">
-        <b-radio-button
+      <o-field label="Imperial or Metric">
+        <o-radio
           v-model="metric"
           native-value="mph"
           type="is-primary is-outlined"
@@ -11,9 +11,9 @@
         >
           <i class="pr-2 fa-duotone fa-flag-usa"></i>
           <span>MPH</span>
-        </b-radio-button>
+        </o-radio>
 
-        <b-radio-button
+        <o-radio
           v-model="metric"
           native-value="kph"
           type="is-primary is-outlined"
@@ -21,13 +21,13 @@
         >
           <i class="pr-2 fa-duotone fa-earth-europe"></i>
           <span>KM/H</span>
-        </b-radio-button>
-      </b-field>
+        </o-radio>
+      </o-field>
     </div>
     <div class="column is-12"></div>
     <div class="column is-6">
-      <b-field label="Tire Size">
-        <b-select
+      <o-field label="Tire Size">
+        <o-select
           v-model="tire_type"
           expanded
           icon-pack="fad"
@@ -48,12 +48,12 @@
               {{ option.label }}
             </option>
           </optgroup>
-        </b-select>
-      </b-field>
+        </o-select>
+      </o-field>
     </div>
     <div class="column is-6">
-      <b-field label="Final Drive Size(pinion/crownwheel)">
-        <b-select
+      <o-field label="Final Drive Size(pinion/crownwheel)">
+        <o-select
           v-model="final_drive"
           expanded
           icon-pack="fad"
@@ -74,13 +74,13 @@
               {{ option.label }}
             </option>
           </optgroup>
-        </b-select>
-      </b-field>
+        </o-select>
+      </o-field>
     </div>
     <div class="column is-12"></div>
     <div class="column is-6">
-      <b-field label="Speedo Drive Ratio">
-        <b-select
+      <o-field label="Speedo Drive Ratio">
+        <o-select
           v-model="speedo_drive"
           expanded
           icon-pack="fad"
@@ -95,12 +95,12 @@
           >
             {{ option.label }}
           </option>
-        </b-select>
-      </b-field>
+        </o-select>
+      </o-field>
     </div>
     <div class="column is-6">
-      <b-field label="Drop Gear Size">
-        <b-select
+      <o-field label="Drop Gear Size">
+        <o-select
           v-model="drop_gear"
           expanded
           icon-pack="fad"
@@ -121,13 +121,13 @@
               {{ option.label }}
             </option>
           </optgroup>
-        </b-select>
-      </b-field>
+        </o-select>
+      </o-field>
     </div>
     <div class="column is-12"></div>
     <div class="column is-6">
-      <b-field label="Gearbox Gear Ratio">
-        <b-select
+      <o-field label="Gearbox Gear Ratio">
+        <o-select
           v-model="gear_ratios"
           expanded
           icon-pack="fad"
@@ -148,12 +148,12 @@
               {{ option.label }}
             </option>
           </optgroup>
-        </b-select>
-      </b-field>
+        </o-select>
+      </o-field>
     </div>
     <div class="column is-6">
-      <b-field label="Maximum RPM">
-        <b-slider
+      <o-field label="Maximum RPM">
+        <o-slider
           v-model="max_rpm"
           size="is-medium pl-3 pr-3"
           :min="6000"
@@ -161,14 +161,14 @@
           :step="500"
           @input="calculateRatio()"
         >
-          <b-slider-tick
+          <o-slider-tick
             v-for="val in [6000, 6500, 7000, 7500, 8000, 8500, 9000]"
             :key="val"
             :value="val"
-            >{{ val }}</b-slider-tick
+            >{{ val }}</o-slider-tick
           >
-        </b-slider>
-      </b-field>
+        </o-slider>
+      </o-field>
     </div>
     <div class="column is-10 is-offset-1">
       <div class="divider">Results</div>
@@ -258,29 +258,29 @@
           </p>
         </div>
         <div class="card-content">
-          <b-table :data="tableDataSpeedos">
-            <b-table-column
+          <o-table :data="tableDataSpeedos">
+            <o-table-column
               v-slot="props"
               field="status"
               label=""
               narrowed="false"
             >
               <i class="fas fa-circle pt-1" :class="props.row.status"></i>
-            </b-table-column>
-            <b-table-column v-slot="props" field="tpm" label="TPM">
+            </o-table-column>
+            <o-table-column v-slot="props" field="tpm" label="TPM">
               {{ props.row.tpm }}
-            </b-table-column>
-            <b-table-column
+            </o-table-column>
+            <o-table-column
               v-slot="props"
               field="speedometer"
               label="Speedometer"
             >
               {{ props.row.speedometer }}
-            </b-table-column>
-            <b-table-column v-slot="props" field="result" label="Result">
+            </o-table-column>
+            <o-table-column v-slot="props" field="result" label="Result">
               {{ props.row.result }}
-            </b-table-column>
-          </b-table>
+            </o-table-column>
+          </o-table>
         </div>
       </div>
     </div>
@@ -295,10 +295,10 @@
           </p>
         </div>
         <div class="card-content">
-          <b-table
+          <o-table
             :data="tableDataGearing"
             :columns="tableHeadersGearing"
-          ></b-table>
+          ></o-table>
         </div>
       </div>
       <div class="card mt-2">

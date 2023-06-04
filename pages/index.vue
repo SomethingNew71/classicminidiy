@@ -117,10 +117,9 @@
                 >
                   <nuxt-link :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
-                      <b-image
+                      <img
                         class="panel-icon-home"
-                        :src="item.webp"
-                        :webp-fallback="item.image"
+                        :src="item.image"
                         aria-hidden="true"
                         :alt="item.title + ' image'"
                       />
@@ -145,11 +144,7 @@
                 class="panel-block is-active"
               >
                 <span class="panel-icon">
-                  <b-image
-                    :src="item.webp"
-                    :webp-fallback="item.image"
-                    :alt="item.title + ' image'"
-                  />
+                  <img :src="item.image" :alt="item.title + ' image'" />
                 </span>
                 {{ item.title }}
               </nuxt-link>
@@ -246,7 +241,7 @@
             </p>
           </div>
           <div class="column is-5 avatar-container">
-            <b-image
+            <img
               src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
               alt="Image of my car on jack stands"
             />

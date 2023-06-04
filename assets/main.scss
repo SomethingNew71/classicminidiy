@@ -80,7 +80,8 @@ $link-focus-border: $primary;
 
 // Import Bulma and Buefy styles
 @import '~bulma';
-@import '~buefy/src/scss/buefy';
+@import '~@oruga-ui/theme-bulma/dist/scss/bulma';
+// @import '~buefy/src/scss/buefy';
 @import '~@creativebulma/bulma-divider';
 // I dont like Bulma's Navbar and this one basically is stripes navbar so plug and play baby
 @import '../node_modules/vue-navigation-bar/dist/vue-navigation-bar.css';
