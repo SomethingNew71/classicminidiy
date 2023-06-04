@@ -59,9 +59,9 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import { DateTime } from 'luxon';
   import { vueWindowSizeMixin } from 'vue-window-size';
+  const axios = require('axios').default;
 
   export default {
     mixins: [vueWindowSizeMixin],
