@@ -1,7 +1,8 @@
-import Vue from 'vue';
-import Oruga from '@oruga-ui/oruga';
+import Oruga from '@oruga-ui/oruga-next';
 import { bulmaConfig } from '@oruga-ui/theme-bulma';
+import { defineNuxtPlugin } from '#app';
+import '@oruga-ui/oruga-next/dist/oruga.css';
 
-import '@oruga-ui/oruga/dist/oruga.css';
-
-Vue.use(Oruga, bulmaConfig);
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(Oruga, bulmaConfig);
+});

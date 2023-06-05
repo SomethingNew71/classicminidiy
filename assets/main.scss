@@ -1,5 +1,5 @@
 // Import Bulma's core
-@import '~bulma/sass/utilities/_all';
+@import '@/node_modules/bulma/sass/utilities/_all';
 
 // Set your colors
 $primary: #659cc8;
@@ -79,12 +79,11 @@ $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
 // Import Bulma and Buefy styles
-@import '~bulma';
-@import '~@oruga-ui/theme-bulma/dist/scss/bulma';
-// @import '~buefy/src/scss/buefy';
-@import '~@creativebulma/bulma-divider';
+@import '@/node_modules/bulma/bulma';
+@import '@/node_modules/@oruga-ui/theme-bulma/dist/scss/bulma';
+@import '@/node_modules/@creativebulma/bulma-divider';
 // I dont like Bulma's Navbar and this one basically is stripes navbar so plug and play baby
-@import '../node_modules/vue-navigation-bar/dist/vue-navigation-bar.css';
+@import '@/node_modules/vue-navigation-bar/dist/vue-navigation-bar.css';
 
 // Import all my custom scss
 @import './bulma-overides.scss';

@@ -58,18 +58,16 @@
               </a>
             </div>
             <div class="card-content">
-              <client-only>
-                <o-table
-                  :data="table.items"
-                  :columns="table.columns"
-                  :narrowed="true"
-                  :hoverable="true"
-                  :paginated="table.items.length >= 14 ? true : false"
-                  :per-page="10"
-                  icon-pack="fas"
-                  :mobile-cards="false"
-                />
-              </client-only>
+              <o-table
+                :data="table.items"
+                :columns="table.columns"
+                :narrowed="true"
+                :hoverable="true"
+                :paginated="table.items.length >= 14 ? true : false"
+                :per-page="10"
+                icon-pack="fas"
+                :mobile-cards="false"
+              />
             </div>
           </o-collapse>
         </div>
@@ -78,7 +76,7 @@
           :key="`${name}-${index}-ad`"
           class="column is-12"
         >
-          <Adsense
+          <!-- <Adsense
             class="adsbygoogle"
             style="display: block"
             data-ad-client="ca-pub-0523971861051053"
@@ -86,7 +84,7 @@
             data-ad-format="auto"
             data-full-width-responsive="true"
           >
-          </Adsense>
+          </Adsense> -->
         </div>
       </template>
       <div class="column is-12">

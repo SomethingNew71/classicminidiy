@@ -62,11 +62,10 @@
 
 <script>
   import { DateTime } from 'luxon';
-  import { vueWindowSizeMixin } from 'vue-window-size';
+  import { defineComponent } from '#imports';
   const axios = require('axios').default;
 
-  export default {
-    mixins: [vueWindowSizeMixin],
+  export default defineComponent({
     data() {
       return {
         videos: undefined,
@@ -74,19 +73,10 @@
         apiError: false,
         value: 0,
         breakpoint: '',
-        itemsToShow: 2,
       };
-    },
-    watch: {
-      windowWidth(newWidth) {
-        this.handleResize(newWidth);
-      },
     },
     created() {
       this.fetchData();
-    },
-    mounted() {
-      this.handleResize();
     },
     methods: {
       async fetchData() {
@@ -113,28 +103,8 @@
             this.isLoading = false;
           });
       },
-      handleResize(newWidth) {
-        let widthToTest;
-        if (this.newWidth) {
-          widthToTest = newWidth;
-        } else {
-          widthToTest = this.windowWidth;
-        }
-
-        if (widthToTest >= 1280) {
-          this.itemsToShow = 4;
-        } else if (widthToTest >= 1024) {
-          this.itemsToShow = 3;
-        } else if (widthToTest >= 756) {
-          this.itemsToShow = 2;
-        } else if (widthToTest >= 576) {
-          this.itemsToShow = 1;
-        } else {
-          this.itemsToShow = 1;
-        }
-      },
     },
-  };
+  });
 </script>
 
 <style lang="scss" scoped>

@@ -28,4 +28,5 @@ module.exports = {
     'vue/no-deprecated-slot-attribute': 'off',
     'vue/no-deprecated-slot-scope-attribute': 'off',
   },
+  ignorePatterns: ['static/sw.js'],
 };

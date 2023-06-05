@@ -303,7 +303,7 @@
       </div>
       <div class="card mt-2">
         <div class="card-content">
-          <InFeedAdsense
+          <!-- <InFeedAdsense
             data-ad-layout-key="-gd-19+26-8l+ia"
             data-ad-client="ca-pub-0523971861051053"
             data-ad-slot="2084737702"
@@ -311,7 +311,7 @@
             style="display: block"
             data-ad-format="fluid"
           >
-          </InFeedAdsense>
+          </InFeedAdsense> -->
         </div>
       </div>
     </div>
