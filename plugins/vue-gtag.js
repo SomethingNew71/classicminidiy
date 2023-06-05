@@ -1,14 +1,10 @@
-import Vue from 'vue';
 import VueGtag from 'vue-gtag';
+import { defineNuxtPlugin } from '#app';
 
-export default ({ isDev }) => {
-  if (!isDev) {
-    Vue.use(VueGtag, {
-      config: {
-        id: 'G-FBH0E64HM1',
-      },
-    });
-  } else {
-    console.log('Skipping GA in development');
-  }
-};
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(VueGtag, {
+    config: {
+      id: 'G-FBH0E64HM1',
+    },
+  });
+});

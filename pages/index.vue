@@ -277,19 +277,9 @@
 
 <script>
   import { DateTime } from 'luxon';
-  import Stats from '~/components/Stats';
-  import RecentVideos from '~/components/RecentVideos';
-  import Hero from '~/components/Hero';
-  import Phone from '~/components/Phone';
-  import Browser from '~/components/Browser';
-  export default {
-    components: {
-      Hero,
-      Stats,
-      RecentVideos,
-      Phone,
-      Browser,
-    },
+  import { defineComponent } from '#imports';
+
+  export default defineComponent({
     data() {
       return {
         title: 'Classic Mini <br> DIY',
@@ -372,7 +362,7 @@
         .toObject()
         .years.toFixed(0);
     },
-  };
+  });
 </script>
 
 <style lang="scss">

@@ -1,16 +1,12 @@
 import redirectSSL from 'redirect-ssl';
-import { defineNuxtConfig } from '@nuxt/bridge';
+
+import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
   /*
    ** Headers of the page
    */
   ssr: true,
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-    },
-  },
   head: {
     title: 'Classic Mini DIY',
     htmlAttrs: {
@@ -88,16 +84,15 @@ export default defineNuxtConfig({
    */
   plugins: [
     '~/plugins/oruga.js',
-    { src: '~plugins/highcharts-vue.js', mode: 'client' },
-    { src: '~plugins/vue-navigation-bar.js', mode: 'client' },
+    // { src: '~plugins/highcharts-vue.js', mode: 'client' },
+    { src: '~/plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },
-    { src: '~/plugins/vue-google-adsense', mode: 'client' },
+    // { src: '~/plugins/vue-google-adsense', mode: 'client' },
   ],
   /*
    ** Nuxt.js modules
    */
-  buildModules: ['@nuxtjs/eslint-module'],
-  modules: ['nuxt-compress', '@nuxtjs/eslint-module', '@nuxtjs/robots'],
+  modules: ['@nuxtjs/robots'],
   robots: {
     UserAgent: '*',
     Disallow: '/assets/',

@@ -226,6 +226,7 @@
         required: true,
       },
     },
+    emits: ['close'],
     data() {
       return {
         newDetails: {

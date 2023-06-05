@@ -250,7 +250,7 @@
                 >
                   <article class="card">
                     <div class="card-content">
-                      <InFeedAdsense
+                      <!-- <InFeedAdsense
                         data-ad-layout-key="+2a+rs+2z-6m+25"
                         data-ad-client="ca-pub-0523971861051053"
                         data-ad-slot="4011964258"
@@ -258,7 +258,7 @@
                         style="display: block"
                         data-ad-format="fluid"
                       >
-                      </InFeedAdsense>
+                      </InFeedAdsense> -->
                     </div>
                   </article>
                 </div>
