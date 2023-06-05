@@ -1,11 +1,6 @@
 <template>
   <div>
-    <hero
-      :title="title"
-      :subtitle="subtitle"
-      :centered="centered"
-      :navigation="true"
-    />
+    <hero :navigation="true" />
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">
@@ -78,7 +73,7 @@
         </div>
         <div class="column is-12 hr mt-5"></div>
         <div class="column is-12">
-          <needleConfig />
+          <NeedleConfigurator />
         </div>
         <div class="column is-10 is-offset-1">
           <div class="divider">Needle Charts</div>
@@ -96,7 +91,7 @@
             >
           </h5>
         </div>
-        <needleTable />
+        <NeedleTable />
         <div class="column is-10 is-offset-1">
           <div class="divider">Support</div>
         </div>
@@ -108,42 +103,28 @@
   </div>
 </template>
 <script>
-  import needleConfig from '~/components/NeedleConfigurator';
-  import needleTable from '~/components/NeedleTable';
-  import PatreonCard from '~/components/PatreonCard';
-
-  export default {
-    components: {
-      needleConfig,
-      needleTable,
-      PatreonCard,
+  export default defineComponent({
+    head: {
+      title: 'Technical - SU Needles Chart',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.',
+        },
+        {
+          property: 'og:title',
+          content: 'Technical - SU Needles Chart',
+        },
+        {
+          property: 'og:image',
+          content:
+            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+        },
+      ],
     },
-    data() {
-      return {};
-    },
-    head() {
-      return {
-        title: 'Technical - SU Needles Chart',
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content:
-              'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.',
-          },
-          {
-            property: 'og:title',
-            content: 'Technical - SU Needles Chart',
-          },
-          {
-            property: 'og:image',
-            content:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
-          },
-        ],
-      };
-    },
-  };
+  });
 </script>
 
 <style lang="scss">
