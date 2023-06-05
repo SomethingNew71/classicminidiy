@@ -1,11 +1,6 @@
 <template>
   <div>
-    <hero
-      :title="title"
-      :subtitle="subtitle"
-      :centered="centered"
-      :navigation="true"
-    />
+    <hero :navigation="true" />
     <section class="section">
       <div class="columns">
         <div class="column is-12">
@@ -80,7 +75,7 @@
                     Use the search below to search by wheel name, offset, size
                     or material.
                   </p>
-                  <o-field class="mb-4" position="left">
+                  <o-field class="mb-4" :position="'left'">
                     <o-input
                       v-model="searchString"
                       placeholder="Ex. Minilite"
@@ -110,7 +105,7 @@
                   </o-button>
                   <o-tooltip
                     v-else
-                    position="top"
+                    :position="'top'"
                     :label="`Already displaying all ${selectedSize} inch wheels`"
                   >
                     <o-button disabled expanded class="button is-primary">
@@ -146,7 +141,7 @@
                   class="column is-6"
                 >
                   <o-pagination
-                    v-model="currentPage"
+                    v-model:current="currentPage"
                     :total="totalResults"
                     :simple="true"
                     :range-before="2"
@@ -154,10 +149,6 @@
                     :order="'is-right'"
                     :per-page="perPage"
                     :icon-pack="'fa'"
-                    aria-next-label="Next page"
-                    aria-previous-label="Previous page"
-                    aria-page-label="Page"
-                    aria-current-label="Current page"
                     @change="changePages()"
                   >
                   </o-pagination>
@@ -176,8 +167,8 @@
                           label="Suggest changes to the details of this wheel"
                           animated
                           multilined
-                          type="is-light"
-                          position="left"
+                          :type="'light'"
+                          :position="'left'"
                           class="edit-icon-link"
                         >
                           <o-button
@@ -188,13 +179,12 @@
                             @click="editWheel(wheel)"
                           />
                         </o-tooltip>
-                        <figure class="image is-square">
+                        <div class="image is-square">
                           <img
-                            :src="wheel.imagewebp"
-                            :webp-fallback="wheel.imagepath"
+                            :src="wheel.imagepath"
                             :alt="`Image of ${wheel.name}`"
                           />
-                        </figure>
+                        </div>
                       </div>
                       <div class="card-content">
                         <div class="media mb-1">
@@ -232,38 +222,21 @@
                           </div>
                         </div>
                         <div v-if="wheel.notes" class="content">
-                          <o-collapse
-                            animation="slide"
-                            :open="false"
-                            position="top"
-                          >
-                            <a slot="trigger" slot-scope="props">
-                              <o-icon
-                                pack="fad"
-                                :icon="
-                                  !props.open ? 'chevron-down' : 'chevron-up'
-                                "
-                              ></o-icon>
-                              {{
-                                !props.open
-                                  ? 'Additional details'
-                                  : 'Hide details'
-                              }}
-                            </a>
+                          <div>
                             <p v-html="wheel.notes"></p>
-                          </o-collapse>
+                          </div>
                         </div>
                       </div>
                     </article>
                   </div>
-                  <div
+                  <!--  <div
                     v-if="index === 3 || index === 9 || index === 20"
                     :key="index"
                     class="column is-4"
                   >
                     <article class="card">
                       <div class="card-content">
-                        <!-- <InFeedAdsense
+                        <InFeedAdsense
                           data-ad-layout-key="+2a+rs+2z-6m+25"
                           data-ad-client="ca-pub-0523971861051053"
                           data-ad-slot="4011964258"
@@ -271,10 +244,10 @@
                           style="display: block"
                           data-ad-format="fluid"
                         >
-                        </InFeedAdsense> -->
+                        </InFeedAdsense>
                       </div>
                     </article>
-                  </div>
+                  </div> -->
                 </template>
               </div>
               <div
@@ -293,17 +266,13 @@
                 class="column is-12"
               >
                 <o-pagination
-                  v-model="currentPage"
+                  v-model:current="currentPage"
                   :total="totalResults"
-                  :range-before="2"
-                  :range-after="2"
+                  :rangeBefore="2"
+                  :rangeAfter="2"
                   :order="'is-centered'"
-                  :per-page="perPage"
-                  :icon-pack="'fad'"
-                  aria-next-label="Next page"
-                  aria-previous-label="Previous page"
-                  aria-page-label="Page"
-                  aria-current-label="Current page"
+                  :perPage="perPage"
+                  :iconPack="'fad'"
                   @change="changePages()"
                 >
                 </o-pagination>
@@ -329,18 +298,14 @@
 <script>
   import Fuse from 'fuse.js';
   import { debounce } from 'debounce';
+  import { useProgrammatic } from '@oruga-ui/oruga-next';
   import tenInchWheels from '~/data/wheels/10.json';
   import twelveInchWheels from '~/data/wheels/12.json';
   import thirteenInchWheels from '~/data/wheels/13.json';
-  import PatreonCard from '~/components/PatreonCard';
-  import SkeletonLoader from '~/components/SkeletonLoader';
   import WheelEditForm from '~/components/WheelEditForm';
+  const { oruga } = useProgrammatic();
 
-  export default {
-    components: {
-      PatreonCard,
-      SkeletonLoader,
-    },
+  export default defineComponent({
     data() {
       return {
         allWheelsVisible: true,
@@ -350,30 +315,28 @@
         isLoading: false,
         noResults: false,
         currentPage: 1,
-        perPage: 10,
+        perPage: 9,
       };
     },
-    head() {
-      return {
-        title: 'Technical - Wheel Dictionary',
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content:
-              'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
-          },
-          {
-            property: 'og:title',
-            content: 'Technical - Wheel Dictionary',
-          },
-          {
-            property: 'og:image',
-            content:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
-          },
-        ],
-      };
+    head: {
+      title: 'Technical - Wheel Dictionary',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
+        },
+        {
+          property: 'og:title',
+          content: 'Technical - Wheel Dictionary',
+        },
+        {
+          property: 'og:image',
+          content:
+            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+        },
+      ],
     },
     computed: {
       // Computed value of the total amount of wheels in the selected results.
@@ -488,19 +451,14 @@
       },
 
       editWheel(wheel) {
-        this.$buefy.modal.open({
-          parent: this,
-          props: {
-            wheel,
-          },
+        oruga.modal.open({
+          props: { wheel },
           component: WheelEditForm,
-          hasModalCard: true,
           trapFocus: true,
-          canCancel: ['escape', 'outside'],
         });
       },
     },
-  };
+  });
 </script>
 
 <style lang="scss" scoped>

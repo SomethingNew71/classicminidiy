@@ -47,16 +47,17 @@
                 </h2>
               </div>
               <div class="card-content">
-                <o-table
-                  :data="table.items"
-                  :columns="table.columns"
-                  :narrowed="true"
-                  :hoverable="true"
-                  :paginated="table.items.length >= 14 ? true : false"
-                  :per-page="10"
-                  icon-pack="fas"
-                  :mobile-cards="false"
-                />
+                <client-only>
+                  <o-table
+                    :data="table.items"
+                    :columns="table.columns"
+                    :narrowed="true"
+                    :hoverable="true"
+                    :paginated="table.items.length >= 14 ? true : false"
+                    :per-page="10"
+                    icon-pack="fas"
+                    :mobile-cards="false"
+                /></client-only>
               </div>
             </div>
           </div>
