@@ -99,8 +99,8 @@
   </div>
 </template>
 <script>
-  import Needles from '~/static/data/needles.json';
-  import StarterNeedles from '~/static/data/default-needles.json';
+  import Needles from '~/public/data/needles.json';
+  import StarterNeedles from '~/public/data/default-needles.json';
   export default {
     data() {
       return {

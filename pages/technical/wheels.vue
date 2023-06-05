@@ -161,8 +161,8 @@
               :amount="perPage"
             ></skeleton-loader>
             <div v-if="!isLoading && !noResults" class="columns is-multiline">
-              <template v-for="(wheel, index) in paginatedItems">
-                <div :key="index" class="column is-4">
+              <template v-for="(wheel, index) in paginatedItems" :key="index">
+                <div class="column is-4">
                   <article class="card">
                     <div class="card-image">
                       <o-tooltip
@@ -315,9 +315,9 @@
 <script>
   import Fuse from 'fuse.js';
   import { debounce } from 'debounce';
-  import tenInchWheels from '~/static/data/wheels/10.json';
-  import twelveInchWheels from '~/static/data/wheels/12.json';
-  import thirteenInchWheels from '~/static/data/wheels/13.json';
+  import tenInchWheels from '~/public/data/wheels/10.json';
+  import twelveInchWheels from '~/public/data/wheels/12.json';
+  import thirteenInchWheels from '~/public/data/wheels/13.json';
   import PatreonCard from '~/components/PatreonCard';
   import SkeletonLoader from '~/components/SkeletonLoader';
   import WheelEditForm from '~/components/WheelEditForm';
