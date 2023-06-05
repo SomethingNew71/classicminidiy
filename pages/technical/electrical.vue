@@ -31,8 +31,11 @@
           </ul>
         </nav>
         <h1 class="title">Electrical Diagrams</h1>
-        <template v-for="(diagram, name, index) in diagrams">
-          <div :key="`${name}-${index}`" class="column is-12">
+        <template
+          v-for="(diagram, name, index) in diagrams"
+          :key="`${name}-${index}`"
+        >
+          <div class="column is-12">
             <o-collapse class="card" aria-id="contentIdForA11y3">
               <div
                 slot="trigger"
@@ -101,7 +104,7 @@
   import PatreonCard from '~/components/PatreonCard';
 
   function getDiagrams() {
-    return import('~/static/data/wiringDiagrams.json').then(
+    return import('~/public/data/wiringDiagrams.json').then(
       (m) => m.default || m
     );
   }

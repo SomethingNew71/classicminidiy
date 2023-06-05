@@ -1,7 +1,7 @@
 <template>
   <div class="column is-12">
-    <template v-for="(table, name, index) in tables">
-      <div :key="index" class="column is-12">
+    <template v-for="(table, name, index) in tables" :key="index">
+      <div class="column is-12">
         <o-collapse
           animation="slide"
           :open="true"
@@ -59,7 +59,7 @@
   </div>
 </template>
 <script>
-  import needlesTables from '~/static/data/suggestedNeedles.json';
+  import needlesTables from '~/public/data/suggestedNeedles.json';
 
   export default {
     data() {

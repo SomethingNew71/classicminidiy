@@ -8,7 +8,7 @@
       :navigation="true"
     />
     <div class="container">
-      <nuxt-child />
+      <NuxtChild />
     </div>
   </div>
 </template>

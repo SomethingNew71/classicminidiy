@@ -101,8 +101,8 @@
           </o-notification>
         </div>
         <div v-if="!loading" class="columns is-multiline">
-          <template v-for="(color, index, name) in currentColors">
-            <div :key="index" class="column is-4">
+          <template v-for="(color, index, name) in currentColors" :key="index">
+            <div class="column is-4">
               <div class="card">
                 <header class="card-header">
                   <p class="card-header-title">
@@ -184,7 +184,7 @@
   </section>
 </template>
 <script>
-  import colors from '~/static/data/colors.json';
+  import colors from '~/public/data/colors.json';
   import PatreonCard from '~/components/PatreonCard';
 
   export default {

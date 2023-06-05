@@ -62,8 +62,8 @@
 
 <script>
   import { DateTime } from 'luxon';
+  import axios from 'axios';
   import { defineComponent } from '#imports';
-  const axios = require('axios').default;
 
   export default defineComponent({
     data() {

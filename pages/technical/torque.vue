@@ -32,8 +32,11 @@
         </nav>
         <h1 class="title">Torque Specs</h1>
       </div>
-      <template v-for="(table, name, index) in tables">
-        <div :key="`${name}-${index}`" class="column is-12">
+      <template
+        v-for="(table, name, index) in tables"
+        :key="`${name}-${index}`"
+      >
+        <div class="column is-12">
           <o-collapse
             class="card"
             aria-id="contentIdForA11y3"
@@ -102,7 +105,7 @@
   import PatreonCard from '~/components/PatreonCard';
 
   function getTables() {
-    return import('~/static/data/torqueSpecs.json').then((m) => m.default || m);
+    return import('~/public/data/torqueSpecs.json').then((m) => m.default || m);
   }
   export default {
     components: {
