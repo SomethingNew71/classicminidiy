@@ -93,30 +93,26 @@
 
 <script lang="ts" setup>
   const { data: diagrams } = await useFetch('/api/diagrams');
-</script>
 
-<script lang="ts">
-  export default defineComponent({
-    head: {
-      title: 'Technical - Electrical Diagrams',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
-        },
-        {
-          property: 'og:title',
-          content: 'Technical - Electrical Diagrams',
-        },
-        {
-          property: 'og:image',
-          content:
-            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
-        },
-      ],
-    },
+  useHead({
+    title: 'Technical - Electrical Diagrams',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+      },
+      {
+        property: 'og:title',
+        content: 'Technical - Electrical Diagrams',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+      },
+    ],
   });
 </script>
 <style lang="scss" scoped>

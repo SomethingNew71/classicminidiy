@@ -62,6 +62,24 @@
     </section>
   </div>
 </template>
+
+<script lang="ts" setup>
+  useHead({
+    title: 'Technical Toolbox',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
+      },
+      {
+        property: 'og:title',
+        content: 'Technical Toolbox',
+      },
+    ],
+  });
+</script>
 <script lang="ts">
   export default defineComponent({
     data() {
@@ -132,21 +150,6 @@
           },
         ],
       };
-    },
-    head: {
-      title: 'Technical Toolbox',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
-        },
-        {
-          property: 'og:title',
-          content: 'Technical Toolbox',
-        },
-      ],
     },
   });
 </script>

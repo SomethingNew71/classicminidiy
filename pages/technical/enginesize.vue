@@ -171,6 +171,29 @@
   </div>
 </template>
 
+<script lang="ts" setup>
+  useHead({
+    title: 'Technical - Engine Sizes/Displacements',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+      },
+      {
+        property: 'og:title',
+        content: 'Technical - Engine Sizes/Displacements',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
+      },
+    ],
+  });
+</script>
+
 <script lang="ts">
   export default defineComponent({
     data() {
@@ -479,26 +502,6 @@
           },
         ],
       };
-    },
-    head: {
-      title: 'Technical - Engine Sizes/Displacements',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
-        },
-        {
-          property: 'og:title',
-          content: 'Technical - Engine Sizes/Displacements',
-        },
-        {
-          property: 'og:image',
-          content:
-            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
-        },
-      ],
     },
   });
 </script>
