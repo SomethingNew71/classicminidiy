@@ -104,28 +104,25 @@
   </div>
 </template>
 
-<script lang="ts">
-  export default defineComponent({
-    head: {
-      title: 'Technical - Compression Ratio Calculator',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "Planning your next engine build? Use our brand new compression ratio calculator to generate the new ratio for your Classic Mini's engine.",
-        },
-        {
-          property: 'og:title',
-          content: 'Technical - Compression Ratio Calculator',
-        },
-        {
-          property: 'og:image',
-          content:
-            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
-        },
-      ],
-    },
+<script lang="js" setup>
+  useHead({
+    title: 'Technical - Compression Ratio Calculator',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          "Planning your next engine build? Use our brand new compression ratio calculator to generate the new ratio for your Classic Mini's engine.",
+      },
+      {
+        property: 'og:title',
+        content: 'Technical - Compression Ratio Calculator',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+      },
+    ],
   });
 </script>
-<style lang="scss"></style>

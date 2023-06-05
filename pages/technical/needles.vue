@@ -102,28 +102,26 @@
     </section>
   </div>
 </template>
-<script>
-  export default defineComponent({
-    head: {
-      title: 'Technical - SU Needles Chart',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.',
-        },
-        {
-          property: 'og:title',
-          content: 'Technical - SU Needles Chart',
-        },
-        {
-          property: 'og:image',
-          content:
-            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
-        },
-      ],
-    },
+<script lang="ts" setup>
+  useHead({
+    title: 'Technical - SU Needles Chart',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.',
+      },
+      {
+        property: 'og:title',
+        content: 'Technical - SU Needles Chart',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+      },
+    ],
   });
 </script>
 

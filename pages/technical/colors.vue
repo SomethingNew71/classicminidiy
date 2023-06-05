@@ -208,6 +208,28 @@
     </section>
   </div>
 </template>
+<script lang="js" setup>
+  useHead({
+    title: 'Technical - Color Picker',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
+      },
+      {
+        property: 'og:title',
+        content: 'Technical - Color Picker',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+      },
+    ],
+  });
+</script>
 <script lang="js">
   export default defineComponent({
     data() {
@@ -241,26 +263,6 @@
         currentColors: null,
         loading: false,
       };
-    },
-    head: {
-      title: 'Technical - Color Picker',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
-        },
-        {
-          property: 'og:title',
-          content: 'Technical - Color Picker',
-        },
-        {
-          property: 'og:image',
-          content:
-            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
-        },
-      ],
     },
     created () {
       const colors = $fetch('/api/colors');

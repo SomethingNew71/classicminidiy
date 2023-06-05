@@ -102,28 +102,26 @@
   </div>
 </template>
 
-<script lang="ts">
-  export default defineComponent({
-    head: {
-      title: 'Technical - Gearing Calculator',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
-        },
-        {
-          property: 'og:title',
-          content: 'Technical - Gearing Calculator',
-        },
-        {
-          property: 'og:image',
-          content:
-            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
-        },
-      ],
-    },
+<script lang="ts" setup>
+  useHead({
+    title: 'Technical - Gearing Calculator',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+      },
+      {
+        property: 'og:title',
+        content: 'Technical - Gearing Calculator',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
+      },
+    ],
   });
 </script>
 <style lang="scss"></style>

@@ -91,6 +91,26 @@
 
 <script lang="ts" setup>
   const { data: tables } = await useFetch('/api/parts');
+  useHead({
+    title: 'Technical - Parts Equivalency',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'A complete list of parts which can be found at local parts sellers',
+      },
+      {
+        property: 'og:title',
+        content: 'Technical - Parts Equivalency',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+      },
+    ],
+  });
 </script>
 
 <script lang="ts">
@@ -99,26 +119,6 @@
       return {
         pagination: {},
       };
-    },
-    head: {
-      title: 'Technical - Parts Equivalency',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'A complete list of parts which can be found at local parts sellers',
-        },
-        {
-          property: 'og:title',
-          content: 'Technical - Parts Equivalency',
-        },
-        {
-          property: 'og:image',
-          content:
-            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
-        },
-      ],
     },
   });
 </script>
