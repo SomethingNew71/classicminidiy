@@ -31,8 +31,8 @@
     </div>
   </section>
 </template>
-<script>
-  export default {
+<script lang="ts">
+  export default defineComponent({
     props: {
       title: {
         type: String,
@@ -52,7 +52,7 @@
       },
       background: {
         type: String,
-        default: '',
+        default: '/technical',
       },
       navigation: {
         type: Boolean,
@@ -69,7 +69,6 @@
         mobileOpen: false,
         navbarOptions: {
           elementId: 'main-navbar',
-          isUsingVueRouter: true,
           mobileBreakpoint: 992,
           brandImage:
             'https://classicminidiy.s3.amazonaws.com/misc/black-small-logo.png',
@@ -81,13 +80,14 @@
             {
               type: 'link',
               text: 'Home',
+              isUsingVueRouter: true,
               path: '/',
               iconLeft: '<i class="fad fa-house"></i>',
             },
             {
-              isLinkAction: true,
               type: 'link',
               text: 'Store',
+              isUsingVueRouter: false,
               path: 'https://merch.classicminidiy.com',
               iconLeft: '<i class="fad fa-store"></i>',
             },
@@ -100,6 +100,7 @@
                   type: 'link',
                   text: 'Torque Specs',
                   // subText: 'Torque Specs for your entire car',
+                  isUsingVueRouter: true,
                   path: '/technical/torque',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -116,6 +117,7 @@
                   type: 'link',
                   text: 'Electrical Diagrams',
                   // subText: 'Complete and new digitally redrawn Classic Mini Wiring diagrams',
+                  isUsingVueRouter: true,
                   path: '/technical/electrical',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -132,6 +134,7 @@
                   type: 'link',
                   text: 'Engine Sizes',
                   // subText: 'Torque Specs for your entire car',
+                  isUsingVueRouter: true,
                   path: '/technical/enginesize',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -148,6 +151,7 @@
                   type: 'link',
                   text: 'Carb Needle Configurator',
                   // subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
+                  isUsingVueRouter: true,
                   path: '/technical/needles',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -164,6 +168,7 @@
                   type: 'link',
                   text: 'Gearbox Calculator',
                   // subText: 'Ever been confused about carb needles? Use our configurator to find the right needle profile for your car.',
+                  isUsingVueRouter: true,
                   path: '/technical/gearing',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -180,6 +185,7 @@
                   type: 'link',
                   text: 'Wheel Library',
                   // subText: 'Looking for your new wheels? Check out the Wheel Library',
+                  isUsingVueRouter: true,
                   path: '/technical/wheels',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -196,6 +202,7 @@
                   type: 'link',
                   text: 'Compression Ratio Calculator',
                   // subText: 'Calculate the compression ratio for your next engine build',
+                  isUsingVueRouter: true,
                   path: '/technical/compression',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -212,6 +219,7 @@
                   type: 'link',
                   text: 'Parts Equivalency',
                   // subText: 'Calculate the compression ratio for your next engine build',
+                  isUsingVueRouter: true,
                   path: '/technical/parts',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -228,6 +236,7 @@
                   type: 'link',
                   text: 'Color Picker',
                   // subText: 'Find the right color swatch for your car',
+                  isUsingVueRouter: true,
                   path: '/technical/colors',
                   iconLeft: `
                   <picture class="submenu-icon">
@@ -240,10 +249,10 @@
               ],
             },
             {
-              isLinkAction: true,
               type: 'button',
               class: 'fancy-font-heavy donate',
               text: 'Buy me a Coffee',
+              isUsingVueRouter: false,
               path: 'https://ko-fi.com/classicminidiy',
               iconLeft: '<i class="fad fa-mug-saucer" />',
             },
@@ -255,7 +264,7 @@
       window.dispatchEvent(new Event('resize'));
     },
     methods: {
-      vnbItemClicked(text) {
+      vnbItemClicked(text: string) {
         if (text === 'Store') {
           window.open('https://merch.classicminidiy.com', '_blank');
         } else if (text === 'Buy me a Coffee') {
@@ -266,7 +275,7 @@
         this.showOverlay = !this.showOverlay;
       },
     },
-  };
+  });
 </script>
 <style lang="scss">
   .hero {

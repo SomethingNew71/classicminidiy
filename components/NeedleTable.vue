@@ -59,7 +59,7 @@
   </div>
 </template>
 <script>
-  import needlesTables from '~/public/data/suggestedNeedles.json';
+  import needlesTables from '~/data/suggestedNeedles.json';
 
   export default {
     data() {

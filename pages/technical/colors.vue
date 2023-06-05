@@ -1,196 +1,215 @@
 <template>
-  <section class="section">
-    <div class="columns is-multiline">
-      <div class="column is-12">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <ul>
-            <li>
-              <nuxt-link to="/">
-                <span class="icon is-small">
-                  <i class="fad fa-home" aria-hidden="true" />
-                </span>
-                <span>Home</span>
-              </nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="/technical">
-                <span class="icon is-small">
-                  <i class="fad fa-info-circle" aria-hidden="true" />
-                </span>
-                <span>Technical Info</span>
-              </nuxt-link>
-            </li>
-            <li class="is-active">
-              <nuxt-link to="">
-                <span class="icon is-small">
-                  <i class="fad fa-palette" aria-hidden="true"></i>
-                </span>
-                <span>Color Swatches</span>
-              </nuxt-link>
-            </li>
-          </ul>
-        </nav>
+  <div>
+    <hero
+      :title="title"
+      :subtitle="subtitle"
+      :centered="centered"
+      :navigation="true"
+    />
+    <section class="section">
+      <div class="columns is-multiline">
+        <div class="column is-12">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li>
+                <nuxt-link to="/">
+                  <span class="icon is-small">
+                    <i class="fad fa-home" aria-hidden="true" />
+                  </span>
+                  <span>Home</span>
+                </nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/technical">
+                  <span class="icon is-small">
+                    <i class="fad fa-info-circle" aria-hidden="true" />
+                  </span>
+                  <span>Technical Info</span>
+                </nuxt-link>
+              </li>
+              <li class="is-active">
+                <nuxt-link to="">
+                  <span class="icon is-small">
+                    <i class="fad fa-palette" aria-hidden="true"></i>
+                  </span>
+                  <span>Color Swatches</span>
+                </nuxt-link>
+              </li>
+            </ul>
+          </nav>
 
-        <h1 class="title">Classic Mini Color Picker</h1>
-        <p>
-          In an effort to make more information availble, Classic Mini DIY has
-          partnered with
-          <a href="http://mini-colours.co.uk">mini-colours.co.uk</a> to provide
-          you with a comprehensive list of the colors used on the Classic Mini
-          throughout the years.
-        </p>
-        <hr />
-      </div>
-      <div class="column is-6">
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">Choose a Color</p>
-          </header>
-          <div class="card-content">
-            <div class="content">
-              <p>
-                Colors are seperated into general color sections. Please choose
-                the closest main color to your Classic Mini color swatch as
-                possible.
-              </p>
-              <o-select
-                v-model="selectedOption"
-                placeholder="Select a Color"
-                icon="tint"
-                icon-pack="fad"
-                @input="getColors()"
-              >
-                <option
-                  v-for="(option, index) in colorRefs"
-                  :key="index"
-                  :value="option"
+          <h1 class="title">Classic Mini Color Picker</h1>
+          <p>
+            In an effort to make more information availble, Classic Mini DIY has
+            partnered with
+            <a href="http://mini-colours.co.uk">mini-colours.co.uk</a> to
+            provide you with a comprehensive list of the colors used on the
+            Classic Mini throughout the years.
+          </p>
+          <hr />
+        </div>
+        <div class="column is-6">
+          <article class="message">
+            <div class="message-header">
+              <p>Notice:</p>
+            </div>
+            <div class="message-body">
+              We had to temporarily disable this part of our site. We will bring
+              it back as soon as possible!
+              <br />
+              - Cole
+            </div>
+          </article>
+        </div>
+
+        <!-- <div class="column is-6">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">Choose a Color</p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <p>
+                  Colors are seperated into general color sections. Please
+                  choose the closest main color to your Classic Mini color
+                  swatch as possible.
+                </p>
+                <o-select
+                  v-model="selectedOption"
+                  placeholder="Select a Color"
+                  icon="tint"
+                  icon-pack="fad"
+                  @input="getColors()"
                 >
-                  {{ option }}
-                </option>
-              </o-select>
+                  <option
+                    v-for="(option, index) in colorRefs"
+                    :key="index"
+                    :value="option"
+                  >
+                    {{ option }}
+                  </option>
+                </o-select>
+              </div>
             </div>
+            <footer v-if="currentColors" class="card-footer">
+              <div v-if="currentColors" class="card-footer-item">
+                <h3>
+                  <span class="is-size-4 fad fa-swatchbook pr-5"></span>
+                  Total {{ selectedOption }} Swatches:
+                  <strong>{{ currentColors.length }}</strong>
+                </h3>
+              </div>
+            </footer>
           </div>
-          <footer v-if="currentColors" class="card-footer">
-            <div v-if="currentColors" class="card-footer-item">
-              <h3>
-                <span class="is-size-4 fad fa-swatchbook pr-5"></span>
-                Total {{ selectedOption }} Swatches:
-                <strong>{{ currentColors.length }}</strong>
-              </h3>
-            </div>
-          </footer>
         </div>
-      </div>
-      <div class="column is-12">
-        <div
-          v-if="!currentColors && !loading"
-          class="has-text-centered no-colors"
-        >
-          <h2 class="title">Choose a color</h2>
-          <img
-            src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png"
-            alt=""
-          />
-        </div>
-        <div v-if="loading">
-          <o-notification :closable="false">
-            <o-loading
-              v-model:active="loading"
-              :is-full-page="false"
-            ></o-loading>
-          </o-notification>
-        </div>
-        <div v-if="!loading" class="columns is-multiline">
-          <template v-for="(color, index, name) in currentColors" :key="index">
-            <div class="column is-4">
-              <div class="card">
-                <header class="card-header">
-                  <p class="card-header-title">
-                    {{ color[3] }}
-                  </p>
-                </header>
-                <div class="card-image">
-                  <figure class="image is-4x4">
-                    <img
-                      v-if="color[6]"
-                      :src="`https://classicminidiy.s3.amazonaws.com/colors/${color[2]}.jpg`"
-                      :alt="`Image of color ${color[2]}`"
-                    />
-                    <img
-                      v-if="!color[6]"
-                      src="https://classicminidiy.s3.amazonaws.com/colors/no-swatch.png"
-                      :alt="`No image exists for color ${color[2]}`"
-                    />
-                  </figure>
-                </div>
-                <hr v-if="!color[6]" />
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-5">
-                        {{ color[2] }}
-                      </p>
+        <div class="column is-12">
+          <div
+            v-if="!currentColors && !loading"
+            class="has-text-centered no-colors"
+          >
+            <h2 class="title">Choose a color</h2>
+            <img
+              src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png"
+              alt=""
+            />
+          </div>
+          <div v-if="loading">
+            <o-notification :closable="false">
+              <o-loading
+                v-model:active="loading"
+                :is-full-page="false"
+              ></o-loading>
+            </o-notification>
+          </div>
+          <div v-if="!loading" class="columns is-multiline">
+            <template
+              v-for="(color, index, name) in currentColors"
+              :key="index"
+            >
+              <div class="column is-4">
+                <div class="card">
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      {{ color[3] }}
+                    </p>
+                  </header>
+                  <div class="card-image">
+                    <figure class="image is-4x4">
+                      <img
+                        v-if="color[6]"
+                        :src="`https://classicminidiy.s3.amazonaws.com/colors/${color[2]}.jpg`"
+                        :alt="`Image of color ${color[2]}`"
+                      />
+                      <img
+                        v-if="!color[6]"
+                        src="https://classicminidiy.s3.amazonaws.com/colors/no-swatch.png"
+                        :alt="`No image exists for color ${color[2]}`"
+                      />
+                    </figure>
+                  </div>
+                  <hr v-if="!color[6]" />
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-content">
+                        <p class="title is-5">
+                          {{ color[2] }}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <footer class="card-footer">
-                  <p class="card-footer-item">
-                    <span class="is-size-4 fad fa-calendar-alt pr-5"></span>
-                    <span class="subtitle is-7">
-                      {{ color[5] }}
-                    </span>
-                  </p>
-                  <p class="card-footer-item">
-                    <span class="is-size-4 fad fa-brackets pr-5"></span>
-                    <span class="subtitle is-7"> ({{ color[4] }}) </span>
-                  </p>
-                </footer>
-              </div>
-            </div>
-            <div
-              v-if="index === 3 || index === 9 || index === 20"
-              :key="name"
-              class="column is-4"
-            >
-              <div class="card">
-                <div class="card-content">
-                  <patreon-card :size="'small'" />
+                  <footer class="card-footer">
+                    <p class="card-footer-item">
+                      <span class="is-size-4 fad fa-calendar-alt pr-5"></span>
+                      <span class="subtitle is-7">
+                        {{ color[5] }}
+                      </span>
+                    </p>
+                    <p class="card-footer-item">
+                      <span class="is-size-4 fad fa-brackets pr-5"></span>
+                      <span class="subtitle is-7"> ({{ color[4] }}) </span>
+                    </p>
+                  </footer>
                 </div>
               </div>
-            </div>
-            <div
-              v-if="index === 3 || index === 9 || index === 20"
-              :key="name"
-              class="column is-4"
-            >
-              <div class="card">
-                <div class="card-content">
-                  <!-- <InFeedAdsense
-                    data-ad-layout-key="+2a+rx+1+2-3"
-                    data-ad-client="ca-pub-0523971861051053"
-                    data-ad-slot="8473398533"
-                    class="adsbygoogle"
-                    style="display: block"
-                    data-ad-format="fluid"
-                  >
-                  </InFeedAdsense> -->
+              <div
+                v-if="index === 3 || index === 9 || index === 20"
+                :key="name"
+                class="column is-4"
+              >
+                <div class="card">
+                  <div class="card-content">
+                    <patreon-card :size="'small'" />
+                  </div>
                 </div>
               </div>
-            </div>
-          </template>
-        </div>
+              <div
+                v-if="index === 3 || index === 9 || index === 20"
+                :key="name"
+                class="column is-4"
+              >
+                <div class="card">
+                  <div class="card-content">
+                    <InFeedAdsense
+                      data-ad-layout-key="+2a+rx+1+2-3"
+                      data-ad-client="ca-pub-0523971861051053"
+                      data-ad-slot="8473398533"
+                      class="adsbygoogle"
+                      style="display: block"
+                      data-ad-format="fluid"
+                    >
+                    </InFeedAdsense>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div> -->
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
-<script>
-  import colors from '~/public/data/colors.json';
-  import PatreonCard from '~/components/PatreonCard';
-
-  export default {
-    components: {
-      PatreonCard,
-    },
+<script lang="js">
+  export default defineComponent({
     data() {
       return {
         title: 'Technical Information',
@@ -198,7 +217,7 @@
         background: '/technical.jpg',
         size: 'is-medium',
         centered: true,
-        colors,
+        colors: null,
         colorRefs: [
           'Beige',
           'Black',
@@ -218,32 +237,34 @@
           'White',
           'Yellow',
         ],
-        selectedOption: null,
+        selectedOption: '',
         currentColors: null,
         loading: false,
       };
     },
-    head() {
-      return {
-        title: 'Technical - Color Picker',
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content:
-              'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
-          },
-          {
-            property: 'og:title',
-            content: 'Technical - Color Picker',
-          },
-          {
-            property: 'og:image',
-            content:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
-          },
-        ],
-      };
+    head: {
+      title: 'Technical - Color Picker',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
+        },
+        {
+          property: 'og:title',
+          content: 'Technical - Color Picker',
+        },
+        {
+          property: 'og:image',
+          content:
+            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+        },
+      ],
+    },
+    created () {
+      const colors = $fetch('/api/colors');
+      this.colors = colors.value;
     },
     methods: {
       getColors() {
@@ -260,15 +281,16 @@
         "colour_approved"
       ]
     */
+        console.log(this.colors);
         this.loading = true;
         this.currentColors =
-          colors[this.selectedOption.toString().toLowerCase()];
+          this.colors[this.selectedOption.toString().toLowerCase()];
         setTimeout(() => {
           this.loading = false;
         }, 500);
       },
     },
-  };
+  });
 </script>
 <style lang="scss">
   .no-colors {

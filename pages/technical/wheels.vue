@@ -1,152 +1,305 @@
 <template>
-  <section class="section">
-    <div class="columns">
-      <div class="column is-12">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <ul>
-            <li>
-              <nuxt-link to="/">
-                <span class="icon is-small">
-                  <i class="fas fa-home" aria-hidden="true" />
-                </span>
-                <span>Home</span>
-              </nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="/technical">
-                <span class="icon is-small">
-                  <i class="fas fa-book" aria-hidden="true" />
-                </span>
-                <span>Technical Info</span>
-              </nuxt-link>
-            </li>
-            <li class="is-active">
-              <nuxt-link to="">
-                <span class="icon is-small">
-                  <i class="fas fa-tire" aria-hidden="true" />
-                </span>
-                <span>Wheel Library</span>
-              </nuxt-link>
-            </li>
-          </ul>
-        </nav>
-        <h1 id="scrollLocation" class="title">Wheel Library</h1>
-        <h2 class="subtitle">
-          All data collected and currated by Jan W. from
-          <a
-            href="https://www.mini-forum.de/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Mini-Forum.de</a
-          >.
-        </h2>
-        <p class="pb-5">
-          Looking for that one wheel you saw the other day online but you just
-          cant quite find? That's where the Wheel Library comes in. Using the
-          same data from the now retired site,
-          <i class="fad fa-tombstone"></i>www.wheeldictionary.net you can search
-          for the right wheel for your Classic Mini Cooper. With
-          <strong>{{ totalAll.amount }} wheels in the library</strong> and
-          growing, we hope you'll be able to find exactly the wheel you are
-          looking for.
-        </p>
+  <div>
+    <hero
+      :title="title"
+      :subtitle="subtitle"
+      :centered="centered"
+      :navigation="true"
+    />
+    <section class="section">
+      <div class="columns">
+        <div class="column is-12">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li>
+                <nuxt-link to="/">
+                  <span class="icon is-small">
+                    <i class="fas fa-home" aria-hidden="true" />
+                  </span>
+                  <span>Home</span>
+                </nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/technical">
+                  <span class="icon is-small">
+                    <i class="fas fa-book" aria-hidden="true" />
+                  </span>
+                  <span>Technical Info</span>
+                </nuxt-link>
+              </li>
+              <li class="is-active">
+                <nuxt-link to="">
+                  <span class="icon is-small">
+                    <i class="fas fa-tire" aria-hidden="true" />
+                  </span>
+                  <span>Wheel Library</span>
+                </nuxt-link>
+              </li>
+            </ul>
+          </nav>
+          <h1 id="scrollLocation" class="title">Wheel Library</h1>
+          <h2 class="subtitle">
+            All data collected and currated by Jan W. from
+            <a
+              href="https://www.mini-forum.de/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Mini-Forum.de</a
+            >.
+          </h2>
+          <p class="pb-5">
+            Looking for that one wheel you saw the other day online but you just
+            cant quite find? That's where the Wheel Library comes in. Using the
+            same data from the now retired site,
+            <i class="fad fa-tombstone"></i>www.wheeldictionary.net you can
+            search for the right wheel for your Classic Mini Cooper. With
+            <strong>{{ totalAll.amount }} wheels in the library</strong> and
+            growing, we hope you'll be able to find exactly the wheel you are
+            looking for.
+          </p>
 
-        <div class="columns is-multiline">
-          <div class="column is-12"></div>
-          <div class="card column is-6">
-            <header class="card-header">
-              <p class="card-header-title">Find a wheel</p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <o-field class="pb-2" label="Wheel Size">
-                  <o-select
-                    v-model="selectedSize"
-                    placeholder="Select a wheel size"
-                  >
-                    <option :value="10">10 inch</option>
-                    <option :value="12">12 inch</option>
-                    <option :value="13">13 inch</option>
-                  </o-select>
-                </o-field>
-                <p>
-                  Use the search below to search by wheel name, offset, size or
-                  material.
-                </p>
-                <o-field class="mb-4" position="left">
-                  <o-input
-                    v-model="searchString"
-                    placeholder="Ex. Minilite"
-                    @keyup.enter.native="standardSearch()"
-                  ></o-input>
-                  <p class="control">
-                    <o-button
-                      class="button is-primary search-button"
-                      aria-label="Search box for wheels"
-                      @click="standardSearch"
+          <div class="columns is-multiline">
+            <div class="column is-12"></div>
+            <div class="card column is-6">
+              <header class="card-header">
+                <p class="card-header-title">Find a wheel</p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <o-field class="pb-2" label="Wheel Size">
+                    <o-select
+                      v-model="selectedSize"
+                      placeholder="Select a wheel size"
                     >
-                      <i class="fad fa-search"></i>
-                    </o-button>
+                      <option :value="10">10 inch</option>
+                      <option :value="12">12 inch</option>
+                      <option :value="13">13 inch</option>
+                    </o-select>
+                  </o-field>
+                  <p>
+                    Use the search below to search by wheel name, offset, size
+                    or material.
                   </p>
-                </o-field>
+                  <o-field class="mb-4" position="left">
+                    <o-input
+                      v-model="searchString"
+                      placeholder="Ex. Minilite"
+                      @keyup.enter.native="standardSearch()"
+                    ></o-input>
+                    <p class="control">
+                      <o-button
+                        class="button is-primary search-button"
+                        aria-label="Search box for wheels"
+                        @click="standardSearch"
+                      >
+                        <i class="fad fa-search"></i>
+                      </o-button>
+                    </p>
+                  </o-field>
+                </div>
               </div>
-            </div>
-            <footer class="card-footer">
-              <div class="card-footer-item">
-                <o-button
-                  v-if="searchString !== '' && !allWheelsVisible"
-                  expanded
-                  class="button is-primary"
-                  @click="searchAll"
-                >
-                  View All {{ selectedSize }}in Wheels
-                </o-button>
-                <o-tooltip
-                  v-else
-                  position="top"
-                  :label="`Already displaying all ${selectedSize} inch wheels`"
-                >
-                  <o-button disabled expanded class="button is-primary">
+              <footer class="card-footer">
+                <div class="card-footer-item">
+                  <o-button
+                    v-if="searchString !== '' && !allWheelsVisible"
+                    expanded
+                    class="button is-primary"
+                    @click="searchAll"
+                  >
                     View All {{ selectedSize }}in Wheels
                   </o-button>
-                </o-tooltip>
-              </div>
-            </footer>
-          </div>
-          <div class="column is-12">
-            <div class="columns is-multiline">
-              <div class="column is-6">
-                <p
-                  v-if="searchString !== '' && !allWheelsVisible"
-                  class="has-text-weight-bold"
+                  <o-tooltip
+                    v-else
+                    position="top"
+                    :label="`Already displaying all ${selectedSize} inch wheels`"
+                  >
+                    <o-button disabled expanded class="button is-primary">
+                      View All {{ selectedSize }}in Wheels
+                    </o-button>
+                  </o-tooltip>
+                </div>
+              </footer>
+            </div>
+            <div class="column is-12">
+              <div class="columns is-multiline">
+                <div class="column is-6">
+                  <p
+                    v-if="searchString !== '' && !allWheelsVisible"
+                    class="has-text-weight-bold"
+                  >
+                    Displaying
+                    <template v-if="!isLoading">
+                      {{ totalResults }}
+                    </template>
+                    <template v-else>
+                      <i class="fad fa-spinner fa-spin"></i>
+                    </template>
+                    filtered results of
+                    {{ totalAll.induvidualWheels[selectedSize] }} wheels.
+                  </p>
+                  <p v-else class="has-text-weight-bold">
+                    Displaying all {{ selectedSize }} inch wheels.
+                  </p>
+                </div>
+                <div
+                  v-if="selectedWheels && !isLoading && totalResults > perPage"
+                  class="column is-6"
                 >
-                  Displaying
-                  <template v-if="!isLoading">
-                    {{ totalResults }}
-                  </template>
-                  <template v-else>
-                    <i class="fad fa-spinner fa-spin"></i>
-                  </template>
-                  filtered results of
-                  {{ totalAll.induvidualWheels[selectedSize] }} wheels.
-                </p>
-                <p v-else class="has-text-weight-bold">
-                  Displaying all {{ selectedSize }} inch wheels.
-                </p>
+                  <o-pagination
+                    v-model="currentPage"
+                    :total="totalResults"
+                    :simple="true"
+                    :range-before="2"
+                    :range-after="2"
+                    :order="'is-right'"
+                    :per-page="perPage"
+                    :icon-pack="'fa'"
+                    aria-next-label="Next page"
+                    aria-previous-label="Previous page"
+                    aria-page-label="Page"
+                    aria-current-label="Current page"
+                    @change="changePages()"
+                  >
+                  </o-pagination>
+                </div>
+              </div>
+              <skeleton-loader
+                v-if="isLoading && selectedSize !== ''"
+                :amount="perPage"
+              ></skeleton-loader>
+              <div v-if="!isLoading && !noResults" class="columns is-multiline">
+                <template v-for="(wheel, index) in paginatedItems" :key="index">
+                  <div class="column is-4">
+                    <article class="card">
+                      <div class="card-image">
+                        <o-tooltip
+                          label="Suggest changes to the details of this wheel"
+                          animated
+                          multilined
+                          type="is-light"
+                          position="left"
+                          class="edit-icon-link"
+                        >
+                          <o-button
+                            aria-label="Suggest changes to the details of this wheel"
+                            type="is-primary"
+                            icon-right="pencil"
+                            :icon-pack="'fad'"
+                            @click="editWheel(wheel)"
+                          />
+                        </o-tooltip>
+                        <figure class="image is-square">
+                          <img
+                            :src="wheel.imagewebp"
+                            :webp-fallback="wheel.imagepath"
+                            :alt="`Image of ${wheel.name}`"
+                          />
+                        </figure>
+                      </div>
+                      <div class="card-content">
+                        <div class="media mb-1">
+                          <div class="media-content">
+                            <o-tooltip
+                              label="Wheel Size"
+                              animated
+                              type="is-dark"
+                            >
+                              <i class="fad fa-expand-arrows-alt pr-1"></i>
+                              {{ wheel.size || 'N/A' }}
+                            </o-tooltip>
+                            <o-tooltip
+                              label="Wheel Offset"
+                              animated
+                              type="is-dark"
+                            >
+                              <i
+                                class="fad fa-arrow-alt-from-left pr-1 pl-2"
+                              ></i>
+                              {{ wheel.offset || 'N/A' }}
+                            </o-tooltip>
+                            <o-tooltip
+                              label="Wheel Material"
+                              animated
+                              type="is-dark"
+                            >
+                              <i class="fad fa-box-full pr-1 pl-2"></i>
+                              {{ wheel.type || 'N/A' }}
+                            </o-tooltip>
+                            <p
+                              class="title is-5 pt-3 pb-1"
+                              v-html="wheel.name"
+                            ></p>
+                          </div>
+                        </div>
+                        <div v-if="wheel.notes" class="content">
+                          <o-collapse
+                            animation="slide"
+                            :open="false"
+                            position="top"
+                          >
+                            <a slot="trigger" slot-scope="props">
+                              <o-icon
+                                pack="fad"
+                                :icon="
+                                  !props.open ? 'chevron-down' : 'chevron-up'
+                                "
+                              ></o-icon>
+                              {{
+                                !props.open
+                                  ? 'Additional details'
+                                  : 'Hide details'
+                              }}
+                            </a>
+                            <p v-html="wheel.notes"></p>
+                          </o-collapse>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div
+                    v-if="index === 3 || index === 9 || index === 20"
+                    :key="index"
+                    class="column is-4"
+                  >
+                    <article class="card">
+                      <div class="card-content">
+                        <!-- <InFeedAdsense
+                          data-ad-layout-key="+2a+rs+2z-6m+25"
+                          data-ad-client="ca-pub-0523971861051053"
+                          data-ad-slot="4011964258"
+                          class="adsbygoogle"
+                          style="display: block"
+                          data-ad-format="fluid"
+                        >
+                        </InFeedAdsense> -->
+                      </div>
+                    </article>
+                  </div>
+                </template>
               </div>
               <div
-                v-if="selectedWheels && !isLoading && totalResults > perPage"
-                class="column is-6"
+                v-if="!isLoading && noResults"
+                class="column is-10 is-offset-1 no-results"
+              >
+                <div class="card">
+                  <div class="card-content has-text-centered">
+                    <i class="fad fa-sad-tear pb-3"></i>
+                    <h3>No Results found for "{{ searchString }}"</h3>
+                  </div>
+                </div>
+              </div>
+              <div
+                v-if="!isLoading && totalResults > perPage && !noResults"
+                class="column is-12"
               >
                 <o-pagination
                   v-model="currentPage"
                   :total="totalResults"
-                  :simple="true"
                   :range-before="2"
                   :range-after="2"
-                  :order="'is-right'"
+                  :order="'is-centered'"
                   :per-page="perPage"
-                  :icon-pack="'fa'"
+                  :icon-pack="'fad'"
                   aria-next-label="Next page"
                   aria-previous-label="Previous page"
                   aria-page-label="Page"
@@ -156,168 +309,29 @@
                 </o-pagination>
               </div>
             </div>
-            <skeleton-loader
-              v-if="isLoading && selectedSize !== ''"
-              :amount="perPage"
-            ></skeleton-loader>
-            <div v-if="!isLoading && !noResults" class="columns is-multiline">
-              <template v-for="(wheel, index) in paginatedItems" :key="index">
-                <div class="column is-4">
-                  <article class="card">
-                    <div class="card-image">
-                      <o-tooltip
-                        label="Suggest changes to the details of this wheel"
-                        animated
-                        multilined
-                        type="is-light"
-                        position="left"
-                        class="edit-icon-link"
-                      >
-                        <o-button
-                          aria-label="Suggest changes to the details of this wheel"
-                          type="is-primary"
-                          icon-right="pencil"
-                          :icon-pack="'fad'"
-                          @click="editWheel(wheel)"
-                        />
-                      </o-tooltip>
-                      <figure class="image is-square">
-                        <img
-                          :src="wheel.imagewebp"
-                          :webp-fallback="wheel.imagepath"
-                          :alt="`Image of ${wheel.name}`"
-                        />
-                      </figure>
-                    </div>
-                    <div class="card-content">
-                      <div class="media mb-1">
-                        <div class="media-content">
-                          <o-tooltip label="Wheel Size" animated type="is-dark">
-                            <i class="fad fa-expand-arrows-alt pr-1"></i>
-                            {{ wheel.size || 'N/A' }}
-                          </o-tooltip>
-                          <o-tooltip
-                            label="Wheel Offset"
-                            animated
-                            type="is-dark"
-                          >
-                            <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i>
-                            {{ wheel.offset || 'N/A' }}
-                          </o-tooltip>
-                          <o-tooltip
-                            label="Wheel Material"
-                            animated
-                            type="is-dark"
-                          >
-                            <i class="fad fa-box-full pr-1 pl-2"></i>
-                            {{ wheel.type || 'N/A' }}
-                          </o-tooltip>
-                          <p
-                            class="title is-5 pt-3 pb-1"
-                            v-html="wheel.name"
-                          ></p>
-                        </div>
-                      </div>
-                      <div v-if="wheel.notes" class="content">
-                        <o-collapse
-                          animation="slide"
-                          :open="false"
-                          position="top"
-                        >
-                          <a slot="trigger" slot-scope="props">
-                            <o-icon
-                              pack="fad"
-                              :icon="
-                                !props.open ? 'chevron-down' : 'chevron-up'
-                              "
-                            ></o-icon>
-                            {{
-                              !props.open
-                                ? 'Additional details'
-                                : 'Hide details'
-                            }}
-                          </a>
-                          <p v-html="wheel.notes"></p>
-                        </o-collapse>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div
-                  v-if="index === 3 || index === 9 || index === 20"
-                  :key="index"
-                  class="column is-4"
-                >
-                  <article class="card">
-                    <div class="card-content">
-                      <!-- <InFeedAdsense
-                        data-ad-layout-key="+2a+rs+2z-6m+25"
-                        data-ad-client="ca-pub-0523971861051053"
-                        data-ad-slot="4011964258"
-                        class="adsbygoogle"
-                        style="display: block"
-                        data-ad-format="fluid"
-                      >
-                      </InFeedAdsense> -->
-                    </div>
-                  </article>
-                </div>
-              </template>
-            </div>
-            <div
-              v-if="!isLoading && noResults"
-              class="column is-10 is-offset-1 no-results"
-            >
-              <div class="card">
-                <div class="card-content has-text-centered">
-                  <i class="fad fa-sad-tear pb-3"></i>
-                  <h3>No Results found for "{{ searchString }}"</h3>
-                </div>
+            <div class="column is-12 is-hidden-tablet">
+              <div class="column is-10 is-offset-1">
+                <div class="divider">Support</div>
               </div>
-            </div>
-            <div
-              v-if="!isLoading && totalResults > perPage && !noResults"
-              class="column is-12"
-            >
-              <o-pagination
-                v-model="currentPage"
-                :total="totalResults"
-                :range-before="2"
-                :range-after="2"
-                :order="'is-centered'"
-                :per-page="perPage"
-                :icon-pack="'fad'"
-                aria-next-label="Next page"
-                aria-previous-label="Previous page"
-                aria-page-label="Page"
-                aria-current-label="Current page"
-                @change="changePages()"
-              >
-              </o-pagination>
-            </div>
-          </div>
-          <div class="column is-12 is-hidden-tablet">
-            <div class="column is-10 is-offset-1">
-              <div class="divider">Support</div>
-            </div>
-            <div class="card">
-              <div class="card-content">
-                <patreon-card size="large" />
+              <div class="card">
+                <div class="card-content">
+                  <patreon-card size="large" />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
   import Fuse from 'fuse.js';
   import { debounce } from 'debounce';
-  import tenInchWheels from '~/public/data/wheels/10.json';
-  import twelveInchWheels from '~/public/data/wheels/12.json';
-  import thirteenInchWheels from '~/public/data/wheels/13.json';
+  import tenInchWheels from '~/data/wheels/10.json';
+  import twelveInchWheels from '~/data/wheels/12.json';
+  import thirteenInchWheels from '~/data/wheels/13.json';
   import PatreonCard from '~/components/PatreonCard';
   import SkeletonLoader from '~/components/SkeletonLoader';
   import WheelEditForm from '~/components/WheelEditForm';

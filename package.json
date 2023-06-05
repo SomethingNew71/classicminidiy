@@ -22,8 +22,6 @@
     "node": "^18.16.0"
   },
   "scripts": {
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint",
     "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "nuxi preview",
@@ -36,6 +34,7 @@
     "@octokit/request": "^6.2.5",
     "@oruga-ui/oruga-next": "^0.6.0",
     "@oruga-ui/theme-bulma": "^0.2.10",
+    "@types/node": "^20.2.5",
     "axios": "^1.4.0",
     "core-js": "^3.30.2",
     "debounce": "^1.2.1",
@@ -52,16 +51,9 @@
     "webpack": "^5.85.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.21.8",
-    "nuxt": "^3.5.2",
-    "@nuxtjs/eslint-config": "12.0.0",
-    "@nuxtjs/eslint-module": "4.1.0",
-    "eslint": "8.42.0",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-nuxt": "4.0.0",
-    "eslint-plugin-prettier": "4.2.1",
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.22",
+    "nuxt": "^3.5.2",
     "nuxt-compress": "^5.0.0",
     "prettier": "2.8.8",
     "sass": "^1.62.1",
