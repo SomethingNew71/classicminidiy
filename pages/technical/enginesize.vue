@@ -1,171 +1,178 @@
 <template>
-  <section class="section">
-    <div class="columns is-multiline">
-      <div class="column is-12">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <ul>
-            <li>
-              <nuxt-link to="/">
-                <span class="icon is-small">
-                  <i class="fad fa-home" aria-hidden="true" />
-                </span>
-                <span>Home</span>
-              </nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="/technical">
-                <span class="icon is-small">
-                  <i class="fad fa-info-circle" aria-hidden="true" />
-                </span>
-                <span>Technical Info</span>
-              </nuxt-link>
-            </li>
-            <li class="is-active">
-              <nuxt-link to="">
-                <span class="icon is-small">
-                  <i class="fad fa-cogs" aria-hidden="true"></i>
-                </span>
-                <span>Engine Sizes</span>
-              </nuxt-link>
-            </li>
-          </ul>
-        </nav>
+  <div>
+    <hero :navigation="true" />
+    <section class="section">
+      <div class="columns is-multiline">
+        <div class="column is-12">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li>
+                <nuxt-link to="/">
+                  <span class="icon is-small">
+                    <i class="fad fa-home" aria-hidden="true" />
+                  </span>
+                  <span>Home</span>
+                </nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/technical">
+                  <span class="icon is-small">
+                    <i class="fad fa-info-circle" aria-hidden="true" />
+                  </span>
+                  <span>Technical Info</span>
+                </nuxt-link>
+              </li>
+              <li class="is-active">
+                <nuxt-link to="">
+                  <span class="icon is-small">
+                    <i class="fad fa-cogs" aria-hidden="true"></i>
+                  </span>
+                  <span>Engine Sizes</span>
+                </nuxt-link>
+              </li>
+            </ul>
+          </nav>
 
-        <div class="columns">
-          <div class="column is-8">
-            <h1 class="title">Engine Displacement and Sizes</h1>
-            <p>
-              Determining your next engine size can be quite difficult without a
-              reference. Check out the CMDIY standard bore, engine size chart to
-              figure out how big your current engine is, or how big you'd like
-              your next build to be!
-            </p>
-          </div>
-          <div class="column is-4">
-            <nuxt-link
-              :to="'/technical/compression'"
-              :title="'Link to Compression Calculator'"
-            >
-              <div class="card callout-card">
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-left">
-                      <figure class="image is-64x64">
-                        <picture>
-                          <source
-                            srcset="
-                              https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp
-                            "
-                            type="image/webp"
-                          />
-                          <source
-                            srcset="
-                              https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png
-                            "
-                            type="image/png"
-                          />
-                          <img
-                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
-                          />
-                        </picture>
-                      </figure>
-                    </div>
-                    <div class="media-content">
-                      <h2 class="subtitle">
-                        Trying to calculate your compression ratio?
-                      </h2>
-                      <p>
-                        Click here to try out our compression ratio calculator.
-                      </p>
+          <div class="columns">
+            <div class="column is-8">
+              <h1 class="title">Engine Displacement and Sizes</h1>
+              <p>
+                Determining your next engine size can be quite difficult without
+                a reference. Check out the CMDIY standard bore, engine size
+                chart to figure out how big your current engine is, or how big
+                you'd like your next build to be!
+              </p>
+            </div>
+            <div class="column is-4">
+              <nuxt-link
+                :to="'/technical/compression'"
+                :title="'Link to Compression Calculator'"
+              >
+                <div class="card callout-card">
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-left">
+                        <figure class="image is-64x64">
+                          <picture>
+                            <source
+                              srcset="
+                                https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp
+                              "
+                              type="image/webp"
+                            />
+                            <source
+                              srcset="
+                                https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png
+                              "
+                              type="image/png"
+                            />
+                            <img
+                              src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
+                            />
+                          </picture>
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <h2 class="subtitle">
+                          Trying to calculate your compression ratio?
+                        </h2>
+                        <p>
+                          Click here to try out our compression ratio
+                          calculator.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </nuxt-link>
+              </nuxt-link>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="column is-justify-content-end">
-        <i class="fas fa-circle pl-1 has-text-success"></i> Standard
-        <i class="fas fa-circle pl-1 has-text-primary"></i> Standard Overbore
-        <i class="fas fa-circle pl-1 has-text-danger"></i> Different Stroke
-      </div>
-      <div class="column is-12">
-        <div class="card">
-          <div class="card-content">
-            <o-table
-              :data="data"
-              :hoverable="true"
-              :row-class="
-                (row, index) =>
-                  row.group !== '' &&
-                  'has-background-light has-text-weight-bold'
-              "
-            >
-              <o-table-column
-                v-slot="props"
-                field="group"
-                label="Group"
-                narrowed="false"
+        <div class="column is-justify-content-end">
+          <i class="fas fa-circle pl-1 has-text-success"></i> Standard
+          <i class="fas fa-circle pl-1 has-text-primary"></i> Standard Overbore
+          <i class="fas fa-circle pl-1 has-text-danger"></i> Different Stroke
+        </div>
+        <div class="column is-12">
+          <div class="card">
+            <div class="card-content">
+              <o-table
+                :data="data"
+                :hoverable="true"
+                :row-class="
+                  (row: any, index: any) =>
+                    row.group !== '' &&
+                    'has-background-light has-text-weight-bold'
+                "
               >
-                {{ props.row.group }}
-                <template v-if="props.row.group === ''">
-                  <i
-                    class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1"
-                    :class="props.row.color"
-                  ></i>
-                </template>
-              </o-table-column>
-              <o-table-column
-                v-slot="props"
-                field="engineSize"
-                label="Engine Size"
-              >
-                <template v-if="props.row.group === ''">
-                  <i
-                    class="is-hidden-mobile ref-icons fas fa-circle pl-1"
-                    :class="props.row.color"
-                  ></i>
-                </template>
-                {{ props.row.engineSize }}
-              </o-table-column>
-              <o-table-column v-slot="props" field="overBore" label="Over Bore">
-                {{ props.row.overBore }}
-              </o-table-column>
-              <o-table-column v-slot="props" field="boreSize" label="Bore Size">
-                {{ props.row.boreSize }}
-              </o-table-column>
-              <o-table-column v-slot="props" field="stroke" label="Stroke">
-                {{ props.row.stroke }}
-              </o-table-column>
-              <o-table-column v-slot="props" field="power" label="Power">
-                {{ props.row.power }}
-              </o-table-column>
-              <o-table-column v-slot="props" field="torque" label="Torque">
-                {{ props.row.torque }}
-              </o-table-column>
-            </o-table>
+                <o-table-column
+                  v-slot="props"
+                  field="group"
+                  label="Group"
+                  narrowed="false"
+                >
+                  {{ props.row.group }}
+                  <template v-if="props.row.group === ''">
+                    <i
+                      class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1"
+                      :class="props.row.color"
+                    ></i>
+                  </template>
+                </o-table-column>
+                <o-table-column
+                  v-slot="props"
+                  field="engineSize"
+                  label="Engine Size"
+                >
+                  <template v-if="props.row.group === ''">
+                    <i
+                      class="is-hidden-mobile ref-icons fas fa-circle pl-1"
+                      :class="props.row.color"
+                    ></i>
+                  </template>
+                  {{ props.row.engineSize }}
+                </o-table-column>
+                <o-table-column
+                  v-slot="props"
+                  field="overBore"
+                  label="Over Bore"
+                >
+                  {{ props.row.overBore }}
+                </o-table-column>
+                <o-table-column
+                  v-slot="props"
+                  field="boreSize"
+                  label="Bore Size"
+                >
+                  {{ props.row.boreSize }}
+                </o-table-column>
+                <o-table-column v-slot="props" field="stroke" label="Stroke">
+                  {{ props.row.stroke }}
+                </o-table-column>
+                <o-table-column v-slot="props" field="power" label="Power">
+                  {{ props.row.power }}
+                </o-table-column>
+                <o-table-column v-slot="props" field="torque" label="Torque">
+                  {{ props.row.torque }}
+                </o-table-column>
+              </o-table>
+            </div>
+          </div>
+        </div>
+        <div class="column is-12">
+          <div class="card">
+            <div class="card-content">
+              <patreon-card size="large" />
+            </div>
           </div>
         </div>
       </div>
-      <div class="column is-12">
-        <div class="card">
-          <div class="card-content">
-            <patreon-card size="large" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
-<script>
-  import PatreonCard from '~/components/PatreonCard';
-
-  export default {
-    components: {
-      PatreonCard,
-    },
+<script lang="ts">
+  export default defineComponent({
     data() {
       return {
         data: [
@@ -473,29 +480,27 @@
         ],
       };
     },
-    head() {
-      return {
-        title: 'Technical - Engine Sizes/Displacements',
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content:
-              "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
-          },
-          {
-            property: 'og:title',
-            content: 'Technical - Engine Sizes/Displacements',
-          },
-          {
-            property: 'og:image',
-            content:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
-          },
-        ],
-      };
+    head: {
+      title: 'Technical - Engine Sizes/Displacements',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+        },
+        {
+          property: 'og:title',
+          content: 'Technical - Engine Sizes/Displacements',
+        },
+        {
+          property: 'og:image',
+          content:
+            'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
+        },
+      ],
     },
-  };
+  });
 </script>
 <style lang="scss" scoped>
   .ref-icons {
