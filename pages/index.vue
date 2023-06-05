@@ -347,6 +347,13 @@
             to: '/technical/colors',
           },
           {
+            title: 'Parts Equivalency',
+            image:
+              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.webp',
+            to: '/technical/parts',
+          },
+          {
             title: 'Compression Ratio Calculator',
             image:
               'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',

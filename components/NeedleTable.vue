@@ -10,16 +10,53 @@
             </h2>
           </div>
           <div class="card-content">
-            <o-table
-              :data="table.items"
-              :columns="table.columns"
-              :narrowed="true"
-              :hoverable="true"
-              :paginated="table.items.length >= 14 ? true : false"
-              :per-page="10"
-              icon-pack="fas"
-              :mobile-cards="false"
-            />
+            <client-only>
+              <o-table
+                :data="table.items"
+                :narrowed="true"
+                :hoverable="true"
+                :paginated="table.items.length >= 14 ? true : false"
+                :per-page="10"
+                icon-pack="fas"
+                :mobile-cards="false"
+              >
+                <o-table-column
+                  field="engineSize"
+                  label="Engine Size"
+                  v-slot:default="props"
+                >
+                  <span v-html="props.row.engineSize"></span>
+                </o-table-column>
+                <o-table-column
+                  field="needleStd"
+                  label="Needle Std"
+                  v-slot:default="props"
+                >
+                  <span v-html="props.row.needleStd"></span>
+                </o-table-column>
+                <o-table-column
+                  field="needleRich"
+                  label="Needle Rich"
+                  v-slot:default="props"
+                >
+                  <span v-html="props.row.needleRich"></span>
+                </o-table-column>
+                <o-table-column
+                  field="needleLean"
+                  label="Needle Lean"
+                  v-slot:default="props"
+                >
+                  <span v-html="props.row.needleLea"></span>
+                </o-table-column>
+                <o-table-column
+                  field="springType"
+                  label="Spring Type"
+                  v-slot:default="props"
+                >
+                  <span v-html="props.row.springType"></span>
+                </o-table-column>
+              </o-table>
+            </client-only>
           </div>
         </div>
       </div>
