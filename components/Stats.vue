@@ -4,93 +4,47 @@
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Minutes Watched</p>
-          <o-skeleton v-if="isLoading" :size="'is-large'" animated></o-skeleton>
-          <p v-if="!isLoading && stats.views" class="title">
+          <p v-if="stats.views" class="title">
             {{ stats.views }}
-          </p>
-          <p
-            v-else-if="(!isLoading && !stats.views) || apiError"
-            class="pt-2 fa-beat"
-          >
-            <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Subscribers</p>
-          <o-skeleton v-if="isLoading" :size="'is-large'" animated></o-skeleton>
-          <p v-if="!isLoading && stats.subscribers" class="title">
+          <p v-if="stats.subscribers" class="title">
             {{ stats.subscribers }}
-          </p>
-          <p
-            v-else-if="(!isLoading && !stats.subscribers) || apiError"
-            class="pt-2 fa-beat"
-          >
-            <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">videos</p>
-          <o-skeleton v-if="isLoading" :size="'is-large'" animated></o-skeleton>
-          <p v-if="!isLoading && stats.videos" class="title">
+          <p v-if="stats.videos" class="title">
             {{ stats.videos }}
-          </p>
-          <p
-            v-else-if="(!isLoading && !stats.videos) || apiError"
-            class="pt-2 fa-beat"
-          >
-            <i class="is-size-4 fad fa-question"></i>
           </p>
         </div>
       </div>
-      <!-- <o-loading :is-full-page="false" :active.sync="isLoading" /> -->
     </nav>
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
   import axios from 'axios';
-
-  export default {
-    data() {
-      return {
-        stats: {
-          views: undefined,
-          subscribers: undefined,
-          videos: undefined,
-        },
-        isLoading: true,
-        apiError: false,
+  const config = useRuntimeConfig();
+  let stats: any;
+  await axios
+    .get(`${config.public.serverlessEndpoint}/stats`)
+    .then((response) => {
+      stats = { ...response.data };
+    })
+    .catch(() => {
+      stats = {
+        views: undefined,
+        subscribers: undefined,
+        videos: undefined,
       };
-    },
-    created() {
-      this.fetchData();
-    },
-    methods: {
-      async fetchData() {
-        await axios
-          .get(`${this.$config.public.serverlessEndpoint}/stats`)
-          .then((response) => {
-            this.stats = { ...response.data };
-            this.apiError = false;
-          })
-          .catch(() => {
-            this.stats = {
-              views: undefined,
-              subscribers: undefined,
-              videos: undefined,
-            };
-            this.apiError = true;
-          })
-          .finally(() => {
-            this.isLoading = false;
-          });
-      },
-    },
-  };
+    });
 </script>
 
 <style lang="scss" scoped>
