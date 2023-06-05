@@ -56,14 +56,13 @@
             </o-button>
           </div>
         </o-field>
-        <o-message v-if="existsError" type="is-warning" class="my-3">
-          This needle already exists on the chart.
-        </o-message>
       </div>
     </div>
     <div class="column is-8">
       <div class="card">
-        <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
+        <client-only>
+          <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
+        </client-only>
       </div>
     </div>
     <o-modal
@@ -100,23 +99,71 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  export default {
+  import Needles from '~/data/needles.json';
+  import StarterNeedles from '~/data/default-needles.json';
+  export default defineComponent({
     data() {
       return {
-        needles: undefined,
-        starterNeedles: undefined,
+        Needles,
         existsError: false,
         addNeedleValue: '',
         addNeedleSelection: null,
         isComponentModalActive: false,
         selectValues: undefined,
-        mapOptions: undefined,
+        mapOptions: {
+          chart: { zoomType: 'x' },
+          title: { text: 'Needle Comparison Chart' },
+          exporting: {
+            buttons: {
+              contextButton: {
+                symbol: 'download',
+              },
+            },
+          },
+          subtitle: {
+            text: 'Source: <a target="_blank" href="http://www.mintylamb.co.uk/suneedle/">http://www.mintylamb.co.uk/suneedle/</a>',
+          },
+          // This is the data decleration
+          series: StarterNeedles,
+          yAxis: {
+            title: { text: 'Needle Diameter (mm)' },
+            labels: {
+              enabled: true,
+            },
+            reversed: true,
+          },
+          xAxis: {
+            title: { text: 'Needle Station' },
+            labels: {
+              enabled: true,
+            },
+          },
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+          },
+          tooltip: { headerFormat: 'Richness:<br>', shared: true },
+          responsive: {
+            rules: [
+              {
+                condition: { maxWidth: 500 },
+                chartOptions: {
+                  legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                  },
+                },
+              },
+            ],
+          },
+        },
       };
     },
     computed: {
       filteredDataObj() {
-        return this.needles.filter((needle) => {
+        return this.Needles.filter((needle) => {
           return (
             needle.name
               .toString()
@@ -128,84 +175,18 @@
       },
     },
     created() {
-      this.getNeedles();
       this.initializeNeedles();
     },
     methods: {
-      getNeedles() {
-        axios
-          .get('/api/hello')
-          .then((res) => {
-            console.log(res);
-            this.needles = '';
-            this.mapOptions = {
-              chart: { zoomType: 'x' },
-              title: { text: 'Needle Comparison Chart' },
-              exporting: {
-                buttons: {
-                  contextButton: {
-                    symbol: 'download',
-                  },
-                },
-              },
-              subtitle: {
-                text: 'Source: <a target="_blank" href="http://www.mintylamb.co.uk/suneedle/">http://www.mintylamb.co.uk/suneedle/</a>',
-              },
-              // This is the data decleration
-              series: undefined,
-              yAxis: {
-                title: { text: 'Needle Diameter (mm)' },
-                labels: {
-                  enabled: true,
-                },
-                reversed: true,
-              },
-              xAxis: {
-                title: { text: 'Needle Station' },
-                labels: {
-                  enabled: true,
-                },
-              },
-              legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-              },
-              tooltip: { headerFormat: 'Richness:<br>', shared: true },
-              responsive: {
-                rules: [
-                  {
-                    condition: { maxWidth: 500 },
-                    chartOptions: {
-                      legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom',
-                      },
-                    },
-                  },
-                ],
-              },
-            };
-          })
-          .catch((err) => console.error(err));
-      },
       initializeNeedles() {
-        // Check to see if there are any pre-selected needles in the store
-        const cachedNeedles = this.$store.getters.needles;
-        if (cachedNeedles) {
-          this.selectValues = [...cachedNeedles];
-        } else {
-          this.selectValues = [...this.starterNeedles];
-          this.$store.commit('updateNeedles', this.selectValues);
-        }
+        this.selectValues = [...StarterNeedles];
       },
       updateArrayItem() {
         // When someone changes a needle value, update the chart
         this.mapOptions.series = this.selectValues;
-        this.$store.commit('updateNeedles', this.selectValues);
       },
       addArrayItem() {
+        console.log('adding attempted');
         this.existsError = this.selectValues.some(
           (obj) => obj.name === this.addNeedleSelection.name
         );
@@ -214,36 +195,21 @@
             this.existsError = false;
           }, 5000);
         } else {
-          this.starterNeedles.push(this.addNeedleSelection);
+          StarterNeedles.push(this.addNeedleSelection);
           this.selectValues.push(this.addNeedleSelection);
-          this.$store.commit('updateNeedles', this.selectValues);
+          this.updateArrayItem();
         }
       },
       removeArrayItem(currentItem) {
         // Find the index of the item you wanna remove
         const itemIndex = this.selectValues.indexOf(currentItem);
         // Remove the specific needle value which automatically triggers a redraw
-        this.starterNeedles.splice(itemIndex, 1);
+        StarterNeedles.splice(itemIndex, 1);
         this.selectValues.splice(itemIndex, 1);
-        this.$store.commit('updateNeedles', this.selectValues);
-      },
-      warning() {
-        this.$buefy.snackbar.open({
-          message: 'This',
-          type: 'is-warning',
-          position: 'is-top',
-          actionText: 'Retry',
-          indefinite: true,
-          onAction: () => {
-            this.$buefy.toast.open({
-              message: 'Action pressed',
-              queue: false,
-            });
-          },
-        });
+        this.updateArrayItem();
       },
     },
-  };
+  });
 </script>
 
 <style lang="scss" scoped>

@@ -78,7 +78,7 @@ export default defineNuxtConfig({
    */
   plugins: [
     { src: '~/plugins/oruga.js', mode: 'client' },
-    // { src: '~plugins/highcharts-vue.js', mode: 'client' },
+    { src: '~/plugins/highcharts.js', mode: 'client' },
     { src: '~/plugins/vue-navigation-bar.js', mode: 'client' },
     { src: '~/plugins/vue-gtag.js', mode: 'client' },
     // { src: '~/plugins/vue-google-adsense', mode: 'client' },
