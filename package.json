@@ -47,10 +47,11 @@
     "vue-gtag": "2.0.1",
     "vue-navigation-bar": "5.0.2",
     "vue-script2": "^2.1.0",
-    "vue-window-size": "2.0.0",
+    "vue-window-size": "^2.0.0",
     "webpack": "^5.85.0"
   },
   "devDependencies": {
+    "@types/luxon": "^3.3.0",
     "multi-loader": "^0.1.0",
     "nodemon": "^2.0.22",
     "nuxt": "^3.5.2",

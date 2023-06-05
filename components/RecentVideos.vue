@@ -31,7 +31,6 @@
       :items-to-show="itemsToShow"
       :repeat="true"
       :has-drag="true"
-      :items-to-list="4"
       :icon-pack="'fad'"
       :icon-size="'is-medium'"
     >
@@ -60,12 +59,19 @@
   </div>
 </template>
 
-<script>
+<script lang="js">
   import { DateTime } from 'luxon';
   import axios from 'axios';
-  import { defineComponent } from '#imports';
+  import { useWindowSize } from 'vue-window-size';
 
   export default defineComponent({
+    setup() {
+      const { width, height } = useWindowSize();
+      return {
+        windowWidth: width,
+        windowHeight: height,
+      };
+    },
     data() {
       return {
         videos: undefined,
@@ -73,10 +79,20 @@
         apiError: false,
         value: 0,
         breakpoint: '',
+        itemsToShow: 2,
       };
     },
     created() {
       this.fetchData();
+    },
+    mounted() {
+      this.handleResize();
+    },
+    watch: {
+      windowWidth(newWidth) {
+        console.log(newWidth);
+        this.handleResize(newWidth);
+      },
     },
     methods: {
       async fetchData() {
@@ -102,6 +118,26 @@
           .finally(() => {
             this.isLoading = false;
           });
+      },
+      handleResize(newWidth) {
+        let widthToTest;
+        if (this.newWidth) {
+          widthToTest = newWidth;
+        } else {
+          widthToTest = this.windowWidth;
+        }
+
+        if (widthToTest >= 1280) {
+          this.itemsToShow = 4;
+        } else if (widthToTest >= 1024) {
+          this.itemsToShow = 3;
+        } else if (widthToTest >= 756) {
+          this.itemsToShow = 2;
+        } else if (widthToTest >= 576) {
+          this.itemsToShow = 1;
+        } else {
+          this.itemsToShow = 1;
+        }
       },
     },
   });
