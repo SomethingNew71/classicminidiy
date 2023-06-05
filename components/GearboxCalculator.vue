@@ -258,29 +258,31 @@
           </p>
         </div>
         <div class="card-content">
-          <o-table :data="tableDataSpeedos">
-            <o-table-column
-              v-slot="props"
-              field="status"
-              label=""
-              narrowed="false"
-            >
-              <i class="fas fa-circle pt-1" :class="props.row.status"></i>
-            </o-table-column>
-            <o-table-column v-slot="props" field="tpm" label="TPM">
-              {{ props.row.tpm }}
-            </o-table-column>
-            <o-table-column
-              v-slot="props"
-              field="speedometer"
-              label="Speedometer"
-            >
-              {{ props.row.speedometer }}
-            </o-table-column>
-            <o-table-column v-slot="props" field="result" label="Result">
-              {{ props.row.result }}
-            </o-table-column>
-          </o-table>
+          <client-only>
+            <o-table :data="tableDataSpeedos">
+              <o-table-column
+                v-slot="props"
+                field="status"
+                label=""
+                narrowed="false"
+              >
+                <i class="fas fa-circle pt-1" :class="props.row.status"></i>
+              </o-table-column>
+              <o-table-column v-slot="props" field="tpm" label="TPM">
+                {{ props.row.tpm }}
+              </o-table-column>
+              <o-table-column
+                v-slot="props"
+                field="speedometer"
+                label="Speedometer"
+              >
+                {{ props.row.speedometer }}
+              </o-table-column>
+              <o-table-column v-slot="props" field="result" label="Result">
+                {{ props.row.result }}
+              </o-table-column>
+            </o-table>
+          </client-only>
         </div>
       </div>
     </div>
@@ -295,10 +297,12 @@
           </p>
         </div>
         <div class="card-content">
-          <o-table
-            :data="tableDataGearing"
-            :columns="tableHeadersGearing"
-          ></o-table>
+          <client-only>
+            <o-table
+              :data="tableDataGearing"
+              :columns="tableHeadersGearing"
+            ></o-table>
+          </client-only>
         </div>
       </div>
       <div class="card mt-2">

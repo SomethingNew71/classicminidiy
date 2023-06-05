@@ -96,66 +96,68 @@
         <div class="column is-12">
           <div class="card">
             <div class="card-content">
-              <o-table
-                :data="data"
-                :hoverable="true"
-                :row-class="
+              <client-only>
+                <o-table
+                  :data="data"
+                  :hoverable="true"
+                  :row-class="
                   (row: any, index: any) =>
                     row.group !== '' &&
                     'has-background-light has-text-weight-bold'
                 "
+                >
+                  <o-table-column
+                    v-slot="props"
+                    field="group"
+                    label="Group"
+                    narrowed="false"
+                  >
+                    {{ props.row.group }}
+                    <template v-if="props.row.group === ''">
+                      <i
+                        class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1"
+                        :class="props.row.color"
+                      ></i>
+                    </template>
+                  </o-table-column>
+                  <o-table-column
+                    v-slot="props"
+                    field="engineSize"
+                    label="Engine Size"
+                  >
+                    <template v-if="props.row.group === ''">
+                      <i
+                        class="is-hidden-mobile ref-icons fas fa-circle pl-1"
+                        :class="props.row.color"
+                      ></i>
+                    </template>
+                    {{ props.row.engineSize }}
+                  </o-table-column>
+                  <o-table-column
+                    v-slot="props"
+                    field="overBore"
+                    label="Over Bore"
+                  >
+                    {{ props.row.overBore }}
+                  </o-table-column>
+                  <o-table-column
+                    v-slot="props"
+                    field="boreSize"
+                    label="Bore Size"
+                  >
+                    {{ props.row.boreSize }}
+                  </o-table-column>
+                  <o-table-column v-slot="props" field="stroke" label="Stroke">
+                    {{ props.row.stroke }}
+                  </o-table-column>
+                  <o-table-column v-slot="props" field="power" label="Power">
+                    {{ props.row.power }}
+                  </o-table-column>
+                  <o-table-column v-slot="props" field="torque" label="Torque">
+                    {{ props.row.torque }}
+                  </o-table-column>
+                </o-table></client-only
               >
-                <o-table-column
-                  v-slot="props"
-                  field="group"
-                  label="Group"
-                  narrowed="false"
-                >
-                  {{ props.row.group }}
-                  <template v-if="props.row.group === ''">
-                    <i
-                      class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1"
-                      :class="props.row.color"
-                    ></i>
-                  </template>
-                </o-table-column>
-                <o-table-column
-                  v-slot="props"
-                  field="engineSize"
-                  label="Engine Size"
-                >
-                  <template v-if="props.row.group === ''">
-                    <i
-                      class="is-hidden-mobile ref-icons fas fa-circle pl-1"
-                      :class="props.row.color"
-                    ></i>
-                  </template>
-                  {{ props.row.engineSize }}
-                </o-table-column>
-                <o-table-column
-                  v-slot="props"
-                  field="overBore"
-                  label="Over Bore"
-                >
-                  {{ props.row.overBore }}
-                </o-table-column>
-                <o-table-column
-                  v-slot="props"
-                  field="boreSize"
-                  label="Bore Size"
-                >
-                  {{ props.row.boreSize }}
-                </o-table-column>
-                <o-table-column v-slot="props" field="stroke" label="Stroke">
-                  {{ props.row.stroke }}
-                </o-table-column>
-                <o-table-column v-slot="props" field="power" label="Power">
-                  {{ props.row.power }}
-                </o-table-column>
-                <o-table-column v-slot="props" field="torque" label="Torque">
-                  {{ props.row.torque }}
-                </o-table-column>
-              </o-table>
             </div>
           </div>
         </div>
