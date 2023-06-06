@@ -311,10 +311,6 @@
         font-weight: 700;
         font-size: 1rem;
       }
-      .vnb__popup__top__close-button {
-        top: 15px;
-        right: -45px;
-      }
       .vnb__sub-menu-options__option__hr {
         margin: 0;
       }
