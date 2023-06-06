@@ -56,7 +56,6 @@
           v-model="gasket"
           expanded
           placeholder="Choose your head gasket"
-          @input="calculateRatio()"
         >
           <option
             v-for="option in headGasketOptions"
@@ -68,16 +67,7 @@
         </o-select>
       </o-field>
       <o-field v-if="gasket === 'custom'" label="Custom Head Gasket Volume">
-        <o-numberinput
-          v-model="customGasket"
-          min="0"
-          icon-pack="fas"
-          :max="7.0"
-          :step="isDisabled ? '.1' : '1'"
-          controls-position="compact"
-          @input="calculateRatio()"
-        >
-        </o-numberinput>
+        <o-input v-model="customGasket"> </o-input>
       </o-field>
     </div>
     <div class="column is-6">
@@ -112,7 +102,6 @@
           size="is-medium"
           :min="0"
           :max="20"
-          @input="calculateRatio()"
         ></o-slider>
       </o-field>
       <o-field message="Please choose a value between 0 and 20">
@@ -133,7 +122,6 @@
           :min="15"
           :max="35"
           :step="0.1"
-          @input="calculateRatio()"
         ></o-slider>
       </o-field>
       <o-field message="Please type a decimal value between 15 and 35">
@@ -153,7 +141,6 @@
           size="is-medium"
           :min="0"
           :max="80"
-          @input="calculateRatio()"
         ></o-slider>
       </o-field>
       <o-field message="Please choose a value between 0 and 80">
@@ -307,7 +294,7 @@
   </div>
 </template>
 <script>
-  export default {
+  export default defineComponent({
     data() {
       return {
         pistonOptions: [
@@ -556,8 +543,26 @@
     created() {
       this.calculateRatio();
     },
+    watch: {
+      pistonDish() {
+        this.calculateRatio();
+      },
+      deckHeight() {
+        this.calculateRatio();
+      },
+      headVolume() {
+        this.calculateRatio();
+      },
+      customGasket() {
+        this.calculateRatio();
+      },
+      gasket() {
+        this.calculateRatio();
+      },
+    },
     methods: {
       calculateRatio() {
+        console.log('calcing');
         this.isLoading = true;
         const pi = Math.PI;
         const boreRadius = this.bore / 2;
@@ -584,7 +589,7 @@
         this.capacity = Math.round((preRoundcap + Number.EPSILON) * 100) / 100;
       },
     },
-  };
+  });
 </script>
 <style lang="scss" scoped>
   .card {
