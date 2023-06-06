@@ -3,22 +3,12 @@
     <div class="column is-12 py-4"></div>
     <div class="column is-4">
       <o-field label="Imperial or Metric">
-        <o-radio
-          v-model="metric"
-          native-value="mph"
-          type="is-primary is-outlined"
-          @input="calculateRatio()"
-        >
+        <o-radio v-model="metric" :nativeValue="false" type="primary">
           <i class="pr-2 fa-duotone fa-flag-usa"></i>
           <span>MPH</span>
         </o-radio>
 
-        <o-radio
-          v-model="metric"
-          native-value="kph"
-          type="is-primary is-outlined"
-          @input="calculateRatio()"
-        >
+        <o-radio v-model="metric" :nativeValue="true" type="primary">
           <i class="pr-2 fa-duotone fa-earth-europe"></i>
           <span>KM/H</span>
         </o-radio>
@@ -345,7 +335,7 @@
   </div>
 </template>
 <script>
-  export default {
+  export default defineComponent({
     data() {
       return {
         tireOptions: [
@@ -699,7 +689,7 @@
           { tpm: 1000, name: "All Metro's and Most modern aftermarket" },
         ],
         // Default Values for form elements _ values are form values
-        metric: 'mph',
+        metric: false,
         final_drive: 3.444,
         gear_ratios: [2.583, 1.644, 1.25, 1.0],
         drop_gear: 1,
@@ -829,10 +819,15 @@
     created() {
       this.calculateRatio();
     },
+    watch: {
+      metric() {
+        this.calculateRatio();
+      },
+    },
     methods: {
       calculateRatio() {
         // Assign headers to match metric/imperial
-        if (this.metric === 'kph') {
+        if (this.metric) {
           this.tableHeadersGearing[2].label = 'Max Speed (km/h)';
           this.mapOptions.yAxis.title.text = 'Speed (km/h)';
         } else {
@@ -899,7 +894,7 @@
           );
 
           // Correctly display max speed in mph or kph
-          if (this.metric === 'kph') {
+          if (this.metric) {
             maxSpeed = `${Math.round(maxSpeed * 1.60934)}km/h`;
           } else {
             maxSpeed = `${maxSpeed}mph`;
@@ -932,7 +927,7 @@
                 60
             );
             // Correctly display max speed in mph or kph
-            if (this.metric === 'kph') {
+            if (this.metric) {
               speed = Math.round(speed * 1.60934);
             }
 
@@ -962,7 +957,7 @@
         this.mapOptions.series = this.chartData;
       },
     },
-  };
+  });
 </script>
 <style lang="scss">
   .b-slider.is-medium .b-slider-tick-label {
