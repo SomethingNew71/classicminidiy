@@ -9,7 +9,7 @@
           <a
             class="has-text-weight-bold"
             href="#"
-            @click="isComponentModalActive = true"
+            @click="needleModalActive = true"
             >this helpful diagram</a
           >
           to learn more.
@@ -65,42 +65,27 @@
         </client-only>
       </div>
     </div>
-    <o-modal
-      v-model="isComponentModalActive"
-      has-modal-card
-      trap-focus
-      :destroy-on-hide="true"
-      aria-role="dialog"
-      aria-label="Example Modal"
-      aria-modal
-    >
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <h1 class="modal-card-title">Diagram of Needle Measurements</h1>
-          <button
-            type="button"
-            class="delete"
-            @click="isComponentModalActive = false"
-          />
-        </header>
-        <section class="modal-card-body">
-          <img
-            class="diagram"
-            src="assets/img/diagram.jpg"
-            alt="Diagram of Needle Measurements"
-          />
-        </section>
-        <footer class="modal-card-foot">
-          <o-button label="Close" @click="isComponentModalActive = false" />
-        </footer>
-      </div>
-    </o-modal>
   </div>
+  <o-modal v-model:active="needleModalActive">
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <h1 class="modal-card-title">Diagram of Needle Measurements</h1>
+      </header>
+      <section class="modal-card-body">
+        <img
+          class="diagram"
+          src="~/assets/img/diagram.jpg"
+          alt="Diagram of Needle Measurements"
+        />
+      </section>
+    </div>
+  </o-modal>
 </template>
 
 <script>
   import Needles from '~/data/needles.json';
   import StarterNeedles from '~/data/default-needles.json';
+
   export default defineComponent({
     data() {
       return {
@@ -108,7 +93,7 @@
         existsError: false,
         addNeedleValue: '',
         addNeedleSelection: null,
-        isComponentModalActive: false,
+        needleModalActive: false,
         selectValues: undefined,
         mapOptions: {
           chart: { zoomType: 'x' },
@@ -213,6 +198,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .modal .animation-content .modal-card {
+    margin: auto;
+  }
   .is-fullwidth {
     width: 100%;
   }
