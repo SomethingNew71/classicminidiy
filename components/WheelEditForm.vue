@@ -204,10 +204,9 @@
   </form>
 </template>
 <script>
-  import { debounce } from 'debounce';
   import axios from 'axios';
 
-  export default {
+  export default defineComponent({
     props: {
       wheel: {
         type: Object,
@@ -246,9 +245,6 @@
         processing: false,
       };
     },
-    created() {
-      this.updateWheel = debounce(this.updateWheel, 500);
-    },
     methods: {
       async updateWheel() {
         this.processing = true;
@@ -276,7 +272,7 @@
           });
       },
     },
-  };
+  });
 </script>
 <style lang="scss" scoped>
   .fa-drivers-license {

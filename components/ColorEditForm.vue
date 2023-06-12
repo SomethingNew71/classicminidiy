@@ -241,9 +241,6 @@
   </form>
 </template>
 <script>
-  import { debounce } from 'debounce';
-  import axios from 'axios';
-
   export default defineComponent({
     props: {
       color: {
@@ -286,9 +283,6 @@
         processing: false,
       };
     },
-    created() {
-      this.updateColor = debounce(this.updateColor, 500);
-    },
     methods: {
       async updateColor() {
         this.processing = true;
@@ -300,7 +294,6 @@
           },
         })
           .then((response) => {
-            console.log('GOT A RESPONSE', response.data);
             this.issueCreated = true;
             this.apiError = false;
             this.suggestion = {
