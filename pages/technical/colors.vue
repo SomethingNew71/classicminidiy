@@ -1,11 +1,6 @@
 <template>
   <div>
-    <hero
-      :title="title"
-      :subtitle="subtitle"
-      :centered="centered"
-      :navigation="true"
-    />
+    <hero :navigation="true" />
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">
@@ -48,167 +43,110 @@
           </p>
           <hr />
         </div>
-        <div class="column is-6">
-          <article class="message">
-            <div class="message-header">
-              <p>Notice:</p>
-            </div>
-            <div class="message-body">
-              We had to temporarily disable this part of our site. We will bring
-              it back as soon as possible!
-              <br />
-              - Cole
-            </div>
-          </article>
-        </div>
-
-        <!-- <div class="column is-6">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">Choose a Color</p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <p>
-                  Colors are seperated into general color sections. Please
-                  choose the closest main color to your Classic Mini color
-                  swatch as possible.
-                </p>
-                <o-select
-                  v-model="selectedOption"
-                  placeholder="Select a Color"
-                  icon="tint"
-                  icon-pack="fad"
-                  @input="getColors()"
-                >
-                  <option
-                    v-for="(option, index) in colorRefs"
-                    :key="index"
-                    :value="option"
-                  >
-                    {{ option }}
-                  </option>
-                </o-select>
-              </div>
-            </div>
-            <footer v-if="currentColors" class="card-footer">
-              <div v-if="currentColors" class="card-footer-item">
-                <h3>
-                  <span class="is-size-4 fad fa-swatchbook pr-5"></span>
-                  Total {{ selectedOption }} Swatches:
-                  <strong>{{ currentColors.length }}</strong>
-                </h3>
-              </div>
-            </footer>
-          </div>
-        </div>
         <div class="column is-12">
-          <div
-            v-if="!currentColors && !loading"
-            class="has-text-centered no-colors"
-          >
-            <h2 class="title">Choose a color</h2>
-            <img
-              src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png"
-              alt=""
-            />
-          </div>
-          <div v-if="loading">
-            <o-notification :closable="false">
-              <o-loading
-                v-model:active="loading"
-                :is-full-page="false"
-              ></o-loading>
-            </o-notification>
-          </div>
-          <div v-if="!loading" class="columns is-multiline">
-            <template
-              v-for="(color, index, name) in currentColors"
-              :key="index"
-            >
-              <div class="column is-4">
-                <div class="card">
-                  <header class="card-header">
-                    <p class="card-header-title">
-                      {{ color[3] }}
-                    </p>
-                  </header>
-                  <div class="card-image">
-                    <figure class="image is-4x4">
-                      <img
-                        v-if="color[6]"
-                        :src="`https://classicminidiy.s3.amazonaws.com/colors/${color[2]}.jpg`"
-                        :alt="`Image of color ${color[2]}`"
-                      />
-                      <img
-                        v-if="!color[6]"
-                        src="https://classicminidiy.s3.amazonaws.com/colors/no-swatch.png"
-                        :alt="`No image exists for color ${color[2]}`"
-                      />
-                    </figure>
-                  </div>
-                  <hr v-if="!color[6]" />
-                  <div class="card-content">
-                    <div class="media">
-                      <div class="media-content">
-                        <p class="title is-5">
-                          {{ color[2] }}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <footer class="card-footer">
-                    <p class="card-footer-item">
-                      <span class="is-size-4 fad fa-calendar-alt pr-5"></span>
-                      <span class="subtitle is-7">
-                        {{ color[5] }}
-                      </span>
-                    </p>
-                    <p class="card-footer-item">
-                      <span class="is-size-4 fad fa-brackets pr-5"></span>
-                      <span class="subtitle is-7"> ({{ color[4] }}) </span>
-                    </p>
-                  </footer>
-                </div>
-              </div>
-              <div
-                v-if="index === 3 || index === 9 || index === 20"
-                :key="name"
-                class="column is-4"
-              >
-                <div class="card">
-                  <div class="card-content">
-                    <patreon-card :size="'small'" />
-                  </div>
-                </div>
-              </div>
-              <div
-                v-if="index === 3 || index === 9 || index === 20"
-                :key="name"
-                class="column is-4"
-              >
-                <div class="card">
-                  <div class="card-content">
-                    <InFeedAdsense
-                      data-ad-layout-key="+2a+rx+1+2-3"
-                      data-ad-client="ca-pub-0523971861051053"
-                      data-ad-slot="8473398533"
-                      class="adsbygoogle"
-                      style="display: block"
-                      data-ad-format="fluid"
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-header-title">
+                <!-- <i :class="table.icon"></i> -->
+                Colors
+              </h2>
+            </div>
+            <div class="card-content">
+              <client-only>
+                <o-table
+                  :data="colors.colors"
+                  :hoverable="true"
+                  :paginated="true"
+                  :per-page="15"
+                  v-model:current-page="currentPage"
+                  :pagination-simple="true"
+                  icon-pack="fas"
+                  :mobile-cards="false"
+                  :striped="true"
+                  default-sort="name"
+                  :sort-icon="'arrow-up'"
+                  :sort-icon-size="'small'"
+                >
+                  <o-table-column
+                    v-slot="props"
+                    field="name"
+                    label="Name"
+                    sortable
+                    searchable
+                  >
+                    <i
+                      :class="props.row.primaryColor"
+                      class="primary-color fas fa-circle pt-1 pr-2"
+                    ></i
+                    ><strong>{{ props.row.name }}</strong>
+                  </o-table-column>
+                  <o-table-column v-slot="props" field="years" label="Years">
+                    {{ props.row.years }}
+                  </o-table-column>
+                  <o-table-column
+                    v-slot="props"
+                    field="shortCode"
+                    label="Short Code"
+                  >
+                    {{ props.row.shortCode }}
+                  </o-table-column>
+                  <o-table-column
+                    v-slot="props"
+                    field="code"
+                    label="BMC"
+                    searchable
+                  >
+                    {{ props.row.code }}
+                  </o-table-column>
+                  <o-table-column
+                    v-slot="props"
+                    field="ditzlerPpgCode"
+                    label="PPG"
+                    searchable
+                  >
+                    {{ props.row.ditzlerPpgCode }}
+                  </o-table-column>
+                  <o-table-column
+                    v-slot="props"
+                    field="duluxCode"
+                    label="Dulux"
+                    searchable
+                  >
+                    {{ props.row.duluxCode }}
+                  </o-table-column>
+                  <!-- <o-table-column
+                    v-slot="props"
+                    field="primaryColor"
+                    label="Color"
+                    sortable
+                    searchable
+                  >
+                    <strong
+                      :class="props.row.primaryColor"
+                      class="primary-color"
+                      >{{ props.row.primaryColor }}</strong
                     >
-                    </InFeedAdsense>
-                  </div>
-                </div>
-              </div>
-            </template>
+                  </o-table-column> -->
+                  <o-table-column v-slot="props" field="edit" label="Edit">
+                    <o-button
+                      aria-label="Suggest changes to the details of this color"
+                      icon-right="pencil"
+                      :icon-pack="'fad'"
+                      variant="primary"
+                      outlined
+                      @click="editColor(props.row)"
+                    />
+                  </o-table-column>
+                </o-table>
+              </client-only>
+            </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </section>
   </div>
 </template>
-<script lang="js" setup>
+<script lang="ts" setup>
   useHead({
     title: 'Technical - Color Picker',
     meta: [
@@ -230,66 +168,29 @@
     ],
   });
 </script>
-<script lang="js">
+<script lang="ts">
+  import * as colors from '~/data/colors.json';
+  import { Color } from '~/data/models';
+  import { useProgrammatic } from '@oruga-ui/oruga-next';
+  import ColorEditForm from '~/components/ColorEditForm.vue';
+
+  const { oruga } = useProgrammatic();
+
   export default defineComponent({
     data() {
       return {
-        title: 'Technical Information',
-        subtitle: 'YOUR DIGITAL MINI TOOLBOX',
-        background: '/technical.jpg',
-        size: 'is-medium',
-        centered: true,
-        colors: null,
-        colorRefs: [
-          'Beige',
-          'Black',
-          'Blue',
-          'Bronze',
-          'Brown',
-          'Gold',
-          'Green',
-          'Grey',
-          'Maroon',
-          'Orange',
-          'Pink',
-          'Purple',
-          'Red',
-          'Silver',
-          'Turquoise',
-          'White',
-          'Yellow',
-        ],
-        selectedOption: '',
-        currentColors: null,
-        loading: false,
+        colors: colors.colors as Color[],
+        currentPage: 1,
       };
     },
-    created () {
-      const colors = $fetch('/api/colors');
-      this.colors = colors.value;
-    },
     methods: {
-      getColors() {
-        /*
-      // This is the order the colors appear in the JSON object
-      "columns": [
-        "colour_id",
-        "base_id",
-        "colour_code",
-        "colour_name",
-        "colour_short",
-        "colour_years",
-        "colour_swatch",
-        "colour_approved"
-      ]
-    */
-        console.log(this.colors);
-        this.loading = true;
-        this.currentColors =
-          this.colors[this.selectedOption.toString().toLowerCase()];
-        setTimeout(() => {
-          this.loading = false;
-        }, 500);
+      editColor(color: Color) {
+        oruga.modal.open({
+          props: { color },
+          component: ColorEditForm,
+          trapFocus: true,
+          width: '700px',
+        });
       },
     },
   });
@@ -315,5 +216,59 @@
 <style lang="scss" scoped>
   .card-header {
     background-color: whitesmoke;
+  }
+  .primary-color {
+    text-transform: capitalize;
+
+    &.blue {
+      color: #3170a2;
+    }
+    &.black {
+      color: #2f2f2f;
+    }
+    &.beige {
+      color: #e1c699;
+    }
+    &.bronze {
+      color: #cd7f32;
+    }
+    &.brown {
+      color: #522b1a;
+    }
+    &.gold {
+      color: #ffd700;
+    }
+    &.green {
+      color: #0d6628;
+    }
+    &.grey {
+      color: #808080;
+    }
+    &.maroon {
+      color: #800000;
+    }
+    &.orange {
+      color: #ffa500;
+    }
+    &.pink {
+      color: #ffc0cb;
+    }
+    &.purple {
+      color: #9f2b68;
+    }
+    &.red {
+      color: #aa4a44;
+    }
+    &.silver {
+      color: #c0c0c0;
+    }
+    &.turquoise {
+      color: #30d5c8;
+    }
+    &.white {
+    }
+    &.yellow {
+      color: #ffd700;
+    }
   }
 </style>
