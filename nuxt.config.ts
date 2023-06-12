@@ -88,5 +88,8 @@ export default defineNuxtConfig({
       s3BaseURL: process.env.s3Base,
       serverlessEndpoint: process.env.serverlessEndpoint,
     },
+    app: {
+      githubAPIKey: process.env.githubAPIKey,
+    },
   },
 });

@@ -43,6 +43,7 @@
     "highcharts-vue": "^1.4.2",
     "luxon": "^3.3.0",
     "nuxt-edge": "latest",
+    "outdent": "^0.8.0",
     "redirect-ssl": "^3.0.0",
     "vue-cookie-law": "^1.13.3",
     "vue-gtag": "2.0.1",
