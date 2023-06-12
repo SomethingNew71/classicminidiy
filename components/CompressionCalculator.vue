@@ -233,7 +233,7 @@
         </p>
       </div>
     </div>
-    <o-modal v-model="isCardModalActive" :width="640" scroll="keep">
+    <o-modal v-model:active="isCardModalActive" :width="640" scroll="keep">
       <div class="card">
         <header class="card-header">
           <p class="card-header-title">Measuring your chambers and deck</p>
