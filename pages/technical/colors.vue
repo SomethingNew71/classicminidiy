@@ -65,12 +65,12 @@
                   :sort-icon="'arrow-up'"
                   :sort-icon-size="'small'"
                 >
-                  <o-table-column v-slot="props" field="primaryColor">
+                  <!-- <o-table-column v-slot="props" field="primaryColor">
                     <i
                       :class="props.row.primaryColor"
                       class="primary-color fas fa-circle fa-xs"
                     ></i>
-                  </o-table-column>
+                  </o-table-column> -->
                   <o-table-column
                     v-slot="props"
                     field="name"
