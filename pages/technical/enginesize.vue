@@ -183,16 +183,16 @@
         content:
           "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
       },
-      {
-        property: 'og:title',
-        content: 'Technical - Engine Sizes/Displacements',
-      },
-      {
-        property: 'og:image',
-        content:
-          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
-      },
     ],
+  });
+  useSeoMeta({
+    ogTitle: 'Technical - Engine Sizes/Displacements',
+    ogDescription:
+      "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+    ogUrl: 'classicminidiy.com/technical/enginesize',
+    ogImage:
+      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogType: 'website',
   });
 </script>
 

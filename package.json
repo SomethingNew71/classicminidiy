@@ -48,8 +48,6 @@
     "vue-cookie-law": "^1.13.3",
     "vue-gtag": "2.0.1",
     "vue-navigation-bar": "5.0.2",
-    "vue-script2": "^2.1.0",
-    "vue-window-size": "^2.0.0",
     "webpack": "^5.85.1"
   },
   "devDependencies": {

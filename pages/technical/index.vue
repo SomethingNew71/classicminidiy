@@ -79,6 +79,13 @@
       },
     ],
   });
+  useSeoMeta({
+    ogTitle: 'Classic Mini DIY - Technical Toolkit',
+    ogDescription:
+      'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
+    ogUrl: 'classicminidiy.com/technical',
+    ogType: 'website',
+  });
 </script>
 <script lang="ts">
   export default defineComponent({

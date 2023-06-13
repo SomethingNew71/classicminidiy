@@ -123,6 +123,15 @@
       },
     ],
   });
+  useSeoMeta({
+    ogTitle: 'Classic Mini DIY - SU Needles Chart',
+    ogDescription:
+      "Finding the right needle for your Classic Mini Cooper's carburettor can be tough. Use this online comparison chart to find the right profile for your engine build.",
+    ogUrl: 'classicminidiy.com/technical/needles',
+    ogImage:
+      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+    ogType: 'website',
+  });
 </script>
 
 <style lang="scss">

@@ -296,7 +296,6 @@
 </template>
 
 <script lang="js" setup>
-  const { data: tables } = await useFetch('/api/torque');
   useHead({
     title: 'Technical - Wheel Dictionary',
     meta: [
@@ -306,16 +305,16 @@
         content:
           'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
       },
-      {
-        property: 'og:title',
-        content: 'Technical - Wheel Dictionary',
-      },
-      {
-        property: 'og:image',
-        content:
-          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
-      },
     ],
+  });
+  useSeoMeta({
+    ogTitle: 'Technical - Wheel Dictionary',
+    ogDescription:
+      'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
+    ogUrl: 'classicminidiy.com/technical/wheels',
+    ogImage:
+      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+    ogType: 'website',
   });
 </script>
 
