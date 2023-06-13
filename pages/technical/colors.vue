@@ -46,10 +46,7 @@
         <div class="column is-12">
           <div class="card">
             <div class="card-header">
-              <h2 class="card-header-title">
-                <!-- <i :class="table.icon"></i> -->
-                Colors
-              </h2>
+              <h2 class="card-header-title">Colors</h2>
             </div>
             <div class="card-content">
               <client-only>
@@ -57,7 +54,8 @@
                   :data="colors.colors"
                   :hoverable="true"
                   :paginated="true"
-                  :per-page="15"
+                  :per-page="25"
+                  :narrowed="true"
                   v-model:current-page="currentPage"
                   :pagination-simple="true"
                   icon-pack="fas"
@@ -67,6 +65,12 @@
                   :sort-icon="'arrow-up'"
                   :sort-icon-size="'small'"
                 >
+                  <o-table-column v-slot="props" field="primaryColor">
+                    <i
+                      :class="props.row.primaryColor"
+                      class="primary-color fas fa-circle fa-xs"
+                    ></i>
+                  </o-table-column>
                   <o-table-column
                     v-slot="props"
                     field="name"
@@ -74,11 +78,7 @@
                     sortable
                     searchable
                   >
-                    <i
-                      :class="props.row.primaryColor"
-                      class="primary-color fas fa-circle pt-1 pr-2"
-                    ></i
-                    ><strong>{{ props.row.name }}</strong>
+                    <strong>{{ props.row.name }}</strong>
                   </o-table-column>
                   <o-table-column v-slot="props" field="years" label="Years">
                     {{ props.row.years }}
@@ -114,19 +114,6 @@
                   >
                     {{ props.row.duluxCode }}
                   </o-table-column>
-                  <!-- <o-table-column
-                    v-slot="props"
-                    field="primaryColor"
-                    label="Color"
-                    sortable
-                    searchable
-                  >
-                    <strong
-                      :class="props.row.primaryColor"
-                      class="primary-color"
-                      >{{ props.row.primaryColor }}</strong
-                    >
-                  </o-table-column> -->
                   <o-table-column v-slot="props" field="edit" label="Edit">
                     <o-button
                       aria-label="Suggest changes to the details of this color"
