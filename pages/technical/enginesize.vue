@@ -7,28 +7,28 @@
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
-                <nuxt-link to="/">
+                <NuxtLink to="/">
                   <span class="icon is-small">
                     <i class="fad fa-home" aria-hidden="true" />
                   </span>
                   <span>Home</span>
-                </nuxt-link>
+                </NuxtLink>
               </li>
               <li>
-                <nuxt-link to="/technical">
+                <NuxtLink to="/technical">
                   <span class="icon is-small">
                     <i class="fad fa-info-circle" aria-hidden="true" />
                   </span>
                   <span>Technical Info</span>
-                </nuxt-link>
+                </NuxtLink>
               </li>
               <li class="is-active">
-                <nuxt-link to="">
+                <NuxtLink to="">
                   <span class="icon is-small">
                     <i class="fad fa-cogs" aria-hidden="true"></i>
                   </span>
                   <span>Engine Sizes</span>
-                </nuxt-link>
+                </NuxtLink>
               </li>
             </ul>
           </nav>
@@ -44,7 +44,7 @@
               </p>
             </div>
             <div class="column is-4">
-              <nuxt-link
+              <NuxtLink
                 :to="'/technical/compression'"
                 :title="'Link to Compression Calculator'"
               >
@@ -84,7 +84,7 @@
                     </div>
                   </div>
                 </div>
-              </nuxt-link>
+              </NuxtLink>
             </div>
           </div>
         </div>

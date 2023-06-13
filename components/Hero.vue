@@ -31,38 +31,40 @@
     </div>
   </section>
 </template>
+<script setup lang="ts">
+  defineProps({
+    title: {
+      type: String,
+      default: '',
+    },
+    subtitle: {
+      type: String,
+      default: '',
+    },
+    size: {
+      type: String,
+      default: '',
+    },
+    special: {
+      type: Boolean,
+      default: false,
+    },
+    background: {
+      type: String,
+      default: '/technical',
+    },
+    navigation: {
+      type: Boolean,
+      default: true,
+    },
+    centered: {
+      type: Boolean,
+      default: false,
+    },
+  });
+</script>
 <script lang="ts">
   export default defineComponent({
-    props: {
-      title: {
-        type: String,
-        default: '',
-      },
-      subtitle: {
-        type: String,
-        default: '',
-      },
-      size: {
-        type: String,
-        default: '',
-      },
-      special: {
-        type: Boolean,
-        default: false,
-      },
-      background: {
-        type: String,
-        default: '/technical',
-      },
-      navigation: {
-        type: Boolean,
-        default: true,
-      },
-      centered: {
-        type: Boolean,
-        default: false,
-      },
-    },
     data() {
       return {
         showOverlay: false,
@@ -351,7 +353,7 @@
     }
 
     .special-title {
-      font-size: 140px;
+      font-size: 100px;
     }
 
     @media screen and (max-width: 992px) {

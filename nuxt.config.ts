@@ -69,6 +69,7 @@ export default defineNuxtConfig({
         },
       ],
     },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
   /*
    ** Global CSS
@@ -91,6 +92,7 @@ export default defineNuxtConfig({
     },
     app: {
       githubAPIKey: process.env.githubAPIKey,
+      youtubeAPIKey: process.env.youtubeAPIKey,
     },
   },
 });

@@ -7,28 +7,28 @@
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
-                <nuxt-link to="/">
+                <NuxtLink to="/">
                   <span class="icon is-small">
                     <i class="fad fa-home" aria-hidden="true" />
                   </span>
                   <span>Home</span>
-                </nuxt-link>
+                </NuxtLink>
               </li>
               <li>
-                <nuxt-link to="/technical">
+                <NuxtLink to="/technical">
                   <span class="icon is-small">
                     <i class="fad fa-info-circle" aria-hidden="true" />
                   </span>
                   <span>Technical Info</span>
-                </nuxt-link>
+                </NuxtLink>
               </li>
               <li class="is-active">
-                <nuxt-link to="">
+                <NuxtLink to="">
                   <span class="icon is-small">
                     <i class="fad fa-ruler-triangle" aria-hidden="true" />
                   </span>
                   <span>Torque Specs</span>
-                </nuxt-link>
+                </NuxtLink>
               </li>
             </ul>
           </nav>
