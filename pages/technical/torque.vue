@@ -77,7 +77,7 @@
 <script lang="ts" setup>
   const { data: tables } = await useFetch('/api/torque');
   useHead({
-    title: 'Technical - Torque Specs',
+    title: 'Technical - Mini Torque Specs',
     meta: [
       {
         hid: 'description',
@@ -85,16 +85,16 @@
         content:
           'Detailed torque specifications can be found online right here at Classic Mini DIY.',
       },
-      {
-        property: 'og:title',
-        content: 'Technical - Torque Specs',
-      },
-      {
-        property: 'og:image',
-        content:
-          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
-      },
     ],
+  });
+  useSeoMeta({
+    ogTitle: 'Technical - Mini Torque Specs',
+    ogDescription:
+      'Detailed torque specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
+    ogUrl: 'classicminidiy.com/technical/torque',
+    ogImage:
+      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    ogType: 'website',
   });
 </script>
 

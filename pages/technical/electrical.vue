@@ -103,16 +103,16 @@
         content:
           'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
       },
-      {
-        property: 'og:title',
-        content: 'Technical - Electrical Diagrams',
-      },
-      {
-        property: 'og:image',
-        content:
-          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
-      },
     ],
+  });
+  useSeoMeta({
+    ogTitle: 'Technical - Electrical Diagrams',
+    ogDescription:
+      'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+    ogUrl: 'classicminidiy.com/technical/electrical',
+    ogImage:
+      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogType: 'website',
   });
 </script>
 <style lang="scss" scoped>

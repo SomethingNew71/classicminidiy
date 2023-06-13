@@ -143,16 +143,16 @@
         content:
           'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
       },
-      {
-        property: 'og:title',
-        content: 'Technical - Color Picker',
-      },
-      {
-        property: 'og:image',
-        content:
-          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
-      },
     ],
+  });
+  useSeoMeta({
+    ogTitle: 'Technical - Color Picker',
+    ogDescription:
+      'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
+    ogUrl: 'classicminidiy.com/technical/colors',
+    ogImage:
+      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+    ogType: 'website',
   });
 </script>
 <script lang="ts">

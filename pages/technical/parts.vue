@@ -100,16 +100,16 @@
         content:
           'A complete list of parts which can be found at local parts sellers',
       },
-      {
-        property: 'og:title',
-        content: 'Technical - Parts Equivalency',
-      },
-      {
-        property: 'og:image',
-        content:
-          'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
-      },
     ],
+  });
+  useSeoMeta({
+    ogTitle: 'Technical - Parts Equivalency',
+    ogDescription:
+      'A complete list of parts which can be found at local parts sellers',
+    ogUrl: 'classicminidiy.com/technical/parts',
+    ogImage:
+      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+    ogType: 'website',
   });
 </script>
 
