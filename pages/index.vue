@@ -115,7 +115,7 @@
                   :key="index"
                   class="column is-3"
                 >
-                  <nuxt-link :to="item.to" :title="'Link to ' + item.to">
+                  <NuxtLink :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
                       <img
                         class="panel-icon-home"
@@ -127,7 +127,7 @@
                         {{ item.title }}
                       </p>
                     </article>
-                  </nuxt-link>
+                  </NuxtLink>
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@
               <p class="panel-heading has-background-grey-lighter">
                 Find the Tool You Need
               </p>
-              <nuxt-link
+              <NuxtLink
                 v-for="(item, index) in toolboxItems"
                 :key="index"
                 :to="item.to"
@@ -147,7 +147,7 @@
                   <img :src="item.image" :alt="item.title + ' image'" />
                 </span>
                 {{ item.title }}
-              </nuxt-link>
+              </NuxtLink>
             </nav>
           </div>
           <div class="column is-10 is-offset-1">

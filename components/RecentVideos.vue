@@ -28,7 +28,7 @@
     <o-carousel
       v-if="!isLoading"
       :v-model="videos"
-      :items-to-show="itemsToShow"
+      :items-to-show="2"
       :repeat="true"
       :has-drag="true"
       :icon-pack="'fad'"
@@ -59,88 +59,30 @@
   </div>
 </template>
 
-<script lang="js">
+<script setup lang="ts">
+  let videos: any;
+  let isLoading = true;
+  await useFetch('/api/videos')
+    .then((response: any) => {
+      videos = response.data._rawValue.map((video: any) => {
+        return {
+          title: video.title,
+          thumbnailUrl: video.thumbnailUrl.url,
+          publishedOn: DateTime.fromISO(video.publishedOn).toFormat(
+            'LLL dd, yyyy'
+          ),
+          videoUrl: video.videoUrl,
+        };
+      });
+    })
+    .finally(() => {
+      isLoading = false;
+    });
+</script>
+
+<script lang="ts">
   import { DateTime } from 'luxon';
-  import axios from 'axios';
-  import { useWindowSize } from 'vue-window-size';
-
-  export default defineComponent({
-    setup() {
-      const { width, height } = useWindowSize();
-      return {
-        windowWidth: width,
-        windowHeight: height,
-      };
-    },
-    data() {
-      return {
-        videos: undefined,
-        isLoading: true,
-        apiError: false,
-        value: 0,
-        breakpoint: '',
-        itemsToShow: 2,
-      };
-    },
-    created() {
-      this.fetchData();
-    },
-    mounted() {
-      this.handleResize();
-    },
-    watch: {
-      windowWidth(newWidth) {
-        console.log(newWidth);
-        this.handleResize(newWidth);
-      },
-    },
-    methods: {
-      async fetchData() {
-        await axios
-          .get(`${this.$config.public.serverlessEndpoint}/videos`)
-          .then((response) => {
-            this.videos = response.data.map((video) => {
-              return {
-                title: video.title,
-                thumbnailUrl: video.thumbnailUrl.url,
-                publishedOn: DateTime.fromISO(video.publishedOn).toFormat(
-                  'LLL dd, yyyy'
-                ),
-                videoUrl: video.videoUrl,
-              };
-            });
-            this.apiError = false;
-          })
-          .catch(() => {
-            this.videos = undefined;
-            this.apiError = true;
-          })
-          .finally(() => {
-            this.isLoading = false;
-          });
-      },
-      handleResize(newWidth) {
-        let widthToTest;
-        if (this.newWidth) {
-          widthToTest = newWidth;
-        } else {
-          widthToTest = this.windowWidth;
-        }
-
-        if (widthToTest >= 1280) {
-          this.itemsToShow = 4;
-        } else if (widthToTest >= 1024) {
-          this.itemsToShow = 3;
-        } else if (widthToTest >= 756) {
-          this.itemsToShow = 2;
-        } else if (widthToTest >= 576) {
-          this.itemsToShow = 1;
-        } else {
-          this.itemsToShow = 1;
-        }
-      },
-    },
-  });
+  export default defineComponent({});
 </script>
 
 <style lang="scss" scoped>

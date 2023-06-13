@@ -7,20 +7,20 @@
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
-                <nuxt-link to="/">
+                <NuxtLink to="/">
                   <span class="icon is-small">
                     <i class="fad fa-home" aria-hidden="true" />
                   </span>
                   <span>Home</span>
-                </nuxt-link>
+                </NuxtLink>
               </li>
               <li class="is-active">
-                <nuxt-link to="/technical">
+                <NuxtLink to="/technical">
                   <span class="icon is-small">
                     <i class="fad fa-info-circle" aria-hidden="true" />
                   </span>
                   <span>Technical Info</span>
-                </nuxt-link>
+                </NuxtLink>
               </li>
             </ul>
           </nav>
@@ -32,7 +32,7 @@
         <div class="mobile-list column is-4">
           <nav class="panel">
             <p class="panel-heading">Classic Mini Toolbox</p>
-            <nuxt-link
+            <NuxtLink
               v-for="(card, index) in cards"
               :key="index"
               :to="card.to"
@@ -42,7 +42,7 @@
                 <img :src="card.image" />
               </span>
               {{ card.title }}
-            </nuxt-link>
+            </NuxtLink>
           </nav>
         </div>
         <div class="column is-8">

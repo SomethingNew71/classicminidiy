@@ -30,13 +30,10 @@
 </template>
 
 <script lang="ts" setup>
-  import axios from 'axios';
-  const config = useRuntimeConfig();
   let stats: any;
-  await axios
-    .get(`${config.public.serverlessEndpoint}/stats`)
-    .then((response) => {
-      stats = { ...response.data };
+  await useFetch('/api/stats')
+    .then((response: any) => {
+      stats = { ...response.data._rawValue };
     })
     .catch(() => {
       stats = {
