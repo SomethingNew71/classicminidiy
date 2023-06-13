@@ -16,7 +16,8 @@ export default defineNuxtConfig({
         {
           hid: 'description',
           name: 'description',
-          content: process.env.npm_package_description || '',
+          content:
+            'One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com',
         },
         {
           property: 'og:title',
