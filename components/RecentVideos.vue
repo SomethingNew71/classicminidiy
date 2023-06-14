@@ -39,7 +39,7 @@
           <div class="card-image">
             <figure class="image">
               <a :href="video.videoUrl" target="_blank"
-                ><img :src="video.thumbnailUrl"
+                ><nuxt-img :src="video.thumbnailUrl"
               /></a>
             </figure>
           </div>
