@@ -72,7 +72,7 @@
         <h1 class="modal-card-title">Diagram of Needle Measurements</h1>
       </header>
       <section class="modal-card-body">
-        <nuxt-img
+        <img
           class="diagram"
           src="~/assets/img/diagram.jpg"
           alt="Diagram of Needle Measurements"
