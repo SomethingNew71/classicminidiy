@@ -66,7 +66,7 @@
                               "
                               type="image/png"
                             />
-                            <img
+                            <nuxt-img
                               src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
                             />
                           </picture>

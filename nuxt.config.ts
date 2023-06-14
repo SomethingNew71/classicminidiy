@@ -69,7 +69,7 @@ export default defineNuxtConfig({
         },
       ],
     },
-    pageTransition: { name: 'page', mode: 'out-in' },
+    // pageTransition: { name: 'page', mode: 'out-in' },
   },
   /*
    ** Global CSS
@@ -78,17 +78,34 @@ export default defineNuxtConfig({
   /*
    ** Plugins to load before mounting the App
    */
+  modules: [
+    [
+      '@nuxtjs/robots',
+      {
+        Disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
+      },
+    ],
+    'nuxt-simple-sitemap',
+    '@nuxtjs/html-validator',
+    '@nuxt/image',
+    [
+      'nuxt-gtag',
+      {
+        id: 'G-FBH0E64HM1',
+      },
+    ],
+  ],
   plugins: [
     '~/plugins/oruga.js',
     { src: '~/plugins/highcharts.js', mode: 'client' },
     { src: '~/plugins/vue-navigation-bar.js', mode: 'client' },
-    { src: '~/plugins/vue-gtag.js', mode: 'client' },
-    // { src: '~/plugins/vue-google-adsense', mode: 'client' },
   ],
   runtimeConfig: {
     public: {
       s3BaseURL: process.env.s3Base,
       serverlessEndpoint: process.env.serverlessEndpoint,
+      siteUrl:
+        process.env.NUXT_PUBLIC_SITE_URL || 'https://www.classicminidiy.com',
     },
     app: {
       githubAPIKey: process.env.githubAPIKey,

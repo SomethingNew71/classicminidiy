@@ -117,7 +117,7 @@
                 >
                   <NuxtLink :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
-                      <img
+                      <nuxt-img
                         class="panel-icon-home"
                         :src="item.image"
                         aria-hidden="true"
@@ -144,7 +144,7 @@
                 class="panel-block is-active"
               >
                 <span class="panel-icon">
-                  <img :src="item.image" :alt="item.title + ' image'" />
+                  <nuxt-img :src="item.image" :alt="item.title + ' image'" />
                 </span>
                 {{ item.title }}
               </NuxtLink>
@@ -241,7 +241,7 @@
             </p>
           </div>
           <div class="column is-5 avatar-container">
-            <img
+            <nuxt-img
               src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
               alt="Image of my car on jack stands"
             />

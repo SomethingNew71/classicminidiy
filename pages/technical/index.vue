@@ -39,7 +39,7 @@
               class="panel-block is-active"
             >
               <span class="panel-icon">
-                <img :src="card.image" />
+                <nuxt-img :src="card.image" />
               </span>
               {{ card.title }}
             </NuxtLink>

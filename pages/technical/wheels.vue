@@ -180,7 +180,7 @@
                           />
                         </o-tooltip>
                         <div class="image is-square">
-                          <img
+                          <nuxt-img
                             :src="wheel.imagepath"
                             :alt="`Image of ${wheel.name}`"
                           />
