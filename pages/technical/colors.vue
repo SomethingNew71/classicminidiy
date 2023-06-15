@@ -42,6 +42,28 @@
             Classic Mini throughout the years.
           </p>
           <hr />
+          <client-only>
+            <o-field
+              class="mb-4"
+              :position="'left'"
+              label="Search for your color below"
+            >
+              <o-input
+                v-model="searchString"
+                placeholder="Ex. Willow Green"
+                @keyup.enter.native="standardSearch()"
+              ></o-input>
+              <p class="control">
+                <o-button
+                  class="button is-primary search-button"
+                  aria-label="Search box for color"
+                  @click="standardSearch"
+                >
+                  <i class="fad fa-search"></i>
+                </o-button>
+              </p>
+            </o-field>
+          </client-only>
         </div>
         <div class="column is-12">
           <div class="card">
@@ -51,7 +73,7 @@
             <div class="card-content">
               <client-only>
                 <o-table
-                  :data="colors.colors"
+                  :data="selectedColors"
                   paginated
                   :per-page="25"
                   v-model:current-page="currentPage"
@@ -60,13 +82,13 @@
                   default-sort="name"
                   :sort-icon="'arrow-up'"
                   :sort-icon-size="'small'"
+                  :loading="isLoading"
                 >
                   <o-table-column
                     v-slot="props"
                     field="name"
                     label="Name"
                     sortable
-                    searchable
                   >
                     <strong>{{ props.row.name }}</strong>
                   </o-table-column>
@@ -118,19 +140,13 @@
                   >
                     {{ props.row.shortCode }}
                   </o-table-column>
-                  <o-table-column
-                    v-slot="props"
-                    field="code"
-                    label="BMC"
-                    searchable
-                  >
+                  <o-table-column v-slot="props" field="code" label="BMC">
                     {{ props.row.code }}
                   </o-table-column>
                   <o-table-column
                     v-slot="props"
                     field="ditzlerPpgCode"
                     label="PPG"
-                    searchable
                   >
                     {{ props.row.ditzlerPpgCode }}
                   </o-table-column>
@@ -138,7 +154,6 @@
                     v-slot="props"
                     field="duluxCode"
                     label="Dulux"
-                    searchable
                   >
                     {{ props.row.duluxCode }}
                   </o-table-column>
@@ -188,13 +203,17 @@
   import { Color } from '~/data/models';
   import { useProgrammatic } from '@oruga-ui/oruga-next';
   import ColorEditForm from '~/components/ColorEditForm.vue';
-
+  import Fuse from 'fuse.js';
   const { oruga } = useProgrammatic();
 
   export default defineComponent({
     data() {
       return {
-        colors: colors.colors as Color[],
+        colorList: colors.colors as Color[],
+        selectedColors: colors.colors as Color[],
+        searchString: '',
+        isLoading: false,
+        noResults: false,
         currentPage: 1,
       };
     },
@@ -206,6 +225,38 @@
           trapFocus: true,
           width: '700px',
         });
+      },
+      searchAll() {
+        this.isLoading = true;
+        this.searchString = '';
+        this.selectedColors = this.colorList;
+        setTimeout(() => (this.isLoading = false), 500);
+      },
+
+      standardSearch() {
+        const currentSearch = this.searchString.toLowerCase();
+        if (currentSearch === '') {
+          this.searchAll();
+        } else {
+          this.isLoading = true;
+          const keysToSearch = [
+            'name',
+            'primaryColor',
+            'code',
+            'ditzlerPpgCode',
+            'duluxCode',
+            'shortCode',
+            'years',
+          ];
+          let fuse = new Fuse(this.colorList, {
+            keys: keysToSearch,
+            threshold: 0.3,
+          });
+          this.selectedColors = fuse
+            .search(currentSearch)
+            .map((result) => result.item);
+          setTimeout(() => (this.isLoading = false), 500);
+        }
       },
     },
   });
