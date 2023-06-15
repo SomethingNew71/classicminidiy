@@ -50,6 +50,7 @@
     "webpack": "^5.86.0"
   },
   "devDependencies": {
+    "@nuxt/devtools": "^0.6.0",
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/html-validator": "^1.4.0",
     "@types/luxon": "^3.3.0",

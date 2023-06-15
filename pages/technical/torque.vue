@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero :navigation="true" />
+    <hero :navigation="true" :title="'Torque Specs'" />
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">
@@ -32,7 +32,6 @@
               </li>
             </ul>
           </nav>
-          <h1 class="title">Torque Specs</h1>
         </div>
         <div
           v-for="(table, name, index) in tables"

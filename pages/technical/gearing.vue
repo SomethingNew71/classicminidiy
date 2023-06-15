@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero :navigation="true" />
+    <hero :navigation="true" :title="'Gearbox Calculator'" />
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">

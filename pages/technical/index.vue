@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero :navigation="true" />
+    <hero :navigation="true" :title="'Technical Toolbox'" />
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">
@@ -24,10 +24,10 @@
               </li>
             </ul>
           </nav>
-          <h3 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h3>
-          <h4 class="fancy-font-bold is-size-3">
+          <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
+          <h3 class="fancy-font-bold is-size-3">
             Technical Information for the DIY Mechanic
-          </h4>
+          </h3>
         </div>
         <div class="mobile-list column is-4">
           <nav class="panel">
@@ -39,7 +39,7 @@
               class="panel-block is-active"
             >
               <span class="panel-icon">
-                <nuxt-img :src="card.image" />
+                <nuxt-img :src="card.image" :alt="card.title + ' icon'" />
               </span>
               {{ card.title }}
             </NuxtLink>
