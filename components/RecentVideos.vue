@@ -38,11 +38,30 @@
         <div class="card">
           <div class="card-image">
             <figure class="image">
-              <a :href="video.videoUrl" target="_blank"
-                ><nuxt-img
-                  :src="video.thumbnailUrl"
-                  :alt="video.title + ' thumbnail'"
-              /></a>
+              <a :href="video.videoUrl" target="_blank">
+                <picture :alt="video.title + ' thumbnail'">
+                  <source
+                    media="(max-width: 576px)"
+                    :srcset="video.thumbnails.medium.url"
+                  />
+                  <source
+                    media="(max-width: 799px)"
+                    :srcset="video.thumbnails.medium.url"
+                  />
+                  <source
+                    media="(max-width: 992px)"
+                    :srcset="video.thumbnails.high.url"
+                  />
+                  <source
+                    media="(max-width: 1200px)"
+                    :srcset="video.thumbnails.standard.url"
+                  />
+                  <img
+                    :src="video.thumbnails.maxres.url"
+                    :alt="'Thumbnail for ' + videos.title"
+                  />
+                </picture>
+              </a>
             </figure>
           </div>
           <div class="card-content">
@@ -69,7 +88,7 @@
       videos = response.data._rawValue.map((video: any) => {
         return {
           title: video.title,
-          thumbnailUrl: video.thumbnailUrl.url,
+          thumbnails: video.thumbnails,
           publishedOn: DateTime.fromISO(video.publishedOn).toFormat(
             'LLL dd, yyyy'
           ),
