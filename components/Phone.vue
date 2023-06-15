@@ -14,7 +14,12 @@
       <div class="content">
         <div class="item first">
           <div class="sidebar">
-            <img src="~/assets/img/avatars/fred.jpg" alt="" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="/img/avatars/fred.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Fred <span>yesterday</span></div>
@@ -23,7 +28,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <img src="~/assets/img/avatars/kellie.jpg" alt="" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="/img/avatars/kellie.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Kellie <span>yesterday</span></div>
@@ -37,7 +47,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <img src="~/assets/img/avatars/cole.jpg" alt="" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="/img/avatars/cole.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Cole <span>Today</span></div>
@@ -47,7 +62,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <img src="~/assets/img/avatars/jeff.jpg" alt="" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="/img/avatars/jeff.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Jeff <span>Today</span></div>
@@ -59,7 +79,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <img src="~/assets/img/avatars/nancy.jpg" alt="" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="/img/avatars/nancy.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Nancy <span>Today</span></div>
@@ -71,7 +96,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <img src="~/assets/img/avatars/william.jpg" alt="" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="/img/avatars/william.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">William <span>Tomorrow</span></div>
@@ -161,8 +191,10 @@
 
         .sidebar {
           width: 20%;
-          img {
-            border-radius: 50%;
+          .sidebar-avatar {
+            img {
+              border-radius: 50%;
+            }
           }
           //margin: 5px;
         }

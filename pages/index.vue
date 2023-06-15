@@ -445,14 +445,14 @@
 
     &.layer {
       margin-top: -10%;
-      background-image: url('~/assets/img/layer.svg');
+      background-image: url('/img/layer.svg');
     }
     &.layer1 {
       margin-top: -5%;
-      background-image: url('~/assets/img/layer1.svg');
+      background-image: url('/img/layer1.svg');
     }
     &.layer2 {
-      background-image: url('~/assets/img/layer2.svg');
+      background-image: url('/img/layer2.svg');
     }
   }
 </style>

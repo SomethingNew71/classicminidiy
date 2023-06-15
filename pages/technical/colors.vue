@@ -52,25 +52,15 @@
               <client-only>
                 <o-table
                   :data="colors.colors"
-                  :hoverable="true"
-                  :paginated="true"
+                  paginated
                   :per-page="25"
-                  :narrowed="true"
                   v-model:current-page="currentPage"
-                  :pagination-simple="true"
+                  pagination-simple
                   icon-pack="fas"
-                  :mobile-cards="false"
-                  :striped="true"
                   default-sort="name"
                   :sort-icon="'arrow-up'"
                   :sort-icon-size="'small'"
                 >
-                  <!-- <o-table-column v-slot="props" field="primaryColor">
-                    <i
-                      :class="props.row.primaryColor"
-                      class="primary-color fas fa-circle fa-xs"
-                    ></i>
-                  </o-table-column> -->
                   <o-table-column
                     v-slot="props"
                     field="name"
@@ -79,6 +69,44 @@
                     searchable
                   >
                     <strong>{{ props.row.name }}</strong>
+                  </o-table-column>
+                  <o-table-column
+                    v-slot="props"
+                    field="hasSwatch"
+                    label="Swatch"
+                  >
+                    <picture v-if="props.row.hasSwatch">
+                      <source
+                        :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${props.row.code}.webp`"
+                        type="image/webp"
+                      />
+                      <source
+                        :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${props.row.code}.jpg`"
+                        type="image/jpg"
+                      />
+                      <img
+                        alt=""
+                        :src="`https://classicminidiy.s3.amazonaws.com/colors/${props.row.code}.jpg`"
+                      />
+                    </picture>
+                    <picture v-else class="filler-image">
+                      <source
+                        srcset="
+                          https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp
+                        "
+                        type="image/webp"
+                      />
+                      <source
+                        srcset="
+                          https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg
+                        "
+                        type="image/jpg"
+                      />
+                      <img
+                        alt=""
+                        src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg"
+                      />
+                    </picture>
                   </o-table-column>
                   <o-table-column v-slot="props" field="years" label="Years">
                     {{ props.row.years }}
@@ -183,10 +211,12 @@
   });
 </script>
 <style lang="scss">
-  .no-colors {
-    img {
-      width: 50%;
-      margin: auto;
+  .filler-image {
+    img,
+    source {
+      max-height: 114px;
+      width: auto;
+      filter: grayscale(100%);
     }
   }
   .select {

@@ -260,7 +260,11 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <img src="~/assets/img/hre.jpg" alt="Image" />
+                <nuxt-picture
+                  format="webp,jpg"
+                  src="/img/hre.jpg"
+                  alt="Image"
+                />
               </figure>
             </div>
             <div class="media-content">
