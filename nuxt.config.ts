@@ -77,6 +77,7 @@ export default defineNuxtConfig({
    ** Plugins to load before mounting the App
    */
   modules: [
+    '@vite-pwa/nuxt',
     'nuxt-simple-sitemap',
     '@nuxt/image',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
