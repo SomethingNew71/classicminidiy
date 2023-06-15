@@ -3,6 +3,7 @@ export default defineNuxtConfig({
    ** Headers of the page
    */
   ssr: true,
+
   app: {
     head: {
       title: 'Classic Mini DIY',
@@ -71,10 +72,12 @@ export default defineNuxtConfig({
     },
     // pageTransition: { name: 'page', mode: 'out-in' },
   },
+
   /*
    ** Global CSS
    */
   css: ['@/assets/main.scss'],
+
   /*
    ** Plugins to load before mounting the App
    */
@@ -86,7 +89,27 @@ export default defineNuxtConfig({
       },
     ],
     'nuxt-simple-sitemap',
-    '@nuxtjs/html-validator',
+    [
+      '@nuxtjs/html-validator',
+      {
+        usePrettier: false,
+        options: {
+          rules: {
+            'svg-focusable': 'off',
+            'no-unknown-elements': 'error',
+            // Conflicts or not needed as we use prettier formatting
+            'void-style': 'off',
+            'no-trailing-whitespace': 'off',
+            // Conflict with Nuxt defaults
+            'require-sri': 'off',
+            'attribute-boolean-style': 'off',
+            'doctype-style': 'off',
+            // Unreasonable rule
+            'no-autoplay': 'off',
+          },
+        },
+      },
+    ],
     '@nuxt/image',
     [
       'nuxt-gtag',
@@ -95,11 +118,13 @@ export default defineNuxtConfig({
       },
     ],
   ],
+
   plugins: [
     '~/plugins/oruga.js',
     { src: '~/plugins/highcharts.js', mode: 'client' },
     { src: '~/plugins/vue-navigation-bar.js', mode: 'client' },
   ],
+
   runtimeConfig: {
     public: {
       s3BaseURL: process.env.s3Base,
@@ -111,5 +136,9 @@ export default defineNuxtConfig({
       githubAPIKey: process.env.githubAPIKey,
       youtubeAPIKey: process.env.youtubeAPIKey,
     },
+  },
+
+  devtools: {
+    enabled: true,
   },
 });

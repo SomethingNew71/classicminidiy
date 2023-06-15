@@ -1,7 +1,7 @@
 <template>
   <div>
-    <hero :navigation="true" />
-    <section class="section">
+    <hero :navigation="true" :title="'Wheel Dictionary'" />
+    <section id="scrollLocation" class="section">
       <div class="columns">
         <div class="column is-12">
           <nav class="breadcrumb" aria-label="breadcrumbs">
@@ -32,7 +32,6 @@
               </li>
             </ul>
           </nav>
-          <h1 id="scrollLocation" class="title">Wheel Library</h1>
           <h2 class="subtitle">
             All data collected and currated by Jan W. from
             <a

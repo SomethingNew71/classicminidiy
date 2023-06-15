@@ -23,6 +23,7 @@
           {{ subtitle }}
         </p>
         <h1
+          v-if="title"
           class="title fancy-font-bold has-text-white"
           :class="{ 'special-title': special }"
           v-html="title"

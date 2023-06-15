@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero :navigation="true" />
+    <hero :navigation="true" :title="'Engine Sizes'" />
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">
@@ -68,6 +68,7 @@
                             />
                             <nuxt-img
                               src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
+                              alt="Image of compression calculator"
                             />
                           </picture>
                         </figure>

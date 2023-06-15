@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hero :navigation="true" />
+    <hero :navigation="true" :title="'Electrical Diagrams'" />
     <section class="section">
       <div class="columns">
         <div class="column is-12">

@@ -14,12 +14,12 @@
         <div class="columns is-multiline pb-5">
           <div class="column is-12"></div>
           <div class="column is-8">
-            <h3 class="fancy-font-book-oblique">
+            <h2 class="fancy-font-book-oblique">
               <i class="fad fa-book"></i> THE MINI MISSION
-            </h3>
-            <h4 class="fancy-font-bold is-size-3 pt-2 pb-3">
+            </h2>
+            <h3 class="fancy-font-bold is-size-3 pt-2 pb-3">
               Keeping the Classics on the Road
-            </h4>
+            </h3>
             <p class="is-size-5">
               Classic Mini DIY started out of my small driveway workshop in
               2015. I always focus on two things: keeping your Classic Mini on
