@@ -190,15 +190,14 @@
       </div>
     </div>
     <div class="column is-12 py-4">
-      <!-- <Adsense
+      <adsbygoogle
         class="adsbygoogle"
-        style="display: block"
-        data-ad-client="ca-pub-0523971861051053"
-        data-ad-slot="5146110190"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
+        ad-style="display: block"
+        ad-slot="5146110190"
+        ad-format="auto"
+        full-width-responsive="true"
       >
-      </Adsense> -->
+      </adsbygoogle>
     </div>
     <div class="column is-12">
       <div class="content has-text-centered">

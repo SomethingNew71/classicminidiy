@@ -60,21 +60,19 @@
               </div>
             </div>
           </div>
-          <!-- <div
+          <div
             v-if="index === 1 || index === 3"
             :key="`${name}-${index}-ad`"
             class="column is-12"
           >
-            <Adsense
+            <adsbygoogle
               class="adsbygoogle"
-              style="display: block"
-              data-ad-client="ca-pub-0523971861051053"
-              data-ad-slot="9364363281"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
+              ad-style="display: block"
+              ad-slot="9364363281"
+              ad-format="auto"
             >
-            </Adsense>
-          </div> -->
+            </adsbygoogle>
+          </div>
         </template>
         <div class="column is-12">
           <div class="card">
