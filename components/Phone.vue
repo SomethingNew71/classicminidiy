@@ -3,7 +3,8 @@
     <div class="screen">
       <div class="header">
         <div class="brand">
-          <img
+          <nuxt-img
+            format="webp"
             src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
             alt=""
           />

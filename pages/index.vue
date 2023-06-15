@@ -119,6 +119,7 @@
                     <article class="tile grow is-child has-text-centered">
                       <nuxt-img
                         class="panel-icon-home"
+                        format="webp"
                         :src="item.image"
                         aria-hidden="true"
                         :alt="item.title + ' image'"
@@ -144,7 +145,11 @@
                 class="panel-block is-active"
               >
                 <span class="panel-icon">
-                  <nuxt-img :src="item.image" :alt="item.title + ' image'" />
+                  <nuxt-img
+                    format="webp"
+                    :src="item.image"
+                    :alt="item.title + ' image'"
+                  />
                 </span>
                 {{ item.title }}
               </NuxtLink>
