@@ -60,6 +60,19 @@
               </client-only>
             </div>
           </div>
+          <div
+            v-if="index === 0 || index === 2 || index === 4"
+            :key="`${name}-${index}-ad`"
+            class="column is-12"
+          >
+            <adsbygoogle
+              class="adsbygoogle"
+              ad-style="display: block"
+              ad-slot="2698882588"
+              ad-format="auto"
+            >
+            </adsbygoogle>
+          </div>
         </div>
         <div class="column is-12">
           <div class="card">

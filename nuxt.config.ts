@@ -63,11 +63,6 @@ export default defineNuxtConfig({
           src: 'https://kit.fontawesome.com/4e4435c885.js',
           crossorigin: 'anonymous',
         },
-        {
-          async: true,
-          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0523971861051053',
-          crossorigin: 'anonymous',
-        },
       ],
     },
     // pageTransition: { name: 'page', mode: 'out-in' },
@@ -82,13 +77,14 @@ export default defineNuxtConfig({
    ** Plugins to load before mounting the App
    */
   modules: [
+    'nuxt-simple-sitemap',
+    '@nuxt/image',
+    ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
+    ['@nuxtjs/google-adsense', { id: 'ca-pub-0523971861051053' }],
     [
       '@nuxtjs/robots',
-      {
-        Disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
-      },
+      { Disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'] },
     ],
-    'nuxt-simple-sitemap',
     [
       '@nuxtjs/html-validator',
       {
@@ -108,13 +104,6 @@ export default defineNuxtConfig({
             'no-autoplay': 'off',
           },
         },
-      },
-    ],
-    '@nuxt/image',
-    [
-      'nuxt-gtag',
-      {
-        id: 'G-FBH0E64HM1',
       },
     ],
   ],

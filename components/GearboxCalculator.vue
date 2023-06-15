@@ -297,15 +297,14 @@
       </div>
       <div class="card mt-2">
         <div class="card-content">
-          <!-- <InFeedAdsense
-            data-ad-layout-key="-gd-19+26-8l+ia"
-            data-ad-client="ca-pub-0523971861051053"
-            data-ad-slot="2084737702"
+          <adsbygoogle
+            ad-layout-key="-gd-19+26-8l+ia"
+            ad-slot="2084737702"
             class="adsbygoogle"
-            style="display: block"
-            data-ad-format="fluid"
+            ad-style="display: block"
+            ad-format="fluid"
           >
-          </InFeedAdsense> -->
+          </adsbygoogle>
         </div>
       </div>
     </div>

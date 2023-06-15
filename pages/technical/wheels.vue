@@ -228,25 +228,24 @@
                       </div>
                     </article>
                   </div>
-                  <!--  <div
+                  <div
                     v-if="index === 3 || index === 9 || index === 20"
                     :key="index"
                     class="column is-4"
                   >
                     <article class="card">
                       <div class="card-content">
-                        <InFeedAdsense
-                          data-ad-layout-key="+2a+rs+2z-6m+25"
-                          data-ad-client="ca-pub-0523971861051053"
-                          data-ad-slot="4011964258"
+                        <adsbygoogle
+                          ad-layout-key="+2a+rs+2z-6m+25"
+                          ad-slot="4011964258"
                           class="adsbygoogle"
-                          style="display: block"
-                          data-ad-format="fluid"
+                          as-style="display: block"
+                          ad-format="fluid"
                         >
-                        </InFeedAdsense>
+                        </adsbygoogle>
                       </div>
                     </article>
-                  </div> -->
+                  </div>
                 </template>
               </div>
               <div
