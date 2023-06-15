@@ -74,7 +74,7 @@
       <section class="modal-card-body">
         <img
           class="diagram"
-          src="~/assets/img/diagram.jpg"
+          src="/img/diagram.jpg"
           alt="Diagram of Needle Measurements"
         />
       </section>
