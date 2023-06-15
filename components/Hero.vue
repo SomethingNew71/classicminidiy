@@ -254,10 +254,10 @@
             {
               type: 'button',
               class: 'fancy-font-heavy donate',
-              text: 'Buy me a Coffee',
+              text: 'Join CMDIY',
               isUsingVueRouter: false,
               path: 'https://ko-fi.com/classicminidiy',
-              iconLeft: '<i class="fad fa-mug-saucer" />',
+              iconLeft: '<i class="fab fa-patreon" />',
             },
           ],
         },
@@ -293,7 +293,7 @@
       padding-right: 2rem;
 
       .donate {
-        background-color: #45a65e;
+        background-color: #f96854;
         padding: 12px 12px;
         cursor: pointer;
 
