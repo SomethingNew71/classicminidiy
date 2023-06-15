@@ -62,6 +62,7 @@
                   >
                     <nuxt-img
                       class="seven-logo"
+                      format="webp"
                       src="https://classicminidiy.s3.amazonaws.com/misc/seven-logo-horiz.png"
                       alt="Seven Mini Parts Logo"
                     />

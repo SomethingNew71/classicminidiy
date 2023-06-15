@@ -39,7 +39,11 @@
               class="panel-block is-active"
             >
               <span class="panel-icon">
-                <nuxt-img :src="card.image" :alt="card.title + ' icon'" />
+                <nuxt-img
+                  format="webp"
+                  :src="card.image"
+                  :alt="card.title + ' icon'"
+                />
               </span>
               {{ card.title }}
             </NuxtLink>

@@ -4,6 +4,7 @@
       <div class="columns">
         <div class="column is-3 avatar-container">
           <nuxt-img
+            format="webp"
             src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
             alt="Image of my car on jack stands"
           />
