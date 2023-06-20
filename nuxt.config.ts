@@ -128,6 +128,49 @@ export default defineNuxtConfig({
     },
   },
 
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Classic Mini Toolbox',
+      short_name: 'CMDIY Toolbox',
+      theme_color: '#ffffff',
+      icons: [
+        {
+          src: 'icon.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: 'icon.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+        {
+          src: 'icon.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'any maskable',
+        },
+      ],
+    },
+    workbox: {
+      navigateFallback: '/',
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+    },
+    client: {
+      installPrompt: true,
+      // you don't need to include this: only for testing purposes
+      // if enabling periodic sync for update use 1 hour or so (periodicSyncForUpdates: 3600)
+      periodicSyncForUpdates: 20,
+    },
+    devOptions: {
+      enabled: true,
+      suppressWarnings: true,
+      navigateFallbackAllowlist: [/^\/$/],
+      type: 'module',
+    },
+  },
+
   devtools: {
     enabled: true,
   },
