@@ -67,7 +67,9 @@
       >
         <adsbygoogle
           class="adsbygoogle"
-          ad-style="display: block"
+          :ad-style="{
+            display: 'block',
+          }"
           ad-slot="1918786408"
           ad-format="auto"
         >
