@@ -301,7 +301,9 @@
             ad-layout-key="-gd-19+26-8l+ia"
             ad-slot="2084737702"
             class="adsbygoogle"
-            ad-style="display: block"
+            :ad-style="{
+              display: 'block',
+            }"
             ad-format="fluid"
           >
           </adsbygoogle>
