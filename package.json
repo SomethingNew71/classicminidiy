@@ -61,6 +61,7 @@
     "nodemon": "^2.0.22",
     "nuxt": "^3.6.1",
     "nuxt-compress": "^5.0.0",
+    "nuxt-delay-hydration": "^1.2.1",
     "nuxt-gtag": "^0.5.7",
     "nuxt-simple-sitemap": "^2.7.0",
     "prettier": "2.8.8",
