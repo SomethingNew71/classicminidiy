@@ -3,7 +3,9 @@ export default defineNuxtConfig({
    ** Headers of the page
    */
   ssr: true,
-
+  routeRules: {
+    '*': { headers: "Cache-Control: max-age=31536000" }
+  },
   app: {
     head: {
       title: 'Classic Mini DIY',
