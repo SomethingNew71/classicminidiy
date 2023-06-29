@@ -80,6 +80,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     'nuxt-simple-sitemap',
     '@nuxt/image',
+    'nuxt-delay-hydration',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
     ['@nuxtjs/google-adsense', { id: 'ca-pub-0523971861051053' }],
     [
@@ -126,6 +127,12 @@ export default defineNuxtConfig({
       githubAPIKey: process.env.githubAPIKey,
       youtubeAPIKey: process.env.youtubeAPIKey,
     },
+  },
+
+  delayHydration: {
+    mode: 'mount',
+    // enables nuxt-delay-hydration in dev mode for testing
+    debug: process.env.NODE_ENV === 'development',
   },
 
   pwa: {
