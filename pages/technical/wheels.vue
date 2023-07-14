@@ -159,7 +159,9 @@
               ></skeleton-loader>
               <div v-if="!isLoading && !noResults" class="columns is-multiline">
                 <template v-for="(wheel, index) in paginatedItems" :key="index">
-                  <div class="column is-4">
+                  <div
+                    class="column is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-fifth-fullhd"
+                  >
                     <article class="card">
                       <div class="card-image">
                         <o-tooltip
@@ -231,20 +233,13 @@
                   <div
                     v-if="index === 3 || index === 9 || index === 20"
                     :key="index"
-                    class="column is-4"
+                    class="column is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-fifth-fullhd"
                   >
-                    <article class="card">
+                    <div class="card">
                       <div class="card-content">
-                        <adsbygoogle
-                          ad-layout-key="+2a+rs+2z-6m+25"
-                          ad-slot="4011964258"
-                          class="adsbygoogle"
-                          as-style="display: block"
-                          ad-format="fluid"
-                        >
-                        </adsbygoogle>
+                        <patreon-card size="small" />
                       </div>
-                    </article>
+                    </div>
                   </div>
                 </template>
               </div>

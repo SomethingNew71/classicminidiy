@@ -61,19 +61,15 @@
         </div>
       </div>
       <div
-        v-if="index === 2 || index === 4"
-        :key="`${name}-${index}-ad`"
+        v-if="index === 2"
+        :key="`${name}-${index}-patreon`"
         class="column is-12"
       >
-        <adsbygoogle
-          class="adsbygoogle"
-          :ad-style="{
-            display: 'block',
-          }"
-          ad-slot="1918786408"
-          ad-format="auto"
-        >
-        </adsbygoogle>
+        <div class="card">
+          <div class="card-content">
+            <patreon-card size="large" />
+          </div>
+        </div>
       </div>
     </template>
   </div>
