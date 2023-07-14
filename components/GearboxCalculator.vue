@@ -297,16 +297,7 @@
       </div>
       <div class="card mt-2">
         <div class="card-content">
-          <adsbygoogle
-            ad-layout-key="-gd-19+26-8l+ia"
-            ad-slot="2084737702"
-            class="adsbygoogle"
-            :ad-style="{
-              display: 'block',
-            }"
-            ad-format="fluid"
-          >
-          </adsbygoogle>
+          <patreon-card size="small" />
         </div>
       </div>
     </div>

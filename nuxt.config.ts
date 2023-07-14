@@ -81,7 +81,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-delay-hydration',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
-    ['@nuxtjs/google-adsense', { id: 'ca-pub-0523971861051053' }],
     [
       '@nuxtjs/robots',
       { Disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'] },

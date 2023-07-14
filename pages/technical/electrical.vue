@@ -38,12 +38,21 @@
             :key="`${name}-${index}`"
           >
             <div class="column is-12">
-              <div class="card">
-                <div class="card-header">
-                  <h2 class="card-header-title">
-                    {{ diagram.title }}
-                  </h2>
-                </div>
+              <o-collapse class="card" animation="slide">
+                <template #trigger="props">
+                  <div class="card-header" role="button">
+                    <h2 class="card-header-title">
+                      {{ diagram.title }}
+                    </h2>
+                    <a class="card-header-icon">
+                      <o-icon
+                        pack="fas"
+                        :icon="props.open ? 'caret-up' : 'caret-down'"
+                      >
+                      </o-icon>
+                    </a>
+                  </div>
+                </template>
                 <div class="card-content pt-0 pb-0 pl-0 pr-0">
                   <nav class="panel is-striped">
                     <a
@@ -60,22 +69,18 @@
                     </a>
                   </nav>
                 </div>
-              </div>
+              </o-collapse>
             </div>
             <div
-              v-if="index === 0 || index === 2 || index === 4"
-              :key="`${name}-${index}-ad`"
+              v-if="index === 0"
+              :key="`${name}-${index}-patreon`"
               class="column is-12"
             >
-              <adsbygoogle
-                class="adsbygoogle"
-                :ad-style="{
-                  display: 'block',
-                }"
-                :ad-slot="'2698882588'"
-                :ad-format="'auto'"
-              >
-              </adsbygoogle>
+              <div class="card">
+                <div class="card-content">
+                  <patreon-card size="large" />
+                </div>
+              </div>
             </div>
           </template>
           <div class="column is-12">

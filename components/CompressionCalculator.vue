@@ -189,18 +189,6 @@
         </nav>
       </div>
     </div>
-    <div class="column is-12 py-4">
-      <adsbygoogle
-        class="adsbygoogle"
-        :ad-style="{
-          display: 'block',
-        }"
-        ad-slot="5146110190"
-        ad-format="auto"
-        full-width-responsive="true"
-      >
-      </adsbygoogle>
-    </div>
     <div class="column is-12">
       <div class="content has-text-centered">
         <p>

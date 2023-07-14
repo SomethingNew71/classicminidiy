@@ -38,13 +38,22 @@
           :key="`${name}-${index}`"
           class="column is-12"
         >
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-header-title">
-                <i :class="table.icon"></i>
-                <span class="pl-1">{{ table.title }}</span>
-              </h2>
-            </div>
+          <o-collapse class="card" animation="slide">
+            <template #trigger="props">
+              <div class="card-header" role="button">
+                <h2 class="card-header-title">
+                  <i :class="table.icon"></i>
+                  <span class="pl-1">{{ table.title }}</span>
+                </h2>
+                <a class="card-header-icon">
+                  <o-icon
+                    pack="fas"
+                    :icon="props.open ? 'caret-up' : 'caret-down'"
+                  >
+                  </o-icon>
+                </a>
+              </div>
+            </template>
             <div class="card-content">
               <client-only>
                 <o-table
@@ -59,27 +68,16 @@
                 />
               </client-only>
             </div>
-          </div>
+          </o-collapse>
           <div
-            v-if="index === 0 || index === 2 || index === 4"
-            :key="`${name}-${index}-ad`"
+            v-if="index === 0"
+            :key="`${name}-${index}-patreon`"
             class="column is-12"
           >
-            <adsbygoogle
-              class="adsbygoogle"
-              :ad-style="{
-                display: 'block',
-              }"
-              ad-slot="2698882588"
-              ad-format="auto"
-            >
-            </adsbygoogle>
-          </div>
-        </div>
-        <div class="column is-12">
-          <div class="card">
-            <div class="card-content">
-              <patreon-card size="large" />
+            <div class="card">
+              <div class="card-content">
+                <patreon-card size="large" />
+              </div>
             </div>
           </div>
         </div>
