@@ -3,9 +3,14 @@
     class="hero"
     :class="size"
     :style="[
-      {
-        backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background}.webp)`,
-      },
+      blog
+        ? {
+            backgroundImage: `url(/img/notes.jpg)`,
+          }
+        : {
+            backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background}.webp)`,
+          },
+      !showImage ? { backgroundImage: 'none' } : {},
     ]"
   >
     <client-only>
@@ -37,6 +42,14 @@
     title: {
       type: String,
       default: '',
+    },
+    showImage: {
+      type: Boolean,
+      default: true,
+    },
+    blog: {
+      type: Boolean,
+      default: false,
     },
     subtitle: {
       type: String,
@@ -86,6 +99,13 @@
               isUsingVueRouter: true,
               path: '/',
               iconLeft: '<i class="fad fa-house"></i>',
+            },
+            {
+              type: 'link',
+              text: 'Blog',
+              isUsingVueRouter: true,
+              path: '/blog',
+              iconLeft: '<i class="fad fa-pencil"></i>',
             },
             {
               type: 'link',
