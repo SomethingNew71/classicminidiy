@@ -35,6 +35,24 @@
     .then((res: Post[]) => {
       currentPostData = res[0];
       console.log(currentPostData);
+      useHead({
+        title: `The (C)archive - ${currentPostData.title}`,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: currentPostData.description,
+          },
+        ],
+      });
+      useSeoMeta({
+        ogTitle: `The (C)archive - ${currentPostData.title}`,
+        ogDescription: currentPostData.description,
+        ogUrl: route.fullPath,
+        ogImage: `https://classicminidiy.com${currentPostData.image}`,
+        ogType: 'article',
+        author: currentPostData.author,
+      });
     });
 </script>
 
