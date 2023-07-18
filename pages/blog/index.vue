@@ -17,7 +17,11 @@
           <div class="card-content">
             <div class="media">
               <div v-if="post.image" class="media-center">
-                <img :src="post.image" class="post-image" />
+                <img
+                  :src="post.image"
+                  class="post-image"
+                  alt="preview image for post"
+                />
               </div>
               <div class="media-content has-text-centered">
                 <h2 class="title article-title">
@@ -125,6 +129,10 @@
     .article-body {
       line-height: 1.4;
       margin: 0 6rem;
+
+      @media screen and (max-width: 768px) {
+        margin: 0 1rem;
+      }
       img {
         width: 50%;
       }

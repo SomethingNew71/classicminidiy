@@ -12,7 +12,11 @@
       <div class="card article">
         <div class="media">
           <div v-if="currentPostData.image" class="media-center">
-            <img :src="currentPostData.image" class="post-image" />
+            <img
+              :src="currentPostData.image"
+              class="post-image"
+              alt="preview image for post"
+            />
           </div>
         </div>
         <div class="card-content">
