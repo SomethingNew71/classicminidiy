@@ -1,3 +1,5 @@
+import { ParsedContent } from '@nuxt/content/dist/runtime/types';
+
 export interface Color {
   primaryColor: string;
   code: string;
@@ -76,6 +78,13 @@ export interface ThumbnailStandard {
   url: string;
   width: number;
   height: number;
+}
+
+export interface Post extends ParsedContent {
+  image?: string;
+  author?: string;
+  date?: string;
+  description?: string;
 }
 
 export interface ThumbnailMaxres {
