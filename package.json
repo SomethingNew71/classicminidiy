@@ -62,7 +62,7 @@
     "nuxt-compress": "^5.0.0",
     "nuxt-delay-hydration": "^1.2.1",
     "nuxt-gtag": "^0.5.7",
-    "nuxt-simple-sitemap": "^3.0.9",
+    "nuxt-simple-sitemap": "^3.0.11",
     "prettier": "3.0.0"
   }
 }
