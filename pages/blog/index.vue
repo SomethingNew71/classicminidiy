@@ -61,10 +61,7 @@
 
 <style lang="scss">
   .articles {
-    margin: 5rem 0;
-    @media screen and (min-width: 768px) {
-      margin-top: -2.5rem;
-    }
+    background-color: #f1f1f1;
     .content p {
       line-height: 1.9;
       margin: 15px 0;
@@ -93,6 +90,10 @@
   }
   .article-container {
     margin-bottom: 5rem;
+
+    .article {
+      margin-top: -2.5rem;
+    }
     .article-title {
       font-size: 2rem;
       line-height: 2;
