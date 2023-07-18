@@ -57,6 +57,26 @@
   await queryContent('/')
     .find()
     .then((res: Post[]) => (blogPosts = res));
+
+  useHead({
+    title: 'The (C)archive - CMDIY Blog',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'The Classic Mini DIY Blog (C)archive is the best place to see updates about CMDIY, complex technical articles, and much more!',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'The (C)archive - CMDIY Blog',
+    ogDescription:
+      'The Classic Mini DIY Blog (C)archive is the best place to see updates about CMDIY, complex technical articles, and much more!',
+    ogUrl: 'classicminidiy.com/blog',
+    ogImage: 'https://classicminidiy.com/img/typewriter.jpg',
+    ogType: 'website',
+  });
 </script>
 
 <style lang="scss">
