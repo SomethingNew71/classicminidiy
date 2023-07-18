@@ -52,13 +52,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ParsedContent } from '@nuxt/content/dist/runtime/types';
-
-  interface Post extends ParsedContent {
-    image?: string;
-    author?: string;
-    date?: string;
-  }
+  import { Post } from 'data/models';
   let blogPosts: Post[] = [];
   await queryContent('/')
     .find()
