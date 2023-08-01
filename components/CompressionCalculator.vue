@@ -555,7 +555,6 @@
     },
     methods: {
       calculateRatio() {
-        console.log('calcing');
         this.isLoading = true;
         const pi = Math.PI;
         const boreRadius = this.bore / 2;

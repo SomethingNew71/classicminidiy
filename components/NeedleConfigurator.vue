@@ -171,7 +171,6 @@
         this.mapOptions.series = this.selectValues;
       },
       addArrayItem() {
-        console.log('adding attempted');
         this.existsError = this.selectValues.some(
           (obj) => obj.name === this.addNeedleSelection.name
         );
