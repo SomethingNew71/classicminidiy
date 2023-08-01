@@ -7,7 +7,12 @@ exportingInit(Highcharts);
 accessibility(Highcharts);
 
 // Create the download button for highcharts
-Highcharts.SVGRenderer.prototype.symbols.download = (x, y, w, h) => [
+Highcharts.SVGRenderer.prototype.symbols.download = (
+  x: number,
+  y: number,
+  w: number,
+  h: number
+) => [
   // Arrow stem
   'M',
   x + w * 0.5,
@@ -41,6 +46,8 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x, y, w, h) => [
 ];
 
 export default defineNuxtPlugin((nuxtApp) => {
+  // @ts-ignore
   nuxtApp.vueApp.use(HighchartsVue, { highcharts: Highcharts });
+  // @ts-ignore
   nuxtApp.vueApp.component(Chart);
 });
