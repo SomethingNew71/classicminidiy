@@ -110,9 +110,9 @@ export default defineNuxtConfig({
   ],
 
   plugins: [
-    '~/plugins/oruga.js',
-    { src: '~/plugins/highcharts.js', mode: 'client' },
-    { src: '~/plugins/vue-navigation-bar.js', mode: 'client' },
+    '~/plugins/oruga.ts',
+    { src: '~/plugins/highcharts.ts', mode: 'client' },
+    { src: '~/plugins/vue-navigation-bar.ts', mode: 'client' },
   ],
 
   runtimeConfig: {
