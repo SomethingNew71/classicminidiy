@@ -29,6 +29,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.379.1",
+    "@aws-sdk/lib-dynamodb": "^3.379.1",
     "@creativebulma/bulma-divider": "^1.1.0",
     "@nuxtjs/robots": "^3.0.0",
     "@octokit/request": "^8.1.0",
