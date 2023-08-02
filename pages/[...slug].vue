@@ -30,13 +30,13 @@
                     <strong class="pl-2">{{ currentPostViews }}</strong>
                   </p>
                 </div>
-                <div class="is-size-7 pr-3 has-text-primary">
+                <div class="is-size-7 pr-3 has-text-primary is-hidden-mobile">
                   <i class="fa fa-circle"></i>
                 </div>
                 <div class="level-item">
                   <p><strong>Published:</strong> {{ currentPostData.date }}</p>
                 </div>
-                <div class="is-size-7 pr-3 has-text-primary">
+                <div class="is-size-7 pr-3 has-text-primary is-hidden-mobile">
                   <i class="fa fa-circle"></i>
                 </div>
                 <div class="level-item">
