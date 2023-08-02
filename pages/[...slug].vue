@@ -21,6 +21,30 @@
         </div>
         <div class="card-content">
           <div class="content article-body">
+            <nav class="level is-size-6 pt-5">
+              <!-- Left side -->
+              <div class="level-left">
+                <div class="level-item">
+                  <p>
+                    <i class="fad fa-eye pr-1"></i>
+                    <strong class="pl-2">{{ currentPostViews }}</strong>
+                  </p>
+                </div>
+                <div class="is-size-7 pr-3 has-text-primary">
+                  <i class="fa fa-circle"></i>
+                </div>
+                <div class="level-item">
+                  <p><strong>Published:</strong> {{ currentPostData.date }}</p>
+                </div>
+                <div class="is-size-7 pr-3 has-text-primary">
+                  <i class="fa fa-circle"></i>
+                </div>
+                <div class="level-item">
+                  <p><strong>Author:</strong> {{ currentPostData.author }}</p>
+                </div>
+              </div>
+            </nav>
+            <hr />
             <ContentDoc />
           </div>
         </div>
@@ -30,15 +54,61 @@
 </template>
 
 <script setup lang="ts">
+  import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+  import {
+    DynamoDBDocumentClient,
+    GetCommand,
+    PutCommand,
+  } from '@aws-sdk/lib-dynamodb';
   import { Post } from '~/data/models';
   const route = useRoute();
-
+  const runtimeConfig = useRuntimeConfig();
   let currentPostData: Post;
+  let currentPostViews: number;
+
   await queryContent(route.path)
     .find()
-    .then((res: Post[]) => {
+    .then(async (res: Post[]) => {
       currentPostData = res[0];
-      console.log(currentPostData);
+      const docClient = DynamoDBDocumentClient.from(
+        new DynamoDBClient({
+          region: 'us-east-1',
+          credentials: {
+            accessKeyId: runtimeConfig.app.aws_access_key_id,
+            secretAccessKey: runtimeConfig.app.aws_secret_access_key,
+          },
+        })
+      );
+
+      const initalData = await docClient.send(
+        new GetCommand({
+          TableName: 'BlogViews',
+          Key: { postID: currentPostData.title },
+        })
+      );
+      currentPostViews = initalData?.Item?.Count + 1;
+      if (!initalData.Item) {
+        await docClient.send(
+          new PutCommand({
+            TableName: 'BlogViews',
+            Item: {
+              postID: currentPostData.title,
+              Count: 1,
+            },
+          })
+        );
+        currentPostViews = 1;
+      } else {
+        await docClient.send(
+          new PutCommand({
+            TableName: 'BlogViews',
+            Item: {
+              postID: currentPostData.title,
+              Count: currentPostViews,
+            },
+          })
+        );
+      }
       useHead({
         title: `The (C)archive - ${currentPostData.title}`,
         meta: [
