@@ -25,16 +25,9 @@
         </div>
       </div>
     </template>
-    <o-carousel
-      v-if="!isLoading"
-      :v-model="videos"
-      :items-to-show="2"
-      :repeat="true"
-      :has-drag="true"
-      :icon-pack="'fad'"
-      :icon-size="'is-medium'"
-    >
-      <o-carousel-item v-for="(video, i) in videos" :key="i">
+
+    <div class="columns is-multiline">
+      <div class="column is-one-third-desktop" v-for="video in videos">
         <div class="card">
           <div class="card-image">
             <figure class="image">
@@ -75,8 +68,8 @@
             </div>
           </div>
         </div>
-      </o-carousel-item>
-    </o-carousel>
+      </div>
+    </div>
   </div>
 </template>
 

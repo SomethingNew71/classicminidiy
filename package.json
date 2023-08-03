@@ -49,13 +49,11 @@
     "redirect-ssl": "^3.0.0",
     "sass": "^1.64.2",
     "vue-cookie-law": "^1.13.3",
-    "vue-navigation-bar": "5.0.2"
+    "vuetify": "^3.3.11"
   },
   "devDependencies": {
     "@nuxt/content": "^2.7.2",
-    "@nuxt/devtools": "^0.7.4",
     "@nuxt/image": "^1.0.0-rc.1",
-    "@nuxtjs/html-validator": "^1.5.2",
     "@types/debounce": "^1.2.1",
     "@types/luxon": "^3.3.1",
     "@vite-pwa/nuxt": "^0.1.0",

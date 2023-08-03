@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
           videoUrl: `http://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`,
         };
       });
-      return [...items];
+      return [...items.slice(0, 3)];
     })
     .catch((error) => {
       throw new Error(error);
