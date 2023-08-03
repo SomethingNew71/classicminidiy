@@ -70,7 +70,7 @@ export default defineNuxtConfig({
   /*
    ** Global CSS
    */
-  css: ['@/assets/main.scss'],
+  css: ['@/assets/main.scss', 'vuetify/lib/styles/main.sass'],
 
   /*
    ** Plugins to load before mounting the App
@@ -80,39 +80,17 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     'nuxt-simple-sitemap',
     '@nuxt/image',
-    'nuxt-delay-hydration',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
     [
       '@nuxtjs/robots',
       { Disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'] },
     ],
-    [
-      '@nuxtjs/html-validator',
-      {
-        usePrettier: false,
-        options: {
-          rules: {
-            'svg-focusable': 'off',
-            'no-unknown-elements': 'error',
-            // Conflicts or not needed as we use prettier formatting
-            'void-style': 'off',
-            'no-trailing-whitespace': 'off',
-            // Conflict with Nuxt defaults
-            'require-sri': 'off',
-            'attribute-boolean-style': 'off',
-            'doctype-style': 'off',
-            // Unreasonable rule
-            'no-autoplay': 'off',
-          },
-        },
-      },
-    ],
   ],
 
   plugins: [
     '~/plugins/oruga.ts',
+    '~/plugins/vuetify.ts',
     { src: '~/plugins/highcharts.ts', mode: 'client' },
-    { src: '~/plugins/vue-navigation-bar.ts', mode: 'client' },
   ],
 
   runtimeConfig: {
@@ -130,10 +108,13 @@ export default defineNuxtConfig({
     },
   },
 
-  delayHydration: {
-    mode: 'mount',
-    // enables nuxt-delay-hydration in dev mode for testing
-    debug: process.env.NODE_ENV === 'development',
+  build: {
+    transpile: ['vuetify'],
+  },
+  vite: {
+    define: {
+      'process.env.DEBUG': false,
+    },
   },
 
   pwa: {
@@ -177,9 +158,5 @@ export default defineNuxtConfig({
       navigateFallbackAllowlist: [/^\/$/],
       type: 'module',
     },
-  },
-
-  devtools: {
-    enabled: true,
   },
 });

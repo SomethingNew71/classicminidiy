@@ -25,9 +25,9 @@
               </div>
               <div class="media-content has-text-centered">
                 <h2 class="title article-title">
-                  <nuxt-link :to="post._path">
+                  <NuxtLink :to="post._path">
                     {{ post.title }}
-                  </nuxt-link>
+                  </NuxtLink>
                 </h2>
                 <div class="tags has-addons level-item">
                   <span class="tag is-rounded is-info" v-if="post.author">
@@ -41,8 +41,8 @@
             </div>
             <div class="content article-body pb-5 mb-5">
               <ContentRenderer :value="post" :excerpt="true" />
-              <nuxt-link :to="post._path" class="is-size-4"
-                >Read More...</nuxt-link
+              <NuxtLink :to="post._path" class="is-size-4"
+                >Read More...</NuxtLink
               >
             </div>
           </div>

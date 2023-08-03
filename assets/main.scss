@@ -78,12 +78,10 @@ $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
-// Import Bulma and Buefy styles
+// Import Bulma styles
 @import '@/node_modules/bulma/bulma';
 @import '@/node_modules/@oruga-ui/theme-bulma/dist/scss/bulma';
 @import '@/node_modules/@creativebulma/bulma-divider';
-// I dont like Bulma's Navbar and this one basically is stripes navbar so plug and play baby
-@import '@/node_modules/vue-navigation-bar/dist/vue-navigation-bar.css';
 
 // Import all my custom scss
 @import './bulma-overides.scss';
