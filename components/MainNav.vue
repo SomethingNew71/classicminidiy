@@ -150,7 +150,7 @@
 
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
-  const { smAndUp, mdAndUp, lgAndUp, mdAndDown } = useDisplay();
+  const { mdAndUp, lgAndUp, mdAndDown } = useDisplay();
   const toolboxItems = [
     {
       title: 'Torque Specs',

@@ -127,4 +127,7 @@
       font-size: 20px;
     }
   }
+  .panel-block {
+    word-break: break-word;
+  }
 </style>
