@@ -13,7 +13,7 @@
       <div class="container">
         <div class="columns is-multiline pb-5">
           <div class="column is-12"></div>
-          <div class="column is-12 is-two-thirds-desktop">
+          <div class="column is-12 is-two-thirds-tablet">
             <h2 class="fancy-font-book-oblique">
               <i class="fad fa-book"></i> THE MINI MISSION
             </h2>
@@ -33,7 +33,7 @@
               <contact-form></contact-form>
             </p> -->
           </div>
-          <div class="column is-12 is-on-third-desktop">
+          <div class="column is-12 is-on-third-tablet">
             <h3 class="fancy-font-book-oblique">
               <i class="fad fa-gift"></i> SUPPORT THE MISSION
             </h3>
