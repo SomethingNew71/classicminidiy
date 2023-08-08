@@ -159,7 +159,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png">
         </picture>
       `,
     },
@@ -170,7 +170,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png">
         </picture>
       `,
     },
@@ -181,7 +181,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png">
         </picture>
       `,
     },
@@ -192,7 +192,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png">
         </picture>
       `,
     },
@@ -203,7 +203,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png">
         </picture>
       `,
     },
@@ -214,7 +214,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png">
         </picture>
       `,
     },
@@ -225,7 +225,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png">
         </picture>
       `,
     },
@@ -236,7 +236,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png">
         </picture>
       `,
     },
@@ -247,7 +247,7 @@
         <picture class="submenu-icon">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp" type="image/webp">
           <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png" type="image/png">
-          <img alt="" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png">
         </picture>
       `,
     },
