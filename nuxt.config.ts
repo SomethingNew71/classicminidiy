@@ -51,9 +51,10 @@ export default defineNuxtConfig({
         },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         {
-          rel: 'stylesheet preconnect dns-prefetch',
+          rel: 'stylesheet preconnect preload dns-prefetch',
           href: 'https://use.typekit.net/fgm1hlg.css',
           media: 'print',
+          as: 'font',
           onload: 'this.media="all"',
         },
       ],
