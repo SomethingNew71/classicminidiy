@@ -37,6 +37,7 @@
                     {{ post.date }}
                   </span>
                 </div>
+                <div></div>
               </div>
             </div>
             <div class="content article-body pb-5 mb-5">
@@ -44,6 +45,9 @@
               <NuxtLink :to="post._path" class="is-size-4"
                 >Read More...</NuxtLink
               >
+              <br />
+              <br />
+              <DisqusCount :identifier="post._path" />
             </div>
           </div>
         </div>

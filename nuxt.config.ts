@@ -54,13 +54,13 @@ export default defineNuxtConfig({
           rel: 'stylesheet preconnect preload dns-prefetch',
           href: 'https://use.typekit.net/fgm1hlg.css',
           media: 'print',
-          as: 'font',
           onload: 'this.media="all"',
         },
       ],
       script: [
         {
           src: 'https://kit.fontawesome.com/4e4435c885.js',
+          defer: 'true',
           crossorigin: 'anonymous',
         },
       ],
@@ -78,6 +78,13 @@ export default defineNuxtConfig({
    */
   modules: [
     '@nuxt/content',
+    '@nuxtjs/fontaine',
+    [
+      'nuxt-disqus',
+      {
+        shortname: 'classicminidiy',
+      },
+    ],
     '@vite-pwa/nuxt',
     'nuxt-simple-sitemap',
     '@nuxt/image',
