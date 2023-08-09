@@ -50,6 +50,7 @@
                     :srcset="video.thumbnails.standard.url"
                   />
                   <img
+                    loading="lazy"
                     :src="video.thumbnails.maxres.url"
                     :alt="'Thumbnail for ' + videos.title"
                   />
