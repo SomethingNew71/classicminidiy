@@ -107,6 +107,7 @@
                         type="image/jpg"
                       />
                       <img
+                        loading="lazy"
                         alt=""
                         :src="`https://classicminidiy.s3.amazonaws.com/colors/${props.row.code}.jpg`"
                       />
@@ -125,6 +126,7 @@
                         type="image/jpg"
                       />
                       <img
+                        loading="lazy"
                         alt=""
                         src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg"
                       />

@@ -46,7 +46,7 @@
               on github.
             </p>
             <a
-              class="mt-25 button is-medium is-patreon"
+              class="mr-3 button is-medium is-patreon"
               rel="noopener"
               href="https://patreon.com/classicminidiy"
               target="_blank"
@@ -57,7 +57,7 @@
               <span>Donate</span>
             </a>
             <a
-              class="mt-25 button is-medium"
+              class="button is-medium"
               rel="noopener"
               href="https://patreon.com/classicminidiy"
               target="_blank"

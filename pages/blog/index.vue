@@ -18,6 +18,7 @@
             <div class="media">
               <div v-if="post.image" class="media-center">
                 <img
+                  loading="lazy"
                   :src="post.image"
                   class="post-image"
                   alt="preview image for post"

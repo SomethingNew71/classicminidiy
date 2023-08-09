@@ -73,6 +73,7 @@
       </header>
       <section class="modal-card-body">
         <img
+          loading="lazy"
           class="diagram"
           src="/img/diagram.jpg"
           alt="Diagram of Needle Measurements"

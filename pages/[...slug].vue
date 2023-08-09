@@ -13,6 +13,7 @@
         <div class="media">
           <div v-if="currentPostData.image" class="media-center">
             <img
+              loading="lazy"
               :src="currentPostData.image"
               class="post-image"
               alt="preview image for post"
