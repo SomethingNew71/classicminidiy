@@ -85,6 +85,7 @@ export interface Post extends ParsedContent {
   author?: string;
   date?: string;
   description?: string;
+  slug?: string;
 }
 
 export interface ThumbnailMaxres {

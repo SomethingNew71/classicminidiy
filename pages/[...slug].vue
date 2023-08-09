@@ -46,6 +46,10 @@
             </nav>
             <hr />
             <ContentDoc />
+            <div class="column is-10 is-offset-1">
+              <div class="divider">Comments</div>
+            </div>
+            <DisqusComments :identifier="currentPostData.slug" />
           </div>
         </div>
       </div>
@@ -70,6 +74,10 @@
     .find()
     .then(async (res: Post[]) => {
       currentPostData = res[0];
+      currentPostData = {
+        ...currentPostData,
+        slug: route.path,
+      };
       const docClient = DynamoDBDocumentClient.from(
         new DynamoDBClient({
           region: 'us-east-1',
