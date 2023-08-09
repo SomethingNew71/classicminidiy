@@ -29,14 +29,14 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.382.0",
-    "@aws-sdk/lib-dynamodb": "^3.382.0",
+    "@aws-sdk/client-dynamodb": "^3.387.0",
+    "@aws-sdk/lib-dynamodb": "^3.387.0",
     "@creativebulma/bulma-divider": "^1.1.0",
     "@nuxtjs/robots": "^3.0.0",
     "@octokit/request": "^8.1.1",
     "@oruga-ui/oruga-next": "^0.6.0",
     "@oruga-ui/theme-bulma": "^0.2.11",
-    "@types/node": "^20.4.6",
+    "@types/node": "^20.4.9",
     "@types/youtube": "^0.0.47",
     "axios": "^1.4.0",
     "core-js": "^3.32.0",
@@ -64,7 +64,7 @@
     "nuxt-delay-hydration": "^1.2.1",
     "nuxt-disqus": "^1.0.1",
     "nuxt-gtag": "^0.5.7",
-    "nuxt-simple-sitemap": "^3.1.4",
-    "prettier": "3.0.0"
+    "nuxt-simple-sitemap": "^3.1.5",
+    "prettier": "3.0.1"
   }
 }
