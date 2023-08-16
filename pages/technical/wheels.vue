@@ -313,7 +313,6 @@
 
 <script lang="js">
   import Fuse from 'fuse.js';
-  import { debounce } from 'debounce';
   import { useProgrammatic } from '@oruga-ui/oruga-next';
   import tenInchWheels from '~/data/wheels/10.json';
   import twelveInchWheels from '~/data/wheels/12.json';
@@ -369,10 +368,6 @@
           this.standardSearch();
         }
       },
-    },
-    created() {
-      this.searchAll = debounce(this.searchAll, 500);
-      this.standardSearch = debounce(this.standardSearch, 500);
     },
     methods: {
       changePages() {
