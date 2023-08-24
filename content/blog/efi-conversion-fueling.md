@@ -2,7 +2,7 @@
 title: 'Classic Mini EFI - Fueling'
 description: 'A comprehensive guide on the fuel system parts and basic concepts related to fuel injecting your Classic Mini.'
 author: 'Cole Gentry'
-date: 'July 18th, 2023'
+date: 'July 18 2023'
 image: '/img/blog/efi-conversion/fueltank.jpg'
 ---
 
