@@ -2,7 +2,7 @@
 title: 'Classic Mini EFI - Hardware'
 description: 'A comprehensive guide on the parts and basic concepts related to fuel injecting your Classic Mini.'
 author: 'Cole Gentry'
-date: 'July 17th, 2023'
+date: 'July 17 2023'
 image: '/img/blog/efi-conversion/crankpositionsensor.jpg'
 ---
 

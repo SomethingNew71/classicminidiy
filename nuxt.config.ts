@@ -87,13 +87,24 @@ export default defineNuxtConfig({
     ],
     '@vite-pwa/nuxt',
     'nuxt-simple-sitemap',
+    'nuxt-simple-robots',
+    'nuxt-link-checker',
     '@nuxt/image',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
-    [
-      '@nuxtjs/robots',
-      { Disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'] },
-    ],
   ],
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', 'sitemap.xml'],
+      ignore: [],
+    },
+  },
+
+  robots: {
+    // provide simple disallow rules for all robots `user-agent: *`
+    disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
+  },
 
   plugins: [
     '~/plugins/oruga.ts',
