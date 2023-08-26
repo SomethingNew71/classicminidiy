@@ -29,9 +29,6 @@
               world-class manufacturers to deliver top-of-the-line products to
               personalize and ensure the performance of your Classic Mini.
             </p>
-            <!-- <p class="pt-3">
-              <contact-form></contact-form>
-            </p> -->
           </div>
           <div class="column is-12 is-on-third-tablet">
             <h3 class="fancy-font-book-oblique">
