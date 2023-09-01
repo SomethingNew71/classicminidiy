@@ -34,24 +34,27 @@
               <a :href="video.videoUrl" target="_blank">
                 <picture :alt="video.title + ' thumbnail'">
                   <source
-                    media="(max-width: 576px)"
-                    :srcset="video.thumbnails.medium.url"
-                  />
-                  <source
+                    v-if="video.thumbnails.medium"
                     media="(max-width: 799px)"
                     :srcset="video.thumbnails.medium.url"
                   />
                   <source
+                    v-if="video.thumbnails.high"
                     media="(max-width: 992px)"
                     :srcset="video.thumbnails.high.url"
                   />
                   <source
+                    v-if="video.thumbnails.standard"
                     media="(max-width: 1200px)"
                     :srcset="video.thumbnails.standard.url"
                   />
                   <img
                     loading="lazy"
-                    :src="video.thumbnails.maxres.url"
+                    :src="
+                      video.thumbnails.maxres
+                        ? video.thumbnails.maxres.url
+                        : video.thumbnails.standard.url
+                    "
                     :alt="'Thumbnail for ' + videos.title"
                   />
                 </picture>
