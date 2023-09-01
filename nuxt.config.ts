@@ -106,18 +106,13 @@ export default defineNuxtConfig({
     disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
   },
 
-  plugins: [
-    '~/plugins/oruga.ts',
-    '~/plugins/vuetify.ts',
-    { src: '~/plugins/highcharts.ts', mode: 'client' },
-  ],
+  plugins: ['~/plugins/oruga.ts', '~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
 
   runtimeConfig: {
     public: {
       s3BaseURL: process.env.s3Base,
       serverlessEndpoint: process.env.serverlessEndpoint,
-      siteUrl:
-        process.env.NUXT_PUBLIC_SITE_URL || 'https://www.classicminidiy.com',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://www.classicminidiy.com',
     },
     app: {
       githubAPIKey: process.env.githubAPIKey,

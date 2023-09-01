@@ -3,23 +3,14 @@
     <div class="screen">
       <div class="header">
         <div class="brand">
-          <nuxt-img
-            format="webp"
-            src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
-            alt=""
-          />
+          <nuxt-img format="webp" src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png" alt="" />
           <h3>Classic Mini Chat</h3>
         </div>
       </div>
       <div class="content">
         <div class="item first">
           <div class="sidebar">
-            <nuxt-picture
-              class="sidebar-avatar"
-              format="webp,jpg"
-              src="/img/avatars/fred.jpg"
-              alt="Image"
-            />
+            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/fred.jpg" alt="Image" />
           </div>
           <div class="text">
             <div class="heading">Fred <span>yesterday</span></div>
@@ -28,12 +19,7 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture
-              class="sidebar-avatar"
-              format="webp,jpg"
-              src="/img/avatars/kellie.jpg"
-              alt="Image"
-            />
+            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/kellie.jpg" alt="Image" />
           </div>
           <div class="text">
             <div class="heading">Kellie <span>yesterday</span></div>
@@ -47,12 +33,7 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture
-              class="sidebar-avatar"
-              format="webp,jpg"
-              src="/img/avatars/cole.jpg"
-              alt="Image"
-            />
+            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/cole.jpg" alt="Image" />
           </div>
           <div class="text">
             <div class="heading">Cole <span>Today</span></div>
@@ -62,57 +43,34 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture
-              class="sidebar-avatar"
-              format="webp,jpg"
-              src="/img/avatars/jeff.jpg"
-              alt="Image"
-            />
+            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/jeff.jpg" alt="Image" />
           </div>
           <div class="text">
             <div class="heading">Jeff <span>Today</span></div>
-            <div class="line">
-              Wow this is way simpler than I thought it was!
-            </div>
+            <div class="line">Wow this is way simpler than I thought it was!</div>
             <div class="line">Thanks so much for the help!</div>
           </div>
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture
-              class="sidebar-avatar"
-              format="webp,jpg"
-              src="/img/avatars/nancy.jpg"
-              alt="Image"
-            />
+            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/nancy.jpg" alt="Image" />
           </div>
           <div class="text">
             <div class="heading">Nancy <span>Today</span></div>
-            <div class="line">
-              Tuning my HIF44 carb has been a nightmare! Do you have any tips?
-            </div>
+            <div class="line">Tuning my HIF44 carb has been a nightmare! Do you have any tips?</div>
             <div class="line">The car hasn't been running for a while.</div>
           </div>
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture
-              class="sidebar-avatar"
-              format="webp,jpg"
-              src="/img/avatars/william.jpg"
-              alt="Image"
-            />
+            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/william.jpg" alt="Image" />
           </div>
           <div class="text">
             <div class="heading">William <span>Tomorrow</span></div>
             <div class="line">
-              Looks like Cole isn't online right not but this is actually
-              something I have done before on my car.
+              Looks like Cole isn't online right not but this is actually something I have done before on my car.
             </div>
-            <div class="line">
-              The best way to get it working is to just make it work from the
-              beginning.
-            </div>
+            <div class="line">The best way to get it working is to just make it work from the beginning.</div>
           </div>
         </div>
       </div>
@@ -129,8 +87,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%),
-      0 30px 60px -30px rgb(0 0 0 / 30%), inset 0 -2px 6px 0 rgb(10 37 64 / 35%);
+    box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%),
+      inset 0 -2px 6px 0 rgb(10 37 64 / 35%);
 
     .screen {
       width: 95%;

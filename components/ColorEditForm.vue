@@ -2,20 +2,13 @@
   <form action="">
     <div v-if="processing" class="modal-card">
       <div class="modal-card-body has-text-centered pt-5">
-        <i
-          class="is-size-1 has-text-primary fa-duotone fa-arrows-rotate fa-spin fa-beat mt-5 mb-2"
-        ></i>
+        <i class="is-size-1 has-text-primary fa-duotone fa-arrows-rotate fa-spin fa-beat mt-5 mb-2"></i>
         <h1 class="is-size-3 pb-1">Processing</h1>
       </div>
     </div>
-    <div
-      v-if="!processing && issueCreated && suggestion && !apiError"
-      class="modal-card"
-    >
+    <div v-if="!processing && issueCreated && suggestion && !apiError" class="modal-card">
       <div class="modal-card-body has-text-centered pt-5">
-        <i
-          class="is-size-1 has-text-success fa-duotone fa-box-check fa-beat pt-5 pb-2"
-        ></i>
+        <i class="is-size-1 has-text-success fa-duotone fa-box-check fa-beat pt-5 pb-2"></i>
         <h1 class="is-size-3 pb-1">Thank you!</h1>
         <h2 class="is-size-5 pb-4">Your suggestion has been submitted</h2>
         <ul class="pb-5">
@@ -24,9 +17,7 @@
           </li>
           <li>
             Track your suggestion here:
-            <a target="_blank" :href="suggestion.url">
-              Suggestion {{ suggestion.number }}</a
-            >
+            <a target="_blank" :href="suggestion.url"> Suggestion {{ suggestion.number }}</a>
           </li>
         </ul>
       </div>
@@ -39,18 +30,14 @@
         ></i>
         <h1 class="is-size-3 pb-1">I'm sorry!</h1>
         <h2 class="is-size-6 pb-4">
-          There was a problem submitting your suggestion at this time, please
-          try again later!
+          There was a problem submitting your suggestion at this time, please try again later!
         </h2>
         <p class="pb-5">
           The github API returned: <code>{{ apiMessage }}</code>
         </p>
       </div>
     </div>
-    <div
-      v-if="!processing && !issueCreated && !suggestion && !apiError"
-      class="modal-card"
-    >
+    <div v-if="!processing && !issueCreated && !suggestion && !apiError" class="modal-card">
       <header class="modal-card-head">
         <h1 class="modal-card-title">Help add More Details!</h1>
         <button type="button" class="delete" @click="$emit('close')" />
@@ -86,9 +73,7 @@
             <i class="fad fa-calendar pr-3"></i> Years Used -
             {{ color.years || 'N/A' }}
           </label>
-          <label class="panel-block">
-            <i class="fad fa-note pr-3"></i> Notes - {{ color.notes || 'N/A' }}
-          </label>
+          <label class="panel-block"> <i class="fad fa-note pr-3"></i> Notes - {{ color.notes || 'N/A' }} </label>
         </nav>
         <div class="columns is-multiline pt-3">
           <div class="column is-12">
@@ -97,25 +82,12 @@
             </h2>
           </div>
           <div class="column is-half">
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="Your Name (Optional)"
-            >
-              <o-input
-                v-model="newDetails.submittedBy"
-                maxlength="50"
-                icon="signature"
-                icon-pack="fad"
-              ></o-input>
+            <o-field class="pb-3" :label-position="'on-border'" label="Your Name (Optional)">
+              <o-input v-model="newDetails.submittedBy" maxlength="50" icon="signature" icon-pack="fad"></o-input>
             </o-field>
           </div>
           <div class="column is-half">
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="Your Email (Optional)"
-            >
+            <o-field class="pb-3" :label-position="'on-border'" label="Your Email (Optional)">
               <o-input
                 v-model="newDetails.submittedByEmail"
                 maxlength="50"
@@ -131,11 +103,7 @@
             </h2>
           </div>
           <div class="column is-half">
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="Color Name"
-            >
+            <o-field class="pb-3" :label-position="'on-border'" label="Color Name">
               <o-input
                 v-model="newDetails.name"
                 icon="drivers-license"
@@ -143,11 +111,7 @@
                 :placeholder="color.name || 'ex. Cool Wheel'"
               ></o-input>
             </o-field>
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="Primary Color"
-            >
+            <o-field class="pb-3" :label-position="'on-border'" label="Primary Color">
               <o-input
                 v-model="newDetails.primaryColor"
                 icon="palette"
@@ -155,11 +119,7 @@
                 :placeholder="color.primaryColor || 'Blue'"
               ></o-input>
             </o-field>
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="PPG/Ditzler Color Code"
-            >
+            <o-field class="pb-3" :label-position="'on-border'" label="PPG/Ditzler Color Code">
               <o-input
                 v-model="newDetails.ditzlerPpgCode"
                 icon="brackets-curly"
@@ -167,11 +127,7 @@
                 :placeholder="color.ditzlerPpgCode || '123124'"
               ></o-input>
             </o-field>
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="Years Used"
-            >
+            <o-field class="pb-3" :label-position="'on-border'" label="Years Used">
               <o-input
                 v-model="newDetails.years"
                 icon="calendar"
@@ -181,11 +137,7 @@
             </o-field>
           </div>
           <div class="column is-half">
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="BMC Color Code"
-            >
+            <o-field class="pb-3" :label-position="'on-border'" label="BMC Color Code">
               <o-input
                 v-model="newDetails.code"
                 icon="brackets-curly"
@@ -193,11 +145,7 @@
                 :placeholder="color.code || 'BMC12345'"
               ></o-input>
             </o-field>
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="Short Code"
-            >
+            <o-field class="pb-3" :label-position="'on-border'" label="Short Code">
               <o-input
                 v-model="newDetails.shortCode"
                 icon="code"
@@ -205,11 +153,7 @@
                 :placeholder="color.shortCode || 'MET'"
               ></o-input>
             </o-field>
-            <o-field
-              class="pb-3"
-              :label-position="'on-border'"
-              label="Dulux Color Code"
-            >
+            <o-field class="pb-3" :label-position="'on-border'" label="Dulux Color Code">
               <o-input
                 v-model="newDetails.duluxCode"
                 icon="brackets-curly"
@@ -225,8 +169,7 @@
                 maxlength="200"
                 type="textarea"
                 :placeholder="
-                  color.notes ||
-                  'ex. References, special information, or anything else you would like to add '
+                  color.notes || 'ex. References, special information, or anything else you would like to add '
                 "
               ></o-input>
             </o-field>
@@ -304,8 +247,7 @@
           .catch(() => {
             this.issueCreated = false;
             this.apiError = true;
-            this.apiMessage =
-              'GitHub API is currently unavailable. Please try again later.';
+            this.apiMessage = 'GitHub API is currently unavailable. Please try again later.';
           })
           .finally(() => {
             this.processing = false;

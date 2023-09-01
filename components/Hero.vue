@@ -13,15 +13,9 @@
       !showImage ? { backgroundImage: 'none' } : {},
     ]"
   >
-    <div
-      class="hero-body"
-      :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]"
-    >
+    <div class="hero-body" :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]">
       <div class="container" :class="{ 'has-text-centered': centered }">
-        <p
-          class="subtitle is-6 has-text-white"
-          :class="{ 'has-text-centered': blog }"
-        >
+        <p class="subtitle is-6 has-text-white" :class="{ 'has-text-centered': blog }">
           {{ subtitle }}
         </p>
         <h1

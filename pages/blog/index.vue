@@ -8,21 +8,13 @@
       :blog="true"
     />
     <section class="articles">
-      <div
-        v-for="post in blogPosts"
-        class="column is-12-mobile is-10 is-offset-1 article-container"
-      >
+      <div v-for="post in blogPosts" class="column is-12-mobile is-10 is-offset-1 article-container">
         <!-- START ARTICLE -->
         <div class="card article">
           <div class="card-content">
             <div class="media">
               <div v-if="post.image" class="media-center">
-                <img
-                  loading="lazy"
-                  :src="post.image"
-                  class="post-image"
-                  alt="preview image for post"
-                />
+                <img loading="lazy" :src="post.image" class="post-image" alt="preview image for post" />
               </div>
               <div class="media-content has-text-centered">
                 <h2 class="title article-title">
@@ -43,9 +35,7 @@
             </div>
             <div class="content article-body pb-5 mb-5">
               <ContentRenderer :value="post" :excerpt="true" />
-              <NuxtLink :to="post._path" class="is-size-4"
-                >Read More...</NuxtLink
-              >
+              <NuxtLink :to="post._path" class="is-size-4">Read More...</NuxtLink>
               <br />
               <br />
               <DisqusCount :identifier="post._path" />

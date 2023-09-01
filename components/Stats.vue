@@ -46,7 +46,6 @@
 
 <style lang="scss" scoped>
   .card {
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.4),
-      0 0px 0 1px rgba(10, 10, 10, 0.02);
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.4), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   }
 </style>

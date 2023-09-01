@@ -39,19 +39,19 @@ Below you will find a (relatively) comprehensive list of the parts and things yo
 
 This is a question I receive a lot concerning this type of project.
 
-* What's wrong with the carb?
-* What's the point?
-* Why would you want to put all those wires in there?
-* And on, and on...
+- What's wrong with the carb?
+- What's the point?
+- Why would you want to put all those wires in there?
+- And on, and on...
 
 The truth is **_a carburetor is the simplest way to run your car_**. That said it is far from the most reliable, most efficient, and highest-performing way to run your car. A whole technical article could be written purely on why EFI is objectively better than a carburetor in almost every way but we won't get too far into that in this article.
 
 ### Fuel injection will solve a few primary things
 
-* **Optimize fueling** so you are always burning as efficiently as possible
-* **Control your timing** to pull out all the horsepower in your engine
-* **Increase reliability** as it scales with weather conditions
-* **Decrease failure points** (yes I know this is counter-intuitive)
+- **Optimize fueling** so you are always burning as efficiently as possible
+- **Control your timing** to pull out all the horsepower in your engine
+- **Increase reliability** as it scales with weather conditions
+- **Decrease failure points** (yes I know this is counter-intuitive)
 
 ---
 
@@ -105,14 +105,14 @@ With the large variety of ECUs on the market, **Which ECU should I get?** is the
 
 | Brand                 | Model      | DBW | Support | Base Map |
 | --------------------- | ---------- | --- | ------- | -------- |
-| Haltech               | Elite 750  | ❌   | 👍       | ✅        |
-| Haltech               | Elite 1500 | ✅   | 👍       | ✅        |
-| Haltech               | Nexus R3   | ✅   | 👍       | ✅        |
-| Emerald               | K6         | ❓   | 👍       | ✅        |
-| Speeduino             | DIY        | ✅   | DIY     | ✅        |
-| MegaSquirt            | DIY        | ✅   | DIY     | ✅        |
-| Specialist Components | Delta 400  | ❌   | 👎       | ❌        |
-| Specialist Components | Delta 700  | ✅   | 👎       | ❌        |
+| Haltech               | Elite 750  | ❌  | 👍      | ✅       |
+| Haltech               | Elite 1500 | ✅  | 👍      | ✅       |
+| Haltech               | Nexus R3   | ✅  | 👍      | ✅       |
+| Emerald               | K6         | ❓  | 👍      | ✅       |
+| Speeduino             | DIY        | ✅  | DIY     | ✅       |
+| MegaSquirt            | DIY        | ✅  | DIY     | ✅       |
+| Specialist Components | Delta 400  | ❌  | 👎      | ❌       |
+| Specialist Components | Delta 700  | ✅  | 👎      | ❌       |
 
 Now this is not a comprehensive list of every ECU on the market. But these are the common ECUs I see people using in their Minis these days. My top pick for the Classic Mini owner is by far the **Haltech Elite 1500 with Wiring Harness**. This will sort out almost every EFI conversion I come across and they offer unparalleled support for their hardware via phone/email/chat.
 

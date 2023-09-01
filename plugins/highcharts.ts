@@ -7,12 +7,7 @@ exportingInit(Highcharts);
 accessibility(Highcharts);
 
 // Create the download button for highcharts
-Highcharts.SVGRenderer.prototype.symbols.download = (
-  x: number,
-  y: number,
-  w: number,
-  h: number
-) => [
+Highcharts.SVGRenderer.prototype.symbols.download = (x: number, y: number, w: number, h: number) => [
   // Arrow stem
   'M',
   x + w * 0.5,

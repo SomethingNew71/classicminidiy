@@ -25,25 +25,14 @@
             </ul>
           </nav>
           <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
-          <h3 class="fancy-font-bold is-size-3">
-            Technical Information for the DIY Mechanic
-          </h3>
+          <h3 class="fancy-font-bold is-size-3">Technical Information for the DIY Mechanic</h3>
         </div>
         <div class="mobile-list column is-4">
           <nav class="panel">
             <p class="panel-heading">Classic Mini Toolbox</p>
-            <NuxtLink
-              v-for="(card, index) in cards"
-              :key="index"
-              :to="card.to"
-              class="panel-block is-active"
-            >
+            <NuxtLink v-for="(card, index) in cards" :key="index" :to="card.to" class="panel-block is-active">
               <span class="panel-icon">
-                <nuxt-img
-                  format="webp"
-                  :src="card.image"
-                  :alt="card.title + ' icon'"
-                />
+                <nuxt-img format="webp" :src="card.image" :alt="card.title + ' icon'" />
               </span>
               {{ card.title }}
             </NuxtLink>
@@ -51,10 +40,9 @@
         </div>
         <div class="column is-8">
           <p class="is-size-5 pt-5 pb-5">
-            One of the most important parts of Classic Mini DIY is the focus on
-            getting out and working on your own car. So to make this easier for
-            you, I have collected technical information from various sources and
-            consolidated it right here on classicminidiy.com.
+            One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
+            So to make this easier for you, I have collected technical information from various sources and consolidated
+            it right here on classicminidiy.com.
           </p>
           <div class="card">
             <div class="card-content">
@@ -98,64 +86,55 @@
         cards: [
           {
             title: 'Torque Specs',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
             to: '/technical/torque',
           },
           {
             title: 'Engine Sizes',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
             to: '/technical/enginesize',
           },
           {
             title: 'Gearbox Calculator',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.webp',
             to: '/technical/gearing',
           },
           {
             title: 'Color Picker',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp',
             to: '/technical/colors',
           },
           {
             title: 'Compression Ratio Calculator',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
             to: '/technical/compression',
           },
           {
             title: 'Parts Equivalency',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.webp',
             to: '/technical/parts',
           },
           {
             title: 'Electrical Diagrams',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',
             to: '/technical/electrical',
           },
           {
             title: 'SU Needle Comparison',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp',
             to: '/technical/needles',
           },
           {
             title: 'Wheel Library',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp',
             to: '/technical/wheels',
           },

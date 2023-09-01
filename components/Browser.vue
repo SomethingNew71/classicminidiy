@@ -15,18 +15,10 @@
         </span>
 
         <span class="url-protocol">
-          <a href="https://patreon.com/classicminidiy" target="_blank">
-            https://
-          </a>
+          <a href="https://patreon.com/classicminidiy" target="_blank"> https:// </a>
         </span>
 
-        <a
-          href="https://patreon.com/classicminidiy"
-          target="_blank"
-          class="url-txt"
-        >
-          patreon.com/classicminidiy
-        </a>
+        <a href="https://patreon.com/classicminidiy" target="_blank" class="url-txt"> patreon.com/classicminidiy </a>
       </div>
     </div>
 

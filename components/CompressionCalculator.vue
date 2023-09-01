@@ -3,22 +3,9 @@
     <div class="column is-12 py-4"></div>
     <div class="column is-6">
       <o-field label="Piston Size">
-        <o-select
-          v-model="bore"
-          expanded
-          placeholder="Select a piston size in mm"
-          @input="calculateRatio()"
-        >
-          <optgroup
-            v-for="group in pistonOptions"
-            :key="group.label"
-            :label="group.label"
-          >
-            <option
-              v-for="option in group.options"
-              :key="option.value"
-              :value="option.value"
-            >
+        <o-select v-model="bore" expanded placeholder="Select a piston size in mm" @input="calculateRatio()">
+          <optgroup v-for="group in pistonOptions" :key="group.label" :label="group.label">
+            <option v-for="option in group.options" :key="option.value" :value="option.value">
               {{ option.label }}
             </option>
           </optgroup>
@@ -33,16 +20,8 @@
           placeholder="Select the stroke of your crankshaft"
           @input="calculateRatio()"
         >
-          <optgroup
-            v-for="group in crankshaftOptions"
-            :key="group.label"
-            :label="group.label"
-          >
-            <option
-              v-for="option in group.options"
-              :key="option.value"
-              :value="option.value"
-            >
+          <optgroup v-for="group in crankshaftOptions" :key="group.label" :label="group.label">
+            <option v-for="option in group.options" :key="option.value" :value="option.value">
               {{ option.label }}
             </option>
           </optgroup>
@@ -52,16 +31,8 @@
     <div class="column is-12"></div>
     <div class="column is-6">
       <o-field label="Head Gasket">
-        <o-select
-          v-model="gasket"
-          expanded
-          placeholder="Choose your head gasket"
-        >
-          <option
-            v-for="option in headGasketOptions"
-            :key="option.value"
-            :value="option.value"
-          >
+        <o-select v-model="gasket" expanded placeholder="Choose your head gasket">
+          <option v-for="option in headGasketOptions" :key="option.value" :value="option.value">
             {{ option.label }}
           </option>
         </o-select>
@@ -78,16 +49,8 @@
           placeholder="Choose your de-comp plate if being used"
           @input="calculateRatio()"
         >
-          <optgroup
-            v-for="group in decompPlateOptions"
-            :key="group.label"
-            :label="group.label"
-          >
-            <option
-              v-for="option in group.options"
-              :key="option.value"
-              :value="option.value"
-            >
+          <optgroup v-for="group in decompPlateOptions" :key="group.label" :label="group.label">
+            <option v-for="option in group.options" :key="option.value" :value="option.value">
               {{ option.label }}
             </option>
           </optgroup>
@@ -97,66 +60,30 @@
     <div class="column is-12"></div>
     <div class="column is-4">
       <o-field :label="`Piston Dish size (cc)`">
-        <o-slider
-          v-model="pistonDish"
-          size="is-medium"
-          :min="0"
-          :max="20"
-        ></o-slider>
+        <o-slider v-model="pistonDish" size="is-medium" :min="0" :max="20"></o-slider>
       </o-field>
       <o-field message="Please choose a value between 0 and 20">
-        <o-input
-          v-model="pistonDish"
-          placeholder="Piston Dish"
-          type="text"
-          lazy
-        >
-        </o-input>
+        <o-input v-model="pistonDish" placeholder="Piston Dish" type="text" lazy> </o-input>
       </o-field>
     </div>
     <div class="column is-4">
       <o-field label="Cylinder Head Chamber Volume (cc)">
-        <o-slider
-          v-model="headVolume"
-          size="is-medium"
-          :min="15"
-          :max="35"
-          :step="0.1"
-        ></o-slider>
+        <o-slider v-model="headVolume" size="is-medium" :min="15" :max="35" :step="0.1"></o-slider>
       </o-field>
       <o-field message="Please type a decimal value between 15 and 35">
-        <o-input
-          v-model="headVolume"
-          placeholder="Head Volume"
-          type="text"
-          lazy
-        >
-        </o-input>
+        <o-input v-model="headVolume" placeholder="Head Volume" type="text" lazy> </o-input>
       </o-field>
     </div>
     <div class="column is-4">
       <o-field label="Piston Deck Height (thou)">
-        <o-slider
-          v-model="deckHeight"
-          size="is-medium"
-          :min="0"
-          :max="80"
-        ></o-slider>
+        <o-slider v-model="deckHeight" size="is-medium" :min="0" :max="80"></o-slider>
       </o-field>
       <o-field message="Please choose a value between 0 and 80">
-        <o-input
-          v-model="deckHeight"
-          placeholder="Deck Height"
-          type="text"
-          lazy
-        >
-        </o-input>
+        <o-input v-model="deckHeight" placeholder="Deck Height" type="text" lazy> </o-input>
       </o-field>
     </div>
     <div class="column is-12">
-      <a @click="isCardModalActive = true">
-        <o-icon pack="fas" :icon="'question'" /> How do I measure these values?
-      </a>
+      <a @click="isCardModalActive = true"> <o-icon pack="fas" :icon="'question'" /> How do I measure these values? </a>
     </div>
     <div class="column is-12">
       <h2 class="title is-4">Results:</h2>
@@ -192,11 +119,9 @@
     <div class="column is-12">
       <div class="content has-text-centered">
         <p>
-          Please note the above figures are <strong>approximate values</strong>.
-          Before purchasing parts and building your engine we recommend
-          <strong>doublechecking</strong> your calculations multiple times using
-          more than one source. The mathematical equations used in this tool can
-          be found here:
+          Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building
+          your engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one
+          source. The mathematical equations used in this tool can be found here:
           <a
             href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344"
             target="_blank"
@@ -250,19 +175,13 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <nuxt-picture
-                  format="webp,jpg"
-                  src="/img/hre.jpg"
-                  alt="Image"
-                />
+                <nuxt-picture format="webp,jpg" src="/img/hre.jpg" alt="Image" />
               </figure>
             </div>
             <div class="media-content">
               <p class="title is-4">Our Friend Paul Hickey</p>
               <p class="subtitle is-6">
-                <a href="https://www.youtube.com/watch?v=GxlgkbrfK2Y"
-                  >@hreirl</a
-                >
+                <a href="https://www.youtube.com/watch?v=GxlgkbrfK2Y">@hreirl</a>
                 on Youtube
               </p>
             </div>
@@ -270,17 +189,13 @@
 
           <div class="content">
             <p>
-              If you need any assistance measuring these values for the
-              calculator, check out the video above by Paul Hickey at HRE IRL.
-              Where he covers the entire measurement process on the Classic
-              Mini.
+              If you need any assistance measuring these values for the calculator, check out the video above by Paul
+              Hickey at HRE IRL. Where he covers the entire measurement process on the Classic Mini.
             </p>
           </div>
         </div>
         <footer class="card-footer">
-          <a class="card-footer-item" @click="isCardModalActive = false"
-            >Close</a
-          >
+          <a class="card-footer-item" @click="isCardModalActive = false">Close</a>
         </footer>
       </div>
     </o-modal>
@@ -567,15 +482,8 @@
         } else {
           gasketVolume = this.gasket;
         }
-        const vc =
-          this.pistonDish +
-          +gasketVolume +
-          +this.headVolume +
-          +deckVolume +
-          +ringland +
-          +this.decomp;
-        const preRoundratio =
-          (this.stroke * (boreRadius * boreRadius) * pi + vc) / vc;
+        const vc = this.pistonDish + +gasketVolume + +this.headVolume + +deckVolume + +ringland + +this.decomp;
+        const preRoundratio = (this.stroke * (boreRadius * boreRadius) * pi + vc) / vc;
         const preRoundcap = this.stroke * (boreRadius * boreRadius) * pi * 4;
         this.ratio = Math.round((preRoundratio + Number.EPSILON) * 100) / 100;
         this.capacity = Math.round((preRoundcap + Number.EPSILON) * 100) / 100;

@@ -12,12 +12,7 @@
       <div class="card article">
         <div class="media">
           <div v-if="currentPostData.image" class="media-center">
-            <img
-              loading="lazy"
-              :src="currentPostData.image"
-              class="post-image"
-              alt="preview image for post"
-            />
+            <img loading="lazy" :src="currentPostData.image" class="post-image" alt="preview image for post" />
           </div>
         </div>
         <div class="card-content">
@@ -60,11 +55,7 @@
 
 <script setup lang="ts">
   import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-  import {
-    DynamoDBDocumentClient,
-    GetCommand,
-    PutCommand,
-  } from '@aws-sdk/lib-dynamodb';
+  import { DynamoDBDocumentClient, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
   import { Post } from '~/data/models';
   const route = useRoute();
   const runtimeConfig = useRuntimeConfig();

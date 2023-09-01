@@ -33,11 +33,7 @@
             </ul>
           </nav>
         </div>
-        <div
-          v-for="(table, name, index) in tables"
-          :key="`${name}-${index}`"
-          class="column is-12"
-        >
+        <div v-for="(table, name, index) in tables" :key="`${name}-${index}`" class="column is-12">
           <o-collapse class="card" animation="slide">
             <template #trigger="props">
               <div class="card-header" role="button">
@@ -46,11 +42,7 @@
                   <span class="pl-1">{{ table.title }}</span>
                 </h2>
                 <a class="card-header-icon">
-                  <o-icon
-                    pack="fas"
-                    :icon="props.open ? 'caret-up' : 'caret-down'"
-                  >
-                  </o-icon>
+                  <o-icon pack="fas" :icon="props.open ? 'caret-up' : 'caret-down'"> </o-icon>
                 </a>
               </div>
             </template>
@@ -69,11 +61,7 @@
               </client-only>
             </div>
           </o-collapse>
-          <div
-            v-if="index === 0"
-            :key="`${name}-${index}-patreon`"
-            class="column is-12"
-          >
+          <div v-if="index === 0" :key="`${name}-${index}-patreon`" class="column is-12">
             <div class="card">
               <div class="card-content">
                 <patreon-card size="large" />
@@ -94,8 +82,7 @@
       {
         hid: 'description',
         name: 'description',
-        content:
-          'Detailed torque specifications can be found online right here at Classic Mini DIY.',
+        content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.',
       },
     ],
   });
@@ -104,8 +91,7 @@
     ogDescription:
       'Detailed torque specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
     ogUrl: 'classicminidiy.com/technical/torque',
-    ogImage:
-      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
     ogType: 'website',
   });
 </script>
