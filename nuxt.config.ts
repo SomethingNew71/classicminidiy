@@ -106,6 +106,10 @@ export default defineNuxtConfig({
     disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
   },
 
+  linkChecker: {
+    excludeLinks: ['/blog/**', 'mailto:**'],
+  },
+
   plugins: ['~/plugins/oruga.ts', '~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
 
   runtimeConfig: {
