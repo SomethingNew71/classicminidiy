@@ -50,10 +50,17 @@ export interface YoutubeSnippet {
 
 export interface YoutubeThumbnails {
   default: ThumbnailDefault;
-  medium: ThumbnailMedium;
-  high: ThumbnailHigh;
   standard: ThumbnailStandard;
-  maxres: ThumbnailMaxres;
+  medium?: ThumbnailMedium;
+  high?: ThumbnailHigh;
+  maxres?: ThumbnailMaxres;
+}
+export interface YoutubeThumbnailsParsed {
+  default: string;
+  medium: string;
+  high: string;
+  standard: string;
+  maxres: string;
 }
 
 export interface ThumbnailDefault {
