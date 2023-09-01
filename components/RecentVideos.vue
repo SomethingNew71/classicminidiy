@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h3 class="fancy-font-bold is-size-3 has-text-centered pb-5">
-      Recent Videos
-    </h3>
+    <h3 class="fancy-font-bold is-size-3 has-text-centered pb-5">Recent Videos</h3>
 
     <template v-if="isLoading">
       <div class="columns is-multiline">
@@ -33,30 +31,10 @@
             <figure class="image">
               <a :href="video.videoUrl" target="_blank">
                 <picture :alt="video.title + ' thumbnail'">
-                  <source
-                    v-if="video.thumbnails.medium"
-                    media="(max-width: 799px)"
-                    :srcset="video.thumbnails.medium.url"
-                  />
-                  <source
-                    v-if="video.thumbnails.high"
-                    media="(max-width: 992px)"
-                    :srcset="video.thumbnails.high.url"
-                  />
-                  <source
-                    v-if="video.thumbnails.standard"
-                    media="(max-width: 1200px)"
-                    :srcset="video.thumbnails.standard.url"
-                  />
-                  <img
-                    loading="lazy"
-                    :src="
-                      video.thumbnails.maxres
-                        ? video.thumbnails.maxres.url
-                        : video.thumbnails.standard.url
-                    "
-                    :alt="'Thumbnail for ' + videos.title"
-                  />
+                  <source media="(max-width: 799px)" :srcset="video.thumbs.medium" />
+                  <source media="(max-width: 992px)" :srcset="video.thumbs.high" />
+                  <source media="(max-width: 1200px)" :srcset="video.thumbs.standard" />
+                  <img loading="lazy" :src="video.thumbs.maxres" :alt="'Thumbnail for ' + videos.title" />
                 </picture>
               </a>
             </figure>
@@ -66,9 +44,7 @@
               <p class="title is-6">
                 {{ video.title }}
               </p>
-              <p class="subtitle is-7 pt-2">
-                published on {{ video.publishedOn }}
-              </p>
+              <p class="subtitle is-7 pt-2">published on {{ video.publishedOn }}</p>
             </div>
           </div>
         </div>
@@ -85,10 +61,8 @@
       videos = response.data._rawValue.map((video: any) => {
         return {
           title: video.title,
-          thumbnails: video.thumbnails,
-          publishedOn: DateTime.fromISO(video.publishedOn).toFormat(
-            'LLL dd, yyyy'
-          ),
+          thumbs: video.thumbnails,
+          publishedOn: DateTime.fromISO(video.publishedOn).toFormat('LLL dd, yyyy'),
           videoUrl: video.videoUrl,
         };
       });
