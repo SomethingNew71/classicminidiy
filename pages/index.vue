@@ -14,33 +14,23 @@
         <div class="columns is-multiline pb-5">
           <div class="column is-12"></div>
           <div class="column is-12 is-two-thirds-tablet">
-            <h2 class="fancy-font-book-oblique">
-              <i class="fad fa-book"></i> THE MINI MISSION
-            </h2>
-            <h3 class="fancy-font-bold is-size-3 pt-2 pb-3">
-              Keeping the Classics on the Road
-            </h3>
+            <h2 class="fancy-font-book-oblique"><i class="fad fa-book"></i> THE MINI MISSION</h2>
+            <h3 class="fancy-font-bold is-size-3 pt-2 pb-3">Keeping the Classics on the Road</h3>
             <p class="is-size-5">
-              Classic Mini DIY started out of my small driveway workshop in
-              2015. I always focus on two things: keeping your Classic Mini on
-              the road and making DIY car work accessible for all skill levels.
-              I make DIY videos and tutorials showing exactly how to complete a
-              wide range of jobs on your Classic Mini. I also partner with
-              world-class manufacturers to deliver top-of-the-line products to
-              personalize and ensure the performance of your Classic Mini.
+              Classic Mini DIY started out of my small driveway workshop in 2015. I always focus on two things: keeping
+              your Classic Mini on the road and making DIY car work accessible for all skill levels. I make DIY videos
+              and tutorials showing exactly how to complete a wide range of jobs on your Classic Mini. I also partner
+              with world-class manufacturers to deliver top-of-the-line products to personalize and ensure the
+              performance of your Classic Mini.
             </p>
           </div>
           <div class="column is-12 is-on-third-tablet">
-            <h3 class="fancy-font-book-oblique">
-              <i class="fad fa-gift"></i> SUPPORT THE MISSION
-            </h3>
+            <h3 class="fancy-font-book-oblique"><i class="fad fa-gift"></i> SUPPORT THE MISSION</h3>
             <h4 class="fancy-font-bold is-size-3 pt-2 pb-3">Support</h4>
             <p class="is-size-5 pt-2 pb-3">
-              Classic Mini DIY is supported by our viewers. If you are
-              interested in helping to keep the channel alive, consider
-              supporting on Patreon or if you have skills in JS and modern web
-              technologies, please consider supporting the open source codebase
-              on github.
+              Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive,
+              consider supporting on Patreon or if you have skills in JS and modern web technologies, please consider
+              supporting the open source codebase on github.
             </p>
             <a
               class="mr-3 button is-medium is-patreon"
@@ -53,12 +43,7 @@
               </span>
               <span>Donate</span>
             </a>
-            <a
-              class="button is-medium"
-              rel="noopener"
-              href="https://patreon.com/classicminidiy"
-              target="_blank"
-            >
+            <a class="button is-medium" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
               <span class="icon">
                 <i class="fab fa-github" />
               </span>
@@ -80,38 +65,22 @@
         <div class="columns is-multiline">
           <div class="column is-5">
             <video autoplay loop muted playsinline>
-              <source
-                src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.webm"
-                type="video/webm"
-              />
-              <source
-                src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.mp4"
-                type="video/mp4"
-              />
+              <source src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.webm" type="video/webm" />
+              <source src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.mp4" type="video/mp4" />
             </video>
           </div>
           <div class="column is-7">
-            <h3 class="fancy-font-book-oblique">
-              <i class="fad fa-handshake-alt"></i> THE COMPLETELY FREE
-            </h3>
+            <h3 class="fancy-font-book-oblique"><i class="fad fa-handshake-alt"></i> THE COMPLETELY FREE</h3>
             <h3 class="fancy-font-bold is-size-3">Classic Mini Toolbox</h3>
-            <h4 class="fancy-font-book-oblique pt-20">
-              THE TOOLKIT FOR THE DIY MECHANIC
-            </h4>
+            <h4 class="fancy-font-book-oblique pt-20">THE TOOLKIT FOR THE DIY MECHANIC</h4>
             <p>
-              One of the largest reasons for starting this channel, was about
-              making infromation related to working your Mini Cooper more
-              accessible. In service to this goal I have created the Classic
-              Mini Toolbox. Combining information from all over the web to bring
-              you one location to find anything you need.
+              One of the largest reasons for starting this channel, was about making infromation related to working your
+              Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining
+              information from all over the web to bring you one location to find anything you need.
             </p>
             <div class="column is-hidden-touch">
               <div class="columns is-centered pt-50 is-multiline">
-                <div
-                  v-for="(item, index) in toolboxItems"
-                  :key="index"
-                  class="column is-3"
-                >
+                <div v-for="(item, index) in toolboxItems" :key="index" class="column is-3">
                   <NuxtLink :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
                       <nuxt-img
@@ -132,21 +101,10 @@
           </div>
           <div class="is-hidden-desktop mobile-list column is-12">
             <nav class="panel">
-              <p class="panel-heading has-background-grey-lighter">
-                Find the Tool You Need
-              </p>
-              <NuxtLink
-                v-for="(item, index) in toolboxItems"
-                :key="index"
-                :to="item.to"
-                class="panel-block is-active"
-              >
+              <p class="panel-heading has-background-grey-lighter">Find the Tool You Need</p>
+              <NuxtLink v-for="(item, index) in toolboxItems" :key="index" :to="item.to" class="panel-block is-active">
                 <span class="panel-icon">
-                  <nuxt-img
-                    format="webp"
-                    :src="item.image"
-                    :alt="item.title + ' image'"
-                  />
+                  <nuxt-img format="webp" :src="item.image" :alt="item.title + ' image'" />
                 </span>
                 {{ item.title }}
               </NuxtLink>
@@ -157,15 +115,12 @@
           </div>
           <div class="columns is-multiline">
             <div class="column is-12-mobile is-8-tablet is-6-desktop">
-              <h3 class="fancy-font-book-oblique">
-                <i class="fad fa-hands-heart"></i> SUPPORT THE CHANNEL
-              </h3>
+              <h3 class="fancy-font-book-oblique"><i class="fad fa-hands-heart"></i> SUPPORT THE CHANNEL</h3>
               <h3 class="fancy-font-bold is-size-3">Become a Patreon</h3>
               <p class="is-size-5">
                 Classic Mini DIY is
-                <strong>completely free resource</strong> supported by our
-                viewers. If you are interested in helping to keep the channel
-                alive, consider supporting on Patreon.
+                <strong>completely free resource</strong> supported by our viewers. If you are interested in helping to
+                keep the channel alive, consider supporting on Patreon.
               </p>
               <a
                 class="mt-4 button is-patreon"
@@ -180,9 +135,7 @@
               </a>
               <div class="column is-8 pl-0 pt-6 benefits-list">
                 <nav class="panel">
-                  <p class="panel-heading has-background-grey-lighter">
-                    Membership Includes
-                  </p>
+                  <p class="panel-heading has-background-grey-lighter">Membership Includes</p>
                   <div class="panel-block">
                     <span class="panel-icon">
                       <i class="is-size-4 fab fa-discord pt-2"></i>
@@ -223,23 +176,19 @@
       <div class="container pb-6">
         <div class="columns is-multiline">
           <div class="column is-7">
-            <h3 class="fancy-font-bold is-size-3">
-              <i class="fad fa-address-card"></i> About Me
-            </h3>
+            <h3 class="fancy-font-bold is-size-3"><i class="fad fa-address-card"></i> About Me</h3>
             <h4 class="fancy-font-book-oblique pt-20">MY NAME IS COLE</h4>
             <p>
-              I am a {{ age }}-year-old Web Developer working in the financial
-              industry. My experience in the automotive industry comes from 2
-              years of training on heavy diesel machinery and 8 years of Classic
-              Mini ownership. With this experience, I do my best to provide the
-              most comprehensive and technically correct information I can.
+              I am a {{ age }}-year-old Web Developer working in the financial industry. My experience in the automotive
+              industry comes from 2 years of training on heavy diesel machinery and 8 years of Classic Mini ownership.
+              With this experience, I do my best to provide the most comprehensive and technically correct information I
+              can.
             </p>
             <h3 class="fancy-font-book-oblique pt-30">MY PROMISE</h3>
             <p>
-              I will provide you with all the knowledge I can to the best of my
-              ability. I will also accept feedback in the event that I get
-              something incorrect. I am an enthusiast and not a complete expert
-              so from time to time I will make mistakes.
+              I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in
+              the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to
+              time I will make mistakes.
             </p>
           </div>
           <div class="column is-5 avatar-container">
@@ -256,21 +205,13 @@
       <div class="content has-text-centered">
         <p>
           <strong>Classic Mini DIY</strong> by
-          <a
-            rel="noopener"
-            target="_blank"
-            href="https://youtube.com/c/classicminidiy?sub_confirmation=1"
+          <a rel="noopener" target="_blank" href="https://youtube.com/c/classicminidiy?sub_confirmation=1"
             >Cole Gentry</a
           >.
         </p>
         <p>
           <strong>YouTube API</strong> used under <strong>YouTube</strong>
-          <a
-            rel="noopener"
-            target="_blank"
-            href="https://www.youtube.com/t/terms"
-            >TOS</a
-          >.
+          <a rel="noopener" target="_blank" href="https://www.youtube.com/t/terms">TOS</a>.
         </p>
       </div>
     </footer>
@@ -294,71 +235,61 @@
         toolboxItems: [
           {
             title: 'Torque Specs',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
             to: '/technical/torque',
           },
           {
             title: 'Electrical Diagrams',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',
             to: '/technical/electrical',
           },
           {
             title: 'Engine Sizes',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
             to: '/technical/enginesize',
           },
           {
             title: 'SU Needle Comparison',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp',
             to: '/technical/needles',
           },
           {
             title: 'Gearbox Calculator',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.webp',
             to: '/technical/gearing',
           },
           {
             title: 'Wheel Library',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp',
             to: '/technical/wheels',
           },
           {
             title: 'Compression Ratio Calculator',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
             to: '/technical/compression',
           },
           {
             title: 'Color Picker',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp',
             to: '/technical/colors',
           },
           {
             title: 'Parts Equivalency',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.webp',
             to: '/technical/parts',
           },
           {
             title: 'Compression Ratio Calculator',
-            image:
-              'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
             to: '/technical/compression',
           },
@@ -366,10 +297,7 @@
       };
     },
     created() {
-      this.age = this.today
-        .diff(this.birthday, 'years')
-        .toObject()
-        .years.toFixed(0);
+      this.age = this.today.diff(this.birthday, 'years').toObject().years.toFixed(0);
     },
   });
 </script>

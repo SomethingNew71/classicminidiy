@@ -34,22 +34,14 @@
           </nav>
           <h2 class="subtitle">
             All data collected and currated by Jan W. from
-            <a
-              href="https://www.mini-forum.de/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Mini-Forum.de</a
-            >.
+            <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer">Mini-Forum.de</a>.
           </h2>
           <p class="pb-5">
-            Looking for that one wheel you saw the other day online but you just
-            cant quite find? That's where the Wheel Library comes in. Using the
-            same data from the now retired site,
-            <i class="fad fa-tombstone"></i>www.wheeldictionary.net you can
-            search for the right wheel for your Classic Mini Cooper. With
-            <strong>{{ totalAll.amount }} wheels in the library</strong> and
-            growing, we hope you'll be able to find exactly the wheel you are
-            looking for.
+            Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel
+            Library comes in. Using the same data from the now retired site,
+            <i class="fad fa-tombstone"></i>www.wheeldictionary.net you can search for the right wheel for your Classic
+            Mini Cooper. With <strong>{{ totalAll.amount }} wheels in the library</strong> and growing, we hope you'll
+            be able to find exactly the wheel you are looking for.
           </p>
 
           <div class="columns is-multiline">
@@ -61,19 +53,13 @@
               <div class="card-content">
                 <div class="content">
                   <o-field class="pb-2" label="Wheel Size">
-                    <o-select
-                      v-model="selectedSize"
-                      placeholder="Select a wheel size"
-                    >
+                    <o-select v-model="selectedSize" placeholder="Select a wheel size">
                       <option :value="10">10 inch</option>
                       <option :value="12">12 inch</option>
                       <option :value="13">13 inch</option>
                     </o-select>
                   </o-field>
-                  <p>
-                    Use the search below to search by wheel name, offset, size
-                    or material.
-                  </p>
+                  <p>Use the search below to search by wheel name, offset, size or material.</p>
                   <o-field class="mb-4" :position="'left'">
                     <o-input
                       v-model="searchString"
@@ -102,11 +88,7 @@
                   >
                     View All {{ selectedSize }}in Wheels
                   </o-button>
-                  <o-tooltip
-                    v-else
-                    :position="'top'"
-                    :label="`Already displaying all ${selectedSize} inch wheels`"
-                  >
+                  <o-tooltip v-else :position="'top'" :label="`Already displaying all ${selectedSize} inch wheels`">
                     <o-button disabled expanded class="button is-primary">
                       View All {{ selectedSize }}in Wheels
                     </o-button>
@@ -117,10 +99,7 @@
             <div class="column is-12">
               <div class="columns is-multiline">
                 <div class="column is-6">
-                  <p
-                    v-if="searchString !== '' && !allWheelsVisible"
-                    class="has-text-weight-bold"
-                  >
+                  <p v-if="searchString !== '' && !allWheelsVisible" class="has-text-weight-bold">
                     Displaying
                     <template v-if="!isLoading">
                       {{ totalResults }}
@@ -131,14 +110,9 @@
                     filtered results of
                     {{ totalAll.induvidualWheels[selectedSize] }} wheels.
                   </p>
-                  <p v-else class="has-text-weight-bold">
-                    Displaying all {{ selectedSize }} inch wheels.
-                  </p>
+                  <p v-else class="has-text-weight-bold">Displaying all {{ selectedSize }} inch wheels.</p>
                 </div>
-                <div
-                  v-if="selectedWheels && !isLoading && totalResults > perPage"
-                  class="column is-6"
-                >
+                <div v-if="selectedWheels && !isLoading && totalResults > perPage" class="column is-6">
                   <o-pagination
                     v-model:current="currentPage"
                     :total="totalResults"
@@ -153,15 +127,10 @@
                   </o-pagination>
                 </div>
               </div>
-              <skeleton-loader
-                v-if="isLoading && selectedSize !== ''"
-                :amount="perPage"
-              ></skeleton-loader>
+              <skeleton-loader v-if="isLoading && selectedSize !== ''" :amount="perPage"></skeleton-loader>
               <div v-if="!isLoading && !noResults" class="columns is-multiline">
                 <template v-for="(wheel, index) in paginatedItems" :key="index">
-                  <div
-                    class="column is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-fifth-fullhd"
-                  >
+                  <div class="column is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-fifth-fullhd">
                     <article class="card">
                       <div class="card-image">
                         <o-tooltip
@@ -181,45 +150,25 @@
                           />
                         </o-tooltip>
                         <div class="image is-square">
-                          <nuxt-img
-                            :src="wheel.imagepath"
-                            :alt="`Image of ${wheel.name}`"
-                          />
+                          <nuxt-img :src="wheel.imagepath" :alt="`Image of ${wheel.name}`" />
                         </div>
                       </div>
                       <div class="card-content">
                         <div class="media mb-1">
                           <div class="media-content">
-                            <o-tooltip
-                              label="Wheel Size"
-                              animated
-                              type="is-dark"
-                            >
+                            <o-tooltip label="Wheel Size" animated type="is-dark">
                               <i class="fad fa-expand-arrows-alt pr-1"></i>
                               {{ wheel.size || 'N/A' }}
                             </o-tooltip>
-                            <o-tooltip
-                              label="Wheel Offset"
-                              animated
-                              type="is-dark"
-                            >
-                              <i
-                                class="fad fa-arrow-alt-from-left pr-1 pl-2"
-                              ></i>
+                            <o-tooltip label="Wheel Offset" animated type="is-dark">
+                              <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i>
                               {{ wheel.offset || 'N/A' }}
                             </o-tooltip>
-                            <o-tooltip
-                              label="Wheel Material"
-                              animated
-                              type="is-dark"
-                            >
+                            <o-tooltip label="Wheel Material" animated type="is-dark">
                               <i class="fad fa-box-full pr-1 pl-2"></i>
                               {{ wheel.type || 'N/A' }}
                             </o-tooltip>
-                            <p
-                              class="title is-5 pt-3 pb-1"
-                              v-html="wheel.name"
-                            ></p>
+                            <p class="title is-5 pt-3 pb-1" v-html="wheel.name"></p>
                           </div>
                         </div>
                         <div v-if="wheel.notes" class="content">
@@ -243,10 +192,7 @@
                   </div>
                 </template>
               </div>
-              <div
-                v-if="!isLoading && noResults"
-                class="column is-10 is-offset-1 no-results"
-              >
+              <div v-if="!isLoading && noResults" class="column is-10 is-offset-1 no-results">
                 <div class="card">
                   <div class="card-content has-text-centered">
                     <i class="fad fa-sad-tear pb-3"></i>
@@ -254,10 +200,7 @@
                   </div>
                 </div>
               </div>
-              <div
-                v-if="!isLoading && totalResults > perPage && !noResults"
-                class="column is-12"
-              >
+              <div v-if="!isLoading && totalResults > perPage && !noResults" class="column is-12">
                 <o-pagination
                   v-model:current="currentPage"
                   :total="totalResults"

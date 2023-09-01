@@ -13,44 +13,15 @@
     </template>
 
     <template #append>
-      <v-btn
-        v-if="mdAndDown"
-        icon="fa:fad fa-bars"
-        @click="showDrawer = !showDrawer"
-      />
+      <v-btn v-if="mdAndDown" icon="fa:fad fa-bars" @click="showDrawer = !showDrawer" />
       <template v-if="mdAndUp">
-        <v-btn
-          prepend-icon="fa:fad fa-house"
-          size="small"
-          variant="text"
-          to="/"
-        >
-          Home
-        </v-btn>
-        <v-btn
-          prepend-icon="fa:fad fa-pencil"
-          size="small"
-          variant="text"
-          to="/blog"
-        >
-          Blog
-        </v-btn>
-        <v-btn
-          prepend-icon="fa:fad fa-store"
-          size="small"
-          variant="text"
-          href="https://merch.classicminidiy.com"
-        >
+        <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn>
+        <v-btn prepend-icon="fa:fad fa-pencil" size="small" variant="text" to="/blog"> Blog </v-btn>
+        <v-btn prepend-icon="fa:fad fa-store" size="small" variant="text" href="https://merch.classicminidiy.com">
           Store
         </v-btn>
 
-        <v-menu
-          transition="scale-transition"
-          close-delay="100"
-          location="bottom end"
-          open-delay="10"
-          open-on-hover
-        >
+        <v-menu transition="scale-transition" close-delay="100" location="bottom end" open-delay="10" open-on-hover>
           <template v-slot:activator="{ props }">
             <v-btn
               size="small"
@@ -64,12 +35,7 @@
           </template>
 
           <v-list density="compact">
-            <v-list-item
-              v-for="(item, i) in toolboxItems"
-              :key="i"
-              :value="item"
-              :to="item.path"
-            >
+            <v-list-item v-for="(item, i) in toolboxItems" :key="i" :value="item" :to="item.path">
               <template v-slot:prepend>
                 <div v-html="item.iconLeft" class="pr-2"></div>
               </template>
@@ -77,12 +43,7 @@
             </v-list-item>
           </v-list>
         </v-menu>
-        <v-divider
-          class="ml-2 mr-4 my-auto border-opacity-75"
-          :thickness="2"
-          vertical
-          style="height: 16px"
-        />
+        <v-divider class="ml-2 mr-4 my-auto border-opacity-75" :thickness="2" vertical style="height: 16px" />
         <v-btn
           prepend-icon="fa:fab fa-patreon"
           size="small"
@@ -100,50 +61,22 @@
   <v-navigation-drawer v-if="mdAndDown" v-model="showDrawer"
     ><v-list density="compact">
       <v-list-item density="compact">
-        <v-btn
-          prepend-icon="fa:fad fa-house"
-          size="x-small"
-          variant="text"
-          to="/"
-        >
-          Home
-        </v-btn></v-list-item
+        <v-btn prepend-icon="fa:fad fa-house" size="x-small" variant="text" to="/"> Home </v-btn></v-list-item
       >
       <v-list-item density="compact">
-        <v-btn
-          prepend-icon="fa:fad fa-pencil"
-          size="x-small"
-          variant="text"
-          to="/blog"
-        >
-          Blog
-        </v-btn></v-list-item
+        <v-btn prepend-icon="fa:fad fa-pencil" size="x-small" variant="text" to="/blog"> Blog </v-btn></v-list-item
       >
       <v-list-item density="compact">
-        <v-btn
-          prepend-icon="fa:fad fa-store"
-          size="x-small"
-          variant="text"
-          href="https://merch.classicminidiy.com"
-        >
+        <v-btn prepend-icon="fa:fad fa-store" size="x-small" variant="text" href="https://merch.classicminidiy.com">
           Store
         </v-btn></v-list-item
       >
       <v-list-subheader> Free Online Toolbox </v-list-subheader>
-      <v-list-item
-        density="compact"
-        v-for="(item, i) in toolboxItems"
-        :key="i"
-        :value="item"
-        :to="item.path"
-      >
+      <v-list-item density="compact" v-for="(item, i) in toolboxItems" :key="i" :value="item" :to="item.path">
         <template v-slot:prepend>
           <div v-html="item.iconLeft" class="pr-2"></div>
         </template>
-        <v-list-item-title
-          class="is-size-7"
-          v-text="item.title"
-        ></v-list-item-title>
+        <v-list-item-title class="is-size-7" v-text="item.title"></v-list-item-title>
       </v-list-item> </v-list
   ></v-navigation-drawer>
 </template>

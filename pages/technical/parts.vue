@@ -33,10 +33,7 @@
             </ul>
           </nav>
         </div>
-        <template
-          v-for="(table, name, index) in tables"
-          :key="`${name}-${index}`"
-        >
+        <template v-for="(table, name, index) in tables" :key="`${name}-${index}`">
           <div class="column is-12">
             <div class="card" animation="slide">
               <div class="card-header">
@@ -60,11 +57,7 @@
               </div>
             </div>
           </div>
-          <div
-            v-if="index === 1"
-            :key="`${name}-${index}-patreon`"
-            class="column is-12"
-          >
+          <div v-if="index === 1" :key="`${name}-${index}-patreon`" class="column is-12">
             <div class="card">
               <div class="card-content">
                 <patreon-card size="large" />
@@ -92,18 +85,15 @@
       {
         hid: 'description',
         name: 'description',
-        content:
-          'A complete list of parts which can be found at local parts sellers',
+        content: 'A complete list of parts which can be found at local parts sellers',
       },
     ],
   });
   useSeoMeta({
     ogTitle: 'Technical - Parts Equivalency',
-    ogDescription:
-      'A complete list of parts which can be found at local parts sellers',
+    ogDescription: 'A complete list of parts which can be found at local parts sellers',
     ogUrl: 'classicminidiy.com/technical/parts',
-    ogImage:
-      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
     ogType: 'website',
   });
 </script>

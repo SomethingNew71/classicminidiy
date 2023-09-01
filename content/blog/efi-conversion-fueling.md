@@ -12,10 +12,10 @@ image: '/img/blog/efi-conversion/fueltank.jpg'
 
 Next up in the fuel injection journey, the fuel system itself! The fuel system requirements for EFI are a little bit different than a carb with some key differences you need to consider.
 
-* EFI requires a high-pressure fuel pump (40psi+)
-* You must put in a return line for excess fuel
-* You need fuel lines that can handle pressure
-* EFI requires a fuel pressure regulator
+- EFI requires a high-pressure fuel pump (40psi+)
+- You must put in a return line for excess fuel
+- You need fuel lines that can handle pressure
+- EFI requires a fuel pressure regulator
 
 None of these are especially difficult to accomplish but all must be considered when building out a conversion kit for your Classic Mini.
 
@@ -32,7 +32,6 @@ None of these are especially difficult to accomplish but all must be considered 
     - [Fuel Pressure Regulator](#fuel-pressure-regulator)
     - [Fuel Injectors](#fuel-injectors)
   - [Conclusion](#conclusion)
-
 
 ## How is fueling different?
 
@@ -52,7 +51,7 @@ Of these two options above the "Return System" is the most desirable. Putting yo
 
 ### High-Pressure Fuel Pump
 
-![Alt text](/img/blog/efi-conversion/fuelpump.jpg)  ![Alt text](/img/blog/efi-conversion/fueltank.jpg)
+![Alt text](/img/blog/efi-conversion/fuelpump.jpg) ![Alt text](/img/blog/efi-conversion/fueltank.jpg)
 
 With EFI you must have a high pressure 40 psi+ for your fuel injectors. This is not like a carb with a low-pressure 3psi pump. I find the easiest way to do this is to install this in an MPI Classic Mini tank. These accept universal "in-tank" fuel pumps and arrives setup with a fuel return. All EFI fueling systems require a return line for excess pressure and fuel. You can of course drill your own return line in your own tank but the MPI tank is the cleanest setup.
 

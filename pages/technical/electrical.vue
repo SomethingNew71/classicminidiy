@@ -33,10 +33,7 @@
             </ul>
           </nav>
           <h1 class="title">Electrical Diagrams</h1>
-          <template
-            v-for="(diagram, name, index) in diagrams"
-            :key="`${name}-${index}`"
-          >
+          <template v-for="(diagram, name, index) in diagrams" :key="`${name}-${index}`">
             <div class="column is-12">
               <o-collapse class="card" animation="slide">
                 <template #trigger="props">
@@ -45,11 +42,7 @@
                       {{ diagram.title }}
                     </h2>
                     <a class="card-header-icon">
-                      <o-icon
-                        pack="fas"
-                        :icon="props.open ? 'caret-up' : 'caret-down'"
-                      >
-                      </o-icon>
+                      <o-icon pack="fas" :icon="props.open ? 'caret-up' : 'caret-down'"> </o-icon>
                     </a>
                   </div>
                 </template>
@@ -71,11 +64,7 @@
                 </div>
               </o-collapse>
             </div>
-            <div
-              v-if="index === 0"
-              :key="`${name}-${index}-patreon`"
-              class="column is-12"
-            >
+            <div v-if="index === 0" :key="`${name}-${index}-patreon`" class="column is-12">
               <div class="card">
                 <div class="card-content">
                   <patreon-card size="large" />
@@ -105,18 +94,15 @@
       {
         hid: 'description',
         name: 'description',
-        content:
-          'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+        content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
       },
     ],
   });
   useSeoMeta({
     ogTitle: 'Technical - Electrical Diagrams',
-    ogDescription:
-      'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+    ogDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
     ogUrl: 'classicminidiy.com/technical/electrical',
-    ogImage:
-      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
     ogType: 'website',
   });
 </script>

@@ -25,16 +25,8 @@
           placeholder="Choose your tire size"
           @input="calculateRatio()"
         >
-          <optgroup
-            v-for="group in tireOptions"
-            :key="group.label"
-            :label="group.label"
-          >
-            <option
-              v-for="option in group.options"
-              :key="option.label"
-              :value="option.value"
-            >
+          <optgroup v-for="group in tireOptions" :key="group.label" :label="group.label">
+            <option v-for="option in group.options" :key="option.label" :value="option.value">
               {{ option.label }}
             </option>
           </optgroup>
@@ -51,16 +43,8 @@
           placeholder="Choose your final drive gear size"
           @input="calculateRatio()"
         >
-          <optgroup
-            v-for="group in diffOptions"
-            :key="group.label"
-            :label="group.label"
-          >
-            <option
-              v-for="option in group.options"
-              :key="option.label"
-              :value="option.value"
-            >
+          <optgroup v-for="group in diffOptions" :key="group.label" :label="group.label">
+            <option v-for="option in group.options" :key="option.label" :value="option.value">
               {{ option.label }}
             </option>
           </optgroup>
@@ -78,11 +62,7 @@
           placeholder="Select the ratio of your current speedo drive"
           @input="calculateRatio()"
         >
-          <option
-            v-for="option in speedoRatioOptions"
-            :key="option.label"
-            :value="option.value"
-          >
+          <option v-for="option in speedoRatioOptions" :key="option.label" :value="option.value">
             {{ option.label }}
           </option>
         </o-select>
@@ -98,16 +78,8 @@
           placeholder="Select the size of your drop gear"
           @input="calculateRatio()"
         >
-          <optgroup
-            v-for="group in dropGearOptions"
-            :key="group.label"
-            :label="group.label"
-          >
-            <option
-              v-for="option in group.options"
-              :key="option.label"
-              :value="option.value"
-            >
+          <optgroup v-for="group in dropGearOptions" :key="group.label" :label="group.label">
+            <option v-for="option in group.options" :key="option.label" :value="option.value">
               {{ option.label }}
             </option>
           </optgroup>
@@ -125,16 +97,8 @@
           placeholder="Choose ratio of your actual gearsets"
           @input="calculateRatio()"
         >
-          <optgroup
-            v-for="group in gearRatioOptions"
-            :key="group.label"
-            :label="group.label"
-          >
-            <option
-              v-for="option in group.options"
-              :key="option.label"
-              :value="option.value"
-            >
+          <optgroup v-for="group in gearRatioOptions" :key="group.label" :label="group.label">
+            <option v-for="option in group.options" :key="option.label" :value="option.value">
               {{ option.label }}
             </option>
           </optgroup>
@@ -151,12 +115,9 @@
           :step="500"
           @input="calculateRatio()"
         >
-          <o-slider-tick
-            v-for="val in [6000, 6500, 7000, 7500, 8000, 8500, 9000]"
-            :key="val"
-            :value="val"
-            >{{ val }}</o-slider-tick
-          >
+          <o-slider-tick v-for="val in [6000, 6500, 7000, 7500, 8000, 8500, 9000]" :key="val" :value="val">{{
+            val
+          }}</o-slider-tick>
         </o-slider>
       </o-field>
     </div>
@@ -190,41 +151,31 @@
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Tire Width</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireInfo.width || '---' }}mm
-            </p>
+            <p class="subtitle has-text-weight-bold">{{ tireInfo.width || '---' }}mm</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Tire Profile</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireInfo.profile || '---' }}%
-            </p>
+            <p class="subtitle has-text-weight-bold">{{ tireInfo.profile || '---' }}%</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Wheel Size</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireInfo.size || '---' }}in
-            </p>
+            <p class="subtitle has-text-weight-bold">{{ tireInfo.size || '---' }}in</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Tire Diameter</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireInfo.diameter || '---' }}mm
-            </p>
+            <p class="subtitle has-text-weight-bold">{{ tireInfo.diameter || '---' }}mm</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Circumfrence</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireInfo.circ || '---' }}mm
-            </p>
+            <p class="subtitle has-text-weight-bold">{{ tireInfo.circ || '---' }}mm</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
@@ -250,22 +201,13 @@
         <div class="card-content">
           <client-only>
             <o-table :data="tableDataSpeedos">
-              <o-table-column
-                v-slot="props"
-                field="status"
-                label=""
-                narrowed="false"
-              >
+              <o-table-column v-slot="props" field="status" label="" narrowed="false">
                 <i class="fas fa-circle pt-1" :class="props.row.status"></i>
               </o-table-column>
               <o-table-column v-slot="props" field="tpm" label="TPM">
                 {{ props.row.tpm }}
               </o-table-column>
-              <o-table-column
-                v-slot="props"
-                field="speedometer"
-                label="Speedometer"
-              >
+              <o-table-column v-slot="props" field="speedometer" label="Speedometer">
                 {{ props.row.speedometer }}
               </o-table-column>
               <o-table-column v-slot="props" field="result" label="Result">
@@ -288,10 +230,7 @@
         </div>
         <div class="card-content">
           <client-only>
-            <o-table
-              :data="tableDataGearing"
-              :columns="tableHeadersGearing"
-            ></o-table>
+            <o-table :data="tableDataGearing" :columns="tableHeadersGearing"></o-table>
           </client-only>
         </div>
       </div>
@@ -309,11 +248,9 @@
     <div class="column is-12">
       <div class="content has-text-centered">
         <p>
-          Please note the above figures are <strong>approximate values</strong>.
-          Before purchasing parts and building your engine we recommend
-          <strong>doublechecking</strong> your calculations multiple times using
-          more than one source. The mathematical equations used in this tool can
-          be found here:
+          Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building
+          your engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one
+          source. The mathematical equations used in this tool can be found here:
           <a
             href="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
             target="_blank"
@@ -625,8 +562,7 @@
               },
               {
                 value: [2.583, 1.711, 1.25, 1.0],
-                label:
-                  'Minispares (Clubman ratios CR/SC) C-STN39 or TRAN-X (Clubman ratios CR/SC)',
+                label: 'Minispares (Clubman ratios CR/SC) C-STN39 or TRAN-X (Clubman ratios CR/SC)',
               },
               {
                 value: [2.544, 1.731, 1.258, 1.0],
@@ -831,16 +767,13 @@
         this.tireInfo.profile = this.tire_type.profile;
         this.tireInfo.size = this.tire_type.size;
         this.tireInfo.diameter = Math.round(
-          this.tireInfo.width * (this.tireInfo.profile / 100) * 2 +
-            this.tireInfo.size * 25.4
+          this.tireInfo.width * (this.tireInfo.profile / 100) * 2 + this.tireInfo.size * 25.4
         );
         this.tireInfo.circ = Math.round(3.14159 * this.tireInfo.diameter); // in mm
         this.typeCircInMiles = this.tireInfo.circ / (1760 * 914.4); // in miles
 
         // calculate tire turns per mile 1760 yards in a mile, 914.4 mm in a yard
-        this.tireInfo.tireTurnsPerMile = Math.round(
-          1760 / (this.tireInfo.circ / 914.4)
-        );
+        this.tireInfo.tireTurnsPerMile = Math.round(1760 / (this.tireInfo.circ / 914.4));
 
         // calculate tire turns per mile
         this.speedoDetails.turnsPerMile = Math.round(
@@ -852,11 +785,7 @@
         );
 
         this.tableDataSpeedos = this.speedoMeterOptions.map((speedometer) => {
-          const variation = Math.round(
-            (this.speedoDetails.turnsPerMile / speedometer.tpm) *
-              100 *
-              this.drop_gear
-          );
+          const variation = Math.round((this.speedoDetails.turnsPerMile / speedometer.tpm) * 100 * this.drop_gear);
           let result = '';
           let status = '';
 
@@ -880,9 +809,7 @@
 
         this.tableDataGearing = this.gear_ratios.map((gear, index) => {
           let maxSpeed = Math.round(
-            (this.max_rpm / this.drop_gear / gear / this.final_drive) *
-              this.typeCircInMiles *
-              60
+            (this.max_rpm / this.drop_gear / gear / this.final_drive) * this.typeCircInMiles * 60
           );
 
           // Correctly display max speed in mph or kph
@@ -913,11 +840,7 @@
           const speedData = [];
           let gearName = '';
           for (let rpm = 1000; rpm <= this.max_rpm; rpm = rpm + 500) {
-            let speed = Math.round(
-              (rpm / this.drop_gear / gear / this.final_drive) *
-                this.typeCircInMiles *
-                60
-            );
+            let speed = Math.round((rpm / this.drop_gear / gear / this.final_drive) * this.typeCircInMiles * 60);
             // Correctly display max speed in mph or kph
             if (this.metric) {
               speed = Math.round(speed * 1.60934);

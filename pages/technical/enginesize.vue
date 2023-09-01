@@ -37,17 +37,13 @@
             <div class="column is-8">
               <h1 class="title">Engine Displacement and Sizes</h1>
               <p>
-                Determining your next engine size can be quite difficult without
-                a reference. Check out the CMDIY standard bore, engine size
-                chart to figure out how big your current engine is, or how big
-                you'd like your next build to be!
+                Determining your next engine size can be quite difficult without a reference. Check out the CMDIY
+                standard bore, engine size chart to figure out how big your current engine is, or how big you'd like
+                your next build to be!
               </p>
             </div>
             <div class="column is-4">
-              <NuxtLink
-                :to="'/technical/compression'"
-                :title="'Link to Compression Calculator'"
-              >
+              <NuxtLink :to="'/technical/compression'" :title="'Link to Compression Calculator'">
                 <div class="card callout-card">
                   <div class="card-content">
                     <div class="media">
@@ -55,15 +51,11 @@
                         <figure class="image is-64x64">
                           <picture>
                             <source
-                              srcset="
-                                https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp
-                              "
+                              srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp"
                               type="image/webp"
                             />
                             <source
-                              srcset="
-                                https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png
-                              "
+                              srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
                               type="image/png"
                             />
                             <nuxt-img
@@ -74,13 +66,8 @@
                         </figure>
                       </div>
                       <div class="media-content">
-                        <h2 class="subtitle">
-                          Trying to calculate your compression ratio?
-                        </h2>
-                        <p>
-                          Click here to try out our compression ratio
-                          calculator.
-                        </p>
+                        <h2 class="subtitle">Trying to calculate your compression ratio?</h2>
+                        <p>Click here to try out our compression ratio calculator.</p>
                       </div>
                     </div>
                   </div>
@@ -107,45 +94,22 @@
                     'has-background-light has-text-weight-bold'
                 "
                 >
-                  <o-table-column
-                    v-slot="props"
-                    field="group"
-                    label="Group"
-                    narrowed="false"
-                  >
+                  <o-table-column v-slot="props" field="group" label="Group" narrowed="false">
                     {{ props.row.group }}
                     <template v-if="props.row.group === ''">
-                      <i
-                        class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1"
-                        :class="props.row.color"
-                      ></i>
+                      <i class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1" :class="props.row.color"></i>
                     </template>
                   </o-table-column>
-                  <o-table-column
-                    v-slot="props"
-                    field="engineSize"
-                    label="Engine Size"
-                  >
+                  <o-table-column v-slot="props" field="engineSize" label="Engine Size">
                     <template v-if="props.row.group === ''">
-                      <i
-                        class="is-hidden-mobile ref-icons fas fa-circle pl-1"
-                        :class="props.row.color"
-                      ></i>
+                      <i class="is-hidden-mobile ref-icons fas fa-circle pl-1" :class="props.row.color"></i>
                     </template>
                     {{ props.row.engineSize }}
                   </o-table-column>
-                  <o-table-column
-                    v-slot="props"
-                    field="overBore"
-                    label="Over Bore"
-                  >
+                  <o-table-column v-slot="props" field="overBore" label="Over Bore">
                     {{ props.row.overBore }}
                   </o-table-column>
-                  <o-table-column
-                    v-slot="props"
-                    field="boreSize"
-                    label="Bore Size"
-                  >
+                  <o-table-column v-slot="props" field="boreSize" label="Bore Size">
                     {{ props.row.boreSize }}
                   </o-table-column>
                   <o-table-column v-slot="props" field="stroke" label="Stroke">
@@ -191,8 +155,7 @@
     ogDescription:
       "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
     ogUrl: 'classicminidiy.com/technical/enginesize',
-    ogImage:
-      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
     ogType: 'website',
   });
 </script>

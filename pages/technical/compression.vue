@@ -25,10 +25,7 @@
               <li class="is-active">
                 <NuxtLink to="">
                   <span class="icon is-small">
-                    <i
-                      class="fad fa-compress-arrows-alt"
-                      aria-hidden="true"
-                    ></i>
+                    <i class="fad fa-compress-arrows-alt" aria-hidden="true"></i>
                   </span>
                   <span>Compression Ratio Calculator</span>
                 </NuxtLink>
@@ -39,17 +36,13 @@
             <div class="column is-8">
               <h1 class="title">Compression Ratio Calculator</h1>
               <p class="pb-4">
-                When building a performance Classic Mini engine one of the most
-                important figures to determine is the compression ratio. Using
-                the Classic Mini DIY Compression Ratio Calculator below, you can
-                determine the ideal compression for your new engine build.
+                When building a performance Classic Mini engine one of the most important figures to determine is the
+                compression ratio. Using the Classic Mini DIY Compression Ratio Calculator below, you can determine the
+                ideal compression for your new engine build.
               </p>
             </div>
             <div class="column is-4">
-              <NuxtLink
-                :to="'/technical/enginesize'"
-                :title="'Link to Engine Sizes'"
-              >
+              <NuxtLink :to="'/technical/enginesize'" :title="'Link to Engine Sizes'">
                 <div class="card callout-card">
                   <div class="card-content">
                     <div class="media">
@@ -57,15 +50,11 @@
                         <figure class="image is-64x64">
                           <picture>
                             <source
-                              srcset="
-                                https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp
-                              "
+                              srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp"
                               type="image/webp"
                             />
                             <source
-                              srcset="
-                                https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png
-                              "
+                              srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
                               type="image/png"
                             />
                             <nuxt-img
@@ -76,13 +65,8 @@
                         </figure>
                       </div>
                       <div class="media-content">
-                        <h2 class="subtitle">
-                          What are standard engine sizes?
-                        </h2>
-                        <p>
-                          Click here to learn about common engine sizes in the
-                          classic mini.
-                        </p>
+                        <h2 class="subtitle">What are standard engine sizes?</h2>
+                        <p>Click here to learn about common engine sizes in the classic mini.</p>
                       </div>
                     </div>
                   </div>

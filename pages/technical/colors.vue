@@ -35,19 +35,13 @@
 
           <h1 class="title">Classic Mini Color Picker</h1>
           <p>
-            In an effort to make more information availble, Classic Mini DIY has
-            partnered with
-            <a href="http://mini-colours.co.uk">mini-colours.co.uk</a> to
-            provide you with a comprehensive list of the colors used on the
-            Classic Mini throughout the years.
+            In an effort to make more information availble, Classic Mini DIY has partnered with
+            <a href="http://mini-colours.co.uk">mini-colours.co.uk</a> to provide you with a comprehensive list of the
+            colors used on the Classic Mini throughout the years.
           </p>
           <hr />
           <client-only>
-            <o-field
-              class="mb-4"
-              :position="'left'"
-              label="Search for your color below"
-            >
+            <o-field class="mb-4" :position="'left'" label="Search for your color below">
               <o-input
                 v-model="searchString"
                 placeholder="Ex. Willow Green"
@@ -84,19 +78,10 @@
                   :sort-icon-size="'small'"
                   :loading="isLoading"
                 >
-                  <o-table-column
-                    v-slot="props"
-                    field="name"
-                    label="Name"
-                    sortable
-                  >
+                  <o-table-column v-slot="props" field="name" label="Name" sortable>
                     <strong>{{ props.row.name }}</strong>
                   </o-table-column>
-                  <o-table-column
-                    v-slot="props"
-                    field="hasSwatch"
-                    label="Swatch"
-                  >
+                  <o-table-column v-slot="props" field="hasSwatch" label="Swatch">
                     <picture v-if="props.row.hasSwatch">
                       <source
                         :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${props.row.code}.webp`"
@@ -114,49 +99,26 @@
                     </picture>
                     <picture v-else class="filler-image">
                       <source
-                        srcset="
-                          https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp
-                        "
+                        srcset="https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp"
                         type="image/webp"
                       />
-                      <source
-                        srcset="
-                          https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg
-                        "
-                        type="image/jpg"
-                      />
-                      <img
-                        loading="lazy"
-                        alt=""
-                        src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg"
-                      />
+                      <source srcset="https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg" type="image/jpg" />
+                      <img loading="lazy" alt="" src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg" />
                     </picture>
                   </o-table-column>
                   <o-table-column v-slot="props" field="years" label="Years">
                     {{ props.row.years }}
                   </o-table-column>
-                  <o-table-column
-                    v-slot="props"
-                    field="shortCode"
-                    label="Short Code"
-                  >
+                  <o-table-column v-slot="props" field="shortCode" label="Short Code">
                     {{ props.row.shortCode }}
                   </o-table-column>
                   <o-table-column v-slot="props" field="code" label="BMC">
                     {{ props.row.code }}
                   </o-table-column>
-                  <o-table-column
-                    v-slot="props"
-                    field="ditzlerPpgCode"
-                    label="PPG"
-                  >
+                  <o-table-column v-slot="props" field="ditzlerPpgCode" label="PPG">
                     {{ props.row.ditzlerPpgCode }}
                   </o-table-column>
-                  <o-table-column
-                    v-slot="props"
-                    field="duluxCode"
-                    label="Dulux"
-                  >
+                  <o-table-column v-slot="props" field="duluxCode" label="Dulux">
                     {{ props.row.duluxCode }}
                   </o-table-column>
                   <o-table-column v-slot="props" field="edit" label="Edit">
@@ -195,8 +157,7 @@
     ogDescription:
       'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
     ogUrl: 'classicminidiy.com/technical/colors',
-    ogImage:
-      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
     ogType: 'website',
   });
 </script>
@@ -241,22 +202,12 @@
           this.searchAll();
         } else {
           this.isLoading = true;
-          const keysToSearch = [
-            'name',
-            'primaryColor',
-            'code',
-            'ditzlerPpgCode',
-            'duluxCode',
-            'shortCode',
-            'years',
-          ];
+          const keysToSearch = ['name', 'primaryColor', 'code', 'ditzlerPpgCode', 'duluxCode', 'shortCode', 'years'];
           let fuse = new Fuse(this.colorList, {
             keys: keysToSearch,
             threshold: 0.3,
           });
-          this.selectedColors = fuse
-            .search(currentSearch)
-            .map((result) => result.item);
+          this.selectedColors = fuse.search(currentSearch).map((result) => result.item);
           setTimeout(() => (this.isLoading = false), 500);
         }
       },

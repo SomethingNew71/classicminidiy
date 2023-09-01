@@ -4,14 +4,9 @@
       <div class="card-content">
         <h3 class="fancy-font-bold is-size-4 pb-3">Add a Needle To Compare</h3>
         <p class="pb-3">
-          Start typing the name of the needles you would like to compate. Unsure
-          of what the graph values mean? Check out
-          <a
-            class="has-text-weight-bold"
-            href="#"
-            @click="needleModalActive = true"
-            >this helpful diagram</a
-          >
+          Start typing the name of the needles you would like to compate. Unsure of what the graph values mean? Check
+          out
+          <a class="has-text-weight-bold" href="#" @click="needleModalActive = true">this helpful diagram</a>
           to learn more.
         </p>
         <o-field class="is-fullwidth" expanded>
@@ -37,19 +32,13 @@
           </o-button>
         </o-field>
         <o-field grouped group-multiline>
-          <div
-            v-for="(value, needle) in selectValues"
-            :key="needle"
-            class="control"
-          >
+          <div v-for="(value, needle) in selectValues" :key="needle" class="control">
             <o-button
               variant="primary"
               icon-pack="fas"
               icon-right="close"
               :disabled="selectValues.length === 1"
-              :aria-close-label="
-                'Click here to remove the ' + selectValues[needle] + ' needle'
-              "
+              :aria-close-label="'Click here to remove the ' + selectValues[needle] + ' needle'"
               @click="removeArrayItem(selectValues[needle])"
             >
               {{ selectValues[needle].name }}
@@ -72,12 +61,7 @@
         <h1 class="modal-card-title">Diagram of Needle Measurements</h1>
       </header>
       <section class="modal-card-body">
-        <img
-          loading="lazy"
-          class="diagram"
-          src="/img/diagram.jpg"
-          alt="Diagram of Needle Measurements"
-        />
+        <img loading="lazy" class="diagram" src="/img/diagram.jpg" alt="Diagram of Needle Measurements" />
       </section>
     </div>
   </o-modal>
@@ -172,9 +156,7 @@
         this.mapOptions.series = this.selectValues;
       },
       addArrayItem() {
-        this.existsError = this.selectValues.some(
-          (obj) => obj.name === this.addNeedleSelection.name
-        );
+        this.existsError = this.selectValues.some((obj) => obj.name === this.addNeedleSelection.name);
         if (this.existsError) {
           setTimeout(() => {
             this.existsError = false;
