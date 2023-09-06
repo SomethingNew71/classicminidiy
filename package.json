@@ -42,7 +42,7 @@
     "fuse.js": "^6.6.2",
     "highcharts": "^11.1.0",
     "highcharts-vue": "^1.4.3",
-    "luxon": "^3.4.2",
+    "luxon": "^3.4.3",
     "outdent": "^0.8.0",
     "redirect-ssl": "^3.0.0",
     "sass": "^1.66.1",
@@ -61,7 +61,7 @@
     "nuxt-delay-hydration": "^1.2.1",
     "nuxt-disqus": "^1.0.1",
     "nuxt-gtag": "^0.6.2",
-    "nuxt-link-checker": "^2.1.5",
+    "nuxt-link-checker": "^2.1.8",
     "nuxt-simple-robots": "^3.1.2",
     "nuxt-simple-sitemap": "^3.2.6",
     "prettier": "3.0.3"

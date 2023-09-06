@@ -13,8 +13,6 @@ export default defineEventHandler(async (event) => {
     .get<YoutubeDataResponse>(feed)
     .then((response) => {
       const items = response.data.items.map((item) => {
-        console.log(item.snippet.thumbnails);
-
         return {
           title: item.snippet.title,
           thumbnails: organizeThumbnails(item.snippet.thumbnails),
