@@ -127,6 +127,9 @@
         ogType: 'article',
         author: currentPostData.author,
       });
+    })
+    .catch((e) => {
+      console.log(e);
     });
 </script>
 
