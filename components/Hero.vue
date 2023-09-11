@@ -69,6 +69,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 4rem;
 
     .special-title {
       font-size: 100px;
