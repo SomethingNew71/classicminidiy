@@ -1,8 +1,8 @@
 import { request } from '@octokit/request';
 import outdent from 'outdent';
-const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
   const body = await readBody(event);
   return await request('POST /repos/SomethingNew71/classicminidiy/issues', {
     headers: {

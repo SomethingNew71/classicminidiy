@@ -1,7 +1,7 @@
 import { request } from '@octokit/request';
-const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
   return await request('GET /repos/{owner}/{repo}', {
     headers: {
       authorization: config.app.githubAPIKey,

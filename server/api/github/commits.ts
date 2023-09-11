@@ -1,8 +1,8 @@
 import { request } from '@octokit/request';
 import * as _ from 'lodash';
-const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
   return await request('GET /repos/{owner}/{repo}/commits', {
     headers: {
       authorization: config.app.githubAPIKey,

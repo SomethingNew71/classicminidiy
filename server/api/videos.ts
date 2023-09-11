@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { YoutubeDataResponse, YoutubeThumbnails, YoutubeThumbnailsParsed } from '~/data/models';
 import * as _ from 'lodash';
-const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
   const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
   const id = 'UUZIUfOFhrQ9nrR06IOoAJ2Q';
   const details = 'snippet';
