@@ -142,7 +142,7 @@
 </template>
 <script lang="ts" setup>
   useHead({
-    title: 'Technical - Color Picker',
+    title: 'Tech - Color Picker',
     meta: [
       {
         hid: 'description',
@@ -153,7 +153,7 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Technical - Color Picker',
+    ogTitle: 'Tech - Color Picker',
     ogDescription:
       'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
     ogUrl: 'classicminidiy.com/technical/colors',

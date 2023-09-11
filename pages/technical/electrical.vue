@@ -89,7 +89,7 @@
   const { data: diagrams } = await useFetch('/api/diagrams');
 
   useHead({
-    title: 'Technical - Electrical Diagrams',
+    title: 'Tech - Electrical Diagrams',
     meta: [
       {
         hid: 'description',
@@ -99,7 +99,7 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Technical - Electrical Diagrams',
+    ogTitle: 'Tech - Electrical Diagrams',
     ogDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
     ogUrl: 'classicminidiy.com/technical/electrical',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',

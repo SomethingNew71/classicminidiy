@@ -80,7 +80,7 @@
 <script lang="ts" setup>
   const { data: tables } = await useFetch('/api/parts');
   useHead({
-    title: 'Technical - Parts Equivalency',
+    title: 'Tech - Parts Equivalency',
     meta: [
       {
         hid: 'description',
@@ -90,7 +90,7 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Technical - Parts Equivalency',
+    ogTitle: 'Tech - Parts Equivalency',
     ogDescription: 'A complete list of parts which can be found at local parts sellers',
     ogUrl: 'classicminidiy.com/technical/parts',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',

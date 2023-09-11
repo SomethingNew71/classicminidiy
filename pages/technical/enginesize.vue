@@ -88,11 +88,7 @@
                 <o-table
                   :data="data"
                   :hoverable="true"
-                  :row-class="
-                  (row: any, index: any) =>
-                    row.group !== '' &&
-                    'has-background-light has-text-weight-bold'
-                "
+                  :row-class="(row: any, index: any) => row.group !== '' && 'has-background-light has-text-weight-bold'"
                 >
                   <o-table-column v-slot="props" field="group" label="Group" narrowed="false">
                     {{ props.row.group }}
@@ -140,7 +136,7 @@
 
 <script lang="ts" setup>
   useHead({
-    title: 'Technical - Engine Sizes/Displacements',
+    title: 'Tech - Engine Sizes/Displacements',
     meta: [
       {
         hid: 'description',
@@ -151,7 +147,7 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Technical - Engine Sizes/Displacements',
+    ogTitle: 'Tech - Engine Sizes/Displacements',
     ogDescription:
       "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
     ogUrl: 'classicminidiy.com/technical/enginesize',

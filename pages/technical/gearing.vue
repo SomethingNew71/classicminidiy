@@ -91,7 +91,7 @@
 
 <script lang="ts" setup>
   useHead({
-    title: 'Technical - Gearing Calculator',
+    title: 'Tech - Gearing Calculator',
     meta: [
       {
         hid: 'description',
@@ -102,7 +102,7 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Technical - Gearing Calculator',
+    ogTitle: 'Tech - Gearing Calculator',
     ogDescription:
       "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
     ogUrl: 'classicminidiy.com/technical/gearing',
