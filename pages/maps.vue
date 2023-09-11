@@ -17,9 +17,35 @@
             Offering support for many popular ECU's used on Classic Minis, with more added in the future.
           </h2>
         </div>
-        <div class="column is-10 is-offset-1">
-          <div class="divider">Learn More Below</div>
+        <div class="column is-10 is-offset-1 pt-10 pb-10">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <i class="fad fa-flag-checkered is-size-2 pb-3"></i>
+                <h3 class="subtitle">A Safe Start</h3>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <i class="fad fa-microchip is-size-2 pb-3"></i>
+                <h3 class="subtitle">Support for Multiple ECUs</h3>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <i class="fa-duotone fa-arrows-rotate fa-spin is-size-2 mb-3"></i>
+                <h3 class="subtitle">Lifetime Updates</h3>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <i class="fad fa-money-bill fa-beat is-size-2 pb-3"></i>
+                <h3 class="subtitle">Pay what you want</h3>
+              </div>
+            </div>
+          </nav>
         </div>
+
         <div class="column is-6 has-text-centered">
           <div class="card">
             <div class="card-content">
@@ -40,33 +66,10 @@
                 <span class="icon"> <i class="fad fa-download" /> </span><span>Download</span></o-button
               >
             </div>
-            <div class="columns is-multiline pl-3 pr-3 pb-5">
-              <div class="column is-10 is-offset-1">
-                <div class="divider">Current Supported ECU's</div>
-              </div>
-              <div class="column is-4 image">
-                <img class="" src="/img/ecus/haltech.jpg" alt="" />
-              </div>
-              <div class="column is-4 image">
-                <img class="" src="/img/ecus/speeduino.jpg" alt="" />
-              </div>
-              <div class="column is-4 image">
-                <img class="" src="/img/ecus/megasquirt.png" alt="" />
-              </div>
-              <div class="column is-4 image">
-                <img class="" src="/img/ecus/emerald.png" alt="" />
-              </div>
-              <div class="column is-4 image">
-                <img class="" src="/img/ecus/megajolt.png" alt="" />
-              </div>
-              <div class="column is-4 image">
-                <img class="" src="/img/ecus/dta.jpg" alt="" />
-              </div>
-            </div>
           </div>
         </div>
         <div class="column is-6 has-text-centered">
-          <div class="card">
+          <div class="card pb-2">
             <div class="card-content">
               <i class="fad fa-download is-size-2 pb-3"></i>
               <h3 class="fancy-font-bold is-size-3">Option 2 - Download</h3>
@@ -88,36 +91,67 @@
                 </span>
                 <span>View Source</span></o-button
               >
-              <client-only>
-                <nav class="panel is-secondary mt-7">
-                  <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
-                  <template v-for="(commitItem, i) in commits">
-                    <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 3">
-                      <span class="panel-icon">
-                        <i class="fad fa-code-commit" aria-hidden="true"></i>
-                      </span>
-                      <span class="date pr-2">
-                        {{ commitItem.date }}
-                      </span>
+            </div>
+          </div>
+        </div>
+        <div class="column is-10 is-offset-1">
+          <div class="divider">More Details</div>
+        </div>
+        <div class="column is-4 is-offset-1">
+          <client-only>
+            <nav class="panel is-secondary">
+              <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
+              <template v-for="(commitItem, i) in commits">
+                <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 10">
+                  <span class="panel-icon">
+                    <i class="fad fa-code-commit" aria-hidden="true"></i>
+                  </span>
+                  <span class="date pr-2">
+                    {{ commitItem.date }}
+                  </span>
 
-                      {{ commitItem.commit.message }}
-                    </a>
-                  </template>
-                  <div class="panel-block">
-                    <o-button
-                      class="is-fullwidth"
-                      tag="a"
-                      href="https://github.com/SomethingNew71/MiniECUMaps/commits/main"
-                      target="_blank"
-                    >
-                      <span class="icon">
-                        <i class="fad fa-code-branch" />
-                      </span>
-                      <span>View All Commits</span></o-button
-                    >
-                  </div>
-                </nav>
-              </client-only>
+                  {{ commitItem.commit.message }}
+                </a>
+              </template>
+              <div class="panel-block">
+                <o-button
+                  class="is-fullwidth is-dark"
+                  tag="a"
+                  href="https://github.com/SomethingNew71/MiniECUMaps/commits/main"
+                  target="_blank"
+                >
+                  <span class="icon">
+                    <i class="fad fa-code-branch" />
+                  </span>
+                  <span>View All Commits</span></o-button
+                >
+              </div>
+            </nav>
+          </client-only>
+        </div>
+        <div class="column is-6">
+          <h3 class="fancy-font-bold is-size-2 has-text-centered pb-5">Supported ECU's</h3>
+          <div class="columns is-multiline">
+            <div class="column is-8 is-offset-2">
+              <div class="divider">Support for the ecu you need</div>
+            </div>
+            <div class="column is-12 image">
+              <img class="" src="/img/ecus/haltech.jpg" alt="" />
+            </div>
+            <div class="column is-12 image">
+              <img class="" src="/img/ecus/speeduino.jpg" alt="" />
+            </div>
+            <div class="column is-12 image">
+              <img class="" src="/img/ecus/megasquirt.png" alt="" />
+            </div>
+            <div class="column is-12 image">
+              <img class="" src="/img/ecus/emerald.png" alt="" />
+            </div>
+            <div class="column is-12 image">
+              <img class="" src="/img/ecus/megajolt.png" alt="" />
+            </div>
+            <div class="column is-12 image">
+              <img class="" src="/img/ecus/dta.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -197,10 +231,23 @@
     color: #ff9a00;
   }
 
+  .fa-flag-checkered {
+    // color: #fff;
+  }
+  .fa-microchip {
+    color: #277dc2;
+  }
+  .fa-arrows-rotate {
+    color: #e55f33;
+  }
+  .fa-money-bill {
+    color: #99a078;
+  }
+
   .image img {
-    @media screen and (max-width: 768px) {
-      margin: auto;
-      width: 50%;
-    }
+    // @media screen and (max-width: 768px) {
+    margin: auto;
+    width: 50%;
+    // }
   }
 </style>
