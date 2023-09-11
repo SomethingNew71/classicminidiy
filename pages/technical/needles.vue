@@ -90,7 +90,7 @@
 </template>
 <script lang="ts" setup>
   useHead({
-    title: 'Technical - SU Needles Chart',
+    title: 'Tech - SU Needles Chart',
     meta: [
       {
         hid: 'description',
@@ -100,7 +100,7 @@
       },
       {
         property: 'og:title',
-        content: 'Technical - SU Needles Chart',
+        content: 'Tech - SU Needles Chart',
       },
       {
         property: 'og:image',
@@ -109,7 +109,7 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Classic Mini DIY - SU Needles Chart',
+    ogTitle: 'Tech - SU Needles Chart',
     ogDescription:
       "Finding the right needle for your Classic Mini Cooper's carburettor can be tough. Use this online comparison chart to find the right profile for your engine build.",
     ogUrl: 'classicminidiy.com/technical/needles',

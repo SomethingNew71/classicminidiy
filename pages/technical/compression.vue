@@ -91,23 +91,22 @@
 
 <script lang="js" setup>
   useHead({
-    title: 'Technical - Compression Ratio Calculator',
+    title: 'Tech - Compression Ratio Calculator',
     meta: [
       {
         hid: 'description',
         name: 'description',
         content:
           "Planning your next engine build? Use our brand new compression ratio calculator to generate the new ratio for your Classic Mini's engine.",
-      }
+      },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Technical - Compression Ratio Calculator',
+    ogTitle: 'Tech - Compression Ratio Calculator',
     ogDescription:
-      'Planning your next engine build? Use our brand new compression ratio calculator to generate the new ratio for your Classic Mini\'s engine.',
+      "Planning your next engine build? Use our brand new compression ratio calculator to generate the new ratio for your Classic Mini's engine.",
     ogUrl: 'classicminidiy.com/technical/compression',
-    ogImage:
-      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
     ogType: 'website',
   });
 </script>

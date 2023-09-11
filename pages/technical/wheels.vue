@@ -233,7 +233,7 @@
 
 <script lang="js" setup>
   useHead({
-    title: 'Technical - Wheel Dictionary',
+    title: 'Tech - Wheel Dictionary',
     meta: [
       {
         hid: 'description',
@@ -244,12 +244,11 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Technical - Wheel Dictionary',
+    ogTitle: 'Tech - Wheel Dictionary',
     ogDescription:
       'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
     ogUrl: 'classicminidiy.com/technical/wheels',
-    ogImage:
-      'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
     ogType: 'website',
   });
 </script>
@@ -283,10 +282,7 @@
       },
       totalAll() {
         return {
-          amount:
-            tenInchWheels.length +
-            twelveInchWheels.length +
-            thirteenInchWheels.length,
+          amount: tenInchWheels.length + twelveInchWheels.length + thirteenInchWheels.length,
           induvidualWheels: {
             10: tenInchWheels.length,
             12: twelveInchWheels.length,
@@ -297,10 +293,7 @@
       // Items for the current page you are on.
       paginatedItems() {
         const pageNumber = this.currentPage - 1;
-        return this.selectedWheels.slice(
-          pageNumber * this.perPage,
-          (pageNumber + 1) * this.perPage
-        );
+        return this.selectedWheels.slice(pageNumber * this.perPage, (pageNumber + 1) * this.perPage);
       },
     },
     watch: {
@@ -374,9 +367,7 @@
               this.noResults = true;
               break;
           }
-          this.selectedWheels = fuse
-            .search(this.searchString.toLowerCase())
-            .map((result) => result.item);
+          this.selectedWheels = fuse.search(this.searchString.toLowerCase()).map((result) => result.item);
           this.noResults = this.selectedWheels.length === 0;
           setTimeout(() => {
             this.isLoading = false;

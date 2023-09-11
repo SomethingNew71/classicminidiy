@@ -3,7 +3,11 @@
     class="hero"
     :class="size"
     :style="[
-      blog
+      ecuMap
+        ? {
+            backgroundImage: `url(/img/macbook.jpg)`,
+          }
+        : blog
         ? {
             backgroundImage: `url(/img/typewriter.jpg)`,
           }
@@ -39,6 +43,10 @@
       default: true,
     },
     blog: {
+      type: Boolean,
+      default: false,
+    },
+    ecuMap: {
       type: Boolean,
       default: false,
     },
