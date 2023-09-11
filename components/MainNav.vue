@@ -13,7 +13,7 @@
     </template>
 
     <template #append>
-      <v-btn v-if="mdAndDown" icon="fa:fad fa-bars" @click="showDrawer = !showDrawer" />
+      <v-btn v-if="smAndDown" icon="fa:fad fa-bars" @click="showDrawer = !showDrawer" />
       <template v-if="mdAndUp">
         <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn>
         <v-btn prepend-icon="fa:fad fa-pencil" size="small" variant="text" to="/blog"> Blog </v-btn>
@@ -58,8 +58,8 @@
   </v-app-bar>
 
   <!-- MOBILE VERSION OF NAVIGATION -->
-  <v-navigation-drawer v-if="mdAndDown" v-model="showDrawer"
-    ><v-list density="compact">
+  <v-navigation-drawer v-if="smAndDown" v-model="showDrawer">
+    <v-list density="compact">
       <v-list-item density="compact">
         <v-btn prepend-icon="fa:fad fa-house" size="x-small" variant="text" to="/"> Home </v-btn></v-list-item
       >
@@ -77,13 +77,14 @@
           <div v-html="item.iconLeft" class="pr-2"></div>
         </template>
         <v-list-item-title class="is-size-7" v-text="item.title"></v-list-item-title>
-      </v-list-item> </v-list
-  ></v-navigation-drawer>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
-  const { mdAndUp, lgAndUp, mdAndDown } = useDisplay();
+  const { smAndDown, mdAndUp, lgAndUp } = useDisplay();
   const toolboxItems = [
     {
       title: 'Torque Specs',

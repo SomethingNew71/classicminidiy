@@ -40,6 +40,29 @@
                 <span class="icon"> <i class="fad fa-download" /> </span><span>Download</span></o-button
               >
             </div>
+            <div class="columns is-multiline pl-3 pr-3 pb-5">
+              <div class="column is-10 is-offset-1">
+                <div class="divider">Current Supported ECU's</div>
+              </div>
+              <div class="column is-4 image">
+                <img class="" src="/img/ecus/haltech.jpg" alt="" />
+              </div>
+              <div class="column is-4 image">
+                <img class="" src="/img/ecus/speeduino.jpg" alt="" />
+              </div>
+              <div class="column is-4 image">
+                <img class="" src="/img/ecus/megasquirt.png" alt="" />
+              </div>
+              <div class="column is-4 image">
+                <img class="" src="/img/ecus/emerald.png" alt="" />
+              </div>
+              <div class="column is-4 image">
+                <img class="" src="/img/ecus/megajolt.png" alt="" />
+              </div>
+              <div class="column is-4 image">
+                <img class="" src="/img/ecus/dta.jpg" alt="" />
+              </div>
+            </div>
           </div>
         </div>
         <div class="column is-6 has-text-centered">
@@ -54,6 +77,7 @@
               <h4 class="fancy-font-bold is-size-4 pb-5">Latest Release - {{ releases.latestRelease }}</h4>
 
               <o-button
+                class="is-dark"
                 size="large"
                 tag="a"
                 href="https://store.classicminidiy.com/collections/efi-base-maps"
@@ -64,14 +88,18 @@
                 </span>
                 <span>View Source</span></o-button
               >
-              <nav class="panel mt-7">
+              <nav class="panel is-secondary mt-7">
                 <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
-                <template v-for="(commit, i) in commits">
-                  <a class="panel-block has-text-left" :href="commit.commit.url" target="_blank" v-if="i < 5">
+                <template v-for="(commitItem, i) in commits">
+                  <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 3">
                     <span class="panel-icon">
                       <i class="fad fa-code-commit" aria-hidden="true"></i>
                     </span>
-                    {{ commit.commit.message }}
+                    <span class="date pr-2">
+                      {{ commitItem.date }}
+                    </span>
+
+                    {{ commitItem.commit.message }}
                   </a>
                 </template>
                 <div class="panel-block">
@@ -92,21 +120,14 @@
           </div>
         </div>
         <div class="column is-10 is-offset-1">
-          <div class="divider">Current Supported ECU's</div>
+          <div class="divider">Other ways to support</div>
         </div>
-      </div>
-      <div class="columns is-multiline">
-        <div class="column col-6">
-          <img class="ecu-img image" src="/img/ecus/haltech.jpg" alt="" />
-        </div>
-        <div class="column col-6">
-          <img class="ecu-img image" src="/img/ecus/dta.jpg" alt="" />
-        </div>
-        <div class="column col-6">
-          <img class="ecu-img image" src="/img/ecus/dta.jpg" alt="" />
-        </div>
-        <div class="column col-6">
-          <img class="ecu-img image" src="/img/ecus/dta.jpg" alt="" />
+        <div class="column is-12">
+          <div class="card">
+            <div class="card-content">
+              <patreon-card size="large" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -115,6 +136,7 @@
 
 <script lang="ts" setup>
   import * as _ from 'lodash';
+  import { DateTime } from 'luxon';
   useHead({
     title: 'Classic Mini ECU Maps',
     meta: [
@@ -154,9 +176,29 @@
   await useFetch('/api/github/commits')
     .then((response: any) => {
       _.forEach(response.data._rawValue, (item) => {
-        commits.push(item);
+        commits.push({
+          date: DateTime.fromISO(item.commit.committer.date).toFormat('LLL dd'),
+          ...item,
+        });
       });
-      console.log(commits);
     })
     .catch((error) => console.error(error));
 </script>
+
+<style lang="scss">
+  .date {
+    min-width: 15%;
+    font-weight: bold;
+  }
+
+  .fa-code-commit {
+    color: #ff9a00;
+  }
+
+  .image img {
+    @media screen and (max-width: 768px) {
+      margin: auto;
+      width: 50%;
+    }
+  }
+</style>
