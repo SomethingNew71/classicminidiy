@@ -1,0 +1,100 @@
+{
+  "engineTable": {
+    "title": "Engine",
+    "icon": "fad fa-car-mechanic",
+    "columns": [
+      {
+        "label": "Part",
+        "searchable": true,
+        "field": "name"
+      },
+      {
+        "label": "Clearance/Endfloat(thou)",
+        "field": "thou"
+      },
+      {
+        "label": "Clearance/Endfloat (mm)",
+        "field": "mm"
+      },
+      {
+        "label": "Notes",
+        "field": "notes"
+      }
+    ],
+    "items": [
+      {
+        "name": "Crankshaft Thrust Washer Endfloat",
+        "thou": "0.002 - 0.003",
+        "mm": "0.05 - 0.07",
+        "notes": "This spec can be enlarged for performance engines to .005\" - .007\""
+      }
+    ]
+  },
+  "gearboxTable": {
+    "title": "Clutch & Gearbox",
+    "icon": "fad fa-cogs",
+    "columns": [
+      {
+        "label": "Part",
+        "searchable": true,
+        "field": "name"
+      },
+      {
+        "label": "Clearance/Endfloat (thou)",
+        "field": "thou"
+      },
+      {
+        "label": "Clearance/Endfloat (mm)",
+        "field": "mm"
+      },
+      {
+        "label": "Notes",
+        "field": "notes"
+      }
+    ],
+    "items": [
+      {
+        "name": "Primary Gear Endfloat",
+        "thou": "0.003 - 0.006",
+        "mm": "0.075 - 0.15",
+        "notes": ""
+      },
+      {
+        "name": "Idler Gear Helical Endfloat",
+        "thou": "0.002 - 0.004",
+        "mm": "0.05 - 0.1",
+        "notes": ""
+      },
+      {
+        "name": "Idler Gear Straight Cut Endfloat",
+        "thou": "0.004 - 0.006",
+        "mm": "0.1 - 0.15",
+        "notes": ""
+      },
+      {
+        "name": "Third Motion Bearing Retainer Clearance",
+        "thou": "<= .005",
+        "mm": "<= 0.12",
+        "notes": ""
+      },
+      {
+        "name": "Baulk Ring Clearance",
+        "thou": "0.045 - 0.060",
+        "mm": "1.14 - 1.5",
+        "notes": ""
+      },
+      {
+        "name": "Laygear Endfloat",
+        "thou": "0.002 - 0.006",
+        "mm": "0.05 - 0.15",
+        "notes": ""
+      },
+      {
+        "name": "Differential Bearing Preload",
+        "thou": "0.004",
+        "mm": "0.10",
+        "notes": ""
+      }
+    ]
+  }
+}
