@@ -240,6 +240,12 @@
             to: '/technical/torque',
           },
           {
+            title: 'Common Clearances',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
+            to: '/technical/clearance',
+          },
+          {
             title: 'Electrical Diagrams',
             image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',

@@ -180,7 +180,7 @@
         hid: 'description',
         name: 'description',
         content:
-          'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
+          'After countless hours and time spent porting, converting, and mapping multiple ECUs, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECUs used on Classic Minis, with more added in the future. ',
       },
       {
         property: 'og:title',
@@ -189,9 +189,9 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'CMDIY - Classic Mini ECU Map',
+    ogTitle: 'CMDIY - Classic Mini ECU Maps',
     ogDescription:
-      'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
+      'After countless hours and time spent porting, converting, and mapping multiple ECUs, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECUs used on Classic Minis, with more added in the future. ',
     ogUrl: 'classicminidiy.com/technical',
     ogType: 'website',
   });

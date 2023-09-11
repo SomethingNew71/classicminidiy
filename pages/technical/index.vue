@@ -91,6 +91,12 @@
             to: '/technical/torque',
           },
           {
+            title: 'Common Clearances',
+            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
+            to: '/technical/clearance',
+          },
+          {
             title: 'Engine Sizes',
             image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
             webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',

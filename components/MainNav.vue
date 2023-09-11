@@ -98,6 +98,17 @@
       `,
     },
     {
+      title: 'Common Clearances',
+      path: '/technical/clearance',
+      iconLeft: `
+        <picture class="submenu-icon">
+          <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp" type="image/webp">
+          <source srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png" type="image/png">
+          <img alt="" loading="lazy" src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png">
+        </picture>
+      `,
+    },
+    {
       title: 'Electrical Diagrams',
       path: '/technical/electrical',
       iconLeft: `
