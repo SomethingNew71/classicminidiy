@@ -88,34 +88,36 @@
                 </span>
                 <span>View Source</span></o-button
               >
-              <nav class="panel is-secondary mt-7">
-                <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
-                <template v-for="(commitItem, i) in commits">
-                  <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 3">
-                    <span class="panel-icon">
-                      <i class="fad fa-code-commit" aria-hidden="true"></i>
-                    </span>
-                    <span class="date pr-2">
-                      {{ commitItem.date }}
-                    </span>
+              <client-only>
+                <nav class="panel is-secondary mt-7">
+                  <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
+                  <template v-for="(commitItem, i) in commits">
+                    <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 3">
+                      <span class="panel-icon">
+                        <i class="fad fa-code-commit" aria-hidden="true"></i>
+                      </span>
+                      <span class="date pr-2">
+                        {{ commitItem.date }}
+                      </span>
 
-                    {{ commitItem.commit.message }}
-                  </a>
-                </template>
-                <div class="panel-block">
-                  <o-button
-                    class="is-fullwidth"
-                    tag="a"
-                    href="https://github.com/SomethingNew71/MiniECUMaps/commits/main"
-                    target="_blank"
-                  >
-                    <span class="icon">
-                      <i class="fad fa-code-branch" />
-                    </span>
-                    <span>View All Commits</span></o-button
-                  >
-                </div>
-              </nav>
+                      {{ commitItem.commit.message }}
+                    </a>
+                  </template>
+                  <div class="panel-block">
+                    <o-button
+                      class="is-fullwidth"
+                      tag="a"
+                      href="https://github.com/SomethingNew71/MiniECUMaps/commits/main"
+                      target="_blank"
+                    >
+                      <span class="icon">
+                        <i class="fad fa-code-branch" />
+                      </span>
+                      <span>View All Commits</span></o-button
+                    >
+                  </div>
+                </nav>
+              </client-only>
             </div>
           </div>
         </div>
