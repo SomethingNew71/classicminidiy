@@ -242,7 +242,9 @@
     </div>
     <div class="column is-12">
       <div class="card">
-        <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
+        <client-only>
+          <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
+        </client-only>
       </div>
     </div>
     <div class="column is-12">
