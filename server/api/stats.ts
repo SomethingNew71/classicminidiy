@@ -1,7 +1,7 @@
 import axios from 'axios';
-const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
   const baseURL = 'https://www.googleapis.com/youtube/v3/channels';
   const id = 'UCZIUfOFhrQ9nrR06IOoAJ2Q';
   const details = 'snippet,contentDetails,statistics';

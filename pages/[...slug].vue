@@ -15,7 +15,7 @@
             <img loading="lazy" :src="currentPostData.image" class="post-image" alt="preview image for post" />
           </div>
         </div>
-        <div class="card-content">
+        <div class="card-content pt-8">
           <div class="content article-body">
             <nav class="level is-size-6 pt-5">
               <!-- Left side -->
@@ -23,20 +23,42 @@
                 <div class="level-item">
                   <p>
                     <i class="fad fa-eye pr-1"></i>
-                    <strong class="pl-2">{{ currentPostViews }}</strong>
+                    <template v-if="isLoading">
+                      <i class="fa-duotone fa-spinner-third fa-spin ml-2"></i>
+                    </template>
+                    <template v-else>
+                      <strong class="pl-2">{{ currentPostViews }}</strong>
+                    </template>
                   </p>
                 </div>
                 <div class="is-size-7 pr-3 has-text-primary is-hidden-mobile">
                   <i class="fa fa-circle"></i>
                 </div>
                 <div class="level-item">
-                  <p><strong>Published:</strong> {{ currentPostData.date }}</p>
+                  <p>
+                    <strong>Published:</strong>
+
+                    <template v-if="isLoading">
+                      <i class="fa-duotone fa-spinner-third fa-spin ml-2"></i>
+                    </template>
+                    <template v-else>
+                      <strong class="pl-2">{{ currentPostData.date }}</strong>
+                    </template>
+                  </p>
                 </div>
                 <div class="is-size-7 pr-3 has-text-primary is-hidden-mobile">
                   <i class="fa fa-circle"></i>
                 </div>
                 <div class="level-item">
-                  <p><strong>Author:</strong> {{ currentPostData.author }}</p>
+                  <p>
+                    <strong>Author:</strong>
+                    <template v-if="isLoading">
+                      <i class="fa-duotone fa-spinner-third fa-spin ml-2"></i>
+                    </template>
+                    <template v-else>
+                      <strong class="pl-2">{{ currentPostData.author }}</strong>
+                    </template>
+                  </p>
                 </div>
               </div>
             </nav>
@@ -54,61 +76,37 @@
 </template>
 
 <script setup lang="ts">
-  import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-  import { DynamoDBDocumentClient, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb';
   import { Post } from '~/data/models';
-  const route = useRoute();
-  const runtimeConfig = useRuntimeConfig();
+  const { path, fullPath } = await useRoute();
+  let initialData: any;
   let currentPostData: Post;
   let currentPostViews: number;
+  let isLoading: boolean = true;
 
-  await queryContent(route.path)
-    .find()
-    .then(async (res: Post[]) => {
-      currentPostData = res[0];
-      currentPostData = {
-        ...currentPostData,
-        slug: route.path,
-      };
-      const docClient = DynamoDBDocumentClient.from(
-        new DynamoDBClient({
-          region: 'us-east-1',
-          credentials: {
-            accessKeyId: runtimeConfig.app.aws_access_key_id,
-            secretAccessKey: runtimeConfig.app.aws_secret_access_key,
-          },
-        })
-      );
+  await queryContent(path)
+    .findOne()
+    .then(async (res: Post) => {
+      currentPostData = { ...res, slug: path };
 
-      const initalData = await docClient.send(
-        new GetCommand({
-          TableName: 'BlogViews',
-          Key: { postID: currentPostData.title },
-        })
-      );
-      currentPostViews = initalData?.Item?.Count + 1;
-      if (!initalData.Item) {
-        await docClient.send(
-          new PutCommand({
-            TableName: 'BlogViews',
-            Item: {
-              postID: currentPostData.title,
-              Count: 1,
-            },
-          })
-        );
-        currentPostViews = 1;
-      } else {
-        await docClient.send(
-          new PutCommand({
-            TableName: 'BlogViews',
-            Item: {
-              postID: currentPostData.title,
-              Count: currentPostViews,
-            },
-          })
-        );
-      }
+      await useFetch('/api/blog/getCount', {
+        params: { title: currentPostData.title },
+      }).then(async (response: any) => {
+        initialData = response.data._rawValue;
+        if (initialData?.Item?.Count) {
+          currentPostViews = initialData.Item.Count + 1;
+          await useFetch('/api/blog/updateCount', {
+            method: 'POST',
+            body: { title: currentPostData.title, count: currentPostViews },
+          });
+        } else if (!initialData.Item) {
+          await useFetch('/api/blog/updateCount', {
+            method: 'POST',
+            body: { title: currentPostData.title, count: 1 },
+          });
+          currentPostViews = 1;
+        }
+      });
+
       useHead({
         title: `The (C)archive - ${currentPostData.title}`,
         meta: [
@@ -122,14 +120,15 @@
       useSeoMeta({
         ogTitle: `The (C)archive - ${currentPostData.title}`,
         ogDescription: currentPostData.description,
-        ogUrl: route.fullPath,
+        ogUrl: fullPath,
         ogImage: `https://classicminidiy.com${currentPostData.image}`,
         ogType: 'article',
         author: currentPostData.author,
       });
     })
-    .catch((e) => {
-      console.log(e);
+    .catch((e) => console.log(e))
+    .finally(() => {
+      isLoading = false;
     });
 </script>
 
