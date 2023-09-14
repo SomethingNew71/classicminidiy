@@ -86,7 +86,7 @@ export default defineNuxtConfig({
       },
     ],
     '@vite-pwa/nuxt',
-    // 'nuxt-simple-sitemap',
+    'nuxt-simple-sitemap',
     'nuxt-simple-robots',
     '@nuxt/image',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
