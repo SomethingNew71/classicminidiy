@@ -79,57 +79,65 @@
   import { Post } from '~/data/models';
   const { path, fullPath } = await useRoute();
   let initialData: any;
-  let currentPostData: Post;
+  let currentPostData: Post = {
+    _id: '',
+    title: 'CMDIY Blog',
+    author: 'Cole Gentry',
+    description:
+      'The Classic Mini DIY Blog (C)archive is the best place to see updates about CMDIY, complex technical articles, and much more!',
+    body: '',
+  };
   let currentPostViews: number;
   let isLoading: boolean = true;
 
-  await queryContent(path)
-    .findOne()
-    .then(async (res: Post) => {
-      currentPostData = { ...res, slug: path };
+  if (!path.includes('/dev-sw.js') && !path.includes('/workbox-')) {
+    await queryContent(path)
+      .findOne()
+      .then(async (res: Post) => {
+        currentPostData = { ...res, slug: path };
+        await useFetch('/api/blog/getCount', {
+          params: { title: currentPostData.title || '' },
+        }).then(async (response: any) => {
+          initialData = response.data._rawValue;
+          if (initialData?.Item?.Count) {
+            currentPostViews = initialData.Item.Count + 1;
+            await useFetch('/api/blog/updateCount', {
+              method: 'POST',
+              body: { title: currentPostData.title, count: currentPostViews },
+            });
+          } else if (!initialData.Item) {
+            await useFetch('/api/blog/updateCount', {
+              method: 'POST',
+              body: { title: currentPostData.title, count: 1 },
+            });
+            currentPostViews = 1;
+          }
+        });
 
-      await useFetch('/api/blog/getCount', {
-        params: { title: currentPostData.title },
-      }).then(async (response: any) => {
-        initialData = response.data._rawValue;
-        if (initialData?.Item?.Count) {
-          currentPostViews = initialData.Item.Count + 1;
-          await useFetch('/api/blog/updateCount', {
-            method: 'POST',
-            body: { title: currentPostData.title, count: currentPostViews },
-          });
-        } else if (!initialData.Item) {
-          await useFetch('/api/blog/updateCount', {
-            method: 'POST',
-            body: { title: currentPostData.title, count: 1 },
-          });
-          currentPostViews = 1;
-        }
+        useHead({
+          title: `The (C)archive - ${currentPostData.title}`,
+          meta: [
+            {
+              hid: 'description',
+              name: 'description',
+              content: currentPostData.description,
+            },
+          ],
+        });
+        useSeoMeta({
+          ogTitle: `The (C)archive - ${currentPostData.title}`,
+          ogDescription: currentPostData.description,
+          ogUrl: fullPath,
+          ogImage: currentPostData.image ? `https://classicminidiy.com${currentPostData.image}` : '',
+          ogType: 'article',
+          author: currentPostData.author,
+        });
+      })
+      .catch((e) => console.log(e))
+      .finally(() => {
+        isLoading = false;
       });
-
-      useHead({
-        title: `The (C)archive - ${currentPostData.title}`,
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content: currentPostData.description,
-          },
-        ],
-      });
-      useSeoMeta({
-        ogTitle: `The (C)archive - ${currentPostData.title}`,
-        ogDescription: currentPostData.description,
-        ogUrl: fullPath,
-        ogImage: `https://classicminidiy.com${currentPostData.image}`,
-        ogType: 'article',
-        author: currentPostData.author,
-      });
-    })
-    .catch((e) => console.log(e))
-    .finally(() => {
-      isLoading = false;
-    });
+  }
 </script>
 
 <style lang="scss">
