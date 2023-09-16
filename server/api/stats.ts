@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { YoutubeStatsResponse } from '~/data/models/youtube';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
@@ -8,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const feed = `${baseURL}?key=${config.app.youtubeAPIKey}&id=${id}&part=${details}`;
 
   return axios
-    .get<any>(feed)
+    .get<YoutubeStatsResponse>(feed)
     .then((response) => {
       const items = response.data.items[0].statistics;
       const niceResponse = {

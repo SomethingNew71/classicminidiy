@@ -1,22 +1,41 @@
-import { ParsedContent } from '@nuxt/content/dist/runtime/types';
-
-export interface Color {
-  primaryColor: string;
-  code: string;
-  imageSwatch: string;
-  ditzlerPpgCode: string;
-  duluxCode: string;
-  name: string;
-  shortCode: string;
-  years: string;
-  id: string;
-  hasSwatch: boolean;
-  images?: ColorImages[];
+export interface YoutubeStatsResponse {
+  kind: string;
+  etag: string;
+  pageInfo: {
+    totalResults: number;
+    resultsPerPage: number;
+  };
+  items: YoutubeStatsItem[];
 }
 
-export interface ColorImages {
-  url: string;
-  contributor: string;
+export interface YoutubeStatsItem {
+  kind: string;
+  etag: string;
+  id: string;
+  snippet: {
+    title: string;
+    description: string;
+    customUrl: string;
+    publishedAt: string;
+    thumbnails: YoutubeThumbnails;
+    localized: {
+      title: string;
+      description: string;
+    };
+    country: string;
+  };
+  contentDetails: {
+    relatedPlaylists: {
+      likes: string;
+      uploads: string;
+    };
+  };
+  statistics: {
+    viewCount: string;
+    subscriberCount: string;
+    hiddenSubscriberCount: boolean;
+    videoCount: string;
+  };
 }
 
 export interface YoutubeDataResponse {
@@ -85,14 +104,6 @@ export interface ThumbnailStandard {
   url: string;
   width: number;
   height: number;
-}
-
-export interface Post extends ParsedContent {
-  image?: string;
-  author?: string;
-  date?: string;
-  description?: string;
-  slug?: string;
 }
 
 export interface ThumbnailMaxres {

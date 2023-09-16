@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-  import { Post } from '~/data/models';
+  import { Post } from '~/data/models/generic';
   let blogPosts: Post[] = [];
   await queryContent('/')
     .find()
