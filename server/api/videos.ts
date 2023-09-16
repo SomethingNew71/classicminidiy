@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { YoutubeDataResponse, YoutubeThumbnails, YoutubeThumbnailsParsed } from '~/data/models';
+import { YoutubeDataResponse, YoutubeThumbnails, YoutubeThumbnailsParsed } from '~/data/models/youtube';
 import * as _ from 'lodash';
 
 export default defineEventHandler(async (event) => {

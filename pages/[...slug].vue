@@ -76,7 +76,7 @@
 </template>
 
 <script setup lang="ts">
-  import { Post } from '~/data/models';
+  import { Post } from '~/data/models/generic';
   const { path, fullPath } = await useRoute();
   let initialData: any;
   let currentPostData: Post = {

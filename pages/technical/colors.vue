@@ -163,7 +163,7 @@
 </script>
 <script lang="ts">
   import * as colors from '~/data/colors.json';
-  import { Color } from '~/data/models';
+  import { Color } from '~/data/models/colors';
   import { useProgrammatic } from '@oruga-ui/oruga-next';
   import ColorEditForm from '~/components/ColorEditForm.vue';
   import Fuse from 'fuse.js';
