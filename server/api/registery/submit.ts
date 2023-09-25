@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
       authorization: config.app.githubAPIKey,
       accept: 'application/vnd.github.v3+json',
     },
-    title: `Registry ${body.details.Year} - ${body.details.Model}`,
+    title: `Registry ${body.details.year} - ${body.details.model}`,
     labels: ['Mini Register'],
     assignees: ['SomethingNew71'],
     body: outdent`
