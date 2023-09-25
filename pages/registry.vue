@@ -138,7 +138,7 @@
   let initialData: any;
   let tableData: any[] = [];
 
-  await useFetch('/api/registery/list').then(async (response: any) => {
+  await useFetch('/api/registry/list').then(async (response: any) => {
     initialData = await response.data._rawValue;
     if (initialData?.Items?.length > 0) {
       tableData = initialData.Items;
