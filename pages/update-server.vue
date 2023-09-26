@@ -1,20 +1,13 @@
 <template>
   <div class="container mt-10 mb-10">
     <div class="columns is-multiline pt-3 mt-10">
-      <div class="column is-half">
+      <div v-if="!loading" class="column is-12">
         <o-field class="pb-3" :label-position="'on-border'" label="Your Name">
           <o-input v-model="details.submittedBy" maxlength="50" icon="signature" icon-pack="fad"></o-input>
         </o-field>
-      </div>
-      <div class="column is-half">
         <o-field class="pb-3" :label-position="'on-border'" label="Your Email">
           <o-input v-model="details.submittedByEmail" maxlength="50" type="email" icon="at" icon-pack="fad"></o-input>
         </o-field>
-      </div>
-      <div class="column is-12">
-        <h2 class="is-size-5">Car Details:</h2>
-      </div>
-      <div class="column is-half">
         <o-field class="pb-3" :label-position="'on-border'" label="Model Year">
           <o-input v-model="details.year" icon="calendar" icon-pack="fad" :placeholder="'1960'"></o-input>
         </o-field>
@@ -50,8 +43,6 @@
             <option value="Hornet">Hornet</option>
           </o-select>
         </o-field>
-      </div>
-      <div class="column is-half">
         <o-field class="pb-3" :label-position="'on-border'" label="Engine Size">
           <o-input v-model="details.engineSize" icon="engine" icon-pack="fad" :placeholder="'ex. 1293'"></o-input>
         </o-field>
@@ -67,8 +58,6 @@
         <o-field label="Unique ID">
           <o-input v-model="details.uniqueId" icon="hashtag" icon-pack="fad" :placeholder="'ex. 12H4102'"></o-input>
         </o-field>
-      </div>
-      <div class="column is-12">
         <o-field :label-position="'on-border'" label="Special Notes">
           <o-input
             v-model="details.notes"
@@ -77,15 +66,19 @@
             :placeholder="'ex. This car was only produced from 1959 to 1960'"
           ></o-input>
         </o-field>
-      </div>
-      <div class="column is-12">
         <o-field :label-position="'on-border'" label="Password">
           <o-input v-model="password" type="password" password-reveal></o-input>
         </o-field>
+        <div>
+          <o-button class="card-footer-item" label="Submit" variant="primary" size="medium" @click="submit()" />
+        </div>
       </div>
-    </div>
-    <div>
-      <o-button class="card-footer-item" label="Submit" variant="primary" size="medium" @click="submit()" />
+      <div v-if="loading" class="column is-12">
+        <div class="has-text-centered pt-5">
+          <i class="is-size-1 has-text-primary fa-duotone fa-arrows-rotate fa-spin fa-beat mt-5 mb-2"></i>
+          <h1 class="is-size-3 pb-1">Processing</h1>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -95,6 +88,7 @@
   export default defineComponent({
     data() {
       return {
+        loading: false,
         details: {
           uniqueId: '',
           year: '',
@@ -115,6 +109,7 @@
     },
     methods: {
       async submit() {
+        this.loading = true;
         await axios
           .post('/api/registry/save', {
             details: {
@@ -134,11 +129,26 @@
             },
             password: this.password,
           })
-          .then((response) => {
-            console.log(response);
+          .then(() => {
+            this.details.uniqueId = '';
+            this.details.year = '';
+            this.details.model = '';
+            this.details.trim = '';
+            this.details.bodyType = '';
+            this.details.engineSize = '';
+            this.details.color = '';
+            this.details.bodyNum = '';
+            this.details.engineNum = '';
+            this.details.buildDate = [];
+            this.details.notes = '';
+            this.details.submittedBy = '';
+            this.details.submittedByEmail = '';
           })
           .catch((err) => {
             console.error(err);
+          })
+          .finally(() => {
+            this.loading = false;
           });
       },
     },

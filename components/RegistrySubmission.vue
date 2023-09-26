@@ -5,7 +5,7 @@
     </header>
     <div class="card-content">
       <div v-if="processing">
-        <div class="modal-card-body has-text-centered pt-5">
+        <div class="has-text-centered pt-5">
           <i class="is-size-1 has-text-primary fa-duotone fa-arrows-rotate fa-spin fa-beat mt-5 mb-2"></i>
           <h1 class="is-size-3 pb-1">Processing</h1>
         </div>
@@ -74,15 +74,6 @@
             <o-field class="pb-3" :label-position="'on-border'" label="Trim">
               <o-input v-model="details.trim" icon="scissors" icon-pack="fad" :placeholder="'ex. Minor'"></o-input>
             </o-field>
-            <o-field label="Build Date or First Registration">
-              <o-datepicker
-                v-model="details.buildDate"
-                placeholder="Click to select..."
-                icon-pack="fad"
-                icon="calendar-lines-pen"
-                trap-focus
-              />
-            </o-field>
             <o-field class="pb-3" :label-position="'on-border'" label="Body Type">
               <o-select
                 icon="cars"
@@ -99,6 +90,9 @@
                 <option value="Van">Van</option>
                 <option value="Hornet">Hornet</option>
               </o-select>
+            </o-field>
+            <o-field class="pb-3" :label-position="'on-border'" label="Build or First Registration Date">
+              <VueDatePicker v-model="details.buildDate" format="MM/dd/yyyy"></VueDatePicker>
             </o-field>
           </div>
           <div class="column is-half">
@@ -145,8 +139,13 @@
 </template>
 <script lang="ts">
   import axios from 'axios';
+  import VueDatePicker from '@vuepic/vue-datepicker';
+  import '@vuepic/vue-datepicker/dist/main.css';
 
   export default defineComponent({
+    components: {
+      VueDatePicker,
+    },
     data() {
       return {
         details: {
@@ -197,3 +196,16 @@
     },
   });
 </script>
+<style lang="scss">
+  .v-picker-title {
+    display: none !important;
+  }
+  .v-picker__header {
+    padding-top: 1rem;
+    .v-date-picker-header {
+      .v-date-picker-header__content {
+        font-size: 1rem;
+      }
+    }
+  }
+</style>
