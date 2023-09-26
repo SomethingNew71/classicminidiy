@@ -153,15 +153,11 @@
   let tableData: any[] = [];
   let parsedData: any[] = [];
   const tableHeaders: any[] = [
-    { title: '', key: 'data-table-expand' },
-    {
-      title: 'Year',
-      align: 'start',
-      key: 'year',
-    },
-    { title: 'Model', key: 'model' },
-    { title: 'Trim', key: 'trim' },
-    { title: 'Color', key: 'color' },
+    { title: '', key: 'data-table-expand', align: 'start' },
+    { title: 'Year', key: 'year', align: 'start' },
+    { title: 'Model', key: 'model', align: 'start' },
+    { title: 'Trim', key: 'trim', align: 'start' },
+    { title: 'Color', key: 'color', align: 'start' },
   ];
 
   await useFetch('/api/registry/list').then((response: any) => {
@@ -213,3 +209,9 @@
     },
   });
 </script>
+
+<style lang="scss">
+  .v-data-table__td:not(.v-data-table-column--no-padding) {
+    padding-top: 12px !important;
+  }
+</style>
