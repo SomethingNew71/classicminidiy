@@ -17,6 +17,9 @@
       <template v-if="mdAndUp">
         <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn>
         <v-btn prepend-icon="fa:fad fa-pencil" size="small" variant="text" to="/blog"> Blog </v-btn>
+        <v-btn prepend-icon="fa:fad fa-book-circle-arrow-up" size="small" variant="text" to="/registry">
+          Registry
+        </v-btn>
         <v-btn prepend-icon="fa:fad fa-store" size="small" variant="text" href="https://merch.classicminidiy.com">
           Store
         </v-btn>
@@ -69,6 +72,11 @@
       <v-list-item density="compact">
         <v-btn prepend-icon="fa:fad fa-store" size="x-small" variant="text" href="https://merch.classicminidiy.com">
           Store
+        </v-btn></v-list-item
+      >
+      <v-list-item density="compact">
+        <v-btn prepend-icon="fa:fad book-circle-arrow-up" size="x-small" variant="text" to="/registry">
+          Registry
         </v-btn></v-list-item
       >
       <v-list-subheader> Free Online Toolbox </v-list-subheader>
