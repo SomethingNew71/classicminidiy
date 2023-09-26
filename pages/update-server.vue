@@ -64,6 +64,9 @@
         <o-field label="Engine Number">
           <o-input v-model="details.engineNum" icon="hashtag" icon-pack="fad" :placeholder="'ex. 12H4102'"></o-input>
         </o-field>
+        <o-field label="Unique ID">
+          <o-input v-model="details.uniqueId" icon="hashtag" icon-pack="fad" :placeholder="'ex. 12H4102'"></o-input>
+        </o-field>
       </div>
       <div class="column is-12">
         <o-field :label-position="'on-border'" label="Special Notes">
@@ -93,27 +96,42 @@
     data() {
       return {
         details: {
-          year: null,
-          model: null,
-          trim: null,
-          bodyType: null,
-          engineSize: null,
-          color: null,
-          bodyNum: null,
-          engineNum: null,
-          buildDate: null,
-          notes: null,
-          submittedBy: null,
-          submittedByEmail: null,
+          uniqueId: '',
+          year: '',
+          model: '',
+          trim: '',
+          bodyType: '',
+          engineSize: '',
+          color: '',
+          bodyNum: '',
+          engineNum: '',
+          buildDate: [],
+          notes: '',
+          submittedBy: '',
+          submittedByEmail: '',
         },
-        password: null,
+        password: '',
       };
     },
     methods: {
       async submit() {
         await axios
           .post('/api/registry/save', {
-            details: this.details,
+            details: {
+              uniqueId: this.details.uniqueId,
+              year: Number(this.details.year),
+              model: this.details.model,
+              trim: this.details.trim,
+              bodyType: this.details.bodyType,
+              engineSize: this.details.engineSize,
+              color: this.details.color,
+              bodyNum: this.details.bodyNum,
+              engineNum: this.details.engineNum,
+              buildDate: this.details.buildDate,
+              notes: this.details.notes,
+              submittedBy: this.details.submittedBy,
+              submittedByEmail: this.details.submittedByEmail,
+            },
             password: this.password,
           })
           .then((response) => {

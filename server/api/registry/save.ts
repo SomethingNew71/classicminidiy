@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
       },
     })
   );
-  if (body.password === config.validation_key) {
+  if (body.password === config.app.validation_key) {
     return await docClient
       .send(
         new PutCommand({
