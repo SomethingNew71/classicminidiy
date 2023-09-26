@@ -49,7 +49,7 @@
     "sass": "^1.68.0",
     "uuid": "^9.0.1",
     "vue-cookie-law": "^1.13.3",
-    "vuetify": "^3.3.18"
+    "vuetify": "3.3.17"
   },
   "devDependencies": {
     "@nuxt/content": "^2.8.3",
