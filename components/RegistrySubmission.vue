@@ -10,18 +10,20 @@
           <h1 class="is-size-3 pb-1">Processing</h1>
         </div>
       </div>
-      <div v-if="!processing && issueCreated && suggestion && !apiError">
+      <div v-if="!processing && issueCreated && submission && !apiError">
         <div class="modal-card-body has-text-centered pt-5">
           <i class="is-size-1 has-text-success fa-duotone fa-box-check fa-beat pt-5 pb-2"></i>
           <h1 class="is-size-3 pb-1">Thank you!</h1>
-          <h2 class="is-size-5 pb-4">Your suggestion has been submitted</h2>
+          <h2 class="is-size-5 pb-4">
+            Your registry entry has been submitted. Please allow 1-2 days for it to appear in the list.
+          </h2>
           <ul class="pb-5">
             <li class="pb-2">
-              Your suggestion number is <strong>{{ suggestion.number }}</strong>
+              Your registry submission number is <strong>{{ submission.number }}</strong>
             </li>
             <li>
-              Track your suggestion here:
-              <a target="_blank" v-if="suggestion.url" :href="suggestion.url"> Suggestion {{ suggestion.number }}</a>
+              Track your submission here:
+              <a target="_blank" v-if="submission.url" :href="submission.url"> Submission {{ submission.number }}</a>
             </li>
           </ul>
         </div>
@@ -34,7 +36,7 @@
           ></i>
           <h1 class="is-size-3 pb-1">I'm sorry!</h1>
           <h2 class="is-size-6 pb-4">
-            There was a problem submitting your suggestion at this time, please try again later!
+            There was a problem submitting your submission at this time, please try again later!
           </h2>
           <p class="pb-5">
             The github API returned: <code>{{ apiMessage }}</code>
@@ -60,7 +62,7 @@
             </o-field>
           </div>
           <div class="column is-12">
-            <h2 class="is-size-5">Car Details:</h2>
+            <h2 class="is-size-4"><strong>Car Details:</strong></h2>
           </div>
           <div class="column is-half">
             <o-field class="pb-3" :label-position="'on-border'" label="Model Year">
@@ -72,7 +74,7 @@
             <o-field class="pb-3" :label-position="'on-border'" label="Trim">
               <o-input v-model="details.trim" icon="scissors" icon-pack="fad" :placeholder="'ex. Minor'"></o-input>
             </o-field>
-            <o-field label="Select a date">
+            <o-field label="Build Date or First Registration">
               <o-datepicker
                 v-model="details.buildDate"
                 placeholder="Click to select..."
@@ -148,23 +150,23 @@
     data() {
       return {
         details: {
-          year: null,
-          model: null,
-          trim: null,
-          bodyType: null,
-          engineSize: null,
-          color: null,
-          bodyNum: null,
-          engineNum: null,
-          buildDate: null,
-          notes: null,
-          submittedBy: null,
-          submittedByEmail: null,
+          year: '',
+          model: '',
+          trim: '',
+          bodyType: '',
+          engineSize: '',
+          color: '',
+          bodyNum: '',
+          engineNum: '',
+          buildDate: [],
+          notes: '',
+          submittedBy: '',
+          submittedByEmail: '',
         },
         issueCreated: false,
         apiError: false,
         apiMessage: '',
-        suggestion: { number: null, url: null },
+        submission: { number: null, url: null },
         processing: false,
       };
     },
@@ -178,7 +180,7 @@
           .then((response) => {
             this.issueCreated = true;
             this.apiError = false;
-            this.suggestion = {
+            this.submission = {
               number: response.data.number,
               url: response.data.html_url,
             };
