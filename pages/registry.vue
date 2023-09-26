@@ -101,7 +101,8 @@
                     {{ props.row.engineNum }}
                   </o-table-column>
                   <o-table-column v-slot="props" field="buildDate" label="Build Date">
-                    {{ props.row.buildDate }}
+                    <span v-if="typeof props.row.buildDate === 'object'"></span>
+                    <span v-else>{{ props.row.buildDate }}</span>
                   </o-table-column>
                   <o-table-column v-slot="props" field="submittedBy" label="Submitted By">
                     {{ props.row.submittedBy }}
