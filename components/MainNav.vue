@@ -101,6 +101,7 @@
   import { useDisplay } from 'vuetify';
   import { ToolboxItems } from '~/data/models/generic';
   const { smAndDown, mdAndUp, lgAndUp } = useDisplay();
+  let showDrawer: boolean = false;
 </script>
 
 <script lang="ts">
@@ -128,11 +129,6 @@
       VListItemTitle,
       VNavigationDrawer,
       VListSubheader,
-    },
-    data() {
-      return {
-        showDrawer: false,
-      };
     },
   });
 </script>

@@ -73,47 +73,60 @@
         </div>
         <div class="column is-12">
           <div class="card">
+            <header class="card-header">
+              <div class="card-header-title">
+                <o-field class="mb-4" :position="'left'" label="Search for a mini">
+                  <o-input v-model="searchValue" placeholder="Ex. Morris Mini"></o-input>
+                  <p class="control">
+                    <o-button class="button is-primary search-button" aria-label="Search box for color">
+                      <i class="fad fa-search"></i>
+                    </o-button>
+                  </p>
+                </o-field>
+              </div>
+            </header>
             <div class="card-content">
-              <client-only>
-                <o-table :data="tableData" :hoverable="true" :striped="true">
-                  <o-table-column v-slot="props" field="year" label="Year">
-                    {{ props.row.year }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="model" label="Model">
-                    {{ props.row.model }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="trim" label="Trim">
-                    {{ props.row.trim }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="bodyType" label="Body">
-                    {{ props.row.bodyType }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="engineSize" label="Engine">
-                    {{ props.row.engineSize }}cc
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="color" label="Color">
-                    {{ props.row.color }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="bodyNum" label="Body #">
-                    {{ props.row.bodyNum }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="engineNum" label="Engine #">
-                    {{ props.row.engineNum }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="buildDate" label="Build Date">
-                    <span v-if="typeof props.row.buildDate === 'object'"></span>
-                    <span v-else>{{ props.row.buildDate }}</span>
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="submittedBy" label="Submitted By">
-                    {{ props.row.submittedBy }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="notes" label="Notes" class="has-text-centered">
-                    <o-tooltip :label="props.row.notes">
-                      <o-icon pack="fad" :icon="'circle-info'" />
-                    </o-tooltip>
-                  </o-table-column>
-                </o-table>
-              </client-only>
+              <v-data-table
+                v-model:expanded="expanded"
+                :headers="tableHeaders"
+                :items="parsedData"
+                :item-value="'uniqueId'"
+                show-expand
+                expand-on-click
+                :search="searchValue"
+                items-per-page="50"
+              >
+                <template v-slot:expanded-row="{ columns, item }">
+                  <tr>
+                    <td class="has-background-light pt-4 pb-4"></td>
+                    <td class="has-background-light pt-4 pb-4" :colspan="2">
+                      <strong>Build Date:</strong>
+                      <br />
+                      {{ item.raw.buildDate || '---' }}
+                      <br />
+                      <br />
+                      <strong>Body #:</strong>
+                      <br />
+                      {{ item.raw.bodyNum || '---' }}
+                      <br />
+                      <br />
+                      <strong>Engine #:</strong>
+                      <br />
+                      {{ item.raw.engineNum || '---' }}
+                    </td>
+                    <td class="has-background-light pt-4 pb-4" :colspan="2">
+                      <strong>Submitted by:</strong>
+                      <br />
+                      {{ item.raw.submittedBy || '---' }}
+                      <br />
+                      <br />
+                      <strong>Notes:</strong>
+                      <br />
+                      {{ item.raw.notes || '---' }}
+                    </td>
+                  </tr>
+                </template>
+              </v-data-table>
             </div>
           </div>
         </div>
@@ -126,7 +139,7 @@
         <div class="column is-4">
           <div class="card">
             <div class="card-content">
-              <patreon-card size="large" />
+              <patreon-card size="small" />
             </div>
           </div>
         </div>
@@ -136,10 +149,30 @@
 </template>
 
 <script lang="ts" setup>
+  import { DateTime } from 'luxon';
   let tableData: any[] = [];
+  let parsedData: any[] = [];
+  const tableHeaders: any[] = [
+    { title: '', key: 'data-table-expand' },
+    {
+      title: 'Year',
+      align: 'start',
+      key: 'year',
+    },
+    { title: 'Model', key: 'model' },
+    { title: 'Trim', key: 'trim' },
+    { title: 'Color', key: 'color' },
+  ];
 
   await useFetch('/api/registry/list').then((response: any) => {
     tableData = response.data._rawValue.Items;
+    parsedData = tableData.map((item) => {
+      return {
+        ...item,
+        buildDate:
+          typeof item.buildDate !== 'object' ? DateTime.fromISO(item.buildDate).toFormat('LLL dd, yyyy') : '---',
+      };
+    });
   });
 
   useHead({
@@ -158,5 +191,25 @@
     ogUrl: 'classicminidiy.com/register',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
     ogType: 'website',
+  });
+</script>
+
+<script lang="ts">
+  import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/labs/VDataTable';
+  import { VToolbar, VToolbarTitle } from 'vuetify/components/VToolbar';
+  export default defineComponent({
+    components: {
+      VDataTable,
+      VDataTableServer,
+      VDataTableVirtual,
+      VToolbar,
+      VToolbarTitle,
+    },
+    data() {
+      return {
+        searchValue: '',
+        expanded: [],
+      };
+    },
   });
 </script>
