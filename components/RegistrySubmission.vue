@@ -85,6 +85,7 @@
                 <option value="Saloon">Saloon</option>
                 <option value="Pickup">Pickup</option>
                 <option value="Estate">Estate</option>
+                <option value="Cabriolet">Cabriolet</option>
                 <option value="Clubman">Clubman</option>
                 <option value="Contryman">Contryman</option>
                 <option value="Van">Van</option>
