@@ -119,10 +119,10 @@
         <div class="column is-10 is-offset-1">
           <div class="divider" id="submitAnchor">contribute - Its free!</div>
         </div>
-        <div class="column is-8 is-offset-2">
+        <div class="column is-8">
           <RegistrySubmission></RegistrySubmission>
         </div>
-        <div class="column is-12">
+        <div class="column is-4">
           <div class="card">
             <div class="card-content">
               <patreon-card size="large" />
@@ -135,14 +135,10 @@
 </template>
 
 <script lang="ts" setup>
-  let initialData: any;
   let tableData: any[] = [];
 
-  await useFetch('/api/registry/list').then(async (response: any) => {
-    initialData = await response.data._rawValue;
-    if (initialData?.Items?.length > 0) {
-      tableData = initialData.Items;
-    }
+  await useFetch('/api/registry/list').then((response: any) => {
+    tableData = response.data._rawValue.Items;
   });
 
   useHead({
