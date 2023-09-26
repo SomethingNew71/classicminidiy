@@ -38,7 +38,7 @@
     "@types/node": "^20.7.0",
     "@types/youtube": "^0.0.48",
     "@vuepic/vue-datepicker": "^6.1.0",
-    "axios": "^1.5.0",
+    "axios": "^1.5.1",
     "core-js": "^3.32.2",
     "fuse.js": "^6.6.2",
     "highcharts": "^11.1.0",
@@ -49,10 +49,10 @@
     "sass": "^1.68.0",
     "uuid": "^9.0.1",
     "vue-cookie-law": "^1.13.3",
-    "vuetify": "^3.3.17"
+    "vuetify": "^3.3.18"
   },
   "devDependencies": {
-    "@nuxt/content": "^2.8.2",
+    "@nuxt/content": "^2.8.3",
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/fontaine": "^0.4.1",
     "@types/lodash": "^4.14.199",
