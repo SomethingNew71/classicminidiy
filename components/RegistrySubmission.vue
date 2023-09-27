@@ -44,116 +44,196 @@
         </div>
       </div>
       <div v-if="!processing && !issueCreated && !apiError">
-        <div class="columns is-multiline pt-3">
-          <div class="column is-half">
-            <o-field class="pb-3" :label-position="'on-border'" label="Your Name">
-              <o-input v-model="details.submittedBy" maxlength="50" icon="signature" icon-pack="fad"></o-input>
-            </o-field>
-          </div>
-          <div class="column is-half">
-            <o-field class="pb-3" :label-position="'on-border'" label="Your Email">
-              <o-input
+        <v-form v-model="form" @submit.prevent="submit">
+          <div class="columns is-multiline pt-3">
+            <div class="column is-12">
+              <h2 class="is-size-4"><strong>Personal Info:</strong></h2>
+            </div>
+            <div class="column is-half">
+              <v-text-field
+                label="Your Name"
+                v-model="details.submittedBy"
+                placeholder="Cole G"
+                :rules="[rules.required]"
+                append-inner-icon="fad fa-asterisk"
+                prepend-icon="fad fa-signature"
+                variant="outlined"
+              ></v-text-field>
+            </div>
+            <div class="column is-half">
+              <v-text-field
+                label="Email Address (to prevent spam)"
                 v-model="details.submittedByEmail"
-                maxlength="50"
-                type="email"
-                icon="at"
-                icon-pack="fad"
-              ></o-input>
-            </o-field>
-          </div>
-          <div class="column is-12">
-            <h2 class="is-size-4"><strong>Car Details:</strong></h2>
-          </div>
-          <div class="column is-half">
-            <o-field class="pb-3" :label-position="'on-border'" label="Model Year">
-              <o-input v-model="details.year" icon="calendar" icon-pack="fad" :placeholder="'1960'"></o-input>
-            </o-field>
-            <o-field class="pb-3" :label-position="'on-border'" label="Model">
-              <o-input v-model="details.model" icon="car" icon-pack="fad" :placeholder="'Morris Mini'"></o-input>
-            </o-field>
-            <o-field class="pb-3" :label-position="'on-border'" label="Trim">
-              <o-input v-model="details.trim" icon="scissors" icon-pack="fad" :placeholder="'ex. Minor'"></o-input>
-            </o-field>
-            <o-field class="pb-3" :label-position="'on-border'" label="Body Type">
-              <o-select
-                icon="cars"
-                icon-pack="fad"
-                placeholder="Select your style"
+                placeholder="minis@arecool.com"
+                :rules="[rules.required, rules.email]"
+                append-inner-icon="fad fa-asterisk"
+                prepend-icon="fad fa-at"
+                variant="outlined"
+              ></v-text-field>
+            </div>
+            <div class="column is-12">
+              <h2 class="is-size-4"><strong>Car Details:</strong></h2>
+            </div>
+            <div class="column is-half">
+              <v-text-field
+                label="Model Year"
+                v-model="details.year"
+                placeholder="ex. 1960"
+                :rules="[rules.required]"
+                append-inner-icon="fad fa-asterisk"
+                prepend-icon="fad fa-calendar"
+                variant="outlined"
+              ></v-text-field>
+              <v-text-field
+                label="Model"
+                v-model="details.model"
+                placeholder="ex. Morris Mini"
+                :rules="[rules.required]"
+                append-inner-icon="fad fa-asterisk"
+                prepend-icon="fad fa-car"
+                variant="outlined"
+              ></v-text-field>
+              <v-text-field
+                label="Trim"
+                v-model="details.trim"
+                placeholder="ex. Mini 50"
+                :rules="[rules.required]"
+                append-inner-icon="fad fa-asterisk"
+                prepend-icon="fad fa-scissors"
+                variant="outlined"
+              ></v-text-field>
+              <v-select
+                label="Body Type"
                 v-model="details.bodyType"
-                :expanded="true"
-              >
-                <option value="Saloon">Saloon</option>
-                <option value="Pickup">Pickup</option>
-                <option value="Estate">Estate</option>
-                <option value="Cabriolet">Cabriolet</option>
-                <option value="Clubman">Clubman</option>
-                <option value="Contryman">Contryman</option>
-                <option value="Van">Van</option>
-                <option value="Hornet">Hornet</option>
-              </o-select>
-            </o-field>
-            <o-field class="pb-3" :label-position="'on-border'" label="Build or First Registration Date">
+                prepend-icon="fad fa-cars"
+                :rules="[rules.required]"
+                :items="['Saloon', 'Pickup', 'Estate', 'Cabriolet', 'Clubman', 'Van', 'Hornet']"
+                variant="outlined"
+              ></v-select>
+              <!-- <o-field class="pb-3" :label-position="'on-border'" label="Build or First Registration Date">
               <VueDatePicker v-model="details.buildDate" format="MM/dd/yyyy"></VueDatePicker>
-            </o-field>
-          </div>
-          <div class="column is-half">
-            <o-field class="pb-3" :label-position="'on-border'" label="Engine Size">
-              <o-input v-model="details.engineSize" icon="engine" icon-pack="fad" :placeholder="'ex. 1293'"></o-input>
-            </o-field>
-            <o-field class="pb-3" :label-position="'on-border'" label="Factory Color">
-              <o-input
+            </o-field> -->
+            </div>
+            <div class="column is-half">
+              <v-text-field
+                label="Original Engine Size"
+                v-model="details.engineSize"
+                placeholder="ex. 1275"
+                :rules="[rules.required]"
+                append-inner-icon="fad fa-asterisk"
+                prepend-icon="fad fa-engine"
+                variant="outlined"
+              ></v-text-field>
+              <v-text-field
+                label="Factory Color"
                 v-model="details.color"
-                icon="palette"
-                icon-pack="fad"
-                :placeholder="'ex. Clipper Blue'"
-              ></o-input>
-            </o-field>
-            <o-field class="pb-3" :label-position="'on-border'" label="Body Number">
-              <o-input v-model="details.bodyNum" icon="hashtag" icon-pack="fad" :placeholder="'ex. GB190fW'"></o-input>
-            </o-field>
-            <o-field label="Engine Number">
-              <o-input
+                placeholder="ex. Clipper Blue"
+                prepend-icon="fad fa-palette"
+                variant="outlined"
+              ></v-text-field>
+              <v-text-field
+                label="Body Shell Number"
+                v-model="details.bodyNum"
+                placeholder="ex. GB190fW"
+                prepend-icon="fad fa-hashtag"
+                variant="outlined"
+              ></v-text-field>
+              <v-text-field
+                label="Engine Plate Number"
                 v-model="details.engineNum"
-                icon="hashtag"
-                icon-pack="fad"
-                :placeholder="'ex. 12H4102'"
-              ></o-input>
-            </o-field>
-          </div>
-          <div class="column is-12">
-            <o-field :label-position="'on-border'" label="Special Notes">
-              <o-input
+                placeholder="ex. 12H4102"
+                prepend-icon="fad fa-hashtag"
+                variant="outlined"
+              ></v-text-field>
+            </div>
+            <div class="column is-12">
+              <v-textarea
+                label="Special or Additional Notes"
+                variant="outlined"
+                prepend-icon="fad fa-note"
                 v-model="details.notes"
-                maxlength="200"
-                type="textarea"
+                clearable
                 :placeholder="'ex. This car was only produced from 1959 to 1960'"
-              ></o-input>
-            </o-field>
+              ></v-textarea>
+            </div>
           </div>
-        </div>
-        <div>
-          <o-button class="card-footer-item" label="Submit" variant="primary" size="medium" @click="submit()" />
-        </div>
+          <div v-if="!admin">
+            <o-button
+              :disabled="!form"
+              class="card-footer-item"
+              label="Submit"
+              variant="primary"
+              size="medium"
+              @click="submit()"
+            />
+          </div>
+          <div v-if="admin">
+            <v-text-field
+              label="Unique ID"
+              v-model="details.uniqueId"
+              :rules="[rules.required]"
+              prepend-icon="fad fa-fingerprint"
+              append-inner-icon="fad fa-asterisk"
+              variant="outlined"
+            ></v-text-field>
+            <v-text-field
+              label="Password"
+              v-model="password"
+              :rules="[rules.required]"
+              prepend-icon="fad fa-key"
+              append-inner-icon="fad fa-asterisk"
+              variant="outlined"
+            ></v-text-field>
+            <o-button
+              :disabled="!form"
+              class="card-footer-item"
+              label="Submit"
+              variant="primary"
+              size="medium"
+              @click="adminSubmit()"
+            />
+          </div>
+        </v-form>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
   import axios from 'axios';
-  import VueDatePicker from '@vuepic/vue-datepicker';
-  import '@vuepic/vue-datepicker/dist/main.css';
+  import { VTextField } from 'vuetify/components/VTextField';
+  import { VSelect } from 'vuetify/components/VSelect';
+  import { VTextarea } from 'vuetify/components/VTextarea';
+  import { VForm } from 'vuetify/components/VForm';
 
   export default defineComponent({
+    props: {
+      admin: {
+        type: Boolean,
+        default: false,
+      },
+    },
     components: {
-      VueDatePicker,
+      VTextField,
+      VSelect,
+      VTextarea,
+      VForm,
     },
     data() {
       return {
+        form: false,
+        rules: {
+          required: (value: string) => !!value || 'This field is required to submit',
+          email: (value: string) => {
+            const pattern =
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return pattern.test(value) || 'Invalid e-mail.';
+          },
+        },
         details: {
           year: '',
           model: '',
           trim: '',
-          bodyType: '',
+          bodyType: 'Saloon',
           engineSize: '',
           color: '',
           bodyNum: '',
@@ -162,12 +242,14 @@
           notes: '',
           submittedBy: '',
           submittedByEmail: '',
+          uniqueId: '',
         },
         issueCreated: false,
         apiError: false,
         apiMessage: '',
         submission: { number: null, url: null },
         processing: false,
+        password: '',
       };
     },
     methods: {
@@ -182,13 +264,58 @@
             this.apiError = false;
             this.submission = {
               number: response.data.number,
-              url: response.data.html_url,
+              url: response.data.url,
             };
           })
           .catch(() => {
             this.issueCreated = false;
             this.apiError = true;
             this.apiMessage = 'GitHub API is currently unavailable. Please try again later.';
+          })
+          .finally(() => {
+            this.processing = false;
+          });
+      },
+      async adminSubmit() {
+        this.processing = true;
+        await axios
+          .post('/api/registry/save', {
+            details: {
+              uniqueId: this.details.uniqueId,
+              year: Number(this.details.year),
+              model: this.details.model,
+              trim: this.details.trim,
+              bodyType: this.details.bodyType,
+              engineSize: this.details.engineSize,
+              color: this.details.color,
+              bodyNum: this.details.bodyNum,
+              engineNum: this.details.engineNum,
+              buildDate: this.details.buildDate,
+              notes: this.details.notes,
+              submittedBy: this.details.submittedBy,
+              submittedByEmail: this.details.submittedByEmail,
+            },
+            password: this.password,
+          })
+          .then(() => {
+            this.details.uniqueId = '';
+            this.details.year = '';
+            this.details.model = '';
+            this.details.trim = '';
+            this.details.bodyType = '';
+            this.details.engineSize = '';
+            this.details.color = '';
+            this.details.bodyNum = '';
+            this.details.engineNum = '';
+            this.details.buildDate = [];
+            this.details.notes = '';
+            this.details.submittedBy = '';
+            this.details.submittedByEmail = '';
+          })
+          .catch((err) => {
+            this.issueCreated = false;
+            this.apiError = true;
+            this.apiMessage = `DynamoDb update failed - ${err}`;
           })
           .finally(() => {
             this.processing = false;
@@ -208,5 +335,8 @@
         font-size: 1rem;
       }
     }
+  }
+  .fad.fa-asterisk {
+    font-size: 1rem !important;
   }
 </style>

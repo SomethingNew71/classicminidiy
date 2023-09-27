@@ -19,20 +19,19 @@ export default defineEventHandler(async (event) => {
       ## New Details
         | Category    | Value                          |
         |-------------|--------------------------------|
-        | Year        | ${details.year}           |
-        | Model       | ${details.model}          |
-        | Trim        | ${details.trim}           |
-        | Body Type   | ${details.bodyType}       |
-        | Engine Size | ${details.engineSize}     |
-        | Color       | ${details.color}          |
-        | Body #      | ${details.bodyNum}        |
-        | Engine #    | ${details.engineNum}      |
-        | Build Date  | ${details.buildDate}      |
-        | Notes       | ${details.notes}          |
+        | Name        | ${details.submittedBy}         |
+        | Email       | ${details.submittedByEmail}    |
+        | Year        | ${details.year}                |
+        | Model       | ${details.model}               |
+        | Trim        | ${details.trim}                |
+        | Body Type   | ${details.bodyType}            |
+        | Engine Size | ${details.engineSize}          |
+        | Color       | ${details.color}               |
+        | Body #      | ${details.bodyNum}             |
+        | Engine #    | ${details.engineNum}           |
+        | Build Date  | ${details.buildDate}           |
+        | Notes       | ${details.notes}               |
         | Unique ID   | ${uniqueId}                    |
-      ## Submitted by:
-      - Name: ${details.submittedBy}
-      - Email: ${details.submittedByEmail}
       `,
   })
     .then(async (response) => {
