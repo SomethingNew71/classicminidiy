@@ -29,17 +29,17 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.420.0",
-    "@aws-sdk/lib-dynamodb": "^3.420.0",
+    "@aws-sdk/client-dynamodb": "^3.423.0",
+    "@aws-sdk/lib-dynamodb": "^3.423.0",
     "@creativebulma/bulma-divider": "^1.1.0",
     "@octokit/request": "^8.1.2",
     "@oruga-ui/oruga-next": "^0.7.0",
     "@oruga-ui/theme-bulma": "^0.2.11",
-    "@types/node": "^20.7.0",
+    "@types/node": "^20.8.2",
     "@types/youtube": "^0.0.48",
-    "@vuepic/vue-datepicker": "^6.1.0",
+    "@vuepic/vue-datepicker": "^7.0.0",
     "axios": "^1.5.1",
-    "core-js": "^3.32.2",
+    "core-js": "^3.33.0",
     "fuse.js": "^6.6.2",
     "highcharts": "^11.1.0",
     "highcharts-vue": "^1.4.3",
@@ -52,7 +52,7 @@
     "vuetify": "3.3.17"
   },
   "devDependencies": {
-    "@nuxt/content": "^2.8.4",
+    "@nuxt/content": "^2.8.5",
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/fontaine": "^0.4.1",
     "@types/lodash": "^4.14.199",
