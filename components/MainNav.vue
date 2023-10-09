@@ -101,7 +101,7 @@
   import { useDisplay } from 'vuetify';
   import { ToolboxItems } from '~/data/models/generic';
   const { smAndDown, mdAndUp, lgAndUp } = useDisplay();
-  let showDrawer: boolean = false;
+  const showDrawer = ref(false);
 </script>
 
 <script lang="ts">
