@@ -6,6 +6,12 @@ import { VIcon } from 'vuetify/components/VIcon';
 import { VMenu } from 'vuetify/components/VMenu';
 import { VList, VListItem, VListItemTitle, VListSubheader } from 'vuetify/components/VList';
 import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/labs/VDataTable';
+import {
+  VExpansionPanel,
+  VExpansionPanelText,
+  VExpansionPanelTitle,
+  VExpansionPanels,
+} from 'vuetify/components/VExpansionPanel';
 import { VDatePicker } from 'vuetify/labs/VDatePicker';
 import { VDivider } from 'vuetify/components/VDivider';
 import { VNavigationDrawer } from 'vuetify/components/VNavigationDrawer';
@@ -30,6 +36,10 @@ export default defineNuxtPlugin((nuxtApp) => {
       VDataTableServer,
       VDataTableVirtual,
       VDatePicker,
+      VExpansionPanel,
+      VExpansionPanelText,
+      VExpansionPanelTitle,
+      VExpansionPanels,
     },
     icons: {
       defaultSet: 'fa',
