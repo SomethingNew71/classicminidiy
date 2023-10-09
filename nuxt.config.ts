@@ -60,7 +60,6 @@ export default defineNuxtConfig({
       script: [
         {
           src: 'https://kit.fontawesome.com/4e4435c885.js',
-          defer: 'true',
           crossorigin: 'anonymous',
         },
       ],

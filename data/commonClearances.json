@@ -2,6 +2,7 @@
   "engineTable": {
     "title": "Engine",
     "icon": "fad fa-car-mechanic",
+    "search": "",
     "columns": [
       {
         "label": "Part",
@@ -33,6 +34,7 @@
   "gearboxTable": {
     "title": "Clutch & Gearbox",
     "icon": "fad fa-cogs",
+    "search": "",
     "columns": [
       {
         "label": "Part",

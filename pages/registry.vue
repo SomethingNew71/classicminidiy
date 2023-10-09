@@ -102,27 +102,27 @@
                     <td class="has-background-light pt-4 pb-4" :colspan="2">
                       <strong>Build Date:</strong>
                       <br />
-                      {{ item.raw.buildDate || '---' }}
+                      {{ item.buildDate || '---' }}
                       <br />
                       <br />
                       <strong>Body #:</strong>
                       <br />
-                      {{ item.raw.bodyNum || '---' }}
+                      {{ item.bodyNum || '---' }}
                       <br />
                       <br />
                       <strong>Engine #:</strong>
                       <br />
-                      {{ item.raw.engineNum || '---' }}
+                      {{ item.engineNum || '---' }}
                     </td>
                     <td class="has-background-light pt-4 pb-4" :colspan="2">
                       <strong>Submitted by:</strong>
                       <br />
-                      {{ item.raw.submittedBy || '---' }}
+                      {{ item.submittedBy || '---' }}
                       <br />
                       <br />
                       <strong>Notes:</strong>
                       <br />
-                      {{ item.raw.notes || '---' }}
+                      {{ item.notes || '---' }}
                     </td>
                   </tr>
                 </template>

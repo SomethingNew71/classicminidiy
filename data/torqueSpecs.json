@@ -2,6 +2,7 @@
   "engineTable": {
     "title": "Engine",
     "icon": "fad fa-car-mechanic",
+    "search": "",
     "columns": [
       {
         "label": "Fastener",
@@ -258,6 +259,7 @@
   "suspensionTable": {
     "title": "Suspension",
     "icon": "fad fa-truck-monster",
+    "search": "",
     "columns": [
       {
         "label": "Fastener",
@@ -423,6 +425,7 @@
   "electricalTable": {
     "title": "Electrical",
     "icon": "fad fa-bolt",
+    "search": "",
     "columns": [
       {
         "label": "Fastener",
@@ -480,6 +483,7 @@
   "gearboxTable": {
     "title": "Clutch & Gearbox",
     "icon": "fad fa-cogs",
+    "search": "",
     "columns": [
       {
         "label": "Fastener",
