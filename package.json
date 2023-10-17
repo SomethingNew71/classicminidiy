@@ -29,8 +29,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.429.0",
-    "@aws-sdk/lib-dynamodb": "^3.429.0",
+    "@aws-sdk/client-dynamodb": "^3.430.0",
+    "@aws-sdk/lib-dynamodb": "^3.430.0",
     "@creativebulma/bulma-divider": "^1.1.0",
     "@octokit/request": "^8.1.4",
     "@oruga-ui/oruga-next": "^0.7.0",
@@ -45,10 +45,10 @@
     "luxon": "^3.4.3",
     "outdent": "^0.8.0",
     "redirect-ssl": "^3.0.0",
-    "sass": "^1.69.3",
+    "sass": "^1.69.4",
     "uuid": "^9.0.1",
     "vue-cookie-law": "^1.13.3",
-    "vuetify": "3.3.21"
+    "vuetify": "3.3.22"
   },
   "devDependencies": {
     "@nuxt/content": "^2.8.5",
