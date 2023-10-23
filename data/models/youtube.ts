@@ -80,6 +80,7 @@ export interface YoutubeThumbnailsParsed {
   high: string;
   standard: string;
   maxres: string;
+  error?: any;
 }
 
 export interface ThumbnailDefault {
