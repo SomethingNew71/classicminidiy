@@ -1,4 +1,4 @@
-import { ParsedContent } from '@nuxt/content/dist/runtime/types';
+import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
 import { DateTime } from 'luxon';
 
 //server/api/_sitemap-urls.ts

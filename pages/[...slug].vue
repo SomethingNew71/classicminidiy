@@ -4,15 +4,15 @@
       :size="'is-halfheight'"
       :navigation="true"
       :blog="true"
-      :title="currentPostData.title"
-      :subtitle="currentPostData.description"
+      :title="currentPostData?.title ? currentPostData?.title : 'The (C)archive'"
+      :subtitle="currentPostData?.description"
       :show-image="true"
     />
-    <div class="column is-12-mobile is-10 is-offset-1 content post">
+    <div v-if="currentPostData" class="column is-12-mobile is-10 is-offset-1 content post">
       <div class="card article">
         <div class="media">
-          <div v-if="currentPostData.image" class="media-center">
-            <img loading="lazy" :src="currentPostData.image" class="post-image" alt="preview image for post" />
+          <div v-if="currentPostData?.image" class="media-center">
+            <img loading="lazy" :src="currentPostData?.image" class="post-image" alt="preview image for post" />
           </div>
         </div>
         <div class="card-content pt-8">
@@ -42,7 +42,7 @@
                       <i class="fa-duotone fa-spinner-third fa-spin ml-2"></i>
                     </template>
                     <template v-else>
-                      <strong class="pl-2">{{ currentPostData.date }}</strong>
+                      <strong class="pl-2">{{ currentPostData?.date }}</strong>
                     </template>
                   </p>
                 </div>
@@ -56,7 +56,7 @@
                       <i class="fa-duotone fa-spinner-third fa-spin ml-2"></i>
                     </template>
                     <template v-else>
-                      <strong class="pl-2">{{ currentPostData.author }}</strong>
+                      <strong class="pl-2">{{ currentPostData?.author }}</strong>
                     </template>
                   </p>
                 </div>
@@ -64,10 +64,10 @@
             </nav>
             <hr />
             <ContentDoc />
-            <div class="column is-10 is-offset-1">
+            <!-- <div class="column is-10 is-offset-1">
               <div class="divider">Comments</div>
             </div>
-            <DisqusComments :identifier="currentPostData.slug" />
+            <DisqusComments :identifier="currentPostData.slug" /> -->
           </div>
         </div>
       </div>
@@ -76,17 +76,10 @@
 </template>
 
 <script setup lang="ts">
-  import { Post } from '~/data/models/generic';
+  import type { Post } from '~/data/models/generic';
   const { path, fullPath } = await useRoute();
   let initialData: any;
-  let currentPostData: Post = {
-    _id: '',
-    title: 'CMDIY Blog',
-    author: 'Cole Gentry',
-    description:
-      'The Classic Mini DIY Blog (C)archive is the best place to see updates about CMDIY, complex technical articles, and much more!',
-    body: '',
-  };
+  let currentPostData: Post;
   let currentPostViews: number;
   let isLoading: boolean = true;
 
@@ -94,46 +87,46 @@
     await queryContent(path)
       .findOne()
       .then(async (res: Post) => {
-        currentPostData = { ...res, slug: path };
+        currentPostData = { ...(await res) };
         await useFetch('/api/blog/getCount', {
           params: { title: currentPostData.title || '' },
         }).then(async (response: any) => {
           initialData = response.data._rawValue;
-          if (initialData?.Item?.Count) {
-            currentPostViews = initialData.Item.Count + 1;
-            await useFetch('/api/blog/updateCount', {
-              method: 'POST',
-              body: { title: currentPostData.title, count: currentPostViews },
-            });
-          } else if (!initialData.Item) {
-            await useFetch('/api/blog/updateCount', {
-              method: 'POST',
-              body: { title: currentPostData.title, count: 1 },
-            });
-            currentPostViews = 1;
+          if (currentPostData.title) {
+            if (initialData?.Item?.Count) {
+              currentPostViews = await useFetch('/api/blog/updateCount', {
+                method: 'POST',
+                body: { title: currentPostData.title, count: initialData.Item.Count },
+              }).then((res: any) => res.data._rawValue);
+            } else if (!initialData.Item) {
+              currentPostViews = await useFetch('/api/blog/updateCount', {
+                method: 'POST',
+                body: { title: currentPostData.title, count: 1 },
+              }).then((res: any) => res.data._rawValue);
+            }
           }
         });
 
         useHead({
-          title: `The (C)archive - ${currentPostData.title}`,
+          title: `The (C)archive - ${currentPostData.title || ''}`,
           meta: [
             {
               hid: 'description',
               name: 'description',
-              content: currentPostData.description,
+              content: currentPostData.description || '',
             },
           ],
         });
         useSeoMeta({
-          ogTitle: `The (C)archive - ${currentPostData.title}`,
-          ogDescription: currentPostData.description,
+          ogTitle: `The (C)archive - ${currentPostData.title || ''}`,
+          ogDescription: currentPostData.description || '',
           ogUrl: fullPath,
           ogImage: currentPostData.image ? `https://classicminidiy.com${currentPostData.image}` : '',
           ogType: 'article',
-          author: currentPostData.author,
+          author: currentPostData.author || '',
         });
       })
-      .catch((e) => console.log(e))
+      .catch((e) => console.log('Query Content error: ', e))
       .finally(() => {
         isLoading = false;
       });
