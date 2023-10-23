@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { YoutubeDataResponse, YoutubeThumbnails, YoutubeThumbnailsParsed } from '~/data/models/youtube';
+import type { YoutubeDataResponse, YoutubeThumbnails, YoutubeThumbnailsParsed } from '~/data/models/youtube';
 import * as _ from 'lodash';
 
 export default defineEventHandler(async (event) => {
@@ -26,12 +26,25 @@ export default defineEventHandler(async (event) => {
       throw new Error(error);
     });
   function organizeThumbnails(thumbs: YoutubeThumbnails): YoutubeThumbnailsParsed {
-    return {
-      default: thumbs.default.url,
-      medium: thumbs.medium ? thumbs.medium.url : thumbs.default.url,
-      high: thumbs.high ? thumbs.high.url : thumbs.default.url,
-      standard: thumbs.standard.url,
-      maxres: thumbs.maxres ? thumbs.maxres.url : thumbs.standard.url,
-    };
+    try {
+      let defaultThumb = thumbs.default ? thumbs.default.url : '';
+      let standardThumb = thumbs.standard ? thumbs.standard.url : defaultThumb;
+      return {
+        default: defaultThumb,
+        medium: thumbs.medium ? thumbs.medium.url : defaultThumb,
+        high: thumbs.high ? thumbs.high.url : defaultThumb,
+        standard: standardThumb,
+        maxres: thumbs.maxres ? thumbs.maxres.url : standardThumb,
+      };
+    } catch (error) {
+      return {
+        error: error,
+        default: '',
+        medium: '',
+        high: '',
+        standard: '',
+        maxres: '',
+      };
+    }
   }
 });
