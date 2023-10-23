@@ -4,6 +4,7 @@ import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body = await readBody(event);
+  const newCount = body.count + 1;
 
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -14,15 +15,17 @@ export default defineEventHandler(async (event) => {
       },
     })
   );
+
   return await docClient
     .send(
       new PutCommand({
         TableName: 'BlogViews',
         Item: {
           postID: body.title,
-          Count: body.count,
+          Count: newCount,
         },
       })
     )
+    .then(() => newCount)
     .catch((e) => console.log(e));
 });

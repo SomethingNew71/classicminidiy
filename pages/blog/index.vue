@@ -8,9 +8,9 @@
       :blog="true"
     />
     <section class="articles">
-      <div v-for="post in blogPosts" class="column is-12-mobile is-10 is-offset-1 article-container">
+      <div v-for="(post, index) in blogPosts" class="column is-12-mobile is-10 is-offset-1 article-container">
         <!-- START ARTICLE -->
-        <div class="card article">
+        <div :key="index" class="card article">
           <div class="card-content">
             <div class="media">
               <div v-if="post.image" class="media-center">
@@ -36,9 +36,9 @@
             <div class="content article-body pb-5 mb-5">
               <ContentRenderer :value="post" :excerpt="true" />
               <NuxtLink :to="post._path" class="is-size-4">Read More...</NuxtLink>
+              <!-- <br />
               <br />
-              <br />
-              <DisqusCount :identifier="post._path" />
+              <DisqusCount :identifier="post._path" /> -->
             </div>
           </div>
         </div>
@@ -51,11 +51,12 @@
 </template>
 
 <script setup lang="ts">
-  import { Post } from '~/data/models/generic';
+  import type { Post } from '~/data/models/generic';
   let blogPosts: Post[] = [];
   await queryContent('/')
     .find()
-    .then((res: Post[]) => (blogPosts = res));
+    .then(async (res: Post[]) => (blogPosts = await res))
+    .catch((error) => console.error('Error on root blog call', error));
 
   useHead({
     title: 'The (C)archive - CMDIY Blog',
