@@ -28,6 +28,18 @@
         "thou": "0.002 - 0.003",
         "mm": "0.05 - 0.07",
         "notes": "This spec can be enlarged for performance engines to .005\" - .007\""
+      },
+      {
+        "name": "Rocker/Valve Clearance - Stock",
+        "thou": "0.012",
+        "mm": "0.3",
+        "notes": "This is for original rocker assemblies used on the mini. Across all years and models."
+      },
+      {
+        "name": "Rocker/Valve Clearance - Rollers",
+        "thou": "0.014 - 0.015",
+        "mm": "0.36 - 0.38",
+        "notes": "If you have swapped to roller rockers with more lift or standard lift, this is the appropriate spec to use as they need a bit more gap."
       }
     ]
   },
