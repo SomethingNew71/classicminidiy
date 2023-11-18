@@ -13,8 +13,8 @@
     </template>
 
     <template #append>
-      <v-btn v-if="smAndDown" icon="fa:fad fa-bars" @click="showDrawer = !showDrawer" />
-      <template v-if="mdAndUp">
+      <v-btn class="is-hidden-desktop" icon="fa:fad fa-bars" @click="showDrawer = !showDrawer" />
+      <div class="is-hidden-touch">
         <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn>
         <v-btn prepend-icon="fa:fad fa-pencil" size="small" variant="text" to="/blog"> Blog </v-btn>
         <v-btn prepend-icon="fa:fad fa-computer-classic" size="small" variant="text" to="/maps"> ECU Maps </v-btn>
@@ -57,12 +57,12 @@
         >
           Join CMDIY
         </v-btn>
-      </template>
+      </div>
     </template>
   </v-app-bar>
 
   <!-- MOBILE VERSION OF NAVIGATION -->
-  <v-navigation-drawer v-if="smAndDown" v-model="showDrawer">
+  <v-navigation-drawer class="is-hidden-desktop" v-model="showDrawer">
     <v-list density="compact" class="desktop-menu">
       <v-list-item density="compact">
         <v-btn prepend-icon="fa:fad fa-house" size="x-small" variant="text" to="/"> Home </v-btn></v-list-item
@@ -106,7 +106,7 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
   import { ToolboxItems } from '~/data/models/generic';
-  const { smAndDown, mdAndUp, lgAndUp } = useDisplay();
+  const { lgAndUp } = useDisplay();
   const showDrawer = ref(false);
 </script>
 

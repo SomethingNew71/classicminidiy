@@ -35,7 +35,7 @@
     "@octokit/request": "^8.1.5",
     "@oruga-ui/oruga-next": "^0.7.0",
     "@oruga-ui/theme-bulma": "^0.2.11",
-    "@types/node": "^20.9.1",
+    "@types/node": "^20.9.2",
     "@types/youtube": "^0.0.50",
     "axios": "^1.6.2",
     "core-js": "^3.33.2",
