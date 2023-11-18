@@ -191,8 +191,8 @@
 </script>
 
 <script lang="ts">
-  import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/labs/VDataTable';
   import { VToolbar, VToolbarTitle } from 'vuetify/components/VToolbar';
+  import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/components/VDataTable';
   export default defineComponent({
     components: {
       VDataTable,
