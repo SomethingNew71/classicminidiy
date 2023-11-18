@@ -33,21 +33,15 @@
             </ul>
           </nav>
           <h1 class="title">Electrical Diagrams</h1>
-          <template v-for="(diagram, name, index) in diagrams" :key="`${name}-${index}`">
-            <div class="column is-12">
-              <o-collapse class="card" animation="slide">
-                <template #trigger="props">
-                  <div class="card-header" role="button">
-                    <h2 class="card-header-title">
-                      {{ diagram.title }}
-                    </h2>
-                    <a class="card-header-icon">
-                      <o-icon pack="fas" :icon="props.open ? 'caret-up' : 'caret-down'"> </o-icon>
-                    </a>
-                  </div>
-                </template>
-                <div class="card-content pt-0 pb-0 pl-0 pr-0">
-                  <nav class="panel is-striped">
+          <div class="column is-12">
+            <v-expansion-panels variant="popout" multiple :color="'grey-lighten-4'">
+              <v-expansion-panel
+                v-for="(diagram, name, index) in diagrams"
+                :key="`${name}-${index}`"
+                :title="diagram.title"
+              >
+                <v-expansion-panel-text>
+                  <nav class="panel is-striped p-0">
                     <a
                       v-for="(item, nameItem, diagramIndex) in diagram.items"
                       :key="`${nameItem}-${diagramIndex}`"
@@ -61,17 +55,10 @@
                       {{ item.name }}
                     </a>
                   </nav>
-                </div>
-              </o-collapse>
-            </div>
-            <div v-if="index === 0" :key="`${name}-${index}-patreon`" class="column is-12">
-              <div class="card">
-                <div class="card-content">
-                  <patreon-card size="large" />
-                </div>
-              </div>
-            </div>
-          </template>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </div>
           <div class="column is-12">
             <div class="card">
               <div class="card-content">
@@ -106,12 +93,27 @@
     ogType: 'website',
   });
 </script>
-<style lang="scss" scoped>
-  .card-header {
-    background-color: whitesmoke;
-    .card-header-title {
-      font-size: 20px;
-    }
+
+<script lang="ts">
+  import {
+    VExpansionPanel,
+    VExpansionPanelText,
+    VExpansionPanelTitle,
+    VExpansionPanels,
+  } from 'vuetify/components/VExpansionPanel';
+  export default defineComponent({
+    components: {
+      VExpansionPanel,
+      VExpansionPanelText,
+      VExpansionPanelTitle,
+      VExpansionPanels,
+    },
+  });
+</script>
+
+<style lang="scss">
+  .v-expansion-panel-text__wrapper {
+    padding: 0 !important;
   }
   .panel-block {
     word-break: break-word;
