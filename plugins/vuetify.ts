@@ -5,14 +5,14 @@ import { VImg } from 'vuetify/components/VImg';
 import { VIcon } from 'vuetify/components/VIcon';
 import { VMenu } from 'vuetify/components/VMenu';
 import { VList, VListItem, VListItemTitle, VListSubheader } from 'vuetify/components/VList';
-import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/labs/VDataTable';
+import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/components/VDataTable';
 import {
   VExpansionPanel,
   VExpansionPanelText,
   VExpansionPanelTitle,
   VExpansionPanels,
 } from 'vuetify/components/VExpansionPanel';
-import { VDatePicker } from 'vuetify/labs/VDatePicker';
+import { VDatePicker } from 'vuetify/components/VDatePicker';
 import { VDivider } from 'vuetify/components/VDivider';
 import { VNavigationDrawer } from 'vuetify/components/VNavigationDrawer';
 import { aliases, fa } from 'vuetify/iconsets/fa';
