@@ -24,7 +24,7 @@
                   <p>
                     <i class="fad fa-eye pr-1"></i>
                     <template v-if="isLoading">
-                      <i class="fa-duotone fa-spinner-third fa-spin ml-2"></i>
+                      <i class="fad fa-spinner-third fa-spin ml-2"></i>
                     </template>
                     <template v-else>
                       <strong class="pl-2">{{ currentPostViews }}</strong>
