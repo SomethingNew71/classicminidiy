@@ -44,194 +44,82 @@
             be able to find exactly the wheel you are looking for.
           </p>
 
-          <div class="columns is-multiline">
-            <div class="column is-12"></div>
-            <div class="card column is-6">
-              <header class="card-header">
-                <p class="card-header-title">Find a wheel</p>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <o-field class="pb-2" label="Wheel Size">
-                    <o-select v-model="selectedSize" placeholder="Select a wheel size">
-                      <option :value="10">10 inch</option>
-                      <option :value="12">12 inch</option>
-                      <option :value="13">13 inch</option>
-                    </o-select>
-                  </o-field>
-                  <p>Use the search below to search by wheel name, offset, size or material.</p>
-                  <o-field class="mb-4" :position="'left'">
-                    <o-input
-                      v-model="searchString"
-                      placeholder="Ex. Minilite"
-                      @keyup.enter.native="standardSearch()"
-                    ></o-input>
-                    <p class="control">
-                      <o-button
-                        class="button is-primary search-button"
-                        aria-label="Search box for wheels"
-                        @click="standardSearch"
-                      >
-                        <i class="fad fa-search"></i>
-                      </o-button>
-                    </p>
-                  </o-field>
-                </div>
-              </div>
-              <footer class="card-footer">
-                <div class="card-footer-item">
-                  <o-button
-                    v-if="searchString !== '' && !allWheelsVisible"
-                    expanded
-                    class="button is-primary"
-                    @click="searchAll"
-                  >
-                    View All {{ selectedSize }}in Wheels
-                  </o-button>
-                  <o-tooltip v-else :position="'top'" :label="`Already displaying all ${selectedSize} inch wheels`">
-                    <o-button disabled expanded class="button is-primary">
-                      View All {{ selectedSize }}in Wheels
-                    </o-button>
-                  </o-tooltip>
-                </div>
-              </footer>
-            </div>
-            <div class="column is-12">
-              <div class="columns is-multiline">
-                <div class="column is-6">
-                  <p v-if="searchString !== '' && !allWheelsVisible" class="has-text-weight-bold">
-                    Displaying
-                    <template v-if="!isLoading">
-                      {{ totalResults }}
-                    </template>
-                    <template v-else>
-                      <i class="fad fa-spinner fa-spin"></i>
-                    </template>
-                    filtered results of
-                    {{ totalAll.induvidualWheels[selectedSize] }} wheels.
-                  </p>
-                  <p v-else class="has-text-weight-bold">Displaying all {{ selectedSize }} inch wheels.</p>
-                </div>
-                <div v-if="selectedWheels && !isLoading && totalResults > perPage" class="column is-6">
-                  <o-pagination
-                    v-model:current="currentPage"
-                    :total="totalResults"
-                    :simple="true"
-                    :range-before="2"
-                    :range-after="2"
-                    :order="'is-right'"
-                    :per-page="perPage"
-                    :icon-pack="'fa'"
-                    @change="changePages()"
-                  >
-                  </o-pagination>
-                </div>
-              </div>
-              <skeleton-loader v-if="isLoading && selectedSize !== ''" :amount="perPage"></skeleton-loader>
-              <div v-if="!isLoading && !noResults" class="columns is-multiline">
-                <template v-for="(wheel, index) in paginatedItems" :key="index">
-                  <div class="column is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-fifth-fullhd">
-                    <article class="card">
-                      <div class="card-image">
-                        <o-tooltip
-                          label="Suggest changes to the details of this wheel"
-                          animated
-                          multilined
-                          :type="'light'"
-                          :position="'left'"
-                          class="edit-icon-link"
-                        >
-                          <o-button
-                            aria-label="Suggest changes to the details of this wheel"
-                            type="is-primary"
-                            icon-right="pencil"
-                            :icon-pack="'fad'"
-                            @click="editWheel(wheel)"
-                          />
-                        </o-tooltip>
-                        <div class="image is-square">
-                          <nuxt-img :src="wheel.imagepath" :alt="`Image of ${wheel.name}`" />
-                        </div>
-                      </div>
-                      <div class="card-content">
-                        <div class="media mb-1">
-                          <div class="media-content">
-                            <o-tooltip label="Wheel Size" animated type="is-dark">
-                              <i class="fad fa-expand-arrows-alt pr-1"></i>
-                              {{ wheel.size || 'N/A' }}
-                            </o-tooltip>
-                            <o-tooltip label="Wheel Offset" animated type="is-dark">
-                              <i class="fad fa-arrow-alt-from-left pr-1 pl-2"></i>
-                              {{ wheel.offset || 'N/A' }}
-                            </o-tooltip>
-                            <o-tooltip label="Wheel Material" animated type="is-dark">
-                              <i class="fad fa-box-full pr-1 pl-2"></i>
-                              {{ wheel.type || 'N/A' }}
-                            </o-tooltip>
-                            <p class="title is-5 pt-3 pb-1" v-html="wheel.name"></p>
-                          </div>
-                        </div>
-                        <div v-if="wheel.notes" class="content">
-                          <div>
-                            <p v-html="wheel.notes"></p>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                  <div
-                    v-if="index === 3 || index === 9 || index === 20"
-                    :key="index"
-                    class="column is-half-tablet is-one-third-desktop is-one-third-widescreen is-one-fifth-fullhd"
-                  >
-                    <div class="card">
-                      <div class="card-content">
-                        <patreon-card size="small" />
-                      </div>
-                    </div>
-                  </div>
-                </template>
-              </div>
-              <div v-if="!isLoading && noResults" class="column is-10 is-offset-1 no-results">
-                <div class="card">
-                  <div class="card-content has-text-centered">
-                    <i class="fad fa-sad-tear pb-3"></i>
-                    <h3>No Results found for "{{ searchString }}"</h3>
-                  </div>
-                </div>
-              </div>
-              <div v-if="!isLoading && totalResults > perPage && !noResults" class="column is-12">
-                <o-pagination
-                  v-model:current="currentPage"
-                  :total="totalResults"
-                  :rangeBefore="2"
-                  :rangeAfter="2"
-                  :order="'is-centered'"
-                  :perPage="perPage"
-                  :iconPack="'fad'"
-                  @change="changePages()"
-                >
-                </o-pagination>
-              </div>
-            </div>
-            <div class="column is-12 is-hidden-tablet">
-              <div class="column is-10 is-offset-1">
-                <div class="divider">Support</div>
-              </div>
-              <div class="card">
-                <div class="card-content">
-                  <patreon-card size="large" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- <ImageUploader></ImageUploader> -->
         </div>
       </div>
+      <v-container>
+        <v-row dense>
+          <v-col v-for="wheel in wheels[page]" cols="12" md="4" lg="3" xl="2">
+            <v-card>
+              <template v-slot:loader="{ isActive }">
+                <v-progress-linear :active="isActive" color="deep-purple" height="4" indeterminate></v-progress-linear>
+              </template>
+
+              <v-img cover height="250" :src="wheel.imagepath"></v-img>
+
+              <v-card-item>
+                <v-card-title>{{ wheel.name }}</v-card-title>
+
+                <v-card-subtitle>
+                  <span class="me-1">Local Favorite</span>
+
+                  <v-icon color="error" icon="mdi-fire-circle" size="small"></v-icon>
+                </v-card-subtitle>
+              </v-card-item>
+
+              <v-card-text>
+                <v-row align="center" class="mx-0">
+                  <!-- <v-rating
+                    :model-value="4.5"
+                    color="amber"
+                    density="compact"
+                    half-increments
+                    readonly
+                    size="small"
+                  ></v-rating> -->
+
+                  <!-- <div class="text-grey ms-4">4.5 (413)</div> -->
+                </v-row>
+
+                <div class="my-4 text-subtitle-1">$ • Italian, Cafe</div>
+
+                <div>
+                  Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.
+                </div>
+              </v-card-text>
+
+              <v-divider class="mx-4 mb-1"></v-divider>
+              <v-expansion-panels>
+                <v-expansion-panel
+                  title="Title"
+                  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
+                >
+                </v-expansion-panel>
+              </v-expansion-panels>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <!-- <v-btn @click="expand = !expand">
+                  {{ !expand ? 'Full Details' : 'Hide Details' }}
+                </v-btn> -->
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-col cols="6">
+          <v-pagination v-model="page" :length="wheels?.length" :total-visible="25"></v-pagination>
+        </v-col>
+        <v-row> </v-row>
+      </v-container>
     </section>
   </div>
 </template>
 
-<script lang="js" setup>
+<script lang="ts" setup>
+  let wheels: any[] = [];
+  let page = ref(1);
+  let expand = ref(false);
   useHead({
     title: 'Tech - Wheel Dictionary',
     meta: [
@@ -251,15 +139,32 @@
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
     ogType: 'website',
   });
+
+  await useFetch('/api/wheels/list').then((response: any) => {
+    wheels = response.data._rawValue;
+  });
 </script>
 
-<script lang="js">
+<script lang="ts">
+  import { VCard, VCardActions, VCardItem, VCardSubtitle, VCardText, VCardTitle } from 'vuetify/components/VCard';
+  import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
+  import { VIcon } from 'vuetify/components/VIcon';
+  import { VDivider } from 'vuetify/components/VDivider';
+  import { VProgressLinear } from 'vuetify/components/VProgressLinear';
+  import { VPagination } from 'vuetify/components/VPagination';
+  import {
+    VExpansionPanel,
+    VExpansionPanelText,
+    VExpansionPanelTitle,
+    VExpansionPanels,
+  } from 'vuetify/components/VExpansionPanel';
+
   import Fuse from 'fuse.js';
   import { useProgrammatic } from '@oruga-ui/oruga-next';
   import tenInchWheels from '~/data/wheels/10.json';
   import twelveInchWheels from '~/data/wheels/12.json';
   import thirteenInchWheels from '~/data/wheels/13.json';
-  import WheelEditForm from '~/components/WheelEditForm';
+  // import WheelEditForm from '~/components/WheelEditForm';
   const { oruga } = useProgrammatic();
 
   export default defineComponent({
@@ -297,91 +202,88 @@
       },
     },
     watch: {
-      selectedSize() {
-        if (this.searchString === '') {
-          this.searchAll();
-        } else {
-          this.standardSearch();
-        }
-      },
+      // selectedSize() {
+      //   if (this.searchString === '') {
+      //     this.searchAll();
+      //   } else {
+      //     this.standardSearch();
+      //   }
+      // },
     },
     methods: {
-      changePages() {
-        // Scroll you to the top of the page
-        document.getElementById('scrollLocation').scrollIntoView();
-        // Start loading animation
-        this.isLoading = true;
-        // Artifically show loading items for 1000ms
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 500);
-      },
-
-      searchAll() {
-        this.isLoading = true;
-        this.allWheelsVisible = true;
-        document.getElementById('scrollLocation').scrollIntoView();
-        this.noResults = false;
-        this.searchString = '';
-        this.currentPage = 1;
-        switch (this.selectedSize) {
-          case 10:
-            this.selectedWheels = tenInchWheels;
-            break;
-          case 12:
-            this.selectedWheels = twelveInchWheels;
-            break;
-          case 13:
-            this.selectedWheels = thirteenInchWheels;
-            break;
-          default:
-            this.noResults = true;
-            break;
-        }
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 500);
-      },
-
-      standardSearch() {
-        if (this.searchString === '') {
-          this.searchAll();
-        } else {
-          this.isLoading = true;
-          this.allWheelsVisible = false;
-          this.noResults = false;
-          this.currentPage = 1;
-          const keysToSearch = ['name', 'notes', 'type', 'size', 'offset'];
-          let fuse;
-          switch (this.selectedSize) {
-            case 10:
-              fuse = new Fuse(tenInchWheels, { keys: keysToSearch });
-              break;
-            case 12:
-              fuse = new Fuse(twelveInchWheels, { keys: keysToSearch });
-              break;
-            case 13:
-              fuse = new Fuse(thirteenInchWheels, { keys: keysToSearch });
-              break;
-            default:
-              this.noResults = true;
-              break;
-          }
-          this.selectedWheels = fuse.search(this.searchString.toLowerCase()).map((result) => result.item);
-          this.noResults = this.selectedWheels.length === 0;
-          setTimeout(() => {
-            this.isLoading = false;
-          }, 500);
-        }
-      },
-
-      editWheel(wheel) {
-        oruga.modal.open({
-          props: { wheel },
-          component: WheelEditForm,
-          trapFocus: true,
-        });
-      },
+      // changePages() {
+      //   // Scroll you to the top of the page
+      //   document.getElementById('scrollLocation').scrollIntoView();
+      //   // Start loading animation
+      //   this.isLoading = true;
+      //   // Artifically show loading items for 1000ms
+      //   setTimeout(() => {
+      //     this.isLoading = false;
+      //   }, 500);
+      // },
+      // searchAll() {
+      //   this.isLoading = true;
+      //   this.allWheelsVisible = true;
+      //   document.getElementById('scrollLocation').scrollIntoView();
+      //   this.noResults = false;
+      //   this.searchString = '';
+      //   this.currentPage = 1;
+      //   switch (this.selectedSize) {
+      //     case 10:
+      //       this.selectedWheels = tenInchWheels;
+      //       break;
+      //     case 12:
+      //       this.selectedWheels = twelveInchWheels;
+      //       break;
+      //     case 13:
+      //       this.selectedWheels = thirteenInchWheels;
+      //       break;
+      //     default:
+      //       this.noResults = true;
+      //       break;
+      //   }
+      //   setTimeout(() => {
+      //     this.isLoading = false;
+      //   }, 500);
+      // },
+      // standardSearch() {
+      //   if (this.searchString === '') {
+      //     this.searchAll();
+      //   } else {
+      //     this.isLoading = true;
+      //     this.allWheelsVisible = false;
+      //     this.noResults = false;
+      //     this.currentPage = 1;
+      //     const keysToSearch = ['name', 'notes', 'type', 'size', 'offset'];
+      //     let fuse;
+      //     switch (this.selectedSize) {
+      //       case 10:
+      //         fuse = new Fuse(tenInchWheels, { keys: keysToSearch });
+      //         break;
+      //       case 12:
+      //         fuse = new Fuse(twelveInchWheels, { keys: keysToSearch });
+      //         break;
+      //       case 13:
+      //         fuse = new Fuse(thirteenInchWheels, { keys: keysToSearch });
+      //         break;
+      //       default:
+      //         this.noResults = true;
+      //         break;
+      //     }
+      //     this.selectedWheels = fuse.search(this.searchString.toLowerCase()).map((result) => result.item);
+      //     this.noResults = this.selectedWheels.length === 0;
+      //     setTimeout(() => {
+      //       this.isLoading = false;
+      //     }, 500);
+      //   }
+      // },
+      // editWheel(wheel) {
+      //   oruga.modal.open({
+      //     props: { wheel },
+      //     component: WheelEditForm,
+      //     trapFocus: true,
+      //   });
+      // },
     },
   });
 </script>
