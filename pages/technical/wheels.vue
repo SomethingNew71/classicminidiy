@@ -98,37 +98,41 @@
           <v-row align="center">
             <v-col v-for="(item, i) in items" :key="i" cols="12" md="4" lg="3" xl="2">
               <v-card>
-                <template v-slot:loader="{ isActive }">
-                  <v-progress-linear
-                    :active="isActive"
-                    color="deep-purple"
-                    height="4"
-                    indeterminate
-                  ></v-progress-linear>
+                <template v-if="item.raw?.images?.length >= 1">
+                  <v-carousel v-if="item.raw?.images?.length > 1">
+                    <template v-for="image in item.raw?.images">
+                      <v-carousel-item v-if="!image.inReview" :src="image.src" cover></v-carousel-item>
+                    </template>
+                  </v-carousel>
+                  <v-img
+                    v-else-if="item.raw?.images?.length === 1 && !item.raw?.images[0]?.inReview"
+                    cover
+                    height="250"
+                    :src="item.raw?.images[0]?.src"
+                  ></v-img>
                 </template>
-                <v-img cover height="250" :src="item.raw.imagepath"></v-img>
-
+                <template v-else> NO IMAGE FOUND </template>
                 <v-card-item>
-                  <v-card-title>{{ item.raw.name }}</v-card-title>
+                  <v-card-title>{{ item.raw?.name }}</v-card-title>
 
                   <v-card-subtitle>
-                    <span class="me-1">Local Favorite</span>
-
-                    <v-icon color="error" icon="mdi-fire-circle" size="small"></v-icon>
+                    <span class="me-1">{{ item.raw?.type }}</span>
                   </v-card-subtitle>
                 </v-card-item>
 
                 <v-card-text>
-                  <div class="my-4 text-subtitle-1">$ • Italian, Cafe</div>
+                  <div class="my-4 text-subtitle-1">
+                    <i class="fad fa-arrow-alt-from-left"></i> {{ item.raw.offset ? item.raw.offset : '?' }} •
+                    <i class="fad fa-arrow-alt-from-left"></i>
+                  </div>
                   <div>
                     Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.
                   </div>
                 </v-card-text>
                 <v-expansion-panels>
-                  <v-expansion-panel
-                    title="Title"
-                    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
-                  >
+                  <v-expansion-panel v-if="item.raw.notes !== ''" title="Notes" :text="item.raw.notes">
+                  </v-expansion-panel>
+                  <v-expansion-panel v-else title="Notes" text="No additional notes for this wheel">
                   </v-expansion-panel>
                 </v-expansion-panels>
               </v-card>
@@ -195,7 +199,6 @@
   await useFetch('/api/wheels/list')
     .then((response: any) => {
       wheels = response.data._rawValue;
-      console.log(wheels);
     })
     .catch((error) => console.error(error));
 </script>
@@ -208,6 +211,7 @@
   import { VProgressLinear } from 'vuetify/components/VProgressLinear';
   import { VDataIterator } from 'vuetify/components/VDataIterator';
   import { VExpansionPanel, VExpansionPanels } from 'vuetify/components/VExpansionPanel';
+  import { VCarousel, VCarouselItem } from 'vuetify/components/VCarousel';
 
   // import Fuse from 'fuse.js';
 

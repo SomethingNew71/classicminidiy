@@ -1,5 +1,5 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, QueryCommand } from '@aws-sdk/lib-dynamodb';
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig();
@@ -12,13 +12,13 @@ export default defineEventHandler(async () => {
   });
   const docClient = DynamoDBDocumentClient.from(client);
 
-  const command = new ScanCommand({
+  const command = new QueryCommand({
     TableName: 'wheels',
-    FilterExpression: 'majorSize = :majorSize',
+    IndexName: 'size-index',
+    KeyConditionExpression: 'size = :size',
     ExpressionAttributeValues: {
-      ':majorSize': '10',
+      ':size': '10',
     },
-    ConsistentRead: true,
   });
 
   const response = await docClient.send(command);
