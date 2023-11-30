@@ -125,6 +125,10 @@ export default defineNuxtConfig({
       aws_access_key_id: process.env.aws_access_key_id,
       aws_secret_access_key: process.env.aws_secret_access_key,
       validation_key: process.env.validation_key,
+      recaptchaSite: process.env.recaptchaSite,
+      recaptchaSiteV2: process.env.recaptchaSite,
+      recaptchaSecret: process.env.recaptchaSecret,
+      recaptchaSecretV2: process.env.recaptchaSecret,
     },
   },
 

@@ -1,9 +1,9 @@
 <template>
   <div>
     <hero :navigation="true" :title="'Wheel Dictionary'" />
-    <section id="scrollLocation" class="section">
-      <div class="columns">
-        <div class="column is-12">
+    <v-container>
+      <v-row align="center">
+        <v-col cols="8">
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
@@ -32,6 +32,10 @@
               </li>
             </ul>
           </nav>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col cols="8">
           <h2 class="subtitle">
             All data collected and currated by Jan W. from
             <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer">Mini-Forum.de</a>.
@@ -40,86 +44,134 @@
             Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel
             Library comes in. Using the same data from the now retired site,
             <i class="fad fa-tombstone"></i>www.wheeldictionary.net you can search for the right wheel for your Classic
-            Mini Cooper. With <strong>{{ totalAll.amount }} wheels in the library</strong> and growing, we hope you'll
-            be able to find exactly the wheel you are looking for.
+            Mini Cooper. With <strong>lots wheels in the library</strong> and growing, we hope you'll be able to find
+            exactly the wheel you are looking for.
           </p>
-
-          <!-- <ImageUploader></ImageUploader> -->
-        </div>
-      </div>
-      <v-container>
-        <v-row dense>
-          <v-col v-for="wheel in wheels[page]" cols="12" md="4" lg="3" xl="2">
-            <v-card>
-              <template v-slot:loader="{ isActive }">
-                <v-progress-linear :active="isActive" color="deep-purple" height="4" indeterminate></v-progress-linear>
-              </template>
-
-              <v-img cover height="250" :src="wheel.imagepath"></v-img>
-
-              <v-card-item>
-                <v-card-title>{{ wheel.name }}</v-card-title>
-
-                <v-card-subtitle>
-                  <span class="me-1">Local Favorite</span>
-
-                  <v-icon color="error" icon="mdi-fire-circle" size="small"></v-icon>
-                </v-card-subtitle>
-              </v-card-item>
-
-              <v-card-text>
-                <v-row align="center" class="mx-0">
-                  <!-- <v-rating
-                    :model-value="4.5"
-                    color="amber"
-                    density="compact"
-                    half-increments
-                    readonly
-                    size="small"
-                  ></v-rating> -->
-
-                  <!-- <div class="text-grey ms-4">4.5 (413)</div> -->
-                </v-row>
-
-                <div class="my-4 text-subtitle-1">$ • Italian, Cafe</div>
-
-                <div>
-                  Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.
-                </div>
-              </v-card-text>
-
-              <v-divider class="mx-4 mb-1"></v-divider>
-              <v-expansion-panels>
-                <v-expansion-panel
-                  title="Title"
-                  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
-                >
-                </v-expansion-panel>
-              </v-expansion-panels>
-
-              <v-divider></v-divider>
-
-              <v-card-actions>
-                <!-- <v-btn @click="expand = !expand">
-                  {{ !expand ? 'Full Details' : 'Hide Details' }}
-                </v-btn> -->
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-col cols="6">
-          <v-pagination v-model="page" :length="wheels?.length" :total-visible="25"></v-pagination>
         </v-col>
-        <v-row> </v-row>
-      </v-container>
-    </section>
+        <v-col cols="4">
+          <NuxtLink :to="'/wheelSubmission'" :title="'Link to new wheel form'">
+            <div class="card callout-card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-64x64">
+                      <v-icon icon="fad fa-circle-up" size="large"></v-icon>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <h2 class="subtitle">What to add a wheel?</h2>
+                    <p>Click here to complete our wheel submission form to get it added to our list.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </NuxtLink>
+        </v-col>
+      </v-row>
+      <v-divider></v-divider>
+      <v-data-iterator :items="wheels" :page="page" :items-per-page="12">
+        <template v-slot:header="{ page, pageCount, prevPage, nextPage }">
+          <div class="d-flex align-center justify-center pa-4">
+            <v-btn
+              :disabled="page === 1"
+              pack
+              icon="fad fa-arrow-left"
+              density="comfortable"
+              variant="tonal"
+              rounded
+              @click="prevPage"
+            ></v-btn>
+
+            <div class="mx-2 text-body-1">Page {{ page }} of {{ pageCount }}</div>
+
+            <v-btn
+              :disabled="page >= pageCount"
+              icon="fad fa-arrow-right"
+              density="comfortable"
+              variant="tonal"
+              rounded
+              @click="nextPage"
+            ></v-btn>
+          </div>
+        </template>
+        <template v-slot:default="{ items }">
+          <v-row align="center">
+            <v-col v-for="(item, i) in items" :key="i" cols="12" md="4" lg="3" xl="2">
+              <v-card>
+                <template v-slot:loader="{ isActive }">
+                  <v-progress-linear
+                    :active="isActive"
+                    color="deep-purple"
+                    height="4"
+                    indeterminate
+                  ></v-progress-linear>
+                </template>
+                <v-img cover height="250" :src="item.raw.imagepath"></v-img>
+
+                <v-card-item>
+                  <v-card-title>{{ item.raw.name }}</v-card-title>
+
+                  <v-card-subtitle>
+                    <span class="me-1">Local Favorite</span>
+
+                    <v-icon color="error" icon="mdi-fire-circle" size="small"></v-icon>
+                  </v-card-subtitle>
+                </v-card-item>
+
+                <v-card-text>
+                  <div class="my-4 text-subtitle-1">$ • Italian, Cafe</div>
+                  <div>
+                    Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.
+                  </div>
+                </v-card-text>
+                <v-expansion-panels>
+                  <v-expansion-panel
+                    title="Title"
+                    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
+                  >
+                  </v-expansion-panel>
+                </v-expansion-panels>
+              </v-card>
+            </v-col>
+          </v-row>
+        </template>
+        <template v-slot:footer="{ page, pageCount, prevPage, nextPage }">
+          <div class="d-flex align-center justify-center pa-4">
+            <v-btn
+              :disabled="page === 1"
+              pack
+              icon="fad fa-arrow-left"
+              density="comfortable"
+              variant="tonal"
+              rounded
+              @click="prevPage"
+            ></v-btn>
+
+            <div class="mx-2 text-body-1">Page {{ page }} of {{ pageCount }}</div>
+
+            <v-btn
+              :disabled="page >= pageCount"
+              icon="fad fa-arrow-right"
+              density="comfortable"
+              variant="tonal"
+              rounded
+              @click="nextPage"
+            ></v-btn>
+          </div>
+        </template>
+      </v-data-iterator>
+      <!-- <v-row align="center">
+        <v-col cols="6">
+          <v-pagination v-model="page" :length="wheels.length" :total-visible="5"></v-pagination>
+        </v-col>
+      </v-row> -->
+    </v-container>
   </div>
 </template>
 
 <script lang="ts" setup>
-  let wheels: any[] = [];
+  let wheels: any = [];
   let page = ref(1);
-  let expand = ref(false);
   useHead({
     title: 'Tech - Wheel Dictionary',
     meta: [
@@ -140,112 +192,32 @@
     ogType: 'website',
   });
 
-  await useFetch('/api/wheels/list').then((response: any) => {
-    wheels = response.data._rawValue;
-  });
+  await useFetch('/api/wheels/list')
+    .then((response: any) => {
+      wheels = response.data._rawValue;
+      console.log(wheels);
+    })
+    .catch((error) => console.error(error));
 </script>
 
 <script lang="ts">
-  import { VCard, VCardActions, VCardItem, VCardSubtitle, VCardText, VCardTitle } from 'vuetify/components/VCard';
+  import { VCard, VCardItem, VCardSubtitle, VCardText, VCardTitle } from 'vuetify/components/VCard';
   import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
   import { VIcon } from 'vuetify/components/VIcon';
   import { VDivider } from 'vuetify/components/VDivider';
   import { VProgressLinear } from 'vuetify/components/VProgressLinear';
-  import { VPagination } from 'vuetify/components/VPagination';
-  import {
-    VExpansionPanel,
-    VExpansionPanelText,
-    VExpansionPanelTitle,
-    VExpansionPanels,
-  } from 'vuetify/components/VExpansionPanel';
+  import { VDataIterator } from 'vuetify/components/VDataIterator';
+  import { VExpansionPanel, VExpansionPanels } from 'vuetify/components/VExpansionPanel';
 
-  import Fuse from 'fuse.js';
-  import { useProgrammatic } from '@oruga-ui/oruga-next';
-  import tenInchWheels from '~/data/wheels/10.json';
-  import twelveInchWheels from '~/data/wheels/12.json';
-  import thirteenInchWheels from '~/data/wheels/13.json';
-  // import WheelEditForm from '~/components/WheelEditForm';
-  const { oruga } = useProgrammatic();
+  // import Fuse from 'fuse.js';
 
   export default defineComponent({
     data() {
-      return {
-        allWheelsVisible: true,
-        searchString: '',
-        selectedSize: 10,
-        selectedWheels: tenInchWheels,
-        isLoading: false,
-        noResults: false,
-        currentPage: 1,
-        perPage: 9,
-      };
+      return {};
     },
-    computed: {
-      // Computed value of the total amount of wheels in the selected results.
-      totalResults() {
-        return this.selectedWheels.length;
-      },
-      totalAll() {
-        return {
-          amount: tenInchWheels.length + twelveInchWheels.length + thirteenInchWheels.length,
-          induvidualWheels: {
-            10: tenInchWheels.length,
-            12: twelveInchWheels.length,
-            13: thirteenInchWheels.length,
-          },
-        };
-      },
-      // Items for the current page you are on.
-      paginatedItems() {
-        const pageNumber = this.currentPage - 1;
-        return this.selectedWheels.slice(pageNumber * this.perPage, (pageNumber + 1) * this.perPage);
-      },
-    },
-    watch: {
-      // selectedSize() {
-      //   if (this.searchString === '') {
-      //     this.searchAll();
-      //   } else {
-      //     this.standardSearch();
-      //   }
-      // },
-    },
+    computed: {},
+    watch: {},
     methods: {
-      // changePages() {
-      //   // Scroll you to the top of the page
-      //   document.getElementById('scrollLocation').scrollIntoView();
-      //   // Start loading animation
-      //   this.isLoading = true;
-      //   // Artifically show loading items for 1000ms
-      //   setTimeout(() => {
-      //     this.isLoading = false;
-      //   }, 500);
-      // },
-      // searchAll() {
-      //   this.isLoading = true;
-      //   this.allWheelsVisible = true;
-      //   document.getElementById('scrollLocation').scrollIntoView();
-      //   this.noResults = false;
-      //   this.searchString = '';
-      //   this.currentPage = 1;
-      //   switch (this.selectedSize) {
-      //     case 10:
-      //       this.selectedWheels = tenInchWheels;
-      //       break;
-      //     case 12:
-      //       this.selectedWheels = twelveInchWheels;
-      //       break;
-      //     case 13:
-      //       this.selectedWheels = thirteenInchWheels;
-      //       break;
-      //     default:
-      //       this.noResults = true;
-      //       break;
-      //   }
-      //   setTimeout(() => {
-      //     this.isLoading = false;
-      //   }, 500);
-      // },
       // standardSearch() {
       //   if (this.searchString === '') {
       //     this.searchAll();
@@ -276,13 +248,6 @@
       //       this.isLoading = false;
       //     }, 500);
       //   }
-      // },
-      // editWheel(wheel) {
-      //   oruga.modal.open({
-      //     props: { wheel },
-      //     component: WheelEditForm,
-      //     trapFocus: true,
-      //   });
       // },
     },
   });
