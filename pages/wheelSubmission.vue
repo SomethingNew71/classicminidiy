@@ -39,7 +39,15 @@
           <v-col cols="12">
             <v-stepper :items="['Wheel Details', 'Images', 'Review']">
               <template v-slot:item.1>
-                <v-card title="Step One" flat>...</v-card>
+                <v-skeleton-loader v-if="pending" type="list-item-two-line">
+                  <v-list-item title="Title" subtitle="Subtitle" lines="two" rounded></v-list-item>
+                </v-skeleton-loader>
+                <div v-else-if="error">
+                  <p>Error loading wheel - {{ error }}</p>
+                </div>
+                <v-card v-else title="Current Details" flat>
+                  {{ wheel.name }}
+                </v-card>
               </template>
 
               <template v-slot:item.2>
@@ -59,6 +67,18 @@
 
 <script lang="ts" setup>
   import { VStepper } from 'vuetify/components/VStepper';
+  import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
+  import { VListItem } from 'vuetify/components/VList';
   import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
   import { VCard } from 'vuetify/components/VCard';
+  const route = useRoute();
+  const {
+    data: wheel,
+    pending,
+    error,
+  } = await useFetch(`/api/wheels/getWheel`, {
+    query: {
+      uuid: route.query.uuid,
+    },
+  });
 </script>
