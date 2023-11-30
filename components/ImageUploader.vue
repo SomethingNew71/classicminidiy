@@ -1,6 +1,5 @@
 <template>
   <div class="columns">
-    <!-- <div class="column is-12"> -->
     <o-field class="column is-12">
       <o-upload v-model="dropFiles" multiple drag-drop class="column is-12">
         <section class="has-text-centered">
@@ -11,7 +10,6 @@
         </section>
       </o-upload>
     </o-field>
-    <!-- </div> -->
     <div class="column is-6 tags">
       <nav class="panel is-striped p-0">
         <p class="panel-heading">Images</p>
