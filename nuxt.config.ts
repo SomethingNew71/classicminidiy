@@ -77,7 +77,6 @@ export default defineNuxtConfig({
    */
   modules: [
     '@nuxt/content',
-    'nuxt-delay-hydration',
     '@nuxtjs/fontaine',
     [
       'nuxt-disqus',
@@ -103,12 +102,6 @@ export default defineNuxtConfig({
   robots: {
     // provide simple disallow rules for all robots `user-agent: *`
     disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
-  },
-
-  delayHydration: {
-    // enables nuxt-delay-hydration in dev mode for testing
-    // NOTE: you should disable this once you've finished testing, it will break HMR
-    debug: process.env.NODE_ENV === 'development',
   },
 
   plugins: ['~/plugins/oruga.ts', '~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
