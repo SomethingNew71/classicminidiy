@@ -58,14 +58,18 @@
   let isLoading = true;
   await useFetch('/api/videos')
     .then((response: any) => {
-      videos = response.data._rawValue.map((video: any) => {
-        return {
-          title: video.title,
-          thumbs: video.thumbnails,
-          publishedOn: DateTime.fromISO(video.publishedOn).toFormat('LLL dd, yyyy'),
-          videoUrl: video.videoUrl,
-        };
-      });
+      if (response?.data?._rawValue) {
+        videos = response.data._rawValue.map((video: any) => {
+          return {
+            title: video.title,
+            thumbs: video.thumbnails,
+            publishedOn: DateTime.fromISO(video.publishedOn).toFormat('LLL dd, yyyy'),
+            videoUrl: video.videoUrl,
+          };
+        });
+      } else {
+        videos = [];
+      }
     })
     .finally(() => {
       isLoading = false;

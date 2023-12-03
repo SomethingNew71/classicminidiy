@@ -64,7 +64,6 @@ export default defineNuxtConfig({
         },
       ],
     },
-    // pageTransition: { name: 'page', mode: 'out-in' },
   },
 
   /*
@@ -91,14 +90,6 @@ export default defineNuxtConfig({
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
   ],
 
-  // nitro: {
-  //   prerender: {
-  //     crawlLinks: true,
-  //     routes: ['/', 'sitemap.xml'],
-  //     ignore: [],
-  //   },
-  // },
-
   robots: {
     // provide simple disallow rules for all robots `user-agent: *`
     disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
@@ -122,6 +113,7 @@ export default defineNuxtConfig({
       recaptchaSiteV2: process.env.recaptchaSite,
       recaptchaSecret: process.env.recaptchaSecret,
       recaptchaSecretV2: process.env.recaptchaSecret,
+      CMDIY_NAMEPSACE: process.env.CMDIY_NAMEPSACE,
     },
   },
 

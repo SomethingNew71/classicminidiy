@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { VCard, VCardItem, VCardSubtitle, VCardText, VCardTitle } from 'vuetify/components/VCard';
+  import { VCard, VCardText } from 'vuetify/components/VCard';
   import { VCol, VRow } from 'vuetify/components/VGrid';
   import { VDataIterator } from 'vuetify/components/VDataIterator';
   import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
@@ -15,7 +15,7 @@
     { key: '13', value: 'thirteen' },
   ]);
 
-  let { data: wheels, pending, error } = await useFetch(() => `/api/wheels/${size.value}`);
+  let { data: wheels, pending, error }: any = await useFetch(() => `/api/wheels/${size.value}`);
   let page = ref(1);
 </script>
 
@@ -65,17 +65,7 @@
     <template v-slot:default="{ items }">
       <v-row align="center">
         <v-col v-for="(item, i) in items" :key="i" cols="12" md="4" lg="3" xl="2">
-          <v-card :title="item.raw.name" append-icon="fad fa-edit" :to="`/wheelSubmission?uuid=${item.raw.uuid}`">
-            <!-- <v-card-item :title="item.raw.name"> </v-card-item>
-            <v-card-text>
-              <p class="text-subtitle-1">
-                <i
-                  class="fa-duotone fa-ruler-triangle"
-                  style="--fa-primary-color: #433016; --fa-secondary-color: #ddbd8d; --fa-secondary-opacity: 1"
-                ></i>
-                {{ item.raw.size }}in
-              </p>
-            </v-card-text> -->
+          <v-card hover :title="item.raw.name">
             <template v-if="item.raw.images?.length >= 1">
               <v-carousel v-if="item.raw.images?.length > 1">
                 <template v-for="image in item.raw.images">
@@ -90,7 +80,7 @@
               ></v-img>
             </template>
             <template v-else> NO IMAGE FOUND </template>
-            <v-card-text>
+            <v-card-text class="d-flex justify-space-between">
               <p class="text-subtitle-1">
                 <i
                   class="fa-duotone fa-ruler-triangle"
@@ -98,6 +88,9 @@
                 ></i>
                 {{ item.raw.size }}in
               </p>
+              <NuxtLink :to="`/technical/wheels/submit?uuid=${item.raw.uuid}`">
+                <v-btn density="comfortable" icon="fad fa-edit" variant="tonal">Edit</v-btn>
+              </NuxtLink>
             </v-card-text>
             <v-card-text>
               <div class="text-subtitle-1">
@@ -144,7 +137,6 @@
       <div class="d-flex align-center justify-center pa-4">
         <v-btn
           :disabled="page === 1"
-          pack
           icon="fad fa-arrow-left"
           density="comfortable"
           variant="tonal"

@@ -69,7 +69,7 @@
         </v-col>
       </v-row>
       <v-divider></v-divider>
-      <Wheels></Wheels>
+      <WheelGrid></WheelGrid>
     </v-container>
   </div>
 </template>
