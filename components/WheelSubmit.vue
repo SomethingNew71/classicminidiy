@@ -18,11 +18,17 @@
   import { VSelect } from 'vuetify/components/VSelect';
   import { VAvatar } from 'vuetify/components/VAvatar';
   import { VIcon } from 'vuetify/components/VIcon';
+  import { VImg } from 'vuetify/components/VImg';
+  import { VProgressCircular } from 'vuetify/components/VProgressCircular';
   import { VList, VListItem, VListSubheader } from 'vuetify/components/VList';
+  import { humanFileSize } from '~/data/models/helper-utils';
 
+  const loading = ref(false);
+  const hasError = ref(false);
+  const hasSuccess = ref();
   const imagesValid = ref(false);
   const contactValid = ref(false);
-  const step = ref(1);
+  const step = ref(5);
   const name = ref('');
   const type = ref('');
   const width = ref(4.5);
@@ -59,8 +65,19 @@
   });
 
   async function sendNewInfo() {
+    loading.value = true;
     await storeWheelDetails().then(async (res: any) => {
-      await storeWheelImages(res?.data?._rawValue.uuid);
+      await storeWheelImages(res?.data?._rawValue.uuid)
+        .then(() => {
+          hasSuccess.value = true;
+        })
+        .catch((err) => {
+          hasError.value = true;
+          console.error(err);
+        })
+        .finally(() => {
+          loading.value = false;
+        });
     });
   }
 
@@ -100,31 +117,10 @@
       }).catch((err) => console.error(err));
     }
   }
-
-  function humanFileSize(bytes: number, si = false, dp = 1) {
-    const thresh = si ? 1000 : 1024;
-
-    if (Math.abs(bytes) < thresh) {
-      return bytes + ' B';
-    }
-
-    const units = si
-      ? ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-      : ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
-    let u = -1;
-    const r = 10 ** dp;
-
-    do {
-      bytes /= thresh;
-      ++u;
-    } while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
-
-    return bytes.toFixed(dp) + ' ' + units[u];
-  }
 </script>
 
 <template>
-  <v-stepper v-model="step" :items="['Wheel Details', 'Images', 'Contact Info', 'Review']">
+  <v-stepper v-model="step" :items="['Wheel Details', 'Images', 'Contact Info', 'Review', 'Submitted']">
     <template v-slot:item.1>
       <v-skeleton-loader v-if="pending" type="list-item-two-line">
         <v-list-item title="Title" subtitle="Subtitle" lines="two" rounded></v-list-item>
@@ -227,6 +223,7 @@
                   prepend-icon="fad fa-notebook"
                   variant="solo-filled"
                   v-model="notes"
+                  :counter="250"
                   label="Extra Notes"
                 ></v-text-field>
               </v-col>
@@ -413,13 +410,38 @@
         </v-row>
       </v-card>
     </template>
+    <template v-slot:item.5>
+      <v-card flat>
+        <v-row dense class="mb-5" justify="center">
+          <v-col cols="12" md="8" class="text-center">
+            <v-icon icon="fad check-to-slot" size=""></v-icon>
+            <v-img
+              alt="Classic Mini DIY Logo"
+              src="https://classicminidiy.s3.amazonaws.com/misc/Small-Black.png"
+              :width="115"
+              class="shrink mx-auto pb-5"
+              :transition="false"
+            />
+            <h2 class="text-h5 pt-10 pb-2">Thank you for contributing!</h2>
+            <h3 class="text-h6 pb-5">Your submission has been added to our queue for review.</h3>
+            <p class="pb-5">
+              Classic Mini DIY's technical site is completely free and supported by people like you! If you like this
+              resource and would like to contribute to keeping it online for years to come, please consider supporting
+              the monthly hosting.
+            </p>
+            <v-btn color="primary" href="https://patreon.com/classicminidiy" class="mx-1 my-1"> Support </v-btn>
+            <v-btn href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl" class="mx-1 my-1">One Time Donation </v-btn>
+          </v-col>
+        </v-row>
+      </v-card>
+    </template>
     <template v-slot:actions>
       <v-row class="d-flex justify-space-between mx-5 mb-5">
-        <v-btn :disabled="step === 1" @click="step--">Previous</v-btn>
-        <v-btn v-if="step === 1" variant="tonal" color="primary" @click="step++">Next</v-btn>
-        <v-btn v-if="step === 2" variant="tonal" color="primary" @click="step++" :disabled="!imagesValid">Next</v-btn>
-        <v-btn v-if="step === 3" variant="tonal" color="primary" @click="step++" :disabled="!contactValid">Next</v-btn>
-        <v-btn v-if="step === 4" variant="tonal" color="primary" @click="sendNewInfo()">Submit</v-btn>
+        <v-btn v-if="step !== 5" :disabled="step === 1" @click="step--">Previous</v-btn>
+        <v-btn v-if="step === 1" color="primary" @click="step++">Next</v-btn>
+        <v-btn v-if="step === 2" color="primary" @click="step++" :disabled="!imagesValid">Next</v-btn>
+        <v-btn v-if="step === 3" color="primary" @click="step++" :disabled="!contactValid">Next</v-btn>
+        <v-btn v-if="step === 4" color="primary" :loading="loading" @click="sendNewInfo()">Submit</v-btn>
       </v-row>
     </template>
   </v-stepper>
