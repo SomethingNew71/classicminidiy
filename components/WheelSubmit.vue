@@ -14,7 +14,6 @@
   import { VLabel } from 'vuetify/components/VLabel';
   import { VTextField } from 'vuetify/components/VTextField';
   import { VFileInput } from 'vuetify/components/VFileInput';
-  import { VSlider } from 'vuetify/components/VSlider';
   import { VSelect } from 'vuetify/components/VSelect';
   import { VAvatar } from 'vuetify/components/VAvatar';
   import { VIcon } from 'vuetify/components/VIcon';
@@ -28,11 +27,11 @@
   const hasSuccess = ref();
   const imagesValid = ref(false);
   const contactValid = ref(false);
-  const step = ref(5);
+  const step = ref(1);
   const name = ref('');
   const type = ref('');
-  const width = ref(4.5);
-  const size = ref('10');
+  const width = ref('');
+  const size = ref('');
   const offset = ref('');
   const notes = ref('');
   const userName = ref('');
@@ -70,6 +69,7 @@
       await storeWheelImages(res?.data?._rawValue.uuid)
         .then(() => {
           hasSuccess.value = true;
+          step.value = 5;
         })
         .catch((err) => {
           hasError.value = true;
@@ -86,7 +86,7 @@
       uuid: props.uuid,
       name: name.value,
       type: type.value,
-      width: width.value.toString(),
+      width: width.value,
       size: size.value,
       offset: offset.value,
       notes: notes.value,
@@ -166,21 +166,13 @@
                   <strong class="pl-1">{{ wheel.width }}</strong>
                 </v-label>
 
-                <v-slider
+                <v-text-field
                   prepend-icon="fad fa-ruler-horizontal"
                   variant="solo-filled"
                   v-model="width"
+                  type="number"
                   label="Wheel Width"
-                  :min="1"
-                  :max="8"
-                  :step="0.5"
-                  show-ticks="always"
-                  thumb-label
-                ></v-slider>
-                <v-label class="pb-2">
-                  New Width:
-                  <strong class="pl-1">{{ width }}</strong>
-                </v-label>
+                ></v-text-field>
               </v-col>
             </v-row>
             <v-row class="pb-3">
@@ -303,7 +295,7 @@
                 required
                 type="email"
                 v-model="emailAddress"
-                :counter="30"
+                :counter="60"
                 label="Your Email"
               ></v-text-field>
               <v-label class="pb-2">How did you hear about CMIDY?</v-label>
@@ -347,7 +339,7 @@
                   </v-avatar>
                 </template>
               </v-list-item>
-              <v-list-item title="Width" :subtitle="width.toString()">
+              <v-list-item title="Width" :subtitle="width !== '' ? size : 'No change'">
                 <template v-slot:prepend>
                   <v-avatar>
                     <v-icon icon="fad fa-ruler-horizontal"></v-icon>

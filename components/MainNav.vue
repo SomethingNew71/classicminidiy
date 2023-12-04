@@ -106,15 +106,9 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
   import { ToolboxItems } from '~/data/models/generic';
-  const { lgAndUp } = useDisplay();
-  const showDrawer = ref(false);
-</script>
-
-<script lang="ts">
   import {
     VAppBar,
     VBtn,
-    VIcon,
     VDivider,
     VMenu,
     VList,
@@ -123,20 +117,8 @@
     VNavigationDrawer,
     VListSubheader,
   } from 'vuetify/components';
-  export default defineComponent({
-    components: {
-      VAppBar,
-      VBtn,
-      VIcon,
-      VDivider,
-      VMenu,
-      VList,
-      VListItem,
-      VListItemTitle,
-      VNavigationDrawer,
-      VListSubheader,
-    },
-  });
+  const { lgAndUp } = useDisplay();
+  const showDrawer = ref(false);
 </script>
 
 <style lang="scss">

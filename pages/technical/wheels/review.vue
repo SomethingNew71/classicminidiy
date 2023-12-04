@@ -37,19 +37,19 @@
       method: 'POST',
       body: item,
     })
+      .then((res) => {
+        wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid);
+      })
       .catch((error) => console.error(error))
       .finally(() => (acceptLoading.value = false));
   }
   async function denyItem(item: any) {
     denyLoading.value = true;
-    console.log('BIG OLD ITEM', item.new.uuid);
-
     await useFetch(() => `/api/wheels/review/delete`, {
       method: 'POST',
       body: { uuid: item.new.uuid },
     })
       .then((res) => {
-        console.log('review delete response', res);
         wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid);
       })
       .catch((error) => console.error(error))

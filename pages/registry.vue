@@ -149,6 +149,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { VDataTable } from 'vuetify/components/VDataTable';
   import { DateTime } from 'luxon';
   let tableData: any[] = [];
   let parsedData: any[] = [];
@@ -191,16 +192,7 @@
 </script>
 
 <script lang="ts">
-  import { VToolbar, VToolbarTitle } from 'vuetify/components/VToolbar';
-  import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/components/VDataTable';
   export default defineComponent({
-    components: {
-      VDataTable,
-      VDataTableServer,
-      VDataTableVirtual,
-      VToolbar,
-      VToolbarTitle,
-    },
     data() {
       return {
         searchValue: '',

@@ -1,14 +1,11 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { S3Client, DeleteObjectCommand, ListObjectsV2Command, DeleteObjectsCommand } from '@aws-sdk/client-s3';
+import { S3Client, ListObjectsV2Command, DeleteObjectsCommand } from '@aws-sdk/client-s3';
 import { DynamoDBDocumentClient, DeleteCommand } from '@aws-sdk/lib-dynamodb';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body = await readBody(event);
   const region = 'us-east-1';
-
-  console.log(body);
-
   const credentials = {
     accessKeyId: config.app.aws_access_key_id,
     secretAccessKey: config.app.aws_secret_access_key,
@@ -29,6 +26,7 @@ export default defineEventHandler(async (event) => {
     throw new Error(`Error when deleting items - ${error}`);
   }
 
+  // This function came from here https://www.codemzy.com/blog/delete-s3-folder-nodejs
   async function deleteFolder(location: any) {
     let bucket = 'classicminidiy';
     let count = 0; // number of files deleted

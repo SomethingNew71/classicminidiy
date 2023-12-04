@@ -1,13 +1,17 @@
 <script lang="ts" setup>
   import { VCard, VCardText } from 'vuetify/components/VCard';
-  import { VCol, VRow } from 'vuetify/components/VGrid';
+  import { VCol, VRow, VSpacer } from 'vuetify/components/VGrid';
   import { VDataIterator } from 'vuetify/components/VDataIterator';
   import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
   import { VExpansionPanel, VExpansionPanels, VExpansionPanelText } from 'vuetify/components/VExpansionPanel';
   import { VCarousel, VCarouselItem } from 'vuetify/components/VCarousel';
   import { VChip } from 'vuetify/components/VChip';
   import { VChipGroup } from 'vuetify/components/VChipGroup';
+  import { VTextField } from 'vuetify/components/VTextField';
+  import { VToolbar } from 'vuetify/components/VToolbar';
+  import { VBtn } from 'vuetify/components/VBtn';
   const size = ref('ten');
+  const search = ref('');
   const tags = ref([
     { key: 'All', value: 'list' },
     { key: '10', value: 'ten' },
@@ -28,39 +32,48 @@
     </v-row>
   </v-row>
   <pre v-else-if="error">{{ error }}</pre>
-  <v-data-iterator v-else :items="wheels" :page="page" :items-per-page="12">
+  <v-data-iterator v-else :items="wheels" :page="page" :items-per-page="12" :search="search">
     <template v-slot:header="{ page, pageCount, prevPage, nextPage, items }">
-      <v-row dense class="justify-space-between">
-        <v-col>
-          <v-chip-group mandatory selected-class="text-primary">
-            <v-chip v-for="tag in tags" :key="tag.key" @click="size = tag.value">
-              {{ tag.key }}
-            </v-chip>
-          </v-chip-group>
-        </v-col>
-        <v-col class="d-flex align-center justify-end pa-4 pa-4">
-          <v-btn
-            :disabled="page === 1"
-            pack
-            icon="fad fa-arrow-left"
-            density="comfortable"
-            variant="tonal"
-            rounded
-            @click="prevPage"
-          ></v-btn>
+      <v-col>
+        <v-chip-group mandatory selected-class="text-primary">
+          <v-chip v-for="tag in tags" :key="tag.key" @click="size = tag.value">
+            {{ tag.key }}
+          </v-chip>
+        </v-chip-group>
+      </v-col>
+      <v-toolbar class="px-2 mb-5" rounded>
+        <v-text-field
+          v-model="search"
+          clearable
+          density="comfortable"
+          hide-details
+          placeholder="Search"
+          prepend-inner-icon="fad fa-search"
+          style="max-width: 300px"
+          variant="solo"
+        ></v-text-field>
+        <v-spacer></v-spacer>
+        <v-btn
+          :disabled="page === 1"
+          pack
+          icon="fad fa-arrow-left"
+          density="comfortable"
+          variant="tonal"
+          rounded
+          @click="prevPage"
+        ></v-btn>
 
-          <div class="mx-2 text-body-1">Page {{ page }} of {{ pageCount }}</div>
+        <div class="mx-2 text-body-1">Page {{ page }} of {{ pageCount }}</div>
 
-          <v-btn
-            :disabled="page >= pageCount"
-            icon="fad fa-arrow-right"
-            density="comfortable"
-            variant="tonal"
-            rounded
-            @click="nextPage"
-          ></v-btn>
-        </v-col>
-      </v-row>
+        <v-btn
+          :disabled="page >= pageCount"
+          icon="fad fa-arrow-right"
+          density="comfortable"
+          variant="tonal"
+          rounded
+          @click="nextPage"
+        ></v-btn>
+      </v-toolbar>
     </template>
     <template v-slot:default="{ items }">
       <v-row align="center">
@@ -69,7 +82,7 @@
             <template v-if="item.raw.images?.length >= 1">
               <v-carousel v-if="item.raw.images?.length > 1">
                 <template v-for="image in item.raw.images">
-                  <v-carousel-item v-if="!image.inReview" :src="image.src" cover></v-carousel-item>
+                  <v-carousel-item :src="image.src"></v-carousel-item>
                 </template>
               </v-carousel>
               <v-img
@@ -89,7 +102,7 @@
                 {{ item.raw.size }}in
               </p>
               <NuxtLink :to="`/technical/wheels/submit?uuid=${item.raw.uuid}`">
-                <v-btn density="comfortable" icon="fad fa-edit" variant="tonal">Edit</v-btn>
+                <v-btn icon="fad fa-edit" color="primary" size="medium" variant="plain"></v-btn>
               </NuxtLink>
             </v-card-text>
             <v-card-text>
