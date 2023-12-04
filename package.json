@@ -57,6 +57,7 @@
     "@nuxt/content": "^2.9.0",
     "@nuxt/image": "^1.1.0",
     "@nuxtjs/fontaine": "^0.4.1",
+    "@types/formidable": "^3.4.5",
     "@types/lodash": "^4.14.202",
     "@types/luxon": "^3.3.5",
     "@types/uuid": "^9.0.7",
