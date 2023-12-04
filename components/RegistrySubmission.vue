@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+  import { VTextField } from 'vuetify/components/VTextField';
+  import { VSelect } from 'vuetify/components/VSelect';
+  import { VTextarea } from 'vuetify/components/VTextarea';
+  import { VForm } from 'vuetify/components/VForm';
+</script>
+
 <template>
   <div class="card">
     <header class="card-header">
@@ -200,10 +207,6 @@
 </template>
 <script lang="ts">
   import axios from 'axios';
-  import { VTextField } from 'vuetify/components/VTextField';
-  import { VSelect } from 'vuetify/components/VSelect';
-  import { VTextarea } from 'vuetify/components/VTextarea';
-  import { VForm } from 'vuetify/components/VForm';
 
   export default defineComponent({
     props: {
@@ -211,12 +214,6 @@
         type: Boolean,
         default: false,
       },
-    },
-    components: {
-      VTextField,
-      VSelect,
-      VTextarea,
-      VForm,
     },
     data() {
       return {

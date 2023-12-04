@@ -35,7 +35,7 @@
         </v-col>
       </v-row>
       <v-row align="center">
-        <v-col cols="8">
+        <v-col cols="12" md="8">
           <h2 class="subtitle">
             All data collected and currated by Jan W. from
             <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer">Mini-Forum.de</a>.
@@ -48,14 +48,14 @@
             exactly the wheel you are looking for.
           </p>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="12" md="4">
           <NuxtLink :to="'/wheelSubmission'" :title="'Link to new wheel form'">
             <div class="card callout-card">
               <div class="card-content">
                 <div class="media">
                   <div class="media-left">
-                    <figure class="image is-64x64">
-                      <v-icon icon="fad fa-circle-up" size="xlarge"></v-icon>
+                    <figure class="image">
+                      <v-icon icon="fad fa-rectangle-history-circle-plus" size="x-large"></v-icon>
                     </figure>
                   </div>
                   <div class="media-content">

@@ -1,5 +1,5 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import { DeleteCommand, DynamoDBDocumentClient, UpdateCommand } from '@aws-sdk/lib-dynamodb';
 import _ from 'lodash';
 
 export default defineEventHandler(async (event) => {
@@ -16,16 +16,25 @@ export default defineEventHandler(async (event) => {
       },
     })
   );
-
-  updateImages(body.new, uuid).then(() => {
-    _.forEach(body.new, (value, key) => {
-      if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
-        updateProperties({ key, value }, uuid);
-      }
+  try {
+    updateImages(body.new, uuid).then(() => {
+      _.forEach(body.new, (value, key) => {
+        if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
+          updateProperties({ key, value }, uuid);
+        }
+      });
+      return deleteQueueItem();
     });
-  });
+  } catch (error) {
+    throw new Error(`Error saving approved changes - ${error}`);
+  }
+
+  return { response: 'wheel has been updated' };
 
   async function updateImages(newItem: any, uuid: string) {
+    const objectItems = newItem.images.map((image: any) => {
+      return { src: image, inReview: false };
+    });
     return await docClient.send(
       new UpdateCommand({
         TableName: 'wheels',
@@ -36,7 +45,7 @@ export default defineEventHandler(async (event) => {
           '#images': 'images',
         },
         ExpressionAttributeValues: {
-          ':location': newItem.images,
+          ':location': objectItems,
           ':empty_list': [],
         },
       })
@@ -44,15 +53,28 @@ export default defineEventHandler(async (event) => {
   }
 
   async function updateProperties(newProp: { key: string; value: string }, uuid: string) {
-    const propertyString = `#${newProp.key}`;
     await docClient.send(
       new UpdateCommand({
         TableName: 'wheels',
         Key: { uuid: uuid },
-        ReturnValues: 'ALL_NEW',
-        UpdateExpression: `set #${propertyString} = :value`,
+        UpdateExpression: `set #newValue = :value`,
         ExpressionAttributeValues: {
           ':value': newProp.value,
+        },
+        ExpressionAttributeNames: {
+          '#newValue': newProp.key,
+        },
+        ReturnValues: 'ALL_NEW',
+      })
+    );
+  }
+
+  async function deleteQueueItem() {
+    return docClient.send(
+      new DeleteCommand({
+        TableName: 'wheelsQueue',
+        Key: {
+          uuid: uuid,
         },
       })
     );
