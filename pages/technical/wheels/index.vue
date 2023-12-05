@@ -48,7 +48,8 @@
             exactly the wheel you are looking for.
           </p>
         </v-col>
-        <v-col cols="12" md="4">
+        <!-- TODO: Add back when ready to accept new wheels -->
+        <!-- <v-col cols="12" md="4">
           <NuxtLink :to="'/wheelSubmission'" :title="'Link to new wheel form'">
             <div class="card callout-card">
               <div class="card-content">
@@ -66,7 +67,7 @@
               </div>
             </div>
           </NuxtLink>
-        </v-col>
+        </v-col> -->
       </v-row>
       <v-divider></v-divider>
       <WheelGrid></WheelGrid>
@@ -76,7 +77,7 @@
 
 <script lang="ts" setup>
   import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
-  import { VIcon } from 'vuetify/components/VIcon';
+  // import { VIcon } from 'vuetify/components/VIcon';
   import { VDivider } from 'vuetify/components/VDivider';
   useHead({
     title: 'Tech - Wheel Dictionary',

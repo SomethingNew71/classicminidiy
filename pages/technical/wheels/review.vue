@@ -31,15 +31,11 @@
 
   async function acceptItem(item: any) {
     acceptLoading.value = true;
-    console.log('accepting item', item);
-
     await useFetch(() => `/api/wheels/review/save`, {
       method: 'POST',
       body: item,
     })
-      .then((res) => {
-        wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid);
-      })
+      .then(() => (wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid)))
       .catch((error) => console.error(error))
       .finally(() => (acceptLoading.value = false));
   }
@@ -49,16 +45,51 @@
       method: 'POST',
       body: { uuid: item.new.uuid },
     })
-      .then((res) => {
-        wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid);
-      })
+      .then(() => (wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid)))
       .catch((error) => console.error(error))
       .finally(() => (denyLoading.value = false));
   }
 </script>
 
 <template>
-  <v-container class="mt-10 pt-10">
+  <hero :navigation="true" :title="'Review wheel submissions'" />
+  <section>
+    <v-container>
+      <v-row>
+        <v-col cols="8">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li>
+                <NuxtLink to="/">
+                  <span class="icon is-small">
+                    <i class="fas fa-home" aria-hidden="true" />
+                  </span>
+                  <span>Home</span>
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/technical/wheels">
+                  <span class="icon is-small">
+                    <i class="fas fa-tire" aria-hidden="true" />
+                  </span>
+                  <span>Wheels</span>
+                </NuxtLink>
+              </li>
+              <li class="is-active">
+                <NuxtLink to="">
+                  <span class="icon is-small">
+                    <i class="fas fa-tire" aria-hidden="true" />
+                  </span>
+                  <span>Wheel Review</span>
+                </NuxtLink>
+              </li>
+            </ul>
+          </nav>
+        </v-col>
+      </v-row>
+    </v-container>
+  </section>
+  <v-container>
     <v-row>
       <v-col cols="12">
         <v-row v-if="pending" class="align-center justify-center">
