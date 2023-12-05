@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+  import { VApp } from 'vuetify/components/VApp';
+</script>
+
 <template>
   <v-app>
     <main-nav></main-nav>
@@ -6,12 +10,3 @@
     <VitePwaManifest />
   </v-app>
 </template>
-
-<script lang="ts">
-  import { VApp } from 'vuetify/components/VApp';
-  export default defineComponent({
-    components: {
-      VApp,
-    },
-  });
-</script>
