@@ -2,6 +2,7 @@
   import { VDataIterator } from 'vuetify/components/VDataIterator';
   import { VSheet } from 'vuetify/components/VSheet';
   import { VListItem } from 'vuetify/components/VList';
+  import { VTextField } from 'vuetify/components/VTextField';
   import { VRow, VCol, VContainer } from 'vuetify/components/VGrid';
   import { VTable } from 'vuetify/components/VTable';
   import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
@@ -9,6 +10,7 @@
   import { VCarousel, VCarouselItem } from 'vuetify/components/VCarousel';
 
   const wheelsToReview: any = ref([]);
+  const password = ref('');
   const acceptLoading = ref(false);
   const denyLoading = ref(false);
   const { data: wheels, pending, error }: any = await useFetch(() => `/api/wheels/review/list`);
@@ -33,7 +35,7 @@
     acceptLoading.value = true;
     await useFetch(() => `/api/wheels/review/save`, {
       method: 'POST',
-      body: item,
+      body: { wheel: item, auth: password },
     })
       .then(() => (wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid)))
       .catch((error) => console.error(error))
@@ -43,7 +45,7 @@
     denyLoading.value = true;
     await useFetch(() => `/api/wheels/review/delete`, {
       method: 'POST',
-      body: { uuid: item.new.uuid },
+      body: { uuid: item.new.uuid, auth: password },
     })
       .then(() => (wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid)))
       .catch((error) => console.error(error))
@@ -90,6 +92,18 @@
     </v-container>
   </section>
   <v-container>
+    <v-row>
+      <v-col cols="6">
+        <v-text-field
+          prepend-icon="fad fa-file-signature"
+          variant="solo-filled"
+          v-model="password"
+          type="password"
+          :counter="50"
+          label="Password"
+        ></v-text-field>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col cols="12">
         <v-row v-if="pending" class="align-center justify-center">

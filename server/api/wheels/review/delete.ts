@@ -20,10 +20,17 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  try {
-    return Promise.allSettled([await docClient.send(dynamoCommand), await deleteFolder(`wheels/uploads/${body.uuid}`)]);
-  } catch (error) {
-    throw new Error(`Error when deleting items - ${error}`);
+  if (body.auth !== config.app.validation_key) {
+    throw new Error('User is not authorized to review');
+  } else {
+    try {
+      return Promise.allSettled([
+        await docClient.send(dynamoCommand),
+        await deleteFolder(`wheels/uploads/${body.uuid}`),
+      ]);
+    } catch (error) {
+      throw new Error(`Error when deleting items - ${error}`);
+    }
   }
 
   // This function came from here https://www.codemzy.com/blog/delete-s3-folder-nodejs

@@ -5,7 +5,7 @@ import _ from 'lodash';
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body = await readBody(event);
-  const uuid = body.new.uuid;
+  const uuid = body.wheel.new.uuid;
 
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -16,17 +16,31 @@ export default defineEventHandler(async (event) => {
       },
     })
   );
-  try {
-    updateImages(body.new, uuid).then(() => {
-      _.forEach(body.new, (value, key) => {
-        if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
-          updateProperties({ key, value }, uuid);
-        }
-      });
-      return deleteQueueItem();
-    });
-  } catch (error) {
-    throw new Error(`Error saving approved changes - ${error}`);
+
+  if (body.auth !== config.app.validation_key) {
+    throw new Error('User is not authorized to review');
+  } else {
+    try {
+      if (body.wheel.new.images && body.wheel.new.images.length > 0) {
+        updateImages(body.wheel.new, uuid).then(() => {
+          _.forEach(body.wheel.new, (value, key) => {
+            if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
+              updateProperties({ key, value }, uuid);
+            }
+          });
+          deleteQueueItem();
+        });
+      } else {
+        _.forEach(body.wheel.new, (value, key) => {
+          if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
+            updateProperties({ key, value }, uuid);
+          }
+        });
+        deleteQueueItem();
+      }
+    } catch (error) {
+      throw new Error(`Error saving approved changes - ${error}`);
+    }
   }
 
   return { response: 'wheel has been updated' };
