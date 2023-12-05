@@ -4,6 +4,10 @@
       type: String,
       default: '',
     },
+    newWheel: {
+      type: Boolean,
+      default: false,
+    },
   });
   import type { IWheelsData } from '~/data/models/wheels';
   import { VStepper } from 'vuetify/components/VStepper';
@@ -22,7 +26,9 @@
   import { VList, VListItem, VListSubheader } from 'vuetify/components/VList';
   import { humanFileSize } from '~/data/models/helper-utils';
   import { useRecaptchaToken } from '~/composables/recaptcha';
-
+  const wheel = ref();
+  const pageLoad = ref();
+  const pageError = ref();
   const loading = ref(false);
   const hasError = ref(false);
   const hasSuccess = ref();
@@ -54,15 +60,24 @@
       return 'You cannot upload more than 5 images at a time.';
     },
   ];
-  const {
-    data: wheel,
-    pending,
-    error,
-  }: any = await useFetch(`/api/wheels/wheel`, {
-    query: {
-      uuid: props.uuid,
-    },
-  });
+
+  console.log('big ass prop', props.newWheel);
+
+  if (!props.newWheel) {
+    const {
+      data: singleWheel,
+      pending,
+      error,
+    }: any = await useFetch(`/api/wheels/wheel`, {
+      query: {
+        uuid: props.uuid,
+      },
+    });
+
+    wheel.value = singleWheel;
+    pageLoad.value = pending;
+    pageError.value = error;
+  }
 
   async function sendNewInfo() {
     loading.value = true;
@@ -103,6 +118,7 @@
       userName: userName.value,
       emailAddress: emailAddress.value,
       referral: referral.value,
+      newWheel: props.newWheel,
     };
     return await useFetch('/api/wheels/save/details', {
       method: 'POST',
@@ -132,18 +148,18 @@
 <template>
   <v-stepper v-model="step" :items="['Wheel Details', 'Images', 'Contact Info', 'Review', 'Submitted']">
     <template v-slot:item.1>
-      <v-skeleton-loader v-if="pending" type="list-item-two-line">
+      <v-skeleton-loader v-if="pageLoad" type="list-item-two-line">
         <v-list-item title="Title" subtitle="Subtitle" lines="two" rounded></v-list-item>
       </v-skeleton-loader>
-      <div v-else-if="error">
-        <p>Error loading wheel - {{ error }}</p>
+      <div v-else-if="pageError">
+        <p>Error loading wheel - {{ pageError }}</p>
       </div>
-      <v-card v-else-if="wheel" title="Suggested Updates" flat>
+      <v-card v-else-if="wheel || newWheel" :title="newWheel ? 'Submit wheel' : 'Suggested Updates'" flat>
         <v-form>
           <v-container>
             <v-row>
               <v-col cols="12" md="4">
-                <v-label class="pb-2">
+                <v-label class="pb-2" v-if="!newWheel && wheel">
                   Current Name:
                   <strong class="pl-1">{{ wheel.name && wheel.name !== '' ? wheel.name : 'No data' }}</strong>
                 </v-label>
@@ -157,7 +173,7 @@
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-label class="pb-2">
+                <v-label class="pb-2" v-if="!newWheel && wheel">
                   Current Type:
                   <strong class="pl-1">{{ wheel.type && wheel.type !== '' ? wheel.type : 'No data' }}</strong>
                 </v-label>
@@ -171,7 +187,7 @@
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-label class="pb-2">
+                <v-label class="pb-2" v-if="!newWheel && wheel">
                   Current Width:
                   <strong class="pl-1">{{ wheel.width }}</strong>
                 </v-label>
@@ -187,7 +203,7 @@
             </v-row>
             <v-row class="pb-3">
               <v-col cols="12" md="4">
-                <v-label class="pb-2">
+                <v-label class="pb-2" v-if="!newWheel && wheel">
                   Current Size:
                   <strong class="pl-1">{{ wheel.size && wheel.size !== '' ? wheel.size : 'No data' }}</strong>
                 </v-label>
@@ -201,7 +217,7 @@
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-label class="pb-2">
+                <v-label class="pb-2" v-if="!newWheel && wheel">
                   Current Offset:
                   <strong class="pl-1">{{ wheel.offset && wheel.offset !== '' ? wheel.offset : 'No data' }}</strong>
                 </v-label>
@@ -215,7 +231,7 @@
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-label class="pb-2">
+                <v-label class="pb-2" v-if="!newWheel && wheel">
                   Current Notes:
                   <strong class="pl-1">
                     {{ wheel.notes && wheel.notes !== '' ? wheel.notes : 'No data' }}
@@ -242,6 +258,7 @@
           <v-form v-model="imagesValid">
             <v-file-input
               :rules="imageRules"
+              :required="newWheel"
               accept="image/png, image/jpeg"
               label="Upload up to 5 images"
               variant="filled"
@@ -250,33 +267,54 @@
               v-model="dropFiles"
             ></v-file-input>
           </v-form>
-          <v-list v-if="dropFiles && dropFiles.length > 0" lines="two">
-            <v-list-subheader>Files to upload</v-list-subheader>
-            <v-list-item
-              v-for="(image, i) in dropFiles"
-              :key="i"
-              :title="image.name"
-              :subtitle="humanFileSize(image.size)"
-            >
-              <template v-slot:prepend>
-                <v-avatar color="grey-lighten-1">
-                  <v-icon icon="fad fa-image"></v-icon>
-                </v-avatar>
-              </template>
-            </v-list-item>
-          </v-list>
+          <template v-if="!newWheel">
+            <v-list v-if="dropFiles && dropFiles.length > 0" lines="two">
+              <v-list-subheader>Files to upload</v-list-subheader>
+              <v-list-item
+                v-for="(image, i) in dropFiles"
+                :key="i"
+                :title="image.name"
+                :subtitle="humanFileSize(image.size)"
+              >
+                <template v-slot:prepend>
+                  <v-avatar color="grey-lighten-1">
+                    <v-icon icon="fad fa-image"></v-icon>
+                  </v-avatar>
+                </template>
+              </v-list-item>
+            </v-list>
+          </template>
         </v-col>
         <v-col cols="12" md="6">
-          <h3 class="text-h5 pb-1">Existing Images</h3>
-          <v-col v-for="(image, i) in wheel.images" :key="i" class="d-flex child-flex" cols="4">
-            <v-img :src="image.src" aspect-ratio="1" cover class="bg-grey-lighten-2">
-              <template v-slot:placeholder>
-                <v-row class="fill-height ma-0" align="center" justify="center">
-                  <v-progress-circular indeterminate color="grey-lighten-5"></v-progress-circular>
-                </v-row>
-              </template>
-            </v-img>
-          </v-col>
+          <template v-if="newWheel">
+            <h3 class="text-h5 pb-1">Your Images</h3>
+            <v-list v-if="dropFiles && dropFiles.length > 0" lines="two">
+              <v-list-subheader>Files to upload</v-list-subheader>
+              <v-list-item
+                v-for="(image, i) in dropFiles"
+                :key="i"
+                :title="image.name"
+                :subtitle="humanFileSize(image.size)"
+              >
+                <template v-slot:prepend>
+                  <v-avatar color="grey-lighten-1">
+                    <v-icon icon="fad fa-image"></v-icon>
+                  </v-avatar>
+                </template>
+              </v-list-item> </v-list
+          ></template>
+          <template v-else>
+            <h3 class="text-h5 pb-1">Existing Images</h3>
+            <v-col v-for="(image, i) in wheel.images" :key="i" class="d-flex child-flex" cols="4">
+              <v-img :src="image.src" aspect-ratio="1" cover class="bg-grey-lighten-2">
+                <template v-slot:placeholder>
+                  <v-row class="fill-height ma-0" align="center" justify="center">
+                    <v-progress-circular indeterminate color="grey-lighten-5"></v-progress-circular>
+                  </v-row>
+                </template>
+              </v-img>
+            </v-col>
+          </template>
         </v-col>
       </v-row>
     </template>

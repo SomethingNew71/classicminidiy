@@ -10,4 +10,5 @@ export interface IWheelsData {
   emailAddress: string;
   referral: string;
   images?: any[];
+  newWheel?: boolean;
 }
