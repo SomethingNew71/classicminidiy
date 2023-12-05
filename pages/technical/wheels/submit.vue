@@ -37,7 +37,8 @@
         </v-row>
         <v-row>
           <v-col cols="12">
-            <WheelSubmit :uuid="uuid"></WheelSubmit>
+            <WheelSubmit v-if="!newWheel" :uuid="uuid"></WheelSubmit>
+            <WheelSubmit v-if="newWheel" :newWheel="newWheel"></WheelSubmit>
           </v-col>
         </v-row>
       </v-container>
@@ -49,4 +50,6 @@
   import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
   const route = useRoute();
   const uuid = ref(route.query.uuid?.toString());
+  const newWheel = route.query.newWheel === 'true' ? true : false;
+  console.log('newest of wheels', newWheel);
 </script>
