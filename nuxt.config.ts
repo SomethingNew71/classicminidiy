@@ -95,7 +95,12 @@ export default defineNuxtConfig({
     disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
   },
 
-  plugins: ['~/plugins/oruga.ts', '~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
+  plugins: [
+    '~/plugins/oruga.ts',
+    '~/plugins/vuetify.ts',
+    { src: '~/plugins/highcharts.ts', mode: 'client' },
+    { src: '~/plugins/recaptcha.ts', mode: 'client' },
+  ],
 
   runtimeConfig: {
     public: {
@@ -110,9 +115,7 @@ export default defineNuxtConfig({
       aws_secret_access_key: process.env.aws_secret_access_key,
       validation_key: process.env.validation_key,
       recaptchaSite: process.env.recaptchaSite,
-      recaptchaSiteV2: process.env.recaptchaSite,
       recaptchaSecret: process.env.recaptchaSecret,
-      recaptchaSecretV2: process.env.recaptchaSecret,
       CMDIY_NAMEPSACE: process.env.CMDIY_NAMEPSACE,
     },
   },

@@ -21,6 +21,7 @@
   import { VProgressCircular } from 'vuetify/components/VProgressCircular';
   import { VList, VListItem, VListSubheader } from 'vuetify/components/VList';
   import { humanFileSize } from '~/data/models/helper-utils';
+  import { useRecaptchaToken } from '~/composables/recaptcha';
 
   const loading = ref(false);
   const hasError = ref(false);
@@ -65,20 +66,29 @@
 
   async function sendNewInfo() {
     loading.value = true;
-    await storeWheelDetails().then(async (res: any) => {
-      await storeWheelImages(res?.data?._rawValue.uuid)
-        .then(() => {
-          hasSuccess.value = true;
-          step.value = 5;
-        })
-        .catch((err) => {
-          hasError.value = true;
-          console.error(err);
-        })
-        .finally(() => {
-          loading.value = false;
-        });
-    });
+
+    await useRecaptchaToken()
+      .then(async (res) => {
+        if (res) {
+          await storeWheelDetails().then(async (res: any) => {
+            await storeWheelImages(res?.data?._rawValue.uuid)
+              .then(() => {
+                hasSuccess.value = true;
+                step.value = 5;
+              })
+              .catch((err) => {
+                hasError.value = true;
+                console.error(err);
+              })
+              .finally(() => {
+                loading.value = false;
+              });
+          });
+        } else {
+          console.warn('Recaptcha failed');
+        }
+      })
+      .catch((err) => console.error(`Recaptcha failed - ${err}`));
   }
 
   async function storeWheelDetails() {
