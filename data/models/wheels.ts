@@ -9,4 +9,5 @@ export interface IWheelsData {
   userName: string;
   emailAddress: string;
   referral: string;
+  images?: any[];
 }
