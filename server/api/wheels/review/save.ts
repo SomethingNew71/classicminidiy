@@ -1,11 +1,13 @@
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DeleteCommand, DynamoDBDocumentClient, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
+import { DeleteCommand, DynamoDBDocumentClient, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
 import _ from 'lodash';
+import type { IWheelsData } from '~/data/models/wheels';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body = await readBody(event);
   const uuid = body.wheel.new.uuid;
+  const newWheel = body.wheel.new;
 
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -18,12 +20,16 @@ export default defineEventHandler(async (event) => {
   );
 
   if (body.auth !== config.app.validation_key) {
-    throw new Error('User is not authorized to review');
+    return { response: 'User is not authorized' };
   } else {
     try {
-      if (body.wheel.new.images && body.wheel.new.images.length > 0) {
-        updateImages(body.wheel.new, uuid).then(() => {
-          _.forEach(body.wheel.new, (value, key) => {
+      if (newWheel.newWheel) {
+        addNewWheel(newWheel).then(() => {
+          deleteQueueItem();
+        });
+      } else if (newWheel.images && newWheel.images.length > 0) {
+        updateImages(newWheel, uuid).then(() => {
+          _.forEach(newWheel, (value, key) => {
             if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
               updateProperties({ key, value }, uuid);
             }
@@ -31,7 +37,7 @@ export default defineEventHandler(async (event) => {
           deleteQueueItem();
         });
       } else {
-        _.forEach(body.wheel.new, (value, key) => {
+        _.forEach(newWheel, (value, key) => {
           if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
             updateProperties({ key, value }, uuid);
           }
@@ -81,6 +87,37 @@ export default defineEventHandler(async (event) => {
         ReturnValues: 'ALL_NEW',
       })
     );
+  }
+
+  async function addNewWheel(wheel: IWheelsData) {
+    const parsedImages = await wheel.images?.map((image) => ({
+      src: image,
+      inReview: false,
+    }));
+
+    const parsedNewWheel = {
+      uuid: wheel.uuid,
+      name: wheel.name,
+      type: wheel.type,
+      width: wheel.width,
+      size: wheel.size,
+      offset: wheel.offset,
+      notes: wheel.notes,
+      userName: wheel.userName,
+      inReview: false,
+      emailAddress: wheel.emailAddress,
+      referral: wheel.referral,
+      images: parsedImages,
+    };
+
+    return await docClient
+      .send(
+        new PutCommand({
+          TableName: 'wheels',
+          Item: { ...parsedNewWheel },
+        })
+      )
+      .catch((e) => console.log(e));
   }
 
   async function deleteQueueItem() {

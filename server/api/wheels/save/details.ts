@@ -6,7 +6,7 @@ import { v5 as uuidv5 } from 'uuid';
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body: IWheelsData = await readBody(event);
-  if (body.uuid === '') {
+  if (body.uuid === '' || body.newWheel) {
     body.uuid = uuidv5(`${body.userName}${body.name}${Math.random()}`, config.app.CMDIY_NAMEPSACE);
   }
 

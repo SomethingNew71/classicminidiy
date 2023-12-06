@@ -27,11 +27,13 @@
   import { humanFileSize } from '~/data/models/helper-utils';
   import { useRecaptchaToken } from '~/composables/recaptcha';
   const wheel = ref();
-  const pageLoad = ref();
+  const pageLoad = ref(true);
   const pageError = ref();
+  const submitError = ref();
   const loading = ref(false);
   const hasError = ref(false);
   const hasSuccess = ref();
+  const detailsValid = ref(false);
   const imagesValid = ref(false);
   const contactValid = ref(false);
   const step = ref(1);
@@ -60,23 +62,35 @@
       return 'You cannot upload more than 5 images at a time.';
     },
   ];
-
-  console.log('big ass prop', props.newWheel);
+  const imageRulesRequired = [
+    (value: any) => {
+      return !value || !value.length || value[0].size < 3000000 || 'Wheel image size should be less than 3 MB!';
+    },
+    (value: any) => {
+      if (value?.length > 0) return true;
+      return 'This field is required';
+    },
+    (value: any) => {
+      if (value?.length <= 5) return true;
+      return 'You cannot upload more than 5 images at a time.';
+    },
+  ];
 
   if (!props.newWheel) {
-    const {
-      data: singleWheel,
-      pending,
-      error,
-    }: any = await useFetch(`/api/wheels/wheel`, {
+    await useFetch(`/api/wheels/wheel`, {
       query: {
         uuid: props.uuid,
       },
-    });
-
-    wheel.value = singleWheel;
-    pageLoad.value = pending;
-    pageError.value = error;
+    })
+      .then(({ data }) => {
+        wheel.value = data.value;
+      })
+      .catch((error) => (pageError.value = error))
+      .finally(() => {
+        pageLoad.value = false;
+      });
+  } else {
+    pageLoad.value = false;
   }
 
   async function sendNewInfo() {
@@ -103,7 +117,10 @@
           console.warn('Recaptcha failed');
         }
       })
-      .catch((err) => console.error(`Recaptcha failed - ${err}`));
+      .catch((err) => {
+        submitError.value = true;
+        console.error(`Recaptcha failed - ${err}`);
+      });
   }
 
   async function storeWheelDetails() {
@@ -148,14 +165,12 @@
 <template>
   <v-stepper v-model="step" :items="['Wheel Details', 'Images', 'Contact Info', 'Review', 'Submitted']">
     <template v-slot:item.1>
-      <v-skeleton-loader v-if="pageLoad" type="list-item-two-line">
-        <v-list-item title="Title" subtitle="Subtitle" lines="two" rounded></v-list-item>
-      </v-skeleton-loader>
+      <v-skeleton-loader v-if="pageLoad" type="list-item-two-line"> </v-skeleton-loader>
       <div v-else-if="pageError">
         <p>Error loading wheel - {{ pageError }}</p>
       </div>
       <v-card v-else-if="wheel || newWheel" :title="newWheel ? 'Submit wheel' : 'Suggested Updates'" flat>
-        <v-form>
+        <v-form v-model="detailsValid">
           <v-container>
             <v-row>
               <v-col cols="12" md="4">
@@ -167,6 +182,9 @@
                   prepend-icon="fad fa-file-signature"
                   variant="solo-filled"
                   v-model="name"
+                  :rules="newWheel ? contactRules : []"
+                  :required="newWheel"
+                  :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
                   :counter="30"
                   label="Wheel Name"
                 ></v-text-field>
@@ -196,7 +214,10 @@
                   prepend-icon="fad fa-ruler-horizontal"
                   variant="solo-filled"
                   v-model="width"
+                  :rules="newWheel ? contactRules : []"
+                  :required="newWheel"
                   type="number"
+                  :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
                   label="Wheel Width"
                 ></v-text-field>
               </v-col>
@@ -211,6 +232,9 @@
                   prepend-icon="fad fa-ruler"
                   variant="solo-filled"
                   v-model="size"
+                  :rules="newWheel ? contactRules : []"
+                  :required="newWheel"
+                  :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
                   label="Wheel Size"
                   :items="['10', '12', '13']"
                 ></v-select>
@@ -254,11 +278,15 @@
     <template v-slot:item.2>
       <v-row>
         <v-col cols="12" md="6">
-          <h3 class="text-h5 pb-4">Add your own images</h3>
+          <h3 class="text-h5 pb-1">Add your own images</h3>
+          <h4 class="text-subtitle pb-4" v-if="newWheel">
+            To submit a new wheel, you must include at least one image for the registry
+          </h4>
           <v-form v-model="imagesValid">
             <v-file-input
-              :rules="imageRules"
+              :rules="newWheel ? imageRulesRequired : imageRules"
               :required="newWheel"
+              :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
               accept="image/png, image/jpeg"
               label="Upload up to 5 images"
               variant="filled"
@@ -373,42 +401,42 @@
           <v-col cols="12" md="6">
             <v-list lines="two" elevation="2">
               <v-list-subheader> Wheel Information </v-list-subheader>
-              <v-list-item title="Wheel Name" :subtitle="name !== '' ? name : 'No change'">
+              <v-list-item title="Wheel Name" :subtitle="name !== '' ? name : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
                     <v-icon icon="fad fa-file-signature"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
-              <v-list-item title="Type" :subtitle="type !== '' ? type : 'No change'">
+              <v-list-item title="Type" :subtitle="type !== '' ? type : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
                     <v-icon icon="fad fa-box-open-full"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
-              <v-list-item title="Width" :subtitle="width !== '' ? size : 'No change'">
+              <v-list-item title="Width" :subtitle="width !== '' ? size : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
                     <v-icon icon="fad fa-ruler-horizontal"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
-              <v-list-item title="Size" :subtitle="size !== '' ? size : 'No change'">
+              <v-list-item title="Size" :subtitle="size !== '' ? size : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
                     <v-icon icon="fad fa-ruler"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
-              <v-list-item title="Offset" :subtitle="offset !== '' ? offset : 'No change'">
+              <v-list-item title="Offset" :subtitle="offset !== '' ? offset : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
                     <v-icon icon="fad fa-arrow-right-from-line"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
-              <v-list-item title="Notes" :subtitle="notes !== '' ? notes : 'No change'">
+              <v-list-item title="Notes" :subtitle="notes !== '' ? notes : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
                     <v-icon icon="fad fa-notebook"></v-icon>
@@ -478,7 +506,7 @@
     <template v-slot:actions>
       <v-row class="d-flex justify-space-between mx-5 mb-5">
         <v-btn v-if="step !== 5" :disabled="step === 1" @click="step--">Previous</v-btn>
-        <v-btn v-if="step === 1" color="primary" @click="step++">Next</v-btn>
+        <v-btn v-if="step === 1" color="primary" @click="step++" :disabled="!detailsValid">Next</v-btn>
         <v-btn v-if="step === 2" color="primary" @click="step++" :disabled="!imagesValid">Next</v-btn>
         <v-btn v-if="step === 3" color="primary" @click="step++" :disabled="!contactValid">Next</v-btn>
         <v-btn v-if="step === 4" color="primary" :loading="loading" @click="sendNewInfo()">Submit</v-btn>

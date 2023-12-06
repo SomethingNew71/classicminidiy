@@ -7,27 +7,37 @@
   import { VTable } from 'vuetify/components/VTable';
   import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
   import { VDivider } from 'vuetify/components/VDivider';
+  import { VAlert } from 'vuetify/components/VAlert';
   import { VCarousel, VCarouselItem } from 'vuetify/components/VCarousel';
+  import type { IWheelsData } from '~/data/models/wheels';
 
   const wheelsToReview: any = ref([]);
   const password = ref('');
   const acceptLoading = ref(false);
   const denyLoading = ref(false);
+  const unauthorized = ref();
   const { data: wheels, pending, error }: any = await useFetch(() => `/api/wheels/review/list`);
   await getExistingWheelData(wheels.value);
 
-  async function getExistingWheelData(wheels: any) {
-    wheels.forEach(async (newWheel: any) => {
-      await useFetch(`/api/wheels/wheel`, {
-        query: {
-          uuid: newWheel.uuid,
-        },
-      }).then((res) => {
+  async function getExistingWheelData(wheels: IWheelsData[]) {
+    wheels.forEach(async (wheel: IWheelsData) => {
+      if (wheel.newWheel) {
         wheelsToReview.value.push({
-          new: newWheel,
-          existing: res.data.value,
+          new: wheel,
+          existing: undefined,
         });
-      });
+      } else {
+        await useFetch(`/api/wheels/wheel`, {
+          query: {
+            uuid: wheel.uuid,
+          },
+        }).then((res) => {
+          wheelsToReview.value.push({
+            new: wheel,
+            existing: res.data.value,
+          });
+        });
+      }
     });
   }
 
@@ -37,7 +47,13 @@
       method: 'POST',
       body: { wheel: item, auth: password },
     })
-      .then(() => (wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid)))
+      .then((res: any) => {
+        if (res.data.value.response === 'User is not authorized') {
+          unauthorized.value = true;
+        } else {
+          wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.new.uuid !== item.new.uuid);
+        }
+      })
       .catch((error) => console.error(error))
       .finally(() => (acceptLoading.value = false));
   }
@@ -47,7 +63,13 @@
       method: 'POST',
       body: { uuid: item.new.uuid, auth: password },
     })
-      .then(() => (wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.uuid !== item.uuid)))
+      .then((res: any) => {
+        if (res.data.value.response === 'User is not authorized') {
+          unauthorized.value = true;
+        } else {
+          wheelsToReview.value = wheelsToReview.value.filter((wheel: any) => wheel.new.uuid !== item.new.uuid);
+        }
+      })
       .catch((error) => console.error(error))
       .finally(() => (denyLoading.value = false));
   }
@@ -93,6 +115,15 @@
   </section>
   <v-container>
     <v-row>
+      <v-col cols="12">
+        <v-alert
+          v-if="unauthorized"
+          density="compact"
+          type="warning"
+          title="Unauthorized"
+          text="Either no password was provided or the password is wrong"
+        ></v-alert>
+      </v-col>
       <v-col cols="6">
         <v-text-field
           prepend-icon="fad fa-file-signature"
@@ -135,10 +166,10 @@
 
           <template v-slot:default="{ items }">
             <v-row>
-              <v-col v-for="(item, i) in items" :key="i" cols="6">
+              <v-col v-for="(item, i) in items" :key="i" cols="4">
                 <v-sheet border>
                   <template v-if="item.raw.new.images?.length >= 1">
-                    <v-carousel>
+                    <v-carousel height="250">
                       <template v-for="image in item.raw.new.images">
                         <v-carousel-item :src="image"></v-carousel-item>
                       </template>
@@ -158,7 +189,7 @@
                       <tr>
                         <td></td>
                         <td align="right">New</td>
-                        <td align="right">Existing</td>
+                        <td align="right">{{ item.raw.new.newWheel ? 'No Exisitng Wheel' : 'Existing' }}</td>
                       </tr>
                     </thead>
                     <tbody>
@@ -173,35 +204,35 @@
                         <th>Name:</th>
 
                         <td>{{ item.raw.new.name }}</td>
-                        <td>{{ item.raw.existing.name }}</td>
+                        <td>{{ item.raw.new.newWheel ? 'N/A' : item.raw.existing.name }}</td>
                       </tr>
 
                       <tr align="right">
                         <th>Offset:</th>
 
                         <td>{{ item.raw.new.offset }}</td>
-                        <td>{{ item.raw.existing.offset }}</td>
+                        <td>{{ item.raw.new.newWheel ? 'N/A' : item.raw.existing.offset }}</td>
                       </tr>
 
                       <tr align="right">
                         <th>Size:</th>
 
                         <td>{{ item.raw.new.size }}</td>
-                        <td>{{ item.raw.existing.size }}</td>
+                        <td>{{ item.raw.new.newWheel ? 'N/A' : item.raw.existing.size }}</td>
                       </tr>
 
                       <tr align="right">
                         <th>Type:</th>
 
                         <td>{{ item.raw.new.type }}</td>
-                        <td>{{ item.raw.existing.type }}</td>
+                        <td>{{ item.raw.new.newWheel ? 'N/A' : item.raw.existing.type }}</td>
                       </tr>
 
                       <tr align="right">
                         <th>Width:</th>
 
                         <td>{{ item.raw.new.width }}</td>
-                        <td>{{ item.raw.existing.width }}</td>
+                        <td>{{ item.raw.new.newWheel ? 'N/A' : item.raw.existing.width }}</td>
                       </tr>
 
                       <tr align="right">

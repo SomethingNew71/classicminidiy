@@ -40,7 +40,7 @@
     "@types/node": "^20.10.3",
     "@types/youtube": "^0.0.50",
     "axios": "^1.6.2",
-    "core-js": "^3.33.3",
+    "core-js": "^3.34.0",
     "formidable": "^3.5.1",
     "fuse.js": "^7.0.0",
     "highcharts": "^11.2.0",
@@ -52,7 +52,7 @@
     "uuid": "^9.0.1",
     "vue-cookie-law": "^1.13.3",
     "vue-recaptcha-v3": "^2.0.1",
-    "vuetify": "3.4.4"
+    "vuetify": "3.4.5"
   },
   "devDependencies": {
     "@nuxt/content": "^2.9.0",
@@ -63,7 +63,7 @@
     "@types/lodash": "^4.14.202",
     "@types/luxon": "^3.3.7",
     "@types/uuid": "^9.0.7",
-    "@vite-pwa/nuxt": "^0.3.3",
+    "@vite-pwa/nuxt": "^0.3.4",
     "nodemon": "^3.0.2",
     "nuxt": "^3.8.2",
     "nuxt-compress": "^5.0.0",
