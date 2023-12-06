@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
   });
 
   if (body.auth !== config.app.validation_key) {
-    throw new Error('User is not authorized to review');
+    return { response: 'User is not authorized' };
   } else {
     try {
       return Promise.allSettled([

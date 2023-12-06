@@ -24,18 +24,17 @@
   <pre v-else-if="error">{{ error }}</pre>
   <v-data-iterator v-else :items="wheels" :page="page" :items-per-page="12" :search="search">
     <template v-slot:header="{ page, pageCount, prevPage, nextPage }">
-      <v-col class="d-flex align-center flex-column bg-grey-lighten-3 pa-6">
-        <v-btn-toggle v-model="size" mandatory rounded="0" color="primary" group>
+      <v-col class="d-flex align-center flex-column bg-grey-lighten-3 pa-6 rounded-t-xl">
+        <v-btn-toggle v-model="size" mandatory rounded="10" color="primary" group>
           <v-btn value="list"> All </v-btn>
           <v-btn value="ten"> 10 </v-btn>
           <v-btn value="twelve"> 12 </v-btn>
           <v-btn value="thirteen"> 13 </v-btn>
         </v-btn-toggle>
       </v-col>
-      <v-toolbar class="px-2 mb-5" rounded>
+      <v-toolbar class="px-2 pb-3 mb-5" rounded>
         <v-text-field
           v-model="search"
-          clearable
           density="comfortable"
           hide-details
           placeholder="Search"
@@ -67,6 +66,13 @@
           @click="nextPage"
         ></v-btn>
       </v-toolbar>
+    </template>
+    <template v-slot:no-data>
+      <v-row>
+        <v-col cols="12" class="text-center py-10 my-10">
+          <h4 class="text-h5">No items matching your search</h4>
+        </v-col>
+      </v-row>
     </template>
     <template v-slot:default="{ items }">
       <v-row align="center">

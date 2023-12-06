@@ -18,8 +18,8 @@
 </script>
 
 <template>
-  <v-card hover class="mx-auto">
-    <v-card-item :title="wheel.name" class="bg-blue-grey-lighten-5">
+  <v-card hover class="mx-auto" elevation="4">
+    <v-card-item :title="wheel.name">
       <template v-slot:subtitle>
         <v-icon icon="fad fa-tire fa-spin" size="24" class="me-1 py-2"></v-icon>
         {{ wheel.width ? wheel.width : '?' }} x {{ wheel.size ? wheel.size : '?' }}
@@ -50,33 +50,43 @@
         ></v-img>
       </v-row>
     </v-card-text>
-
-    <div class="d-flex py-3 justify-space-between">
-      <v-list-item density="compact" prepend-icon="fa-duotone text-yellow-darken-3 fa-ruler-triangle">
-        <v-list-item-subtitle>Size: {{ wheel.size ? wheel.size : 'Unknown' }}</v-list-item-subtitle>
-      </v-list-item>
-      <v-list-item density="compact" append-icon="fa-duotone fa-maximize text-blue-darken-4">
-        <v-list-item-subtitle>Width: {{ wheel.width ? wheel.width : 'Unknown' }}</v-list-item-subtitle>
-      </v-list-item>
-    </div>
-
-    <v-divider></v-divider>
-
-    <v-list class="bg-transparent">
-      <v-list-item
-        :title="wheel.type ? wheel.type : 'Unknown'"
-        color="light-green-darken-1"
-        append-icon="fa-duotone fa-box-open-full text-brown-darken-4"
-        subtitle="Type"
-      >
-      </v-list-item>
-      <v-list-item
-        :title="wheel.offset ? wheel.offset : 'Unknown'"
-        append-icon="fa-duotone fa-right-from-line text-green-darken-4"
-        subtitle="Offset"
-      >
-      </v-list-item>
-    </v-list>
+    <v-card-item>
+      <v-row justify="space-between">
+        <v-col cols="6">
+          <v-list>
+            <v-list-item
+              :subtitle="wheel.size ? wheel.size : 'Unknown'"
+              color="light-green-darken-1"
+              prepend-icon="fa-duotone text-yellow-darken-3 fa-ruler-triangle"
+              title="Size"
+            >
+            </v-list-item>
+            <v-list-item
+              :subtitle="wheel.width ? wheel.width : 'Unknown'"
+              prepend-icon="fa-duotone fa-maximize text-blue-darken-4"
+              title="Width"
+            >
+            </v-list-item> </v-list
+        ></v-col>
+        <v-divider vertical thickness="3"></v-divider>
+        <v-col cols="6" class="text-right">
+          <v-list>
+            <v-list-item
+              :subtitle="wheel.type ? wheel.type : 'Unknown'"
+              color="light-green-darken-1"
+              append-icon="fa-duotone fa-box-open-full text-brown-darken-4"
+              title="Type"
+            >
+            </v-list-item>
+            <v-list-item
+              :subtitle="wheel.offset ? wheel.offset : 'Unknown'"
+              append-icon="fa-duotone fa-right-from-line text-green-darken-4"
+              title="Offset"
+            >
+            </v-list-item> </v-list
+        ></v-col>
+      </v-row>
+    </v-card-item>
     <v-expansion-panels class="pt-2">
       <v-expansion-panel v-if="wheel.notes !== ''" title="Notes">
         <v-expansion-panel-text>
