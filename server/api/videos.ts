@@ -1,6 +1,12 @@
 import axios from 'axios';
-import type { YoutubeDataResponse, YoutubeThumbnails, YoutubeThumbnailsParsed } from '~/data/models/youtube';
+import type {
+  YoutubeDataResponse,
+  YoutubeThumbnails,
+  YoutubeThumbnailsParsed,
+  YoutubeVideoItemParsed,
+} from '~/data/models/youtube';
 import * as _ from 'lodash';
+import { DateTime } from 'luxon';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
@@ -9,30 +15,19 @@ export default defineEventHandler(async (event) => {
   const details = 'snippet';
   const feed = `${baseURL}?key=${config.app.youtubeAPIKey}&playlistId=${id}&part=${details}`;
   try {
-    return await axios
-      .get<YoutubeDataResponse>(feed)
-      .then((response) => {
-        const items = response.data.items.map((item) => {
-          return {
-            title: item.snippet.title,
-            thumbnails: organizeThumbnails(item.snippet.thumbnails),
-            publishedOn: item.snippet.publishedAt,
-            videoUrl: `http://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`,
-          };
-        });
-        return [...items.slice(0, 3)];
-      })
-      .catch((error) => {
-        throw new Error(error);
+    return await axios.get<YoutubeDataResponse>(feed).then((response): YoutubeVideoItemParsed[] => {
+      const items = response.data.items.map((item) => {
+        return {
+          title: item.snippet.title,
+          thumbnails: organizeThumbnails(item.snippet.thumbnails),
+          publishedOn: DateTime.fromISO(item.snippet.publishedAt).toFormat('LLL dd, yyyy'),
+          videoUrl: `http://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`,
+        };
       });
+      return [...items.slice(0, 3)];
+    });
   } catch (error) {
-    return {
-      error,
-      title: '?',
-      thumbnails: [],
-      publishedOn: '?',
-      videoUrl: `?`,
-    };
+    throw new Error(`Error with youtube API - ${error}`);
   }
 
   function organizeThumbnails(thumbs: YoutubeThumbnails): YoutubeThumbnailsParsed {

@@ -8,6 +8,12 @@ export interface YoutubeStatsResponse {
   items: YoutubeStatsItem[];
 }
 
+export interface YoutubeStatsFEResponse {
+  views: number | string;
+  subscribers: number | string;
+  videos: number | string;
+}
+
 export interface YoutubeStatsItem {
   kind: string;
   etag: string;
@@ -51,6 +57,12 @@ export interface YoutubeVideoItem {
   etag: string;
   id: string;
   snippet: YoutubeSnippet;
+}
+export interface YoutubeVideoItemParsed {
+  title: string;
+  thumbnails: YoutubeThumbnailsParsed;
+  publishedOn: string;
+  videoUrl: string;
 }
 
 export interface YoutubeSnippet {
