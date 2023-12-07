@@ -36,16 +36,12 @@
       </v-row>
       <v-row align="center">
         <v-col cols="12" md="8">
-          <h2 class="subtitle">
-            All data collected and currated by Jan W. from
-            <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer">Mini-Forum.de</a>.
-          </h2>
+          <h2 class="subtitle">The Classic Mini DIY Wheel Dictionary</h2>
           <p class="pb-5">
             Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel
-            Library comes in. Using the same data from the now retired site,
-            <i class="fad fa-tombstone"></i>www.wheeldictionary.net you can search for the right wheel for your Classic
-            Mini Cooper. With <strong>lots wheels in the library</strong> and growing, we hope you'll be able to find
-            exactly the wheel you are looking for.
+            Library comes in. You can now search for the right wheel for your Classic Mini Cooper. With
+            <strong>about 1,000 wheels</strong> and growing, we hope you'll be able to find exactly the wheel you are
+            looking for.
           </p>
         </v-col>
         <v-col cols="12" md="4">
@@ -59,7 +55,7 @@
                     </figure>
                   </div>
                   <div class="media-content">
-                    <h2 class="subtitle">What to add a wheel?</h2>
+                    <h2 class="subtitle">Want to add a wheel?</h2>
                     <p>Click here to complete our wheel submission form to get it added to our list.</p>
                   </div>
                 </div>
@@ -70,6 +66,22 @@
       </v-row>
       <v-divider></v-divider>
       <WheelGrid></WheelGrid>
+      <v-footer class="bg-light-grey-lighten-1 text-center d-flex flex-column">
+        <div class="pt-0">
+          <h2 class="subtitle">
+            All data collected and currated by Jan W. from
+            <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer">Mini-Forum.de</a>.
+          </h2>
+          <p class="pb-5">
+            Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel
+            Library comes in. Using the same data from the now retired site,
+            <i class="fad fa-tombstone"></i>www.wheeldictionary.net you can search for the right wheel for your Classic
+            Mini Cooper. With <strong>lots wheels in the library</strong> and growing, we hope you'll be able to find
+            exactly the wheel you are looking for.
+          </p>
+        </div>
+      </v-footer>
+      <v-divider></v-divider>
     </v-container>
   </div>
 </template>
@@ -77,6 +89,7 @@
 <script lang="ts" setup>
   import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
   import { VIcon } from 'vuetify/components/VIcon';
+  import { VFooter } from 'vuetify/components/VFooter';
   import { VDivider } from 'vuetify/components/VDivider';
   useHead({
     title: 'Tech - Wheel Dictionary',

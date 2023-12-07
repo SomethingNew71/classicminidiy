@@ -1,5 +1,4 @@
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
-
 export interface Post extends ParsedContent {
   image?: string;
   author?: string;
@@ -14,6 +13,18 @@ export interface ToolboxItem {
   iconHtml: string;
   to: string;
 }
+export interface SocialItem {
+  title: string;
+  href: string;
+  icon: string;
+}
+
+export const SocialItems: SocialItem[] = [
+  { title: 'Youtube', href: 'https://youtube.com/c/classicminidiy', icon: 'fab fa-youtube' },
+  { title: 'Patreon', href: 'https://patreon.com/classicminidiy', icon: 'fab fa-patreon' },
+  { title: 'Instagram', href: 'https://instagram.com/classicminidiy59', icon: 'fab fa-instagram' },
+  { title: 'Facebook', href: 'https://facebook.com/classicminidiy', icon: 'fab fa-facebook' },
+];
 
 export const ToolboxItems: ToolboxItem[] = [
   {

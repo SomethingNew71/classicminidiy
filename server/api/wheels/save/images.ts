@@ -1,5 +1,5 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, UpdateCommand, type UpdateCommandOutput } from '@aws-sdk/lib-dynamodb';
 import { S3Client } from '@aws-sdk/client-s3';
 import { Upload } from '@aws-sdk/lib-storage';
 import formidable from 'formidable';
@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
     return new Promise((resolve, reject) => {
       const s3Uploads: any[] = [];
 
-      function fileWriteStreamHandler(file: any) {
+      function fileWriteStreamHandler(file: any): PassThrough {
         const body = new PassThrough();
         const upload = new Upload({
           client: s3Client,
@@ -79,8 +79,8 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  function associateNewImagesDynamo(imagePaths: string[], uuid: string) {
-    docClient.send(
+  function associateNewImagesDynamo(imagePaths: string[], uuid: string): Promise<UpdateCommandOutput> {
+    return docClient.send(
       new UpdateCommand({
         TableName: 'wheelsQueue',
         Key: { uuid: uuid },

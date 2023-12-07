@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-  import { VCol, VRow, VSpacer } from 'vuetify/components/VGrid';
+  import { VCol, VRow } from 'vuetify/components/VGrid';
   import { VDataIterator } from 'vuetify/components/VDataIterator';
   import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
   import { VBtnToggle } from 'vuetify/components/VBtnToggle';
   import { VTextField } from 'vuetify/components/VTextField';
-  import { VToolbar } from 'vuetify/components/VToolbar';
   import { VBtn } from 'vuetify/components/VBtn';
   const size = ref('ten');
   const search = ref('');
@@ -24,48 +23,48 @@
   <pre v-else-if="error">{{ error }}</pre>
   <v-data-iterator v-else :items="wheels" :page="page" :items-per-page="12" :search="search">
     <template v-slot:header="{ page, pageCount, prevPage, nextPage }">
-      <v-col class="d-flex align-center flex-column bg-grey-lighten-3 pa-6 rounded-t-xl">
-        <v-btn-toggle v-model="size" mandatory rounded="10" color="primary" group>
-          <v-btn value="list"> All </v-btn>
-          <v-btn value="ten"> 10 </v-btn>
-          <v-btn value="twelve"> 12 </v-btn>
-          <v-btn value="thirteen"> 13 </v-btn>
-        </v-btn-toggle>
-      </v-col>
-      <v-toolbar class="px-2 pb-3 mb-5" rounded>
-        <v-text-field
-          v-model="search"
-          density="comfortable"
-          hide-details
-          placeholder="Search"
-          prepend-inner-icon="fad fa-search"
-          style="max-width: 300px"
-          variant="solo"
-        ></v-text-field>
-        <v-spacer></v-spacer>
-        <v-btn
-          :disabled="page === 1"
-          pack
-          size="small"
-          icon="fad fa-arrow-left"
-          density="comfortable"
-          variant="tonal"
-          rounded
-          @click="prevPage"
-        ></v-btn>
-
-        <div class="mx-2 text-body-1">Page {{ page }} of {{ pageCount }}</div>
-
-        <v-btn
-          :disabled="page >= pageCount"
-          icon="fad fa-arrow-right"
-          size="small"
-          density="comfortable"
-          variant="tonal"
-          rounded
-          @click="nextPage"
-        ></v-btn>
-      </v-toolbar>
+      <v-row>
+        <v-col cols="12" md="6">
+          <v-text-field
+            class="pb-5"
+            v-model="search"
+            density="comfortable"
+            hide-details
+            placeholder="Search"
+            prepend-inner-icon="fad fa-search"
+            style="max-width: 300px"
+            variant="solo"
+          ></v-text-field>
+          <v-btn-toggle v-model="size" mandatory rounded="10" color="primary" group elevation="2">
+            <v-btn value="list"> All </v-btn>
+            <v-btn value="ten" :active="size === 'ten'"> 10 </v-btn>
+            <v-btn value="twelve"> 12 </v-btn>
+            <v-btn value="thirteen"> 13 </v-btn>
+          </v-btn-toggle>
+        </v-col>
+        <v-col class="d-flex justify-center justify-sm-center justify-md-end" cols="12" md="6">
+          <v-btn
+            :disabled="page === 1"
+            pack
+            size="small"
+            icon="fad fa-arrow-left"
+            density="comfortable"
+            variant="tonal"
+            rounded
+            @click="prevPage"
+          ></v-btn>
+          <div class="mx-2 text-body-1">Page {{ page }} of {{ pageCount }}</div>
+          <v-btn
+            :disabled="page >= pageCount"
+            icon="fad fa-arrow-right"
+            size="small"
+            density="comfortable"
+            variant="tonal"
+            rounded
+            @click="nextPage"
+          ></v-btn>
+        </v-col>
+      </v-row>
     </template>
     <template v-slot:no-data>
       <v-row>
