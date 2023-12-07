@@ -56,9 +56,10 @@ export default defineEventHandler(async (event) => {
           },
         });
         let deleted = await s3Client.send(deleteCommand);
-        count += deleted.Deleted.length;
-        // log any errors deleting files
-        if (deleted.Errors) {
+        if (deleted.Deleted) {
+          count += deleted.Deleted.length;
+        } else if (deleted.Errors) {
+          // log any errors deleting files
           deleted.Errors.map((error) => console.log(`${error.Key} could not be deleted - ${error.Code}`));
         }
       }

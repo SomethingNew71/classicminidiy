@@ -1,5 +1,13 @@
-import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
-import { DeleteCommand, DynamoDBDocumentClient, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import {
+  DeleteCommand,
+  DynamoDBDocumentClient,
+  PutCommand,
+  UpdateCommand,
+  type PutCommandOutput,
+  type UpdateCommandOutput,
+  type DeleteCommandOutput,
+} from '@aws-sdk/lib-dynamodb';
 import _ from 'lodash';
 import type { IWheelsData } from '~/data/models/wheels';
 
@@ -7,7 +15,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body = await readBody(event);
   const uuid = body.wheel.new.uuid;
-  const newWheel = body.wheel.new;
+  const newWheel: IWheelsData = body.wheel.new;
 
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -30,7 +38,7 @@ export default defineEventHandler(async (event) => {
       } else if (newWheel.images && newWheel.images.length > 0) {
         updateImages(newWheel, uuid).then(() => {
           _.forEach(newWheel, (value, key) => {
-            if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
+            if (value && key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
               updateProperties({ key, value }, uuid);
             }
           });
@@ -38,7 +46,7 @@ export default defineEventHandler(async (event) => {
         });
       } else {
         _.forEach(newWheel, (value, key) => {
-          if (key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
+          if (value && key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
             updateProperties({ key, value }, uuid);
           }
         });
@@ -72,8 +80,11 @@ export default defineEventHandler(async (event) => {
     );
   }
 
-  async function updateProperties(newProp: { key: string; value: string }, uuid: string) {
-    await docClient.send(
+  async function updateProperties(
+    newProp: { key: string; value: string | true | any[] },
+    uuid: string
+  ): Promise<UpdateCommandOutput> {
+    return await docClient.send(
       new UpdateCommand({
         TableName: 'wheels',
         Key: { uuid: uuid },
@@ -89,7 +100,7 @@ export default defineEventHandler(async (event) => {
     );
   }
 
-  async function addNewWheel(wheel: IWheelsData) {
+  async function addNewWheel(wheel: IWheelsData): Promise<PutCommandOutput | void> {
     const parsedImages = await wheel.images?.map((image) => ({
       src: image,
       inReview: false,
@@ -120,7 +131,7 @@ export default defineEventHandler(async (event) => {
       .catch((e) => console.log(e));
   }
 
-  async function deleteQueueItem() {
+  async function deleteQueueItem(): Promise<DeleteCommandOutput> {
     return docClient.send(
       new DeleteCommand({
         TableName: 'wheelsQueue',

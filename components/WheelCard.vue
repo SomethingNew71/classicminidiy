@@ -4,8 +4,8 @@
   import { VIcon } from 'vuetify/components/VIcon';
   import { VBtn } from 'vuetify/components/VBtn';
   import { VExpansionPanel, VExpansionPanels, VExpansionPanelText } from 'vuetify/components/VExpansionPanel';
-  import { VList, VListItem, VListItemSubtitle } from 'vuetify/components/VList';
-  import { VRow } from 'vuetify/components/VGrid';
+  import { VList, VListItem } from 'vuetify/components/VList';
+  import { VRow, VCol } from 'vuetify/components/VGrid';
   import { VDivider } from 'vuetify/components/VDivider';
   import { VCarousel, VCarouselItem } from 'vuetify/components/VCarousel';
 
