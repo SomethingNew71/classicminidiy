@@ -1,0 +1,15 @@
+export interface RegistryDbResponse {
+  model: string;
+  bodyNum: string;
+  trim: string;
+  submittedBy: string;
+  submittedByEmail: string;
+  engineNum: string;
+  notes: string;
+  year: number;
+  uniqueId: string;
+  buildDate: string | any[];
+  bodyType: string;
+  engineSize: string;
+  color: string;
+}

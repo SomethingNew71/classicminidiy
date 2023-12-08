@@ -37,5 +37,5 @@
   import { VCard, VCardTitle, VCardSubtitle } from 'vuetify/components/VCard';
   import { VImg } from 'vuetify/components/VImg';
   import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
-  const { data: videos, pending, error } = await useFetch('/api/videos');
+  const { data: videos, pending, error } = await useFetch('/api/youtube/videos');
 </script>

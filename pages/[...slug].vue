@@ -80,8 +80,8 @@
   const { path, fullPath } = await useRoute();
   let initialData: any;
   let currentPostData: Post;
-  let currentPostViews: number;
-  let isLoading: boolean = true;
+  let currentPostViews = ref();
+  let isLoading = ref(true);
 
   if (!path.includes('/dev-sw.js') && !path.includes('/workbox-')) {
     await queryContent(path)
@@ -91,15 +91,17 @@
         await useFetch('/api/blog/getCount', {
           params: { title: currentPostData.title || '' },
         }).then(async (response: any) => {
+          console.log(response);
+
           initialData = response.data._rawValue;
           if (currentPostData.title) {
             if (initialData?.Item?.Count) {
-              currentPostViews = await useFetch('/api/blog/updateCount', {
+              currentPostViews.value = await useFetch('/api/blog/updateCount', {
                 method: 'POST',
                 body: { title: currentPostData.title, count: initialData.Item.Count },
               }).then((res: any) => res.data._rawValue);
             } else if (!initialData.Item) {
-              currentPostViews = await useFetch('/api/blog/updateCount', {
+              currentPostViews.value = await useFetch('/api/blog/updateCount', {
                 method: 'POST',
                 body: { title: currentPostData.title, count: 1 },
               }).then((res: any) => res.data._rawValue);
@@ -128,7 +130,7 @@
       })
       .catch((e) => console.log('Query Content error: ', e))
       .finally(() => {
-        isLoading = false;
+        isLoading.value = false;
       });
   }
 </script>

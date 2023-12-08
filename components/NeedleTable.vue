@@ -1,3 +1,16 @@
+<script>
+  import needlesTables from '~/data/suggestedNeedles.json';
+
+  export default defineComponent({
+    data() {
+      return {
+        pagination: {},
+        tables: needlesTables,
+      };
+    },
+  });
+</script>
+
 <template>
   <div class="column is-12">
     <template v-for="(table, name, index) in tables" :key="index">
@@ -50,18 +63,7 @@
     </template>
   </div>
 </template>
-<script>
-  import needlesTables from '~/data/suggestedNeedles.json';
 
-  export default defineComponent({
-    data() {
-      return {
-        pagination: {},
-        tables: needlesTables,
-      };
-    },
-  });
-</script>
 <style lang="scss" scoped>
   .card-header {
     background-color: whitesmoke;

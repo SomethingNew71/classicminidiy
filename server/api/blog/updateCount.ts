@@ -16,16 +16,19 @@ export default defineEventHandler(async (event) => {
     })
   );
 
-  return await docClient
-    .send(
-      new PutCommand({
-        TableName: 'BlogViews',
-        Item: {
-          postID: body.title,
-          Count: newCount,
-        },
-      })
-    )
-    .then(() => newCount)
-    .catch((e) => console.log(e));
+  try {
+    return await docClient
+      .send(
+        new PutCommand({
+          TableName: 'BlogViews',
+          Item: {
+            postID: body.title,
+            Count: newCount,
+          },
+        })
+      )
+      .then(() => newCount);
+  } catch (error) {
+    throw new Error(`Error updating the count - ${error}`);
+  }
 });

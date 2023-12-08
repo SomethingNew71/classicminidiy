@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts" setup>
-  const { data: stats, pending, error } = await useFetch('/api/stats');
+  const { data: stats, pending, error } = await useFetch('/api/youtube/stats');
 </script>
 
 <style lang="scss" scoped>

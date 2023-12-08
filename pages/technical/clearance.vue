@@ -86,6 +86,8 @@
 </template>
 
 <script lang="ts" setup>
+  import { VDataTable } from 'vuetify/components/VDataTable';
+  const expanded = ref([]);
   const { data: tables } = await useFetch('/api/clearance');
   const tableHeaders: any[] = [
     { title: '', key: 'data-table-expand', align: 'start' },
@@ -122,16 +124,6 @@
     ogUrl: 'classicminidiy.com/technical/clearance',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
     ogType: 'website',
-  });
-</script>
-
-<script lang="ts">
-  export default defineComponent({
-    data() {
-      return {
-        expanded: [],
-      };
-    },
   });
 </script>
 

@@ -87,6 +87,7 @@
             </header>
             <div class="card-content">
               <v-data-table
+                :loading="pending"
                 v-model:expanded="expanded"
                 :headers="tableHeaders"
                 :items="parsedData"
@@ -150,9 +151,9 @@
 
 <script lang="ts" setup>
   import { VDataTable } from 'vuetify/components/VDataTable';
-  import { DateTime } from 'luxon';
-  let tableData: any[] = [];
-  let parsedData: any[] = [];
+  const searchValue = ref('');
+  const expanded = ref([]);
+
   const tableHeaders: any[] = [
     { title: '', key: 'data-table-expand', align: 'start' },
     { title: 'Year', key: 'year', align: 'start' },
@@ -161,16 +162,7 @@
     { title: 'Color', key: 'color', align: 'start' },
   ];
 
-  await useFetch('/api/registry/list').then((response: any) => {
-    tableData = response.data._rawValue.Items;
-    parsedData = tableData.map((item) => {
-      return {
-        ...item,
-        buildDate:
-          typeof item.buildDate !== 'object' ? DateTime.fromISO(item.buildDate).toFormat('LLL dd, yyyy') : '---',
-      };
-    });
-  });
+  const { data: parsedData, pending, error } = await useFetch('/api/registry/list');
 
   useHead({
     title: 'The Classic Mini Register',
@@ -188,17 +180,6 @@
     ogUrl: 'classicminidiy.com/register',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
     ogType: 'website',
-  });
-</script>
-
-<script lang="ts">
-  export default defineComponent({
-    data() {
-      return {
-        searchValue: '',
-        expanded: [],
-      };
-    },
   });
 </script>
 

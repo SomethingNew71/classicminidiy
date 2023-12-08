@@ -97,3 +97,72 @@ export const ToolboxItems: ToolboxItem[] = [
     to: '/technical/colors',
   },
 ];
+
+export const LandingPageToolboxItems = [
+  {
+    title: 'Torque Specs',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
+    to: '/technical/torque',
+  },
+  {
+    title: 'Common Clearances',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
+    to: '/technical/clearance',
+  },
+  {
+    title: 'Electrical Diagrams',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',
+    to: '/technical/electrical',
+  },
+  {
+    title: 'Engine Sizes',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
+    to: '/technical/enginesize',
+  },
+  {
+    title: 'SU Needle Comparison',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp',
+    to: '/technical/needles',
+  },
+  {
+    title: 'Gearbox Calculator',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.webp',
+    to: '/technical/gearing',
+  },
+  {
+    title: 'Wheel Library',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp',
+    to: '/technical/wheels',
+  },
+  {
+    title: 'Compression Ratio Calculator',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
+    to: '/technical/compression',
+  },
+  {
+    title: 'Color Picker',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp',
+    to: '/technical/colors',
+  },
+  {
+    title: 'Parts Equivalency',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.webp',
+    to: '/technical/parts',
+  },
+  {
+    title: 'Compression Ratio Calculator',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
+    to: '/technical/compression',
+  },
+];

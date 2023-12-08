@@ -1,3 +1,16 @@
+<script lang="ts" setup>
+  import { DateTime } from 'luxon';
+  import { LandingPageToolboxItems } from '~/data/models/generic';
+  const title = ref('Classic Mini <br> DIY');
+  const subtitle = ref('YOUR FRIENDLY NEIGHBORHOOD');
+  const background = ref('/hero');
+  const size = ref('is-medium');
+  const birthday = DateTime.local(1989, 5, 11);
+  const today = DateTime.now();
+  // @ts-ignore
+  const age = ref(today.diff(birthday, 'years').toObject().years.toFixed(0));
+</script>
+
 <template>
   <div>
     <hero
@@ -80,7 +93,7 @@
             </p>
             <div class="column is-hidden-touch">
               <div class="columns is-centered pt-50 is-multiline">
-                <div v-for="(item, index) in toolboxItems" :key="index" class="column is-3">
+                <div v-for="(item, index) in LandingPageToolboxItems" :key="index" class="column is-3">
                   <NuxtLink :to="item.to" :title="'Link to ' + item.to">
                     <article class="tile grow is-child has-text-centered">
                       <nuxt-img
@@ -102,7 +115,12 @@
           <div class="is-hidden-desktop mobile-list column is-12">
             <nav class="panel">
               <p class="panel-heading has-background-grey-lighter">Find the Tool You Need</p>
-              <NuxtLink v-for="(item, index) in toolboxItems" :key="index" :to="item.to" class="panel-block is-active">
+              <NuxtLink
+                v-for="(item, index) in LandingPageToolboxItems"
+                :key="index"
+                :to="item.to"
+                class="panel-block is-active"
+              >
                 <span class="panel-icon">
                   <nuxt-img format="webp" :src="item.image" :alt="item.title + ' image'" />
                 </span>
@@ -203,96 +221,6 @@
     <div class="spacer layer1"></div>
   </div>
 </template>
-
-<script>
-  import { DateTime } from 'luxon';
-  import { defineComponent } from '#imports';
-
-  export default defineComponent({
-    data() {
-      return {
-        title: 'Classic Mini <br> DIY',
-        subtitle: 'YOUR FRIENDLY NEIGHBORHOOD',
-        background: '/hero',
-        size: 'is-medium',
-        birthday: DateTime.local(1989, 5, 11),
-        today: DateTime.now(),
-        age: undefined,
-        toolboxItems: [
-          {
-            title: 'Torque Specs',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
-            to: '/technical/torque',
-          },
-          {
-            title: 'Common Clearances',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp',
-            to: '/technical/clearance',
-          },
-          {
-            title: 'Electrical Diagrams',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',
-            to: '/technical/electrical',
-          },
-          {
-            title: 'Engine Sizes',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
-            to: '/technical/enginesize',
-          },
-          {
-            title: 'SU Needle Comparison',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.webp',
-            to: '/technical/needles',
-          },
-          {
-            title: 'Gearbox Calculator',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.webp',
-            to: '/technical/gearing',
-          },
-          {
-            title: 'Wheel Library',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp',
-            to: '/technical/wheels',
-          },
-          {
-            title: 'Compression Ratio Calculator',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
-            to: '/technical/compression',
-          },
-          {
-            title: 'Color Picker',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp',
-            to: '/technical/colors',
-          },
-          {
-            title: 'Parts Equivalency',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.webp',
-            to: '/technical/parts',
-          },
-          {
-            title: 'Compression Ratio Calculator',
-            image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
-            webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp',
-            to: '/technical/compression',
-          },
-        ],
-      };
-    },
-    created() {
-      this.age = this.today.diff(this.birthday, 'years').toObject().years.toFixed(0);
-    },
-  });
-</script>
 
 <style lang="scss">
   .animation-section,

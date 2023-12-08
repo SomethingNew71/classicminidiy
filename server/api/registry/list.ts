@@ -1,5 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { DateTime } from 'luxon';
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig();
@@ -13,13 +14,21 @@ export default defineEventHandler(async () => {
     })
   );
 
-  return await docClient
-    .send(
-      new ScanCommand({
-        TableName: 'MiniRegister',
-      })
-    )
-    .catch((e) => {
-      throw new Error(e);
-    });
+  try {
+    return await docClient
+      .send(
+        new ScanCommand({
+          TableName: 'MiniRegister',
+        })
+      )
+      .then(
+        ({ Items }) =>
+          Items?.map((item) => ({
+            ...item,
+            buildDate: item.buildDate !== 'object' ? DateTime.fromISO(item.buildDate).toFormat('LLL dd, yyyy') : '---',
+          }))
+      );
+  } catch (error) {
+    throw new Error(`Error getting registry info - ${error}`);
+  }
 });

@@ -1,7 +1,4 @@
 import { createVuetify } from 'vuetify';
-import { VBtn } from 'vuetify/components/VBtn';
-import { VImg } from 'vuetify/components/VImg';
-import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/components/VDataTable';
 import { aliases, fa } from 'vuetify/iconsets/fa';
 const cmdiyTheme = {
   dark: false,
@@ -17,13 +14,6 @@ const cmdiyTheme = {
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     ssr: true,
-    components: {
-      VBtn,
-      VImg,
-      VDataTable,
-      VDataTableServer,
-      VDataTableVirtual,
-    },
     icons: {
       defaultSet: 'fa',
       aliases,

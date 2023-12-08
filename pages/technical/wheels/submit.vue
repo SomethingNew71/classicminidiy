@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+  import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
+  const route = useRoute();
+  const uuid = ref(route.query.uuid?.toString());
+  const newWheel = route.query.newWheel === 'true' ? true : false;
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Submit a Wheel'" />
@@ -45,11 +52,3 @@
     </section>
   </div>
 </template>
-
-<script lang="ts" setup>
-  import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
-  const route = useRoute();
-  const uuid = ref(route.query.uuid?.toString());
-  const newWheel = route.query.newWheel === 'true' ? true : false;
-  console.log('newest of wheels', newWheel);
-</script>
