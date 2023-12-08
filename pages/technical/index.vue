@@ -1,3 +1,29 @@
+<script lang="ts" setup>
+  import { ToolboxItems } from '~/data/models/generic';
+  useHead({
+    title: 'Technical Toolbox',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
+      },
+      {
+        property: 'og:title',
+        content: 'Technical Toolbox',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'CMDIY - Technical Toolkit',
+    ogDescription:
+      'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
+    ogUrl: 'classicminidiy.com/technical',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Technical Toolbox'" />
@@ -52,29 +78,3 @@
     </section>
   </div>
 </template>
-
-<script lang="ts" setup>
-  import { ToolboxItems } from '~/data/models/generic';
-  useHead({
-    title: 'Technical Toolbox',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
-      },
-      {
-        property: 'og:title',
-        content: 'Technical Toolbox',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'CMDIY - Technical Toolkit',
-    ogDescription:
-      'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
-    ogUrl: 'classicminidiy.com/technical',
-    ogType: 'website',
-  });
-</script>

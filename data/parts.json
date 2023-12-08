@@ -2,20 +2,6 @@
   "airFilters": {
     "title": "Air Filters",
     "icon": "fa-duotone fa-wind-turbine",
-    "columns": [
-      {
-        "label": "Brand",
-        "field": "brand"
-      },
-      {
-        "label": "Part Number",
-        "field": "part"
-      },
-      {
-        "label": "Usage Info",
-        "field": "info"
-      }
-    ],
     "items": [
       {
         "brand": "K&N",

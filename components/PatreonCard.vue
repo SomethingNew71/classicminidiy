@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+  defineProps({
+    size: {
+      type: String,
+      default: 'large',
+      required: true,
+    },
+  });
+</script>
+
 <template>
   <div>
     <template v-if="size === 'large'">
@@ -60,14 +70,3 @@
     </template>
   </div>
 </template>
-<script>
-  export default defineComponent({
-    props: {
-      size: {
-        type: String,
-        default: 'large',
-        required: true,
-      },
-    },
-  });
-</script>

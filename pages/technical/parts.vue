@@ -1,3 +1,32 @@
+<script lang="ts" setup>
+  import { VDataTable } from 'vuetify/components';
+  const { data: tables } = await useFetch('/api/parts');
+  const searchValue = ref('');
+  const tableHeaders: any[] = [
+    { title: 'Brand', key: 'brand', align: 'start' },
+    { title: 'Part Number', key: 'part', align: 'start' },
+    { title: 'Usage Info', key: 'info', align: 'start' },
+  ];
+
+  useHead({
+    title: 'Tech - Parts Equivalency',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'A complete list of parts which can be found at local parts sellers',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Tech - Parts Equivalency',
+    ogDescription: 'A complete list of parts which can be found at local parts sellers',
+    ogUrl: 'classicminidiy.com/technical/parts',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Parts Equivalency'" />
@@ -43,24 +72,14 @@
                 </h2>
               </div>
               <div class="card-content">
-                <client-only>
-                  <o-table
-                    :data="table.items"
-                    :columns="table.columns"
-                    :narrowed="true"
-                    :hoverable="true"
-                    :paginated="table.items.length >= 14 ? true : false"
-                    :per-page="10"
-                    icon-pack="fas"
-                    :mobile-cards="false"
-                /></client-only>
-              </div>
-            </div>
-          </div>
-          <div v-if="index === 1" :key="`${name}-${index}-patreon`" class="column is-12">
-            <div class="card">
-              <div class="card-content">
-                <patreon-card size="large" />
+                <v-data-table
+                  density="compact"
+                  :headers="tableHeaders"
+                  :items="table.items"
+                  :search="searchValue"
+                  items-per-page="50"
+                >
+                </v-data-table>
               </div>
             </div>
           </div>
@@ -77,36 +96,6 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  const { data: tables } = await useFetch('/api/parts');
-  useHead({
-    title: 'Tech - Parts Equivalency',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'A complete list of parts which can be found at local parts sellers',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'Tech - Parts Equivalency',
-    ogDescription: 'A complete list of parts which can be found at local parts sellers',
-    ogUrl: 'classicminidiy.com/technical/parts',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
-    ogType: 'website',
-  });
-</script>
-
-<script lang="ts">
-  export default defineComponent({
-    data() {
-      return {
-        pagination: {},
-      };
-    },
-  });
-</script>
 <style lang="scss" scoped>
   .card-header {
     background-color: whitesmoke;

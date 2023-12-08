@@ -55,7 +55,10 @@
                 Help support the time and energy that went into creating these by purchasing them directly on my my
                 store. All maps are reaosnably priced at <strong>$25</strong> including all future updates.
               </p>
-              <h4 class="fancy-font-bold is-size-4 pb-4">Latest Releases - {{ releases.latestRelease }}</h4>
+              <h4 v-if="releasesLoading" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
+              <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-4">
+                Latest Releases - {{ releases.latestRelease }}
+              </h4>
               <o-button
                 variant="primary"
                 size="large"
@@ -77,7 +80,10 @@
                 Are you a more of a DIYer? Or perhaps you have a tight budget you are working on? Well no problem
                 because all my maps are availble free of charge directly on Github.
               </p>
-              <h4 class="fancy-font-bold is-size-4 pb-5">Latest Release - {{ releases.latestRelease }}</h4>
+              <h4 v-if="releasesLoading" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
+              <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-5">
+                Latest Release - {{ releases.latestRelease }}
+              </h4>
 
               <o-button
                 class="is-dark"
@@ -195,20 +201,8 @@
     ogUrl: 'classicminidiy.com/technical',
     ogType: 'website',
   });
-  // let repo: any;
   let commits: any = [];
-  let releases: any;
-  // await useFetch('/api/github/repo')
-  //   .then((response: any) => {
-  //     repo = { ...response.data._rawValue };
-  //     console.log(repo);
-  //   })
-  //   .catch((error) => console.error(error));
-  await useFetch('/api/github/releases')
-    .then((response: any) => {
-      releases = { ...response.data._rawValue };
-    })
-    .catch((error) => console.error(error));
+  const { data: releases, pending: releasesLoading, error: releasesError } = await useFetch('/api/github/releases');
   await useFetch('/api/github/commits')
     .then((response: any) => {
       _.forEach(response.data._rawValue, (item) => {

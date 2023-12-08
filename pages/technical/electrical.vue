@@ -1,3 +1,27 @@
+<script lang="ts" setup>
+  import { VExpansionPanel, VExpansionPanelText, VExpansionPanels } from 'vuetify/components/VExpansionPanel';
+  const { data: diagrams } = await useFetch('/api/diagrams');
+  const panels = ref(['Negative Ground']);
+
+  useHead({
+    title: 'Tech - Electrical Diagrams',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Tech - Electrical Diagrams',
+    ogDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+    ogUrl: 'classicminidiy.com/technical/electrical',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Electrical Diagrams'" />
@@ -34,10 +58,11 @@
           </nav>
           <h1 class="title">Electrical Diagrams</h1>
           <div class="column is-12">
-            <v-expansion-panels variant="popout" multiple :color="'grey-lighten-4'">
+            <v-expansion-panels v-model="panels" variant="popout" multiple :color="'grey-lighten-4'">
               <v-expansion-panel
                 v-for="(diagram, name, index) in diagrams"
                 :key="`${name}-${index}`"
+                :value="diagram.title"
                 :title="diagram.title"
               >
                 <v-expansion-panel-text>
@@ -71,45 +96,6 @@
     </section>
   </div>
 </template>
-
-<script lang="ts" setup>
-  const { data: diagrams } = await useFetch('/api/diagrams');
-
-  useHead({
-    title: 'Tech - Electrical Diagrams',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'Tech - Electrical Diagrams',
-    ogDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
-    ogUrl: 'classicminidiy.com/technical/electrical',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
-    ogType: 'website',
-  });
-</script>
-
-<script lang="ts">
-  import {
-    VExpansionPanel,
-    VExpansionPanelText,
-    VExpansionPanelTitle,
-    VExpansionPanels,
-  } from 'vuetify/components/VExpansionPanel';
-  export default defineComponent({
-    components: {
-      VExpansionPanel,
-      VExpansionPanelText,
-      VExpansionPanelTitle,
-      VExpansionPanels,
-    },
-  });
-</script>
 
 <style lang="scss">
   .v-expansion-panel-text__wrapper {

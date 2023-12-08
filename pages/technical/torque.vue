@@ -86,13 +86,15 @@
 </template>
 
 <script lang="ts" setup>
+  import { VDataTable } from 'vuetify/components/VDataTable';
+  const expanded = ref([]);
   const { data: tables } = await useFetch('/api/torque');
-  const tableHeaders: any[] = [
+  const tableHeaders: any = ref([
     { title: '', key: 'data-table-expand', align: 'start' },
     { title: 'Fastener', key: 'name', align: 'start' },
     { title: 'Torque (lb/ft)', key: 'lbft', align: 'start' },
     { title: 'Torque (Nm)', key: 'nm', align: 'start' },
-  ];
+  ]);
   useHead({
     title: 'Tech - Mini Torque Specs',
     meta: [
@@ -113,15 +115,6 @@
   });
 </script>
 
-<script lang="ts">
-  export default defineComponent({
-    data() {
-      return {
-        expanded: [],
-      };
-    },
-  });
-</script>
 <style lang="scss" scoped>
   .card-header {
     background-color: whitesmoke;

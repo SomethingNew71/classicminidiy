@@ -1,3 +1,25 @@
+<script lang="ts" setup>
+  useHead({
+    title: 'Tech - Gearing Calculator',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Tech - Gearing Calculator',
+    ogDescription:
+      "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+    ogUrl: 'classicminidiy.com/technical/gearing',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Gearbox Calculator'" />
@@ -88,25 +110,3 @@
     </section>
   </div>
 </template>
-
-<script lang="ts" setup>
-  useHead({
-    title: 'Tech - Gearing Calculator',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'Tech - Gearing Calculator',
-    ogDescription:
-      "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
-    ogUrl: 'classicminidiy.com/technical/gearing',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
-    ogType: 'website',
-  });
-</script>

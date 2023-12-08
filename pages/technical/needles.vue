@@ -1,3 +1,33 @@
+<script lang="ts" setup>
+  useHead({
+    title: 'Tech - SU Needles Chart',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.',
+      },
+      {
+        property: 'og:title',
+        content: 'Tech - SU Needles Chart',
+      },
+      {
+        property: 'og:image',
+        content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Tech - SU Needles Chart',
+    ogDescription:
+      "Finding the right needle for your Classic Mini Cooper's carburettor can be tough. Use this online comparison chart to find the right profile for your engine build.",
+    ogUrl: 'classicminidiy.com/technical/needles',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Needle Configurator'" />
@@ -88,35 +118,6 @@
     </section>
   </div>
 </template>
-<script lang="ts" setup>
-  useHead({
-    title: 'Tech - SU Needles Chart',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          'Finding the right needle for your Classic Mini Cooper can be tough. Use this online comparison chart to find the right profile for your engine build.',
-      },
-      {
-        property: 'og:title',
-        content: 'Tech - SU Needles Chart',
-      },
-      {
-        property: 'og:image',
-        content: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'Tech - SU Needles Chart',
-    ogDescription:
-      "Finding the right needle for your Classic Mini Cooper's carburettor can be tough. Use this online comparison chart to find the right profile for your engine build.",
-    ogUrl: 'classicminidiy.com/technical/needles',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
-    ogType: 'website',
-  });
-</script>
 
 <style lang="scss">
   .seven-logo {

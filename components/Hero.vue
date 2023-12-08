@@ -1,37 +1,3 @@
-<template>
-  <section
-    class="hero"
-    :class="size"
-    :style="[
-      ecuMap
-        ? {
-            backgroundImage: `url(/img/macbook.jpg)`,
-          }
-        : blog
-        ? {
-            backgroundImage: `url(/img/typewriter.jpg)`,
-          }
-        : {
-            backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background}.webp)`,
-          },
-      !showImage ? { backgroundImage: 'none' } : {},
-    ]"
-  >
-    <div class="hero-body" :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]">
-      <div class="container" :class="{ 'has-text-centered': centered }">
-        <p class="subtitle is-6 has-text-white" :class="{ 'has-text-centered': blog }">
-          {{ subtitle }}
-        </p>
-        <h1
-          v-if="title"
-          class="title fancy-font-bold has-text-white"
-          :class="{ 'special-title': special, 'has-text-centered': blog }"
-          v-html="title"
-        />
-      </div>
-    </div>
-  </section>
-</template>
 <script setup lang="ts">
   defineProps({
     title: {
@@ -72,6 +38,41 @@
     },
   });
 </script>
+
+<template>
+  <section
+    class="hero"
+    :class="size"
+    :style="[
+      ecuMap
+        ? {
+            backgroundImage: `url(/img/macbook.jpg)`,
+          }
+        : blog
+          ? {
+              backgroundImage: `url(/img/typewriter.jpg)`,
+            }
+          : {
+              backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background}.webp)`,
+            },
+      !showImage ? { backgroundImage: 'none' } : {},
+    ]"
+  >
+    <div class="hero-body" :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]">
+      <div class="container" :class="{ 'has-text-centered': centered }">
+        <p class="subtitle is-6 has-text-white" :class="{ 'has-text-centered': blog }">
+          {{ subtitle }}
+        </p>
+        <h1
+          v-if="title"
+          class="title fancy-font-bold has-text-white"
+          :class="{ 'special-title': special, 'has-text-centered': blog }"
+          v-html="title"
+        />
+      </div>
+    </div>
+  </section>
+</template>
 <style lang="scss">
   .hero {
     background-position: center;

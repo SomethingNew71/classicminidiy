@@ -3,21 +3,6 @@
     "title": "Engine",
     "icon": "fad fa-car-mechanic",
     "search": "",
-    "columns": [
-      {
-        "label": "Fastener",
-        "searchable": true,
-        "field": "name"
-      },
-      {
-        "label": "Torque (lb/ft)",
-        "field": "lbft"
-      },
-      {
-        "label": "Torque (Nm)",
-        "field": "nm"
-      }
-    ],
     "items": [
       {
         "name": "Camshaft Retaining Plate Bolts",
@@ -260,21 +245,6 @@
     "title": "Suspension",
     "icon": "fad fa-truck-monster",
     "search": "",
-    "columns": [
-      {
-        "label": "Fastener",
-        "searchable": true,
-        "field": "name"
-      },
-      {
-        "label": "Torque (lb/ft)",
-        "field": "lbft"
-      },
-      {
-        "label": "Torque (Nm)",
-        "field": "nm"
-      }
-    ],
     "items": [
       {
         "name": "Backplate to rear radius arm bolts",
@@ -426,21 +396,6 @@
     "title": "Electrical",
     "icon": "fad fa-bolt",
     "search": "",
-    "columns": [
-      {
-        "label": "Fastener",
-        "searchable": true,
-        "field": "name"
-      },
-      {
-        "label": "Torque (lb/in)",
-        "field": "lbin"
-      },
-      {
-        "label": "Torque (Nm)",
-        "field": "nm"
-      }
-    ],
     "items": [
       {
         "name": "Alternator (11AC) Brush box fixing screws",
@@ -484,21 +439,6 @@
     "title": "Clutch & Gearbox",
     "icon": "fad fa-cogs",
     "search": "",
-    "columns": [
-      {
-        "label": "Fastener",
-        "searchable": true,
-        "field": "name"
-      },
-      {
-        "label": "Torque (lb/ft)",
-        "field": "lbft"
-      },
-      {
-        "label": "Torque (Nm)",
-        "field": "nm"
-      }
-    ],
     "items": [
       {
         "name": "Bottom Cover set screws 1/4in dia. UNC (change-speed tower)",

@@ -2,6 +2,7 @@
   import type { IWheelsData } from '~/data/models/wheels';
   import { VCard, VCardText, VCardItem } from 'vuetify/components/VCard';
   import { VIcon } from 'vuetify/components/VIcon';
+  import { VImg } from 'vuetify/components/VImg';
   import { VBtn } from 'vuetify/components/VBtn';
   import { VExpansionPanel, VExpansionPanels, VExpansionPanelText } from 'vuetify/components/VExpansionPanel';
   import { VList, VListItem } from 'vuetify/components/VList';
@@ -52,7 +53,7 @@
     </v-card-text>
     <v-card-item>
       <v-row justify="space-between">
-        <v-col cols="6">
+        <v-col>
           <v-list>
             <v-list-item
               :subtitle="wheel.size ? wheel.size : 'Unknown'"
@@ -69,7 +70,7 @@
             </v-list-item> </v-list
         ></v-col>
         <v-divider vertical thickness="3"></v-divider>
-        <v-col cols="6" class="text-right">
+        <v-col class="text-right">
           <v-list>
             <v-list-item
               :subtitle="wheel.type ? wheel.type : 'Unknown'"

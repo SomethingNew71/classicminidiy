@@ -1,3 +1,22 @@
+<script lang="ts" setup>
+  import { useDisplay } from 'vuetify';
+  import { ToolboxItems } from '~/data/models/generic';
+  import {
+    VAppBar,
+    VBtn,
+    VDivider,
+    VMenu,
+    VList,
+    VListItem,
+    VListItemTitle,
+    VNavigationDrawer,
+    VListSubheader,
+    VImg,
+  } from 'vuetify/components';
+  const { lgAndUp } = useDisplay();
+  const showDrawer = ref(false);
+</script>
+
 <template>
   <v-app-bar scroll-behavior="elevate">
     <template #prepend>
@@ -102,24 +121,6 @@
     </v-list>
   </v-navigation-drawer>
 </template>
-
-<script lang="ts" setup>
-  import { useDisplay } from 'vuetify';
-  import { ToolboxItems } from '~/data/models/generic';
-  import {
-    VAppBar,
-    VBtn,
-    VDivider,
-    VMenu,
-    VList,
-    VListItem,
-    VListItemTitle,
-    VNavigationDrawer,
-    VListSubheader,
-  } from 'vuetify/components';
-  const { lgAndUp } = useDisplay();
-  const showDrawer = ref(false);
-</script>
 
 <style lang="scss">
   .donate {

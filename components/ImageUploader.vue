@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+  import { ref } from 'vue';
+
+  const dropFiles: any = ref([]);
+  const deleteDropFile = (index: number) => {
+    dropFiles.value.splice(index, 1);
+  };
+</script>
+
 <template>
   <div class="columns">
     <o-field class="column is-12">
@@ -45,15 +54,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue';
-
-  const dropFiles: any = ref([]);
-  const deleteDropFile = (index: number) => {
-    dropFiles.value.splice(index, 1);
-  };
-</script>
 
 <style lang="scss">
   .upload-draggable.is-hovered {
