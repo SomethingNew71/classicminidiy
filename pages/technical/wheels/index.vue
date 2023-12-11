@@ -65,7 +65,11 @@
         </v-col>
       </v-row>
       <v-divider></v-divider>
-      <WheelGrid></WheelGrid>
+      <v-row class="mb-4">
+        <v-col cols="12">
+          <WheelGrid></WheelGrid>
+        </v-col>
+      </v-row>
       <v-footer class="bg-light-grey-lighten-1 text-center d-flex flex-column">
         <div class="pt-0">
           <h2 class="subtitle">
