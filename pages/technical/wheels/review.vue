@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   import { VDataIterator } from 'vuetify/components/VDataIterator';
   import { VSheet } from 'vuetify/components/VSheet';
+  import { VBtn } from 'vuetify/components/VBtn';
+  import { VImg } from 'vuetify/components/VImg';
   import { VListItem } from 'vuetify/components/VList';
   import { VTextField } from 'vuetify/components/VTextField';
   import { VRow, VCol, VContainer } from 'vuetify/components/VGrid';
@@ -166,7 +168,7 @@
 
           <template v-slot:default="{ items }">
             <v-row>
-              <v-col v-for="(item, i) in items" :key="i" cols="4">
+              <v-col v-for="(item, i) in items" :key="i" cols="12" md="4" xl="3">
                 <v-sheet border>
                   <template v-if="item.raw.new.images?.length >= 1">
                     <v-carousel height="250">
@@ -174,6 +176,9 @@
                         <v-carousel-item :src="image"></v-carousel-item>
                       </template>
                     </v-carousel>
+                  </template>
+                  <template v-else>
+                    <v-img height="250" src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.png"></v-img>
                   </template>
 
                   <v-list-item lines="two" density="comfortable">
