@@ -1,3 +1,32 @@
+<script lang="ts" setup>
+  const expanded = ref([]);
+  const { data: tables } = await useFetch('/api/torque');
+  const tableHeaders: any = ref([
+    { title: '', key: 'data-table-expand', align: 'start' },
+    { title: 'Fastener', key: 'name', align: 'start' },
+    { title: 'Torque (lb/ft)', key: 'lbft', align: 'start' },
+    { title: 'Torque (Nm)', key: 'nm', align: 'start' },
+  ]);
+  useHead({
+    title: 'Tech - Mini Torque Specs',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Tech - Mini Torque Specs',
+    ogDescription:
+      'Detailed torque specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
+    ogUrl: 'classicminidiy.com/technical/torque',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Torque Specs'" />
@@ -84,36 +113,6 @@
     </section>
   </div>
 </template>
-
-<script lang="ts" setup>
-  import { VDataTable } from 'vuetify/components/VDataTable';
-  const expanded = ref([]);
-  const { data: tables } = await useFetch('/api/torque');
-  const tableHeaders: any = ref([
-    { title: '', key: 'data-table-expand', align: 'start' },
-    { title: 'Fastener', key: 'name', align: 'start' },
-    { title: 'Torque (lb/ft)', key: 'lbft', align: 'start' },
-    { title: 'Torque (Nm)', key: 'nm', align: 'start' },
-  ]);
-  useHead({
-    title: 'Tech - Mini Torque Specs',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'Tech - Mini Torque Specs',
-    ogDescription:
-      'Detailed torque specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
-    ogUrl: 'classicminidiy.com/technical/torque',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
-    ogType: 'website',
-  });
-</script>
 
 <style lang="scss" scoped>
   .card-header {

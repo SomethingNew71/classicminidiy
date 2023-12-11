@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { VExpansionPanel, VExpansionPanelText, VExpansionPanels } from 'vuetify/components/VExpansionPanel';
   const { data: diagrams } = await useFetch('/api/diagrams');
   const panels = ref(['Negative Ground']);
 

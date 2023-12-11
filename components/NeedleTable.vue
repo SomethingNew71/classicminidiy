@@ -1,14 +1,6 @@
-<script>
+<script lang="ts" setup>
   import needlesTables from '~/data/suggestedNeedles.json';
-
-  export default defineComponent({
-    data() {
-      return {
-        pagination: {},
-        tables: needlesTables,
-      };
-    },
-  });
+  const tables = ref(needlesTables);
 </script>
 
 <template>
@@ -18,7 +10,6 @@
         <div class="card">
           <div class="card-header">
             <h2 class="card-header-title">
-              <i :class="table.icon"></i>
               <span class="pl-2">{{ table.title }}</span>
             </h2>
           </div>

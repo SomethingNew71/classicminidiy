@@ -1,9 +1,4 @@
-<script lang="ts" setup>
-  import { VTextField } from 'vuetify/components/VTextField';
-  import { VSelect } from 'vuetify/components/VSelect';
-  import { VTextarea } from 'vuetify/components/VTextarea';
-  import { VForm } from 'vuetify/components/VForm';
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <div class="card">

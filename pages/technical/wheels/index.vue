@@ -87,10 +87,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
-  import { VIcon } from 'vuetify/components/VIcon';
-  import { VFooter } from 'vuetify/components/VFooter';
-  import { VDivider } from 'vuetify/components/VDivider';
   useHead({
     title: 'Tech - Wheel Dictionary',
     meta: [

@@ -1,18 +1,6 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
   import { ToolboxItems } from '~/data/models/generic';
-  import {
-    VAppBar,
-    VBtn,
-    VDivider,
-    VMenu,
-    VList,
-    VListItem,
-    VListItemTitle,
-    VNavigationDrawer,
-    VListSubheader,
-    VImg,
-  } from 'vuetify/components';
   const { lgAndUp } = useDisplay();
   const showDrawer = ref(false);
 </script>

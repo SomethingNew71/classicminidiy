@@ -1,3 +1,5 @@
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+
 export default defineNuxtConfig({
   /*
    ** Headers of the page
@@ -88,6 +90,12 @@ export default defineNuxtConfig({
     'nuxt-simple-robots',
     '@nuxt/image',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
+    (_options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({ autoImport: true }));
+      });
+    },
   ],
 
   robots: {
@@ -126,6 +134,11 @@ export default defineNuxtConfig({
   vite: {
     define: {
       'process.env.DEBUG': false,
+    },
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
     },
   },
 

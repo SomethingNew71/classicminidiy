@@ -1,3 +1,25 @@
+<script lang="ts" setup>
+  useHead({
+    title: 'Tech - Color Picker',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Tech - Color Picker',
+    ogDescription:
+      'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
+    ogUrl: 'classicminidiy.com/technical/colors',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Color Picker'" />
@@ -140,27 +162,6 @@
     </section>
   </div>
 </template>
-<script lang="ts" setup>
-  useHead({
-    title: 'Tech - Color Picker',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'Tech - Color Picker',
-    ogDescription:
-      'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
-    ogUrl: 'classicminidiy.com/technical/colors',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
-    ogType: 'website',
-  });
-</script>
 <script lang="ts">
   import * as colors from '~/data/colors.json';
   import type { Color } from '~/data/models/colors';

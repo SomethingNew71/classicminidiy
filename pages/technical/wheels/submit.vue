@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
   const route = useRoute();
   const uuid = ref(route.query.uuid?.toString());
   const newWheel = route.query.newWheel === 'true' ? true : false;
