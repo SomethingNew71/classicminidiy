@@ -1,3 +1,36 @@
+<script lang="ts" setup>
+  const searchValue = ref('');
+  const expanded = ref([]);
+
+  const tableHeaders: any[] = [
+    { title: '', key: 'data-table-expand', align: 'start' },
+    { title: 'Year', key: 'year', align: 'start' },
+    { title: 'Model', key: 'model', align: 'start' },
+    { title: 'Trim', key: 'trim', align: 'start' },
+    { title: 'Color', key: 'color', align: 'start' },
+  ];
+
+  const { data: parsedData, pending, error } = await useFetch('/api/registry/list');
+
+  useHead({
+    title: 'The Classic Mini Register',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Complete compendium of all known minis, as submitted by their owners.',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'The Classic Mini Register',
+    ogDescription: 'Complete compendium of all known minis, as submitted by their owners.',
+    ogUrl: 'classicminidiy.com/register',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Mini Registry'" />
@@ -148,40 +181,6 @@
     </section>
   </div>
 </template>
-
-<script lang="ts" setup>
-  import { VDataTable } from 'vuetify/components/VDataTable';
-  const searchValue = ref('');
-  const expanded = ref([]);
-
-  const tableHeaders: any[] = [
-    { title: '', key: 'data-table-expand', align: 'start' },
-    { title: 'Year', key: 'year', align: 'start' },
-    { title: 'Model', key: 'model', align: 'start' },
-    { title: 'Trim', key: 'trim', align: 'start' },
-    { title: 'Color', key: 'color', align: 'start' },
-  ];
-
-  const { data: parsedData, pending, error } = await useFetch('/api/registry/list');
-
-  useHead({
-    title: 'The Classic Mini Register',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Complete compendium of all known minis, as submitted by their owners.',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'The Classic Mini Register',
-    ogDescription: 'Complete compendium of all known minis, as submitted by their owners.',
-    ogUrl: 'classicminidiy.com/register',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
-    ogType: 'website',
-  });
-</script>
 
 <style lang="scss">
   .v-data-table__td:not(.v-data-table-column--no-padding) {

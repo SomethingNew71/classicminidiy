@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+  const { data: stats, pending, error } = await useFetch('/api/youtube/stats');
+</script>
+
 <template>
   <div class="card mb-5">
     <nav class="level py-4">
@@ -37,10 +41,6 @@
     </nav>
   </div>
 </template>
-
-<script lang="ts" setup>
-  const { data: stats, pending, error } = await useFetch('/api/youtube/stats');
-</script>
 
 <style lang="scss" scoped>
   .card {

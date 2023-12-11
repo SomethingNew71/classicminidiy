@@ -1,16 +1,4 @@
 <script lang="ts" setup>
-  import { VDataIterator } from 'vuetify/components/VDataIterator';
-  import { VSheet } from 'vuetify/components/VSheet';
-  import { VBtn } from 'vuetify/components/VBtn';
-  import { VImg } from 'vuetify/components/VImg';
-  import { VListItem } from 'vuetify/components/VList';
-  import { VTextField } from 'vuetify/components/VTextField';
-  import { VRow, VCol, VContainer } from 'vuetify/components/VGrid';
-  import { VTable } from 'vuetify/components/VTable';
-  import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
-  import { VDivider } from 'vuetify/components/VDivider';
-  import { VAlert } from 'vuetify/components/VAlert';
-  import { VCarousel, VCarouselItem } from 'vuetify/components/VCarousel';
   import type { IWheelsData } from '~/data/models/wheels';
 
   const wheelsToReview: any = ref([]);

@@ -1,3 +1,4 @@
+import 'vuetify/styles';
 import { createVuetify } from 'vuetify';
 import { aliases, fa } from 'vuetify/iconsets/fa';
 const cmdiyTheme = {

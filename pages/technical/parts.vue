@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { VDataTable } from 'vuetify/components';
   const { data: tables } = await useFetch('/api/parts');
   const searchValue = ref('');
   const tableHeaders: any[] = [

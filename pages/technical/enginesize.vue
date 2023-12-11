@@ -1,6 +1,5 @@
 <script lang="ts" setup>
   const { data, pending } = await useFetch('/api/engines');
-  import { VSkeletonLoader, VCol, VRow } from 'vuetify/components';
 
   useHead({
     title: 'Tech - Engine Sizes/Displacements',

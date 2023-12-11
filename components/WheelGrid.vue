@@ -1,15 +1,9 @@
 <script lang="ts" setup>
-  import { VCol, VRow } from 'vuetify/components/VGrid';
-  import { VDataIterator } from 'vuetify/components/VDataIterator';
-  import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
-  import { VBtnToggle } from 'vuetify/components/VBtnToggle';
-  import { VTextField } from 'vuetify/components/VTextField';
-  import { VBtn } from 'vuetify/components/VBtn';
   const size = ref('ten');
   const search = ref('');
+  let page = ref(1);
 
   let { data: wheels, pending, error }: any = await useFetch(() => `/api/wheels/${size.value}`);
-  let page = ref(1);
 </script>
 
 <template>

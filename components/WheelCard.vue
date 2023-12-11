@@ -1,14 +1,5 @@
 <script lang="ts" setup>
   import type { IWheelsData } from '~/data/models/wheels';
-  import { VCard, VCardText, VCardItem } from 'vuetify/components/VCard';
-  import { VIcon } from 'vuetify/components/VIcon';
-  import { VImg } from 'vuetify/components/VImg';
-  import { VBtn } from 'vuetify/components/VBtn';
-  import { VExpansionPanel, VExpansionPanels, VExpansionPanelText } from 'vuetify/components/VExpansionPanel';
-  import { VList, VListItem } from 'vuetify/components/VList';
-  import { VRow, VCol } from 'vuetify/components/VGrid';
-  import { VDivider } from 'vuetify/components/VDivider';
-  import { VCarousel, VCarouselItem } from 'vuetify/components/VCarousel';
 
   defineProps({
     wheel: {

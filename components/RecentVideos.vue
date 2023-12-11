@@ -1,3 +1,7 @@
+<script setup lang="ts">
+  const { data: videos, pending, error } = await useFetch('/api/youtube/videos');
+</script>
+
 <template>
   <v-row>
     <h3 class="fancy-font-bold is-size-3 has-text-centered pb-5">Recent Videos</h3>
@@ -31,11 +35,3 @@
     </v-row>
   </v-row>
 </template>
-
-<script setup lang="ts">
-  import { VCol, VRow } from 'vuetify/components/VGrid';
-  import { VCard, VCardTitle, VCardSubtitle } from 'vuetify/components/VCard';
-  import { VImg } from 'vuetify/components/VImg';
-  import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
-  const { data: videos, pending, error } = await useFetch('/api/youtube/videos');
-</script>

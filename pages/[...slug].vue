@@ -1,3 +1,63 @@
+<script setup lang="ts">
+  import type { Post } from '~/data/models/generic';
+  const { path, fullPath } = await useRoute();
+  let initialData: any;
+  let currentPostData: Post;
+  let currentPostViews = ref();
+  let isLoading = ref(true);
+
+  if (!path.includes('/dev-sw.js') && !path.includes('/workbox-')) {
+    await queryContent(path)
+      .findOne()
+      .then(async (res: Post) => {
+        currentPostData = { ...(await res) };
+        await useFetch('/api/blog/getCount', {
+          params: { title: currentPostData.title || '' },
+        }).then(async (response: any) => {
+          console.log(response);
+
+          initialData = response.data._rawValue;
+          if (currentPostData.title) {
+            if (initialData?.Item?.Count) {
+              currentPostViews.value = await useFetch('/api/blog/updateCount', {
+                method: 'POST',
+                body: { title: currentPostData.title, count: initialData.Item.Count },
+              }).then((res: any) => res.data._rawValue);
+            } else if (!initialData.Item) {
+              currentPostViews.value = await useFetch('/api/blog/updateCount', {
+                method: 'POST',
+                body: { title: currentPostData.title, count: 1 },
+              }).then((res: any) => res.data._rawValue);
+            }
+          }
+        });
+
+        useHead({
+          title: `The (C)archive - ${currentPostData.title || ''}`,
+          meta: [
+            {
+              hid: 'description',
+              name: 'description',
+              content: currentPostData.description || '',
+            },
+          ],
+        });
+        useSeoMeta({
+          ogTitle: `The (C)archive - ${currentPostData.title || ''}`,
+          ogDescription: currentPostData.description || '',
+          ogUrl: fullPath,
+          ogImage: currentPostData.image ? `https://classicminidiy.com${currentPostData.image}` : '',
+          ogType: 'article',
+          author: currentPostData.author || '',
+        });
+      })
+      .catch((e) => console.log('Query Content error: ', e))
+      .finally(() => {
+        isLoading.value = false;
+      });
+  }
+</script>
+
 <template>
   <main>
     <hero
@@ -74,66 +134,6 @@
     </div>
   </main>
 </template>
-
-<script setup lang="ts">
-  import type { Post } from '~/data/models/generic';
-  const { path, fullPath } = await useRoute();
-  let initialData: any;
-  let currentPostData: Post;
-  let currentPostViews = ref();
-  let isLoading = ref(true);
-
-  if (!path.includes('/dev-sw.js') && !path.includes('/workbox-')) {
-    await queryContent(path)
-      .findOne()
-      .then(async (res: Post) => {
-        currentPostData = { ...(await res) };
-        await useFetch('/api/blog/getCount', {
-          params: { title: currentPostData.title || '' },
-        }).then(async (response: any) => {
-          console.log(response);
-
-          initialData = response.data._rawValue;
-          if (currentPostData.title) {
-            if (initialData?.Item?.Count) {
-              currentPostViews.value = await useFetch('/api/blog/updateCount', {
-                method: 'POST',
-                body: { title: currentPostData.title, count: initialData.Item.Count },
-              }).then((res: any) => res.data._rawValue);
-            } else if (!initialData.Item) {
-              currentPostViews.value = await useFetch('/api/blog/updateCount', {
-                method: 'POST',
-                body: { title: currentPostData.title, count: 1 },
-              }).then((res: any) => res.data._rawValue);
-            }
-          }
-        });
-
-        useHead({
-          title: `The (C)archive - ${currentPostData.title || ''}`,
-          meta: [
-            {
-              hid: 'description',
-              name: 'description',
-              content: currentPostData.description || '',
-            },
-          ],
-        });
-        useSeoMeta({
-          ogTitle: `The (C)archive - ${currentPostData.title || ''}`,
-          ogDescription: currentPostData.description || '',
-          ogUrl: fullPath,
-          ogImage: currentPostData.image ? `https://classicminidiy.com${currentPostData.image}` : '',
-          ogType: 'article',
-          author: currentPostData.author || '',
-        });
-      })
-      .catch((e) => console.log('Query Content error: ', e))
-      .finally(() => {
-        isLoading.value = false;
-      });
-  }
-</script>
 
 <style lang="scss">
   main {

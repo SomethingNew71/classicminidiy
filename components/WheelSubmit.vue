@@ -10,20 +10,6 @@
     },
   });
   import type { IWheelsData } from '~/data/models/wheels';
-  import { VStepper } from 'vuetify/components/VStepper';
-  import { VSkeletonLoader } from 'vuetify/components/VSkeletonLoader';
-  import { VCol, VContainer, VRow } from 'vuetify/components/VGrid';
-  import { VCard } from 'vuetify/components/VCard';
-  import { VForm } from 'vuetify/components/VForm';
-  import { VLabel } from 'vuetify/components/VLabel';
-  import { VTextField } from 'vuetify/components/VTextField';
-  import { VFileInput } from 'vuetify/components/VFileInput';
-  import { VSelect } from 'vuetify/components/VSelect';
-  import { VAvatar } from 'vuetify/components/VAvatar';
-  import { VIcon } from 'vuetify/components/VIcon';
-  import { VImg } from 'vuetify/components/VImg';
-  import { VProgressCircular } from 'vuetify/components/VProgressCircular';
-  import { VList, VListItem, VListSubheader } from 'vuetify/components/VList';
   import { humanFileSize } from '~/data/models/helper-utils';
   import { useRecaptchaToken } from '~/composables/recaptcha';
   const wheel = ref();
