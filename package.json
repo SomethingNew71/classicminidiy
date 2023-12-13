@@ -50,7 +50,7 @@
     "redirect-ssl": "^3.0.0",
     "sass": "^1.69.5",
     "uuid": "^9.0.1",
-    "vite-plugin-vuetify": "^1.0.2",
+    "vite-plugin-vuetify": "^2.0.1",
     "vue-cookie-law": "^1.13.3",
     "vue-recaptcha-v3": "^2.0.1",
     "vuetify": "3.4.6"
@@ -72,7 +72,7 @@
     "nuxt-disqus": "^1.0.1",
     "nuxt-gtag": "^1.1.1",
     "nuxt-simple-robots": "^3.1.10",
-    "nuxt-simple-sitemap": "^4.1.11",
+    "nuxt-simple-sitemap": "^4.1.15",
     "prettier": "3.1.1"
   }
 }
