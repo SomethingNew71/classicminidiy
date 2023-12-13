@@ -114,6 +114,7 @@
           :max="9000"
           :step="500"
           @input="calculateRatio()"
+          @change="calculateRatio()"
         >
           <o-slider-tick v-for="val in [6000, 6500, 7000, 7500, 8000, 8500, 9000]" :key="val" :value="val">{{
             val
