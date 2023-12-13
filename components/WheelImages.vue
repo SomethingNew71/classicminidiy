@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify/lib/framework.mjs';
-  const { smAndDown } = useDisplay();
+  const { smAndDown, lgAndUp } = useDisplay();
   const height = ref();
   const width = ref();
   defineProps({
@@ -10,26 +10,38 @@
       default: [],
     },
   });
-
-  switch (smAndDown.value) {
-    case true:
-      height.value = 100;
-      width.value = 100;
-      break;
-    case true:
-      height.value = 100;
-      width.value = 100;
-      break;
-
-    default:
-      break;
-  }
 </script>
 
 <template>
   <v-dialog width="500">
     <template v-slot:activator="{ props }">
-      <v-img class="table-wheel" cover v-bind="props" :src="images[0].src" :height="75" :width="75"></v-img>
+      <v-img
+        v-if="smAndDown"
+        class="table-wheel py-5"
+        cover
+        v-bind="props"
+        :src="images[0].src"
+        height="75"
+        width="75"
+      ></v-img>
+      <v-img
+        v-else-if="lgAndUp"
+        class="table-wheel py-5"
+        cover
+        v-bind="props"
+        :src="images[0].src"
+        height="200"
+        width="200"
+      ></v-img>
+      <v-img
+        v-else=""
+        class="table-wheel py-5"
+        cover
+        v-bind="props"
+        :src="images[0].src"
+        height="100"
+        width="100"
+      ></v-img>
     </template>
 
     <template v-slot:default="{ isActive }">

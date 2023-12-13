@@ -99,9 +99,7 @@
       show-expand
     >
       <template v-slot:item.images="{ item }">
-        <v-card class="my-5" elevation="2" rounded>
-          <WheelImages :images="item.images"></WheelImages>
-        </v-card>
+        <WheelImages :images="item.images"></WheelImages>
       </template>
       <template v-slot:item.name="{ item }">
         <p class="mt-4 text-subtitle-1 text-capitalize">
