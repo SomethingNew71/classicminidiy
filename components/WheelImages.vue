@@ -1,8 +1,6 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify/lib/framework.mjs';
   const { smAndDown, lgAndUp } = useDisplay();
-  const height = ref();
-  const width = ref();
   defineProps({
     images: {
       type: Array as PropType<{ src: string; inReview: boolean }[]>,
@@ -39,8 +37,8 @@
         cover
         v-bind="props"
         :src="images[0].src"
-        height="100"
-        width="100"
+        height="150"
+        width="150"
       ></v-img>
     </template>
 
@@ -68,6 +66,7 @@
   .table-wheel {
     opacity: 1;
     transition: ease-in-out 300ms;
+    max-height: unset;
     &:hover {
       opacity: 0.6;
       cursor: pointer;
