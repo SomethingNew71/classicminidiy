@@ -15,7 +15,7 @@
     <template v-slot:activator="{ props }">
       <v-img
         v-if="smAndDown"
-        class="table-wheel py-5"
+        class="table-wheel py-5 my-5 rounded-xl"
         cover
         v-bind="props"
         :src="images[0].src"
@@ -24,7 +24,7 @@
       ></v-img>
       <v-img
         v-else-if="lgAndUp"
-        class="table-wheel py-5"
+        class="table-wheel py-5 my-5 rounded-xl"
         cover
         v-bind="props"
         :src="images[0].src"
@@ -33,7 +33,7 @@
       ></v-img>
       <v-img
         v-else=""
-        class="table-wheel py-5"
+        class="table-wheel py-5 my-5 rounded-xl"
         cover
         v-bind="props"
         :src="images[0].src"

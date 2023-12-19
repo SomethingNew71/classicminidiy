@@ -1,8 +1,9 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
-  const { smAndDown, mdAndUp, mdAndDown } = useDisplay();
+  const { smAndDown, mdAndUp } = useDisplay();
   const search = ref('');
   const expanded = ref();
+  const size = ref('list');
   const tableHeaders: any[] = [
     { title: 'Notes', key: 'data-table-expand', align: 'start', sortable: false },
     {
@@ -46,7 +47,7 @@
     },
   ];
 
-  let { data: wheels, pending, error }: any = await useFetch(() => '/api/wheels/list');
+  let { data: wheels, pending, error }: any = await useFetch(() => `/api/wheels/${size.value}`);
 </script>
 
 <template>
@@ -83,6 +84,16 @@
         <v-col cols="12" md="6">
           Use the search above to filter for any field in the table below instantly. Notice some data missing? Click the
           edit button to contribute!
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-btn-toggle v-model="size" mandatory rounded="10" color="primary" group elevation="2">
+            <v-btn value="list" :active="size === 'list'"> All </v-btn>
+            <v-btn value="ten" :active="size === 'ten'"> 10 </v-btn>
+            <v-btn value="twelve" :active="size === 'twelve'"> 12 </v-btn>
+            <v-btn value="thirteen" :active="size === 'thirteen'"> 13 </v-btn>
+          </v-btn-toggle>
         </v-col>
       </v-row>
     </v-card-text>
