@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  const crumbs = [];
   useHead({
     title: 'Tech - Color Picker',
     meta: [
@@ -26,35 +27,7 @@
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">
-          <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <NuxtLink to="/">
-                  <span class="icon is-small">
-                    <i class="fad fa-home" aria-hidden="true" />
-                  </span>
-                  <span>Home</span>
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/technical">
-                  <span class="icon is-small">
-                    <i class="fad fa-info-circle" aria-hidden="true" />
-                  </span>
-                  <span>Technical Info</span>
-                </NuxtLink>
-              </li>
-              <li class="is-active">
-                <NuxtLink to="">
-                  <span class="icon is-small">
-                    <i class="fad fa-palette" aria-hidden="true"></i>
-                  </span>
-                  <span>Color Swatches</span>
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
-
+          <breadcrumb page="Color Swatches"></breadcrumb>
           <h1 class="title">Classic Mini Color Picker</h1>
           <p>
             In an effort to make more information availble, Classic Mini DIY has partnered with

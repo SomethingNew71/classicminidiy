@@ -28,34 +28,7 @@
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">
-          <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <NuxtLink to="/">
-                  <span class="icon is-small">
-                    <i class="fad fa-home" aria-hidden="true" />
-                  </span>
-                  <span>Home</span>
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/technical">
-                  <span class="icon is-small">
-                    <i class="fad fa-info-circle" aria-hidden="true" />
-                  </span>
-                  <span>Technical Info</span>
-                </NuxtLink>
-              </li>
-              <li class="is-active">
-                <NuxtLink to="">
-                  <span class="icon is-small">
-                    <i class="fad fa-cogs" aria-hidden="true"></i>
-                  </span>
-                  <span>Engine Sizes</span>
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
+          <breadcrumb page="Engine Sizes"></breadcrumb>
 
           <div class="columns">
             <div class="column is-8">
