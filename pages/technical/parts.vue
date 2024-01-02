@@ -32,34 +32,7 @@
     <section class="section">
       <div class="columns is-multiline">
         <div class="column is-12">
-          <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <NuxtLink to="/">
-                  <span class="icon is-small">
-                    <i class="fad fa-home" aria-hidden="true" />
-                  </span>
-                  <span>Home</span>
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/technical">
-                  <span class="icon is-small">
-                    <i class="fad fa-info-circle" aria-hidden="true" />
-                  </span>
-                  <span>Technical Info</span>
-                </NuxtLink>
-              </li>
-              <li class="is-active">
-                <NuxtLink to="">
-                  <span class="icon is-small">
-                    <i class="fad fa-puzzle" aria-hidden="true" />
-                  </span>
-                  <span>Parts Equivalency</span>
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
+          <breadcrumb page="Parts Equivalency"></breadcrumb>
         </div>
         <template v-for="(table, name, index) in tables" :key="`${name}-${index}`">
           <div class="column is-12">
