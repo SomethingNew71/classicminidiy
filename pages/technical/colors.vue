@@ -1,5 +1,45 @@
 <script lang="ts" setup>
-  const crumbs = [];
+  import { useDisplay } from 'vuetify';
+  const { smAndDown, mdAndUp } = useDisplay();
+  const search = ref('');
+  const tableHeaders: any[] = [
+    {
+      title: 'Primary Color',
+      key: 'primaryColor',
+    },
+    {
+      title: 'Color Name',
+      key: 'name',
+    },
+    {
+      title: 'Short Code',
+      key: 'shortCode',
+    },
+    {
+      title: 'BMC Code',
+      key: 'code',
+    },
+    {
+      title: 'Ditzler/PPG Code',
+      key: 'ditzlerPpgCode',
+    },
+    {
+      title: 'Dulux Code',
+      key: 'duluxCode',
+    },
+    {
+      title: 'Years Used',
+      key: 'years',
+    },
+    {
+      title: 'edit',
+      key: 'Edit',
+      align: 'center',
+      sortable: false,
+    },
+  ];
+  let { data: colors, pending, error }: any = await useFetch(() => `/api/colors/list`);
+
   useHead({
     title: 'Tech - Color Picker',
     meta: [
@@ -24,37 +64,86 @@
 <template>
   <div>
     <hero :navigation="true" :title="'Color Picker'" />
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-12">
+    <v-container>
+      <v-row align="center">
+        <v-col cols="8">
           <breadcrumb page="Color Swatches"></breadcrumb>
-          <h1 class="title">Classic Mini Color Picker</h1>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col cols="12" md="8">
+          <h2 class="title">Classic Mini Color Picker</h2>
           <p>
             In an effort to make more information availble, Classic Mini DIY has partnered with
             <a href="http://mini-colours.co.uk">mini-colours.co.uk</a> to provide you with a comprehensive list of the
             colors used on the Classic Mini throughout the years.
           </p>
-          <hr />
-          <client-only>
-            <o-field class="mb-4" :position="'left'" label="Search for your color below">
-              <o-input
-                v-model="searchString"
-                placeholder="Ex. Willow Green"
-                @keyup.enter.native="standardSearch()"
-              ></o-input>
-              <p class="control">
-                <o-button
-                  class="button is-primary search-button"
-                  aria-label="Search box for color"
-                  @click="standardSearch"
+        </v-col>
+      </v-row>
+      <v-divider></v-divider>
+      <v-row>
+        <v-col cols="12">
+          <v-card elevation="5">
+            <v-card-title class="d-flex align-center pe-2">
+              <v-icon icon="fad fa-tire fa-spin" class="me-1 py-2"></v-icon> &nbsp; Find your Color
+              <v-spacer></v-spacer>
+              <v-text-field
+                v-if="mdAndUp"
+                v-model="search"
+                prepend-inner-icon="fad fa-search"
+                density="compact"
+                placeholder="Search for anything"
+                single-line
+                flat
+                hide-details
+                variant="solo-filled"
+              ></v-text-field>
+            </v-card-title>
+            <v-card-text v-if="smAndDown">
+              <v-text-field
+                v-model="search"
+                prepend-inner-icon="fad fa-search"
+                density="compact"
+                placeholder="Search for anything"
+                single-line
+                flat
+                hide-details
+                variant="solo-filled"
+              ></v-text-field>
+            </v-card-text>
+            <v-card-text>
+              <v-row>
+                <v-col cols="12" md="6">
+                  Use the search above to filter for any field in the table below instantly. Notice some data missing?
+                  Click the edit button to contribute!
+                </v-col>
+              </v-row>
+            </v-card-text>
+
+            <v-divider></v-divider>
+            <v-data-table
+              :loading="pending"
+              v-model:search="search"
+              :items="colors"
+              :headers="tableHeaders"
+              :item-value="'id'"
+              fixed-header
+            >
+              <template v-slot:item.edit="{ item }">
+                <v-btn
+                  class="text-center"
+                  variant="plain"
+                  size="large"
+                  icon="fa-duotone fa-edit"
+                  :to="`/technical/wheels/submit?uuid=${item.id}`"
                 >
-                  <i class="fad fa-search"></i>
-                </o-button>
-              </p>
-            </o-field>
-          </client-only>
-        </div>
-        <div class="column is-12">
+                </v-btn>
+              </template>
+            </v-data-table>
+          </v-card>
+        </v-col>
+
+        <!-- <div class="column is-12">
           <div class="card">
             <div class="card-header">
               <h2 class="card-header-title">Colors</h2>
@@ -130,64 +219,11 @@
               </client-only>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div> -->
+      </v-row>
+    </v-container>
   </div>
 </template>
-<script lang="ts">
-  import * as colors from '~/data/colors.json';
-  import type { Color } from '~/data/models/colors';
-  import { useProgrammatic } from '@oruga-ui/oruga-next';
-  import ColorEditForm from '~/components/ColorEditForm.vue';
-  import Fuse from 'fuse.js';
-  const { oruga } = useProgrammatic();
-
-  export default defineComponent({
-    data() {
-      return {
-        colorList: colors.colors as Color[],
-        selectedColors: colors.colors as Color[],
-        searchString: '',
-        isLoading: false,
-        noResults: false,
-        currentPage: 1,
-      };
-    },
-    methods: {
-      editColor(color: Color) {
-        oruga.modal.open({
-          props: { color },
-          component: ColorEditForm,
-          trapFocus: true,
-          width: '700px',
-        });
-      },
-      searchAll() {
-        this.isLoading = true;
-        this.searchString = '';
-        this.selectedColors = this.colorList;
-        setTimeout(() => (this.isLoading = false), 500);
-      },
-
-      standardSearch() {
-        const currentSearch = this.searchString.toLowerCase();
-        if (currentSearch === '') {
-          this.searchAll();
-        } else {
-          this.isLoading = true;
-          const keysToSearch = ['name', 'primaryColor', 'code', 'ditzlerPpgCode', 'duluxCode', 'shortCode', 'years'];
-          let fuse = new Fuse(this.colorList, {
-            keys: keysToSearch,
-            threshold: 0.3,
-          });
-          this.selectedColors = fuse.search(currentSearch).map((result) => result.item);
-          setTimeout(() => (this.isLoading = false), 500);
-        }
-      },
-    },
-  });
-</script>
 <style lang="scss">
   .filler-image {
     img,
