@@ -4,34 +4,7 @@
     <v-container>
       <v-row align="center">
         <v-col cols="8">
-          <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <NuxtLink to="/">
-                  <span class="icon is-small">
-                    <i class="fas fa-home" aria-hidden="true" />
-                  </span>
-                  <span>Home</span>
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/technical">
-                  <span class="icon is-small">
-                    <i class="fas fa-book" aria-hidden="true" />
-                  </span>
-                  <span>Technical Info</span>
-                </NuxtLink>
-              </li>
-              <li class="is-active">
-                <NuxtLink to="">
-                  <span class="icon is-small">
-                    <i class="fas fa-tire" aria-hidden="true" />
-                  </span>
-                  <span>Wheel Library</span>
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
+          <breadcrumb page="Wheel Library"></breadcrumb>
         </v-col>
       </v-row>
       <v-row align="center">
