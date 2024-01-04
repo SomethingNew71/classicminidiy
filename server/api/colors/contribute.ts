@@ -17,27 +17,20 @@ export default defineEventHandler(async (event) => {
         | Category | Value                           |
         |----------|---------------------------------|
         | Name     | ${body.color.name}          |
-        | Color    | ${body.color.primaryColor}  |
         | Code     | ${body.color.code}          |
         | ShortCode| ${body.color.shortCode}     |
         | PPG      | ${body.color.ditzlerPpgCode}|
         | Dulux    | ${body.color.duluxCode}     |
         | Years    | ${body.color.years}         |
-        | Notes    | ${body.color.notes}         |
       ## New Details
         | Category | Value                                |
         |----------|--------------------------------------|
         | Name     | ${body.newDetails.name}          |
-        | Color    | ${body.newDetails.primaryColor}  |
         | Code     | ${body.newDetails.code}          |
         | ShortCode| ${body.newDetails.shortCode}     |
         | PPG      | ${body.newDetails.ditzlerPpgCode}|
         | Dulux    | ${body.newDetails.duluxCode}     |
         | Years    | ${body.newDetails.years}         |
-        | Notes    | ${body.newDetails.notes}         |
-      ## Submitted by:
-      - Name: ${body.newDetails.submittedBy}
-      - Email: ${body.newDetails.submittedByEmail}
       `,
   })
     .then(async (response) => {
