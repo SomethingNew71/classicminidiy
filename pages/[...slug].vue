@@ -14,8 +14,6 @@
         await useFetch('/api/blog/getCount', {
           params: { title: currentPostData.title || '' },
         }).then(async (response: any) => {
-          console.log(response);
-
           initialData = response.data._rawValue;
           if (currentPostData.title) {
             if (initialData?.Item?.Count) {
