@@ -1,33 +1,6 @@
 {
   "SingleHS2": {
     "title": "Single HS2 1.25\"",
-    "columns": [
-      {
-        "label": "Engine Size",
-        "field": "engineSize",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Std",
-        "field": "needleStd",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Rich",
-        "field": "needleRich",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Lean",
-        "field": "needleLean",
-        "renderHtml": true
-      },
-      {
-        "label": "Spring Type",
-        "field": "springType",
-        "renderHtml": true
-      }
-    ],
     "items": [
       {
         "engineSize": "850, 998",
@@ -68,33 +41,6 @@
   },
   "SingleHS4": {
     "title": "Single HS4 1.5\"",
-    "columns": [
-      {
-        "label": "Engine Size",
-        "field": "engineSize",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Std",
-        "field": "needleStd",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Rich",
-        "field": "needleRich",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Lean",
-        "field": "needleLean",
-        "renderHtml": true
-      },
-      {
-        "label": "Spring Type",
-        "field": "springType",
-        "renderHtml": true
-      }
-    ],
     "items": [
       {
         "engineSize": "850 Std",
@@ -212,33 +158,6 @@
   },
   "SingleHS6": {
     "title": "Single HS6 1.75\"",
-    "columns": [
-      {
-        "label": "Engine Size",
-        "field": "engineSize",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Std",
-        "field": "needleStd",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Rich",
-        "field": "needleRich",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Lean",
-        "field": "needleLean",
-        "renderHtml": true
-      },
-      {
-        "label": "Spring Type",
-        "field": "springType",
-        "renderHtml": true
-      }
-    ],
     "items": [
       {
         "engineSize": "1275 GT",
@@ -258,33 +177,6 @@
   },
   "TwinHS2": {
     "title": "Twin HS2 1.25\"",
-    "columns": [
-      {
-        "label": "Engine Size",
-        "field": "engineSize",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Std",
-        "field": "needleStd",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Rich",
-        "field": "needleRich",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Lean",
-        "field": "needleLean",
-        "renderHtml": true
-      },
-      {
-        "label": "Spring Type",
-        "field": "springType",
-        "renderHtml": true
-      }
-    ],
     "items": [
       {
         "engineSize": "850",
@@ -360,33 +252,6 @@
   },
   "TwinHS4": {
     "title": "Twin HS4 1.5\"",
-    "columns": [
-      {
-        "label": "Engine Size",
-        "field": "engineSize",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Std",
-        "field": "needleStd",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Rich",
-        "field": "needleRich",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Lean",
-        "field": "needleLean",
-        "renderHtml": true
-      },
-      {
-        "label": "Spring Type",
-        "field": "springType",
-        "renderHtml": true
-      }
-    ],
     "items": [
       {
         "engineSize": "1275 Cooper S 1969",
@@ -399,33 +264,6 @@
   },
   "TwinH4": {
     "title": "Twin H4 1.5\" Special Tuning",
-    "columns": [
-      {
-        "label": "Engine Size",
-        "field": "engineSize",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Std",
-        "field": "needleStd",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Rich",
-        "field": "needleRich",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Lean",
-        "field": "needleLean",
-        "renderHtml": true
-      },
-      {
-        "label": "Spring Type",
-        "field": "springType",
-        "renderHtml": true
-      }
-    ],
     "items": [
       {
         "engineSize": "850 and 1071 S Competition",
@@ -466,33 +304,6 @@
   },
   "hif4": {
     "title": "HIF4/38 Series",
-    "columns": [
-      {
-        "label": "Engine Size",
-        "field": "engineSize",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Std",
-        "field": "needleStd",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Rich",
-        "field": "needleRich",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Lean",
-        "field": "needleLean",
-        "renderHtml": true
-      },
-      {
-        "label": "Spring Type",
-        "field": "springType",
-        "renderHtml": true
-      }
-    ],
     "items": [
       {
         "engineSize": "998 Standard",
@@ -512,33 +323,6 @@
   },
   "hif6": {
     "title": "HIF6/44 Series",
-    "columns": [
-      {
-        "label": "Engine Size",
-        "field": "engineSize",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Std",
-        "field": "needleStd",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Rich",
-        "field": "needleRich",
-        "renderHtml": true
-      },
-      {
-        "label": "Needle Lean",
-        "field": "needleLean",
-        "renderHtml": true
-      },
-      {
-        "label": "Spring Type",
-        "field": "springType",
-        "renderHtml": true
-      }
-    ],
     "items": [
       {
         "engineSize": "1300 Standard",
