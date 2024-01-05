@@ -112,9 +112,6 @@
                 :items="['Saloon', 'Pickup', 'Estate', 'Cabriolet', 'Clubman', 'Van', 'Hornet']"
                 variant="outlined"
               ></v-select>
-              <!-- <o-field class="pb-3" :label-position="'on-border'" label="Build or First Registration Date">
-              <VueDatePicker v-model="details.buildDate" format="MM/dd/yyyy"></VueDatePicker>
-            </o-field> -->
             </div>
             <div class="column is-half">
               <v-text-field
