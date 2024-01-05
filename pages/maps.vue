@@ -1,3 +1,30 @@
+<script lang="ts" setup>
+  useHead({
+    title: 'Classic Mini ECU Maps',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'After countless hours and time spent porting, converting, and mapping multiple ECUs, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECUs used on Classic Minis, with more added in the future. ',
+      },
+      {
+        property: 'og:title',
+        content: 'CMDIY - Classic Mini ECU Maps',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'CMDIY - Classic Mini ECU Maps',
+    ogDescription:
+      'After countless hours and time spent porting, converting, and mapping multiple ECUs, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECUs used on Classic Minis, with more added in the future. ',
+    ogUrl: 'classicminidiy.com/technical',
+    ogType: 'website',
+  });
+  const { data: releases, pending: releasesLoading } = await useFetch('/api/github/releases');
+  const { data: commits, pending: commitsLoading } = await useFetch('/api/github/commits');
+</script>
+
 <template>
   <div>
     <hero
@@ -59,15 +86,14 @@
               <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-4">
                 Latest Releases - {{ releases.latestRelease }}
               </h4>
-              <o-button
-                variant="primary"
-                size="large"
-                tag="a"
+              <v-btn
+                prepend-icon="fad fa-download"
+                size="x-large"
+                color="primary"
                 href="https://store.classicminidiy.com/collections/efi-base-maps"
-                target="_blank"
               >
-                <span class="icon"> <i class="fad fa-download" /> </span><span>Download</span></o-button
-              >
+                Download
+              </v-btn>
             </div>
           </div>
         </div>
@@ -85,18 +111,14 @@
                 Latest Release - {{ releases.latestRelease }}
               </h4>
 
-              <o-button
-                class="is-dark"
-                size="large"
-                tag="a"
-                href="https://store.classicminidiy.com/collections/efi-base-maps"
-                target="_blank"
+              <v-btn
+                prepend-icon="fab fa-github"
+                size="x-large"
+                color="grey-darken-3"
+                href="https://github.com/SomethingNew71/MiniECUMaps"
               >
-                <span class="icon">
-                  <i class="fab fa-github" />
-                </span>
-                <span>View Source</span></o-button
-              >
+                View Source
+              </v-btn>
             </div>
           </div>
         </div>
@@ -104,36 +126,32 @@
           <div class="divider">More Details</div>
         </div>
         <div class="column is-4 is-offset-1">
-          <client-only>
-            <nav class="panel is-secondary">
-              <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
-              <template v-for="(commitItem, i) in commits">
-                <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 10">
-                  <span class="panel-icon">
-                    <i class="fad fa-code-commit" aria-hidden="true"></i>
-                  </span>
-                  <span class="date pr-2">
-                    {{ commitItem.date }}
-                  </span>
+          <nav class="panel is-secondary">
+            <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
+            <v-progress-circular v-if="commitsLoading"></v-progress-circular>
+            <template v-for="(commitItem, i) in commits">
+              <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 10">
+                <span class="panel-icon">
+                  <i class="fad fa-code-commit" aria-hidden="true"></i>
+                </span>
+                <span class="date pr-2">
+                  {{ commitItem.date }}
+                </span>
 
-                  {{ commitItem.commit.message }}
-                </a>
-              </template>
-              <div class="panel-block">
-                <o-button
-                  class="is-fullwidth is-dark"
-                  tag="a"
-                  href="https://github.com/SomethingNew71/MiniECUMaps/commits/main"
-                  target="_blank"
-                >
-                  <span class="icon">
-                    <i class="fad fa-code-branch" />
-                  </span>
-                  <span>View All Commits</span></o-button
-                >
-              </div>
-            </nav>
-          </client-only>
+                {{ commitItem.commit.message }}
+              </a>
+            </template>
+            <div class="panel-block">
+              <v-btn
+                prepend-icon="fad fa-code-branch"
+                color="grey-darken-3"
+                class="mx-auto flex-grow-1"
+                href="https://github.com/SomethingNew71/MiniECUMaps/commits/main"
+              >
+                View All Commits
+              </v-btn>
+            </div>
+          </nav>
         </div>
         <div class="column is-6">
           <h3 class="fancy-font-bold is-size-2 has-text-centered pb-5">Supported ECU's</h3>
@@ -175,45 +193,6 @@
     </section>
   </div>
 </template>
-
-<script lang="ts" setup>
-  import * as _ from 'lodash';
-  import { DateTime } from 'luxon';
-  useHead({
-    title: 'Classic Mini ECU Maps',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          'After countless hours and time spent porting, converting, and mapping multiple ECUs, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECUs used on Classic Minis, with more added in the future. ',
-      },
-      {
-        property: 'og:title',
-        content: 'CMDIY - Classic Mini ECU Maps',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'CMDIY - Classic Mini ECU Maps',
-    ogDescription:
-      'After countless hours and time spent porting, converting, and mapping multiple ECUs, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECUs used on Classic Minis, with more added in the future. ',
-    ogUrl: 'classicminidiy.com/technical',
-    ogType: 'website',
-  });
-  let commits: any = [];
-  const { data: releases, pending: releasesLoading, error: releasesError } = await useFetch('/api/github/releases');
-  await useFetch('/api/github/commits')
-    .then((response: any) => {
-      _.forEach(response.data._rawValue, (item) => {
-        commits.push({
-          date: DateTime.fromISO(item.commit.committer.date).toFormat('LLL dd'),
-          ...item,
-        });
-      });
-    })
-    .catch((error) => console.error(error));
-</script>
 
 <style lang="scss">
   .date {
