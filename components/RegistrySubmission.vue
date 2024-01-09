@@ -178,14 +178,15 @@
               append-inner-icon="fad fa-asterisk"
               variant="outlined"
             ></v-text-field>
-            <o-button
+            <v-btn
               :disabled="!form"
-              class="card-footer-item"
-              label="Submit"
-              variant="primary"
-              size="medium"
+              prepend-icon="fad fa-paper-plane"
+              size="x-large"
+              color="primary"
               @click="adminSubmit()"
-            />
+            >
+              Submit
+            </v-btn>
           </div>
         </v-form>
       </div>
