@@ -157,14 +157,9 @@
             </div>
           </div>
           <div v-if="!admin">
-            <o-button
-              :disabled="!form"
-              class="card-footer-item"
-              label="Submit"
-              variant="primary"
-              size="medium"
-              @click="submit()"
-            />
+            <v-btn :disabled="!form" prepend-icon="fad fa-paper-plane" size="x-large" color="primary" @click="submit()">
+              Submit
+            </v-btn>
           </div>
           <div v-if="admin">
             <v-text-field
