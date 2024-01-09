@@ -11,7 +11,6 @@
   });
   import type { IWheelsData } from '~/data/models/wheels';
   import { humanFileSize } from '~/data/models/helper-utils';
-  import { useRecaptchaToken } from '~/composables/recaptcha';
   const wheel = ref();
   const pageLoad = ref(true);
   const pageError = ref();
@@ -82,31 +81,20 @@
   async function sendNewInfo() {
     loading.value = true;
 
-    await useRecaptchaToken()
-      .then(async (res) => {
-        if (res) {
-          await storeWheelDetails().then(async (res: any) => {
-            await storeWheelImages(res?.data?._rawValue.uuid)
-              .then(() => {
-                hasSuccess.value = true;
-                step.value = 5;
-              })
-              .catch((err) => {
-                hasError.value = true;
-                console.error(err);
-              })
-              .finally(() => {
-                loading.value = false;
-              });
-          });
-        } else {
-          console.warn('Recaptcha failed');
-        }
-      })
-      .catch((err) => {
-        submitError.value = true;
-        console.error(`Recaptcha failed - ${err}`);
-      });
+    await storeWheelDetails().then(async (res: any) => {
+      await storeWheelImages(res?.data?._rawValue.uuid)
+        .then(() => {
+          hasSuccess.value = true;
+          step.value = 5;
+        })
+        .catch((err) => {
+          hasError.value = true;
+          console.error(err);
+        })
+        .finally(() => {
+          loading.value = false;
+        });
+    });
   }
 
   async function storeWheelDetails() {
