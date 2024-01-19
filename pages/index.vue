@@ -73,7 +73,7 @@
       </div>
     </v-container>
     <div class="spacer layer1"></div>
-    <div class="bg-grey-lighten-3">
+    <div class="bg-color-section">
       <v-container>
         <v-row>
           <v-col cols="12" md="5">
@@ -112,7 +112,7 @@
               </div>
             </div>
           </v-col>
-          <v-col class="is-hidden-desktop mobile-list column is-12">
+          <v-col cols="12" class="is-hidden-desktop mobile-list">
             <nav class="panel">
               <p class="panel-heading has-background-grey-lighter">Find the Tool You Need</p>
               <NuxtLink
@@ -128,7 +128,7 @@
               </NuxtLink>
             </nav>
           </v-col>
-          <v-col class="column is-10 is-offset-1">
+          <v-col cols="10" offset="1">
             <div class="divider">More</div>
           </v-col>
         </v-row>
@@ -238,6 +238,10 @@
     .fa-circle-info {
       color: #ff9900;
     }
+  }
+
+  .bg-color-section {
+    background-color: #f0f0f0;
   }
 
   .phone {

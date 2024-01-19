@@ -8,7 +8,13 @@
 
   const socials = ref(SocialItems);
   const route = useRoute();
-  const isHomepage = ref(route.path === '/');
+  const isHomepage = ref(route.path === '/' || route.path === '/blog');
+  watch(
+    () => route.path,
+    () => {
+      isHomepage.value = route.path === '/' || route.path === '/blog';
+    }
+  );
 </script>
 
 <template>
@@ -16,7 +22,7 @@
     <main-nav></main-nav>
     <NuxtLoadingIndicator />
     <NuxtPage />
-    <v-footer class="text-center d-flex flex-column" :class="{ 'bg-grey-lighten-3': isHomepage }">
+    <v-footer class="text-center d-flex flex-column" :class="{ 'bg-color-section': isHomepage }">
       <div class="pb-2">
         <v-btn
           v-for="(social, i) in socials"
@@ -50,3 +56,9 @@
     <VitePwaManifest />
   </v-app>
 </template>
+
+<style lang="scss">
+  .bg-color-section {
+    background-color: #f0f0f0;
+  }
+</style>
