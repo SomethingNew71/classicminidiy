@@ -108,14 +108,17 @@
           <div class="card">
             <header class="card-header">
               <div class="card-header-title">
-                <o-field class="mb-4" :position="'left'" label="Search for a mini">
-                  <o-input v-model="searchValue" placeholder="Ex. Morris Mini"></o-input>
-                  <p class="control">
-                    <o-button class="button is-primary search-button" aria-label="Search box for color">
-                      <i class="fad fa-search"></i>
-                    </o-button>
-                  </p>
-                </o-field>
+                <v-text-field
+                  v-model="searchValue"
+                  prepend-inner-icon="fad fa-search"
+                  density="compact"
+                  placeholder="Search for field"
+                  single-line
+                  flat
+                  hide-details
+                  variant="solo-filled"
+                ></v-text-field>
+                <v-spacer></v-spacer>
               </div>
             </header>
             <div class="card-content">
