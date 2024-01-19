@@ -1,9 +1,10 @@
-import needles from '../../../data/needles.json';
-import starterNeedles from '../../../data/default-needles.json';
+import Needles from '~/data/needles.json';
+import StarterNeedles from '~/data/default-needles.json';
+import type { Needle } from '~/data/models/needles';
 
-export default defineEventHandler(() => {
+export default defineEventHandler((): { all: Needle[]; initial: Needle[] } => {
   return {
-    needles,
-    starterNeedles,
+    all: Needles,
+    initial: StarterNeedles,
   };
 });
