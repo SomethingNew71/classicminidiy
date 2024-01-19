@@ -224,9 +224,6 @@
 
 <style lang="scss">
   .animation-section,
-  .footer {
-    background-color: #f1f1f1;
-  }
   .avatar-container img {
     max-width: 50%;
     margin: auto;

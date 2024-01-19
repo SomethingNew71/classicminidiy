@@ -103,7 +103,7 @@ export default defineNuxtConfig({
     disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
   },
 
-  plugins: ['~/plugins/oruga.ts', '~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
+  plugins: ['~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
 
   runtimeConfig: {
     public: {
