@@ -6,7 +6,6 @@
   const alreadyExistsError = ref(false);
   const emptyError = ref(false);
   const addNeedleValue: any = ref([]);
-  const needleModalActive = ref(false);
 
   function updateArrayItem() {
     reactiveChartOptions.value.series = selectedNeedles.value;
@@ -117,16 +116,6 @@
       </div>
     </div>
   </div>
-  <o-modal v-model:active="needleModalActive">
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <h1 class="modal-card-title">Diagram of Needle Measurements</h1>
-      </header>
-      <section class="modal-card-body">
-        <img loading="lazy" class="diagram" src="/img/diagram.jpg" alt="Diagram of Needle Measurements" />
-      </section>
-    </div>
-  </o-modal>
 </template>
 
 <style lang="scss" scoped>
