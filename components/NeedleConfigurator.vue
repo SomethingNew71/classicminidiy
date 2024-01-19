@@ -1,3 +1,39 @@
+<script lang="ts" setup>
+  import { chartOptions, type Needle } from '~/data/models/needles';
+  const { data: needles, pending, error }: any = await useFetch(() => '/api/needles/list');
+  const reactiveChartOptions = ref(chartOptions);
+  const selectedNeedles = ref([...needles.value.initial]);
+  const alreadyExistsError = ref(false);
+  const emptyError = ref(false);
+  const addNeedleValue: any = ref([]);
+  const needleModalActive = ref(false);
+
+  function updateArrayItem() {
+    reactiveChartOptions.value.series = selectedNeedles.value;
+  }
+  function addArrayItem() {
+    alreadyExistsError.value = selectedNeedles.value.some((obj) => obj.name === addNeedleValue._rawValue.name);
+    emptyError.value = addNeedleValue.value.length === 0;
+    if (alreadyExistsError.value) {
+      setTimeout(() => (alreadyExistsError.value = false), 5000);
+    } else if (emptyError.value) {
+      setTimeout(() => (emptyError.value = false), 5000);
+    } else {
+      selectedNeedles.value.push(addNeedleValue._rawValue);
+      addNeedleValue.value = [];
+      updateArrayItem();
+    }
+  }
+  function removeArrayItem(currentItem: Needle) {
+    // Find the index of the item you wanna remove
+    const itemIndex = selectedNeedles.value.indexOf(currentItem);
+    // Remove the specific needle value which automatically triggers a redraw
+    needles.value.initial.splice(itemIndex, 1);
+    selectedNeedles.value.splice(itemIndex, 1);
+    updateArrayItem();
+  }
+</script>
+
 <template>
   <div class="columns is-multiline configurator-component">
     <div class="column is-4 card">
@@ -5,52 +41,78 @@
         <h3 class="fancy-font-bold is-size-4 pb-3">Add a Needle To Compare</h3>
         <p class="pb-3">
           Start typing the name of the needles you would like to compate. Unsure of what the graph values mean? Check
-          out
-          <a class="has-text-weight-bold" href="#" @click="needleModalActive = true">this helpful diagram</a>
-          to learn more.
+          out the needle diagram below to learn more.
         </p>
-        <o-field class="is-fullwidth" expanded>
-          <o-autocomplete
-            v-model="addNeedleValue"
-            expanded
-            :data="filteredDataObj"
-            :open-on-focus="true"
-            placeholder="Needle Name"
-            field="name"
-            @select="(option) => (addNeedleSelection = option)"
-          >
-          </o-autocomplete>
-          <o-button
-            variant="primary"
-            icon-pack="fas"
-            icon-left="plus"
-            aria-label="Click here to add another needle with a generic value"
-            :disabled="selectValues.length === 10 || !addNeedleSelection"
-            @click="addArrayItem()"
-          >
-            Add
-          </o-button>
-        </o-field>
-        <o-field grouped group-multiline>
-          <div v-for="(value, needle) in selectValues" :key="needle" class="control">
-            <o-button
-              variant="primary"
-              icon-pack="fas"
-              icon-right="close"
-              :disabled="selectValues.length === 1"
-              :aria-close-label="'Click here to remove the ' + selectValues[needle] + ' needle'"
-              @click="removeArrayItem(selectValues[needle])"
+        <v-dialog width="500">
+          <template v-slot:activator="{ props }">
+            <v-btn class="has-text-weight-bold mb-5" size="small" variant="flat" color="grey" v-bind="props"
+              >Helpful diagram</v-btn
             >
-              {{ selectValues[needle].name }}
-            </o-button>
-          </div>
-        </o-field>
+          </template>
+
+          <template v-slot:default="{ isActive }">
+            <v-card title="Diagram of Needle Measurements">
+              <img loading="lazy" class="diagram" src="/img/diagram.jpg" alt="Diagram of Needle Measurements" />
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn variant="flat" color="brandLightGreen" text="Close" @click="isActive.value = false"></v-btn>
+              </v-card-actions>
+            </v-card>
+          </template>
+        </v-dialog>
+        <v-autocomplete
+          v-model="addNeedleValue"
+          label="Add a Needle"
+          return-object
+          :items="needles.all"
+          item-title="name"
+          item-value="name"
+          variant="outlined"
+        >
+          <template v-slot:item="{ props, item }">
+            <v-list-item v-bind="props" :title="item.raw.name"> </v-list-item>
+          </template>
+        </v-autocomplete>
+
+        <v-alert
+          v-if="alreadyExistsError"
+          icon="fad fa-circle-info"
+          color="info "
+          variant="tonal"
+          class="mb-4"
+          text="Needle already exists in your list"
+        ></v-alert>
+        <v-alert
+          v-if="emptyError"
+          icon="fad fa-circle-info"
+          color="info "
+          variant="tonal"
+          class="mb-4"
+          text="You must select another needle to add before clicking add."
+        ></v-alert>
+
+        <v-btn prepend-icon="fa:fad fa-plus" color="brandLightGreen" variant="flat" @click="addArrayItem()">
+          Add Needle
+        </v-btn>
+        <v-divider></v-divider>
+        <h3 class="text-h6">Currently selected Needles</h3>
+        <v-chip-group class="mt-3">
+          <v-chip
+            v-for="(value, needle) in selectedNeedles"
+            :key="needle"
+            :disabled="selectedNeedles.length === 1"
+            append-icon="fad fa-close"
+            @click="removeArrayItem(selectedNeedles[needle])"
+          >
+            {{ value.name }}
+          </v-chip>
+        </v-chip-group>
       </div>
     </div>
     <div class="column is-8">
       <div class="card">
         <client-only>
-          <highcharts ref="needlesChart" :options="mapOptions"></highcharts>
+          <highcharts ref="needlesChart" :options="reactiveChartOptions"></highcharts>
         </client-only>
       </div>
     </div>
@@ -67,129 +129,7 @@
   </o-modal>
 </template>
 
-<script>
-  import Needles from '~/data/needles.json';
-  import StarterNeedles from '~/data/default-needles.json';
-
-  export default defineComponent({
-    data() {
-      return {
-        Needles,
-        existsError: false,
-        addNeedleValue: '',
-        addNeedleSelection: null,
-        needleModalActive: false,
-        selectValues: undefined,
-        mapOptions: {
-          chart: { zoomType: 'x' },
-          title: { text: 'Needle Comparison Chart' },
-          exporting: {
-            buttons: {
-              contextButton: {
-                symbol: 'download',
-              },
-            },
-          },
-          subtitle: {
-            text: 'Source: <a target="_blank" href="http://www.mintylamb.co.uk/suneedle/">http://www.mintylamb.co.uk/suneedle/</a>',
-          },
-          // This is the data decleration
-          series: StarterNeedles,
-          yAxis: {
-            title: { text: 'Needle Diameter (mm)' },
-            labels: {
-              enabled: true,
-            },
-            reversed: true,
-          },
-          xAxis: {
-            title: { text: 'Needle Station' },
-            labels: {
-              enabled: true,
-            },
-          },
-          legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-          },
-          tooltip: { headerFormat: 'Richness:<br>', shared: true },
-          responsive: {
-            rules: [
-              {
-                condition: { maxWidth: 500 },
-                chartOptions: {
-                  legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom',
-                  },
-                },
-              },
-            ],
-          },
-        },
-      };
-    },
-    computed: {
-      filteredDataObj() {
-        return this.Needles.filter((needle) => {
-          return (
-            needle.name
-              .toString()
-              .toLowerCase()
-              // eslint-disable-next-line
-              .indexOf(this.addNeedleValue.toLowerCase()) >= 0
-          );
-        });
-      },
-    },
-    created() {
-      this.initializeNeedles();
-    },
-    methods: {
-      initializeNeedles() {
-        this.selectValues = [...StarterNeedles];
-      },
-      updateArrayItem() {
-        // When someone changes a needle value, update the chart
-        this.mapOptions.series = this.selectValues;
-      },
-      addArrayItem() {
-        this.existsError = this.selectValues.some((obj) => obj.name === this.addNeedleSelection.name);
-        if (this.existsError) {
-          setTimeout(() => {
-            this.existsError = false;
-          }, 5000);
-        } else {
-          StarterNeedles.push(this.addNeedleSelection);
-          this.selectValues.push(this.addNeedleSelection);
-          this.updateArrayItem();
-        }
-      },
-      removeArrayItem(currentItem) {
-        // Find the index of the item you wanna remove
-        const itemIndex = this.selectValues.indexOf(currentItem);
-        // Remove the specific needle value which automatically triggers a redraw
-        StarterNeedles.splice(itemIndex, 1);
-        this.selectValues.splice(itemIndex, 1);
-        this.updateArrayItem();
-      },
-    },
-  });
-</script>
-
 <style lang="scss" scoped>
-  .modal .animation-content .modal-card {
-    margin: auto;
-  }
-  .is-fullwidth {
-    width: 100%;
-  }
-  .remove-button {
-    margin-right: 5px;
-  }
-
   .diagram {
     max-height: 600px;
     width: auto;
