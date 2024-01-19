@@ -36,8 +36,8 @@
       </v-col>
       <v-col cols="12" v-for="(table, name, index) in tables" :key="`${name}-${index}`">
         <v-card>
-          <v-toolbar>
-            <h2 class="card-header-title">
+          <v-toolbar color="brandLightGreen">
+            <h2 class="card-header-title text-white">
               <i :class="table.icon"></i>
               <span class="pl-1">{{ table.title }}</span>
             </h2>
