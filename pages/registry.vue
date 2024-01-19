@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   const searchValue = ref('');
   const expanded = ref([]);
+  import { useDisplay } from 'vuetify';
+  const { mdAndUp } = useDisplay();
 
   const tableHeaders: any[] = [
     { title: '', key: 'data-table-expand', align: 'start' },
@@ -118,7 +120,7 @@
                   hide-details
                   variant="solo-filled"
                 ></v-text-field>
-                <v-spacer></v-spacer>
+                <v-spacer v-if="mdAndUp"></v-spacer>
               </div>
             </header>
             <div class="card-content">
