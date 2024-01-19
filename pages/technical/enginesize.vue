@@ -1,5 +1,21 @@
 <script lang="ts" setup>
   const { data, pending } = await useFetch('/api/engines');
+  const tableHeaders: any[] = [
+    { title: 'Size', key: 'color' },
+    { title: 'Original Block', key: 'group' },
+    { title: 'Engine Size', key: 'engineSize' },
+    { title: 'Bore Size', key: 'boreSize' },
+    { title: 'Over Bore', key: 'overBore' },
+    { title: 'Stroke', key: 'stroke' },
+    { title: 'Estimated Power', key: 'power' },
+    { title: 'Estimated Torque', key: 'torque' },
+  ];
+
+  const grouping = ref([
+    {
+      key: 'group',
+    },
+  ]);
 
   useHead({
     title: 'Tech - Engine Sizes/Displacements',
@@ -73,66 +89,46 @@
             </div>
           </div>
         </div>
-        <div class="column is-justify-content-end">
-          <i class="fas fa-circle pl-1 has-text-success"></i> Standard
-          <i class="fas fa-circle pl-1 has-text-primary"></i> Standard Overbore
-          <i class="fas fa-circle pl-1 has-text-danger"></i> Different Stroke
-        </div>
-        <template v-if="pending">
-          <v-row>
-            <v-col cols="12">
-              <v-skeleton-loader type="table"></v-skeleton-loader>
-            </v-col>
-          </v-row>
-        </template>
-        <div v-if="data" class="column is-12">
-          <div class="card">
-            <div class="card-content">
-              <client-only>
-                <o-table
-                  :data="data.engines"
-                  :hoverable="true"
-                  :row-class="(row: any, index: any) => row.group !== '' && 'has-background-light has-text-weight-bold'"
+        <v-row v-if="data">
+          <v-col cols="12">
+            <i class="fas fa-circle pl-1 has-text-success"></i> Standard
+            <i class="fas fa-circle pl-1 has-text-primary"></i> Standard Overbore
+            <i class="fas fa-circle pl-1 has-text-danger"></i> Different Stroke
+          </v-col>
+          <v-col cols="12">
+            <v-card>
+              <v-toolbar>
+                <v-icon class="ml-4" icon="fad fa-engine"></v-icon>
+                <v-toolbar-title>Engine Variations</v-toolbar-title>
+              </v-toolbar>
+              <v-card-text>
+                <v-data-table
+                  :loading="pending"
+                  :items="data.engines"
+                  density="compact"
+                  :headers="tableHeaders"
+                  fixed-header
+                  items-per-page="100"
                 >
-                  <o-table-column v-slot="props" field="group" label="Group" narrowed="false">
-                    {{ props.row.group }}
-                    <template v-if="props.row.group === ''">
-                      <i class="ref-icons mobile-v is-hidden-tablet fas fa-circle pt-1" :class="props.row.color"></i>
-                    </template>
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="engineSize" label="Engine Size">
-                    <template v-if="props.row.group === ''">
-                      <i class="is-hidden-mobile ref-icons fas fa-circle pl-1" :class="props.row.color"></i>
-                    </template>
-                    {{ props.row.engineSize }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="overBore" label="Over Bore">
-                    {{ props.row.overBore }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="boreSize" label="Bore Size">
-                    {{ props.row.boreSize }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="stroke" label="Stroke">
-                    {{ props.row.stroke }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="power" label="Power">
-                    {{ props.row.power }}
-                  </o-table-column>
-                  <o-table-column v-slot="props" field="torque" label="Torque">
-                    {{ props.row.torque }}
-                  </o-table-column>
-                </o-table></client-only
-              >
+                  <template v-slot:item.color="{ item }">
+                    <p>
+                      <i class="fas fa-circle pt-1" :class="item.color"></i>
+                    </p>
+                  </template>
+                </v-data-table>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12">
+            <div class="card">
+              <div class="card-content">
+                <patreon-card size="large" />
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="column is-12">
-          <div class="card">
-            <div class="card-content">
-              <patreon-card size="large" />
-            </div>
-          </div>
-        </div>
+          </v-col>
+        </v-row>
       </div>
     </section>
   </div>
