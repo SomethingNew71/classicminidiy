@@ -77,6 +77,7 @@
       margin-left: 10px;
 
       .fa-close {
+        position: relative;
         left: 4px;
         top: -3px;
       }
@@ -84,9 +85,11 @@
       .fa-minus {
         left: 3px;
         top: -3px;
+        position: relative;
         font-size: 15px;
       }
       .fa-plus {
+        position: relative;
         left: 2px;
         top: -4px;
       }

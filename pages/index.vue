@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <div>
+  <v-container fluid class="px-0 pb-0">
     <hero
       :title="title"
       :subtitle="subtitle"
@@ -22,7 +22,7 @@
       :navigation="true"
     />
     <div class="spacer layer"></div>
-    <section class="section">
+    <v-container>
       <div class="container">
         <div class="columns is-multiline pb-5">
           <div class="column is-12"></div>
@@ -71,18 +71,18 @@
           </div>
         </div>
       </div>
-    </section>
+    </v-container>
     <div class="spacer layer1"></div>
-    <section class="section animation-section">
-      <div class="container">
-        <div class="columns is-multiline">
-          <div class="column is-5">
+    <div class="bg-grey-lighten-3">
+      <v-container>
+        <v-row>
+          <v-col cols="12" md="5">
             <video autoplay loop muted playsinline>
               <source src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.webm" type="video/webm" />
               <source src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.mp4" type="video/mp4" />
             </video>
-          </div>
-          <div class="column is-7">
+          </v-col>
+          <v-col cols="12" md="7">
             <h3 class="fancy-font-book-oblique"><i class="fad fa-handshake-alt"></i> THE COMPLETELY FREE</h3>
             <h3 class="fancy-font-bold is-size-3">Classic Mini Toolbox</h3>
             <h4 class="fancy-font-book-oblique pt-20">THE TOOLKIT FOR THE DIY MECHANIC</h4>
@@ -111,8 +111,8 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="is-hidden-desktop mobile-list column is-12">
+          </v-col>
+          <v-col class="is-hidden-desktop mobile-list column is-12">
             <nav class="panel">
               <p class="panel-heading has-background-grey-lighter">Find the Tool You Need</p>
               <NuxtLink
@@ -127,99 +127,91 @@
                 {{ item.title }}
               </NuxtLink>
             </nav>
-          </div>
-          <div class="column is-10 is-offset-1">
+          </v-col>
+          <v-col class="column is-10 is-offset-1">
             <div class="divider">More</div>
-          </div>
-          <div class="columns is-multiline">
-            <div class="column is-12-mobile is-8-tablet is-6-desktop">
-              <h3 class="fancy-font-book-oblique"><i class="fad fa-hands-heart"></i> SUPPORT THE CHANNEL</h3>
-              <h3 class="fancy-font-bold is-size-3">Become a Patreon</h3>
-              <p class="is-size-5">
-                Classic Mini DIY is
-                <strong>completely free resource</strong> supported by our viewers. If you are interested in helping to
-                keep the channel alive, consider supporting on Patreon.
-              </p>
-              <a
-                class="mt-4 button is-patreon"
-                rel="noopener"
-                href="https://patreon.com/classicminidiy"
-                target="_blank"
-              >
-                <span class="icon">
-                  <i class="fab fa-patreon" />
-                </span>
-                <span>Become a Member</span>
-              </a>
-              <div class="column is-8 pl-0 pt-6 benefits-list">
-                <nav class="panel">
-                  <p class="panel-heading has-background-grey-lighter">Membership Includes</p>
-                  <div class="panel-block">
-                    <span class="panel-icon">
-                      <i class="is-size-4 fab fa-discord pt-2"></i>
-                    </span>
-                    Access to Live DIY Chat
-                  </div>
-                  <div class="panel-block">
-                    <span class="panel-icon">
-                      <i class="is-size-4 fad fa-video pt-2"></i>
-                    </span>
-                    Early Access to videos
-                  </div>
-                  <div class="panel-block">
-                    <span class="panel-icon">
-                      <i class="is-size-4 fas fa-gift pt-2"></i>
-                    </span>
-                    Free gifts and merch
-                  </div>
-                  <div class="panel-block">
-                    <span class="panel-icon">
-                      <i class="is-size-4 fas fa-circle-info pt-2"></i>
-                    </span>
-                    Insider information and much more...
-                  </div>
-                </nav>
-              </div>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" md="8" lg="6">
+            <h3 class="fancy-font-book-oblique"><i class="fad fa-hands-heart"></i> SUPPORT THE CHANNEL</h3>
+            <h3 class="fancy-font-bold is-size-3">Become a Patreon</h3>
+            <p class="is-size-5">
+              Classic Mini DIY is
+              <strong>completely free resource</strong> supported by our viewers. If you are interested in helping to
+              keep the channel alive, consider supporting on Patreon.
+            </p>
+            <a class="mt-4 button is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
+              <span class="icon">
+                <i class="fab fa-patreon" />
+              </span>
+              <span>Become a Member</span>
+            </a>
+            <div class="column is-8 pl-0 pt-6 benefits-list">
+              <nav class="panel">
+                <p class="panel-heading has-background-grey-lighter">Membership Includes</p>
+                <div class="panel-block">
+                  <span class="panel-icon">
+                    <i class="is-size-4 fab fa-discord pt-2"></i>
+                  </span>
+                  Access to Live DIY Chat
+                </div>
+                <div class="panel-block">
+                  <span class="panel-icon">
+                    <i class="is-size-4 fad fa-video pt-2"></i>
+                  </span>
+                  Early Access to videos
+                </div>
+                <div class="panel-block">
+                  <span class="panel-icon">
+                    <i class="is-size-4 fas fa-gift pt-2"></i>
+                  </span>
+                  Free gifts and merch
+                </div>
+                <div class="panel-block">
+                  <span class="panel-icon">
+                    <i class="is-size-4 fas fa-circle-info pt-2"></i>
+                  </span>
+                  Insider information and much more...
+                </div>
+              </nav>
             </div>
-            <div class="column is-3-touch is-6-desktop">
-              <phone class="phone is-hidden-mobile" />
-              <browser class="browser is-hidden-touch" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </v-col>
+          <v-col cols="12" md="6">
+            <browser class="browser is-hidden-touch" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
     <div class="spacer layer2"></div>
-    <section class="section">
-      <div class="container pb-6">
-        <div class="columns is-multiline">
-          <div class="column is-7">
-            <h3 class="fancy-font-bold is-size-3"><i class="fad fa-address-card"></i> About Me</h3>
-            <h4 class="fancy-font-book-oblique pt-20">MY NAME IS COLE</h4>
-            <p>
-              I am a {{ age }}-year-old Web Developer working in the financial industry. My experience in the automotive
-              industry comes from 2 years of training on heavy diesel machinery and 8 years of Classic Mini ownership.
-              With this experience, I do my best to provide the most comprehensive and technically correct information I
-              can.
-            </p>
-            <h3 class="fancy-font-book-oblique pt-30">MY PROMISE</h3>
-            <p>
-              I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in
-              the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to
-              time I will make mistakes.
-            </p>
-          </div>
-          <div class="column is-5 avatar-container">
-            <nuxt-img
-              src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
-              alt="Image of my car on jack stands"
-            />
-          </div>
+    <v-container class="mb-5">
+      <div class="columns is-multiline">
+        <div class="column is-7">
+          <h3 class="fancy-font-bold is-size-3"><i class="fad fa-address-card"></i> About Me</h3>
+          <h4 class="fancy-font-book-oblique pt-20">MY NAME IS COLE</h4>
+          <p>
+            I am a {{ age }}-year-old Web Developer working in the financial industry. My experience in the automotive
+            industry comes from 2 years of training on heavy diesel machinery and 8 years of Classic Mini ownership.
+            With this experience, I do my best to provide the most comprehensive and technically correct information I
+            can.
+          </p>
+          <h3 class="fancy-font-book-oblique pt-30">MY PROMISE</h3>
+          <p>
+            I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in
+            the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to time
+            I will make mistakes.
+          </p>
+        </div>
+        <div class="column is-5 avatar-container">
+          <nuxt-img
+            src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
+            alt="Image of my car on jack stands"
+          />
         </div>
       </div>
-    </section>
+    </v-container>
     <div class="spacer layer1"></div>
-  </div>
+  </v-container>
 </template>
 
 <style lang="scss">
@@ -251,12 +243,6 @@
   .phone {
     z-index: 2;
     position: relative;
-  }
-  .browser {
-    z-index: 1;
-    position: absolute;
-    bottom: 110px;
-    right: -250px;
   }
   .panel-icon-home {
     max-width: 70px;
