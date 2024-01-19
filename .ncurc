@@ -1,6 +1,0 @@
-{
-  "reject": [
-    "@oruga-ui/oruga-next",
-    "@oruga-ui/theme-bulma"
-  ]
-}

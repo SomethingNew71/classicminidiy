@@ -7,6 +7,8 @@
   import { SocialItems } from '~/data/models/generic';
 
   const socials = ref(SocialItems);
+  const route = useRoute();
+  const isHomepage = ref(route.path === '/');
 </script>
 
 <template>
@@ -14,7 +16,7 @@
     <main-nav></main-nav>
     <NuxtLoadingIndicator />
     <NuxtPage />
-    <v-footer class="text-center d-flex flex-column">
+    <v-footer class="text-center d-flex flex-column" :class="{ 'bg-grey-lighten-3': isHomepage }">
       <div class="pb-2">
         <v-btn
           v-for="(social, i) in socials"
