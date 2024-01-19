@@ -1,5 +1,7 @@
 <script lang="ts" setup>
   const expanded = ref([]);
+  import { useDisplay } from 'vuetify';
+  const { mdAndUp } = useDisplay();
   const { data: tables } = await useFetch('/api/clearance');
   const tableHeaders: any[] = [
     { title: '', key: 'data-table-expand', align: 'start' },
@@ -54,14 +56,18 @@
                 <i :class="table.icon"></i>
                 <span class="pl-1">{{ table.title }}</span>
               </h2>
-              <o-field class="mb-4 pr-2 pt-4" :position="'left'" label="">
-                <o-input v-model="table.search" placeholder="Crankshaft"></o-input>
-                <p class="control">
-                  <o-button class="button is-primary search-button" aria-label="Search box for color">
-                    <i class="fad fa-search"></i>
-                  </o-button>
-                </p>
-              </o-field>
+              <v-spacer v-if="mdAndUp"></v-spacer>
+              <v-text-field
+                v-model="table.search"
+                prepend-inner-icon="fad fa-search"
+                density="compact"
+                placeholder="Search for item"
+                single-line
+                flat
+                hide-details
+                class="mt-1 mr-1"
+                variant="solo"
+              ></v-text-field>
             </div>
             <div class="card-content">
               <v-data-table
