@@ -23,12 +23,12 @@
 <template>
   <div>
     <hero :navigation="true" :title="'Gearbox Calculator'" />
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-12">
+    <v-container>
+      <v-row>
+        <v-col cols="12">
           <breadcrumb page="Gearbox Calculator"></breadcrumb>
-          <div class="columns">
-            <div class="column is-8">
+          <v-row>
+            <v-col cols="12" md="8">
               <h1 class="title">Gearbox Calculator</h1>
               <p class="pb-4">
                 When building or rebuilding a gearbox, updaing your gear ratios, or changing out your speedometer
@@ -36,8 +36,8 @@
                 determine the correct gearing for your for your new engine build and find the right speedo gear to use
                 as well.
               </p>
-            </div>
-            <div class="column is-4">
+            </v-col>
+            <v-col cols="12" md="4">
               <NuxtLink :to="'/technical/enginesize'" :title="'Link to Engine Sizes'">
                 <div class="card callout-card">
                   <div class="card-content">
@@ -67,19 +67,19 @@
                   </div>
                 </div>
               </NuxtLink>
-            </div>
-          </div>
-        </div>
-        <div class="column is-12">
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="12">
           <GearboxCalculator />
-        </div>
-        <div class="column is-10 is-offset-1">
+        </v-col>
+        <v-col cols="12" md="10" offset-md="1">
           <div class="divider">More</div>
-        </div>
-        <div class="column is-12">
+        </v-col>
+        <v-col cols="12">
           <patreon-card size="large" />
-        </div>
-      </div>
-    </section>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>

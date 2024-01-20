@@ -36,9 +36,9 @@
 <template>
   <div>
     <hero :navigation="true" :title="'Mini Registry'" />
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-12">
+    <v-container>
+      <v-row>
+        <v-col cols="12">
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
@@ -105,8 +105,8 @@
               </a>
             </div>
           </div>
-        </div>
-        <div class="column is-12">
+        </v-col>
+        <v-col cols="12">
           <div class="card">
             <header class="card-header">
               <div class="card-header-title">
@@ -168,22 +168,22 @@
               </v-data-table>
             </div>
           </div>
-        </div>
-        <div class="column is-10 is-offset-1">
+        </v-col>
+        <v-col cols="12" md="10" offset-md="1">
           <div class="divider" id="submitAnchor">contribute - Its free!</div>
-        </div>
-        <div class="column is-8">
+        </v-col>
+        <v-col cols="12" md="8">
           <RegistrySubmission></RegistrySubmission>
-        </div>
-        <div class="column is-4">
+        </v-col>
+        <v-col cols="12" md="4">
           <div class="card">
             <div class="card-content">
               <patreon-card size="small" />
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 

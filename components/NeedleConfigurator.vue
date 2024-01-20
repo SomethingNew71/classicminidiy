@@ -5,14 +5,14 @@
   const selectedNeedles = ref([...needles.value.initial]);
   const alreadyExistsError = ref(false);
   const emptyError = ref(false);
-  const addNeedleValue: any = ref([]);
+  const addNeedleValue: any = ref();
 
   function updateArrayItem() {
     reactiveChartOptions.value.series = selectedNeedles.value;
   }
   function addArrayItem() {
-    alreadyExistsError.value = selectedNeedles.value.some((obj) => obj.name === addNeedleValue._rawValue.name);
-    emptyError.value = addNeedleValue.value.length === 0;
+    alreadyExistsError.value = selectedNeedles.value.some((obj: Needle) => obj.name === addNeedleValue._rawValue.name);
+    emptyError.value = !addNeedleValue.value;
     if (alreadyExistsError.value) {
       setTimeout(() => (alreadyExistsError.value = false), 5000);
     } else if (emptyError.value) {
@@ -59,53 +59,60 @@
             </v-card>
           </template>
         </v-dialog>
-        <v-autocomplete
-          v-model="addNeedleValue"
-          label="Add a Needle"
-          return-object
-          :items="needles.all"
-          item-title="name"
-          item-value="name"
-          variant="outlined"
-        >
-          <template v-slot:item="{ props, item }">
-            <v-list-item v-bind="props" :title="item.raw.name"> </v-list-item>
-          </template>
-        </v-autocomplete>
-
-        <v-alert
-          v-if="alreadyExistsError"
-          icon="fad fa-circle-info"
-          color="info "
-          variant="tonal"
-          class="mb-4"
-          text="Needle already exists in your list"
-        ></v-alert>
-        <v-alert
-          v-if="emptyError"
-          icon="fad fa-circle-info"
-          color="info "
-          variant="tonal"
-          class="mb-4"
-          text="You must select another needle to add before clicking add."
-        ></v-alert>
-
-        <v-btn prepend-icon="fa:fad fa-plus" color="brandLightGreen" variant="flat" @click="addArrayItem()">
-          Add Needle
-        </v-btn>
-        <v-divider></v-divider>
-        <h3 class="text-h6">Currently selected Needles</h3>
-        <v-chip-group class="mt-3">
-          <v-chip
-            v-for="(value, needle) in selectedNeedles"
-            :key="needle"
-            :disabled="selectedNeedles.length === 1"
-            append-icon="fad fa-close"
-            @click="removeArrayItem(selectedNeedles[needle])"
+        <template v-if="pending">
+          <!-- <v-col cols="12" md="3">
+            <v-skeleton-loader class="mx-auto border" max-width="300" type="image, article"></v-skeleton-loader>
+          </v-col> -->
+        </template>
+        <template v-else-if="needles && selectedNeedles">
+          <v-autocomplete
+            v-model="addNeedleValue"
+            label="Add a Needle"
+            return-object
+            :items="needles.all"
+            item-title="name"
+            item-value="name"
+            variant="outlined"
           >
-            {{ value.name }}
-          </v-chip>
-        </v-chip-group>
+            <template v-slot:item="{ props, item }">
+              <v-list-item v-bind="props" :title="item.raw.name"> </v-list-item>
+            </template>
+          </v-autocomplete>
+
+          <v-alert
+            v-if="alreadyExistsError"
+            icon="fad fa-circle-info"
+            color="info "
+            variant="tonal"
+            class="mb-4"
+            text="Needle already exists in your list"
+          ></v-alert>
+          <v-alert
+            v-if="emptyError"
+            icon="fad fa-circle-info"
+            color="info "
+            variant="tonal"
+            class="mb-4"
+            text="You must select another needle to add before clicking add."
+          ></v-alert>
+
+          <v-btn prepend-icon="fa:fad fa-plus" color="brandLightGreen" variant="flat" @click="addArrayItem()">
+            Add Needle
+          </v-btn>
+          <v-divider></v-divider>
+          <h3 class="text-h6">Currently selected Needles</h3>
+          <v-chip-group v-if="selectedNeedles" class="mt-3" column>
+            <template v-for="(needle, index) in selectedNeedles" :key="index">
+              <v-chip
+                :disabled="selectedNeedles.length === 1"
+                append-icon="fad fa-close"
+                @click="removeArrayItem(selectedNeedles[index])"
+              >
+                {{ needle.name }}
+              </v-chip>
+            </template>
+          </v-chip-group>
+        </template>
       </div>
     </div>
     <div class="column is-8">

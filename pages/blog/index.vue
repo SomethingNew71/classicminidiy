@@ -7,8 +7,8 @@
       :navigation="true"
       :blog="true"
     />
-    <section class="articles">
-      <div v-for="(post, index) in blogPosts" class="column is-12-mobile is-10 is-offset-1 article-container">
+    <v-container fluid class="articles">
+      <v-col v-for="(post, index) in blogPosts" cols="12" md="10" offset-md="1" class="article-container">
         <!-- START ARTICLE -->
         <div :key="index" class="card article">
           <div class="card-content">
@@ -42,11 +42,11 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 has-text-centered pt-5">
+      </v-col>
+      <v-col cols="12" class="has-text-centered pt-5">
         <p>---- End of the line ----</p>
-      </div>
-    </section>
+      </v-col>
+    </v-container>
   </div>
 </template>
 

@@ -29,13 +29,13 @@
 <template>
   <div>
     <hero :navigation="true" :title="'Parts Equivalency'" />
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-12">
+    <v-container>
+      <v-row>
+        <v-col cols="12">
           <breadcrumb page="Parts Equivalency"></breadcrumb>
-        </div>
+        </v-col>
         <template v-for="(table, name, index) in tables" :key="`${name}-${index}`">
-          <div class="column is-12">
+          <v-col cols="12">
             <div class="card" animation="slide">
               <div class="card-header">
                 <h2 class="card-header-title">
@@ -54,17 +54,17 @@
                 </v-data-table>
               </div>
             </div>
-          </div>
+          </v-col>
         </template>
-        <div class="column is-12">
+        <v-col cols="12">
           <div class="card">
             <div class="card-content">
               <patreon-card size="large" />
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 

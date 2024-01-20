@@ -63,12 +63,14 @@
               <span>Contribute</span>
             </a>
           </div>
-          <div class="column is-10 is-offset-1 pt-6">
-            <stats />
-          </div>
-          <div class="column is-12 pt-20">
+          <v-row class="pt-10">
+            <v-col cols="12" md="10" offset-md="1">
+              <stats />
+            </v-col>
+          </v-row>
+          <v-row class="pt-20">
             <recent-videos></recent-videos>
-          </div>
+          </v-row>
         </div>
       </div>
     </v-container>

@@ -66,7 +66,7 @@
       :subtitle="currentPostData?.description"
       :show-image="true"
     />
-    <div v-if="currentPostData" class="column is-12-mobile is-10 is-offset-1 content post">
+    <v-col v-if="currentPostData" cols="12" md="10" offset-md="1" class="content post">
       <div class="card article">
         <div class="media">
           <div v-if="currentPostData?.image" class="media-center">
@@ -129,7 +129,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </v-col>
   </main>
 </template>
 
