@@ -31,9 +31,9 @@
 <template>
   <div>
     <hero :navigation="true" :title="'Needle Configurator'" />
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-12">
+    <v-container>
+      <v-row>
+        <v-col cols="12">
           <breadcrumb page="Needle Comparison"></breadcrumb>
           <div class="columns">
             <div class="column is-8">
@@ -63,15 +63,15 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="column is-12 hr mt-5"></div>
-        <div class="column is-12">
+        </v-col>
+        <v-col cols="12" class="hr mt-5"></v-col>
+        <v-col cols="12">
           <NeedleConfigurator />
-        </div>
-        <div class="column is-10 is-offset-1">
+        </v-col>
+        <v-col cols="12" md="10" offset-md="1">
           <div class="divider">Needle Charts</div>
-        </div>
-        <div class="column is-12 has-text-centered">
+        </v-col>
+        <v-col cols="12" class="has-text-centered">
           <h4 class="fancy-font-book is-size-3">Find the needle for your carb</h4>
           <h5 class="fancy-font-book is-size-5">
             Information provided by
@@ -79,16 +79,16 @@
               >Seven Mini Parts</a
             >
           </h5>
-        </div>
+        </v-col>
         <NeedleTable />
-        <div class="column is-10 is-offset-1">
+        <v-col cols="12" md="10" offset-md="1">
           <div class="divider">Support</div>
-        </div>
-        <div class="column is-12">
+        </v-col>
+        <v-col cols="12">
           <patreon-card size="large" />
-        </div>
-      </div>
-    </section>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 

@@ -27,7 +27,7 @@
 
 <template>
   <v-row>
-    <v-col v-for="(table, name, index) in needlesTables" :key="index" cols="12">
+    <v-col v-for="(table, name, index) in needlesTables" :key="index" cols="12" md="6">
       <v-card>
         <v-toolbar color="brandLightGreen">
           <v-icon class="ml-4" icon="fad fa-list-timeline"></v-icon>

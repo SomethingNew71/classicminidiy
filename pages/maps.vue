@@ -34,17 +34,17 @@
       :ecuMap="true"
       :size="'is-medium'"
     />
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-6 is-offset-3">
+    <v-container>
+      <v-row>
+        <v-col cols="12" md="6" offset-md="3">
           <h1 class="fancy-font-bold is-size-3 has-text-centered">The Classic Mini ECU Map</h1>
           <h2 class="fancy-font-book-oblique has-text-centered is-size-4">
             Hey folks! Cole here with Classic Mini DIY. After countless hours and time spent porting, converting, and
             mapping multiple ECU's, I am proud to release my collection of ECU maps with two options for access.
             Offering support for many popular ECU's used on Classic Minis, with more added in the future.
           </h2>
-        </div>
-        <div class="column is-10 is-offset-1 pt-10 pb-10">
+        </v-col>
+        <v-col cols="12" md="10" offset-md="1" class="pt-10 pb-10">
           <nav class="level">
             <div class="level-item has-text-centered">
               <div>
@@ -71,9 +71,9 @@
               </div>
             </div>
           </nav>
-        </div>
+        </v-col>
 
-        <div class="column is-6 has-text-centered">
+        <v-col cols="12" md="6" class="has-text-centered">
           <div class="card">
             <div class="card-content">
               <i class="fad fa-credit-card is-size-2 pb-3"></i>
@@ -96,8 +96,8 @@
               </v-btn>
             </div>
           </div>
-        </div>
-        <div class="column is-6 has-text-centered">
+        </v-col>
+        <v-col cols="12" md="6" class="has-text-centered">
           <div class="card pb-2">
             <div class="card-content">
               <i class="fad fa-download is-size-2 pb-3"></i>
@@ -121,11 +121,11 @@
               </v-btn>
             </div>
           </div>
-        </div>
-        <div class="column is-10 is-offset-1">
+        </v-col>
+        <v-col cols="12" md="10" offset-md="1">
           <div class="divider">More Details</div>
-        </div>
-        <div class="column is-4 is-offset-1">
+        </v-col>
+        <v-col cols="12" md="4" offset-md="1">
           <nav class="panel is-secondary">
             <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
             <v-progress-circular v-if="commitsLoading"></v-progress-circular>
@@ -152,8 +152,8 @@
               </v-btn>
             </div>
           </nav>
-        </div>
-        <div class="column is-6">
+        </v-col>
+        <v-col cols="12" md="6">
           <h3 class="fancy-font-bold is-size-2 has-text-centered pb-5">Supported ECU's</h3>
           <div class="columns is-multiline">
             <div class="column is-8 is-offset-2">
@@ -178,19 +178,19 @@
               <img class="" src="/img/ecus/dta.jpg" alt="" />
             </div>
           </div>
-        </div>
-        <div class="column is-10 is-offset-1">
+        </v-col>
+        <v-col cols="12" md="10" offset-md="1">
           <div class="divider">Other ways to support</div>
-        </div>
-        <div class="column is-12">
+        </v-col>
+        <v-col cols="12">
           <div class="card">
             <div class="card-content">
               <patreon-card size="large" />
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
