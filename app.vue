@@ -22,7 +22,7 @@
     <main-nav></main-nav>
     <NuxtLoadingIndicator />
     <NuxtPage />
-    <v-footer class="text-center d-flex flex-column" :class="{ 'bg-color-section': isHomepage }">
+    <v-footer class="text-center d-flex flex-column pt-10" :class="{ 'bg-color-section': isHomepage }">
       <div class="pb-2">
         <v-btn
           v-for="(social, i) in socials"
