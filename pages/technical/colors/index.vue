@@ -1,12 +1,13 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
+  let { data: colors, pending, error }: any = await useFetch(() => `/api/colors/list`);
   const { smAndDown, mdAndUp } = useDisplay();
   const search = ref('');
   const tableHeaders: any[] = [
-    // {
-    //   title: 'Primary Color',
-    //   key: 'primaryColor',
-    // },
+    {
+      title: 'Share',
+      key: 'share',
+    },
     {
       title: 'Color Name',
       key: 'name',
@@ -46,7 +47,6 @@
       sortable: false,
     },
   ];
-  let { data: colors, pending, error }: any = await useFetch(() => `/api/colors/list`);
 
   useHead({
     title: 'Tech - Color Picker',
@@ -137,6 +137,16 @@
               :item-value="'id'"
               fixed-header
             >
+              <template v-slot:item.share="{ item }">
+                <v-btn
+                  class="text-center"
+                  variant="plain"
+                  size="large"
+                  icon="fad fa-share-from-square"
+                  :to="`/technical/colors/${item.id}`"
+                >
+                </v-btn>
+              </template>
               <template v-slot:item.name="{ item }">
                 <p class="mt-4 text-subtitle-1 text-capitalize">
                   <strong>{{ item.name ? item.name : 'Unknown' }}</strong>

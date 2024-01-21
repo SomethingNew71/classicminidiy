@@ -1,6 +1,7 @@
+import type { PrettyColor } from '~/data/models/colors';
 import colors from '../../../data/colors.json';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler((event): PrettyColor => {
   const params = getQuery(event);
   const specificColor = colors
     .filter((color) => color.id === params.id)
@@ -22,5 +23,29 @@ export default defineEventHandler(async (event) => {
   if (specificColor.length > 0) {
     return specificColor[0];
   }
-  return {};
+  return {
+    pretty: {
+      'Primary Color': '',
+      Code: '',
+      hasSwatch: false,
+      'Ditzler PPG Code': '',
+      'Dulux Code': '',
+      Name: '',
+      'Short Code': '',
+      Years: '',
+      ID: '',
+    },
+    raw: {
+      primaryColor: '',
+      code: '',
+      imageSwatch: '',
+      ditzlerPpgCode: '',
+      duluxCode: '',
+      name: '',
+      shortCode: '',
+      years: '',
+      id: '',
+      hasSwatch: false,
+    },
+  };
 });

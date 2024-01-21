@@ -19,6 +19,11 @@ export interface SocialItem {
   icon: string;
 }
 
+export const SocialShareData = {
+  preUrl: 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fclassicminidiy.com%2Ftechnical%2Fcolors%2F',
+  postUrl: '%2F',
+};
+
 export const SocialItems: SocialItem[] = [
   { title: 'Youtube', href: 'https://youtube.com/c/classicminidiy', icon: 'fab fa-youtube' },
   { title: 'Patreon', href: 'https://patreon.com/classicminidiy', icon: 'fab fa-patreon' },
