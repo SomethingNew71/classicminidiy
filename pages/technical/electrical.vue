@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   const { data: diagrams } = await useFetch('/api/diagrams');
-  const panels = ref(['Negative Ground']);
+  const panels = ref([]);
 
   useHead({
     title: 'Tech - Electrical Diagrams',
@@ -22,51 +22,53 @@
 </script>
 
 <template>
-  <div>
-    <hero :navigation="true" :title="'Electrical Diagrams'" />
-    <section class="section">
-      <div class="columns">
-        <div class="column is-12">
-          <breadcrumb page="Electrical Diagrams"></breadcrumb>
-          <h1 class="title">Electrical Diagrams</h1>
-          <div class="column is-12">
-            <v-expansion-panels v-model="panels" variant="popout" multiple :color="'grey-lighten-4'">
-              <v-expansion-panel
-                v-for="(diagram, name, index) in diagrams"
-                :key="`${name}-${index}`"
-                :value="diagram.title"
-                :title="diagram.title"
-              >
-                <v-expansion-panel-text>
-                  <nav class="panel is-striped p-0">
-                    <a
-                      v-for="(item, nameItem, diagramIndex) in diagram.items"
-                      :key="`${nameItem}-${diagramIndex}`"
-                      :href="item.link"
-                      target="_blank"
-                      class="panel-block"
-                    >
-                      <span class="panel-icon">
-                        <i class="fad fa-info-circle" aria-hidden="true" />
-                      </span>
-                      {{ item.name }}
-                    </a>
-                  </nav>
-                </v-expansion-panel-text>
-              </v-expansion-panel>
-            </v-expansion-panels>
-          </div>
-          <div class="column is-12">
-            <div class="card">
-              <div class="card-content">
-                <patreon-card size="large" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  <hero :navigation="true" :title="'Electrical Diagrams'" />
+  <v-container>
+    <v-row>
+      <v-col cols="12" md="10">
+        <breadcrumb page="Electrical Diagrams"></breadcrumb>
+        <h1 class="title">Electrical Diagrams</h1>
+        <p>
+          Find the wiring diagrams you need with our collection of fully digitized diagrams sourced directly from The
+          Mini Forum. Archived here for postarity and preservation.
+        </p>
+      </v-col>
+      <v-col cols="12">
+        <v-expansion-panels v-model="panels" variant="popout" multiple :color="'brand-green-3'">
+          <v-expansion-panel
+            v-for="(diagram, name, index) in diagrams"
+            :key="`${name}-${index}`"
+            :value="diagram.title"
+            :title="diagram.title"
+          >
+            <v-expansion-panel-text>
+              <nav class="panel is-striped p-0">
+                <a
+                  v-for="(item, nameItem, diagramIndex) in diagram.items"
+                  :key="`${nameItem}-${diagramIndex}`"
+                  :href="item.link"
+                  target="_blank"
+                  class="panel-block"
+                >
+                  <span class="panel-icon">
+                    <i class="fad fa-info-circle" aria-hidden="true" />
+                  </span>
+                  {{ item.name }}
+                </a>
+              </nav>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-col>
+      <v-col cols="12">
+        <v-card>
+          <v-card-item>
+            <patreon-card size="large" />
+          </v-card-item>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <style lang="scss">

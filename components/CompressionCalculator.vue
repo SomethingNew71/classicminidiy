@@ -45,7 +45,7 @@
             prepend-icon="fad fa-question-circle"
             size="small"
             variant="flat"
-            color="brandLightGreen"
+            color="brand-green-3"
             v-bind="props"
           >
             How do I measure these values?
@@ -80,7 +80,7 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn variant="flat" color="brandLightGreen" text="Close" @click="isActive.value = false"></v-btn>
+              <v-btn variant="flat" color="brand-green-3" text="Close" @click="isActive.value = false"></v-btn>
             </v-card-actions>
           </v-card>
         </template>
@@ -166,7 +166,7 @@
     <v-col cols="12" md="4">
       <h3>Piston Dish size (cc)</h3>
       <v-slider
-        color="brandLightGreen"
+        color="brand-green-3"
         v-model="pistonDish"
         :min="0"
         :max="20"
@@ -182,7 +182,7 @@
     <v-col cols="12" md="4">
       <h3>Cylinder Head Chamber Volume (cc)</h3>
       <v-slider
-        color="brandLightGreen"
+        color="brand-green-3"
         v-model="headVolume"
         :min="15"
         :max="35"
@@ -198,7 +198,7 @@
     <v-col cols="12" md="4">
       <h3>Piston Deck Height (thou)</h3>
       <v-slider
-        color="brandLightGreen"
+        color="brand-green-3"
         v-model="deckHeight"
         :min="0"
         :max="80"

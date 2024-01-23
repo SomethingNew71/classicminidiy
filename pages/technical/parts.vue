@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   const { data: tables } = await useFetch('/api/parts');
   const searchValue = ref('');
+  const panels = ref(['Air Filters', 'Oil Filters', 'Alternators']);
+
   const tableHeaders: any[] = [
     { title: 'Brand', key: 'brand', align: 'start' },
     { title: 'Part Number', key: 'part', align: 'start' },
@@ -27,45 +29,53 @@
 </script>
 
 <template>
-  <div>
-    <hero :navigation="true" :title="'Parts Equivalency'" />
-    <v-container>
-      <v-row>
-        <v-col cols="12">
-          <breadcrumb page="Parts Equivalency"></breadcrumb>
-        </v-col>
-        <template v-for="(table, name, index) in tables" :key="`${name}-${index}`">
-          <v-col cols="12">
-            <div class="card" animation="slide">
-              <div class="card-header">
-                <h2 class="card-header-title">
-                  <i :class="table.icon"></i>
-                  <span class="pl-1">{{ table.title }}</span>
-                </h2>
-              </div>
-              <div class="card-content">
-                <v-data-table
-                  density="compact"
-                  :headers="tableHeaders"
-                  :items="table.items"
-                  :search="searchValue"
-                  items-per-page="50"
-                >
-                </v-data-table>
-              </div>
-            </div>
-          </v-col>
-        </template>
-        <v-col cols="12">
-          <div class="card">
-            <div class="card-content">
-              <patreon-card size="large" />
-            </div>
+  <hero :navigation="true" :title="'Parts Equivalency'" />
+  <v-container>
+    <v-row>
+      <v-col cols="12">
+        <breadcrumb page="Parts Equivalency"></breadcrumb>
+      </v-col>
+      <v-col cols="12">
+        <v-expansion-panels v-model="panels" variant="popout" multiple>
+          <v-expansion-panel v-for="(table, name, index) in tables" :key="`${name}-${index}`" :value="table.title">
+            <v-expansion-panel-title color="brand-green-3" expand-icon="fad fa-plus" collapse-icon="fad fa-plus">
+              {{ table.title }}
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <v-row class="pb-5">
+                <v-spacer></v-spacer>
+                <v-text-field
+                  label="Search This Table"
+                  v-model="searchValue"
+                  placeholder="Crankshaft"
+                  append-inner-icon="fad fa-search"
+                  variant="underlined"
+                  class="pr-4 pt-2"
+                ></v-text-field>
+              </v-row>
+              <v-data-table
+                :headers="tableHeaders"
+                :items="table.items"
+                :density="'compact'"
+                :item-value="'name'"
+                items-per-page="10"
+                :search="searchValue"
+              >
+              </v-data-table>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-col>
+
+      <v-col cols="12">
+        <div class="card">
+          <div class="card-content">
+            <patreon-card size="large" />
           </div>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <style lang="scss" scoped>

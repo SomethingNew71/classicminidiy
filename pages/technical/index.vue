@@ -25,56 +25,54 @@
 </script>
 
 <template>
-  <div>
-    <hero :navigation="true" :title="'Technical Toolbox'" />
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-12">
-          <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <NuxtLink to="/">
-                  <span class="icon is-small">
-                    <i class="fad fa-home" aria-hidden="true" />
-                  </span>
-                  <span>Home</span>
-                </NuxtLink>
-              </li>
-              <li class="is-active">
-                <NuxtLink to="/technical">
-                  <span class="icon is-small">
-                    <i class="fad fa-info-circle" aria-hidden="true" />
-                  </span>
-                  <span>Technical Info</span>
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
-          <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
-          <h3 class="fancy-font-bold is-size-3">Technical Information for the DIY Mechanic</h3>
-        </div>
-        <div class="mobile-list column is-4">
-          <nav class="panel">
-            <p class="panel-heading">Classic Mini Toolbox</p>
-            <NuxtLink v-for="(item, index) in ToolboxItems" :key="index" :to="item.to" class="panel-block is-active">
-              <span class="pr-2 is-size-3" v-html="item.iconHtml"> </span>
-              {{ item.title }}
-            </NuxtLink>
-          </nav>
-        </div>
-        <div class="column is-8">
-          <p class="is-size-5 pt-5 pb-5">
-            One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
-            So to make this easier for you, I have collected technical information from various sources and consolidated
-            it right here on classicminidiy.com.
-          </p>
-          <div class="card">
-            <div class="card-content">
-              <patreon-card size="large" />
-            </div>
+  <hero :navigation="true" :title="'Technical Toolbox'" />
+  <v-container>
+    <v-row>
+      <v-col cols="12">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li>
+              <NuxtLink to="/">
+                <span class="icon is-small">
+                  <i class="fad fa-home" aria-hidden="true" />
+                </span>
+                <span>Home</span>
+              </NuxtLink>
+            </li>
+            <li class="is-active">
+              <NuxtLink to="/technical">
+                <span class="icon is-small">
+                  <i class="fad fa-info-circle" aria-hidden="true" />
+                </span>
+                <span>Technical Info</span>
+              </NuxtLink>
+            </li>
+          </ul>
+        </nav>
+        <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
+        <h3 class="fancy-font-bold is-size-3">Technical Information for the DIY Mechanic</h3>
+      </v-col>
+      <v-col cols="12" md="4">
+        <nav class="panel">
+          <p class="panel-heading">Classic Mini Toolbox</p>
+          <NuxtLink v-for="(item, index) in ToolboxItems" :key="index" :to="item.to" class="panel-block is-active">
+            <span class="pr-2 is-size-3" v-html="item.iconHtml"> </span>
+            {{ item.title }}
+          </NuxtLink>
+        </nav>
+      </v-col>
+      <v-col cols="12" md="8">
+        <p class="is-size-5 pt-5 pb-5">
+          One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
+          So to make this easier for you, I have collected technical information from various sources and consolidated
+          it right here on classicminidiy.com.
+        </p>
+        <div class="card">
+          <div class="card-content">
+            <patreon-card size="large" />
           </div>
         </div>
-      </div>
-    </section>
-  </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
