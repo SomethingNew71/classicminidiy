@@ -213,12 +213,12 @@
     </v-col>
   </v-row>
 
-  <div class="columns is-multiline">
-    <div class="column is-12 py-4"></div>
-    <div class="column is-12">
+  <v-row>
+    <v-col cols="12" class="py-4"></v-col>
+    <v-col cols="12">
       <h2 class="title is-4">Results:</h2>
-    </div>
-    <div class="column is-6">
+    </v-col>
+    <v-col cols="12" md="6">
       <div class="card py-5">
         <nav class="level">
           <div class="level-item has-text-centered">
@@ -231,8 +231,8 @@
           </div>
         </nav>
       </div>
-    </div>
-    <div class="column is-6">
+    </v-col>
+    <v-col cols="12" md="6">
       <div class="card py-5">
         <nav class="level">
           <div class="level-item has-text-centered">
@@ -245,8 +245,8 @@
           </div>
         </nav>
       </div>
-    </div>
-    <div class="column is-12">
+    </v-col>
+    <v-col cols="12">
       <div class="content has-text-centered">
         <p>
           Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building
@@ -276,8 +276,8 @@
           >
         </p>
       </div>
-    </div>
-  </div>
+    </v-col>
+  </v-row>
 </template>
 <style lang="scss" scoped>
   .card {
