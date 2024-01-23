@@ -1,10 +1,8 @@
 <script lang="ts" setup>
   const expanded = ref([]);
-  import { useDisplay } from 'vuetify';
-  const { mdAndUp } = useDisplay();
   const { data: tables } = await useFetch('/api/clearance');
+  const panels = ref(['Engine', 'Clutch & Gearbox']);
   const tableHeaders: any[] = [
-    { title: '', key: 'data-table-expand', align: 'start' },
     {
       title: 'Part',
       key: 'name',
@@ -20,6 +18,7 @@
       key: 'mm',
       align: 'start',
     },
+    { title: '', key: 'data-table-expand', align: 'start' },
   ];
   useHead({
     title: 'Tech - Mini Clearances',
@@ -42,44 +41,44 @@
 </script>
 
 <template>
-  <div>
-    <hero :navigation="true" :title="'Common Clearances'" />
-    <section class="section">
-      <div class="columns is-multiline">
-        <div class="column is-12">
-          <breadcrumb page="Common Clearances"></breadcrumb>
-        </div>
-        <div v-for="(table, name, index) in tables" :key="`${name}-${index}`" class="column is-12">
-          <div class="card">
-            <div class="card-header">
-              <h2 class="card-header-title">
-                <i :class="table.icon"></i>
-                <span class="pl-1">{{ table.title }}</span>
-              </h2>
-              <v-spacer v-if="mdAndUp"></v-spacer>
-              <v-text-field
-                v-model="table.search"
-                prepend-inner-icon="fad fa-search"
-                density="compact"
-                placeholder="Search for item"
-                single-line
-                flat
-                hide-details
-                class="mt-1 mr-1"
-                variant="solo"
-              ></v-text-field>
-            </div>
-            <div class="card-content">
+  <hero :navigation="true" :title="'Common Clearances'" />
+  <v-container>
+    <v-row>
+      <v-col cols="12">
+        <breadcrumb page="Common Clearances"></breadcrumb>
+      </v-col>
+      <v-col cols="12">
+        <v-expansion-panels v-model="panels" variant="popout" multiple>
+          <v-expansion-panel v-for="(table, name, index) in tables" :key="`${name}-${index}`" :value="table.title">
+            <v-expansion-panel-title color="brand-green-3" expand-icon="fad fa-plus" collapse-icon="fad fa-plus">
+              {{ table.title }}
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <v-row class="pb-5">
+                <v-spacer></v-spacer>
+                <v-text-field
+                  label="Search This Table"
+                  v-model="table.search"
+                  placeholder="Crankshaft"
+                  append-inner-icon="fad fa-search"
+                  variant="underlined"
+                  class="pr-4 pt-2"
+                ></v-text-field>
+              </v-row>
               <v-data-table
                 v-model:expanded="expanded"
                 :headers="tableHeaders"
                 :items="table.items"
                 show-expand
                 expand-on-click
+                :density="'compact'"
                 :item-value="'name'"
                 items-per-page="10"
                 :search="table.search"
               >
+                <template v-slot:item.data-table-expand="{ item }">
+                  <v-icon icon="fad fa-chevron-down" :size="'small'"></v-icon>
+                </template>
                 <template v-slot:expanded-row="{ columns, item }">
                   <tr>
                     <td class="has-background-light pt-4 pb-4" colspan="4">
@@ -90,19 +89,19 @@
                   </tr>
                 </template>
               </v-data-table>
-            </div>
-          </div>
-        </div>
-        <div class="column is-12">
-          <div class="card">
-            <div class="card-content">
-              <patreon-card size="large" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-col>
+      <v-col cols="12">
+        <v-card>
+          <v-card-item>
+            <patreon-card size="large" />
+          </v-card-item>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <style lang="scss" scoped>

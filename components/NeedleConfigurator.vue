@@ -54,7 +54,7 @@
               <img loading="lazy" class="diagram" src="/img/diagram.jpg" alt="Diagram of Needle Measurements" />
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn variant="flat" color="brandLightGreen" text="Close" @click="isActive.value = false"></v-btn>
+                <v-btn variant="flat" color="brand-green-3" text="Close" @click="isActive.value = false"></v-btn>
               </v-card-actions>
             </v-card>
           </template>
@@ -96,7 +96,7 @@
             text="You must select another needle to add before clicking add."
           ></v-alert>
 
-          <v-btn prepend-icon="fa:fad fa-plus" color="brandLightGreen" variant="flat" @click="addArrayItem()">
+          <v-btn prepend-icon="fa:fad fa-plus" color="brand-green-3" variant="flat" @click="addArrayItem()">
             Add Needle
           </v-btn>
           <v-divider></v-divider>
