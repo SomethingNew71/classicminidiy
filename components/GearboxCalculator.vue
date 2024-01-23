@@ -168,18 +168,18 @@
 </script>
 
 <template>
-  <div class="columns is-multiline">
-    <div class="column is-12 py-4"></div>
-    <div class="column is-4">
+  <v-row>
+    <v-col cols="12" class="py-4"></v-col>
+    <v-col cols="4">
       <v-switch
         v-model="metric"
         color="primary"
         label="Imperial or Metric"
         @update:modelValue="calculateRatio()"
       ></v-switch>
-    </div>
-    <div class="column is-12"></div>
-    <div class="column is-6">
+    </v-col>
+    <v-col cols="12"></v-col>
+    <v-col cols="12" md="6">
       <v-select
         variant="outlined"
         prepend-icon="fad fa-tire"
@@ -191,8 +191,8 @@
         @update:modelValue="calculateRatio()"
       >
       </v-select>
-    </div>
-    <div class="column is-6">
+    </v-col>
+    <v-col cols="12" md="6">
       <v-select
         variant="outlined"
         prepend-icon="fad fa-gear"
@@ -204,9 +204,9 @@
         @update:modelValue="calculateRatio()"
       >
       </v-select>
-    </div>
-    <div class="column is-12"></div>
-    <div class="column is-6">
+    </v-col>
+    <v-col cols="12"></v-col>
+    <v-col cols="12" md="6">
       <v-select
         variant="outlined"
         prepend-icon="fad fa-percent"
@@ -218,8 +218,8 @@
         @update:modelValue="calculateRatio()"
       >
       </v-select>
-    </div>
-    <div class="column is-6">
+    </v-col>
+    <v-col cols="12" md="6">
       <v-select
         variant="outlined"
         prepend-icon="fad fa-gear"
@@ -231,9 +231,9 @@
         @update:modelValue="calculateRatio()"
       >
       </v-select>
-    </div>
-    <div class="column is-12"></div>
-    <div class="column is-6">
+    </v-col>
+    <v-col cols="12"></v-col>
+    <v-col cols="12" md="6">
       <v-select
         variant="outlined"
         prepend-icon="fad fa-gear"
@@ -245,8 +245,8 @@
         @update:modelValue="calculateRatio()"
       >
       </v-select>
-    </div>
-    <div class="column is-6">
+    </v-col>
+    <v-col cols="12" md="6">
       <h3>Maximum RPM</h3>
       <v-slider
         v-model="max_rpm"
@@ -258,11 +258,11 @@
         :ticks="rpmTicks"
         @update:modelValue="calculateRatio()"
       ></v-slider>
-    </div>
-    <div class="column is-10 is-offset-1">
+    </v-col>
+    <v-col cols="12" md="10" offset-md="1">
       <div class="divider">Results</div>
-    </div>
-    <div class="column is-12">
+    </v-col>
+    <v-col cols="12">
       <nav class="level pb-5">
         <div class="level-item has-text-centered">
           <div>
@@ -283,8 +283,8 @@
           </div>
         </div>
       </nav>
-    </div>
-    <div class="column is-12">
+    </v-col>
+    <v-col cols="12">
       <nav class="level pb-5">
         <div class="level-item has-text-centered">
           <div>
@@ -325,8 +325,8 @@
           </div>
         </div>
       </nav>
-    </div>
-    <div class="column is-7">
+    </v-col>
+    <v-col cols="12" md="7">
       <div class="card">
         <div class="card-header">
           <p class="card-header-title">
@@ -344,8 +344,8 @@
           </v-data-table-virtual>
         </div>
       </div>
-    </div>
-    <div class="column is-5">
+    </v-col>
+    <v-col cols="12" md="5">
       <div class="card">
         <div class="card-header">
           <p class="card-header-title">
@@ -365,15 +365,15 @@
           <patreon-card size="small" />
         </div>
       </div>
-    </div>
-    <div class="column is-12">
+    </v-col>
+    <v-col cols="12">
       <div class="card">
         <client-only>
           <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
         </client-only>
       </div>
-    </div>
-    <div class="column is-12">
+    </v-col>
+    <v-col cols="12">
       <div class="content has-text-centered">
         <p>
           Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building
@@ -388,6 +388,6 @@
           >
         </p>
       </div>
-    </div>
-  </div>
+    </v-col>
+  </v-row>
 </template>
