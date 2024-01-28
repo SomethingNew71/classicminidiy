@@ -1,6 +1,13 @@
 <script lang="ts" setup>
   import { formOptions } from '~/data/models/compression';
   const reactiveFormOptions = ref(formOptions);
+  const rules = ref({
+    required: (value: any) => !!value || 'Field is required',
+    number: (value: any) => {
+      const pattern = /^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/;
+      return pattern.test(value) || 'Must be a Number';
+    },
+  });
 
   // All Form Inputs
   const pistonDish = ref(6.5);
@@ -17,7 +24,8 @@
   function calculateRatio() {
     const pi = Math.PI;
     const boreRadius = bore.value / 2;
-    const deck = deckHeight.value * 0.0254;
+    //@ts-ignore
+    const deck = parseFloat(deckHeight.value) * 0.0254;
     const deckVolume = boreRadius * boreRadius * (deck / 10) * pi;
     const ringland = bore.value * 0.047619; // Correct for 18cc Accrallite 73.5mm pistons
     let gasketVolume;
@@ -26,7 +34,16 @@
     } else {
       gasketVolume = gasket.value;
     }
-    const vc = pistonDish.value + +gasketVolume + +headVolume.value + +deckVolume + +ringland + +decomp.value;
+
+    const vc =
+      //@ts-ignore
+      parseFloat(pistonDish.value) +
+      +gasketVolume +
+      //@ts-ignore
+      +parseFloat(headVolume.value) +
+      +deckVolume +
+      +ringland +
+      +decomp.value;
     const preRoundratio = (stroke.value * (boreRadius * boreRadius) * pi + vc) / vc;
     const preRoundcap = stroke.value * (boreRadius * boreRadius) * pi * 4;
     ratio.value = Math.round((preRoundratio + Number.EPSILON) * 100) / 100;
@@ -139,6 +156,7 @@
       >
       </v-select>
       <v-text-field
+        :rules="[rules.required, rules.number]"
         class="ml-10"
         label="Custom Gasket Size"
         v-if="gasket === 0"
@@ -174,6 +192,7 @@
         @update:modelValue="calculateRatio()"
       ></v-slider>
       <v-text-field
+        :rules="[rules.required, rules.number]"
         v-model="pistonDish"
         @update:modelValue="calculateRatio()"
         prepend-icon="fas fa-circle-half fa-rotate-270"
@@ -190,6 +209,7 @@
         @update:modelValue="calculateRatio()"
       ></v-slider>
       <v-text-field
+        :rules="[rules.required, rules.number]"
         v-model="headVolume"
         @update:modelValue="calculateRatio()"
         prepend-icon="fad fa-arrows-to-dot"
@@ -206,6 +226,7 @@
         @update:modelValue="calculateRatio()"
       ></v-slider>
       <v-text-field
+        :rules="[rules.required, rules.number]"
         v-model="deckHeight"
         @update:modelValue="calculateRatio()"
         prepend-icon="fad fa-arrow-up-to-line"
