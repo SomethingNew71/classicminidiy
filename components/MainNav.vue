@@ -23,7 +23,9 @@
       <v-btn class="is-hidden-desktop" icon="fa:fad fa-bars" @click="showDrawer = !showDrawer" />
       <div class="is-hidden-touch">
         <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn>
-        <v-btn prepend-icon="fa:fad fa-pencil" size="small" variant="text" to="/blog"> Blog </v-btn>
+        <v-btn prepend-icon="fa:fad fa-pencil" size="small" variant="text" href="https://classicminidiy.substack.com/">
+          Blog
+        </v-btn>
         <v-btn prepend-icon="fa:fad fa-computer-classic" size="small" variant="text" to="/maps"> ECU Maps </v-btn>
         <v-btn prepend-icon="fa:fad fa-book-circle-arrow-up" size="small" variant="text" to="/registry">
           Registry
@@ -75,7 +77,14 @@
         <v-btn prepend-icon="fa:fad fa-house" size="x-small" variant="text" to="/"> Home </v-btn></v-list-item
       >
       <v-list-item density="compact">
-        <v-btn prepend-icon="fa:fad fa-pencil" size="x-small" variant="text" to="/blog"> Blog </v-btn></v-list-item
+        <v-btn
+          prepend-icon="fa:fad fa-pencil"
+          size="x-small"
+          variant="text"
+          href="https://classicminidiy.substack.com/"
+        >
+          Blog
+        </v-btn></v-list-item
       >
       <v-list-item density="compact">
         <v-btn prepend-icon="fa:fad fa-store" size="x-small" variant="text" href="https://merch.classicminidiy.com">

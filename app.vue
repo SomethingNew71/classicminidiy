@@ -8,11 +8,11 @@
 
   const socials = ref(SocialItems);
   const route = useRoute();
-  const isHomepage = ref(route.path === '/' || route.path === '/blog');
+  const isHomepage = ref(route.path === '/');
   watch(
     () => route.path,
     () => {
-      isHomepage.value = route.path === '/' || route.path === '/blog';
+      isHomepage.value = route.path === '/';
     }
   );
 </script>

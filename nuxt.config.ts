@@ -77,7 +77,6 @@ export default defineNuxtConfig({
    ** Plugins to load before mounting the App
    */
   modules: [
-    '@nuxt/content',
     '@nuxtjs/fontaine',
     [
       'nuxt-disqus',
