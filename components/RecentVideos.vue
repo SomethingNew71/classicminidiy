@@ -28,3 +28,5 @@
     </v-card>
   </v-col>
 </template>
+
+<style lang="scss"></style>
