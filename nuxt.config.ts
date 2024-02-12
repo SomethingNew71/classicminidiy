@@ -85,8 +85,8 @@ export default defineNuxtConfig({
       },
     ],
     '@vite-pwa/nuxt',
-    'nuxt-simple-sitemap',
-    'nuxt-simple-robots',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
     '@nuxt/image',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
     (_options, nuxt) => {
@@ -99,7 +99,10 @@ export default defineNuxtConfig({
 
   robots: {
     // provide simple disallow rules for all robots `user-agent: *`
-    disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
+    rules: {
+      UserAgent: '*',
+      Disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
+    },
   },
 
   plugins: ['~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
