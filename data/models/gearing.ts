@@ -269,19 +269,31 @@ export const options = {
     },
   ],
   speedos: [
-    { tpm: 1440, name: '100mph Smiths' },
-    { tpm: 1408, name: "110mph Smiths central ('60s Cooper)" },
-    { tpm: 1376, name: '90mph Smiths central (850)' },
-    { tpm: 1312, name: "90mph Smiths Early tri'clock" },
-    { tpm: 1300, name: 'Late Cooper 110mph Nippon Seiki' },
-    { tpm: 1280, name: '120mph Cooper S Smiths central' },
-    { tpm: 1280, name: "90mph Smiths central Pre '84" },
-    { tpm: 1248, name: '900mph Smiths central' },
-    { tpm: 1248, name: '100mph Smiths (Austin 1300GT)' },
-    { tpm: 1248, name: '120mph Smiths (1275 GT/25/1100 Special)' },
-    { tpm: 1242, name: '90mph Nippon Seike' },
-    { tpm: 1216, name: "90mph Smiths post '84" },
-    { tpm: 1000, name: "All Metro's and Most modern aftermarket" },
+    { tpm: 1440, tpk: 894, kph: 160, mph: 100, name: 'Smiths - Generic' },
+    { tpm: 1408, tpk: 874, kph: 177, mph: 110, name: "Smiths central ('60s Cooper)" },
+    { tpm: 1376, tpk: 855, kph: 144, mph: 90, name: 'Smiths central (850)' },
+    { tpm: 1312, tpk: 815, kph: 144, mph: 90, name: "Smiths Early tri'clock" },
+    { tpm: 1300, tpk: 807, kph: 177, mph: 110, name: 'Late Cooper Nippon Seiki' },
+    { tpm: 1280, tpk: 795, kph: 193, mph: 120, name: 'Cooper S Smiths central' },
+    { tpm: 1280, tpk: 795, kph: 144, mph: 90, name: "Smiths central Pre '84" },
+    { tpm: 1248, tpk: 775, kph: 144, mph: 90, name: 'Smiths central' },
+    { tpm: 1248, tpk: 775, kph: 160, mph: 100, name: 'Smiths (Austin 1300GT)' },
+    {
+      tpm: 1248,
+      tpk: 775,
+      kph: 193,
+      mph: 120,
+      name: 'Smiths (1275 GT/25/1100 Special)',
+    },
+    { tpm: 1242, tpk: 771, kph: 144, mph: 90, name: 'Nippon Seike' },
+    { tpm: 1216, tpk: 755, kph: 144, mph: 90, name: "Smiths post '84" },
+    {
+      tpm: 1000,
+      tpk: 621,
+      kph: 177,
+      mph: 110,
+      name: "All Metro's and Most modern aftermarket",
+    },
   ],
   rpmTicks: {
     6000: '6000',
@@ -315,6 +327,16 @@ export const tableHeaders = {
   ],
   tableHeadersSpeedos: [
     {
+      key: 'mph',
+      title: 'MPH',
+      sortable: false,
+    },
+    {
+      key: 'kph',
+      title: 'KPH',
+      sortable: false,
+    },
+    {
       key: 'speedometer',
       title: 'Speedometer',
       sortable: false,
@@ -322,6 +344,11 @@ export const tableHeaders = {
     {
       key: 'tpm',
       title: 'TPM',
+      sortable: false,
+    },
+    {
+      key: 'tpk',
+      title: 'TPK',
       sortable: false,
     },
     {
