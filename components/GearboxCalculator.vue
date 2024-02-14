@@ -95,6 +95,9 @@
         status,
         speedometer: speedometer.name,
         tpm: speedometer.tpm,
+        tpk: speedometer.tpk,
+        mph: speedometer.mph,
+        kph: speedometer.kph,
         result,
       };
     });
@@ -337,11 +340,20 @@
           </p>
         </div>
         <div class="card-content">
-          <v-data-table-virtual :headers="tableHeadersSpeedos" :items="tableDataSpeedos" density="compact">
+          <v-data-table
+            :class="'speedo-table'"
+            :headers="tableHeadersSpeedos"
+            :items="tableDataSpeedos"
+            density="compact"
+            :items-per-page="20"
+          >
+            <template v-slot:item.speedometer="{ item }">
+              <p class="font-weight-bold">{{ item.speedometer }}</p>
+            </template>
             <template v-slot:item.result="{ item }">
               <p class="font-weight-bold" :class="item.status">{{ item.result }}</p>
             </template>
-          </v-data-table-virtual>
+          </v-data-table>
         </div>
       </div>
     </v-col>
@@ -368,9 +380,9 @@
     </v-col>
     <v-col cols="12">
       <div class="card">
-        <client-only>
+        <ClientOnly>
           <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
-        </client-only>
+        </ClientOnly>
       </div>
     </v-col>
     <v-col cols="12">
@@ -391,3 +403,15 @@
     </v-col>
   </v-row>
 </template>
+
+<style lang="scss">
+  .speedo-table {
+    tbody tr:nth-of-type(odd) {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+    .v-data-table-footer,
+    .v-divider {
+      display: none;
+    }
+  }
+</style>
