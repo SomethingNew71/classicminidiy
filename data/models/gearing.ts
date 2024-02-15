@@ -1,3 +1,4 @@
+export const kphFactor = 1.60934;
 export const options = {
   tires: [
     {
@@ -268,33 +269,38 @@ export const options = {
       label: 'Quaife/Swiftune 4 speed Dog Kit (US Spec 1.692:1 1st)',
     },
   ],
-  speedos: [
-    { tpm: 1440, tpk: 894, kph: 160, mph: 100, name: 'Smiths - Generic' },
-    { tpm: 1408, tpk: 874, kph: 177, mph: 110, name: "Smiths central ('60s Cooper)" },
-    { tpm: 1376, tpk: 855, kph: 144, mph: 90, name: 'Smiths central (850)' },
-    { tpm: 1312, tpk: 815, kph: 144, mph: 90, name: "Smiths Early tri'clock" },
-    { tpm: 1300, tpk: 807, kph: 177, mph: 110, name: 'Late Cooper Nippon Seiki' },
-    { tpm: 1280, tpk: 795, kph: 193, mph: 120, name: 'Cooper S Smiths central' },
-    { tpm: 1280, tpk: 795, kph: 144, mph: 90, name: "Smiths central Pre '84" },
-    { tpm: 1248, tpk: 775, kph: 144, mph: 90, name: 'Smiths central' },
-    { tpm: 1248, tpk: 775, kph: 160, mph: 100, name: 'Smiths (Austin 1300GT)' },
-    {
-      tpm: 1248,
-      tpk: 775,
-      kph: 193,
-      mph: 120,
-      name: 'Smiths (1275 GT/25/1100 Special)',
-    },
-    { tpm: 1242, tpk: 771, kph: 144, mph: 90, name: 'Nippon Seike' },
-    { tpm: 1216, tpk: 755, kph: 144, mph: 90, name: "Smiths post '84" },
-    {
-      tpm: 1000,
-      tpk: 621,
-      kph: 177,
-      mph: 110,
-      name: "All Metro's and Most modern aftermarket",
-    },
-  ],
+  speedos: {
+    metric: [
+      { turns: 900, speed: 160, name: 'Smiths - Generic' },
+      { turns: 880, speed: 160, name: "Smiths central ('60s Cooper)" },
+      { turns: 880, speed: 140, name: 'Smiths central (850) - Generic' },
+      { turns: 860, speed: 140, name: 'Smiths central (850)' },
+      { turns: 820, speed: 140, name: "Smiths Early tri'clock" },
+      { turns: 812, speed: 180, name: 'Late Cooper Nippon Seiki' },
+      { turns: 800, speed: 200, name: 'Cooper S Smiths central' },
+      { turns: 800, speed: 140, name: "Smiths central Pre '84" },
+      { turns: 780, speed: 160, name: 'Smiths (Austin 1300GT)' },
+      { turns: 780, speed: 200, name: 'Smiths (1275 GT/25/1100 Special)' },
+      { turns: 776, speed: 140, name: 'Nippon Seike' },
+      { turns: 760, speed: 140, name: "Smiths post '84" },
+      { turns: 625, speed: 170, name: "All Metro's and Most modern aftermarket" },
+    ],
+    imperial: [
+      { turns: 1440, speed: 100, name: 'Smiths - Generic' },
+      { turns: 1408, speed: 110, name: "Smiths central ('60s Cooper)" },
+      { turns: 1376, speed: 90, name: 'Smiths central (850)' },
+      { turns: 1312, speed: 90, name: "Smiths Early tri'clock" },
+      { turns: 1300, speed: 110, name: 'Late Cooper Nippon Seiki' },
+      { turns: 1280, speed: 120, name: 'Cooper S Smiths central' },
+      { turns: 1280, speed: 90, name: "Smiths central Pre '84" },
+      { turns: 1248, speed: 90, name: 'Smiths central' },
+      { turns: 1248, speed: 100, name: 'Smiths (Austin 1300GT)' },
+      { turns: 1248, speed: 120, name: 'Smiths (1275 GT/25/1100 Special)' },
+      { turns: 1242, speed: 90, name: 'Nippon Seike' },
+      { turns: 1216, speed: 90, name: "Smiths post '84" },
+      { turns: 1000, speed: 110, name: "All Metro's and Most modern aftermarket" },
+    ],
+  },
   rpmTicks: {
     6000: '6000',
     6500: '6500',
@@ -326,29 +332,15 @@ export const tableHeaders = {
     },
   ],
   tableHeadersSpeedos: [
+    { key: 'speed', title: 'Top Speed', sortable: false },
     {
-      key: 'mph',
-      title: 'MPH',
-      sortable: false,
-    },
-    {
-      key: 'kph',
-      title: 'KPH',
+      key: 'turns',
+      title: 'Turns',
       sortable: false,
     },
     {
       key: 'speedometer',
       title: 'Speedometer',
-      sortable: false,
-    },
-    {
-      key: 'tpm',
-      title: 'TPM',
-      sortable: false,
-    },
-    {
-      key: 'tpk',
-      title: 'TPK',
       sortable: false,
     },
     {
