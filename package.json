@@ -37,7 +37,7 @@
     "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/sitemap": "^5.1.0",
     "@octokit/request": "^8.2.0",
-    "@types/node": "^20.11.17",
+    "@types/node": "^20.11.19",
     "@types/youtube": "^0.0.50",
     "axios": "^1.6.7",
     "bulma": "^0.9.4",
