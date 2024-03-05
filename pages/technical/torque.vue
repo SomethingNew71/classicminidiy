@@ -48,7 +48,6 @@
                 <v-text-field
                   label="Search This Table"
                   v-model="table.search"
-                  placeholder="Crankshaft"
                   append-inner-icon="fad fa-search"
                   variant="underlined"
                   class="pr-4 pt-2"
