@@ -162,6 +162,7 @@ export default defineNuxtConfig({
         },
       ],
     },
+    selfDestroying: true,
     workbox: {
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
