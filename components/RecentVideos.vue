@@ -29,4 +29,8 @@
   </v-col>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .test {
+    color: inherit;
+  }
+</style>
