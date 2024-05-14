@@ -81,12 +81,11 @@
           </v-expansion-panel>
         </v-expansion-panels>
       </v-col>
+      <v-col cols="12" md="10" offset-md="1">
+        <div class="divider">Support</div>
+      </v-col>
       <v-col cols="12">
-        <v-card>
-          <v-card-item>
-            <patreon-card size="large" />
-          </v-card-item>
-        </v-card>
+        <patreon-card size="large" />
       </v-col>
     </v-row>
   </v-container>

@@ -67,11 +67,12 @@
           So to make this easier for you, I have collected technical information from various sources and consolidated
           it right here on classicminidiy.com.
         </p>
-        <div class="card">
-          <div class="card-content">
-            <patreon-card size="large" />
-          </div>
-        </div>
+        <v-col cols="12" md="10" offset-md="1">
+          <div class="divider">Support</div>
+        </v-col>
+        <v-col cols="12">
+          <patreon-card size="large" />
+        </v-col>
       </v-col>
     </v-row>
   </v-container>

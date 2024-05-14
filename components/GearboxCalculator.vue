@@ -400,11 +400,12 @@
           </v-data-table-virtual>
         </div>
       </div>
-      <div class="card mt-2">
-        <div class="card-content">
-          <patreon-card size="small" />
-        </div>
-      </div>
+      <v-col cols="12" md="10" offset-md="1">
+        <div class="divider">Support</div>
+      </v-col>
+      <v-col cols="12">
+        <patreon-card size="large" />
+      </v-col>
     </v-col>
     <v-col cols="12">
       <div class="card">

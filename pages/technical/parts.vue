@@ -67,12 +67,11 @@
         </v-expansion-panels>
       </v-col>
 
+      <v-col cols="12" md="10" offset-md="1">
+        <div class="divider">Support</div>
+      </v-col>
       <v-col cols="12">
-        <div class="card">
-          <div class="card-content">
-            <patreon-card size="large" />
-          </div>
-        </div>
+        <patreon-card size="large" />
       </v-col>
     </v-row>
   </v-container>

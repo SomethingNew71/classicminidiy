@@ -116,7 +116,7 @@
           </v-col>
           <v-col cols="12" class="is-hidden-desktop mobile-list">
             <nav class="panel">
-              <p class="panel-heading has-background-grey-lighter">Find the Tool You Need</p>
+              <p class="panel-heading">Find the Tool You Need</p>
               <NuxtLink
                 v-for="(item, index) in LandingPageToolboxItems"
                 :key="index"
@@ -151,26 +151,26 @@
             </a>
             <div class="column is-8 pl-0 pt-6 benefits-list">
               <nav class="panel">
-                <p class="panel-heading has-background-grey-lighter">Membership Includes</p>
-                <div class="panel-block">
+                <p class="panel-heading">Membership Includes</p>
+                <div class="panel-block has-text-primary-00">
                   <span class="panel-icon">
                     <i class="is-size-4 fab fa-discord pt-2"></i>
                   </span>
                   Access to Live DIY Chat
                 </div>
-                <div class="panel-block">
+                <div class="panel-block has-text-primary-00">
                   <span class="panel-icon">
                     <i class="is-size-4 fad fa-video pt-2"></i>
                   </span>
                   Early Access to videos
                 </div>
-                <div class="panel-block">
+                <div class="panel-block has-text-primary-00">
                   <span class="panel-icon">
                     <i class="is-size-4 fas fa-gift pt-2"></i>
                   </span>
                   Free gifts and merch
                 </div>
-                <div class="panel-block">
+                <div class="panel-block has-text-primary-00">
                   <span class="panel-icon">
                     <i class="is-size-4 fas fa-circle-info pt-2"></i>
                   </span>
