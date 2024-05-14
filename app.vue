@@ -36,7 +36,7 @@
 
       <div class="pt-0">
         <h2 class="subtitle">
-          <strong>Classic Mini DIY</strong> by
+          <strong class="has-text-primary-00">Classic Mini DIY</strong> by
           <a rel="noopener" target="_blank" href="https://youtube.com/c/classicminidiy?sub_confirmation=1">
             Cole Gentry </a
           >.

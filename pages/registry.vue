@@ -176,11 +176,7 @@
           <RegistrySubmission></RegistrySubmission>
         </v-col>
         <v-col cols="12" md="4">
-          <div class="card">
-            <div class="card-content">
-              <patreon-card size="small" />
-            </div>
-          </div>
+          <patreon-card size="small" />
         </v-col>
       </v-row>
     </v-container>

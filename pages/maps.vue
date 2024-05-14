@@ -74,8 +74,8 @@
         </v-col>
 
         <v-col cols="12" md="6" class="has-text-centered">
-          <div class="card">
-            <div class="card-content">
+          <v-card>
+            <v-card-text>
               <i class="fad fa-credit-card is-size-2 pb-3"></i>
               <h3 class="fancy-font-bold is-size-3">Option 1 - Purchase</h3>
               <p class="is-size-5 pt-5 pb-8">
@@ -94,12 +94,12 @@
               >
                 Download
               </v-btn>
-            </div>
-          </div>
+            </v-card-text>
+          </v-card>
         </v-col>
         <v-col cols="12" md="6" class="has-text-centered">
-          <div class="card pb-2">
-            <div class="card-content">
+          <v-card class="pb-2">
+            <v-card-text>
               <i class="fad fa-download is-size-2 pb-3"></i>
               <h3 class="fancy-font-bold is-size-3">Option 2 - Download</h3>
               <p class="is-size-5 pt-5 pb-5">
@@ -119,13 +119,13 @@
               >
                 View Source
               </v-btn>
-            </div>
-          </div>
+            </v-card-text>
+          </v-card>
         </v-col>
         <v-col cols="12" md="10" offset-md="1">
           <div class="divider">More Details</div>
         </v-col>
-        <v-col cols="12" md="4" offset-md="1">
+        <v-col cols="12" md="6">
           <nav class="panel is-secondary">
             <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
             <v-progress-circular v-if="commitsLoading"></v-progress-circular>
@@ -183,11 +183,7 @@
           <div class="divider">Other ways to support</div>
         </v-col>
         <v-col cols="12">
-          <div class="card">
-            <div class="card-content">
-              <patreon-card size="large" />
-            </div>
-          </div>
+          <patreon-card size="large" />
         </v-col>
       </v-row>
     </v-container>
