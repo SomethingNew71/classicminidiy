@@ -15,6 +15,11 @@ export default defineEventHandler(async (event) => {
     })
   );
   if (body.password === config.app.validation_key) {
+    if (body.detail.buildDate !== 'object') {
+      body.details.buildDate = new Date(body.details.buildDate).toISOString();
+    } else {
+      body.details.buildDate = '---';
+    }
     return await docClient
       .send(
         new PutCommand({
