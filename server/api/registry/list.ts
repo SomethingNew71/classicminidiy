@@ -21,12 +21,16 @@ export default defineEventHandler(async () => {
           TableName: 'MiniRegister',
         })
       )
-      .then(
-        ({ Items }) =>
-          Items?.map((item) => ({
+      .then(({ Items }) =>
+        Items?.map((item) => {
+          console.log(item.buildDate);
+
+          return {
             ...item,
-            buildDate: item.buildDate !== 'object' ? DateTime.fromISO(item.buildDate).toFormat('LLL dd, yyyy') : '---',
-          }))
+            buildDate:
+              item.buildDate !== '---' ? DateTime.fromISO(item.buildDate).toFormat('LLL dd, yyyy') : item.buildDate,
+          };
+        })
       );
   } catch (error) {
     throw new Error(`Error getting registry info - ${error}`);
