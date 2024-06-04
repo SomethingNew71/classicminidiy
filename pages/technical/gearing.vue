@@ -37,7 +37,7 @@
             </p>
           </v-col>
           <v-col cols="12" md="4">
-            <NuxtLink :to="'/technical/enginesize'" :title="'Link to Engine Sizes'">
+            <NuxtLink :to="'/technical/decoders'" :title="'Link to Engine Sizes'">
               <div class="card callout-card">
                 <div class="card-content">
                   <div class="media">
