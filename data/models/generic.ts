@@ -55,10 +55,10 @@ export const ToolboxItems: ToolboxItem[] = [
   },
   {
     title: 'Engine Sizes',
-    path: '/technical/enginesize',
+    path: '/technical/decoders',
     iconHtml:
       '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
-    to: '/technical/enginesize',
+    to: '/technical/decoders',
   },
   {
     title: 'Carb Needle Configurator',
@@ -126,7 +126,7 @@ export const LandingPageToolboxItems = [
     title: 'Engine Sizes',
     image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
     webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
-    to: '/technical/enginesize',
+    to: '/technical/decoders',
   },
   {
     title: 'SU Needle Comparison',

@@ -18,7 +18,7 @@
   ]);
 
   useHead({
-    title: 'Tech - Engine Sizes/Displacements',
+    title: 'Tech - Engine and Chasis Decoders',
     meta: [
       {
         hid: 'description',
@@ -29,10 +29,10 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Tech - Engine Sizes/Displacements',
+    ogTitle: 'Tech - Engine and Chasis Decoders',
     ogDescription:
       "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
-    ogUrl: 'classicminidiy.com/technical/enginesize',
+    ogUrl: 'classicminidiy.com/technical/',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
     ogType: 'website',
   });
@@ -47,7 +47,7 @@
 
         <v-row>
           <v-col cols="12" md="8">
-            <h1 class="title">Engine Displacement and Sizes</h1>
+            <h1 class="title">Engine and Chasis Decoders</h1>
             <p>
               Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard
               bore, engine size chart to figure out how big your current engine is, or how big you'd like your next
@@ -88,7 +88,43 @@
           </v-col>
         </v-row>
       </v-col>
-      <template v-if="data">
+      <v-col cols="12" md="6">
+        <v-card>
+          <v-toolbar>
+            <v-icon class="ml-4" icon="fad fa-engine"></v-icon>
+            <v-toolbar-title>Engine Number Parser</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text> </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-card>
+          <v-toolbar>
+            <v-icon class="ml-4" icon="fad fa-list"></v-icon>
+            <v-toolbar-title>Results</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text> </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-card>
+          <v-toolbar>
+            <v-icon class="ml-4" icon="fad fa-engine"></v-icon>
+            <v-toolbar-title>Engine Number Parser</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text> </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-card>
+          <v-toolbar>
+            <v-icon class="ml-4" icon="fad fa-list"></v-icon>
+            <v-toolbar-title>Results</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text> </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" v-if="data">
         <v-col cols="12">
           <i class="fas fa-circle pl-1 has-text-success"></i> Standard
           <i class="fas fa-circle pl-1 has-text-primary"></i> Standard Overbore
@@ -118,7 +154,7 @@
             </v-card-text>
           </v-card>
         </v-col>
-      </template>
+      </v-col>
       <v-col cols="12" md="10" offset-md="1">
         <div class="divider">Support</div>
       </v-col>
