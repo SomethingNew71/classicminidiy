@@ -40,13 +40,6 @@ export const ToolboxItems: ToolboxItem[] = [
     to: '/technical/torque',
   },
   {
-    title: 'Common Clearances',
-    path: '/technical/clearance',
-    iconHtml:
-      '<i class="fa-duotone fa-ruler-triangle" style="--fa-primary-color: #433016; --fa-secondary-color: #ddbd8d; --fa-secondary-opacity: 1;"></i>',
-    to: '/technical/clearance',
-  },
-  {
     title: 'Electrical Diagrams',
     path: '/technical/electrical',
     iconHtml:
@@ -55,10 +48,24 @@ export const ToolboxItems: ToolboxItem[] = [
   },
   {
     title: 'Engine Sizes',
-    path: '/technical/decoders',
+    path: '/technical/engines',
     iconHtml:
       '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
-    to: '/technical/decoders',
+    to: '/technical/engines',
+  },
+  {
+    title: 'Chassis Number Decoder',
+    path: '/technical/chassisDecoder',
+    iconHtml:
+      '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
+    to: '/technical/chassisDecoder',
+  },
+  {
+    title: 'Engine Number Decoder',
+    path: '/technical/engineDecoder',
+    iconHtml:
+      '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
+    to: '/technical/engineDecoder',
   },
   {
     title: 'Carb Needle Configurator',
@@ -101,6 +108,13 @@ export const ToolboxItems: ToolboxItem[] = [
       '<i class="fa-duotone fa-brush" style="--fa-primary-color: #431f23; --fa-secondary-color: #c3a166; --fa-secondary-opacity: 0.8;"></i>',
     to: '/technical/colors',
   },
+  {
+    title: 'Common Clearances',
+    path: '/technical/clearance',
+    iconHtml:
+      '<i class="fa-duotone fa-ruler-triangle" style="--fa-primary-color: #433016; --fa-secondary-color: #ddbd8d; --fa-secondary-opacity: 1;"></i>',
+    to: '/technical/clearance',
+  },
 ];
 
 export const LandingPageToolboxItems = [
@@ -126,7 +140,7 @@ export const LandingPageToolboxItems = [
     title: 'Engine Sizes',
     image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
     webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
-    to: '/technical/decoders',
+    to: '/technical/engines',
   },
   {
     title: 'SU Needle Comparison',
