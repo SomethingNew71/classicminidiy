@@ -128,7 +128,7 @@ export default defineEventHandler(async (event) => {
           Item: { ...parsedNewWheel },
         })
       )
-      .catch((e) => console.log(e));
+      .catch((e) => console.error(e));
   }
 
   async function deleteQueueItem(): Promise<DeleteCommandOutput> {

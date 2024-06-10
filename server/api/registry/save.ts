@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
           Item: { ...body.details },
         })
       )
-      .catch((e) => console.log(e));
+      .catch((e) => console.error(e));
   } else {
     return { status: 403, message: 'NOT AUTHORIZED' };
   }

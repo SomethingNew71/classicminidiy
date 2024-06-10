@@ -18,7 +18,7 @@
   ]);
 
   useHead({
-    title: 'Tech - Engine Sizes',
+    title: 'Tech - Engine Sizes and Displacements',
     meta: [
       {
         hid: 'description',
@@ -29,7 +29,7 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Tech - Engine Sizes',
+    ogTitle: 'Tech - Engine Sizes and Displacements',
     ogDescription:
       "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
     ogUrl: 'classicminidiy.com/technical/engines',
@@ -47,7 +47,7 @@
 
         <v-row>
           <v-col cols="12" md="8">
-            <h1 class="title">Engine and Chasis Decoders</h1>
+            <h1 class="title">Engine Displacement and Sizes</h1>
             <p>
               Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard
               bore, engine size chart to figure out how big your current engine is, or how big you'd like your next
