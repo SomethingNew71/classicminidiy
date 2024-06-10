@@ -22,15 +22,11 @@ export default defineEventHandler(async () => {
         })
       )
       .then(({ Items }) =>
-        Items?.map((item) => {
-          console.log(item.buildDate);
-
-          return {
-            ...item,
-            buildDate:
-              item.buildDate !== '---' ? DateTime.fromISO(item.buildDate).toFormat('LLL dd, yyyy') : item.buildDate,
-          };
-        })
+        Items?.map((item) => ({
+          ...item,
+          buildDate:
+            item.buildDate !== '---' ? DateTime.fromISO(item.buildDate).toFormat('LLL dd, yyyy') : item.buildDate,
+        }))
       );
   } catch (error) {
     throw new Error(`Error getting registry info - ${error}`);

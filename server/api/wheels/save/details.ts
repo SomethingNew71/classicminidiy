@@ -27,5 +27,5 @@ export default defineEventHandler(async (event) => {
       })
     )
     .then(() => ({ uuid: body.uuid }))
-    .catch((e) => console.log(e));
+    .catch((e) => console.error(e));
 });
