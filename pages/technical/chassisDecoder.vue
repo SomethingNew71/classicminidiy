@@ -38,6 +38,26 @@
     reactiveForm.value.numbers = '';
     reactiveForm.value.last = '';
   }
+
+  useHead({
+    title: 'Tech - Mini Chassis Plate Decoder',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Tech - Mini Chassis Plate Decoder',
+    ogDescription:
+      "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
+    ogUrl: 'classicminidiy.com/technical/chassisdecoder',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogType: 'website',
+  });
 </script>
 
 <template>

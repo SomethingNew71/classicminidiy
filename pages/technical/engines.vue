@@ -18,21 +18,21 @@
   ]);
 
   useHead({
-    title: 'Tech - Engine and Chasis Decoders',
+    title: 'Tech - Engine Sizes',
     meta: [
       {
         hid: 'description',
         name: 'description',
         content:
-          "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+          "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Tech - Engine and Chasis Decoders',
+    ogTitle: 'Tech - Engine Sizes',
     ogDescription:
-      "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
-    ogUrl: 'classicminidiy.com/technical/',
+      "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+    ogUrl: 'classicminidiy.com/technical/engines',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
     ogType: 'website',
   });
