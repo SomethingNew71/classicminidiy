@@ -22,7 +22,19 @@ export interface ChasisRange {
       numbers: string;
       last: string;
     };
-    options: { value: string; name: string }[][];
+    options: {
+      '1': { value: string; name: string }[];
+      '2': { value: string; name: string }[];
+      '3': { value: string; name: string }[];
+      '4': { value: string; name: string }[];
+      '5': { value: string; name: string }[];
+      '6': { value: string; name: string }[];
+      '7': { value: string; name: string }[];
+      '8': { value: string; name: string }[];
+      '9': { value: string; name: string }[];
+      '10': { value: string; name: string }[];
+      '11': { value: string; name: string }[];
+    };
     number: string;
     last: { value: string; name: string }[];
   };
@@ -189,8 +201,8 @@ export const chasisRanges: ChasisRange[] = [
         numbers: '###',
         last: 'A',
       },
-      options: [
-        [
+      options: {
+        1: [
           { value: 'A', name: ' Austin (other than Cooper and S)' },
           { value: 'C', name: ' Austin Cooper or Austin Cooper S' },
           { value: 'K', name: ' Morris Cooper or Cooper S' },
@@ -198,20 +210,20 @@ export const chasisRanges: ChasisRange[] = [
           { value: 'R', name: ' Riley' },
           { value: 'W', name: ' Wolseley' },
         ],
-        [{ value: 'A', name: 'All Engine Types' }],
+        2: [{ value: 'A', name: 'All Engine Types' }],
         // Body Type
-        [
+        3: [
           {
             value: '2S',
-            name: '2-door saloon/sedan. Caution: bureaucratic bungles often interpret this as 25 (twenty-five)',
+            name: '2-door Saloon. Bureaucratic bungles often interpret this as 25',
           },
           { value: 'B', name: 'Moke (“Buckboard”!)' },
-          { value: 'U', name: 'Pick-up. Caution: "U" and "V" can be mistaken one for the other' },
-          { value: 'V', name: 'Panel van. Caution: "U" and "V" can be mistaken one for the other' },
+          { value: 'U', name: 'Pick-up. "U" and "V" can be mistaken one for the other' },
+          { value: 'V', name: 'Panel van. "U" and "V" can be mistaken one for the other' },
           { value: 'W', name: 'Estate (with or without wood). Officially, “Dual-purpose”' },
         ],
         // Series of Austin, or Morris
-        [
+        4: [
           { value: '1', name: 'Mk1 Riley Elf, Wolseley Hornet, and Austin/Morris Moke' },
           { value: '2', name: 'Mk2 Riley Elf or Wolseley Hornet' },
           { value: '3', name: 'Mk3 Riley Elf or Wolseley Hornet' },
@@ -221,18 +233,18 @@ export const chasisRanges: ChasisRange[] = [
           { value: 'B', name: 'Mk2 Austin' },
         ],
         // Trim
-        [
+        5: [
           { value: 'D', name: 'De-Luxe' },
           { value: 'L', name: 'Left-hand drive. Right-hand drive was not designated' },
           { value: 'S', name: 'Super De-Luxe' },
         ],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-      ],
+        6: [],
+        7: [],
+        8: [],
+        9: [],
+        10: [],
+        11: [],
+      },
       number: '###',
       // Assembly Plant
       last: [
@@ -261,35 +273,34 @@ export const chasisRanges: ChasisRange[] = [
         numbers: '###-',
         last: 'A',
       },
-      options: [
-        [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
-        [{ value: 'A', name: 'All Engine Types' }],
-        [
+      options: {
+        1: [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
+        2: [{ value: 'A', name: 'All Engine Types' }],
+        3: [
           {
             value: '2S',
-            name: '2-door saloon/sedan (except Mk3 Cooper S and 1275GT). Caution: bureaucratic bungles often misinterpret this as 25 (twenty-five)',
+            name: '2-door S aloon(except Mk3 Cooper S and 1275GT). Bureaucratic bungles often misinterpret this as 25',
           },
           { value: '2W', name: 'Estate (“2-door Dual Purpose”)' },
           { value: 'D', name: '2-door saloon (Mk3 Cooper S and 1275GT only)' },
-          { value: 'U', name: 'Pick-up. Caution: "U" and "V" can be mistaken one for the other' },
-          { value: 'V', name: 'Panel van. Caution: "U" and "V" can be mistaken one for the other' },
+          { value: 'U', name: 'Pick-up. "U" and "V" can be mistaken one for the other' },
+          { value: 'V', name: 'Panel van. "U" and "V" can be mistaken one for the other' },
         ],
-        [
-          { value: '', name: 'Mini 850. Produced only in the “round nose” style' },
+        4: [
           {
             value: '1',
-            name: 'Round nose, traditional Mini body style. Includes: Mini 1000, Mk3 Cooper S, Van, and Pick-up',
+            name: 'Round nose. Includes: Mini 1000, Mk3 Cooper S, Van, and Pick-up',
           },
-          { value: '2', name: 'Clubman, square nose style. Includes: Clubman saloon, Clubman Estate, and 1275GT' },
+          { value: '2', name: 'Clubman, square nose style. Clubman saloon, Clubman Estate, and 1275GT' },
         ],
-        [{ value: 'N', name: 'Mini 1000' }],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-      ],
+        5: [{ value: 'N', name: 'Mini 1000' }],
+        6: [],
+        7: [],
+        8: [],
+        9: [],
+        10: [],
+        11: [],
+      },
       number: '###',
       last: [{ value: 'A', name: 'Longbridge' }],
     },
@@ -313,9 +324,9 @@ export const chasisRanges: ChasisRange[] = [
         numbers: '###-',
         last: 'A',
       },
-      options: [
-        [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
-        [
+      options: {
+        1: [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
+        2: [
           {
             value: 'A',
             name: '[Unknown if this was used. If so, it indicated any of the A-series engines still in production at that time]',
@@ -325,30 +336,30 @@ export const chasisRanges: ChasisRange[] = [
           { value: 'K', name: '848cc' },
           { value: 'L', name: '998cc' },
         ],
-        [
+        3: [
           {
             value: '2D',
-            name: 'The factory microfiche does not list a designator for the 1275GT. This would imply there wasn’t one; however, it is likely the 2D designator was still used. The microfiche shows 2D used for the 1980 model year. If no designator is listed, the Commission number must be used to identify the 1275GT.',
+            name: 'Unclear if this was used for chassis numbers in this generation',
           },
           {
             value: '2S',
-            name: '2-door saloon/sedan (except 1275GT). Caution: bureaucratic bungles often interpret this as 25 (twenty-five)',
+            name: '2-door Saloon (except 1275GT). Bureaucratic bungles often interpret this as 25',
           },
           { value: '2W', name: 'Estate (“2-door Dual Purpose”)' },
-          { value: 'U', name: 'Pick-up. Caution: "U" and "V" can be mistaken one for the other' },
-          { value: 'V', name: 'Panel van. Caution: "U" and "V" can be mistaken one for the other' },
+          { value: 'U', name: 'Pick-up. "U" and "V" can be mistaken one for the other' },
+          { value: 'V', name: 'Panel van. "U" and "V" can be mistaken one for the other' },
         ],
-        [
+        4: [
           {
             value: '1',
-            name: 'Round nose, traditional Mini body style. Includes: Mini 850, Mini 850 City, Mini 850 Special Deluxe, Mini 1000, Van (848cc and 998cc), Mini Special 1098cc, and Pick-up (850cc and 998cc).',
+            name: 'Round nose. Includes: Mini 850, Mini 850 City, Mini 850 Special Deluxe, Mini 1000, Van (848cc and 998cc), Mini Special 1098cc, and Pick-up (850cc and 998cc).',
           },
           {
             value: '2',
             name: 'Clubman, square nose style. Includes: Clubman Saloon (998cc Automatic and 1098cc Manual), Clubman Estate (998cc Automatic and 1098cc Manual), and 1275GT.',
           },
         ],
-        [
+        5: [
           { value: 'A', name: '1970' },
           { value: 'B', name: '1971' },
           { value: 'C', name: '1972' },
@@ -360,13 +371,13 @@ export const chasisRanges: ChasisRange[] = [
           { value: 'J', name: '1978' },
           { value: 'L', name: '1979' },
         ],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-      ],
+        6: [],
+        7: [],
+        8: [],
+        9: [],
+        10: [],
+        11: [],
+      },
       number: '###',
       last: [{ value: 'A', name: 'Longbridge' }],
     },
@@ -390,36 +401,36 @@ export const chasisRanges: ChasisRange[] = [
         numbers: '###-',
         last: 'A',
       },
-      options: [
-        [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
-        [
+      options: {
+        1: [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
+        2: [
           { value: 'C', name: '1098cc' },
           { value: 'E', name: '1275cc' },
           { value: 'K', name: '848cc' },
           { value: 'L', name: '998cc' },
         ],
-        [
+        3: [
           { value: '2D', name: '1275GT' },
           {
             value: '2S',
-            name: '2-door saloon/sedan (except 1275GT). Caution: bureaucratic bungles often interpret this as 25 (twenty-five)',
+            name: '2-door Saloon (except 1275GT). Bureaucratic bungles often interpret this as 25',
           },
           { value: '2W', name: 'Estate (“2-door Dual Purpose”)' },
-          { value: 'U', name: 'Pick-up. Caution: "U" and "V" can be mistaken one for the other.' },
-          { value: 'V', name: 'Panel van. Caution: "U" and "V" can be mistaken one for the other.' },
+          { value: 'U', name: 'Pick-up. "U" and "V" can be mistaken one for the other.' },
+          { value: 'V', name: 'Panel van. "U" and "V" can be mistaken one for the other.' },
         ],
-        [
+        4: [
           { value: '1', name: 'Round nose, traditional Mini body style.' },
           { value: '2', name: 'Clubman, square nose style.' },
         ],
-        [{ value: 'N', name: 'Special Deluxe' }],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-      ],
+        5: [{ value: 'N', name: 'Special Deluxe' }],
+        6: [],
+        7: [],
+        8: [],
+        9: [],
+        10: [],
+        11: [],
+      },
       number: '###',
       last: [{ value: 'A', name: 'Longbridge' }],
     },
@@ -432,7 +443,7 @@ export const chasisRanges: ChasisRange[] = [
         1: 'SAX-',
         2: '',
         3: '',
-        4: 'X-',
+        4: '',
         5: 'K',
         6: '2S',
         7: '',
@@ -443,39 +454,39 @@ export const chasisRanges: ChasisRange[] = [
         numbers: '###-',
         last: 'A',
       },
-      options: [
-        [{ value: 'SAX', name: 'MG - Rover' }],
-        [],
-        [],
-        [],
-        [
+      options: {
+        1: [{ value: 'SAX', name: 'MG - Rover' }],
+        2: [],
+        3: [],
+        4: [],
+        5: [
           { value: 'C', name: '1098cc' },
           { value: 'K', name: '848cc' },
           { value: 'L', name: '998cc' },
         ],
-        [
+        6: [
           {
             value: '2S',
-            name: ' 2-door saloon/sedan (except 1275GT). Caution: bureaucratic bungles often interpret this as 25 (twenty-five)',
+            name: ' 2-door Saloon (except 1275GT). Bureaucratic bungles often interpret this as 25',
           },
           { value: '2W', name: 'Estate (“2-door Dual Purpose”)' },
           { value: 'G', name: 'P.O. Mail Van' },
-          { value: 'U', name: 'Pick-up. Caution: "U" and "V" can be mistaken one for the other.' },
-          { value: 'V', name: 'Panel van. Caution: "U" and "V" can be mistaken one for the other.' },
+          { value: 'U', name: 'Pick-up. "U" and "V" can be mistaken one for the other.' },
+          { value: 'V', name: 'Panel van. "U" and "V" can be mistaken one for the other.' },
         ],
-        [
+        7: [],
+        8: [
           { value: '1', name: 'Round nose, traditional Mini body style.' },
           { value: '2', name: 'Clubman, square nose style.' },
         ],
-        [
+        9: [
           { value: 'N', name: 'HL, Special, HLE, or Mayfair' },
           { value: 'R', name: 'Mini 25' },
           { value: 'S', name: 'Mayfair (left-hand drive - France only)' },
         ],
-        [],
-        [],
-        [],
-      ],
+        10: [],
+        11: [],
+      },
       number: '###',
       last: [{ value: 'A', name: 'Longbridge' }],
     },
@@ -488,7 +499,7 @@ export const chasisRanges: ChasisRange[] = [
         1: 'SAX-',
         2: '',
         3: '',
-        4: 'X-',
+        4: '',
         5: 'L',
         6: '2S',
         7: '',
@@ -499,36 +510,36 @@ export const chasisRanges: ChasisRange[] = [
         numbers: '###-',
         last: 'A',
       },
-      options: [
-        [{ value: 'SAX', name: 'MG - Rover' }],
-        [],
-        [],
-        [],
-        [{ value: 'L', name: '998cc' }],
-        [
+      options: {
+        1: [{ value: 'SAX', name: 'MG - Rover' }],
+        2: [],
+        3: [],
+        4: [],
+        5: [{ value: 'L', name: '998cc' }],
+        6: [
           {
             value: '2S',
-            name: '2-door saloon/sedan. Caution: bureaucratic bungles often interpret this as 25 (twenty-five)',
+            name: '2-door Saloon. Bureaucratic bungles often interpret this as 25',
           },
         ],
-        [],
-        [{ value: '1', name: 'Round nose, traditional Mini body style.' }],
-        [
+        7: [],
+        8: [{ value: '1', name: 'Round nose, traditional Mini body style.' }],
+        9: [
           { value: 'N', name: 'HLE, or Mayfair (right-hand drive)' },
           { value: 'O', name: 'E, City E' },
           { value: 'S', name: 'Mayfair (left-hand drive)' },
         ],
-        [
+        10: [
           {
             value: '2',
-            name: '1984-on (This conflicts with the microfiche indicating this position was used starting in November 1985)',
+            name: '1984-on',
           },
         ],
-        [
+        11: [
           { value: '0', name: 'Right-hand drive (RHD)' },
           { value: '1', name: 'Left-hand drive (LHD)' },
         ],
-      ],
+      },
       number: '###',
       last: [{ value: 'A', name: 'Longbridge' }],
     },
@@ -552,30 +563,30 @@ export const chasisRanges: ChasisRange[] = [
         numbers: '###',
         last: '',
       },
-      options: [
-        [{ value: 'SAX', name: 'MG - Rover' }],
-        [],
-        [],
-        [{ value: 'XN', name: 'Mini 1300' }],
-        [],
-        [
+      options: {
+        1: [{ value: 'SAX', name: 'MG - Rover' }],
+        2: [],
+        3: [],
+        4: [{ value: 'XN', name: 'Mini 1300' }],
+        5: [],
+        6: [
           { value: 'N', name: 'Sport, Cooper, Cabriolet' },
           { value: 'V', name: 'Kensington' },
           { value: 'W', name: 'HLS, Mayfair' },
           { value: 'Y', name: 'City, Sprite' },
         ],
-        [
-          { value: 'A', name: '2-door saloon/sedan' },
+        7: [
+          { value: 'A', name: '2-door Saloon' },
           { value: 'B', name: 'Cabriolet' },
         ],
-        [
+        8: [
           { value: 'D', name: '1300 Carb' },
           { value: 'M', name: '1300 Carb' },
           { value: 'X', name: '1300 SPi (standard compression ratio, 9.4:1)' },
           { value: 'Y', name: '1300 SPi (high compression ratio, 10.1:1)' },
           { value: 'Z', name: '1300 MPi (high compression ratio, 10.1:1)' },
         ],
-        [
+        9: [
           { value: 'B', name: 'RHD, Manual, 3.105' },
           { value: 'C', name: 'RHD, Manual, 3.21' },
           { value: 'E', name: 'RHD, Manual, 2.76' },
@@ -585,12 +596,12 @@ export const chasisRanges: ChasisRange[] = [
           { value: 'R', name: 'LHD, Manual, 2.76' },
           { value: 'Y', name: 'LHD, Automatic' },
         ],
-        [
+        10: [
           { value: 'A', name: '1300 Special Edition' },
           { value: 'B', name: '1300' },
         ],
-        [{ value: 'A', name: 'Longbridge' }],
-      ],
+        11: [{ value: 'A', name: 'Longbridge' }],
+      },
       number: '###',
       last: [],
     },

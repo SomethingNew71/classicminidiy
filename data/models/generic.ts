@@ -56,17 +56,16 @@ export const ToolboxItems: ToolboxItem[] = [
   {
     title: 'Chassis Number Decoder',
     path: '/technical/chassisDecoder',
-    iconHtml:
-      '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
+    iconHtml: '<i class="fa-duotone fa-hashtag" ></i>',
     to: '/technical/chassisDecoder',
   },
-  {
-    title: 'Engine Number Decoder',
-    path: '/technical/engineDecoder',
-    iconHtml:
-      '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
-    to: '/technical/engineDecoder',
-  },
+  // {
+  //   title: 'Engine Number Decoder',
+  //   path: '/technical/engineDecoder',
+  //   iconHtml:
+  //     '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
+  //   to: '/technical/engineDecoder',
+  // },
   {
     title: 'Carb Needle Configurator',
     path: '/technical/needles',
