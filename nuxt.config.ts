@@ -99,10 +99,7 @@ export default defineNuxtConfig({
 
   robots: {
     // provide simple disallow rules for all robots `user-agent: *`
-    rules: {
-      UserAgent: '*',
-      Disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
-    },
+    disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
   },
 
   plugins: ['~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
@@ -171,4 +168,5 @@ export default defineNuxtConfig({
       installPrompt: true,
     },
   },
+  compatibilityDate: '2024-07-17',
 });
