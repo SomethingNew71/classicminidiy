@@ -34,10 +34,10 @@
     "@aws-sdk/lib-dynamodb": "^3.614.0",
     "@aws-sdk/lib-storage": "^3.614.0",
     "@creativebulma/bulma-divider": "^1.1.0",
-    "@nuxtjs/robots": "^3.0.0",
-    "@nuxtjs/sitemap": "^5.3.2",
-    "@octokit/request": "^9.1.1",
-    "@types/node": "^20.14.10",
+    "@nuxtjs/robots": "^4.0.1",
+    "@nuxtjs/sitemap": "^5.3.5",
+    "@octokit/request": "^9.1.3",
+    "@types/node": "^20.14.11",
     "@types/youtube": "^0.0.50",
     "axios": "^1.7.2",
     "bulma": "^0.9.4",
@@ -49,17 +49,17 @@
     "luxon": "^3.4.4",
     "outdent": "^0.8.0",
     "redirect-ssl": "^3.0.0",
-    "sass": "^1.77.7",
+    "sass": "^1.77.8",
     "uuid": "^10.0.0",
     "vite-plugin-vuetify": "^2.0.3",
     "vue-cookie-law": "^1.13.3",
-    "vuetify": "3.6.12"
+    "vuetify": "3.6.13"
   },
   "devDependencies": {
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/fontaine": "^0.4.3",
     "@types/formidable": "^3.4.5",
-    "@types/lodash": "^4.17.6",
+    "@types/lodash": "^4.17.7",
     "@types/luxon": "^3.4.2",
     "@types/uuid": "^10.0.0",
     "@vite-pwa/nuxt": "^0.9.1",
@@ -71,8 +71,8 @@
     "nuxt-compress": "^5.0.0",
     "nuxt-delay-hydration": "^1.3.4",
     "nuxt-disqus": "^1.0.1",
-    "nuxt-gtag": "^2.0.6",
-    "prettier": "3.3.2",
+    "nuxt-gtag": "^2.0.7",
+    "prettier": "3.3.3",
     "sass-loader": "^14.2.1"
   }
 }
