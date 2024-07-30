@@ -7,7 +7,6 @@ $red: #b22222;
 $green: #4a7023;
 $patreon: #f96854;
 $guessworks: #b8b8b8;
-$seven: #d70402;
 $amazon: #febd69;
 
 // Path to Bulma's sass folder
@@ -17,9 +16,28 @@ $amazon: #febd69;
   $primary: $brand,
   $link: $brand,
 );
+
+.is-patreon {
+  background-color: $patreon !important;
+  border-color: $patreon !important;
+  color: white !important;
+}
+
+.is-guessworks {
+  background-color: $guessworks !important;
+  border-color: $guessworks  !important;
+  color: white !important;
+}
+
+.is-amazon {
+  background-color: $amazon !important;
+  border-color: $amazon !important;
+  color: white !important;
+}
+
+
 @import 'bulma/bulma.scss';
 @import './divider.scss';
-
 
 // Import all my custom scss
 @import './fonts.scss';

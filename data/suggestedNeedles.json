@@ -4,38 +4,38 @@
     "items": [
       {
         "engineSize": "850, 998",
-        "needleStd": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1149&af=cmdiy1959\">EB</a>",
-        "needleRich": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1261&af=cmdiy1959\">M</a>",
-        "needleLean": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1211&af=cmdiy1959\">GG</a>",
-        "springType": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\">Red</a>"
+        "needleStd": "EB",
+        "needleRich": "M",
+        "needleLean": "GG",
+        "springType": "Red"
       },
       {
         "engineSize": "Innocenti to 1974",
-        "needleStd": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1468&af=cmdiy1959\">GY</a>",
-        "needleRich": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1261&af=cmdiy1959\">M</a>",
-        "needleLean": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1211&af=cmdiy1959\">GG</a>",
-        "springType": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\">Red</a>"
+        "needleStd": "GY",
+        "needleRich": "M",
+        "needleLean": "GG",
+        "springType": "Red"
       },
       {
         "engineSize": "850 with Bias Needle",
         "needleStd": "AAV",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1098 Standard",
         "needleStd": "AN",
         "needleRich": "H6",
         "needleLean": "-",
-        "springType": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1098 Bias",
         "needleStd": "ABV",
         "needleRich": "H6",
         "needleLean": "-",
-        "springType": "<a target=\"_Blank\" href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\">Red</a>"
+        "springType": "Red"
       }
     ]
   },
@@ -44,115 +44,115 @@
     "items": [
       {
         "engineSize": "850 Std",
-        "needleStd": "H6 -<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1261&af=cmdiy1959\" target=\"_Blank\">M</a>",
+        "needleStd": "H6 - M",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       },
       {
         "engineSize": "850 1974 (Bias)",
         "needleStd": "ABS",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "850 1975-on",
         "needleStd": "ADH (wax stat jet tube)",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "850 Automatic to 1974",
         "needleStd": "AN",
         "needleRich": "H6",
         "needleLean": "EB",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "998 Canada, 1972, 1973, (1974)",
         "needleStd": "AAG -ABJ",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "998 Bias, 1975-on",
         "needleStd": "AAC-ABJ",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "998 1974-on",
         "needleStd": "ABX",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "998 Bias Innocenti",
         "needleStd": "ABB",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "998 Auto, Bias Innocenti",
         "needleStd": "AAR",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1098 Std",
         "needleStd": "CZ",
         "needleRich": "DL",
-        "needleLean": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1468&af=cmdiy1959\" target=\"_Blank\">GY</a>",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "needleLean": "GY",
+        "springType": "Red"
       },
       {
         "engineSize": "1098 1973 Bias",
         "needleStd": "ABJ",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1098 1975-on",
         "needleStd": "ABP (Wax stat jet tube)",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1275 GT to 1971",
         "needleStd": "DZ",
         "needleRich": "BQ",
         "needleLean": "CF",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1275 GT (all)",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1468&af=cmdiy1959\" target=\"_Blank\">GY</a>",
+        "needleStd": "GY",
         "needleRich": "BQ",
         "needleLean": "CF",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       },
       {
         "engineSize": "1275 GT 1971, 1972 Bias",
         "needleStd": "AAR",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1275 GT 1973-on",
         "needleStd": "ABB",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       }
     ]
   },
@@ -164,7 +164,7 @@
         "needleStd": "AC",
         "needleRich": "BQ",
         "needleLean": "HA",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1275 Inocenti, Bias",
@@ -183,70 +183,70 @@
         "needleStd": "EB-GG",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       },
       {
         "engineSize": "997 Cooper",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1473&af=cmdiy1959\" target=\"_Blank\">GZ</a>",
-        "needleRich": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1059&af=cmdiy1959\" target=\"_Blank\">AH2</a>",
+        "needleStd": "GZ",
+        "needleRich": "AH2",
         "needleLean": "EB",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "998 Cooper",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1468&af=cmdiy1959\" target=\"_Blank\">GY</a>",
-        "needleRich": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1261&af=cmdiy1959\" target=\"_Blank\">M</a>",
+        "needleStd": "GY",
+        "needleRich": " M",
         "needleLean": "GG",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       },
       {
         "engineSize": "998 Clubman",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1227&af=cmdiy1959\" target=\"_Blank\">GX</a>",
-        "needleRich": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1261&af=cmdiy1959\" target=\"_Blank\">M</a>",
+        "needleStd": "GX",
+        "needleRich": " M",
         "needleLean": "GG",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "998 Innocenti",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1468&af=cmdiy1959\" target=\"_Blank\">GY</a>",
-        "needleRich": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1261&af=cmdiy1959\" target=\"_Blank\">M</a>",
+        "needleStd": "GY",
+        "needleRich": " M",
         "needleLean": "GG",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1098",
         "needleStd": "EB-GV",
         "needleRich": "D3",
         "needleLean": "D6",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "970 Cooper S",
         "needleStd": "AN",
         "needleRich": "H6",
         "needleLean": "EB",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1071 Cooper S",
         "needleStd": "H6",
-        "needleRich": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1002&af=cmdiy1959\" target=\"_Blank\">3</a>",
+        "needleRich": "3",
         "needleLean": "EB",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1275 Cooper S",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1261&af=cmdiy1959\" target=\"_Blank\">M</a>",
-        "needleRich": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1059&af=cmdiy1959\" target=\"_Blank\">AH2</a>",
+        "needleStd": " M",
+        "needleRich": "AH2",
         "needleLean": "EB",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1275 Innocenti, Bias",
         "needleStd": "AAP",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       }
     ]
   },
@@ -258,7 +258,7 @@
         "needleStd": "AC",
         "needleRich": "BQ",
         "needleLean": "HA",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       }
     ]
   },
@@ -267,38 +267,38 @@
     "items": [
       {
         "engineSize": "850 and 1071 S Competition",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1265&af=cmdiy1959\" target=\"_Blank\">MME</a>",
+        "needleStd": "MME",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       },
       {
         "engineSize": "997 Cooper with thermo jets",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1265&af=cmdiy1959\" target=\"_Blank\">MME</a>",
+        "needleStd": "MME",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       },
       {
         "engineSize": "998 Modified Head",
         "needleStd": "AO",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       },
       {
         "engineSize": "970 Cooper S Competition",
         "needleStd": "CP4",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       },
       {
         "engineSize": "1275 Cooper S Competition",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD1067&af=cmdiy1959\" target=\"_Blank\">BG</a>",
+        "needleStd": "BG",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4587&af=cmdiy1959\" target=\"_Blank\">Blue</a>"
+        "springType": "Blue"
       }
     ]
   },
@@ -310,14 +310,14 @@
         "needleStd": "-",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1300 Standard",
         "needleStd": "AEM",
         "needleRich": "-",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUC4387&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       }
     ]
   },
@@ -329,21 +329,21 @@
         "needleStd": "BFY",
         "needleRich": "-",
         "needleLean": "BER",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD4355&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       },
       {
         "engineSize": "1300 Turbo",
         "needleStd": "-",
         "needleRich": "BDD",
         "needleLean": "-",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD4398&af=cmdiy1959\" target=\"_Blank\">Yellow</a>"
+        "springType": "Yellow"
       },
       {
         "engineSize": "1300 Metro",
-        "needleStd": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=NZX8033&af=cmdiy1959\" target=\"_Blank\">BEJ</a>",
-        "needleRich": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=NZX8011&af=cmdiy1959\" target=\"_Blank\">BDL</a>",
+        "needleStd": "BEJ",
+        "needleRich": "BDL",
         "needleLean": "BER",
-        "springType": "<a href=\"https://7ent.com/store/Search.aspx?SearchTerms=AUD4355&af=cmdiy1959\" target=\"_Blank\">Red</a>"
+        "springType": "Red"
       }
     ]
   }
