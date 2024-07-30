@@ -54,3 +54,23 @@ export interface Needle {
   size: number;
   data: number[];
 }
+
+export interface SuggestedNeedles {
+  title: string;
+  items: Item[];
+}
+
+export interface Item {
+  engineSize: string;
+  needleStd: string;
+  needleRich: string;
+  needleLean: string;
+  springType: SpringType;
+}
+
+export enum SpringType {
+  Blue = 'Blue',
+  Empty = '-',
+  Red = 'Red',
+  Yellow = 'Yellow',
+}

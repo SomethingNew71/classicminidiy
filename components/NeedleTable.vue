@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-  const { data: needlesTables, pending, error }: any = await useFetch(() => '/api/needles/suggested');
+  import type { SuggestedNeedles } from '~/data/models/needles';
+
+  const { data: needlesTables, pending }: SuggestedNeedles | any = await useFetch(() => '/api/needles/suggested');
   const tableHeaders: any[] = [
     {
       title: 'Engine Size',
@@ -35,16 +37,24 @@
       <v-card-text>
         <v-data-table :loading="pending" :items="table.items" density="compact" :headers="tableHeaders" fixed-header>
           <template v-slot:item.needleStd="{ item }">
-            <p class="mt-4 text-subtitle-1 text-capitalize" v-html="item.needleStd"></p>
+            <p class="mt-4 text-subtitle-1 text-capitalize">
+              {{ item.needleStd }}
+            </p>
           </template>
           <template v-slot:item.needleRich="{ item }">
-            <p class="mt-4 text-subtitle-1 text-capitalize" v-html="item.needleRich"></p>
+            <p class="mt-4 text-subtitle-1 text-capitalize">
+              {{ item.needleRich }}
+            </p>
           </template>
           <template v-slot:item.needleLean="{ item }">
-            <p class="mt-4 text-subtitle-1 text-capitalize" v-html="item.needleLean"></p>
+            <p class="mt-4 text-subtitle-1 text-capitalize">
+              {{ item.needleLean }}
+            </p>
           </template>
           <template v-slot:item.springType="{ item }">
-            <p class="mt-4 text-subtitle-1 text-capitalize" v-html="item.springType"></p>
+            <p class="mt-4 text-subtitle-1 text-capitalize">
+              {{ item.springType }}
+            </p>
           </template>
         </v-data-table>
       </v-card-text>

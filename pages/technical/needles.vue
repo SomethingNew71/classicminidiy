@@ -35,7 +35,7 @@
       <v-col cols="12">
         <breadcrumb page="Needle Comparison"></breadcrumb>
       </v-col>
-      <v-col cols="12" md="8">
+      <v-col cols="12">
         <h4 class="fancy-font-bold is-size-3">SU Carburettor Needles</h4>
         <p class="is-size-5 pt-5">
           One of the most confusing things about working on your Classic Mini often is the carburettor needle used on
@@ -44,22 +44,6 @@
           will redraw the chart with new profiles. A huge thank you to the mintylamb site for posting this information
           publically.
         </p>
-      </v-col>
-      <v-col cols="12" md="4">
-        <h4 class="fancy-font-bold is-size-3">Find the Needles you need?</h4>
-        <h5 class="fancy-font-book is-size-5 pb-5">Order them on Seven Mini Parts</h5>
-        <div class="card">
-          <div class="card-content">
-            <a href="https://cmdiy.co/CarbNeedles" target="_blank" alt="Link to Classic Mini Needles">
-              <nuxt-img
-                class="seven-logo"
-                format="webp"
-                src="https://classicminidiy.s3.amazonaws.com/misc/seven-logo-horiz.png"
-                alt="Seven Mini Parts Logo"
-              />
-            </a>
-          </div>
-        </div>
       </v-col>
       <v-col cols="12" class="hr mt-5"></v-col>
       <v-col cols="12">
@@ -89,11 +73,6 @@
 </template>
 
 <style lang="scss">
-  .seven-logo {
-    display: inline-block;
-    margin: auto;
-    width: 100%;
-  }
   .b-tabs .tab-content {
     padding-left: 0px;
     padding-right: 0px;

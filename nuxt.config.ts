@@ -11,6 +11,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
         prefix: 'og: https://ogp.me/ns#',
+        'data-theme': 'light',
       },
       meta: [
         { charset: 'utf-8' },
