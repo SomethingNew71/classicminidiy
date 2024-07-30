@@ -1,86 +1,25 @@
 // Import Bulma's core
-@import '@/node_modules/bulma/sass/utilities/_all';
+// @import '@/node_modules/bulma/sass/utilities/index';
 
 // Set your colors
-$primary: #659cc8;
-$primary-invert: findColorInvert($primary);
-$danger: #b22222;
-$danger-invert: findColorInvert($danger);
-$success: #4a7023;
-$success-invert: findColorInvert($success);
+$brand: #659cc8;
+$red: #b22222;
+$green: #4a7023;
 $patreon: #f96854;
-$patreon-invert: findColorInvert($patreon);
 $guessworks: #b8b8b8;
-$guessworks-invert: findColorInvert($guessworks);
 $seven: #d70402;
-$seven-invert: findColorInvert($seven);
 $amazon: #febd69;
-$amazon-invert: findColorInvert($amazon);
 
-// Setup $colors to use as bulma classes (e.g. 'is-twitter')
-$colors: (
-  'white': (
-    $white,
-    $black,
-  ),
-  'black': (
-    $black,
-    $white,
-  ),
-  'light': (
-    $light,
-    $light-invert,
-  ),
-  'dark': (
-    $dark,
-    $dark-invert,
-  ),
-  'primary': (
-    $primary,
-    $primary-invert,
-  ),
-  'info': (
-    $info,
-    $info-invert,
-  ),
-  'success': (
-    $success,
-    $success-invert,
-  ),
-  'warning': (
-    $warning,
-    $warning-invert,
-  ),
-  'danger': (
-    $danger,
-    $danger-invert,
-  ),
-  'patreon': (
-    $patreon,
-    $patreon-invert,
-  ),
-  'guessworks': (
-    $guessworks,
-    $guessworks-invert,
-  ),
-  'seven': (
-    $seven,
-    $seven-invert,
-  ),
-  'amazon': (
-    $amazon,
-    $amazon-invert,
-  ),
+// Path to Bulma's sass folder
+@use "bulma/sass" with (
+  $success: $green,
+  $danger: $red,
+  $primary: $brand,
+  $link: $brand,
 );
+@import 'bulma/bulma.scss';
+@import './divider.scss';
 
-// Links
-$link: $primary;
-$link-invert: $primary-invert;
-$link-focus-border: $primary;
-
-// Import Bulma styles
-@import '@/node_modules/bulma/bulma';
-@import '@/node_modules/@creativebulma/bulma-divider';
 
 // Import all my custom scss
 @import './fonts.scss';
