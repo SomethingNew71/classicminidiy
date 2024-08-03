@@ -45,7 +45,7 @@
     "fuse.js": "^7.0.0",
     "highcharts": "^11.4.6",
     "highcharts-vue": "^2.0.1",
-    "luxon": "^3.4.4",
+    "luxon": "^3.5.0",
     "outdent": "^0.8.0",
     "redirect-ssl": "^3.0.0",
     "sass": "^1.77.8",
