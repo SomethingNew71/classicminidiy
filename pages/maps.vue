@@ -23,6 +23,129 @@
   });
   const { data: releases, pending: releasesLoading } = await useFetch('/api/github/releases');
   const { data: commits, pending: commitsLoading } = await useFetch('/api/github/commits');
+  const legend = ref([
+    {
+      name: 'Included',
+      id: 'yes',
+      description: 'Included in Map',
+    },
+    {
+      name: 'Not included',
+      id: 'no',
+      description: 'Supported but not included',
+    },
+    {
+      name: 'Not Available',
+      id: 'na',
+      description: 'Feature not supported by ECU',
+    },
+    {
+      name: 'Work in progress',
+      id: 'wip',
+      description: 'Currently still in progress being ported to this ECU',
+    },
+  ]);
+  const items = ref([
+    {
+      features: 'Ignition Map',
+      haltech: 'yes',
+      speeduino: 'yes',
+      megasquirt: 'yes',
+      emerald: 'yes',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'yes',
+      megaJolt: 'yes',
+    },
+    {
+      features: 'Fuel Map',
+      haltech: 'yes',
+      speeduino: 'yes',
+      megasquirt: 'yes',
+      emerald: 'yes',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'na',
+      megaJolt: 'na',
+    },
+    {
+      features: 'VE Table',
+      haltech: 'yes',
+      speeduino: 'yes',
+      megasquirt: 'yes',
+      emerald: 'na',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'na',
+      megaJolt: 'na',
+    },
+    {
+      features: 'Target AFR',
+      haltech: 'yes',
+      speeduino: 'yes',
+      megasquirt: 'yes',
+      emerald: 'yes',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'yes',
+      megaJolt: 'yes',
+    },
+    {
+      features: 'Throttle Enrichment',
+      haltech: 'yes',
+      speeduino: 'no',
+      megasquirt: 'no',
+      emerald: 'na',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'na',
+      megaJolt: 'na',
+    },
+    {
+      features: 'Drive by Wire Ready',
+      haltech: 'yes',
+      speeduino: 'no',
+      megasquirt: 'no',
+      emerald: 'na',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'na',
+      megaJolt: 'na',
+    },
+    {
+      features: 'Boost Control Map',
+      haltech: 'yes',
+      speeduino: 'no',
+      megasquirt: 'no',
+      emerald: 'na',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'na',
+      megaJolt: 'na',
+    },
+    {
+      features: 'Idle Map',
+      haltech: 'yes',
+      speeduino: 'no',
+      megasquirt: 'no',
+      emerald: 'na',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'na',
+      megaJolt: 'na',
+    },
+    {
+      features: '16V Engine Version',
+      haltech: 'yes',
+      speeduino: 'yes',
+      megasquirt: 'yes',
+      emerald: 'yes',
+      ecuMaster: 'wip',
+      maxxEcu: 'wip',
+      dtaFast: 'wip',
+      megaJolt: 'wip',
+    },
+  ]);
 </script>
 
 <template>
@@ -125,9 +248,83 @@
         <v-col cols="12" md="10" offset-md="1">
           <div class="divider">More Details</div>
         </v-col>
+        <v-col cols="12">
+          <v-card>
+            <v-card-text>
+              <v-table>
+                <thead>
+                  <tr>
+                    <th>Features</th>
+                    <th class="text-center">Haltech</th>
+                    <th class="text-center">Speeduino</th>
+                    <th class="text-center">Megasquirt</th>
+                    <th class="text-center">Emerald</th>
+                    <th class="text-center">ECUMaster</th>
+                    <th class="text-center">MaxxECU</th>
+                    <th class="text-center">DTAFast</th>
+                    <th class="text-center">MegaJolt</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="row in items">
+                    <td class="text-center pt-3" v-for="(ecu, index) in row" :key="ecu">
+                      <p class="text-left" v-if="index === 'features'">
+                        {{ ecu }}
+                      </p>
+
+                      <i
+                        v-if="ecu === 'wip'"
+                        class="text-h6 fa-sharp-duotone fa-solid fa-road-barrier"
+                        style="--fa-primary-color: #562b00; --fa-secondary-color: #f5c147; --fa-secondary-opacity: 1"
+                      ></i>
+                      <i
+                        v-if="ecu === 'yes'"
+                        class="text-h6 fa-duotone fa-solid fa-octagon-check"
+                        style="
+                          --fa-primary-color: #71784e;
+                          --fa-primary-opacity: 0.1;
+                          --fa-secondary-color: #71784e;
+                          --fa-secondary-opacity: 1;
+                        "
+                      ></i>
+                      <i v-if="ecu === 'no'" class="text-h6 fa-solid fa-xmark" style="color: #da4d32"></i>
+                      <i v-if="ecu === 'na'" class="text-h6 fa-solid fa-dash"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </v-table>
+
+              <v-row class="pt-5">
+                <v-col v-for="item in legend" cols="12" md="3">
+                  <v-list-item :key="item.name" :title="item.name" :subtitle="item.description">
+                    <template v-slot:prepend>
+                      <i
+                        v-if="item.id === 'wip'"
+                        class="text-h6 pr-3 fa-sharp-duotone fa-solid fa-road-barrier"
+                        style="--fa-primary-color: #562b00; --fa-secondary-color: #f5c147; --fa-secondary-opacity: 1"
+                      ></i>
+                      <i
+                        v-if="item.id === 'yes'"
+                        class="text-h6 pr-3 fa-duotone fa-solid fa-octagon-check"
+                        style="
+                          --fa-primary-color: #71784e;
+                          --fa-primary-opacity: 0.1;
+                          --fa-secondary-color: #71784e;
+                          --fa-secondary-opacity: 1;
+                        "
+                      ></i>
+                      <i v-if="item.id === 'no'" class="text-h6 pr-3 fa-solid fa-xmark" style="color: #da4d32"></i>
+                      <i v-if="item.id === 'na'" class="text-h6 pr-3 fa-solid fa-dash"></i>
+                    </template>
+                  </v-list-item>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </v-col>
         <v-col cols="12" md="6">
           <nav class="panel is-secondary">
-            <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Commits</h5>
+            <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Updates</h5>
             <v-progress-circular v-if="commitsLoading"></v-progress-circular>
             <template v-for="(commitItem, i) in commits">
               <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 10">
