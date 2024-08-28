@@ -33,7 +33,7 @@
           Blog
         </v-btn>
         <v-btn prepend-icon="fa:fad fa-computer-classic" size="small" variant="text" to="/maps"> ECU Maps </v-btn>
-        <v-btn prepend-icon="fa:fad fa-book-circle-arrow-up" size="small" variant="text" to="/registry">
+        <v-btn prepend-icon="fa:fad fa-book-circle-arrow-up" size="small" variant="text" to="/archive/registry">
           Registry
         </v-btn>
         <v-btn
@@ -117,7 +117,7 @@
         </v-btn></v-list-item
       >
       <v-list-item density="compact">
-        <v-btn prepend-icon="fa:fad fa-book-circle-arrow-up" size="x-small" variant="text" to="/registry">
+        <v-btn prepend-icon="fa:fad fa-book-circle-arrow-up" size="x-small" variant="text" to="/archive/registry">
           Registry
         </v-btn></v-list-item
       >

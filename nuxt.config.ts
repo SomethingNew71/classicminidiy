@@ -80,6 +80,7 @@ export default defineNuxtConfig({
    */
   modules: [
     '@nuxtjs/fontaine',
+    '@nuxt/content',
     [
       'nuxt-disqus',
       {
