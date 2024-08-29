@@ -171,5 +171,5 @@ export default defineNuxtConfig({
       installPrompt: true,
     },
   },
-  compatibilityDate: '2024-07-17',
+  compatibilityDate: '2024-08-29',
 });
