@@ -53,6 +53,13 @@
     .finally(() => {
       isLoading.value = false;
     });
+  async function sharePage(title: string = '', url: string) {
+    try {
+      await navigator.share({ title, url });
+    } catch (error) {
+      console.error('cannot share', error);
+    }
+  }
 </script>
 
 <template>
@@ -88,6 +95,7 @@
               prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
               variant="text"
               border
+              @click="sharePage(currentPostData.title, fullPath)"
             >
               Share
             </v-btn>

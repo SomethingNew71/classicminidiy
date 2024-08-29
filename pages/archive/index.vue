@@ -27,6 +27,7 @@
       description: 'A huge archive of BMC related information',
       image: '/img/archive/mk1.jpg',
       link: '/archive/bmc',
+      disabled: true,
     },
     {
       title: 'Tuning & Accessories',
@@ -34,25 +35,28 @@
         "The most comprehensive archive of companies involved in improving the Mini & other cars of the 60's",
       image: '/img/archive/mk1.jpg',
       link: '/archive/tuning',
+      disabled: true,
     },
     {
       title: 'Workshop Manuals',
       description: 'Free copies of the unabridged MK1 Cooper & S Part Lists & associated Workshop manuals',
-      image: '/img/archive/mk1.jpg',
-      link: '/archive/workshop-manuals',
+      image: 'https://mk1-performance-conversions.co.uk/wpimages/wp8d58a3d7_06.png',
+      link: '/archive/manuals',
+      disabled: false,
     },
     {
       title: 'Classic Mini Registry',
       description: "A free online register for all Classic Mini's of all model years and styles.",
       image: '/img/archive/mk1.jpg',
       link: '/archive/registry',
+      disabled: true,
     },
   ]);
 </script>
 
 <template>
   <div>
-    <hero :navigation="true" :title="'Classic Mini Archives'" />
+    <hero :navigation="true" :title="'Archives'" />
     <v-container>
       <v-row>
         <v-col cols="12">
@@ -82,7 +86,8 @@
               <v-img src="/img/archive/mk1.jpg"></v-img>
             </v-col>
             <v-col cols="9">
-              <h1 class="title">The Classic Archives</h1>
+              <h1 class="title">The Classic Mini Archives</h1>
+              <h2 class="subtitle">mk1-performance-conversions.co.uk</h2>
               <p>
                 Welcome to the Classic Mini Archives. Here you will find a collection of articles, guides, and other
                 resources to help you with your classic mini restoration project. These resources are provided by the
@@ -94,15 +99,16 @@
           </v-row>
         </v-col>
       </v-row>
+      <v-divider></v-divider>
       <v-row>
         <template v-for="(archive, index) in archivePages">
-          <v-col cols="12" md="5" :offset-md="index === 0 || index === 2 ? 1 : 0">
-            <v-card>
-              <v-img :src="archive.image"></v-img>
+          <v-col cols="12" md="3">
+            <v-card :disabled="archive.disabled">
+              <v-img height="100" :src="archive.image"></v-img>
               <v-card-title> {{ archive.title }} </v-card-title>
               <v-card-subtitle> {{ archive.description }} </v-card-subtitle>
-              <v-card-actions class="d-flex justify-end">
-                <v-btn color="primary" text="Explore" :variant="'tonal'"></v-btn>
+              <v-card-actions>
+                <v-btn width="100%" color="primary" text="Explore" :variant="'tonal'" :to="archive.link"></v-btn>
               </v-card-actions>
             </v-card>
           </v-col>

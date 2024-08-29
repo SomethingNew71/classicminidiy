@@ -5,6 +5,7 @@ export interface ArchiveCard {
   description: string;
   image: string;
   link: string;
+  disabled: boolean;
 }
 
 export interface Post extends ParsedContent {

@@ -16,6 +16,14 @@
       disabled: true,
     },
   ]);
+
+  async function sharePage(title: string = '', url: string) {
+    try {
+      await navigator.share({ title, url });
+    } catch (error) {
+      console.error('cannot share', error);
+    }
+  }
 </script>
 <template>
   <hero :navigation="true" :title="'Classic Mini Archives'" />
@@ -25,6 +33,10 @@
         <v-breadcrumbs :items="crumbs" divider="/">
           <template v-slot:prepend> <v-icon size="small" icon="fad fa-home"></v-icon> </template
         ></v-breadcrumbs>
+      </v-col>
+      <v-col cols="9">
+        <h1 class="title">Cooper & Cooper S Parts Lists & Workshop Manuals</h1>
+        <p>Free copies of the unabridged MK1 Cooper & S Part Lists & associated Workshop manuals .</p>
       </v-col>
       <v-col v-for="manual in manuals" cols="12">
         <v-card>
@@ -45,6 +57,7 @@
                     prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
                     variant="text"
                     border
+                    @click="sharePage(manual.title, manual.url)"
                   >
                     Share
                   </v-btn>
