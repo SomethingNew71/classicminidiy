@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const manuals = await queryContent('archive/manuals').find();
+  const { data: archives } = await useFetch(() => '/api/archive/tuning-archives');
   const crumbs = ref([
     {
       title: 'Home',
@@ -34,49 +34,34 @@
           <template v-slot:prepend> <v-icon size="small" icon="fad fa-home"></v-icon> </template
         ></v-breadcrumbs>
       </v-col>
-      <v-col cols="9">
-        <h1 class="title">Cooper & Cooper S Parts Lists & Workshop Manuals</h1>
-        <p>Free copies of the unabridged MK1 Cooper & S Part Lists & associated Workshop manuals .</p>
+      <v-col cols="12">
+        <h1 class="title pb-3">The Tuning & Accessory Archive</h1>
+        <h1 class="subtitle">
+          The most comprehensive archive of companies involved in improving the Mini & other cars of the 60's.
+        </h1>
+        <p>
+          This is a continuously growing archive of original advertising and sales material from a variety of tuning &
+          accessory companies of the 1960's & early 1970's. It is by no means a comprehensive list, it is merely a list
+          of companies I have some records for. Most of the companies featured played an important part in the success
+          of the Mini as a competition or fun car. As you will be able to see from the companies & items listed below.
+          The Mini modifying market really did span from the totally sublime to the patently ridiculous.
+        </p>
       </v-col>
-      <v-col v-for="manual in manuals" cols="12">
-        <v-card>
-          <v-row>
-            <v-col cols="4" md="2">
-              <v-img :src="manual.image" class="pa-10 mx-auto my-auto"></v-img>
-            </v-col>
-            <v-col cols="8" md="10">
-              <h2 class="text-h5 pt-5 pb-5 px-5">{{ manual.title }}</h2>
-              <p class="px-5">{{ manual.description }}</p>
-              <v-divider></v-divider>
-
-              <div class="pa-4">
-                <client-only>
-                  <v-btn
-                    class="me-2 text-none"
-                    color="accent"
-                    prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
-                    variant="text"
-                    border
-                    @click="sharePage(manual.title, manual.url)"
-                  >
-                    Share
-                  </v-btn>
-
-                  <v-btn
-                    color="primary"
-                    class="text-none"
-                    prepend-icon="fa-duotone fa-solid fa-download"
-                    variant="flat"
-                    :href="manual.download"
-                  >
-                    Download
-                  </v-btn>
-                </client-only>
-              </div>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
+      <v-divider></v-divider>
+      <v-row class="pt-5">
+        <template v-for="(archive, index) in archives">
+          <v-col cols="12" md="3">
+            <v-card class="text-center text-capitalize">
+              <v-img class="mt-3" height="100" :src="archive.image"></v-img>
+              <v-card-title class="text-capitalize py-5"> {{ archive.companyName.toLowerCase() }} </v-card-title>
+              <!-- <v-card-subtitle> {{ archive.description }} </v-card-subtitle> -->
+              <v-card-actions>
+                <v-btn width="100%" color="primary" text="Explore" :variant="'tonal'" :to="archive.link"></v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </template>
+      </v-row>
     </v-row>
   </v-container>
 </template>

@@ -17,3 +17,9 @@ export interface Post extends ParsedContent {
   code?: string;
   download?: string;
 }
+
+export interface ArchiveItem {
+  companyName: string;
+  link: string;
+  image: string;
+}
