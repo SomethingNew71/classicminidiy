@@ -35,8 +35,11 @@
         ></v-breadcrumbs>
       </v-col>
       <v-col cols="9">
-        <h1 class="title">Cooper & Cooper S Parts Lists & Workshop Manuals</h1>
-        <p>Free copies of the unabridged MK1 Cooper & S Part Lists & associated Workshop manuals .</p>
+        <h1 class="title">Parts Lists & Workshop Manuals</h1>
+        <p>
+          Free copies of the unabridged workshop manuals I have found over the years. Including early manuals as well as
+          later workshop manuals used on the final production cars.
+        </p>
       </v-col>
       <v-col v-for="manual in manuals" cols="12">
         <v-card>

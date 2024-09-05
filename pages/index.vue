@@ -150,35 +150,43 @@
               </span>
               <span>Become a Member</span>
             </a>
-            <div class="column is-8 pl-0 pt-6 benefits-list">
-              <nav class="panel">
-                <p class="panel-heading">Membership Includes</p>
-                <div class="panel-block has-text-primary-00">
-                  <span class="panel-icon">
-                    <i class="is-size-4 fab fa-discord pt-2"></i>
-                  </span>
-                  Access to Live DIY Chat
-                </div>
-                <div class="panel-block has-text-primary-00">
-                  <span class="panel-icon">
-                    <i class="is-size-4 fad fa-video pt-2"></i>
-                  </span>
-                  Early Access to videos
-                </div>
-                <div class="panel-block has-text-primary-00">
-                  <span class="panel-icon">
-                    <i class="is-size-4 fas fa-gift pt-2"></i>
-                  </span>
-                  Free gifts and merch
-                </div>
-                <div class="panel-block has-text-primary-00">
-                  <span class="panel-icon">
-                    <i class="is-size-4 fas fa-circle-info pt-2"></i>
-                  </span>
-                  Insider information and much more...
-                </div>
-              </nav>
-            </div>
+            <v-card class="mt-10">
+              <v-toolbar color="brand-green-2">
+                <v-toolbar-title>Membership Includes</v-toolbar-title>
+                <v-spacer></v-spacer>
+              </v-toolbar>
+
+              <v-list lines="one" class="benefits-list">
+                <v-list-item :title="'Access to Live DIY Chat'">
+                  <template v-slot:prepend>
+                    <v-avatar size="large">
+                      <i class="is-size-3 fab fa-discord pt-2"></i>
+                    </v-avatar>
+                  </template>
+                </v-list-item>
+                <v-list-item :title="'Early Access to videos'">
+                  <template v-slot:prepend>
+                    <v-avatar size="large">
+                      <i class="is-size-3 fad fa-video pt-2"></i>
+                    </v-avatar>
+                  </template>
+                </v-list-item>
+                <v-list-item :title="'Free gifts and merch'">
+                  <template v-slot:prepend>
+                    <v-avatar size="large">
+                      <i class="is-size-3 fas fa-gift pt-2"></i>
+                    </v-avatar>
+                  </template>
+                </v-list-item>
+                <v-list-item :title="'Insider information and much more...'">
+                  <template v-slot:prepend>
+                    <v-avatar size="large">
+                      <i class="is-size-3 fas fa-circle-info pt-2"></i>
+                    </v-avatar>
+                  </template>
+                </v-list-item>
+              </v-list>
+            </v-card>
           </v-col>
           <v-col cols="12" md="6">
             <browser class="browser is-hidden-touch" />
@@ -206,7 +214,10 @@
           </p>
         </v-col>
         <v-col cols="12" md="5" class="avatar-container">
-          <nuxt-img src="/img/about-me.jpg" alt="Image of my car on jack stands" />
+          <nuxt-img
+            src="https://classicminidiy.s3.amazonaws.com/misc/about-me.webp"
+            alt="Image of my car on jack stands"
+          />
         </v-col>
       </v-row>
     </v-container>

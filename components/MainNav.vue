@@ -90,7 +90,7 @@
         <v-btn
           prepend-icon="fa:fab fa-patreon"
           size="small"
-          class="donate"
+          class="donate me-3"
           variant="outlined"
           target="_blank"
           href="https://patreon.com/classicminidiy"

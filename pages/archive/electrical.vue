@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   const { data: diagrams } = await useFetch('/api/diagrams');
-  const panels = ref([]);
+  const panels = ref(['Negative Ground']);
 
   useHead({
     title: 'Tech - Electrical Diagrams',

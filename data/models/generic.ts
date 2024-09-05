@@ -19,6 +19,8 @@ export interface ArchiveItem {
   path: string;
   iconHtml: string;
   to: string;
+  description: string;
+  image: string;
 }
 export interface SocialItem {
   title: string;
@@ -101,16 +103,29 @@ export const ToolboxItems: ToolboxItem[] = [
     to: '/technical/clearance',
   },
 ];
+
 export const ArchiveItems: ArchiveItem[] = [
   {
     title: 'Mini Registry',
+    description: '',
+    image: 'https://classicminidiy.s3.amazonaws.com/archive/images/registry.jpg',
     path: '/archive/registry',
     iconHtml:
       '<i class="fa-duotone fa-book-circle-arrow-up" style="--fa-secondary-color: #ED7135; --fa-secondary-opacity: 0.9;"></i>',
     to: '/archive/registry',
   },
+  // {
+  //   title: 'Workshop Manuals',
+  //   description: '',
+  //   image: 'https://classicminidiy.s3.amazonaws.com/archive/images/manuals.jpg',
+  //   path: '/archive/manuals',
+  //   iconHtml: '<i class="fa-duotone fa-book-sparkles"></i>',
+  //   to: '/archive/manuals',
+  // },
   {
     title: 'Electrical Diagrams',
+    description: '',
+    image: 'https://classicminidiy.s3.amazonaws.com/archive/images/wiringDiagrams+copy.jpg',
     path: '/archive/electrical',
     iconHtml:
       '<i class="fa-duotone fa-car-battery" style="--fa-secondary-color: #ff424d; --fa-secondary-opacity: 0.9;"></i>',
@@ -118,6 +133,9 @@ export const ArchiveItems: ArchiveItem[] = [
   },
   {
     title: 'Wheel Library',
+    description: '',
+    image:
+      'https://classicminidiy.s3.us-east-1.amazonaws.com/wheels/uploads/1fbb6499-c021-5c93-8030-76aeb04b5400/IMG_4568.jpeg',
     path: '/archive/wheels',
     iconHtml:
       '<i class="fa-duotone fa-tire fa-spin" style="--fa-primary-color: #242424; --fa-secondary-color: #242424;"></i>',
@@ -125,6 +143,8 @@ export const ArchiveItems: ArchiveItem[] = [
   },
   {
     title: 'Color Picker',
+    description: '',
+    image: '',
     path: '/archive/colors',
     iconHtml:
       '<i class="fa-duotone fa-brush" style="--fa-primary-color: #431f23; --fa-secondary-color: #c3a166; --fa-secondary-opacity: 0.8;"></i>',
