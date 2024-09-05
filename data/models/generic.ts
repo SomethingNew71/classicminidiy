@@ -1,3 +1,4 @@
+// @ts-ignore
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
 export interface Post extends ParsedContent {
   image?: string;
@@ -8,6 +9,12 @@ export interface Post extends ParsedContent {
 }
 
 export interface ToolboxItem {
+  title: string;
+  path: string;
+  iconHtml: string;
+  to: string;
+}
+export interface ArchiveItem {
   title: string;
   path: string;
   iconHtml: string;
@@ -38,13 +45,6 @@ export const ToolboxItems: ToolboxItem[] = [
     iconHtml:
       '<i class="fa-duotone fa-screwdriver-wrench" style="--fa-primary-color: #417bbe; --fa-secondary-color: #5f6166;"></i>',
     to: '/technical/torque',
-  },
-  {
-    title: 'Electrical Diagrams',
-    path: '/technical/electrical',
-    iconHtml:
-      '<i class="fa-duotone fa-car-battery" style="--fa-secondary-color: #ff424d; --fa-secondary-opacity: 0.9;"></i>',
-    to: '/technical/electrical',
   },
   {
     title: 'Engine Sizes',
@@ -80,13 +80,6 @@ export const ToolboxItems: ToolboxItem[] = [
     to: '/technical/gearing',
   },
   {
-    title: 'Wheel Library',
-    path: '/technical/wheels',
-    iconHtml:
-      '<i class="fa-duotone fa-tire fa-spin" style="--fa-primary-color: #242424; --fa-secondary-color: #242424;"></i>',
-    to: '/technical/wheels',
-  },
-  {
     title: 'Compression Ratio Calculator',
     path: '/technical/compression',
     iconHtml:
@@ -101,18 +94,41 @@ export const ToolboxItems: ToolboxItem[] = [
     to: '/technical/parts',
   },
   {
-    title: 'Color Picker',
-    path: '/technical/colors',
-    iconHtml:
-      '<i class="fa-duotone fa-brush" style="--fa-primary-color: #431f23; --fa-secondary-color: #c3a166; --fa-secondary-opacity: 0.8;"></i>',
-    to: '/technical/colors',
-  },
-  {
     title: 'Common Clearances',
     path: '/technical/clearance',
     iconHtml:
       '<i class="fa-duotone fa-ruler-triangle" style="--fa-primary-color: #433016; --fa-secondary-color: #ddbd8d; --fa-secondary-opacity: 1;"></i>',
     to: '/technical/clearance',
+  },
+];
+export const ArchiveItems: ArchiveItem[] = [
+  {
+    title: 'Mini Registry',
+    path: '/archive/registry',
+    iconHtml:
+      '<i class="fa-duotone fa-book-circle-arrow-up" style="--fa-secondary-color: #ED7135; --fa-secondary-opacity: 0.9;"></i>',
+    to: '/archive/registry',
+  },
+  {
+    title: 'Electrical Diagrams',
+    path: '/archive/electrical',
+    iconHtml:
+      '<i class="fa-duotone fa-car-battery" style="--fa-secondary-color: #ff424d; --fa-secondary-opacity: 0.9;"></i>',
+    to: '/archive/electrical',
+  },
+  {
+    title: 'Wheel Library',
+    path: '/archive/wheels',
+    iconHtml:
+      '<i class="fa-duotone fa-tire fa-spin" style="--fa-primary-color: #242424; --fa-secondary-color: #242424;"></i>',
+    to: '/archive/wheels',
+  },
+  {
+    title: 'Color Picker',
+    path: '/archive/colors',
+    iconHtml:
+      '<i class="fa-duotone fa-brush" style="--fa-primary-color: #431f23; --fa-secondary-color: #c3a166; --fa-secondary-opacity: 0.8;"></i>',
+    to: '/archive/colors',
   },
 ];
 
@@ -157,7 +173,7 @@ export const LandingPageToolboxItems = [
     title: 'Wheel Library',
     image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
     webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.webp',
-    to: '/technical/wheels',
+    to: '/archive/wheels',
   },
   {
     title: 'Compression Ratio Calculator',
@@ -169,7 +185,7 @@ export const LandingPageToolboxItems = [
     title: 'Color Picker',
     image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
     webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.webp',
-    to: '/technical/colors',
+    to: '/archive/colors',
   },
   {
     title: 'Parts Equivalency',

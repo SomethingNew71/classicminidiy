@@ -101,7 +101,7 @@
       </v-row>
       <v-divider></v-divider>
       <v-row>
-        <template v-for="(archive, index) in archivePages">
+        <template v-for="archive in archivePages">
           <v-col cols="12" md="3">
             <v-card :disabled="archive.disabled">
               <v-img height="100" :src="archive.image"></v-img>

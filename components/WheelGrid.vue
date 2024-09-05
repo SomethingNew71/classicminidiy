@@ -149,7 +149,7 @@
           variant="plain"
           size="large"
           icon="fa-duotone fa-edit"
-          :to="`/technical/wheels/submit?uuid=${item.uuid}`"
+          :to="`/archive/wheels/submit?uuid=${item.uuid}`"
         >
         </v-btn>
       </template>

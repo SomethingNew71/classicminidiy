@@ -11,12 +11,6 @@
     { title: 'Estimated Torque', key: 'torque' },
   ];
 
-  const grouping = ref([
-    {
-      key: 'group',
-    },
-  ]);
-
   useHead({
     title: 'Tech - Engine Sizes and Displacements',
     meta: [
@@ -43,7 +37,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb page="Engine Sizes"></breadcrumb>
+        <breadcrumb technical page="Engine Sizes"></breadcrumb>
 
         <v-row>
           <v-col cols="12" md="8">

@@ -25,7 +25,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb page="Gearbox Calculator"></breadcrumb>
+        <breadcrumb technical page="Gearbox Calculator"></breadcrumb>
         <v-row>
           <v-col cols="12" md="8">
             <h1 class="title">Gearbox Calculator</h1>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const route = useRoute();
+  const { params } = useRoute();
 
   const manuals = await queryContent('archive/manuals').find();
   const crumbs = ref([

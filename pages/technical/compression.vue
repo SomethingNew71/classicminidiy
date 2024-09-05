@@ -25,7 +25,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb page="Compression Ratio Calculator"></breadcrumb>
+        <breadcrumb technical page="Compression Ratio Calculator"></breadcrumb>
         <v-row>
           <v-col cols="12" md="8">
             <h1 class="title">Compression Ratio Calculator</h1>

@@ -4,12 +4,11 @@
   import { LandingPageToolboxItems } from '~/data/models/generic';
   const title = ref('Classic Mini <br> DIY');
   const subtitle = ref('YOUR FRIENDLY NEIGHBORHOOD');
-  const background = ref('/hero');
+  const background = ref('/backdrop2');
   const size = ref('is-medium');
   const birthday = DateTime.local(1989, 5, 11);
   const today = DateTime.now();
-  // @ts-ignore
-  const age = ref(today.diff(birthday, 'years').toObject().years.toFixed(0));
+  const age = ref<string | undefined>(today.diff(birthday, 'years').toObject().years?.toFixed(0));
 </script>
 
 <template>
@@ -19,6 +18,7 @@
       :subtitle="subtitle"
       :size="size"
       :special="true"
+      :landing="true"
       :background="background"
       :navigation="true"
     />
@@ -188,8 +188,8 @@
     </div>
     <div class="spacer layer2"></div>
     <v-container class="mb-5">
-      <div class="columns is-multiline">
-        <div class="column is-7">
+      <v-row>
+        <v-col cols="12" md="7">
           <h3 class="fancy-font-bold is-size-3"><i class="fad fa-address-card"></i> About Me</h3>
           <h4 class="fancy-font-book-oblique pt-20">MY NAME IS COLE</h4>
           <p>
@@ -204,14 +204,11 @@
             the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to time
             I will make mistakes.
           </p>
-        </div>
-        <div class="column is-5 avatar-container">
-          <nuxt-img
-            src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
-            alt="Image of my car on jack stands"
-          />
-        </div>
-      </div>
+        </v-col>
+        <v-col cols="12" md="5" class="avatar-container">
+          <nuxt-img src="/img/about-me.jpg" alt="Image of my car on jack stands" />
+        </v-col>
+      </v-row>
     </v-container>
     <div class="spacer layer1"></div>
   </v-container>
@@ -221,10 +218,11 @@
 <style lang="scss">
   .animation-section,
   .avatar-container img {
-    max-width: 50%;
+    max-width: 90%;
     margin: auto;
-    padding-top: 35px;
+    margin-top: 35px;
     display: block;
+    border-radius: 50px;
   }
 </style>
 

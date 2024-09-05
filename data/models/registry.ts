@@ -1,4 +1,4 @@
-export interface RegistryDbResponse {
+export interface RegistryItem extends Record<string, any> {
   model: string;
   bodyNum: string;
   trim: string;
