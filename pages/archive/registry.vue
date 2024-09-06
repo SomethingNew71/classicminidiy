@@ -14,7 +14,6 @@
   ];
 
   const { data: parsedData, pending } = await useFetch('/api/registry/list');
-  console.log(parsedData);
 
   useHead({
     title: 'The Classic Mini Register',

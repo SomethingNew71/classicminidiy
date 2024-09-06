@@ -1,5 +1,10 @@
 // @ts-ignore
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
+
+export enum BREADCRUMB_VERSIONS {
+  TECH = 'technical',
+  ARCHIVE = 'archive',
+}
 export interface Post extends ParsedContent {
   image?: string;
   author?: string;

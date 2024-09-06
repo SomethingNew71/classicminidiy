@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   const expanded = ref([]);
   const { data: tables } = await useFetch('/api/torque');
   const tableHeaders: any = ref([
@@ -34,7 +35,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb technical page="Torque Specs"></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Torque Specs"></breadcrumb>
       </v-col>
       <v-col cols="12">
         <v-expansion-panels v-model="panels" variant="popout" multiple>

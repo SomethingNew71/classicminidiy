@@ -1,11 +1,17 @@
 <script lang="ts" setup>
+  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
+
   const crumbs: any = ref([]);
   const props = defineProps({
     page: {
       type: String,
       default: '',
     },
-    technical: {
+    version: {
+      type: String as PropType<BREADCRUMB_VERSIONS>,
+      default: BREADCRUMB_VERSIONS.ARCHIVE,
+    },
+    root: {
       type: Boolean,
     },
     subpage: {
@@ -19,7 +25,7 @@
       default: '',
     },
   });
-  if (props.subpage) {
+  if (props.root) {
     crumbs.value.push(
       {
         title: 'Home',
@@ -27,9 +33,22 @@
         href: '/',
       },
       {
-        title: props.technical ? 'Technical Info' : 'Archive',
+        title: props.version === BREADCRUMB_VERSIONS.TECH ? 'Technical Info' : 'Archive',
+        disabled: true,
+        href: props.version === BREADCRUMB_VERSIONS.TECH ? '/technical' : '/archive',
+      }
+    );
+  } else if (props.subpage) {
+    crumbs.value.push(
+      {
+        title: 'Home',
         disabled: false,
-        href: props.technical ? '/technical' : '/archive',
+        href: '/',
+      },
+      {
+        title: props.version === BREADCRUMB_VERSIONS.TECH ? 'Technical Info' : 'Archive',
+        disabled: false,
+        href: props.version === BREADCRUMB_VERSIONS.TECH ? '/technical' : '/archive',
       },
       {
         title: props.subpage,
@@ -49,9 +68,9 @@
         href: '/',
       },
       {
-        title: props.technical ? 'Technical Info' : 'Archive',
+        title: props.version === BREADCRUMB_VERSIONS.TECH ? 'Technical Info' : 'Archive',
         disabled: false,
-        href: props.technical ? '/technical' : '/archive',
+        href: props.version === BREADCRUMB_VERSIONS.TECH ? '/technical' : '/archive',
       },
       {
         title: props.page,

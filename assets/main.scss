@@ -43,3 +43,24 @@ $amazon: #febd69;
 @import './fonts.scss';
 @import './spacing.scss';
 @import './transitions.scss';
+
+.spacer {
+  aspect-ratio: 900/100;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  &.layer {
+    margin-top: -10%;
+    background-image: url('/img/layer.svg');
+  }
+  &.layer1 {
+    margin-top: -5%;
+    background-image: url('/img/layer1.svg');
+  }
+  &.layer2 {
+    background-image: url('/img/layer2.svg');
+  }
+}

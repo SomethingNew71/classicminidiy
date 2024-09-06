@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   const { data, pending } = await useFetch('/api/engines');
   const tableHeaders: any[] = [
     { title: 'Size', key: 'color' },
@@ -37,7 +38,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb technical page="Engine Sizes"></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Engine Sizes"></breadcrumb>
 
         <v-row>
           <v-col cols="12" md="8">
