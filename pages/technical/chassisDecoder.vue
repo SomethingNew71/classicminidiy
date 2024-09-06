@@ -65,7 +65,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb page="Chassis Decoder"></breadcrumb>
+        <breadcrumb technical page="Chassis Decoder"></breadcrumb>
 
         <v-row>
           <v-col cols="12">

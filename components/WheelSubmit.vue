@@ -14,7 +14,6 @@
   const wheel = ref();
   const pageLoad = ref(true);
   const pageError = ref();
-  const submitError = ref();
   const loading = ref(false);
   const hasError = ref(false);
   const hasSuccess = ref();

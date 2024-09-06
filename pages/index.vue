@@ -4,12 +4,11 @@
   import { LandingPageToolboxItems } from '~/data/models/generic';
   const title = ref('Classic Mini <br> DIY');
   const subtitle = ref('YOUR FRIENDLY NEIGHBORHOOD');
-  const background = ref('/hero');
+  const background = ref('/backdrop2');
   const size = ref('is-medium');
   const birthday = DateTime.local(1989, 5, 11);
   const today = DateTime.now();
-  // @ts-ignore
-  const age = ref(today.diff(birthday, 'years').toObject().years.toFixed(0));
+  const age = ref<string | undefined>(today.diff(birthday, 'years').toObject().years?.toFixed(0));
 </script>
 
 <template>
@@ -19,6 +18,7 @@
       :subtitle="subtitle"
       :size="size"
       :special="true"
+      :landing="true"
       :background="background"
       :navigation="true"
     />
@@ -150,35 +150,43 @@
               </span>
               <span>Become a Member</span>
             </a>
-            <div class="column is-8 pl-0 pt-6 benefits-list">
-              <nav class="panel">
-                <p class="panel-heading">Membership Includes</p>
-                <div class="panel-block has-text-primary-00">
-                  <span class="panel-icon">
-                    <i class="is-size-4 fab fa-discord pt-2"></i>
-                  </span>
-                  Access to Live DIY Chat
-                </div>
-                <div class="panel-block has-text-primary-00">
-                  <span class="panel-icon">
-                    <i class="is-size-4 fad fa-video pt-2"></i>
-                  </span>
-                  Early Access to videos
-                </div>
-                <div class="panel-block has-text-primary-00">
-                  <span class="panel-icon">
-                    <i class="is-size-4 fas fa-gift pt-2"></i>
-                  </span>
-                  Free gifts and merch
-                </div>
-                <div class="panel-block has-text-primary-00">
-                  <span class="panel-icon">
-                    <i class="is-size-4 fas fa-circle-info pt-2"></i>
-                  </span>
-                  Insider information and much more...
-                </div>
-              </nav>
-            </div>
+            <v-card class="mt-10">
+              <v-toolbar color="brand-green-2">
+                <v-toolbar-title>Membership Includes</v-toolbar-title>
+                <v-spacer></v-spacer>
+              </v-toolbar>
+
+              <v-list lines="one" class="benefits-list">
+                <v-list-item :title="'Access to Live DIY Chat'">
+                  <template v-slot:prepend>
+                    <v-avatar size="large">
+                      <i class="is-size-3 fab fa-discord pt-2"></i>
+                    </v-avatar>
+                  </template>
+                </v-list-item>
+                <v-list-item :title="'Early Access to videos'">
+                  <template v-slot:prepend>
+                    <v-avatar size="large">
+                      <i class="is-size-3 fad fa-video pt-2"></i>
+                    </v-avatar>
+                  </template>
+                </v-list-item>
+                <v-list-item :title="'Free gifts and merch'">
+                  <template v-slot:prepend>
+                    <v-avatar size="large">
+                      <i class="is-size-3 fas fa-gift pt-2"></i>
+                    </v-avatar>
+                  </template>
+                </v-list-item>
+                <v-list-item :title="'Insider information and much more...'">
+                  <template v-slot:prepend>
+                    <v-avatar size="large">
+                      <i class="is-size-3 fas fa-circle-info pt-2"></i>
+                    </v-avatar>
+                  </template>
+                </v-list-item>
+              </v-list>
+            </v-card>
           </v-col>
           <v-col cols="12" md="6">
             <browser class="browser is-hidden-touch" />
@@ -188,8 +196,8 @@
     </div>
     <div class="spacer layer2"></div>
     <v-container class="mb-5">
-      <div class="columns is-multiline">
-        <div class="column is-7">
+      <v-row>
+        <v-col cols="12" md="7">
           <h3 class="fancy-font-bold is-size-3"><i class="fad fa-address-card"></i> About Me</h3>
           <h4 class="fancy-font-book-oblique pt-20">MY NAME IS COLE</h4>
           <p>
@@ -204,14 +212,14 @@
             the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to time
             I will make mistakes.
           </p>
-        </div>
-        <div class="column is-5 avatar-container">
+        </v-col>
+        <v-col cols="12" md="5" class="avatar-container">
           <nuxt-img
-            src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png"
+            src="https://classicminidiy.s3.amazonaws.com/misc/about-me.webp"
             alt="Image of my car on jack stands"
           />
-        </div>
-      </div>
+        </v-col>
+      </v-row>
     </v-container>
     <div class="spacer layer1"></div>
   </v-container>
@@ -221,10 +229,11 @@
 <style lang="scss">
   .animation-section,
   .avatar-container img {
-    max-width: 50%;
+    max-width: 90%;
     margin: auto;
-    padding-top: 35px;
+    margin-top: 35px;
     display: block;
+    border-radius: 50px;
   }
 </style>
 

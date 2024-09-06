@@ -1,21 +1,22 @@
-import { request } from '@octokit/request';
+import { Octokit } from '@octokit/core';
 import outdent from 'outdent';
 import { v5 as uuidv5 } from 'uuid';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
+  const octokit = new Octokit({
+    auth: config.app.githubAPIKey,
+  });
   const { details } = await readBody(event);
   const CMDIY_NAMEPSACE = 'a48a62bf-fec1-4ed7-9381-a1bf2a08738c';
   const uniqueId = uuidv5(details.submittedBy, CMDIY_NAMEPSACE);
-  return await request('POST /repos/SomethingNew71/classicminidiy/issues', {
-    headers: {
-      authorization: config.app.githubAPIKey,
-      accept: 'application/vnd.github.v3+json',
-    },
-    title: `Registry ${details.year} - ${details.model}`,
-    labels: ['Mini Register'],
-    assignees: ['SomethingNew71'],
-    body: outdent`
+  return await octokit
+    .request('POST /repos/SomethingNew71/classicminidiy/issues', {
+      headers: { 'X-GitHub-Api-Version': '2022-11-28' },
+      title: `Registry ${details.year} - ${details.model}`,
+      labels: ['Mini Register'],
+      assignees: ['SomethingNew71'],
+      body: outdent`
       ## New Details
         | Category    | Value                          |
         |-------------|--------------------------------|
@@ -33,7 +34,7 @@ export default defineEventHandler(async (event) => {
         | Notes       | ${details.notes}               |
         | Unique ID   | ${uniqueId}                    |
       `,
-  })
+    })
     .then(async (response) => {
       return {
         number: await response.data.number,

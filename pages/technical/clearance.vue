@@ -45,7 +45,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb page="Common Clearances"></breadcrumb>
+        <breadcrumb technical page="Common Clearances"></breadcrumb>
       </v-col>
       <v-col cols="12">
         <v-expansion-panels v-model="panels" variant="popout" multiple>

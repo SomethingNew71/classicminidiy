@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
-  import { ToolboxItems } from '~/data/models/generic';
+  import { ArchiveItems, ToolboxItems } from '~/data/models/generic';
   const { lgAndUp } = useDisplay();
   const showDrawer = ref(false);
 </script>
@@ -22,7 +22,7 @@
     <template #append>
       <v-btn class="is-hidden-desktop" icon="fa:fad fa-bars" @click="showDrawer = !showDrawer" />
       <div class="is-hidden-touch">
-        <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn>
+        <!-- <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn> -->
         <v-btn
           prepend-icon="fa:fad fa-pencil"
           size="small"
@@ -33,9 +33,6 @@
           Blog
         </v-btn>
         <v-btn prepend-icon="fa:fad fa-computer-classic" size="small" variant="text" to="/maps"> ECU Maps </v-btn>
-        <v-btn prepend-icon="fa:fad fa-book-circle-arrow-up" size="small" variant="text" to="/registry">
-          Registry
-        </v-btn>
         <v-btn
           prepend-icon="fa:fad fa-store"
           size="small"
@@ -45,7 +42,28 @@
         >
           Store
         </v-btn>
+        <v-menu transition="scale-transition" close-delay="100" location="bottom end" open-delay="10" open-on-hover>
+          <template v-slot:activator="{ props }">
+            <v-btn
+              size="small"
+              prepend-icon="fa:fad fa-books"
+              variant="text"
+              append-icon="fa:fas fa-chevron-down"
+              v-bind="props"
+            >
+              Archive
+            </v-btn>
+          </template>
 
+          <v-list density="compact">
+            <v-list-item v-for="(item, i) in ArchiveItems" :key="i" :value="item" :to="item.path">
+              <template v-slot:prepend>
+                <span v-html="item.iconHtml" class="pr-2 is-size-4"></span>
+              </template>
+              <v-list-item-title v-text="item.title"></v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-menu transition="scale-transition" close-delay="100" location="bottom end" open-delay="10" open-on-hover>
           <template v-slot:activator="{ props }">
             <v-btn
@@ -72,7 +90,7 @@
         <v-btn
           prepend-icon="fa:fab fa-patreon"
           size="small"
-          class="donate"
+          class="donate me-3"
           variant="outlined"
           target="_blank"
           href="https://patreon.com/classicminidiy"
@@ -116,15 +134,24 @@
           ECU Maps
         </v-btn></v-list-item
       >
-      <v-list-item density="compact">
-        <v-btn prepend-icon="fa:fad fa-book-circle-arrow-up" size="x-small" variant="text" to="/registry">
-          Registry
-        </v-btn></v-list-item
-      >
       <v-list-subheader> Free Online Toolbox </v-list-subheader>
       <v-list-item
         density="compact"
         v-for="(item, i) in ToolboxItems"
+        :key="i"
+        :value="item"
+        :to="item.path"
+        class="mobile-menu"
+      >
+        <template v-slot:prepend>
+          <div v-html="item.iconHtml" class="pr-2 is-size-5"></div>
+        </template>
+        <v-list-item-title class="is-size-7" v-text="item.title"></v-list-item-title>
+      </v-list-item>
+      <v-list-subheader> Archives </v-list-subheader>
+      <v-list-item
+        density="compact"
+        v-for="(item, i) in ArchiveItems"
         :key="i"
         :value="item"
         :to="item.path"

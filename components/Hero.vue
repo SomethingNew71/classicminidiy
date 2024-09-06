@@ -16,6 +16,10 @@
       type: Boolean,
       default: false,
     },
+    landing: {
+      type: Boolean,
+      default: false,
+    },
     subtitle: {
       type: String,
       default: '',
@@ -52,9 +56,15 @@
           ? {
               backgroundImage: `url(/img/typewriter.jpg)`,
             }
-          : {
-              backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background}.webp)`,
-            },
+          : landing
+            ? {
+                backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background}.webp)`,
+                backgroundSize: 'contain',
+                backgroundPosition: 'right',
+              }
+            : {
+                backgroundImage: `url(https://classicminidiy.s3.amazonaws.com/misc${background}.webp)`,
+              },
       !showImage ? { backgroundImage: 'none' } : {},
     ]"
   >
@@ -79,6 +89,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 4rem;
+    background-color: #242424;
 
     .special-title {
       font-size: 100px;

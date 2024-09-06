@@ -5,6 +5,9 @@
       type: String,
       default: '',
     },
+    technical: {
+      type: Boolean,
+    },
     subpage: {
       type: String,
     },
@@ -24,9 +27,9 @@
         href: '/',
       },
       {
-        title: 'Technical Info',
+        title: props.technical ? 'Technical Info' : 'Archive',
         disabled: false,
-        href: '/technical',
+        href: props.technical ? '/technical' : '/archive',
       },
       {
         title: props.subpage,
@@ -46,9 +49,9 @@
         href: '/',
       },
       {
-        title: 'Technical Info',
+        title: props.technical ? 'Technical Info' : 'Archive',
         disabled: false,
-        href: '/technical',
+        href: props.technical ? '/technical' : '/archive',
       },
       {
         title: props.page,

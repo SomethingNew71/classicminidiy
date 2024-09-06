@@ -13,7 +13,8 @@
     { title: 'Color', key: 'color', align: 'start' },
   ];
 
-  const { data: parsedData, pending, error } = await useFetch('/api/registry/list');
+  const { data: parsedData, pending } = await useFetch('/api/registry/list');
+  console.log(parsedData);
 
   useHead({
     title: 'The Classic Mini Register',
@@ -40,27 +41,7 @@
     <v-container>
       <v-row>
         <v-col cols="12">
-          <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <NuxtLink to="/">
-                  <span class="icon is-small">
-                    <i class="fad fa-home" aria-hidden="true" />
-                  </span>
-                  <span>Home</span>
-                </NuxtLink>
-              </li>
-              <li class="is-active">
-                <NuxtLink to="">
-                  <span class="icon is-small">
-                    <i class="fad fa-book" aria-hidden="true"></i>
-                  </span>
-                  <span>Mini Registry</span>
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
-
+          <breadcrumb page="Mini Registry"></breadcrumb>
           <div class="columns">
             <div class="column is-8">
               <h1 class="title">The Classic Mini Registry</h1>

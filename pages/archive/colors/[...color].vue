@@ -17,7 +17,7 @@
   }
 
   async function copyUrl() {
-    const url = `https://classicminidiy.com/technical/colors/${color?.value?.raw.id}`;
+    const url = `https://classicminidiy.com/archive/colors/${color?.value?.raw.id}`;
     try {
       await navigator.clipboard.writeText(url);
       copied.value = true;
@@ -40,7 +40,7 @@
   useSeoMeta({
     ogTitle: `Mini Color - ${color.value?.pretty.Name} | ${color.value?.pretty.Code}`,
     ogDescription: 'Check out the Clasic Mini color I am looking at right now.',
-    ogUrl: `classicminidiy.com/technical/colors/${color?.value?.raw.id}`,
+    ogUrl: `classicminidiy.com/archive/colors/${color?.value?.raw.id}`,
     ogImage: shareImage,
     ogType: 'website',
   });
@@ -50,7 +50,7 @@
   <v-container>
     <v-row align="center">
       <v-col cols="8">
-        <breadcrumb page="Swatch" subpage="Colors" subpage-href="/technical/colors"></breadcrumb>
+        <breadcrumb page="Swatch" subpage="Colors" subpage-href="/archive/colors"></breadcrumb>
       </v-col>
     </v-row>
     <v-row>

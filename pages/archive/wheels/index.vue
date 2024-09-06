@@ -18,7 +18,7 @@
           </p>
         </v-col>
         <v-col cols="12" md="4">
-          <NuxtLink :to="'/technical/wheels/submit?newWheel=true'" :title="'Link to new wheel form'">
+          <NuxtLink :to="'/archive/wheels/submit?newWheel=true'" :title="'Link to new wheel form'">
             <div class="card callout-card">
               <div class="card-content">
                 <div class="media">
@@ -79,7 +79,7 @@
     ogTitle: 'Tech - Wheel Dictionary',
     ogDescription:
       'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
-    ogUrl: 'classicminidiy.com/technical/wheels',
+    ogUrl: 'classicminidiy.com/archive/wheels',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
     ogType: 'website',
   });

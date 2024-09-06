@@ -82,7 +82,7 @@
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/technical/wheels">
+                <NuxtLink to="/archive/wheels">
                   <span class="icon is-small">
                     <i class="fas fa-tire" aria-hidden="true" />
                   </span>

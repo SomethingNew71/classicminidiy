@@ -80,6 +80,7 @@ export default defineNuxtConfig({
    */
   modules: [
     '@nuxtjs/fontaine',
+    '@nuxt/content',
     [
       'nuxt-disqus',
       {
@@ -170,5 +171,5 @@ export default defineNuxtConfig({
       installPrompt: true,
     },
   },
-  compatibilityDate: '2024-07-17',
+  compatibilityDate: '2024-08-29',
 });

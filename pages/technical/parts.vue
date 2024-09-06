@@ -33,7 +33,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb page="Parts Equivalency"></breadcrumb>
+        <breadcrumb technical page="Parts Equivalency"></breadcrumb>
       </v-col>
       <v-col cols="12">
         <v-expansion-panels v-model="panels" variant="popout" multiple>

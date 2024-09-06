@@ -63,7 +63,7 @@
     ogTitle: 'Tech - Color Picker',
     ogDescription:
       'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',
-    ogUrl: 'classicminidiy.com/technical/colors',
+    ogUrl: 'classicminidiy.com/archive/colors',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-color-palette-100.png',
     ogType: 'website',
   });
@@ -143,7 +143,7 @@
                   variant="plain"
                   size="large"
                   icon="fad fa-share-from-square"
-                  :to="`/technical/colors/${item.id}`"
+                  :to="`/archive/colors/${item.id}`"
                 >
                 </v-btn>
               </template>
@@ -215,7 +215,7 @@
                   variant="plain"
                   size="large"
                   icon="fa-duotone fa-edit"
-                  :to="`/technical/colors/contribute?colorId=${item.id}`"
+                  :to="`/archive/colors/contribute?colorId=${item.id}`"
                 >
                 </v-btn>
               </template>
