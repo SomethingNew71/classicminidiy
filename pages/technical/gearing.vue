@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   useHead({
     title: 'Tech - Gearing Calculator',
     meta: [
@@ -25,7 +26,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb technical page="Gearbox Calculator"></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Gearbox Calculator"></breadcrumb>
         <v-row>
           <v-col cols="12" md="8">
             <h1 class="title">Gearbox Calculator</h1>

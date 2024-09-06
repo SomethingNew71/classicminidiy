@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import type { ArchiveCard } from '~/data/models/archive';
-  import { ArchiveItems } from '~/data/models/generic';
+  import { ArchiveItems, BREADCRUMB_VERSIONS } from '~/data/models/generic';
 
   useHead({
     title: 'Classic Mini Archives',
@@ -29,26 +29,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <ul>
-            <li>
-              <NuxtLink to="/">
-                <span class="icon is-small">
-                  <i class="fad fa-home" aria-hidden="true" />
-                </span>
-                <span>Home</span>
-              </NuxtLink>
-            </li>
-            <li class="is-active">
-              <NuxtLink to="/technical">
-                <span class="icon is-small">
-                  <i class="fad fa-info-circle" aria-hidden="true" />
-                </span>
-                <span>Classic Mini Archive</span>
-              </NuxtLink>
-            </li>
-          </ul>
-        </nav>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" root></breadcrumb>
         <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
         <h3 class="fancy-font-bold is-size-3">Technical Information for the DIY Mechanic</h3>
       </v-col>
@@ -72,17 +53,22 @@
       </v-col>
       <v-col cols="12" md="8">
         <p class="is-size-5 pt-5 pb-5">
-          Welcome to the Classic Mini Archives. Here you will find a collection of articles, guides, and other resources
-          to help you with your classic mini restoration project. These resources are provided by the now retired
-          <strong>mk1-performance-conversions.co.uk</strong> site. Our goal migrating this data here is to make sure its
-          free and available to all classic mini enthusiasts for many more years to come.
+          Welcome to the Classic Mini Archives. Here you will find a collection of manuals, collections, guides, and
+          other resources to help you with your classic mini projects. I will be expanding this archive over time to
+          help fill the gaps left by sites slowly going offline.
         </p>
-        <v-col cols="12" md="10" offset-md="1">
-          <div class="divider">Support</div>
-        </v-col>
-        <v-col cols="12">
-          <patreon-card size="large" />
-        </v-col>
+        <p class="is-size-5 pb-5">
+          Its taken many hours of backwards engineering and reworking these services to make sure they don't die out. If
+          you see any issues, or any areas of improvement please let me know!
+        </p>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" md="10" offset-md="1">
+        <div class="divider">Support</div>
+      </v-col>
+      <v-col cols="12">
+        <patreon-card size="large" />
       </v-col>
     </v-row>
   </v-container>

@@ -1,4 +1,5 @@
 <script lang="js" setup>
+  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   useHead({
     title: 'Tech - Compression Ratio Calculator',
     meta: [
@@ -25,7 +26,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb technical page="Compression Ratio Calculator"></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Compression Ratio Calculator"></breadcrumb>
         <v-row>
           <v-col cols="12" md="8">
             <h1 class="title">Compression Ratio Calculator</h1>

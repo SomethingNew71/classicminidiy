@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { ToolboxItems } from '~/data/models/generic';
+  import { ToolboxItems, BREADCRUMB_VERSIONS } from '~/data/models/generic';
   useHead({
     title: 'Technical Toolbox',
     meta: [
@@ -29,37 +29,27 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <ul>
-            <li>
-              <NuxtLink to="/">
-                <span class="icon is-small">
-                  <i class="fad fa-home" aria-hidden="true" />
-                </span>
-                <span>Home</span>
-              </NuxtLink>
-            </li>
-            <li class="is-active">
-              <NuxtLink to="/technical">
-                <span class="icon is-small">
-                  <i class="fad fa-info-circle" aria-hidden="true" />
-                </span>
-                <span>Technical Info</span>
-              </NuxtLink>
-            </li>
-          </ul>
-        </nav>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" root></breadcrumb>
         <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
         <h3 class="fancy-font-bold is-size-3">Technical Information for the DIY Mechanic</h3>
       </v-col>
       <v-col cols="12" md="4">
-        <nav class="panel">
-          <p class="panel-heading">Classic Mini Toolbox</p>
-          <NuxtLink v-for="(item, index) in ToolboxItems" :key="index" :to="item.to" class="panel-block is-active">
-            <span class="pr-2 is-size-3" v-html="item.iconHtml"> </span>
-            {{ item.title }}
-          </NuxtLink>
-        </nav>
+        <v-card>
+          <v-toolbar color="brand-green-2">
+            <v-toolbar-title>Toolbox</v-toolbar-title>
+            <v-spacer></v-spacer>
+          </v-toolbar>
+
+          <v-list lines="one">
+            <v-list-item v-for="item in ToolboxItems" :key="item.title" :title="item.title" :to="item.to">
+              <template v-slot:prepend>
+                <v-avatar size="large">
+                  <span class="is-size-3" v-html="item.iconHtml"> </span>
+                </v-avatar>
+              </template>
+            </v-list-item>
+          </v-list>
+        </v-card>
       </v-col>
       <v-col cols="12" md="8">
         <p class="is-size-5 pt-5 pb-5">

@@ -221,7 +221,6 @@
         </v-col>
       </v-row>
     </v-container>
-    <div class="spacer layer1"></div>
   </v-container>
   <SpeedInsights />
 </template>
@@ -278,26 +277,6 @@
   .footer {
     a {
       font-weight: bold;
-    }
-  }
-  .spacer {
-    aspect-ratio: 900/100;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-
-    &.layer {
-      margin-top: -10%;
-      background-image: url('/img/layer.svg');
-    }
-    &.layer1 {
-      margin-top: -5%;
-      background-image: url('/img/layer1.svg');
-    }
-    &.layer2 {
-      background-image: url('/img/layer2.svg');
     }
   }
 </style>

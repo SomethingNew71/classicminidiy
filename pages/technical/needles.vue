@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   useHead({
     title: 'Tech - SU Needles Chart',
     meta: [
@@ -33,7 +34,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb technical page="Needle Comparison"></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Needle Comparison"></breadcrumb>
       </v-col>
       <v-col cols="12">
         <h4 class="fancy-font-bold is-size-3">SU Carburettor Needles</h4>
