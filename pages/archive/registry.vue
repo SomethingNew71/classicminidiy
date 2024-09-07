@@ -29,7 +29,7 @@
     ogTitle: 'Archive - The Classic Mini Register',
     ogDescription: 'Complete compendium of all known minis, as submitted by their owners.',
     ogUrl: 'classicminidiy.com/archive/register',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     ogType: 'website',
   });
 </script>

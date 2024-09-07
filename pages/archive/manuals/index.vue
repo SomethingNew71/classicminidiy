@@ -42,7 +42,7 @@
     ogTitle: 'Classic Mini Archive - Workshop Manuals',
     ogDescription: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
     ogUrl: 'classicminidiy.com/archive/electrical',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     ogType: 'website',
   });
 

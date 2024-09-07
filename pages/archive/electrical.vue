@@ -16,7 +16,7 @@
     ogTitle: 'Archive - Electrical Diagrams',
     ogDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
     ogUrl: 'classicminidiy.com/archive/electrical',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     ogType: 'website',
   });
 </script>

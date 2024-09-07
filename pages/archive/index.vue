@@ -23,6 +23,7 @@
       'Complete data protected repository of Classic Mini related documents, registries, libraries and more. Secured across multiple cloud locations to provide a permanent home for historical info for the Classic Mini',
     ogUrl: 'classicminidiy.com/archive',
     ogType: 'website',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
   });
 </script>
 
