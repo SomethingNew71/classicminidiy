@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import type { Post } from '~/data/models/archive';
-  import { ARCHIVE_TYPES, generateArchiveSubmissionMailto } from '~/data/models/helper-utils';
+  import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const { path, fullPath } = await useRoute();
   const currentPostData = ref<Post>();
   const isLoading = ref(true);
@@ -45,7 +45,7 @@
         ogTitle: `Classic Mini Archive - ${currentPostData.value.title}`,
         ogDescription: currentPostData.value.description,
         ogUrl: fullPath,
-        // ogImage: `https://classicminidiy.com${currentPostData.value.image}`,
+        ogImage: currentPostData.value.image,
         ogType: 'article',
         author: currentPostData.value.author,
       });
@@ -54,25 +54,6 @@
     .finally(() => {
       isLoading.value = false;
     });
-  async function sharePage(title: string = '', url: string) {
-    try {
-      await navigator.share({ title, url });
-    } catch (error) {
-      console.error('cannot share', error);
-    }
-  }
-  async function submitFile(title: string = '', url: string = '', code: string = '', body: string = '') {
-    try {
-      window.location.href = await generateArchiveSubmissionMailto(ARCHIVE_TYPES.MANUAL, {
-        title,
-        url,
-        body,
-        code,
-      });
-    } catch (error) {
-      console.error('cannot contribute', error);
-    }
-  }
 </script>
 
 <template>
@@ -108,9 +89,10 @@
                 variant="elevated"
                 border
                 @click="
-                  submitFile(
+                  submitArchiveFile(
+                    ARCHIVE_TYPES.MANUAL,
                     currentPostData.title,
-                    currentPostData.url,
+                    currentPostData._path,
                     currentPostData.code,
                     currentPostData.description
                   )
@@ -135,7 +117,7 @@
                 prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
                 variant="flat"
                 border
-                @click="sharePage(currentPostData.title, currentPostData.url)"
+                @click="shareArchiveItem(currentPostData.title, currentPostData._path)"
               >
                 Share
               </v-btn>
