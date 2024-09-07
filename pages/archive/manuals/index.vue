@@ -2,10 +2,10 @@
   import { ARCHIVE_TYPES, generateArchiveSubmissionMailto } from '~/data/models/helper-utils';
   import * as _ from 'lodash';
   const loading = ref(true);
-  const rawManuals = await queryContent('archive/manuals')
+  const manuals = await queryContent('archive/manuals')
     .find()
+    .then((response) => _.sortBy(response, 'download'))
     .finally(() => (loading.value = false));
-  const manuals = _.sortBy(rawManuals, 'download');
   const crumbs = ref([
     {
       title: 'Home',
