@@ -33,8 +33,8 @@
     <v-row>
       <v-col cols="12">
         <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" root></breadcrumb>
-        <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
-        <h3 class="fancy-font-bold is-size-3">Technical Information for the DIY Mechanic</h3>
+        <h2 class="fancy-font-book-oblique">PRESERVING CLASSIC MINI HERITAGE</h2>
+        <h3 class="fancy-font-bold is-size-3">The Classic Mini Archive</h3>
       </v-col>
       <v-col cols="12" md="4">
         <v-card>
