@@ -16,7 +16,7 @@
   const { data: parsedData, pending } = await useFetch('/api/registry/list');
 
   useHead({
-    title: 'The Classic Mini Register',
+    title: 'Archive - The Classic Mini Register',
     meta: [
       {
         hid: 'description',
@@ -26,9 +26,9 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'The Classic Mini Register',
+    ogTitle: 'Archive - The Classic Mini Register',
     ogDescription: 'Complete compendium of all known minis, as submitted by their owners.',
-    ogUrl: 'classicminidiy.com/register',
+    ogUrl: 'classicminidiy.com/archive/register',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png',
     ogType: 'website',
   });

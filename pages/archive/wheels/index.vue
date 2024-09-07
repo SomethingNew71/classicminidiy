@@ -1,3 +1,25 @@
+<script lang="ts" setup>
+  useHead({
+    title: 'Archive - Wheel Dictionary',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Archive - Wheel Dictionary',
+    ogDescription:
+      'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
+    ogUrl: 'classicminidiy.com/archive/wheels',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
+    ogType: 'website',
+  });
+</script>
+
 <template>
   <div>
     <hero :navigation="true" :title="'Wheel Dictionary'" />
@@ -62,25 +84,3 @@
     </v-container>
   </div>
 </template>
-
-<script lang="ts" setup>
-  useHead({
-    title: 'Tech - Wheel Dictionary',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: 'Tech - Wheel Dictionary',
-    ogDescription:
-      'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
-    ogUrl: 'classicminidiy.com/archive/wheels',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-fiat-500-100.png',
-    ogType: 'website',
-  });
-</script>

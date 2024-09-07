@@ -3,7 +3,7 @@
   const panels = ref(['Negative Ground']);
 
   useHead({
-    title: 'Tech - Electrical Diagrams',
+    title: 'Archive - Electrical Diagrams',
     meta: [
       {
         hid: 'description',
@@ -13,9 +13,9 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Tech - Electrical Diagrams',
+    ogTitle: 'Archive - Electrical Diagrams',
     ogDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
-    ogUrl: 'classicminidiy.com/technical/electrical',
+    ogUrl: 'classicminidiy.com/archive/electrical',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
     ogType: 'website',
   });
@@ -42,20 +42,25 @@
             :title="diagram.title"
           >
             <v-expansion-panel-text>
-              <nav class="panel is-striped p-0">
-                <a
+              <v-list lines="two" density="comfortable">
+                <v-list-item
                   v-for="(item, nameItem, diagramIndex) in diagram.items"
                   :key="`${nameItem}-${diagramIndex}`"
+                  :title="item.name"
                   :href="item.link"
                   target="_blank"
-                  class="panel-block"
                 >
-                  <span class="panel-icon">
-                    <i class="fad fa-info-circle" aria-hidden="true" />
-                  </span>
-                  {{ item.name }}
-                </a>
-              </nav>
+                  <template v-slot:subtitle>
+                    <v-icon icon="fad fa-calendar me-3"></v-icon>
+                    <template v-if="item.from || item.to"> {{ item.from || '?' }} - {{ item.to || '?' }} </template>
+                    <template v-else> Dates Unknown </template>
+                  </template>
+
+                  <template v-slot:append>
+                    <v-btn icon="fad fa-download" variant="text"></v-btn>
+                  </template>
+                </v-list-item>
+              </v-list>
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>

@@ -28,6 +28,24 @@
     },
   ]);
 
+  useHead({
+    title: 'Classic Mini Archive - Workshop Manuals',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
+      },
+    ],
+  });
+  useSeoMeta({
+    ogTitle: 'Classic Mini Archive - Workshop Manuals',
+    ogDescription: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
+    ogUrl: 'classicminidiy.com/archive/electrical',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
+    ogType: 'website',
+  });
+
   async function sharePage(title: string = '', url: string) {
     try {
       await navigator.share({ title, url });
