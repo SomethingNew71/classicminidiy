@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { Post } from '~/data/models/archive';
+  import { ARCHIVE_TYPES, generateArchiveSubmissionMailto } from '~/data/models/helper-utils';
   const { path, fullPath } = await useRoute();
   const currentPostData = ref<Post>();
   const isLoading = ref(true);
@@ -15,9 +16,9 @@
       href: '/archive',
     },
     {
-      title: 'Workshop Manuals',
+      title: 'Manuals',
       disabled: false,
-      href: '/archive/workshop-manuals',
+      href: '/archive/manuals',
     },
   ]);
 
@@ -60,6 +61,18 @@
       console.error('cannot share', error);
     }
   }
+  async function submitFile(title: string = '', url: string = '', code: string = '', body: string = '') {
+    try {
+      window.location.href = await generateArchiveSubmissionMailto(ARCHIVE_TYPES.MANUAL, {
+        title,
+        url,
+        body,
+        code,
+      });
+    } catch (error) {
+      console.error('cannot contribute', error);
+    }
+  }
 </script>
 
 <template>
@@ -87,28 +100,55 @@
 
             <v-spacer></v-spacer>
 
-            <v-btn icon="mdi-dots-horizontal" variant="text"></v-btn>
-
-            <v-btn
-              class="me-2 text-none"
-              color="accent"
-              prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
-              variant="text"
-              border
-              @click="sharePage(currentPostData.title, fullPath)"
-            >
-              Share
-            </v-btn>
-
-            <v-btn
-              color="primary"
-              class="text-none"
-              prepend-icon="fa-duotone fa-solid fa-download"
-              variant="flat"
-              :href="currentPostData.download"
-            >
-              Download
-            </v-btn>
+            <template v-if="!currentPostData.download || currentPostData.download === ''">
+              <v-btn
+                class="me-2 text-none"
+                color="secondary"
+                prepend-icon="fa-duotone fa-solid fa-plus-large"
+                variant="elevated"
+                border
+                @click="
+                  submitFile(
+                    currentPostData.title,
+                    currentPostData.url,
+                    currentPostData.code,
+                    currentPostData.description
+                  )
+                "
+              >
+                Contribute
+              </v-btn>
+              <v-btn
+                disabled
+                color="primary"
+                class="text-none"
+                prepend-icon="fa-duotone fa-solid fa-question"
+                variant="flat"
+              >
+                Missing File
+              </v-btn>
+            </template>
+            <template v-else>
+              <v-btn
+                class="me-2 text-none"
+                color="accent"
+                prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
+                variant="flat"
+                border
+                @click="sharePage(currentPostData.title, currentPostData.url)"
+              >
+                Share
+              </v-btn>
+              <v-btn
+                color="primary"
+                class="text-none"
+                prepend-icon="fa-duotone fa-solid fa-download"
+                variant="flat"
+                :href="currentPostData.download"
+              >
+                Download
+              </v-btn>
+            </template>
           </client-only>
         </div>
         <!-- <ContentDoc /> -->

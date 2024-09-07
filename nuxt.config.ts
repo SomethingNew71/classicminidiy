@@ -70,6 +70,15 @@ export default defineNuxtConfig({
     },
   },
 
+  site: {
+    url: 'https://classicminidiy.com',
+    name: 'One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com',
+  },
+
+  sitemap: {
+    sources: ['/api/__sitemap__/urls'],
+  },
+
   /*
    ** Global CSS
    */
