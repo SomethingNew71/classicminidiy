@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ARCHIVE_TYPES, generateArchiveSubmissionMailto } from '~/data/models/helper-utils';
+  import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const loading = ref(true);
   const manuals = await queryContent('archive/manuals')
     .find()
@@ -11,6 +11,7 @@
       })
     )
     .finally(() => (loading.value = false));
+
   const crumbs = ref([
     {
       title: 'Home',
@@ -45,26 +46,6 @@
     ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     ogType: 'website',
   });
-
-  async function sharePage(title: string = '', url: string) {
-    try {
-      await navigator.share({ title, url });
-    } catch (error) {
-      console.error('cannot share', error);
-    }
-  }
-  async function submitFile(title: string = '', url: string = '', code: string = '', body: string = '') {
-    try {
-      window.location.href = await generateArchiveSubmissionMailto(ARCHIVE_TYPES.MANUAL, {
-        title,
-        url,
-        body,
-        code,
-      });
-    } catch (error) {
-      console.error('cannot contribute', error);
-    }
-  }
 </script>
 <template>
   <hero :navigation="true" :title="'Classic Mini Archives'" />
@@ -113,7 +94,15 @@
                       prepend-icon="fa-duotone fa-solid fa-plus-large"
                       variant="elevated"
                       border
-                      @click="submitFile(manual.title, manual.url, manual.code, manual.description)"
+                      @click="
+                        submitArchiveFile(
+                          ARCHIVE_TYPES.MANUAL,
+                          manual.title,
+                          manual._path,
+                          manual.code,
+                          manual.description
+                        )
+                      "
                     >
                       Contribute
                     </v-btn>
@@ -134,7 +123,7 @@
                       prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
                       variant="flat"
                       border
-                      @click="sharePage(manual.title, manual.url)"
+                      @click="shareArchiveItem(manual.title, manual._path)"
                     >
                       Share
                     </v-btn>
