@@ -6,11 +6,6 @@
   const isLoading = ref(true);
   const crumbs = ref([
     {
-      title: 'Home',
-      disabled: false,
-      href: '/',
-    },
-    {
       title: 'Archive',
       disabled: false,
       href: '/archive',
@@ -62,23 +57,24 @@
     <v-row class="pt-5 mt-5" v-if="currentPostData">
       <v-col cols="12">
         <v-breadcrumbs :items="crumbs" divider="/">
-          <template v-slot:prepend> <v-icon size="small" icon="fad fa-home"></v-icon> </template
+          <template v-slot:prepend> <v-icon size="small" icon="fad fa-book"></v-icon> </template
         ></v-breadcrumbs>
       </v-col>
-      <v-col cols="12" md="3">
+      <v-col cols="4">
         <v-img :src="currentPostData.image"></v-img>
       </v-col>
-      <v-col cols="12" md="9" class="post">
-        <h2 class="text-h5 pt-5 pb-5 px-5">{{ currentPostData.title }}</h2>
+      <v-col cols="12" md="8" class="post">
+        <h2 class="text-h5 pt-5 pb-2 px-5">{{ currentPostData.title }}</h2>
+        <h3 class="px-5 pb-5">
+          <v-icon color="primary" icon="fad fa-list-timeline" start></v-icon>
+
+          <span class="text-button ms-1"> {{ currentPostData.code }} </span>
+        </h3>
         <p class="px-5">{{ currentPostData.description }}</p>
         <v-divider></v-divider>
 
         <div class="pa-4 d-flex align-center">
           <client-only>
-            <v-icon color="primary" icon="fad fa-list-timeline" start></v-icon>
-
-            <span class="text-button ms-1"> {{ currentPostData.code }} </span>
-
             <v-spacer></v-spacer>
 
             <template v-if="!currentPostData.download || currentPostData.download === ''">
