@@ -8,17 +8,19 @@
       {
         hid: 'description',
         name: 'description',
-        content: '',
+        content:
+          'Complete data protected repository of Classic Mini related documents, registries, libraries and more. Secured across multiple cloud locations to provide a permanent home for historical info for the Classic Mini',
       },
       {
         property: 'og:title',
-        content: 'CMDIY - Classic Mini Archives',
+        content: 'CMDIY - Classic Mini Archive',
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'CMDIY - Classic Mini Archives',
-    ogDescription: '',
+    ogTitle: 'CMDIY - Classic Mini Archive',
+    ogDescription:
+      'Complete data protected repository of Classic Mini related documents, registries, libraries and more. Secured across multiple cloud locations to provide a permanent home for historical info for the Classic Mini',
     ogUrl: 'classicminidiy.com/archive',
     ogType: 'website',
   });
