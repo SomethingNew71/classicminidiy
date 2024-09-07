@@ -119,14 +119,14 @@ export const ArchiveItems: ArchiveItem[] = [
       '<i class="fa-duotone fa-book-circle-arrow-up" style="--fa-secondary-color: #ED7135; --fa-secondary-opacity: 0.9;"></i>',
     to: '/archive/registry',
   },
-  // {
-  //   title: 'Workshop Manuals',
-  //   description: '',
-  //   image: 'https://classicminidiy.s3.amazonaws.com/archive/images/manuals.jpg',
-  //   path: '/archive/manuals',
-  //   iconHtml: '<i class="fa-duotone fa-book-sparkles"></i>',
-  //   to: '/archive/manuals',
-  // },
+  {
+    title: 'Workshop Manuals',
+    description: '',
+    image: 'https://classicminidiy.s3.amazonaws.com/archive/images/manuals.jpg',
+    path: '/archive/manuals',
+    iconHtml: '<i class="fa-duotone fa-book-sparkles"></i>',
+    to: '/archive/manuals',
+  },
   {
     title: 'Electrical Diagrams',
     description: '',
