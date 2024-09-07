@@ -82,10 +82,10 @@
           on the final production cars.
         </p>
       </v-col>
-      <v-col v-for="manual in manuals" cols="12">
-        <v-card>
+      <v-col v-for="manual in manuals" cols="12" md="6">
+        <v-card elevation="4">
           <v-row>
-            <v-col cols="4" md="2" class="text-center">
+            <v-col cols="4" md="4" class="text-center">
               <v-icon
                 class="mx-auto pt-10"
                 size="88"
@@ -94,7 +94,7 @@
               ></v-icon>
               <v-img v-else :src="manual.image" class="pa-10 mx-auto my-auto mt-3"></v-img>
             </v-col>
-            <v-col cols="8" md="10">
+            <v-col cols="8" md="8">
               <h2 class="text-h5 pt-5 pb-2 px-5" :class="{ 'pb-5': manual.download }">
                 {{ manual.title }}
               </h2>
