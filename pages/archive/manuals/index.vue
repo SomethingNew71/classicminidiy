@@ -1,10 +1,15 @@
 <script setup lang="ts">
   import { ARCHIVE_TYPES, generateArchiveSubmissionMailto } from '~/data/models/helper-utils';
-  import * as _ from 'lodash';
   const loading = ref(true);
   const manuals = await queryContent('archive/manuals')
     .find()
-    .then((response) => _.sortBy(response, 'download'))
+    .then((response) =>
+      response.sort((a, b) => {
+        const k1 = a.download === null ? 0 : 1;
+        const k2 = b.download === null ? 0 : 2;
+        return k2 - k1;
+      })
+    )
     .finally(() => (loading.value = false));
   const crumbs = ref([
     {
@@ -107,7 +112,7 @@
                   <template v-else>
                     <v-btn
                       class="me-2 text-none"
-                      color="secondary"
+                      color="accent"
                       prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
                       variant="flat"
                       border
