@@ -1,3 +1,14 @@
+export enum ARCHIVE_TYPES {
+  MANUAL = 'manual',
+}
+
+export interface SubmissionInfo {
+  title: string;
+  url: string;
+  body: string;
+  code: string;
+}
+
 export function humanFileSize(bytes: number, si = false, dp = 1) {
   const thresh = si ? 1000 : 1024;
 
@@ -17,4 +28,8 @@ export function humanFileSize(bytes: number, si = false, dp = 1) {
   } while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
 
   return bytes.toFixed(dp) + ' ' + units[u];
+}
+
+export function generateArchiveSubmissionMailto(type: ARCHIVE_TYPES, info: SubmissionInfo): string {
+  return `mailto:classicminidiy@gmail.com?subject=Archive%20Submission%20-%20${type}%20-%20${info.code}&body=I%20have%20a%20change%20or%20contribution%20to%20make%20to%20part%20of%20your%20Classic%20Mini%20Archive.%20%0A%0AArchive%20-%20${type}%0A%0AReference%20Page%3A%20%0ATitle%20-%20${info.title}%0AUrl%20-%20${info.url}%0ADescription%20-%20${info.body}%0ACode%20-%20${info.code}%0A%0ANew%20Information%3A%0A%3CPUT%20ALL%20YOUR%20NEW%20INFO%20HERE%3E%0A%0APlease%20attach%20any%20new%20files%20you%20would%20like%20me%20to%20add%20to%20this%20page%20as%20well%2C%20to%20your%20email.`;
 }

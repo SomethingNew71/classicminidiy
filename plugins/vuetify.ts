@@ -5,7 +5,7 @@ const cmdiyTheme = {
   dark: false,
   colors: {
     primary: '#859369',
-    // primary: '#659cc8',
+    secondary: '#ED7135',
     'brand-green-1': '#5E6647',
     'brand-green-2': '#859369',
     'brand-green-3': '#99A078',
