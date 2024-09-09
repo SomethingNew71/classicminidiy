@@ -1,5 +1,6 @@
 export enum ARCHIVE_TYPES {
   MANUAL = 'manual',
+  COMPANY = 'company',
 }
 
 export interface SubmissionInfo {
