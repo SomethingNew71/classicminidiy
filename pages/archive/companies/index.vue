@@ -65,11 +65,13 @@
         </p>
       </v-col>
       <v-col cols="12"></v-col>
-      <v-col v-for="company in companies" cols="12" md="3">
+      <v-col v-for="company in companies" cols="12" md="4">
         <v-card>
-          <v-img width="70%" height="100" class="mx-auto py-10" :src="company.image"></v-img>
+          <v-img width="60%" height="100" class="mx-auto py-10" :src="company.image"></v-img>
           <div>
-            <v-card-title class="text-body-2 text-center"> {{ company.title }} </v-card-title>
+            <v-card-title class="text-body-1 font-weight-bold text-center text-capitalize">
+              {{ company.title?.toLowerCase() }}
+            </v-card-title>
             <v-card-actions>
               <v-btn
                 block

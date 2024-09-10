@@ -79,6 +79,11 @@
               <h2 class="text-h5 pt-5 pb-2 px-5" :class="{ 'pb-5': manual.download }">
                 {{ manual.title }}
               </h2>
+              <h3 class="px-5 pb-5">
+                <v-icon color="primary" icon="fad fa-list-timeline" start></v-icon>
+
+                <span class="text-button ms-1"> {{ manual.code }} </span>
+              </h3>
               <p v-if="!manual.download || manual.download === ''" class="px-5 pb-5">
                 <v-chip prepend-icon="fa-duotone fa-solid fa-question" color="error"> File Missing </v-chip>
               </p>
@@ -89,7 +94,28 @@
                 <client-only>
                   <template v-if="!manual.download || manual.download === ''">
                     <v-btn
+                      disabled
+                      color="primary"
+                      class="text-none"
+                      prepend-icon="fa-duotone fa-solid fa-question"
+                      variant="flat"
+                    >
+                      Missing File
+                    </v-btn>
+                  </template>
+                  <template v-else>
+                    <v-btn
                       class="me-2 text-none"
+                      color="brand-blue-1"
+                      prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
+                      variant="flat"
+                      border
+                      @click="shareArchiveItem(manual.title, manual._path)"
+                    >
+                      Share
+                    </v-btn>
+                    <v-btn
+                      class="me-1 text-none"
                       color="secondary"
                       prepend-icon="fa-duotone fa-solid fa-plus-large"
                       variant="elevated"
@@ -105,27 +131,6 @@
                       "
                     >
                       Contribute
-                    </v-btn>
-                    <v-btn
-                      disabled
-                      color="primary"
-                      class="text-none"
-                      prepend-icon="fa-duotone fa-solid fa-question"
-                      variant="flat"
-                    >
-                      Missing File
-                    </v-btn>
-                  </template>
-                  <template v-else>
-                    <v-btn
-                      class="me-2 text-none"
-                      color="accent"
-                      prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
-                      variant="flat"
-                      border
-                      @click="shareArchiveItem(manual.title, manual._path)"
-                    >
-                      Share
                     </v-btn>
                     <v-btn
                       color="primary"
