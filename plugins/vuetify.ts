@@ -9,6 +9,7 @@ const cmdiyTheme = {
     'brand-green-1': '#5E6647',
     'brand-green-2': '#859369',
     'brand-green-3': '#99A078',
+    'brand-blue-1': '#3170A2',
     error: '#b22222',
     success: '#4a7023',
     warning: '#b22222',

@@ -1,5 +1,6 @@
 export enum ARCHIVE_TYPES {
   MANUAL = 'manual',
+  COMPANY = 'company',
 }
 
 export interface SubmissionInfo {
@@ -36,7 +37,7 @@ export function generateArchiveSubmissionMailto(type: ARCHIVE_TYPES, info: Submi
 
 export async function shareArchiveItem(title: string = '', url: string = '/archive/manuals') {
   try {
-    await navigator.share({ title, url: `https://classicminidiy.com${url}` });
+    await window.navigator.share({ url: `https://classicminidiy.com${url}` });
   } catch (error) {
     console.error('cannot share', error);
   }
