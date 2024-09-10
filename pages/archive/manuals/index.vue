@@ -96,11 +96,29 @@
                     <v-btn
                       disabled
                       color="primary"
-                      class="text-none"
+                      class="text-none me-1"
                       prepend-icon="fa-duotone fa-solid fa-question"
                       variant="flat"
                     >
                       Missing File
+                    </v-btn>
+                    <v-btn
+                      class="me-1 text-none"
+                      color="secondary"
+                      prepend-icon="fa-duotone fa-solid fa-plus-large"
+                      variant="elevated"
+                      border
+                      @click="
+                        submitArchiveFile(
+                          ARCHIVE_TYPES.MANUAL,
+                          manual.title,
+                          manual._path,
+                          manual.code,
+                          manual.description
+                        )
+                      "
+                    >
+                      Contribute
                     </v-btn>
                   </template>
                   <template v-else>
