@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import type { Post } from '~/data/models/archive';
   import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const { path, fullPath } = await useRoute();
@@ -134,6 +135,7 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>
 
 <style lang="scss">

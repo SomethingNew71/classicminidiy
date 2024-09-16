@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   useHead({
     title: 'Tech - Gearing Calculator',
@@ -79,4 +80,5 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>

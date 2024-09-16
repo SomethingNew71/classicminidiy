@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { ToolboxItems, BREADCRUMB_VERSIONS } from '~/data/models/generic';
   useHead({
     title: 'Technical Toolbox',
@@ -66,4 +67,5 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>

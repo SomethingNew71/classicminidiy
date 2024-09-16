@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   useHead({
     title: 'Archive - Wheel Dictionary',
     meta: [
@@ -82,5 +83,6 @@
       </v-footer>
       <v-divider></v-divider>
     </v-container>
+    <SpeedInsights />
   </div>
 </template>

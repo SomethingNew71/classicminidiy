@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   const expanded = ref([]);
   const { data: tables } = await useFetch('/api/clearance');
@@ -103,6 +104,7 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>
 
 <style lang="scss" scoped>

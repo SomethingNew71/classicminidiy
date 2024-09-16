@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { ArchiveCard } from '~/data/models/archive';
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { ArchiveItems, BREADCRUMB_VERSIONS } from '~/data/models/generic';
 
   useHead({
@@ -75,4 +75,5 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>

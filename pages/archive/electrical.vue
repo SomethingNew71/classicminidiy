@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   const { data: diagrams } = await useFetch('/api/diagrams');
   const panels = ref(['Negative Ground']);
 
@@ -73,6 +74,7 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>
 
 <style lang="scss">
