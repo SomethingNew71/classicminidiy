@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   const route = useRoute();
   const colorId = ref(route.query.colorId?.toString());
   let { data: color, pending }: any = await useFetch(`/api/colors/single`, {
@@ -210,6 +211,7 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>
 
 <style lang="scss">

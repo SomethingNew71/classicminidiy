@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { chasisRanges } from '~/data/models/decoders';
   import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   import * as _ from 'lodash';
@@ -303,6 +304,7 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>
 
 <style lang="scss">

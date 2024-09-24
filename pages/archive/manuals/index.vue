@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const loading = ref(true);
   const manuals = await queryContent('archive/manuals')
@@ -168,4 +169,5 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>

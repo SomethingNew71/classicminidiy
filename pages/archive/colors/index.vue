@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { useDisplay } from 'vuetify';
   let { data: colors, pending, error }: any = await useFetch(() => `/api/colors/list`);
   const { smAndDown, mdAndUp } = useDisplay();
@@ -224,6 +225,7 @@
         </v-col>
       </v-row>
     </v-container>
+    <SpeedInsights />
   </div>
 </template>
 <style lang="scss">

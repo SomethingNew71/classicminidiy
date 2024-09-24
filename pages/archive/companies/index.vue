@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   const loading = ref(true);
   const companies = await queryContent('archive/companies')
     .find()
@@ -89,4 +90,5 @@
       </v-col>
     </v-row>
   </v-container>
+  <SpeedInsights />
 </template>

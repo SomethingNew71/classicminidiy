@@ -90,12 +90,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/fontaine',
     '@nuxt/content',
-    [
-      'nuxt-disqus',
-      {
-        shortname: 'classicminidiy',
-      },
-    ],
     '@vite-pwa/nuxt',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
