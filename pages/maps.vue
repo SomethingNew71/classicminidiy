@@ -22,8 +22,8 @@
     ogUrl: 'classicminidiy.com/technical',
     ogType: 'website',
   });
-  const { data: releases, pending: releasesLoading } = await useFetch('/api/github/releases');
-  const { data: commits, pending: commitsLoading } = await useFetch('/api/github/commits');
+  // const { data: releases, status: releasesLoading } = await useFetch('/api/github/releases');
+  // const { data: commits, status: commitsLoading } = await useFetch('/api/github/commits');
   const legend = ref([
     {
       name: 'Included',
@@ -206,10 +206,10 @@
                 Help support the time and energy that went into creating these by purchasing them directly on my my
                 store. All maps are reaosnably priced at <strong>$25</strong> including all future updates.
               </p>
-              <h4 v-if="releasesLoading" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
+              <!-- <h4 v-if="releasesLoading" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
               <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-4">
                 Latest Releases - {{ releases.latestRelease }}
-              </h4>
+              </h4> -->
               <v-btn
                 prepend-icon="fad fa-download"
                 size="x-large"
@@ -230,16 +230,16 @@
                 Are you a more of a DIYer? Or perhaps you have a tight budget you are working on? Well no problem
                 because all my maps are availble free of charge directly on Github.
               </p>
-              <h4 v-if="releasesLoading" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
+              <!-- <h4 v-if="releasesLoading === 'pending'" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
               <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-5">
                 Latest Release - {{ releases.latestRelease }}
-              </h4>
+              </h4> -->
 
               <v-btn
-                prepend-icon="fab fa-github"
+                prepend-icon="fab fa-gitlab"
                 size="x-large"
-                color="grey-darken-3"
-                href="https://github.com/SomethingNew71/MiniECUMaps"
+                color="orange-darken-4"
+                href="https://gitlab.com/classicminidiy/miniecumaps"
               >
                 View Source
               </v-btn>
@@ -326,19 +326,40 @@
         <v-col cols="12" md="6">
           <nav class="panel is-secondary">
             <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Updates</h5>
-            <v-progress-circular v-if="commitsLoading"></v-progress-circular>
-            <template v-for="(commitItem, i) in commits">
-              <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 10">
+            <!-- <v-progress-circular v-if="commitsLoading === 'pending'"></v-progress-circular>
+            <template v-if="commits?.length">
+              <template v-for="(commitItem, i) in commits">
+                <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 10">
+                  <span class="panel-icon">
+                    <i class="fad fa-code-commit" aria-hidden="true"></i>
+                  </span>
+                  <span class="date pr-2">
+                    {{ commitItem.date }}
+                  </span>
+
+                  {{ commitItem.commit.message }}
+                </a>
+              </template>
+            </template> -->
+            <!-- <template v-else> -->
+            <p class="panel-block has-text-left">
+              <span class="panel-icon">
+                <i class="fad fa-code-commit" aria-hidden="true"></i>
+              </span>
+              <span class="date pr-2"> --- </span>
+
+              Error loading update history from Github
+            </p>
+            <template v-for="i in 10">
+              <p class="panel-block has-text-left" v-if="i < 10">
                 <span class="panel-icon">
                   <i class="fad fa-code-commit" aria-hidden="true"></i>
                 </span>
-                <span class="date pr-2">
-                  {{ commitItem.date }}
-                </span>
-
-                {{ commitItem.commit.message }}
-              </a>
+                <span class="date pr-2"> --- </span>
+                ---
+              </p>
             </template>
+            <!-- </template> -->
             <div class="panel-block">
               <v-btn
                 prepend-icon="fad fa-code-branch"
@@ -397,10 +418,6 @@
 
   .fa-code-commit {
     color: #ff9a00;
-  }
-
-  .fa-flag-checkered {
-    // color: #fff;
   }
   .fa-microchip {
     color: #277dc2;
