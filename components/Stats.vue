@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  const { data: stats, pending, error } = await useFetch('/api/youtube/stats');
+  const { data: stats, status, error } = await useFetch('/api/youtube/stats');
 </script>
 
 <template>
@@ -8,8 +8,10 @@
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Minutes Watched</p>
-          <p v-if="pending"></p>
-          <p v-else-if="error">??</p>
+          <p v-if="status === 'pending'">
+            <v-progress-circular indeterminate></v-progress-circular>
+          </p>
+          <p v-else-if="error" class="title has-text-primary-00">??</p>
           <p v-else-if="stats && stats.views" class="title has-text-primary-00">
             {{ stats.views }}
           </p>
@@ -19,8 +21,10 @@
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Subscribers</p>
-          <p v-if="pending"></p>
-          <p v-else-if="error">??</p>
+          <p v-if="status === 'pending'">
+            <v-progress-circular indeterminate></v-progress-circular>
+          </p>
+          <p v-else-if="error" class="title has-text-primary-00">??</p>
           <p v-else-if="stats && stats.subscribers" class="title has-text-primary-00">
             {{ stats.subscribers }}
           </p>
@@ -29,9 +33,11 @@
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">videos</p>
-          <p v-if="pending"></p>
-          <p v-else-if="error">??</p>
+          <p class="heading">Videos</p>
+          <p v-if="status === 'pending'">
+            <v-progress-circular indeterminate></v-progress-circular>
+          </p>
+          <p v-else-if="error" class="title has-text-primary-00">??</p>
           <p v-else-if="stats && stats.videos" class="title has-text-primary-00">
             {{ stats.videos }}
           </p>

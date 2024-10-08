@@ -25,9 +25,8 @@
     <div class="spacer layer"></div>
     <v-container>
       <div class="container">
-        <div class="columns is-multiline pb-5">
-          <div class="column is-12"></div>
-          <div class="column is-12 is-two-thirds-tablet">
+        <v-row class="pb-5">
+          <v-col cols="12" md="8">
             <h2 class="fancy-font-book-oblique"><i class="fad fa-book"></i> THE MINI MISSION</h2>
             <h3 class="fancy-font-bold is-size-3 pt-2 pb-3">Keeping the Classics on the Road</h3>
             <p class="is-size-5">
@@ -37,8 +36,8 @@
               with world-class manufacturers to deliver top-of-the-line products to personalize and ensure the
               performance of your Classic Mini.
             </p>
-          </div>
-          <div class="column is-12 is-on-third-tablet">
+          </v-col>
+          <v-col cols="12" md="4">
             <h3 class="fancy-font-book-oblique"><i class="fad fa-gift"></i> SUPPORT THE MISSION</h3>
             <h4 class="fancy-font-bold is-size-3 pt-2 pb-3">Support</h4>
             <p class="is-size-5 pt-2 pb-3">
@@ -63,16 +62,13 @@
               </span>
               <span>Contribute</span>
             </a>
-          </div>
-          <v-row class="pt-10">
-            <v-col cols="12" md="10" offset-md="1">
-              <stats />
-            </v-col>
-          </v-row>
-          <v-row class="pt-20">
-            <recent-videos></recent-videos>
-          </v-row>
-        </div>
+          </v-col>
+
+          <v-col cols="12" md="10" offset-md="1">
+            <stats />
+          </v-col>
+          <recent-videos></recent-videos>
+        </v-row>
       </div>
     </v-container>
     <div class="spacer layer1"></div>

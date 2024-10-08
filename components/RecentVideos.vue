@@ -10,8 +10,8 @@
   <v-col v-if="pending" cols="12" md="3" v-for="item in 3">
     <v-skeleton-loader class="mx-auto border" max-width="300" type="image, article"></v-skeleton-loader>
   </v-col>
-  <v-col v-else-if="error" cols="12">
-    <p>Unable to load youtube data</p>
+  <v-col v-else-if="error" cols="12" md="4" v-for="item in 3">
+    <v-skeleton-loader class="mx-auto border" max-width="300" type="image, article"></v-skeleton-loader>
   </v-col>
 
   <v-col v-else-if="videos" cols="12" md="4" v-for="video in videos">
