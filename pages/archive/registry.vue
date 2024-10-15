@@ -3,6 +3,7 @@
   const searchValue = ref('');
   const expanded = ref([]);
   import { useDisplay } from 'vuetify';
+  import { HERO_TYPES } from '~/data/models/generic';
   const { mdAndUp } = useDisplay();
 
   const tableHeaders: any[] = [
@@ -36,7 +37,7 @@
 
 <template>
   <div>
-    <hero :navigation="true" :title="'Mini Registry'" />
+    <hero :navigation="true" :title="'Mini Registry'" :heroType="HERO_TYPES.ARCHIVE" />
     <v-container>
       <v-row>
         <v-col cols="12">

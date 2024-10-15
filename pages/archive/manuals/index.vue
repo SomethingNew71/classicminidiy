@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
+  import { HERO_TYPES } from '~/data/models/generic';
   import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const loading = ref(true);
   const manuals = await queryContent('archive/manuals')
@@ -49,7 +50,7 @@
   });
 </script>
 <template>
-  <hero :navigation="true" :title="'Classic Mini Archives'" />
+  <hero :navigation="true" :title="'Classic Mini Archives'" :heroType="HERO_TYPES.ARCHIVE" />
   <v-container>
     <v-row>
       <v-col cols="12">

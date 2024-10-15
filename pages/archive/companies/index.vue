@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
+  import { HERO_TYPES } from '~/data/models/generic';
   const loading = ref(true);
   const companies = await queryContent('archive/companies')
     .find()
@@ -50,7 +51,7 @@
   });
 </script>
 <template>
-  <hero :navigation="true" :title="'Classic Mini Archives'" />
+  <hero :navigation="true" :title="'Classic Mini Archives'" :heroType="HERO_TYPES.ARCHIVE" />
   <v-container>
     <v-row>
       <v-col cols="12">

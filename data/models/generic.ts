@@ -5,6 +5,13 @@ export enum BREADCRUMB_VERSIONS {
   TECH = 'technical',
   ARCHIVE = 'archive',
 }
+export enum HERO_TYPES {
+  HOME = 'home',
+  TECH = 'tech',
+  ARCHIVE = 'archive',
+  BLOG = 'blog',
+  MAPS = 'maps',
+}
 export interface Post extends ParsedContent {
   image?: string;
   author?: string;

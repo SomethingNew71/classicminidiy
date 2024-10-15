@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import type { Post } from '~/data/models/archive';
+  import { HERO_TYPES } from '~/data/models/generic';
   import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const { path, fullPath } = await useRoute();
   const currentPostData = ref<Post | null>(null);
@@ -49,7 +50,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Classic Mini Archives'" />
+  <hero :navigation="true" :title="'Classic Mini Archives'" :heroType="HERO_TYPES.ARCHIVE" />
   <v-container>
     <v-row class="pt-5 mt-5" v-if="currentPostData">
       <v-col cols="12">

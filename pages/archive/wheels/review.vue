@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { HERO_TYPES } from '~/data/models/generic';
   import type { IWheelsData } from '~/data/models/wheels';
 
   const wheelsToReview: any = ref([]);
@@ -66,7 +67,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Review wheel submissions'" />
+  <hero :navigation="true" :title="'Review wheel submissions'" :heroType="HERO_TYPES.ARCHIVE" />
   <section>
     <v-container>
       <v-row>

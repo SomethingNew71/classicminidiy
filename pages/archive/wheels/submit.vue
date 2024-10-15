@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { HERO_TYPES } from '~/data/models/generic';
+
   const route = useRoute();
   const uuid = ref(route.query.uuid?.toString());
   const newWheel = route.query.newWheel === 'true' ? true : false;
@@ -6,7 +8,7 @@
 
 <template>
   <div>
-    <hero :navigation="true" :title="'Submit a Wheel'" />
+    <hero :navigation="true" :title="'Submit a Wheel'" :heroType="HERO_TYPES.ARCHIVE" />
     <section id="scrollLocation" class="section">
       <v-container>
         <v-row>

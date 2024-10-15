@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
+  import { HERO_TYPES } from '~/data/models/generic';
   useHead({
     title: 'Classic Mini ECU Maps',
     meta: [
@@ -158,7 +159,7 @@
       :navigation="true"
       :title="'Classic Mini DIY ECU Maps'"
       :subtitle="'Pay what your want, always'"
-      :ecuMap="true"
+      :heroType="HERO_TYPES.MAPS"
       :size="'is-medium'"
     />
     <v-container>
