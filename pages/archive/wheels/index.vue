@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
+  import { HERO_TYPES } from '~/data/models/generic';
   useHead({
     title: 'Archive - Wheel Dictionary',
     meta: [
@@ -23,7 +24,7 @@
 
 <template>
   <div>
-    <hero :navigation="true" :title="'Wheel Dictionary'" />
+    <hero :navigation="true" :title="'Wheel Dictionary'" :heroType="HERO_TYPES.ARCHIVE" />
     <v-container>
       <v-row align="center">
         <v-col cols="8">

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { DateTime } from 'luxon';
-  import { LandingPageToolboxItems } from '~/data/models/generic';
+  import { HERO_TYPES, LandingPageToolboxItems } from '~/data/models/generic';
   const title = ref('Classic Mini <br> DIY');
   const subtitle = ref('YOUR FRIENDLY NEIGHBORHOOD');
   const background = ref('/backdrop2');
@@ -18,7 +18,7 @@
       :subtitle="subtitle"
       :size="size"
       :special="true"
-      :landing="true"
+      :heroType="HERO_TYPES.HOME"
       :background="background"
       :navigation="true"
     />

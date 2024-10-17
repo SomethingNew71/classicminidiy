@@ -5,6 +5,13 @@ export enum BREADCRUMB_VERSIONS {
   TECH = 'technical',
   ARCHIVE = 'archive',
 }
+export enum HERO_TYPES {
+  HOME = 'home',
+  TECH = 'tech',
+  ARCHIVE = 'archive',
+  BLOG = 'blog',
+  MAPS = 'maps',
+}
 export interface Post extends ParsedContent {
   image?: string;
   author?: string;
@@ -39,10 +46,10 @@ export const SocialShareData = {
 };
 
 export const SocialItems: SocialItem[] = [
-  { title: 'Youtube', href: 'https://youtube.com/c/classicminidiy', icon: 'fab fa-youtube' },
-  { title: 'Patreon', href: 'https://patreon.com/classicminidiy', icon: 'fab fa-patreon' },
-  { title: 'Instagram', href: 'https://instagram.com/classicminidiy59', icon: 'fab fa-instagram' },
-  { title: 'Facebook', href: 'https://facebook.com/classicminidiy', icon: 'fab fa-facebook' },
+  { title: 'Classic Mini DIY on Youtube', href: 'https://youtube.com/c/classicminidiy', icon: 'fab fa-youtube' },
+  { title: 'Classic Mini DIY on Patreon', href: 'https://patreon.com/classicminidiy', icon: 'fab fa-patreon' },
+  { title: 'Classic Mini DIY on Instagram', href: 'https://instagram.com/classicminidiy59', icon: 'fab fa-instagram' },
+  { title: 'Classic Mini DIY on Facebook', href: 'https://facebook.com/classicminidiy', icon: 'fab fa-facebook' },
 ];
 
 export const ToolboxItems: ToolboxItem[] = [

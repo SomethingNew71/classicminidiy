@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
-  import { ArchiveItems, BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { ArchiveItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
+  import { ARCHIVE_TYPES, submitArchiveFile } from '~/data/models/helper-utils';
 
   useHead({
     title: 'Classic Mini Archives',
@@ -28,7 +29,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Archives'" />
+  <hero :navigation="true" :title="'Archives'" :heroType="HERO_TYPES.ARCHIVE" />
   <v-container>
     <v-row>
       <v-col cols="12">
@@ -64,6 +65,27 @@
           Its taken many hours of backwards engineering and reworking these services to make sure they don't die out. If
           you see any issues, or any areas of improvement please let me know!
         </p>
+        <v-btn
+          prepend-icon="fa:fad fa-paper-plane"
+          class="me-3"
+          :variant="'elevated'"
+          :size="'large'"
+          color="primary"
+          target="_blank"
+          href="https://patreon.com/classicminidiy"
+        >
+          Add to Archive
+        </v-btn>
+        <v-btn
+          prepend-icon="fa:fad fa-hand-holding-circle-dollar"
+          class="me-3"
+          :size="'large'"
+          target="_blank"
+          color="secondary"
+          @click="submitArchiveFile(ARCHIVE_TYPES.GENERIC)"
+        >
+          Cover Server Costs
+        </v-btn>
       </v-col>
     </v-row>
     <v-row>

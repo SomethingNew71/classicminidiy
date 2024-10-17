@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
-  import { SocialShareData } from '~/data/models/generic';
+  import { HERO_TYPES, SocialShareData } from '~/data/models/generic';
   const { params } = await useRoute();
   const colorId = ref(params.color);
   let { data: color, pending } = await useFetch(`/api/colors/single`, {
@@ -47,7 +47,7 @@
   });
 </script>
 <template>
-  <hero :navigation="true" :title="'Color Swatch'" />
+  <hero :navigation="true" :title="'Color Swatch'" :heroType="HERO_TYPES.ARCHIVE" />
   <v-container>
     <v-row align="center">
       <v-col cols="8">

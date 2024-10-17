@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { useDisplay } from 'vuetify';
+  import { HERO_TYPES } from '~/data/models/generic';
   let { data: colors, pending, error }: any = await useFetch(() => `/api/colors/list`);
   const { smAndDown, mdAndUp } = useDisplay();
   const search = ref('');
@@ -72,7 +73,7 @@
 
 <template>
   <div>
-    <hero :navigation="true" :title="'Color Picker'" />
+    <hero :navigation="true" :title="'Color Picker'" :heroType="HERO_TYPES.ARCHIVE" />
     <v-container>
       <v-row align="center">
         <v-col cols="8">

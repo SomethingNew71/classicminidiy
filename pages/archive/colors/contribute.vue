@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
+  import { HERO_TYPES } from '~/data/models/generic';
   const route = useRoute();
   const colorId = ref(route.query.colorId?.toString());
   let { data: color, pending }: any = await useFetch(`/api/colors/single`, {
@@ -71,7 +72,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Contribute to Colors'" />
+  <hero :navigation="true" :title="'Contribute to Colors'" :heroType="HERO_TYPES.ARCHIVE" />
   <v-container>
     <v-row align="center">
       <v-col cols="8">

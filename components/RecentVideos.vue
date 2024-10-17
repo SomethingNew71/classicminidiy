@@ -16,7 +16,7 @@
 
   <v-col v-else-if="videos" cols="12" md="4" v-for="video in videos">
     <v-card class="mx-auto" max-width="344" :href="video.videoUrl">
-      <v-img :src="video.thumbnails.maxres" height="250px">
+      <v-img alt="Thumbnail image for youtube video" :src="video.thumbnails.maxres" height="250px">
         <template #sources>
           <source media="(max-width: 799px)" :srcset="video.thumbnails.medium" />
           <source media="(max-width: 992px)" :srcset="video.thumbnails.high" />
