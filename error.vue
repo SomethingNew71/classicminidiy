@@ -1,17 +1,8 @@
 <script lang="ts" setup>
-  import { VApp } from 'vuetify/components/VApp';
-  import { VFooter } from 'vuetify/components/VFooter';
-  import { VBtn } from 'vuetify/components/VBtn';
-  import { VDivider } from 'vuetify/components/VDivider';
-  import { VSpacer } from 'vuetify/components/VGrid';
-  import { SocialItems } from '~/data/models/generic';
   import type { NuxtError } from '#app';
-
-  const props = defineProps({
+  defineProps({
     error: Object as () => NuxtError,
   });
-
-  const socials = ref(SocialItems);
   const route = useRoute();
   const isHomepage = ref(route.path === '/');
   watch(
@@ -40,7 +31,7 @@
 
             <v-card-text class="py-0">
               <v-row align="center" no-gutters>
-                <v-col class="text-h2" cols="6"> {{ error.statusCode }}</v-col>
+                <v-col class="text-h2" cols="6"> {{ error?.statusCode }}</v-col>
 
                 <v-col class="text-right" cols="6">
                   <v-icon color="yellow-darken-3" icon="fad fa-triangle-exclamation" size="88"></v-icon>
@@ -50,11 +41,11 @@
 
             <div class="d-flex pt-3 justify-space-between">
               <v-list-item density="compact" prepend-icon="fad fa-brackets-curly">
-                <v-list-item-subtitle>URL: {{ error.url }}</v-list-item-subtitle>
+                <v-list-item-subtitle>URL: {{ error?.statusMessage }}</v-list-item-subtitle>
               </v-list-item>
 
               <v-list-item density="compact" prepend-icon="fad fa-messages">
-                <v-list-item-subtitle>{{ error.message }}</v-list-item-subtitle>
+                <v-list-item-subtitle>{{ route.fullPath }}</v-list-item-subtitle>
               </v-list-item>
             </div>
 
@@ -70,36 +61,7 @@
       </v-row>
     </v-container>
     <div class="spacer layer1 mt-10"></div>
-    <v-footer class="text-center d-flex flex-column pt-10 bg-color-section">
-      <div class="pb-2">
-        <v-btn
-          v-for="(social, i) in socials"
-          :key="i"
-          :href="social.href"
-          class="mx-4"
-          :icon="social.icon"
-          variant="text"
-        ></v-btn>
-      </div>
-
-      <div class="pt-0">
-        <h2 class="subtitle">
-          <strong class="has-text-primary-00">Classic Mini DIY</strong> by
-          <a rel="noopener" target="_blank" href="https://youtube.com/c/classicminidiy?sub_confirmation=1">
-            Cole Gentry </a
-          >.
-        </h2>
-        <p class="pb-5">
-          Classic Mini DIY toolbox is a passion project aligned with the Classic Mini DIY youtube channel. This is a
-          completely free resource built to keep the Classic Mini technical knowledgebase alive for years to come.
-          Regularly updated and crowd sourced data made to help Classic Mini owners all over the world.
-        </p>
-      </div>
-
-      <v-divider></v-divider>
-
-      <div>{{ new Date().getFullYear() }} — <strong>Classic Mini DIY LLC</strong></div>
-    </v-footer>
+    <Footer></Footer>
     <v-spacer></v-spacer>
     <VitePwaManifest />
   </v-app>

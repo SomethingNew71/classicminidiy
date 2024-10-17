@@ -134,7 +134,7 @@
           ECU Maps
         </v-btn></v-list-item
       >
-      <v-list-subheader> Free Online Toolbox </v-list-subheader>
+      <v-list-subheader class="font-weight-bold"> Free Online Toolbox </v-list-subheader>
       <v-list-item
         density="compact"
         v-for="(item, i) in ToolboxItems"
@@ -148,7 +148,7 @@
         </template>
         <v-list-item-title class="is-size-7" v-text="item.title"></v-list-item-title>
       </v-list-item>
-      <v-list-subheader> Archives </v-list-subheader>
+      <v-list-subheader class="font-weight-bold"> Archives </v-list-subheader>
       <v-list-item
         density="compact"
         v-for="(item, i) in ArchiveItems"

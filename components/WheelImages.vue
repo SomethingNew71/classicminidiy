@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { useDisplay } from 'vuetify/lib/framework.mjs';
+  import { useDisplay } from 'vuetify';
   const { smAndDown, lgAndUp } = useDisplay();
   defineProps({
     images: {
@@ -14,6 +14,7 @@
   <v-dialog width="500">
     <template v-slot:activator="{ props }">
       <v-img
+        alt=""
         v-if="smAndDown"
         class="table-wheel py-5 my-5 rounded-xl"
         cover
@@ -23,6 +24,7 @@
         width="75"
       ></v-img>
       <v-img
+        alt=""
         v-else-if="lgAndUp"
         class="table-wheel py-5 my-5 rounded-xl"
         cover
@@ -32,6 +34,7 @@
         width="200"
       ></v-img>
       <v-img
+        alt=""
         v-else=""
         class="table-wheel py-5 my-5 rounded-xl"
         cover
@@ -50,7 +53,7 @@
               <v-carousel-item :src="image.src"></v-carousel-item>
             </template>
           </v-carousel>
-          <v-img v-else cover :src="images[0].src"></v-img>
+          <v-img alt="" v-else cover :src="images[0].src"></v-img>
         </v-card-text>
 
         <v-card-actions>
