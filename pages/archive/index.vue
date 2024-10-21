@@ -72,7 +72,7 @@
           :size="'large'"
           color="primary"
           target="_blank"
-          href="https://patreon.com/classicminidiy"
+          @click="submitArchiveFile(ARCHIVE_TYPES.GENERIC)"
         >
           Add to Archive
         </v-btn>
@@ -82,7 +82,7 @@
           :size="'large'"
           target="_blank"
           color="secondary"
-          @click="submitArchiveFile(ARCHIVE_TYPES.GENERIC)"
+          href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
         >
           Cover Server Costs
         </v-btn>

@@ -12,3 +12,8 @@ export interface IWheelsData {
   images?: any[];
   newWheel?: boolean;
 }
+
+export interface IWheelToReview {
+  new?: IWheelsData;
+  existing?: IWheelsData;
+}
