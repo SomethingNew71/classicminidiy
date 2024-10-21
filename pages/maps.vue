@@ -23,10 +23,10 @@
     ogUrl: 'classicminidiy.com/technical',
     ogType: 'website',
   });
-  // const { data: releases, status: releasesLoading } = await useFetch('/api/github/releases');
-  // const { data: commits, status: commitsLoading } = await useFetch('/api/github/commits');
-  const { data: commits, status: commitsLoading } = await useFetch('/api/gitlab/commits');
-  const { data: releases, status: releasesLoading } = await useFetch('/api/gitlab/releases');
+  const { data: releases, status: releasesLoading, error: releaseError } = await useFetch('/api/github/releases');
+  const { data: commits, status: commitsLoading, error: commitError } = await useFetch('/api/github/commits');
+  // const { data: commits, status: commitsLoading } = await useFetch('/api/gitlab/commits');
+  // const { data: releases, status: releasesLoading } = await useFetch('/api/gitlab/releases');
 
   const legend = ref([
     {
@@ -212,7 +212,7 @@
               </p>
               <h4 v-if="releasesLoading === 'pending'" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
               <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-4">
-                Latest Releases - {{ releases[0].tag_name }}
+                Latest Releases - {{ releases.latestRelease }}
               </h4>
               <v-btn
                 prepend-icon="fad fa-download"
@@ -236,14 +236,14 @@
               </p>
               <h4 v-if="releasesLoading === 'pending'" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
               <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-5">
-                Latest Release - {{ releases[0].tag_name }}
+                Latest Release - {{ releases.latestRelease }}
               </h4>
 
               <v-btn
-                prepend-icon="fab fa-gitlab"
+                prepend-icon="fab fa-github"
                 size="x-large"
-                color="orange-darken-4"
-                href="https://gitlab.com/classicminidiy/miniecumaps"
+                color="secondary"
+                href="https://github.com/SomethingNew71/MiniECUMaps"
               >
                 View Source
               </v-btn>
@@ -333,15 +333,15 @@
             <v-progress-circular v-if="commitsLoading === 'pending'"></v-progress-circular>
             <template v-if="commits?.length">
               <template v-for="(commitItem, i) in commits">
-                <a class="panel-block has-text-left" :href="commitItem.web_url" target="_blank" v-if="i < 10">
+                <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 10">
                   <span class="panel-icon">
                     <i class="fad fa-code-commit" aria-hidden="true"></i>
                   </span>
                   <span class="date pr-2">
-                    {{ commitItem.parsedCommitDate }}
+                    {{ commitItem.date }}
                   </span>
 
-                  {{ commitItem.message }}
+                  {{ commitItem.commit.message }}
                 </a>
               </template>
             </template>
@@ -369,7 +369,7 @@
                 prepend-icon="fad fa-code-branch"
                 color="grey-darken-3"
                 class="mx-auto flex-grow-1"
-                href="https://gitlab.com/classicminidiy/miniecumaps/-/commits/main/?ref_type=HEADS"
+                href="https://github.com/SomethingNew71/MiniECUMaps"
               >
                 View All Commits
               </v-btn>

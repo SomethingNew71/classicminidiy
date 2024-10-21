@@ -2,7 +2,7 @@ import { request } from '@octokit/request';
 import * as _ from 'lodash';
 import { DateTime } from 'luxon';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (): Promise<any> => {
   const config = useRuntimeConfig();
   try {
     return await request('GET /repos/{owner}/{repo}/commits', {
