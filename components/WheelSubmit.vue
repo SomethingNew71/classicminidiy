@@ -471,7 +471,16 @@
               the monthly hosting.
             </p>
             <v-btn color="primary" href="https://patreon.com/classicminidiy" class="mx-1 my-1"> Support </v-btn>
-            <v-btn href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl" class="mx-1 my-1">One Time Donation </v-btn>
+            <v-btn
+              prepend-icon="fa:fad fa-hand-holding-circle-dollar"
+              class="me-3"
+              :size="'large'"
+              target="_blank"
+              color="secondary"
+              href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
+            >
+              Cover Server Costs
+            </v-btn>
           </v-col>
         </v-row>
       </v-card>

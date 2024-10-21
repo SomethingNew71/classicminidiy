@@ -1,7 +1,8 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, GetCommand } from '@aws-sdk/lib-dynamodb';
+import type { IWheelsData } from '~/data/models/wheels';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<IWheelsData> => {
   const config = useRuntimeConfig();
   const query = getQuery(event);
   const client = new DynamoDBClient({
@@ -11,14 +12,18 @@ export default defineEventHandler(async (event) => {
       secretAccessKey: config.app.aws_secret_access_key,
     },
   });
-  const docClient = DynamoDBDocumentClient.from(client);
-  const command = new GetCommand({
-    TableName: 'wheels',
-    Key: {
-      uuid: query.uuid,
-    },
-  });
-
-  const response = await docClient.send(command).then((res) => res.Item);
-  return response;
+  return await DynamoDBDocumentClient.from(client)
+    .send(
+      new GetCommand({
+        TableName: 'wheels',
+        Key: {
+          uuid: query.uuid,
+        },
+      })
+    )
+    .then(({ Item }) => Item as IWheelsData)
+    .catch((err) => {
+      console.error(err);
+      throw new Error('Error fetching wheel data');
+    });
 });
