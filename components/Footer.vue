@@ -41,6 +41,7 @@
           <p>{{ new Date().getFullYear() }} — <strong>Classic Mini DIY LLC</strong></p>
           <div class="divider">Links</div>
           <p>
+            <nuxt-link class="pr-3" to="/privacy" rel="noopener noreferrer">CMDIY Website Privacy Policy</nuxt-link>
             <a class="pr-3" href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer"
               >Youtube Privacy Policy</a
             >
