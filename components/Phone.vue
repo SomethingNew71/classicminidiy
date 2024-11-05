@@ -10,7 +10,12 @@
       <div class="content">
         <div class="item first">
           <div class="sidebar">
-            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/fred.jpg" alt="Image" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/avatars/fred.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Fred <span>yesterday</span></div>
@@ -19,7 +24,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/kellie.jpg" alt="Image" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/avatars/kellie.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Kellie <span>yesterday</span></div>
@@ -33,7 +43,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/cole.jpg" alt="Image" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/avatars/cole.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Cole <span>Today</span></div>
@@ -43,7 +58,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/jeff.jpg" alt="Image" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/avatars/jeff.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Jeff <span>Today</span></div>
@@ -53,7 +73,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/nancy.jpg" alt="Image" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/avatars/nancy.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">Nancy <span>Today</span></div>
@@ -63,7 +88,12 @@
         </div>
         <div class="item">
           <div class="sidebar">
-            <nuxt-picture class="sidebar-avatar" format="webp,jpg" src="/img/avatars/william.jpg" alt="Image" />
+            <nuxt-picture
+              class="sidebar-avatar"
+              format="webp,jpg"
+              src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/avatars/william.jpg"
+              alt="Image"
+            />
           </div>
           <div class="text">
             <div class="heading">William <span>Tomorrow</span></div>
@@ -87,7 +117,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%),
+    box-shadow:
+      0 50px 100px -20px rgb(50 50 93 / 25%),
+      0 30px 60px -30px rgb(0 0 0 / 30%),
       inset 0 -2px 6px 0 rgb(10 37 64 / 35%);
 
     .screen {

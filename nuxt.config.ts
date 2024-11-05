@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:image',
-          content: 'https://classicminidiy.com/seo-images/avatar.jpg',
+          content: 'https://classicminidiy.s3.us-east-1.amazonaws.com/misc/seo-images/avatar.jpg',
         },
         {
           property: 'fb:pages',
