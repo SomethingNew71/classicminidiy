@@ -383,22 +383,22 @@
               <div class="divider">Support for the ecu you need</div>
             </div>
             <div class="column is-12 image">
-              <img class="" src="/img/ecus/haltech.jpg" alt="" />
+              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/haltech.jpg" alt="" />
             </div>
             <div class="column is-12 image">
-              <img class="" src="/img/ecus/speeduino.jpg" alt="" />
+              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/speeduino.jpg" alt="" />
             </div>
             <div class="column is-12 image">
-              <img class="" src="/img/ecus/megasquirt.png" alt="" />
+              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/megasquirt.png" alt="" />
             </div>
             <div class="column is-12 image">
-              <img class="" src="/img/ecus/emerald.png" alt="" />
+              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/emerald.png" alt="" />
             </div>
             <div class="column is-12 image">
-              <img class="" src="/img/ecus/megajolt.png" alt="" />
+              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/megajolt.png" alt="" />
             </div>
             <div class="column is-12 image">
-              <img class="" src="/img/ecus/dta.jpg" alt="" />
+              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/dta.jpg" alt="" />
             </div>
           </div>
         </v-col>

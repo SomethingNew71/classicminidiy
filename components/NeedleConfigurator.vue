@@ -52,7 +52,12 @@
 
             <template v-slot:default="{ isActive }">
               <v-card title="Diagram of Needle Measurements">
-                <img loading="lazy" class="diagram" src="/img/diagram.jpg" alt="Diagram of Needle Measurements" />
+                <img
+                  loading="lazy"
+                  class="diagram"
+                  src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/diagram.jpg"
+                  alt="Diagram of Needle Measurements"
+                />
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn variant="flat" color="brand-green-3" text="Close" @click="isActive.value = false"></v-btn>

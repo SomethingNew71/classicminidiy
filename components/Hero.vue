@@ -65,10 +65,10 @@
       };
       break;
     case HERO_TYPES.BLOG:
-      styleObject = { backgroundImage: `url(/img/typewriter.jpg)` };
+      styleObject = { backgroundImage: `url(https://classicminidiy.s3.us-east-1.amazonaws.com/misc/typewriter.jpg)` };
       break;
     case HERO_TYPES.MAPS:
-      styleObject = { backgroundImage: `url(/img/macbook.jpg)` };
+      styleObject = { backgroundImage: `url(https://classicminidiy.s3.us-east-1.amazonaws.com/misc/macbook.jpg)` };
       break;
     default:
       styleObject = {

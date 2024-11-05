@@ -164,7 +164,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url('/img/patreon-promo.png');
+    background-image: url('https://classicminidiy.s3.us-east-1.amazonaws.com/misc/patreon-promo.png');
     background-size: contain;
     background-repeat: no-repeat;
   }
