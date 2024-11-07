@@ -47,8 +47,10 @@
             <h3 class="text-h5">Data Collection, Storage, and Use</h3>
             <p class="pt-2 pb-4">
               We collect data directly from your device to provide and improve our services. This includes information
-              about your device, IP address, usage data, and other related details. This data is stored securely and
-              used to enhance the user experience and ensure the smooth operation of our API client.
+              about your device, IP address, and public cookie information. We do not collect any additional personal
+              data for our use. This data is stored securely and used to enhance the user experience and ensure the
+              smooth operation of our API client. In addition no data is stored on our servers, and thus is deleted each
+              time you close your browser.
             </p>
           </li>
           <li>
