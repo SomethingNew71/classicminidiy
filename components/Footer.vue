@@ -10,9 +10,10 @@
         :key="i"
         :href="social.href"
         class="mx-4"
+        :size="'large'"
         :icon="social.icon"
         :title="social.title"
-        variant="text"
+        :variant="'text'"
       ></v-btn>
     </div>
 
