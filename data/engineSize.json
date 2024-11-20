@@ -69,6 +69,17 @@
     {
       "group": "998",
       "type": "",
+      "color": "has-text-primary",
+      "engineSize": "1062cc",
+      "boreSize": "2.62\" / 66.61mm",
+      "overBore": "+080",
+      "stroke": "3.000\" / 76.20mm (std)",
+      "power": "----",
+      "torque": "----"
+    },
+    {
+      "group": "998",
+      "type": "",
       "color": "has-text-danger",
       "engineSize": "1098cc",
       "boreSize": "2.543\" / 64.58mm",
