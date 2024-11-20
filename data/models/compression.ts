@@ -6,9 +6,14 @@ export const formOptions = {
       value: 6.29,
     },
     {
-      label: '- 64.58mm',
+      label: '62.43mm',
+      subtitle: '997',
+      value: 6.243,
+    },
+    {
+      label: '64.57mm',
       subtitle: '998/1098',
-      value: 6.458,
+      value: 6.457,
     },
     {
       label: '+20 - 65.08mm',
