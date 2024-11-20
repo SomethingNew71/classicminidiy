@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
-  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   const { data, pending } = await useFetch('/api/engines');
   const tableHeaders: any[] = [
     { title: 'Size', key: 'color' },
@@ -35,7 +35,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Engine Sizes'" />
+  <hero :navigation="true" :title="'Engine Sizes'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">

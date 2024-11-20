@@ -2,7 +2,7 @@
   import { formOptions } from '~/data/models/compression';
   const reactiveFormOptions = ref(formOptions);
   const rules = ref({
-    required: (value: any) => !!value || 'Field is required',
+    required: (value: any) => value >= 0 || 'Field is required',
     number: (value: any) => {
       const pattern = /^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/;
       return pattern.test(value) || 'Must be a Number';
@@ -13,9 +13,9 @@
   const pistonDish = ref(6.5);
   const headVolume = ref(25.5);
   const deckHeight = ref(20);
-  const bore = ref(7.1108);
-  const stroke = ref(8.128);
-  const gasket = ref(3.4);
+  const bore = ref(6.29);
+  const stroke = ref(6.826);
+  const gasket = ref(2.4);
   const decomp = ref(0);
   const customGasket = ref(0.1);
   const ratio = ref();

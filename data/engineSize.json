@@ -78,7 +78,7 @@
       "torque": "----"
     },
     {
-      "group": "998",
+      "group": "1100 - (998)",
       "type": "",
       "color": "has-text-danger",
       "engineSize": "1098cc",
@@ -89,7 +89,7 @@
       "torque": "56ft/lb"
     },
     {
-      "group": "998",
+      "group": "1100 - (998)",
       "type": "",
       "color": "has-text-danger",
       "engineSize": "1114cc",
@@ -100,7 +100,7 @@
       "torque": "----"
     },
     {
-      "group": "998",
+      "group": "1100 - (998)",
       "type": "",
       "color": "has-text-danger",
       "engineSize": "1132cc",
@@ -111,12 +111,23 @@
       "torque": "----"
     },
     {
-      "group": "998",
+      "group": "1100 - (998)",
       "type": "",
       "color": "has-text-danger",
       "engineSize": "1149cc",
       "boreSize": "2.603\" / 66.10mm",
       "overBore": "+060",
+      "stroke": "3.296\" / 83.72mm",
+      "power": "----",
+      "torque": "----"
+    },
+    {
+      "group": "1100 - (998)",
+      "type": "",
+      "color": "has-text-danger",
+      "engineSize": "1167cc",
+      "boreSize": "2.62\" / 66.61mm",
+      "overBore": "+080",
       "stroke": "3.296\" / 83.72mm",
       "power": "----",
       "torque": "----"
