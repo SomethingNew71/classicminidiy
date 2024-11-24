@@ -41,7 +41,7 @@
     "@types/youtube": "^0.1.0",
     "@vercel/speed-insights": "^1.1.0",
     "axios": "^1.7.7",
-    "bulma": "^1.0.2",
+    "bulma": "git@github.com:jgthms/bulma.git#6374a8094d2af8d94368d51946719cd614d6f84f",
     "core-js": "^3.39.0",
     "formidable": "^3.5.2",
     "fuse.js": "^7.0.0",
