@@ -1,4 +1,106 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import axios from 'axios';
+  defineProps({
+    admin: {
+      type: Boolean,
+      default: false,
+    },
+  });
+  const form = ref(false);
+  const rules = ref({
+    required: (value: string) => !!value || 'This field is required to submit',
+    email: (value: string) => {
+      const pattern =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return pattern.test(value) || 'Invalid e-mail.';
+    },
+  });
+  const details = ref({
+    year: '',
+    model: '',
+    trim: '',
+    bodyType: 'Saloon',
+    engineSize: '',
+    color: '',
+    bodyNum: '',
+    engineNum: '',
+    buildDate: [],
+    notes: '',
+    submittedBy: '',
+    submittedByEmail: '',
+    uniqueId: '',
+  });
+  const issueCreated = ref(false);
+  const apiError = ref(false);
+  const apiMessage = ref('');
+  const submission = ref({ number: null, url: null });
+  const processing = ref(false);
+  const password = ref('');
+
+  async function submit() {
+    processing.value = true;
+    await axios
+      .post('/api/registry/submit', { details: details.value })
+      .then((response) => {
+        issueCreated.value = true;
+        apiError.value = false;
+        submission.value = {
+          number: response.data.number,
+          url: response.data.url,
+        };
+      })
+      .catch(() => {
+        issueCreated.value = false;
+        apiError.value = true;
+        apiMessage.value = 'GitHub API is currently unavailable. Please try again later.';
+      })
+      .finally(() => (processing.value = false));
+  }
+  async function adminSubmit() {
+    processing.value = true;
+    await axios
+      .post('/api/registry/save', {
+        details: {
+          uniqueId: details.value.uniqueId,
+          year: Number(details.value.year),
+          model: details.value.model,
+          trim: details.value.trim,
+          bodyType: details.value.bodyType,
+          engineSize: details.value.engineSize,
+          color: details.value.color,
+          bodyNum: details.value.bodyNum,
+          engineNum: details.value.engineNum,
+          buildDate: [],
+          notes: details.value.notes,
+          submittedBy: details.value.submittedBy,
+          submittedByEmail: details.value.submittedByEmail,
+        },
+        password: password.value,
+      })
+      .then(() => resetForm())
+      .catch((err) => {
+        issueCreated.value = false;
+        apiError.value = true;
+        apiMessage.value = `DynamoDb update failed - ${err}`;
+      })
+      .finally(() => (processing.value = false));
+  }
+  function resetForm() {
+    details.value.uniqueId = '';
+    details.value.year = '';
+    details.value.model = '';
+    details.value.trim = '';
+    details.value.bodyType = '';
+    details.value.engineSize = '';
+    details.value.color = '';
+    details.value.bodyNum = '';
+    details.value.engineNum = '';
+    details.value.buildDate = [];
+    details.value.notes = '';
+    details.value.submittedBy = '';
+    details.value.submittedByEmail = '';
+  }
+</script>
 
 <template>
   <div class="card">
@@ -193,122 +295,6 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-  import axios from 'axios';
-
-  export default defineComponent({
-    props: {
-      admin: {
-        type: Boolean,
-        default: false,
-      },
-    },
-    data() {
-      return {
-        form: false,
-        rules: {
-          required: (value: string) => !!value || 'This field is required to submit',
-          email: (value: string) => {
-            const pattern =
-              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return pattern.test(value) || 'Invalid e-mail.';
-          },
-        },
-        details: {
-          year: '',
-          model: '',
-          trim: '',
-          bodyType: 'Saloon',
-          engineSize: '',
-          color: '',
-          bodyNum: '',
-          engineNum: '',
-          buildDate: [],
-          notes: '',
-          submittedBy: '',
-          submittedByEmail: '',
-          uniqueId: '',
-        },
-        issueCreated: false,
-        apiError: false,
-        apiMessage: '',
-        submission: { number: null, url: null },
-        processing: false,
-        password: '',
-      };
-    },
-    methods: {
-      async submit() {
-        this.processing = true;
-        await axios
-          .post('/api/registry/submit', {
-            details: this.details,
-          })
-          .then((response) => {
-            this.issueCreated = true;
-            this.apiError = false;
-            this.submission = {
-              number: response.data.number,
-              url: response.data.url,
-            };
-          })
-          .catch(() => {
-            this.issueCreated = false;
-            this.apiError = true;
-            this.apiMessage = 'GitHub API is currently unavailable. Please try again later.';
-          })
-          .finally(() => {
-            this.processing = false;
-          });
-      },
-      async adminSubmit() {
-        this.processing = true;
-        await axios
-          .post('/api/registry/save', {
-            details: {
-              uniqueId: this.details.uniqueId,
-              year: Number(this.details.year),
-              model: this.details.model,
-              trim: this.details.trim,
-              bodyType: this.details.bodyType,
-              engineSize: this.details.engineSize,
-              color: this.details.color,
-              bodyNum: this.details.bodyNum,
-              engineNum: this.details.engineNum,
-              buildDate: this.details.buildDate,
-              notes: this.details.notes,
-              submittedBy: this.details.submittedBy,
-              submittedByEmail: this.details.submittedByEmail,
-            },
-            password: this.password,
-          })
-          .then(() => {
-            this.details.uniqueId = '';
-            this.details.year = '';
-            this.details.model = '';
-            this.details.trim = '';
-            this.details.bodyType = '';
-            this.details.engineSize = '';
-            this.details.color = '';
-            this.details.bodyNum = '';
-            this.details.engineNum = '';
-            this.details.buildDate = [];
-            this.details.notes = '';
-            this.details.submittedBy = '';
-            this.details.submittedByEmail = '';
-          })
-          .catch((err) => {
-            this.issueCreated = false;
-            this.apiError = true;
-            this.apiMessage = `DynamoDb update failed - ${err}`;
-          })
-          .finally(() => {
-            this.processing = false;
-          });
-      },
-    },
-  });
-</script>
 <style lang="scss">
   .v-picker-title {
     display: none !important;
