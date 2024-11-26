@@ -36,6 +36,11 @@ export const formOptions = {
       value: 6.6612,
     },
     {
+      label: '1216cc - 68mm',
+      subtitle: '998/1098',
+      value: 6.8,
+    },
+    {
       label: 'Stock - 70.60mm',
       subtitle: '1275',
       value: 7.06,

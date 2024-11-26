@@ -133,6 +133,17 @@
       "torque": "----"
     },
     {
+      "group": "1100 - (998)",
+      "type": "",
+      "color": "has-text-danger",
+      "engineSize": "1216cc",
+      "boreSize": "2.68\" / 68mm",
+      "overBore": "68mm",
+      "stroke": "3.296\" / 83.72mm",
+      "power": "----",
+      "torque": "----"
+    },
+    {
       "group": "1275",
       "type": "",
       "color": "has-text-success",
