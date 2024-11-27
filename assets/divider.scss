@@ -4,6 +4,7 @@
 * made compatible with bulma 1.0+ by replacing the used variables with up-to-date imports
  */
 @use "node_modules/bulma/sass/utilities";
+@use "sass:list";
 
 $divider-background-color: utilities.$border !default;
 $divider-font-size: utilities.$size-7 !default;
@@ -68,14 +69,14 @@ $divider-margin-size: 25px !default;
     }
   }
   @each $name, $pair in utilities.$colors {
-    $color: nth($pair, 1);
+    $color: list.nth($pair, 1);
     &.is-#{$name} {
       &::after,
       &::before {
         background-color: $color;
       }
       // If light and dark colors are provided
-      @if length($pair) >= 4 {
+      @if list.length($pair) >= 4 {
         $color-light: nth($pair, 3);
         &.is-light {
           &::after,

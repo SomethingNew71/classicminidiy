@@ -31,17 +31,17 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.699.0",
-    "@aws-sdk/client-s3": "^3.700.0",
+    "@aws-sdk/client-s3": "^3.701.0",
     "@aws-sdk/lib-dynamodb": "^3.699.0",
-    "@aws-sdk/lib-storage": "^3.700.0",
+    "@aws-sdk/lib-storage": "^3.701.0",
     "@nuxt/content": "^2.13.4",
     "@nuxtjs/robots": "^5.0.0",
     "@octokit/core": "^6.1.2",
-    "@types/node": "^22.9.4",
+    "@types/node": "^22.10.0",
     "@types/youtube": "^0.1.0",
     "@vercel/speed-insights": "^1.1.0",
     "axios": "^1.7.8",
-    "bulma": "git@github.com:jgthms/bulma.git#6374a8094d2af8d94368d51946719cd614d6f84f",
+    "bulma": "git@github.com:jgthms/bulma.git#2172fa18c91333521e6df886915bd0bf551b0fba",
     "core-js": "^3.39.0",
     "formidable": "^3.5.2",
     "fuse.js": "^7.0.0",
@@ -70,7 +70,7 @@
     "nuxt-compress": "^5.0.0",
     "nuxt-delay-hydration": "^1.3.8",
     "nuxt-gtag": "^3.0.2",
-    "prettier": "3.3.3",
+    "prettier": "3.4.1",
     "sass-loader": "^16.0.3"
   }
 }
