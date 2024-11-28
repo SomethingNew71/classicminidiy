@@ -5,6 +5,7 @@ export const chartOptions = {
   exporting: {
     buttons: {
       contextButton: {
+        menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF'],
         symbol: 'download',
       },
     },
@@ -48,6 +49,11 @@ export const chartOptions = {
     ],
   },
 };
+
+export interface NeedleResponse {
+  initial: Needle[];
+  all: Needle[];
+}
 
 export interface Needle {
   name: string;
