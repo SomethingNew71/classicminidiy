@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-  import { chartOptions, type Needle } from '~/data/models/needles';
+  import { chartOptions, type Needle, type NeedleResponse } from '~/data/models/needles';
   const { data: needles, pending, error }: any = await useFetch(() => '/api/needles/list');
   const reactiveChartOptions = ref(chartOptions);
-  const selectedNeedles = ref([...needles.value.initial]);
+  const allNeedles = ref<NeedleResponse>(needles);
+  const selectedNeedles = ref<Needle[]>([...allNeedles.value.initial]);
   const alreadyExistsError = ref(false);
   const emptyError = ref(false);
   const addNeedleValue: any = ref();
@@ -27,7 +28,7 @@
     // Find the index of the item you wanna remove
     const itemIndex = selectedNeedles.value.indexOf(currentItem);
     // Remove the specific needle value which automatically triggers a redraw
-    needles.value.initial.splice(itemIndex, 1);
+    allNeedles.value.initial.splice(itemIndex, 1);
     selectedNeedles.value.splice(itemIndex, 1);
     updateArrayItem();
   }
@@ -70,12 +71,12 @@
               <v-skeleton-loader class="mx-auto border" max-width="300" type="image, article"></v-skeleton-loader>
             </v-col> -->
           </template>
-          <template v-else-if="needles && selectedNeedles">
+          <template v-else-if="allNeedles && selectedNeedles">
             <v-autocomplete
               v-model="addNeedleValue"
               label="Add a Needle"
               return-object
-              :items="needles.all"
+              :items="allNeedles.all"
               item-title="name"
               item-value="name"
               variant="outlined"

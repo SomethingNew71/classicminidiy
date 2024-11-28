@@ -1,9 +1,9 @@
 import Needles from '~/data/needles.json';
 import StarterNeedles from '~/data/default-needles.json';
-import type { Needle } from '~/data/models/needles';
+import type { NeedleResponse } from '~/data/models/needles';
 
-export default defineEventHandler((): { all: Needle[]; initial: Needle[] } => {
-  return {
+export default defineEventHandler(async (): Promise<NeedleResponse> => {
+  return await {
     all: Needles,
     initial: StarterNeedles,
   };

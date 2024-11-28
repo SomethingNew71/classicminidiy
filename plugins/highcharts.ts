@@ -1,10 +1,8 @@
 import Highcharts from 'highcharts';
-import exportingInit from 'highcharts/modules/exporting';
+import 'highcharts/modules/exporting';
+import 'highcharts/modules/offline-exporting';
+import 'highcharts/modules/accessibility';
 import HighchartsVue, { Chart } from 'highcharts-vue';
-import accessibility from 'highcharts/modules/accessibility';
-
-exportingInit(Highcharts);
-accessibility(Highcharts);
 
 // Create the download button for highcharts
 Highcharts.SVGRenderer.prototype.symbols.download = (x: number, y: number, w: number, h: number) => [
