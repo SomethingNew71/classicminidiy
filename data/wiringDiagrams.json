@@ -202,6 +202,12 @@
         "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/Mini+wiring+diagram+88-93.pdf"
       },
       {
+        "name": "ERA Turbo Mini Installation",
+        "from": 1988,
+        "to": 1993,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/Later+Rover/ERA+Turbo+Mini+Installation.jpg"
+      },
+      {
         "name": "Power Distribution - Carburetter Models",
         "from": 1992,
         "to": 1996,
@@ -296,6 +302,72 @@
         "from": 1992,
         "to": 1996,
         "link": "https://classicminidiy.s3.amazonaws.com/Wiring+Diagrams/Later+Rover/HEADLAMP+LEVELLING+CIRCUIT+(GERMANY)+-+WIRING+DIAGRAMS+PAGE+26.PDF"
+      }
+    ]
+  },
+  "spiMinis": {
+    "title": "SPI Minis 95-96",
+    "icon": "car",
+    "items": [
+      {
+        "name": "General Harness",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+95-96+Harness.jpg"
+      },
+      {
+        "name": "24 Fuse Engine Bay Fuse Box",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPi+95-96+24+Fuse+Engine+Bay+Fuse+Box.pdf"
+      },
+      {
+        "name": "Anti-Theft Alarm and horn",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+Anti-Theft+Alarm+and+Horn+95-96.jpg"
+      },
+      {
+        "name": "Charging and Starting",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+Charging+and+Starting+95-96.jpg"
+      },
+      {
+        "name": "Headlamp Level Switch",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+Headlamp+level+switch+95-96.jpg"
+      },
+      {
+        "name": "Indicators and Hazards",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+Indicators+and+Hazards+95-96.jpg"
+      },
+      {
+        "name": "Instruments",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+Instruments+SPI+95-96.jpg"
+      },
+      {
+        "name": "Main Lighting Circuit",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+Main+Lighting+Circuit+95-96.jpg"
+      },
+      {
+        "name": "MEMS Control Unit and Cooling",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+MEMS+Control+Unit+and+Cooling+95-96.jpg"
+      },
+      {
+        "name": "Power Distribution",
+        "from": 1995,
+        "to": 1996,
+        "link": "https://classicminidiy.s3.us-east-1.amazonaws.com/Wiring+Diagrams/SPI+Minis/SPI+Power+Distribution+95-96.jpg"
       }
     ]
   },
