@@ -1,53 +1,10 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
-  const { smAndDown, mdAndUp } = useDisplay();
+  import type { IWheelsData } from '~/data/models/wheels';
+  const { smAndDown, mdAndUp, lgAndUp } = useDisplay();
   const search = ref('');
-  const expanded = ref();
   const size = ref('list');
-  const tableHeaders: any[] = [
-    { title: 'Notes', key: 'data-table-expand', align: 'start', sortable: false },
-    {
-      title: 'Images',
-      key: 'images',
-      align: 'start',
-      sortable: false,
-    },
-    {
-      title: 'Name',
-      key: 'name',
-      align: 'center',
-    },
-    {
-      title: 'Size(in)',
-      key: 'size',
-      align: 'center',
-    },
-    {
-      title: 'Width(in)',
-      key: 'width',
-      align: 'center',
-      sortable: true,
-      sort: 'descending',
-    },
-    {
-      title: 'Offset',
-      key: 'offset',
-      align: 'center',
-    },
-    {
-      title: 'Material',
-      key: 'type',
-      align: 'center',
-    },
-    {
-      title: 'Edit',
-      key: 'edit',
-      align: 'center',
-      sortable: false,
-    },
-  ];
-
-  let { data: wheels, pending, error }: any = await useFetch(() => `/api/wheels/${size.value}`);
+  const { data: wheels, status } = await useFetch<IWheelsData[]>(() => `/api/wheels/${size.value}`);
 </script>
 
 <template>
@@ -99,10 +56,103 @@
     </v-card-text>
 
     <v-divider></v-divider>
-    <v-data-table
-      :loading="pending"
+
+    <v-data-iterator :loading="status === 'pending'" :items="wheels || []" :items-per-page="10" :search="search">
+      <template v-slot:header>
+        <v-toolbar class="px-2">
+          <v-text-field
+            v-model="search"
+            density="comfortable"
+            placeholder="Search"
+            prepend-inner-icon="mdi-magnify"
+            style="max-width: 300px"
+            variant="solo"
+            clearable
+            hide-details
+          ></v-text-field>
+        </v-toolbar>
+      </template>
+
+      <template v-slot:default="{ items }">
+        <v-row class="d-flex justify-center px-2">
+          <v-col v-for="{ raw: wheel } in items" :key="wheel.uuid" cols="12" sm="4" md="3">
+            <v-card class="pb-3" flat nuxt-link :to="`/archive/wheels/${wheel.uuid}`">
+              <template v-if="wheel.images">
+                <v-img
+                  alt=""
+                  class="py-5 my-5 mx-auto rounded-xl align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  aspect-ratio="1"
+                  cover
+                  :src="wheel.images[0].src"
+                >
+                  <strong class="text-h6 mb-1 px-4 text-white">
+                    {{ wheel.name }}
+                    <span class="float-right pr-2">
+                      <v-chip v-if="wheel.size === '10'" color="green" class="" variant="flat">
+                        {{ wheel.size }}in
+                      </v-chip>
+                      <v-chip v-if="wheel.size === '12'" color="orange" variant="flat"> {{ wheel.size }}in </v-chip>
+                      <v-chip v-if="wheel.size === '13'" color="brown" variant="flat"> {{ wheel.size }}in </v-chip>
+                    </span>
+                  </strong>
+                  <div class="text-right"></div>
+                </v-img>
+              </template>
+
+              <div class="text-center"></div>
+              <div class="d-flex justify-space-between px-4">
+                <v-chip color="blue" class="text-caption" :size="'small'"> {{ wheel.size }} x {{ wheel.width }}</v-chip>
+                <v-chip color="blue" class="text-caption" :size="'small'">Offset: {{ wheel.offset || '???' }}</v-chip>
+              </div>
+              <div class="d-flex justify-space-between px-4">
+                <v-chip v-if="wheel.type" color="blue" class="text-caption" :size="'small'"
+                  >Material: {{ wheel.type || '???' }}</v-chip
+                >
+                <v-btn class="text-none" size="small" text="More Info" border flat> </v-btn>
+              </div>
+            </v-card>
+          </v-col>
+        </v-row>
+      </template>
+
+      <template v-slot:footer="{ page, pageCount, prevPage, nextPage }">
+        <div class="d-flex align-center justify-center pa-4">
+          <v-btn
+            :disabled="page === 1"
+            density="comfortable"
+            icon="mdi-arrow-left"
+            variant="tonal"
+            rounded
+            @click="prevPage"
+          ></v-btn>
+
+          <div class="mx-2 text-caption">Page {{ page }} of {{ pageCount }}</div>
+
+          <v-btn
+            :disabled="page >= pageCount"
+            density="comfortable"
+            icon="mdi-arrow-right"
+            variant="tonal"
+            rounded
+            @click="nextPage"
+          ></v-btn>
+        </div>
+      </template>
+
+      <template v-slot:loader>
+        <v-row>
+          <v-col v-for="(_, k) in 12" :key="k" cols="12" sm="3">
+            <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
+          </v-col>
+        </v-row>
+      </template>
+    </v-data-iterator>
+
+    <!-- <v-data-table
+      :loading="status === 'pending'"
       v-model:search="search"
-      :items="wheels"
+      :items="wheels || []"
       :headers="tableHeaders"
       :item-value="'uuid'"
       v-model:expanded="expanded"
@@ -162,6 +212,6 @@
           </td>
         </tr>
       </template>
-    </v-data-table>
+    </v-data-table> -->
   </v-card>
 </template>
