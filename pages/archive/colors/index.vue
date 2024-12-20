@@ -1,8 +1,9 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { useDisplay } from 'vuetify';
+  import type { Color } from '~/data/models/colors';
   import { HERO_TYPES } from '~/data/models/generic';
-  let { data: colors, pending, error }: any = await useFetch(() => `/api/colors/list`);
+  let { data: colors, status } = await useFetch<Color[]>(() => `/api/colors/list`);
   const { smAndDown, mdAndUp } = useDisplay();
   const search = ref('');
   const tableHeaders: any[] = [
@@ -132,9 +133,9 @@
 
             <v-divider></v-divider>
             <v-data-table
-              :loading="pending"
+              :loading="status === 'pending'"
               v-model:search="search"
-              :items="colors"
+              :items="colors || []"
               :headers="tableHeaders"
               :item-value="'id'"
               fixed-header

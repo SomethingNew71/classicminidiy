@@ -16,7 +16,7 @@
       <v-img
         alt=""
         v-if="smAndDown"
-        class="table-wheel py-5 my-5 rounded-xl"
+        class="table-wheel py-5 my-5 mx-auto rounded-xl"
         cover
         v-bind="props"
         :src="images[0].src"
@@ -26,7 +26,7 @@
       <v-img
         alt=""
         v-else-if="lgAndUp"
-        class="table-wheel py-5 my-5 rounded-xl"
+        class="table-wheel py-5 my-5 mx-auto rounded-xl"
         cover
         v-bind="props"
         :src="images[0].src"
@@ -36,7 +36,7 @@
       <v-img
         alt=""
         v-else=""
-        class="table-wheel py-5 my-5 rounded-xl"
+        class="table-wheel py-5 my-5 mx-auto rounded-xl"
         cover
         v-bind="props"
         :src="images[0].src"
