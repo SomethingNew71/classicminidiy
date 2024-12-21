@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
-  const { data, pending } = await useFetch('/api/engines');
+  const { data, status } = await useFetch('/api/engines');
   const tableHeaders: any[] = [
     { title: 'Size', key: 'color' },
     { title: 'Original Block', key: 'group' },
@@ -100,7 +100,7 @@
             </v-toolbar>
             <v-card-text>
               <v-data-table
-                :loading="pending"
+                :loading="status === 'pending'"
                 :items="data.engines"
                 density="compact"
                 :headers="tableHeaders"

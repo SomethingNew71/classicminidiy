@@ -175,7 +175,7 @@
               </template>
               <template v-slot:item.shortCode="{ item }">
                 <p
-                  v-if="item.shortCode !== '' || item.shortCode === 'Unknown'"
+                  v-if="item.shortCode === 'Unknown' || item.shortCode !== ''"
                   class="mt-4 text-subtitle-2 text-capitalize"
                 >
                   <strong>{{ item.shortCode }}</strong>
@@ -183,14 +183,14 @@
                 <v-chip v-else color="red-darken-2" class="mt-4"> Missing</v-chip>
               </template>
               <template v-slot:item.code="{ item }">
-                <p v-if="item.code !== '' || item.code === 'Unknown'" class="mt-4 text-subtitle-2 text-capitalize">
+                <p v-if="item.code === 'Unknown' || item.code !== ''" class="mt-4 text-subtitle-2 text-capitalize">
                   <strong>{{ item.code }}</strong>
                 </p>
                 <v-chip v-else color="red-darken-2" class="mt-4"> Missing</v-chip>
               </template>
               <template v-slot:item.ditzlerPpgCode="{ item }">
                 <p
-                  v-if="item.ditzlerPpgCode !== '' || item.ditzlerPpgCode === 'Unknown'"
+                  v-if="item.ditzlerPpgCode === 'Unknown' || item.ditzlerPpgCode !== ''"
                   class="mt-4 text-subtitle-2 text-capitalize"
                 >
                   <strong>{{ item.ditzlerPpgCode }}</strong>
@@ -199,7 +199,7 @@
               </template>
               <template v-slot:item.duluxCode="{ item }">
                 <p
-                  v-if="item.duluxCode !== '' || item.duluxCode === 'Unknown'"
+                  v-if="item.duluxCode === 'Unknown' || item.duluxCode !== ''"
                   class="mt-4 text-subtitle-2 text-capitalize"
                 >
                   <strong>{{ item.duluxCode }}</strong>
@@ -207,7 +207,7 @@
                 <v-chip v-else color="red-darken-2" class="mt-4"> Missing</v-chip>
               </template>
               <template v-slot:item.years="{ item }">
-                <p v-if="item.years !== '' || item.years === 'Unknown'" class="mt-4 text-subtitle-2 text-capitalize">
+                <p v-if="item.years === 'Unknown' || item.years !== ''" class="mt-4 text-subtitle-2 text-capitalize">
                   <strong>{{ item.years }}</strong>
                 </p>
                 <v-chip v-else color="red-darken-2" class="mt-4"> Missing</v-chip>

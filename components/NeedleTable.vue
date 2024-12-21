@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import type { SuggestedNeedles } from '~/data/models/needles';
 
-  const { data: needlesTables, pending }: SuggestedNeedles | any = await useFetch(() => '/api/needles/suggested');
+  const { data: needlesTables, status } = await useFetch<SuggestedNeedles[]>(() => '/api/needles/suggested');
   const tableHeaders: any[] = [
     {
       title: 'Engine Size',
@@ -35,7 +35,13 @@
         <v-toolbar-title>{{ table.title }}</v-toolbar-title>
       </v-toolbar>
       <v-card-text>
-        <v-data-table :loading="pending" :items="table.items" density="compact" :headers="tableHeaders" fixed-header>
+        <v-data-table
+          :loading="status === 'pending'"
+          :items="table.items"
+          density="compact"
+          :headers="tableHeaders"
+          fixed-header
+        >
           <template v-slot:item.needleStd="{ item }">
             <p class="mt-4 text-subtitle-1 text-capitalize">
               {{ item.needleStd }}

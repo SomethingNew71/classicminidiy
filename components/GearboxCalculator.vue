@@ -1,5 +1,13 @@
 <script setup lang="ts">
-  import { options, tableHeaders, chartOptions, kphFactor } from '../data/models/gearing';
+  import {
+    options,
+    tableHeaders,
+    chartOptions,
+    kphFactor,
+    type ISpeedometerTableItem,
+    type IGearingTableItem,
+    type ISpeedometer,
+  } from '../data/models/gearing';
 
   // Default Values for form elements _ values are form values
   const metric = ref(false);
@@ -37,8 +45,8 @@
     turnsPerMile: 0,
   });
   // Section for Table Data
-  let tableDataGearing: any = ref([]);
-  let tableDataSpeedos: any = ref([]);
+  let tableDataGearing = ref<IGearingTableItem[]>([]);
+  let tableDataSpeedos = ref<ISpeedometerTableItem[]>([]);
   const tableHeadersGearing: any[] = tableHeaders.tableHeadersGearing;
   const tableHeadersSpeedos: any[] = tableHeaders.tableHeadersSpeedos;
   // Section for Chart Data
@@ -77,7 +85,7 @@
     );
 
     if (metric.value) {
-      tableDataSpeedos.value = speedos.value.metric.map((speedometer: any) => {
+      tableDataSpeedos.value = speedos.value.metric.map((speedometer) => {
         const turnsPer = speedoDetails.value.turnsPerMile / kphFactor;
         const variation = Math.round((turnsPer / speedometer.turns) * 100 * drop_gear.value);
         let result = '';
@@ -102,7 +110,7 @@
         };
       });
     } else {
-      tableDataSpeedos.value = speedos.value.imperial.map((speedometer: any) => {
+      tableDataSpeedos.value = speedos.value.imperial.map((speedometer: ISpeedometer) => {
         const variation = Math.round((speedoDetails.value.turnsPerMile / speedometer.turns) * 100 * drop_gear.value);
         let result = '';
         let status = '';
@@ -127,7 +135,7 @@
       });
     }
 
-    tableDataGearing.value = gear_ratios.value.map((gear, index) => {
+    tableDataGearing.value = gear_ratios.value.map((gear: number, index) => {
       let parsedMaxSpeed: string;
       const maxSpeed = Math.round(
         (max_rpm.value / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60

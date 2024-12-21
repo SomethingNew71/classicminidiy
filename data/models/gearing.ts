@@ -410,3 +410,22 @@ export const chartOptions = {
     ],
   },
 };
+
+export interface ISpeedometerTableItem {
+  status: string;
+  speedometer: string;
+  turns: number;
+  speed: number;
+  result: string;
+}
+export interface ISpeedometer {
+  name: string;
+  turns: number;
+  speed: number;
+}
+
+export interface IGearingTableItem {
+  gear: number;
+  ratio: number;
+  maxSpeed: string;
+}

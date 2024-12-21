@@ -3,7 +3,7 @@ import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { DateTime } from 'luxon';
 import type { RegistryItem } from '~/data/models/registry';
 
-export default defineEventHandler(async (): Promise<RegistryItem[] | undefined> => {
+export default defineEventHandler(async (): Promise<RegistryItem[]> => {
   const config = useRuntimeConfig();
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -16,7 +16,7 @@ export default defineEventHandler(async (): Promise<RegistryItem[] | undefined> 
   );
 
   try {
-    let parsedResponse: RegistryItem[] | undefined;
+    const parsedResponse: RegistryItem[] = [];
     await docClient
       .send(
         new ScanCommand({
@@ -24,14 +24,11 @@ export default defineEventHandler(async (): Promise<RegistryItem[] | undefined> 
         })
       )
       .then(({ Items }) => {
-        parsedResponse = Items?.map(
-          (item: any): RegistryItem => ({
+        parsedResponse.push(
+          ...(Items as RegistryItem[]).map((item) => ({
             ...item,
-            buildDate:
-              item.buildDate !== '---'
-                ? DateTime.fromISO(item.buildDate).toFormat('LLL dd, yyyy').toString
-                : item.buildDate,
-          })
+            buildDate: DateTime.fromISO(item.buildDate as string).toISODate(),
+          }))
         );
       });
 
