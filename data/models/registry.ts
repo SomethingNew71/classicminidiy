@@ -8,7 +8,7 @@ export interface RegistryItem extends Record<string, any> {
   notes: string;
   year: number;
   uniqueId: string;
-  buildDate: string | any[];
+  buildDate: string | any[] | null;
   bodyType: string;
   engineSize: string;
   color: string;

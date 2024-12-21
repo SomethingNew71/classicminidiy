@@ -1,9 +1,10 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
+  import type { PrettyColor } from '~/data/models/colors';
   import { HERO_TYPES } from '~/data/models/generic';
   const route = useRoute();
   const colorId = ref(route.query.colorId?.toString());
-  let { data: color, pending }: any = await useFetch(`/api/colors/single`, {
+  let { data: color, status } = await useFetch<PrettyColor>(`/api/colors/single`, {
     query: {
       id: colorId,
     },
@@ -48,7 +49,7 @@
     await useFetch('/api/colors/contribute', {
       method: 'POST',
       body: {
-        color: color.value.raw,
+        color: color.value?.raw,
         newDetails: formData,
       },
     })
@@ -96,12 +97,22 @@
             <v-icon class="ml-4" icon="fad fa-list-timeline"></v-icon>
             <v-toolbar-title>Current Data</v-toolbar-title>
           </v-toolbar>
-          <v-progress-circular v-if="pending" :indeterminate="true" color="blue"></v-progress-circular>
-          <v-card-text>
-            <picture v-if="color.hasSwatch">
-              <source :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.Code}.webp`" type="image/webp" />
-              <source :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.Code}.jpg`" type="image/jpg" />
-              <img loading="lazy" alt="" :src="`https://classicminidiy.s3.amazonaws.com/colors/${color.Code}.jpg`" />
+          <v-progress-circular v-if="status === 'pending'" :indeterminate="true" color="blue"></v-progress-circular>
+          <v-card-text v-if="status === 'success' && color">
+            <picture v-if="color.pretty.hasSwatch">
+              <source
+                :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.pretty.Code}.webp`"
+                type="image/webp"
+              />
+              <source
+                :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.pretty.Code}.jpg`"
+                type="image/jpg"
+              />
+              <img
+                loading="lazy"
+                alt=""
+                :src="`https://classicminidiy.s3.amazonaws.com/colors/${color.pretty.Code}.jpg`"
+              />
             </picture>
             <picture v-else class="filler-image">
               <source srcset="https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp" type="image/webp" />

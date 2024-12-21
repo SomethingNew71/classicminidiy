@@ -4,6 +4,7 @@
   const expanded = ref([]);
   import { useDisplay } from 'vuetify';
   import { HERO_TYPES } from '~/data/models/generic';
+  import type { RegistryItem } from '~/data/models/registry';
   const { mdAndUp } = useDisplay();
 
   const tableHeaders: any[] = [
@@ -14,7 +15,7 @@
     { title: 'Color', key: 'color', align: 'start' },
   ];
 
-  const { data: parsedData, pending } = await useFetch('/api/registry/list');
+  const { data: registryItems, status } = await useFetch<RegistryItem[]>('/api/registry/list');
 
   useHead({
     title: 'Archive - The Classic Mini Register',
@@ -107,10 +108,10 @@
             </header>
             <div class="card-content">
               <v-data-table
-                :loading="pending"
+                :loading="status === 'pending'"
                 v-model:expanded="expanded"
                 :headers="tableHeaders"
-                :items="parsedData"
+                :items="registryItems || []"
                 :item-value="'uniqueId'"
                 show-expand
                 expand-on-click
