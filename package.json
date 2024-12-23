@@ -35,7 +35,7 @@
     "@aws-sdk/lib-dynamodb": "^3.716.0",
     "@aws-sdk/lib-storage": "^3.717.0",
     "@nuxt/content": "^2.13.4",
-    "@nuxtjs/robots": "^5.0.1",
+    "@nuxtjs/robots": "^5.1.0",
     "@octokit/core": "^6.1.2",
     "@types/node": "^22.10.2",
     "@types/youtube": "^0.1.0",
