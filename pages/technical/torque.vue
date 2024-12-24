@@ -7,7 +7,7 @@
     { title: 'Fastener', key: 'name', align: 'start' },
     { title: 'Torque (lb/ft)', key: 'lbft', align: 'start' },
     { title: 'Torque (Nm)', key: 'nm', align: 'start' },
-    { title: '', key: 'data-table-expand', align: 'start' },
+    { title: 'Notes', key: 'data-table-expand', align: 'end' },
   ]);
   const panels = ref(['Engine']);
 

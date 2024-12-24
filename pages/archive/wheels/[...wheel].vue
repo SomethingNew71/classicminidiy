@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
-  import { HERO_TYPES, SocialShareData } from '~/data/models/generic';
+  import { HERO_TYPES } from '~/data/models/generic';
   import { shareWheelItem } from '~/data/models/helper-utils';
   import type { IWheelsData } from '~/data/models/wheels';
   const { params } = await useRoute();
@@ -10,7 +10,6 @@
       uuid: wheelId.value[0],
     },
   });
-  const socialShareUrl = ref<string>(`${SocialShareData.preUrl}${wheel.value?.uuid}${SocialShareData.postUrl}`);
   const copied = ref<boolean>(false);
   let shareImage: string;
   if (wheel.value?.images && wheel.value?.images?.length > 0) {
@@ -57,7 +56,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" md="10" offset-md="1">
+      <v-col cols="12">
         <v-card :loading="status === 'pending'" elevation="4">
           <template v-if="wheel">
             <v-card-text class="pl-10 py-0 pt-3">
