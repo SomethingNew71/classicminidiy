@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { useDisplay } from 'vuetify';
   import type { Color } from '~/data/models/colors';
   import { HERO_TYPES } from '~/data/models/generic';
@@ -227,7 +226,6 @@
         </v-col>
       </v-row>
     </v-container>
-    <SpeedInsights />
   </div>
 </template>
 <style lang="scss">

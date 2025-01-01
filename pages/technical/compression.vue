@@ -1,5 +1,4 @@
 <script lang="js" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   useHead({
     title: 'Tech - Compression Ratio Calculator',
@@ -82,5 +81,4 @@
       </v-col>
     </v-row>
   </v-container>
-  <SpeedInsights />
 </template>

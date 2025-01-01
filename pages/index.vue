@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { DateTime } from 'luxon';
   import { HERO_TYPES, LandingPageToolboxItems } from '~/data/models/generic';
   const title = ref('Classic Mini <br> DIY');
@@ -218,7 +217,6 @@
       </v-row>
     </v-container>
   </v-container>
-  <SpeedInsights />
 </template>
 
 <style lang="scss">

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { HERO_TYPES, SocialShareData } from '~/data/models/generic';
   const { params } = await useRoute();
   const colorId = ref(params.color);
@@ -141,5 +140,4 @@
       </v-col>
     </v-row>
   </v-container>
-  <SpeedInsights />
 </template>

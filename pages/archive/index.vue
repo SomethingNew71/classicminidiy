@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { ArchiveItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   import { ARCHIVE_TYPES, submitArchiveFile } from '~/data/models/helper-utils';
 
@@ -97,5 +96,4 @@
       </v-col>
     </v-row>
   </v-container>
-  <SpeedInsights />
 </template>
