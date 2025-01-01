@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   const { data, status } = await useFetch('/api/engines');
   const tableHeaders: any[] = [
@@ -125,7 +124,6 @@
       </v-col>
     </v-row>
   </v-container>
-  <SpeedInsights />
 </template>
 
 <style lang="scss" scoped>

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   const searchValue = ref('');
   const expanded = ref([]);
   import { useDisplay } from 'vuetify';
@@ -166,7 +165,6 @@
         </v-col>
       </v-row>
     </v-container>
-    <SpeedInsights />
   </div>
 </template>
 

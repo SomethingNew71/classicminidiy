@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { HERO_TYPES } from '~/data/models/generic';
   useHead({
     title: 'Classic Mini ECU Maps',
@@ -411,7 +410,6 @@
       </v-row>
     </v-container>
   </div>
-  <SpeedInsights />
 </template>
 
 <style lang="scss">

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { HERO_TYPES } from '~/data/models/generic';
   import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const loading = ref(true);
@@ -170,5 +169,4 @@
       </v-col>
     </v-row>
   </v-container>
-  <SpeedInsights />
 </template>

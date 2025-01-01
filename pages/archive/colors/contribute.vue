@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import type { PrettyColor } from '~/data/models/colors';
   import { HERO_TYPES } from '~/data/models/generic';
   const route = useRoute();
@@ -223,7 +222,6 @@
       </v-col>
     </v-row>
   </v-container>
-  <SpeedInsights />
 </template>
 
 <style lang="scss">

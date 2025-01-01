@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { HERO_TYPES } from '~/data/models/generic';
   const loading = ref(true);
   const companies = await queryContent('archive/companies')
@@ -91,5 +90,4 @@
       </v-col>
     </v-row>
   </v-container>
-  <SpeedInsights />
 </template>

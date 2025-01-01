@@ -1,6 +1,4 @@
-<script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <v-col cols="12" md="6">
@@ -21,5 +19,4 @@
       <v-card-text> </v-card-text>
     </v-card>
   </v-col>
-  <SpeedInsights />
 </template>

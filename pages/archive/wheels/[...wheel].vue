@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { SpeedInsights } from '@vercel/speed-insights/nuxt';
   import { HERO_TYPES } from '~/data/models/generic';
   import { shareWheelItem } from '~/data/models/helper-utils';
   import type { IWheelsData } from '~/data/models/wheels';
@@ -135,5 +134,4 @@
       </v-col>
     </v-row>
   </v-container>
-  <SpeedInsights />
 </template>
