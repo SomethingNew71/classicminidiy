@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   useHead({
     title: 'Tech - SU Needles Chart',
     meta: [
@@ -30,7 +30,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Needle Configurator'" />
+  <hero :navigation="true" :title="'Needle Configurator'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">

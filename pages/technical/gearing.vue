@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   useHead({
     title: 'Tech - Gearing Calculator',
     meta: [
@@ -22,7 +22,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Gearbox Calculator'" />
+  <hero :navigation="true" :title="'Gearbox Calculator'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">

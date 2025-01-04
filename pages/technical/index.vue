@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { ToolboxItems, BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { ToolboxItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   useHead({
     title: 'Technical Toolbox',
     meta: [
@@ -25,7 +25,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Technical Toolbox'" />
+  <hero :navigation="true" :title="'Technical Toolbox'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">

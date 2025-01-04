@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   const { data: tables } = await useFetch('/api/parts');
   const searchValue = ref('');
   const panels = ref(['Air Filters', 'Oil Filters', 'Alternators']);
@@ -30,7 +30,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Parts Equivalency'" />
+  <hero :navigation="true" :title="'Parts Equivalency'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">
