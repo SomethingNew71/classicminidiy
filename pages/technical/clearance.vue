@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   const expanded = ref([]);
   const { data: tables } = await useFetch('/api/clearance');
   const panels = ref(['Engine', 'Clutch & Gearbox']);
@@ -42,7 +42,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Common Clearances'" />
+  <hero :navigation="true" :title="'Common Clearances'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">

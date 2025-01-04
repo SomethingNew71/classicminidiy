@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { chasisRanges } from '~/data/models/decoders';
-  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   import * as _ from 'lodash';
   const reactiveChassisFormOptions = ref(chasisRanges);
   const yearRange: any = ref(reactiveChassisFormOptions.value[0].value);
@@ -62,7 +62,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Chassis Decoder'" />
+  <hero :navigation="true" :title="'Chassis Decoder'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">

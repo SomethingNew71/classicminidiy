@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { formOptions } from '~/data/models/compression';
   const reactiveFormOptions = ref(formOptions);
+
   const rules = ref({
     required: (value: any) => value >= 0 || 'Field is required',
     number: (value: any) => {
@@ -10,46 +11,35 @@
   });
 
   // All Form Inputs
-  const pistonDish = ref(6.5);
-  const headVolume = ref(25.5);
-  const deckHeight = ref(20);
-  const bore = ref(6.29);
-  const stroke = ref(6.826);
-  const gasket = ref(2.4);
-  const decomp = ref(0);
-  const customGasket = ref(0.1);
-  const ratio = ref();
-  const capacity = ref();
+  const pistonDish = ref<number>(6.5);
+  const headVolume = ref<number>(25.5);
+  const deckHeight = ref<number>(20);
+  const bore = ref<number>(6.29);
+  const stroke = ref<number>(6.826);
+  const gasket = ref<number>(2.4);
+  const decomp = ref<number>(0);
+  const customGasket = ref<number>(0.1);
 
-  function calculateRatio() {
-    const pi = Math.PI;
-    const boreRadius = bore.value / 2;
-    //@ts-ignore
-    const deck = parseFloat(deckHeight.value) * 0.0254;
-    const deckVolume = boreRadius * boreRadius * (deck / 10) * pi;
-    const ringland = bore.value * 0.047619; // Correct for 18cc Accrallite 73.5mm pistons
-    let gasketVolume;
-    if (gasket.value === 0) {
-      gasketVolume = customGasket.value;
-    } else {
-      gasketVolume = gasket.value;
-    }
+  const pi = Math.PI;
+  const boreRadius = computed(() => bore.value / 2);
+  const deck = computed(() => deckHeight.value * 0.0254);
+  const deckVolume = computed(() => boreRadius.value * boreRadius.value * (deck.value / 10) * pi);
+  const ringland = computed(() => bore.value * 0.047619); // Correct for 18cc Accrallite 73.5mm pistons
+  const gasketVolume = computed(() => (gasket.value === 0 ? customGasket.value : gasket.value));
 
-    const vc =
-      //@ts-ignore
-      parseFloat(pistonDish.value) +
-      +gasketVolume +
-      //@ts-ignore
-      +parseFloat(headVolume.value) +
-      +deckVolume +
-      +ringland +
-      +decomp.value;
-    const preRoundratio = (stroke.value * (boreRadius * boreRadius) * pi + vc) / vc;
-    const preRoundcap = stroke.value * (boreRadius * boreRadius) * pi * 4;
-    ratio.value = Math.round((preRoundratio + Number.EPSILON) * 100) / 100;
-    capacity.value = Math.round((preRoundcap + Number.EPSILON) * 100) / 100;
-  }
-  calculateRatio();
+  const vc = computed(
+    () => pistonDish.value + gasketVolume.value + headVolume.value + deckVolume.value + ringland.value + decomp.value
+  );
+
+  const ratio = computed(() => {
+    const preRoundratio = (stroke.value * (boreRadius.value * boreRadius.value) * pi + vc.value) / vc.value;
+    return Math.round((preRoundratio + Number.EPSILON) * 100) / 100;
+  });
+
+  const capacity = computed(() => {
+    const preRoundcap = stroke.value * (boreRadius.value * boreRadius.value) * pi * 4;
+    return Math.round((preRoundcap + Number.EPSILON) * 100) / 100;
+  });
 </script>
 
 <template>
@@ -112,7 +102,6 @@
         item-title="label"
         item-value="value"
         :items="reactiveFormOptions.pistonOptions"
-        @update:modelValue="calculateRatio()"
       >
         <template v-slot:item="{ props, item }">
           <v-list-item v-bind="props">
@@ -132,7 +121,6 @@
         item-title="label"
         item-value="value"
         :items="reactiveFormOptions.crankshaftOptions"
-        @update:modelValue="calculateRatio()"
       >
         <template v-slot:item="{ props, item }">
           <v-list-item v-bind="props">
@@ -152,7 +140,6 @@
         item-title="label"
         item-value="value"
         :items="reactiveFormOptions.headGasketOptions"
-        @update:modelValue="calculateRatio()"
       >
       </v-select>
       <v-text-field
@@ -161,7 +148,6 @@
         label="Custom Gasket Size"
         v-if="gasket === 0"
         v-model="customGasket"
-        @update:modelValue="calculateRatio()"
       ></v-text-field>
     </v-col>
     <v-col cols="12" md="6">
@@ -173,7 +159,6 @@
         item-title="label"
         item-value="value"
         :items="reactiveFormOptions.decompPlateOptions"
-        @update:modelValue="calculateRatio()"
       >
         <template v-slot:item="{ props, item }">
           <v-list-item v-bind="props" :subtitle="item.raw.subtitle"></v-list-item>
@@ -183,52 +168,28 @@
     </v-col>
     <v-col cols="12" md="4">
       <h3>Piston Dish size (cc)</h3>
-      <v-slider
-        color="brand-green-3"
-        v-model="pistonDish"
-        :min="0"
-        :max="20"
-        :step="0.1"
-        @update:modelValue="calculateRatio()"
-      ></v-slider>
+      <v-slider color="brand-green-3" v-model="pistonDish" :min="0" :max="20" :step="0.1"></v-slider>
       <v-text-field
         :rules="[rules.required, rules.number]"
         v-model="pistonDish"
-        @update:modelValue="calculateRatio()"
         prepend-icon="fas fa-circle-half fa-rotate-270"
       ></v-text-field>
     </v-col>
     <v-col cols="12" md="4">
       <h3>Cylinder Head Chamber Volume (cc)</h3>
-      <v-slider
-        color="brand-green-3"
-        v-model="headVolume"
-        :min="15"
-        :max="35"
-        :step="0.1"
-        @update:modelValue="calculateRatio()"
-      ></v-slider>
+      <v-slider color="brand-green-3" v-model="headVolume" :min="15" :max="35" :step="0.1"></v-slider>
       <v-text-field
         :rules="[rules.required, rules.number]"
         v-model="headVolume"
-        @update:modelValue="calculateRatio()"
         prepend-icon="fad fa-arrows-to-dot"
       ></v-text-field>
     </v-col>
     <v-col cols="12" md="4">
       <h3>Piston Deck Height (thou)</h3>
-      <v-slider
-        color="brand-green-3"
-        v-model="deckHeight"
-        :min="0"
-        :max="80"
-        :step="1"
-        @update:modelValue="calculateRatio()"
-      ></v-slider>
+      <v-slider color="brand-green-3" v-model="deckHeight" :min="0" :max="80" :step="1"></v-slider>
       <v-text-field
         :rules="[rules.required, rules.number]"
         v-model="deckHeight"
-        @update:modelValue="calculateRatio()"
         prepend-icon="fad fa-arrow-up-to-line"
       ></v-text-field>
     </v-col>

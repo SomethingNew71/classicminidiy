@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
+  import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   const expanded = ref([]);
   const { data: tables, status } = await useFetch('/api/torque');
   const tableHeaders: any = ref([
@@ -31,7 +31,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Torque Specs'" />
+  <hero :navigation="true" :title="'Torque Specs'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">
