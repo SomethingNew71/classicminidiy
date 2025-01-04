@@ -119,6 +119,12 @@
             <template v-if="wheel.images">
               <v-img
                 alt=""
+                :lazy-src="
+                  !wheel.images[0]?.src ||
+                  wheel.images[0]?.src === 'https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg'
+                    ? 'https://classicminidiy.s3.us-east-1.amazonaws.com/wheels/missing-wheel-image.png'
+                    : wheel.images[0].src
+                "
                 class="mx-auto rounded-xl align-end wheel-image"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)"
                 aspect-ratio="1"

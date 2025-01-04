@@ -85,7 +85,7 @@
       </v-col>
       <ChasisDecoder />
       <EngineDecoder />
-      <v-col cols="12" v-if="data">
+      <v-col cols="12">
         <v-col cols="12">
           <i class="fas fa-circle pl-1 has-text-success"></i> Standard
           <i class="fas fa-circle pl-1 has-text-primary"></i> Standard Overbore
@@ -100,7 +100,7 @@
             <v-card-text>
               <v-data-table
                 :loading="status === 'pending'"
-                :items="data.engines"
+                :items="data?.engines || []"
                 density="compact"
                 :headers="tableHeaders"
                 fixed-header

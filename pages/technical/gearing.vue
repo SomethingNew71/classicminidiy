@@ -53,7 +53,10 @@
                             srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
                             type="image/png"
                           />
-                          <nuxt-img src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png" />
+                          <nuxt-img
+                            loading="lazy"
+                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
+                          />
                         </picture>
                       </figure>
                     </div>

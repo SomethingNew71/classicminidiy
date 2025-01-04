@@ -47,9 +47,18 @@ export async function shareArchiveItem(title: string = '', url: string = '/archi
     console.error('cannot share', error);
   }
 }
+
 export async function shareWheelItem(title: string = '', uuid: string = '') {
   try {
     await window.navigator.share({ title, url: `https://classicminidiy.com/archive/wheels/${uuid}` });
+  } catch (error) {
+    console.error('cannot share', error);
+  }
+}
+
+export async function shareColorItem(title: string = '', color: string = '') {
+  try {
+    await window.navigator.share({ title, url: `https://classicminidiy.com/archive/colors/${color}` });
   } catch (error) {
     console.error('cannot share', error);
   }

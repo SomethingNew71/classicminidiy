@@ -1,10 +1,6 @@
 <script lang="ts" setup>
   import { DateTime } from 'luxon';
   import { HERO_TYPES, LandingPageToolboxItems } from '~/data/models/generic';
-  const title = ref('Classic Mini <br> DIY');
-  const subtitle = ref('YOUR FRIENDLY NEIGHBORHOOD');
-  const background = ref('/backdrop2');
-  const size = ref('is-medium');
   const birthday = DateTime.local(1989, 5, 11);
   const today = DateTime.now();
   const age = ref<string | undefined>(today.diff(birthday, 'years').toObject().years?.toFixed(0));
@@ -13,12 +9,12 @@
 <template>
   <v-container fluid class="px-0 pb-0">
     <hero
-      :title="title"
-      :subtitle="subtitle"
-      :size="size"
+      :title="'Classic Mini <br> DIY'"
+      :subtitle="'YOUR FRIENDLY NEIGHBORHOOD'"
+      :size="'is-medium'"
       :special="true"
       :heroType="HERO_TYPES.HOME"
-      :background="background"
+      :background="'/backdrop2'"
       :navigation="true"
     />
     <div class="spacer layer"></div>
@@ -98,6 +94,7 @@
                         class="panel-icon-home"
                         format="webp"
                         :src="item.image"
+                        loading="lazy"
                         aria-hidden="true"
                         :alt="item.title + ' image'"
                       />
@@ -120,7 +117,7 @@
                 class="panel-block is-active"
               >
                 <span class="panel-icon">
-                  <nuxt-img format="webp" :src="item.image" :alt="item.title + ' image'" />
+                  <nuxt-img loading="lazy" format="webp" :src="item.image" :alt="item.title + ' image'" />
                 </span>
                 {{ item.title }}
               </NuxtLink>
@@ -210,6 +207,7 @@
         </v-col>
         <v-col cols="12" md="5" class="avatar-container">
           <nuxt-img
+            loading="lazy"
             src="https://classicminidiy.s3.amazonaws.com/misc/about-me.webp"
             alt="Image of my car on jack stands"
           />

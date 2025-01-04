@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS } from '~/data/models/generic';
   const expanded = ref([]);
-  const { data: tables } = await useFetch('/api/torque');
+  const { data: tables, status } = await useFetch('/api/torque');
   const tableHeaders: any = ref([
     { title: 'Fastener', key: 'name', align: 'start' },
     { title: 'Torque (lb/ft)', key: 'lbft', align: 'start' },
@@ -38,7 +38,12 @@
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Torque Specs"></breadcrumb>
       </v-col>
       <v-col cols="12">
-        <v-expansion-panels v-model="panels" variant="popout" multiple>
+        <template v-if="status === 'pending'">
+          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
+          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
+          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
+        </template>
+        <v-expansion-panels v-if="tables && status !== 'pending'" v-model="panels" variant="popout" multiple>
           <v-expansion-panel v-for="(table, name, index) in tables" :key="`${name}-${index}`" :value="table.title">
             <v-expansion-panel-title color="brand-green-3" expand-icon="fad fa-plus" collapse-icon="fad fa-plus">
               {{ table.title }}

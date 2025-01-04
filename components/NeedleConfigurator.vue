@@ -1,6 +1,10 @@
 <script lang="ts" setup>
   import { chartOptions, type Needle, type NeedleResponse } from '~/data/models/needles';
+
+  // Fetch needles data
   const { data: needles, pending, error }: any = await useFetch(() => '/api/needles/list');
+
+  // Reactive chart options
   const reactiveChartOptions = ref(chartOptions);
   const allNeedles = ref<NeedleResponse>(needles);
   const selectedNeedles = ref<Needle[]>([...allNeedles.value.initial]);
@@ -11,27 +15,35 @@
   function updateArrayItem() {
     reactiveChartOptions.value.series = selectedNeedles.value;
   }
+
   function addArrayItem() {
-    alreadyExistsError.value = selectedNeedles.value.some((obj: Needle) => obj.name === addNeedleValue._rawValue.name);
+    alreadyExistsError.value = selectedNeedles.value.some((obj: Needle) => obj.name === addNeedleValue.value?.name);
     emptyError.value = !addNeedleValue.value;
     if (alreadyExistsError.value) {
       setTimeout(() => (alreadyExistsError.value = false), 5000);
     } else if (emptyError.value) {
       setTimeout(() => (emptyError.value = false), 5000);
     } else {
-      selectedNeedles.value.push(addNeedleValue._rawValue);
-      addNeedleValue.value = [];
+      selectedNeedles.value.push(addNeedleValue.value as Needle);
+      addNeedleValue.value = null;
       updateArrayItem();
     }
   }
+
   function removeArrayItem(currentItem: Needle) {
-    // Find the index of the item you wanna remove
+    // Find the index of the item you want to remove
     const itemIndex = selectedNeedles.value.indexOf(currentItem);
     // Remove the specific needle value which automatically triggers a redraw
-    allNeedles.value.initial.splice(itemIndex, 1);
     selectedNeedles.value.splice(itemIndex, 1);
     updateArrayItem();
   }
+
+  // Watch for changes in needles data and update selectedNeedles
+  watch(needles, (newNeedles) => {
+    allNeedles.value = newNeedles;
+    selectedNeedles.value = [...newNeedles.initial];
+    updateArrayItem();
+  });
 </script>
 
 <template>

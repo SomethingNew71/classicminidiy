@@ -3,7 +3,7 @@
     <div class="screen">
       <div class="header">
         <div class="brand">
-          <nuxt-img format="webp" src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png" alt="" />
+          <nuxt-img loading="lazy" format="webp" src="https://classicminidiy.s3.amazonaws.com/misc/avatar.png" alt="" />
           <h3>Classic Mini Chat</h3>
         </div>
       </div>
