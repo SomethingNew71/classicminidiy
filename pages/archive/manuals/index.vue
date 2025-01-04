@@ -64,109 +64,116 @@
           on the final production cars.
         </p>
       </v-col>
-      <v-col v-for="manual in manuals" cols="12" md="6">
-        <v-card elevation="4">
-          <v-row>
-            <v-col cols="4" class="text-center">
-              <v-icon
-                class="mx-auto pt-10"
-                size="88"
-                v-if="!manual.image || manual.image === ''"
-                icon="fad fa-image-slash"
-              ></v-icon>
-              <v-img v-else :src="manual.image" class="pa-10 mx-auto my-auto mt-3"></v-img>
-            </v-col>
-            <v-col cols="8">
-              <h2 class="text-h5 pt-5 pb-2 px-5" :class="{ 'pb-5': manual.download }">
-                {{ manual.title }}
-              </h2>
-              <h3 class="px-5 pb-5">
-                <v-icon color="primary" icon="fad fa-list-timeline" start></v-icon>
+      <template v-if="loading">
+        <v-col v-for="(_, k) in 4" :key="k" cols="12" sm="6">
+          <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
+        </v-col>
+      </template>
+      <template v-if="!loading">
+        <v-col v-for="manual in manuals" cols="12" md="6">
+          <v-card elevation="4">
+            <v-row>
+              <v-col cols="4" class="text-center">
+                <v-icon
+                  class="mx-auto pt-10"
+                  size="88"
+                  v-if="!manual.image || manual.image === ''"
+                  icon="fad fa-image-slash"
+                ></v-icon>
+                <v-img v-else :src="manual.image" class="pa-10 mx-auto my-auto mt-3"></v-img>
+              </v-col>
+              <v-col cols="8">
+                <h2 class="text-h5 pt-5 pb-2 px-5" :class="{ 'pb-5': manual.download }">
+                  {{ manual.title }}
+                </h2>
+                <h3 class="px-5 pb-5">
+                  <v-icon color="primary" icon="fad fa-list-timeline" start></v-icon>
 
-                <span class="text-button ms-1"> {{ manual.code }} </span>
-              </h3>
-              <p v-if="!manual.download || manual.download === ''" class="px-5 pb-5">
-                <v-chip prepend-icon="fa-duotone fa-solid fa-question" color="error"> File Missing </v-chip>
-              </p>
-              <p class="px-5">{{ manual.description }}</p>
-              <v-divider></v-divider>
+                  <span class="text-button ms-1"> {{ manual.code }} </span>
+                </h3>
+                <p v-if="!manual.download || manual.download === ''" class="px-5 pb-5">
+                  <v-chip prepend-icon="fa-duotone fa-solid fa-question" color="error"> File Missing </v-chip>
+                </p>
+                <p class="px-5">{{ manual.description }}</p>
+                <v-divider></v-divider>
 
-              <div class="pa-4 d-flex justify-end">
-                <ClientOnly>
-                  <template v-if="!manual.download || manual.download === ''">
-                    <v-btn
-                      disabled
-                      color="primary"
-                      class="text-none me-1"
-                      prepend-icon="fa-duotone fa-solid fa-question"
-                      variant="flat"
-                    >
-                      Missing File
-                    </v-btn>
-                    <v-btn
-                      class="me-1 text-none"
-                      color="secondary"
-                      prepend-icon="fa-duotone fa-solid fa-plus-large"
-                      variant="elevated"
-                      border
-                      @click="
-                        submitArchiveFile(
-                          ARCHIVE_TYPES.MANUAL,
-                          manual.title,
-                          manual._path,
-                          manual.code,
-                          manual.description
-                        )
-                      "
-                    >
-                      Contribute
-                    </v-btn>
-                  </template>
-                  <template v-else>
-                    <v-btn
-                      class="me-2 text-none"
-                      color="brand-blue-1"
-                      prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
-                      variant="flat"
-                      border
-                      @click="shareArchiveItem(manual.title, manual._path)"
-                    >
-                      Share
-                    </v-btn>
-                    <v-btn
-                      class="me-1 text-none"
-                      color="secondary"
-                      prepend-icon="fa-duotone fa-solid fa-plus-large"
-                      variant="elevated"
-                      border
-                      @click="
-                        submitArchiveFile(
-                          ARCHIVE_TYPES.MANUAL,
-                          manual.title,
-                          manual._path,
-                          manual.code,
-                          manual.description
-                        )
-                      "
-                    >
-                      Contribute
-                    </v-btn>
-                    <v-btn
-                      color="primary"
-                      class="text-none"
-                      prepend-icon="fa-duotone fa-solid fa-download"
-                      variant="flat"
-                      :href="manual.download"
-                    >
-                      Download
-                    </v-btn>
-                  </template>
-                </ClientOnly>
-              </div>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
+                <div class="pa-4 d-flex justify-end">
+                  <ClientOnly>
+                    <template v-if="!manual.download || manual.download === ''">
+                      <v-btn
+                        disabled
+                        color="primary"
+                        class="text-none me-1"
+                        prepend-icon="fa-duotone fa-solid fa-question"
+                        variant="flat"
+                      >
+                        Missing File
+                      </v-btn>
+                      <v-btn
+                        class="me-1 text-none"
+                        color="secondary"
+                        prepend-icon="fa-duotone fa-solid fa-plus-large"
+                        variant="elevated"
+                        border
+                        @click="
+                          submitArchiveFile(
+                            ARCHIVE_TYPES.MANUAL,
+                            manual.title,
+                            manual._path,
+                            manual.code,
+                            manual.description
+                          )
+                        "
+                      >
+                        Contribute
+                      </v-btn>
+                    </template>
+                    <template v-else>
+                      <v-btn
+                        class="me-2 text-none"
+                        color="brand-blue-1"
+                        prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
+                        variant="flat"
+                        border
+                        @click="shareArchiveItem(manual.title, manual._path)"
+                      >
+                        Share
+                      </v-btn>
+                      <v-btn
+                        class="me-1 text-none"
+                        color="secondary"
+                        prepend-icon="fa-duotone fa-solid fa-plus-large"
+                        variant="elevated"
+                        border
+                        @click="
+                          submitArchiveFile(
+                            ARCHIVE_TYPES.MANUAL,
+                            manual.title,
+                            manual._path,
+                            manual.code,
+                            manual.description
+                          )
+                        "
+                      >
+                        Contribute
+                      </v-btn>
+                      <v-btn
+                        color="primary"
+                        class="text-none"
+                        prepend-icon="fa-duotone fa-solid fa-download"
+                        variant="flat"
+                        :href="manual.download"
+                      >
+                        Download
+                      </v-btn>
+                    </template>
+                  </ClientOnly>
+                </div>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-col>
+      </template>
     </v-row>
   </v-container>
 </template>
