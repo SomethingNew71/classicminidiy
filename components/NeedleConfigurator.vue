@@ -2,7 +2,7 @@
   import { chartOptions, type Needle, type NeedleResponse } from '~/data/models/needles';
 
   // Fetch needles data
-  const { data: needles, pending, error }: any = await useFetch(() => '/api/needles/list');
+  const { data: needles, pending }: any = await useFetch(() => '/api/needles/list');
 
   // Reactive chart options
   const reactiveChartOptions = ref(chartOptions);
@@ -137,9 +137,12 @@
     </v-col>
     <v-col cols="12" md="8">
       <div class="card">
-        <client-only>
+        <ClientOnly fallback-tag="span">
           <highcharts ref="needlesChart" :options="reactiveChartOptions"></highcharts>
-        </client-only>
+          <template #fallback>
+            <p class="pa-10 text-center text-h5">Chart is loading</p>
+          </template>
+        </ClientOnly>
       </div>
     </v-col>
   </v-row>

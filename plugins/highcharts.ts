@@ -40,6 +40,5 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x: number, y: number, w: nu
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(HighchartsVue, { highcharts: Highcharts });
-  // @ts-ignore
-  nuxtApp.vueApp.component(Chart);
+  nuxtApp.vueApp.component('highcharts', Chart);
 });

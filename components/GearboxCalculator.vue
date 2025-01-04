@@ -9,7 +9,7 @@
     type ISpeedometer,
   } from '../data/models/gearing';
 
-  // Default Values for form elements _ values are form values
+  // Default Values for form elements
   const metric = ref(false);
   const final_drive = ref(3.444);
   const gear_ratios = ref([2.583, 1.644, 1.25, 1.0]);
@@ -21,6 +21,7 @@
     profile: 80,
     size: 10,
   });
+
   // Form Options
   const tires = ref(options.tires);
   const diffs = ref(options.diffs);
@@ -29,9 +30,10 @@
   const gearRatios = ref(options.gearRatios);
   const speedos = ref(options.speedos);
   const rpmTicks = ref(options.rpmTicks);
+
   // Component variables
-  let typeCircInMiles: any = ref();
-  const topSpeed = ref();
+  const typeCircInMiles = ref<number | null>(null);
+  const topSpeed = ref<string>('---');
   const tireInfo = ref({
     width: 0,
     profile: 0,
@@ -44,13 +46,15 @@
     engineRevsMile: 0,
     turnsPerMile: 0,
   });
+
   // Section for Table Data
-  let tableDataGearing = ref<IGearingTableItem[]>([]);
-  let tableDataSpeedos = ref<ISpeedometerTableItem[]>([]);
+  const tableDataGearing = ref<IGearingTableItem[]>([]);
+  const tableDataSpeedos = ref<ISpeedometerTableItem[]>([]);
   const tableHeadersGearing: any[] = tableHeaders.tableHeadersGearing;
   const tableHeadersSpeedos: any[] = tableHeaders.tableHeadersSpeedos;
+
   // Section for Chart Data
-  let chartData: any = [];
+  const chartData = ref<any>([]);
   const mapOptions = ref(chartOptions);
 
   function calculateRatio() {
@@ -137,9 +141,12 @@
 
     tableDataGearing.value = gear_ratios.value.map((gear: number, index) => {
       let parsedMaxSpeed: string;
-      const maxSpeed = Math.round(
-        (max_rpm.value / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60
-      );
+      let maxSpeed = 0;
+      if (typeCircInMiles.value !== null) {
+        maxSpeed = Math.round(
+          (max_rpm.value / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60
+        );
+      }
       // Correctly display max speed in mph or kph
       if (metric.value) {
         parsedMaxSpeed = `${Math.round(maxSpeed * kphFactor)}km/h`;
@@ -163,17 +170,19 @@
   }
 
   function generateChartData() {
-    chartData = [];
+    chartData.value = [];
     gear_ratios.value.forEach((gear, index) => {
-      const speedData = [];
+      const speedData: number[] = [];
       let gearName = '';
-      for (let rpm = 1000; rpm <= max_rpm.value; rpm = rpm + 500) {
-        let speed = Math.round((rpm / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60);
-        // Correctly display max speed in mph or kph
-        if (metric.value) {
-          speed = Math.round(speed * kphFactor);
+      for (let rpm = 1000; rpm <= max_rpm.value; rpm += 500) {
+        let speed = 0;
+        if (typeCircInMiles.value !== null) {
+          speed = Math.round((rpm / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60);
+          // Correctly display max speed in mph or kph
+          if (metric.value) {
+            speed = Math.round(speed * kphFactor);
+          }
         }
-
         speedData.push(speed);
       }
       switch (index) {
@@ -192,12 +201,12 @@
         default:
           break;
       }
-      chartData.push({
+      chartData.value.push({
         name: gearName,
         data: speedData,
       });
     });
-    mapOptions.value.series = chartData;
+    mapOptions.value.series = chartData.value;
   }
 
   calculateRatio();
@@ -417,8 +426,11 @@
     </v-col>
     <v-col cols="12">
       <div class="card">
-        <ClientOnly>
+        <ClientOnly fallback-tag="p">
           <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
+          <template #fallback>
+            <p class="pa-10 text-center text-h5">Chart is loading</p>
+          </template>
         </ClientOnly>
       </div>
     </v-col>
