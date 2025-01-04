@@ -96,6 +96,7 @@
                             type="image/png"
                           />
                           <nuxt-img
+                            loading="lazy"
                             src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
                             alt="Image of compression calculator"
                           />

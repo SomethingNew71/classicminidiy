@@ -51,6 +51,14 @@
                 years to come. Classic Mini DIY is proud to now provide a <strong>free</strong> online register for all
                 Classic Mini's of all model years and styles.
               </p>
+              <p class="font-weight-bold pt-4 pb-2">Looking for the status of your submission?</p>
+              <v-btn
+                color="primary"
+                prepend-icon="fa-duotone fa-clipboard-question"
+                target="_blank"
+                href="https://github.com/SomethingNew71/classicminidiy/issues"
+                >Track your Submission</v-btn
+              >
             </div>
             <div class="column is-4">
               <a href="#submitAnchor">
@@ -69,6 +77,7 @@
                               type="image/png"
                             />
                             <nuxt-img
+                              loading="lazy"
                               src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
                               alt="Image of compression calculator"
                             />

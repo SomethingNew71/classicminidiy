@@ -5,7 +5,7 @@
   let { data: colors, status } = await useFetch<Color[]>(() => `/api/colors/list`);
   const { smAndDown, mdAndUp } = useDisplay();
   const search = ref('');
-  const tableHeaders: any[] = [
+  const tableHeaders = ref<any[]>([
     {
       title: 'Share',
       key: 'share',
@@ -48,7 +48,7 @@
       align: 'center',
       sortable: false,
     },
-  ];
+  ]);
 
   useHead({
     title: 'Archive - Color Picker',

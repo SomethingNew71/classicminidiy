@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { HERO_TYPES } from '~/data/models/generic';
-  const { data: diagrams } = await useFetch('/api/diagrams');
+  const { data: diagrams, status } = await useFetch('/api/diagrams');
   const panels = ref(['Negative Ground']);
 
   useHead({
@@ -35,7 +35,19 @@
         </p>
       </v-col>
       <v-col cols="12">
-        <v-expansion-panels v-model="panels" variant="popout" multiple :color="'brand-green-3'">
+        <template v-if="status === 'pending'">
+          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
+          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
+          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
+        </template>
+
+        <v-expansion-panels
+          v-if="status !== 'pending' && diagrams"
+          v-model="panels"
+          variant="popout"
+          multiple
+          :color="'brand-green-3'"
+        >
           <v-expansion-panel
             v-for="(diagram, name, index) in diagrams"
             :key="`${name}-${index}`"

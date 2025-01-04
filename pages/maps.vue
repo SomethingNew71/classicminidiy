@@ -24,8 +24,6 @@
   });
   const { data: releases, status: releasesLoading, error: releaseError } = await useFetch('/api/github/releases');
   const { data: commits, status: commitsLoading, error: commitError } = await useFetch('/api/github/commits');
-  // const { data: commits, status: commitsLoading } = await useFetch('/api/gitlab/commits');
-  // const { data: releases, status: releasesLoading } = await useFetch('/api/gitlab/releases');
 
   const legend = ref([
     {
@@ -235,7 +233,7 @@
               </p>
               <h4 v-if="releasesLoading === 'pending'" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
               <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-5">
-                Latest Release - {{ releases.latestRelease }}
+                Latest Release - {{ releaseError ? 'Error Loading Releases' : releases.latestRelease }}
               </h4>
 
               <v-btn
@@ -342,6 +340,25 @@
 
                   {{ commitItem.commit.message }}
                 </a>
+              </template>
+            </template>
+            <template v-else-if="commitError">
+              <p class="panel-block has-text-left">
+                <span class="panel-icon">
+                  <i class="fad fa-code-commit" aria-hidden="true"></i>
+                </span>
+                <span class="date pr-2"> --- </span>
+
+                Error loading update history from Github
+              </p>
+              <template v-for="i in 10">
+                <p class="panel-block has-text-left" v-if="i < 10">
+                  <span class="panel-icon">
+                    <i class="fad fa-code-commit" aria-hidden="true"></i>
+                  </span>
+                  <span class="date pr-2"> --- </span>
+                  ---
+                </p>
               </template>
             </template>
             <template v-else>

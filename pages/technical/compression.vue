@@ -53,6 +53,7 @@
                             type="image/png"
                           />
                           <nuxt-img
+                            loading="lazy"
                             src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
                             alt="Engine size table image preview"
                           />

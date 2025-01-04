@@ -8,11 +8,17 @@
       id: colorId,
     },
   });
-  const issueCreated = ref();
-  const apiError = ref();
-  const suggestion = ref();
-  const apiMessage = ref();
-  const processing = ref();
+  const issueCreated = ref(false);
+  const apiError = ref(false);
+  const suggestion = ref<{
+    number: number;
+    url: string;
+  }>({
+    number: 0,
+    url: '',
+  });
+  const apiMessage = ref('');
+  const processing = ref(false);
 
   const formData = {
     code: '',
