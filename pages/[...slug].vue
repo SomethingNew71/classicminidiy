@@ -77,7 +77,7 @@
         <v-divider></v-divider>
 
         <div class="pa-4 d-flex flex-wrap">
-          <client-only>
+          <ClientOnly>
             <v-btn
               class="m-1 text-none"
               color="brand-blue-1"
@@ -129,7 +129,7 @@
             >
               Download
             </v-btn>
-          </client-only>
+          </ClientOnly>
         </div>
         <!-- <ContentDoc /> -->
       </v-col>

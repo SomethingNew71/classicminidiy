@@ -316,35 +316,41 @@ export const tableHeaders = {
   tableHeadersGearing: [
     {
       key: 'gear',
+      label: 'Gear',
       title: 'Gear',
       sortable: false,
     },
     {
       key: 'ratio',
+      label: 'Ratio',
       title: 'Ratio',
       sortable: false,
     },
     {
       key: 'maxSpeed',
+      label: 'Max Speed (mph)',
       title: 'Max Speed (mph)',
       sortable: false,
       align: 'center',
     },
   ],
   tableHeadersSpeedos: [
-    { key: 'speed', title: 'Top Speed', sortable: false },
+    { key: 'speed', label: 'Top Speed', title: 'Top Speed', sortable: false },
     {
       key: 'turns',
+      label: 'Turns',
       title: 'Turns',
       sortable: false,
     },
     {
       key: 'speedometer',
+      label: 'Speedometer',
       title: 'Speedometer',
       sortable: false,
     },
     {
       key: 'result',
+      label: 'Result',
       title: 'Result',
       sortable: false,
       align: 'center',

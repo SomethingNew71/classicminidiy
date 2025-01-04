@@ -92,7 +92,7 @@
               <v-divider></v-divider>
 
               <div class="pa-4 d-flex justify-end">
-                <client-only>
+                <ClientOnly>
                   <template v-if="!manual.download || manual.download === ''">
                     <v-btn
                       disabled
@@ -161,7 +161,7 @@
                       Download
                     </v-btn>
                   </template>
-                </client-only>
+                </ClientOnly>
               </div>
             </v-col>
           </v-row>
