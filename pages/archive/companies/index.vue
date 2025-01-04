@@ -66,28 +66,35 @@
         </p>
       </v-col>
       <v-col cols="12"></v-col>
-      <v-col v-for="company in companies" cols="12" md="4">
-        <v-card>
-          <v-img width="60%" height="100" class="mx-auto py-10" :src="company.image"></v-img>
-          <div>
-            <v-card-title class="text-body-1 font-weight-bold text-center text-capitalize">
-              {{ company.title?.toLowerCase() }}
-            </v-card-title>
-            <v-card-actions>
-              <v-btn
-                block
-                color="brand-green-3"
-                class="text-none"
-                prepend-icon="fa-duotone fa-solid fa-book"
-                variant="flat"
-                :to="`/archive/companies/${company.slug}`"
-              >
-                Explore
-              </v-btn>
-            </v-card-actions>
-          </div>
-        </v-card>
-      </v-col>
+      <template v-if="loading">
+        <v-col v-for="(_, k) in 4" :key="k" cols="12" sm="4">
+          <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
+        </v-col>
+      </template>
+      <template v-if="!loading">
+        <v-col v-for="company in companies" cols="12" md="4">
+          <v-card>
+            <v-img width="60%" height="100" class="mx-auto py-10" :src="company.image"></v-img>
+            <div>
+              <v-card-title class="text-body-1 font-weight-bold text-center text-capitalize">
+                {{ company.title?.toLowerCase() }}
+              </v-card-title>
+              <v-card-actions>
+                <v-btn
+                  block
+                  color="brand-green-3"
+                  class="text-none"
+                  prepend-icon="fa-duotone fa-solid fa-book"
+                  variant="flat"
+                  :to="`/archive/companies/${company.slug}`"
+                >
+                  Explore
+                </v-btn>
+              </v-card-actions>
+            </div>
+          </v-card>
+        </v-col>
+      </template>
     </v-row>
   </v-container>
 </template>
