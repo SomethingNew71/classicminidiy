@@ -1,5 +1,5 @@
 <template>
-  <div class="chasis">
+  <div class="chassis">
     <div class="screen">
       <div class="header">
         <div class="brand">
@@ -109,7 +109,7 @@
 </template>
 <style lang="scss" scoped>
   $white: #eaeaea;
-  .chasis {
+  .chassis {
     width: 264px;
     height: 533px;
     background: #2f2f2f;

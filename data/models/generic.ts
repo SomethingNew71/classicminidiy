@@ -61,25 +61,18 @@ export const ToolboxItems: ToolboxItem[] = [
     to: '/technical/torque',
   },
   {
-    title: 'Engine Sizes',
-    path: '/technical/engines',
-    iconHtml:
-      '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
-    to: '/technical/engines',
+    title: 'Chassis Number Decoder',
+    path: '/technical/chassis-decoder',
+    iconHtml: '<i class="fa-duotone fa-hashtag" ></i>',
+    to: '/technical/chassis-decoder',
   },
   {
-    title: 'Chassis Number Decoder',
-    path: '/technical/chassisDecoder',
-    iconHtml: '<i class="fa-duotone fa-hashtag" ></i>',
-    to: '/technical/chassisDecoder',
+    title: 'Engine Number Decoder',
+    path: '/technical/engine-decoder',
+    iconHtml:
+      '<i class="fa-duotone fa-engine" style="--fa-primary-color: #A49966; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
+    to: '/technical/engine-decoder',
   },
-  // {
-  //   title: 'Engine Number Decoder',
-  //   path: '/technical/engineDecoder',
-  //   iconHtml:
-  //     '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
-  //   to: '/technical/engineDecoder',
-  // },
   {
     title: 'Carb Needle Configurator',
     path: '/technical/needles',
@@ -125,6 +118,15 @@ export const ArchiveItems: ArchiveItem[] = [
     iconHtml:
       '<i class="fa-duotone fa-book-circle-arrow-up" style="--fa-secondary-color: #ED7135; --fa-secondary-opacity: 0.9;"></i>',
     to: '/archive/registry',
+  },
+  {
+    title: 'Engine Sizes',
+    description: '',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
+    path: '/archive/engines',
+    iconHtml:
+      '<i class="fa-duotone fa-engine" style="--fa-primary-color: #59602e; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
+    to: '/archive/engines',
   },
   {
     title: 'Workshop Manuals',
@@ -182,12 +184,6 @@ export const LandingPageToolboxItems = [
     image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
     webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.webp',
     to: '/technical/electrical',
-  },
-  {
-    title: 'Engine Sizes',
-    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
-    webp: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp',
-    to: '/technical/engines',
   },
   {
     title: 'SU Needle Comparison',

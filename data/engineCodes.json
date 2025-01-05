@@ -1,0 +1,919 @@
+[
+  {
+    "code": "8A",
+    "size": "850",
+    "variant": "",
+    "gearbox": "",
+    "description": "Austin up to 25000"
+  },
+  {
+    "code": "8MB",
+    "size": "850",
+    "variant": "",
+    "gearbox": "",
+    "description": "Morris up to 25000"
+  },
+  {
+    "code": "8AM",
+    "size": "850",
+    "variant": "",
+    "gearbox": "",
+    "description": "Austin & Morris 25000-onward"
+  },
+  {
+    "code": "8AH",
+    "size": "850",
+    "variant": "",
+    "gearbox": "",
+    "description": "Austin & Morris Automatic"
+  },
+  {
+    "code": "8AJ",
+    "size": "850",
+    "variant": "Austin",
+    "gearbox": "",
+    "description": "Closed-circuit breathing"
+  },
+  {
+    "code": "8AK",
+    "size": "850",
+    "variant": "Austin & Morris automatic",
+    "gearbox": "",
+    "description": "Closed-circuit breathing"
+  },
+  {
+    "code": "8WR",
+    "size": "850",
+    "variant": "",
+    "gearbox": "",
+    "description": "Wolseley Hornet & Riley Elf"
+  },
+  {
+    "code": "8AC",
+    "size": "850",
+    "variant": "",
+    "gearbox": "",
+    "description": "Moke"
+  },
+  {
+    "code": "85H/101",
+    "size": "850",
+    "variant": "",
+    "gearbox": "",
+    "description": "All variants 1969-onwards"
+  },
+  {
+    "code": "9WR",
+    "size": "998",
+    "variant": "Wolseley Hornet & Riley Elf Mk2",
+    "gearbox": "",
+    "description": "Pre- closed circuit breathing"
+  },
+  {
+    "code": "9AD",
+    "size": "998",
+    "variant": "Austin, Wolseley Hornet & Riley Elf Mk2",
+    "gearbox": "Remote type gearbox",
+    "description": "Closed circuit breathing"
+  },
+  {
+    "code": "9AE",
+    "size": "998",
+    "variant": "Wolseley Hornet & Riley Elf Mk3",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "99H/-/101-on",
+    "size": "998",
+    "variant": "Wolseley, Riley, Mini 1000, Clubman1000 1970-onward and Mk3",
+    "gearbox": "",
+    "description": "Dished pistons"
+  },
+  {
+    "code": "99H/791",
+    "size": "998",
+    "variant": "Mini 1974-onward",
+    "gearbox": "",
+    "description": "Dished piston"
+  },
+  {
+    "code": "99H/997",
+    "size": "998",
+    "variant": "1980-onward A+ block",
+    "gearbox": "2.95 final drive",
+    "description": "Flat top pistons"
+  },
+  {
+    "code": "99H/A97P",
+    "size": "998",
+    "variant": "A+ block",
+    "gearbox": "Pre-A+ gears, 3.44 final drive",
+    "description": "Dished pistons, 12-inch wheels"
+  },
+  {
+    "code": "99H/B81",
+    "size": "998",
+    "variant": "Up to engine number 127431",
+    "gearbox": "",
+    "description": "Flat top piston with circlip wrist pin retention"
+  },
+  {
+    "code": "99H/C20",
+    "size": "998",
+    "variant": "Up to engine number 105023",
+    "gearbox": "",
+    "description": "Flat top piston with circlip wrist pin retention"
+  },
+  {
+    "code": "99H/997",
+    "size": "998",
+    "variant": "From engine number 127422",
+    "gearbox": "2.95 final drive",
+    "description": "Flat top piston with circlip wrist pin retention"
+  },
+  {
+    "code": "99H/A35P",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": "Flat top piston with circlip wrist pin retention"
+  },
+  {
+    "code": "99H/B81",
+    "size": "998",
+    "variant": "From engine number 127432",
+    "gearbox": "",
+    "description": "Flat top piston with press fit wrist pin"
+  },
+  {
+    "code": "99H/C20",
+    "size": "998",
+    "variant": "From engine number 105024",
+    "gearbox": "",
+    "description": "Flat top piston with press fit wrist pin"
+  },
+  {
+    "code": "99H/D80",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": "Flat top piston with press fit wrist pin"
+  },
+  {
+    "code": "99H/G30 or G32 or G33",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": "Flat top pistons with press fit wrist pins, lead-free cylinder head"
+  },
+  {
+    "code": "99H/F15 or F16",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": "Flat top pistons with press fit wrist pins, lead-free cylinder head"
+  },
+  {
+    "code": "99H/E20 or E21",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": "Flat top pistons with press fit wrist pins, lead-free cylinder head"
+  },
+  {
+    "code": "99H/D81",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": "Flat top pistons with press fit wrist pins, lead-free cylinder head"
+  },
+  {
+    "code": "LBB10089",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": "Flat top pistons with press fit wrist pins, lead-free cylinder head"
+  },
+  {
+    "code": "99H/B83P",
+    "size": "998",
+    "variant": "Up to engine number 102908",
+    "gearbox": "",
+    "description": "Dished pistons with circlip wrist pin retention"
+  },
+  {
+    "code": "99H/B84P",
+    "size": "998",
+    "variant": "Up to engine number 100216",
+    "gearbox": "",
+    "description": "Dished pistons with circlip wrist pin retention"
+  },
+  {
+    "code": "99H/B83P",
+    "size": "998",
+    "variant": "From engine number 102909",
+    "gearbox": "",
+    "description": "Dished pistons with press fit wrist pin, lead-free"
+  },
+  {
+    "code": "99H/B84P",
+    "size": "998",
+    "variant": "From engine number 100217",
+    "gearbox": "",
+    "description": "Dished pistons with press fit wrist pin, lead-free"
+  },
+  {
+    "code": "99H/G31",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "99H/E22",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "LBB10175",
+    "size": "998",
+    "variant": "",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "10AMW/Ta",
+    "size": "1100",
+    "variant": "Clubman Estate and Austin 110 (ADO16 shape)",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "10H791",
+    "size": "1100",
+    "variant": "Clubman Saloon (sedan)",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "10H/-/H",
+    "size": "1100",
+    "variant": "All Austin 1100 2- and 4-door derivative Saloons (ADO16 shape)",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "10GR/Ta/H",
+    "size": "1100",
+    "variant": "MG1100 (ADO16 shape)",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "10GRB/Ta/H",
+    "size": "1100",
+    "variant": "MG1100 & Wolseley 1100 (ADO16)",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "10V/Ta/H",
+    "size": "1100",
+    "variant": "",
+    "gearbox": "",
+    "description": "Vanden Plas 1100 (ADO16 shape)"
+  },
+  {
+    "code": "9F/Sa/H101 to 2637 except 19201 to 20410 (became 1070S)",
+    "size": "997",
+    "variant": "",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "9FA/Sa/H",
+    "size": "998",
+    "variant": "Cooper",
+    "gearbox": "",
+    "description": "Mk1 Austin pre-closed circuit breathing"
+  },
+  {
+    "code": "9FD/Sa/H",
+    "size": "998",
+    "variant": "Cooper",
+    "gearbox": "",
+    "description": "Mk1 Morris up to engine number 1934, all Austin Mk2 closed circuit breathing and Morris Mk2 from engine number 1935-33660 with closed circuit breathing"
+  },
+  {
+    "code": "9FD/Xe/H",
+    "size": "998",
+    "variant": "Cooper",
+    "gearbox": "4-synchro gearbox",
+    "description": "4-synchro gearbox introduced"
+  },
+  {
+    "code": "99/-/H",
+    "size": "998",
+    "variant": "Cooper",
+    "gearbox": "",
+    "description": "Last of manufacture 1969"
+  },
+  {
+    "code": "9F/Sa/X",
+    "size": "970",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Engine numbers 29001-29003 with Tecalamit filter"
+  },
+  {
+    "code": "9FD/Sa/X",
+    "size": "970",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Closed circuit breathing introduced with Tecalamit filter"
+  },
+  {
+    "code": "9FE/Sa/X",
+    "size": "970",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Closed circuit breathing, oil filter with oil light switch introduced"
+  },
+  {
+    "code": "9F/Sa/X",
+    "size": "970",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Engine numbers 29039-30029 Purolator oil filter with oil light switch and closed circuit breathing"
+  },
+  {
+    "code": "9F/Sa/H",
+    "size": "1070",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Engine numbers 26501 to 33660 and 19201 to 20410"
+  },
+  {
+    "code": "9FD/Sa/H",
+    "size": "1070",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Engine numbers 33661 to 33948 with closed circuit breathing and oil light switch in oil filter head"
+  },
+  {
+    "code": "9F/Sa/Y",
+    "size": "1275",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Engine numbers 31001 to 31504 pre closed circuit breathing with Purolator oil filter"
+  },
+  {
+    "code": "9FD/Sa/Y",
+    "size": "1275",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Closed circuit breathing with oil light switch on filter housing after engine number 32178"
+  },
+  {
+    "code": "9FE/Sa/Y",
+    "size": "1275",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Closed circuit breathing with oil light switch on Purolator filter housing and piston design change"
+  },
+  {
+    "code": "9F/Sa/Y",
+    "size": "1275",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "From engine number 32378 onward, closed circuit breathing with Purolator filter with oil light switch, Aeg510 camshaft introduced at engine number 40006, cross-drilled EN40Bcrank at engine number 42730 and metal dipstick tube at engine number 42548-onward"
+  },
+  {
+    "code": "12H397",
+    "size": "1275",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Cooper S Mk3 with dynamo, negative earth and Tuiftrided EN16T crankshaft"
+  },
+  {
+    "code": "12H398",
+    "size": "1275",
+    "variant": "Cooper S",
+    "gearbox": "",
+    "description": "Cooper S Mk3 with alternator, negative earth and Tuftrided EN16T crankshaft"
+  },
+  {
+    "code": "12G/Ta/H",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "",
+    "description": "ADO17 shape Wolseley, Riley, MG & Vanden Plas fitted with S rods"
+  },
+  {
+    "code": "12H379",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "Remote type gearbox",
+    "description": "1275GT with dynamo, negative earth, electric fuel pump"
+  },
+  {
+    "code": "12H380",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "Remote type gearbox",
+    "description": "1275GT with alternator, negative earth, electric fuel pump"
+  },
+  {
+    "code": "12H389",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "Remote type gearbox",
+    "description": "1275GT with dynamo, negative earth, mechanical fuel pump"
+  },
+  {
+    "code": "12H390",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "Remote type gearbox",
+    "description": "1275GT with alternator, negative earth, mechanical fuel pump"
+  },
+  {
+    "code": "12H706",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "Rod change gearbox",
+    "description": "1275GT with alternator, negative earth, mechanical fuel pump"
+  },
+  {
+    "code": "12H397",
+    "size": "1275",
+    "variant": "Cooper S Mk3 - Solid Wall Block (No Tappet Covers)",
+    "gearbox": "",
+    "description": "Dynamo and negative earth"
+  },
+  {
+    "code": "12H398",
+    "size": "1275",
+    "variant": "Cooper S Mk3 - Solid Wall Block (No Tappet Covers)",
+    "gearbox": "",
+    "description": "Alternator and negative earth"
+  },
+  {
+    "code": "12H/-/",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "",
+    "description": "1275 Austin ADO16 & Allegro"
+  },
+  {
+    "code": "12H610/635",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "",
+    "description": "Innocenti Mini with duplex cam drive gears and 11-stud head"
+  },
+  {
+    "code": "12H719/832",
+    "size": "1275",
+    "variant": "Solid Wall Block (No Tappet Covers)",
+    "gearbox": "",
+    "description": "Innocenti Mini with simplex cam drive gears and 11-stud head"
+  },
+  {
+    "code": "12A/2A",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "",
+    "description": "Carburetor type"
+  },
+  {
+    "code": "12A/2B",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "",
+    "description": "Carburrettor and catalyst type"
+  },
+  {
+    "code": "12A/2D",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "",
+    "description": "SPi (Single-Point Injection // TBI = Throttle-Body Injection) with 9.4-1 CR"
+  },
+  {
+    "code": "12A/E",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "",
+    "description": "SPi (TBi - throttle body injection) with 10-1 CR"
+  },
+  {
+    "code": "With the following suffixes:",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "",
+    "description": ""
+  },
+  {
+    "code": "F75",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "3.105 final drive",
+    "description": "9.4-1CR, SPi, closed loop catalyst"
+  },
+  {
+    "code": "F76",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "",
+    "description": "9.4-1CR, automatic with closed loop catalyst"
+  },
+  {
+    "code": "F77",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "3.2 final drive",
+    "description": "10.0-1CR, SPi Cooper, closed loop catalyst"
+  },
+  {
+    "code": "G01",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "3.105 final drive",
+    "description": "10.0-1CR, catalyst, no oil cooler"
+  },
+  {
+    "code": "G03",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "3.105 final drive",
+    "description": "9.4-1CR, catalyst, May 1992 onward"
+  },
+  {
+    "code": "G04",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "2.76 final drive",
+    "description": "9.4CR, catalyst, French only spec"
+  },
+  {
+    "code": "G05",
+    "size": "1275",
+    "variant": "1990-onwards",
+    "gearbox": "",
+    "description": "9.4-1CR, automatic with catalyst"
+  },
+  {
+    "code": "8G28",
+    "size": "850",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Oil feed to primary gear type crank with 1.375\" tail shaft"
+  },
+  {
+    "code": "8G35",
+    "size": "850",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Deva bush conversion type crankshaft with 1.375\" tail shaft"
+  },
+  {
+    "code": "8G45",
+    "size": "850",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal, 1.5\" self-oiling primary gear/crankshaft type"
+  },
+  {
+    "code": "GSE1101E",
+    "size": "850",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit"
+  },
+  {
+    "code": "RKM1101E",
+    "size": "850",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver Seal unit"
+  },
+  {
+    "code": "BHM1307E",
+    "size": "850",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit, 85H prefix replacement"
+  },
+  {
+    "code": "8G18",
+    "size": "997",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - Oil feed to primary gear type crankshaft"
+  },
+  {
+    "code": "8G29",
+    "size": "997",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - Deva bush type primary gear and crankshaft"
+  },
+  {
+    "code": "8G36",
+    "size": "997",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - Oil feed converted primary gear and crankshaft"
+  },
+  {
+    "code": "8G33",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - Fitted with 28G193 (12G202) cylinder head"
+  },
+  {
+    "code": "8G40",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - 28G222 (12G295) cylinder head introduced"
+  },
+  {
+    "code": "8G42",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - Closed circuit breathing rocker cover and side plates"
+  },
+  {
+    "code": "8G49",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - Purolator oil filter with oil light switch introduced"
+  },
+  {
+    "code": "GSE1103E",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - Gold Seal unit, was RKM1120E Silver Seal"
+  },
+  {
+    "code": "RKM1103E",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Cooper - Silver Seal unit"
+  },
+  {
+    "code": "8G57",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "New from 1969 and exchange for all pre-A+ up to 1981"
+  },
+  {
+    "code": "GSE1102E",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "old Seal unit, was RKM1119E Silver Seal unit, pre-A+ up to 1981"
+  },
+  {
+    "code": "RKM1102E",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver Seal unit, pre-A+ up to 1981"
+  },
+  {
+    "code": "RKM1119E",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver Seal unit, replaced by RKM1102E, pre-A+ up to 1981"
+  },
+  {
+    "code": "BHM1232",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Low-compression dished piston, CAM6267 camshaft, early cylinder head and crankshaft main bearings with side locator tang, A+"
+  },
+  {
+    "code": "BHM1377",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "High-compression flat top piston, CAM4717 camshaft, early cylinder head and crankshaft main bearings with side locator tang, A+"
+  },
+  {
+    "code": "BHM1458",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Low compression piston, CAM6267 camshaft, late A+ cylinder head and crankshaft main bearings with central locator tang, A+"
+  },
+  {
+    "code": "BHM1460",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "High-compression press-fit wrist pin piston, CAM4717 camshaft, late A+ cylinder head and crankshaft main bearings with central locator tang, A+"
+  },
+  {
+    "code": "LBB10089",
+    "size": "998",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Low compression press-fit wrist pin piston, CAM6267 camshaft, lead-free late A+ cylinder head and crankshaft main bearings with central locator tang, A+"
+  },
+  {
+    "code": "8G156E",
+    "size": "1100",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Clubman, Special and Austin 1100 (ADO16)"
+  },
+  {
+    "code": "RKM1150E",
+    "size": "1100",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver Seal unit for Clubman and Special"
+  },
+  {
+    "code": "RKM1151E",
+    "size": "1100",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver Seal unit for Clubman and Special"
+  },
+  {
+    "code": "BHM1042",
+    "size": "1100",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "New and Gold Seal units for Clubman and Special, 1974-1980"
+  },
+  {
+    "code": "BHM1229",
+    "size": "1100",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "New and Gold Seal units for Clubman and Special, A+ Block, 1980-on"
+  },
+  {
+    "code": "8G38",
+    "size": "970",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit, pre closed circuit breathing, Cooper S"
+  },
+  {
+    "code": "8G41",
+    "size": "970",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit with closed circuit breathing sideplates, Cooper S"
+  },
+  {
+    "code": "8G46",
+    "size": "970",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit withoil light switch in filter housing, Cooper S"
+  },
+  {
+    "code": "8G133",
+    "size": "1070",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit, pre closed circuit breathing, Cooper S"
+  },
+  {
+    "code": "8G153",
+    "size": "1070",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit with closed circuit breathing side plates, Cooper S"
+  },
+  {
+    "code": "8G145",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Pre closed circuit breathing unit, Cooper S"
+  },
+  {
+    "code": "8G154",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Closed circuit breathing side plates unit, Cooper S"
+  },
+  {
+    "code": "8G155",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Oil filter housing with oil pressure light switch, Cooper S"
+  },
+  {
+    "code": "8G174",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Fitted with AEG510 camshaft, Cooper S"
+  },
+  {
+    "code": "38G464",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Introduced in 1970, most of which were fitted with EN16 Tuftrided crankshaft"
+  },
+  {
+    "code": "8G200",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "New and Gold Seal units Clubman 1275GT"
+  },
+  {
+    "code": "38G527",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "New and Gold Seal units for engine numbers prefixed 12H706, 12H707 & 12H831 for Clubman 1275GT"
+  },
+  {
+    "code": "RKM1130E",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver seal unit, was RKM1112E, for Clubman 1275GT, pre-A+"
+  },
+  {
+    "code": "RKM1152E",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver Seal unit for Clubman 1275GT, pre-A+"
+  },
+  {
+    "code": "RKM1112E",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver Seal unit for Clubman 1275GT, pre-A+"
+  },
+  {
+    "code": "BHM1220",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "A+ unit for Clubman 1275GT"
+  },
+  {
+    "code": "8G199E",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit with Duplex cam drive gears for 1300GT (ADO16) and Innocenti 1300, 11-stud cylinder head"
+  },
+  {
+    "code": "38G559E",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit with Simplex cam drive gears for engine numbers prefixed 12H719 and 12H832, for 1300GT (ADO16) and Innocenti 1300, 11-stud cylinder head"
+  },
+  {
+    "code": "GSE1109E",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit for 1300GT (ADO16) and Innocenti 1300, 11-stud cylinder head"
+  },
+  {
+    "code": "RKM1133E",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Silver Seal unit for 1300GT (ADO16) and Innocenti 1300, 11-stud cylinder head"
+  },
+  {
+    "code": "BHM1209E",
+    "size": "1275",
+    "variant": "Factory Replacement Engines",
+    "gearbox": "",
+    "description": "Gold Seal unit, replaced all Innocenti 1300 engines from engine numbers prefixed 12H610, 12H635 and 12H832"
+  }
+]
