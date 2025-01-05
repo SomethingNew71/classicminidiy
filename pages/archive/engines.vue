@@ -27,18 +27,18 @@
     ogTitle: 'Tech - Engine Sizes and Displacements',
     ogDescription:
       "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
-    ogUrl: 'classicminidiy.com/technical/engines',
+    ogUrl: 'classicminidiy.com/archive/engines',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
     ogType: 'website',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Engine Sizes'" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="'Engine Sizes'" :heroType="HERO_TYPES.ARCHIVE" />
   <v-container>
     <v-row>
       <v-col cols="12">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Engine Sizes"></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" page="Engine Sizes"></breadcrumb>
 
         <v-row>
           <v-col cols="12" md="8">
@@ -83,8 +83,6 @@
           </v-col>
         </v-row>
       </v-col>
-      <ChasisDecoder />
-      <EngineDecoder />
       <v-col cols="12">
         <v-col cols="12">
           <i class="fas fa-circle pl-1 has-text-success"></i> Standard

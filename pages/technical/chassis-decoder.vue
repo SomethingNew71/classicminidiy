@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import { chasisRanges } from '~/data/models/decoders';
+  import { chassisRanges } from '~/data/models/decoders';
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   import * as _ from 'lodash';
-  const reactiveChassisFormOptions = ref(chasisRanges);
+  const reactiveChassisFormOptions = ref(chassisRanges);
   const yearRange: any = ref(reactiveChassisFormOptions.value[0].value);
   const reactiveForm: any = ref({
     options: {
@@ -55,7 +55,7 @@
     ogTitle: 'Tech - Mini Chassis Plate Decoder',
     ogDescription:
       "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
-    ogUrl: 'classicminidiy.com/technical/chassisdecoder',
+    ogUrl: 'classicminidiy.com/technical/chassis-decoder',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-lightning-bolt-100.png',
     ogType: 'website',
   });
@@ -69,7 +69,7 @@
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Chassis Decoder"></breadcrumb>
 
         <v-row>
-          <v-col cols="12">
+          <v-col cols="12" md="7">
             <h1 class="title">Chassis Plate Decoder</h1>
             <p>
               The chassis plate is a series of numbers and letters that are stamped on a metal plate that is riveted to
@@ -78,9 +78,8 @@
               known as the VIN plate, VIN tag, or VIN plate depending on the generation.
             </p>
           </v-col>
-          <!-- For Engine Plate Decoder in the future -->
-          <!-- <v-col cols="12" md="4">
-            <NuxtLink :to="'/technical/compression'" :title="'Link to Compression Calculator'">
+          <v-col cols="12" md="5">
+            <NuxtLink :to="'/technical/engine-decoder'" :title="'Link to Engine Plate decoder'">
               <div class="card callout-card">
                 <div class="card-content">
                   <div class="media">
@@ -88,33 +87,30 @@
                       <figure class="image is-64x64">
                         <picture>
                           <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp"
+                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp"
                             type="image/webp"
                           />
                           <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
+                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png"
                             type="image/png"
                           />
                           <nuxt-img
                             loading="lazy"
-                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
-                            alt="Image of compression calculator"
+                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png"
+                            alt="Image of magnifying glass"
                           />
                         </picture>
                       </figure>
                     </div>
                     <div class="media-content">
                       <h2 class="subtitle">Trying to decode your engine number?</h2>
-                      <p>
-                        Classic Mini DIY is currently working on an updated engine number decoder. Check back soon for
-                        the newest tool on the CMDIY toolkit.
-                      </p>
+                      <p>Click here to identify your engine using our new engine number decoding table.</p>
                     </div>
                   </div>
                 </div>
               </div>
             </NuxtLink>
-          </v-col> -->
+          </v-col>
         </v-row>
       </v-col>
     </v-row>
@@ -129,7 +125,7 @@
                 v-model="yearRange"
                 label="Year Range"
                 item-title="title"
-                :items="chasisRanges"
+                :items="chassisRanges"
                 @update:modelValue="resetForm()"
               >
               </v-select>

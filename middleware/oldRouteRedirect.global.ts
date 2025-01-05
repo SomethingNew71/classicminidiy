@@ -11,6 +11,18 @@ export default defineNuxtRouteMiddleware((to: any, from: any) => {
   if (to.path.includes('technical/electrical')) {
     return navigateTo('/archive/electrical');
   }
+  if (to.path.includes('technical/engines')) {
+    return navigateTo('/archive/engines');
+  }
+  if (to.path.includes('technical/chassisDecoder')) {
+    return navigateTo('/technical/chassis-decoder');
+  }
+  if (to.path.includes('technical/chasisDecoder')) {
+    return navigateTo('/technical/chassis-decoder');
+  }
+  if (to.path.includes('technical/engineDecoder')) {
+    return navigateTo('/technical/engine-decoder');
+  }
   if (to.path.includes('registry') && !to.path.includes('archive')) {
     return navigateTo('/archive/registry');
   }
