@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { data: videos, pending, error } = await useFetch('/api/youtube/videos');
+  const { data: videos, status, error } = await useFetch('/api/youtube/videos');
 </script>
 
 <template>
@@ -7,7 +7,7 @@
     <h3 class="fancy-font-bold is-size-3 has-text-centered pb-5">Recent Videos</h3>
   </v-col>
 
-  <v-col v-if="pending" cols="12" md="3" v-for="item in 3">
+  <v-col v-if="status === 'pending'" cols="12" md="3" v-for="item in 3">
     <v-skeleton-loader class="mx-auto border" max-width="300" type="image, article"></v-skeleton-loader>
   </v-col>
   <v-col v-else-if="error" cols="12" md="4" v-for="item in 3">

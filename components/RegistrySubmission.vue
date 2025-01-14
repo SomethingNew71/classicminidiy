@@ -52,7 +52,7 @@
       .catch(() => {
         issueCreated.value = false;
         apiError.value = true;
-        apiMessage.value = 'GitHub API is currently unavailable. Please try again later.';
+        apiMessage.value = 'API is currently unavailable. Please try again later.';
       })
       .finally(() => (processing.value = false));
   }
@@ -70,7 +70,7 @@
           color: details.value.color,
           bodyNum: details.value.bodyNum,
           engineNum: details.value.engineNum,
-          buildDate: [],
+          buildDate: details.value.buildDate,
           notes: details.value.notes,
           submittedBy: details.value.submittedBy,
           submittedByEmail: details.value.submittedByEmail,
@@ -90,7 +90,7 @@
     details.value.year = '';
     details.value.model = '';
     details.value.trim = '';
-    details.value.bodyType = '';
+    details.value.bodyType = 'Saloon';
     details.value.engineSize = '';
     details.value.color = '';
     details.value.bodyNum = '';
