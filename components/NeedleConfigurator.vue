@@ -7,7 +7,7 @@
   // Reactive chart options
   const reactiveChartOptions = ref(chartOptions);
   const allNeedles = ref<NeedleResponse>(needles);
-  const selectedNeedles = ref<Needle[]>([...allNeedles.value.initial]);
+  const selectedNeedles = ref<Needle[]>(needles?.initial ? [...needles.initial] : []);
   const alreadyExistsError = ref(false);
   const emptyError = ref(false);
   const addNeedleValue: any = ref();
@@ -41,7 +41,7 @@
   // Watch for changes in needles data and update selectedNeedles
   watch(needles, (newNeedles) => {
     allNeedles.value = newNeedles;
-    selectedNeedles.value = [...newNeedles.initial];
+    selectedNeedles.value = newNeedles?.initial ? [...newNeedles.initial] : [];
     updateArrayItem();
   });
 </script>
