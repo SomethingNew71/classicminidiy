@@ -3,8 +3,12 @@ import StarterNeedles from '~/data/default-needles.json';
 import type { NeedleResponse } from '~/data/models/needles';
 
 export default defineEventHandler(async (): Promise<NeedleResponse> => {
-  return await {
-    all: Needles,
-    initial: StarterNeedles,
-  };
+  try {
+    return await {
+      all: Needles,
+      initial: StarterNeedles,
+    };
+  } catch (error: any) {
+    return { all: [], initial: [], error: 'Failed to load needles data' };
+  }
 });

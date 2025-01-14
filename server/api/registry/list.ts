@@ -33,7 +33,7 @@ export default defineEventHandler(async (): Promise<RegistryItem[]> => {
       });
 
     return parsedResponse;
-  } catch (error) {
-    throw new Error(`Error getting registry info - ${error}`);
+  } catch (error: any) {
+    throw new Error(`Error getting registry info - ${error?.message}`);
   }
 });

@@ -11,7 +11,8 @@ export default defineEventHandler(async (event) => {
       owner: 'SomethingNew71',
       repo: 'MiniECUMaps',
     }).then(({ data }) => data);
-  } catch (error) {
-    throw new Error(`Error getting github repos - ${error}`);
+  } catch (error: any) {
+    console.error(`Error getting GitHub repo: ${error?.message}`);
+    throw new Error('Failed to fetch GitHub repository information.');
   }
 });
