@@ -57,16 +57,10 @@
   const chartData = ref<any>([]);
   const mapOptions = ref(chartOptions);
 
-  function calculateRatio() {
-    // Assign headers to match metric/imperial
-    if (metric.value) {
-      tableHeadersGearing[2].label = 'Max Speed (km/h)';
-      mapOptions.value.yAxis.title.text = 'Speed (km/h)';
-    } else {
-      tableHeadersGearing[2].label = 'Max Speed (mph)';
-      mapOptions.value.yAxis.title.text = 'Speed (mph)';
-    }
-    // Assign tire Details and working values
+  const YARDS_IN_MILE = 1760;
+  const MM_IN_YARD = 914.4;
+
+  function calculateTireDetails() {
     tireInfo.value.width = tire_type.value.width;
     tireInfo.value.profile = tire_type.value.profile;
     tireInfo.value.size = tire_type.value.size;
@@ -74,71 +68,50 @@
       tireInfo.value.width * (tireInfo.value.profile / 100) * 2 + tireInfo.value.size * 25.4
     );
     tireInfo.value.circ = Math.round(3.14159 * tireInfo.value.diameter); // in mm
-    typeCircInMiles.value = tireInfo.value.circ / (1760 * 914.4); // in miles
+    typeCircInMiles.value = tireInfo.value.circ / (YARDS_IN_MILE * MM_IN_YARD); // in miles
+    tireInfo.value.tireTurnsPerMile = Math.round(YARDS_IN_MILE / (tireInfo.value.circ / MM_IN_YARD));
+  }
 
-    // calculate tire turns per mile 1760 yards in a mile, 914.4 mm in a yard
-    tireInfo.value.tireTurnsPerMile = Math.round(1760 / (tireInfo.value.circ / 914.4));
-
-    // calculate tire turns per mile
+  function calculateSpeedoDetails() {
     speedoDetails.value.turnsPerMile = Math.round(
       tireInfo.value.tireTurnsPerMile * final_drive.value * speedo_drive.value
     );
-    // calculate engine revs per mile including drop gear
     speedoDetails.value.engineRevsMile = Math.round(
       tireInfo.value.tireTurnsPerMile * final_drive.value * drop_gear.value
     );
+  }
 
-    if (metric.value) {
-      tableDataSpeedos.value = speedos.value.metric.map((speedometer) => {
-        const turnsPer = speedoDetails.value.turnsPerMile / kphFactor;
-        const variation = Math.round((turnsPer / speedometer.turns) * 100 * drop_gear.value);
-        let result = '';
-        let status = '';
+  function calculateSpeedometerData() {
+    const speedometers = metric.value ? speedos.value.metric : speedos.value.imperial;
+    const factor = metric.value ? kphFactor : 1;
 
-        if (variation > 100) {
-          status = 'text-red';
-          result = `Over ${variation - 100}%`;
-        } else if (variation === 100) {
-          status = 'text-green';
-          result = 'Reads correctly!';
-        } else if (variation < 100) {
-          status = 'text-primary';
-          result = `Under ${100 - variation}%`;
-        }
-        return {
-          status,
-          speedometer: speedometer.name,
-          turns: speedometer.turns,
-          speed: speedometer.speed,
-          result,
-        };
-      });
-    } else {
-      tableDataSpeedos.value = speedos.value.imperial.map((speedometer: ISpeedometer) => {
-        const variation = Math.round((speedoDetails.value.turnsPerMile / speedometer.turns) * 100 * drop_gear.value);
-        let result = '';
-        let status = '';
+    tableDataSpeedos.value = speedometers.map((speedometer: ISpeedometer) => {
+      const turnsPer = speedoDetails.value.turnsPerMile / factor;
+      const variation = Math.round((turnsPer / speedometer.turns) * 100 * drop_gear.value);
+      let result = '';
+      let status = '';
 
-        if (variation > 100) {
-          status = 'text-red';
-          result = `Over ${variation - 100}%`;
-        } else if (variation === 100) {
-          status = 'text-green';
-          result = 'Reads correctly!';
-        } else if (variation < 100) {
-          status = 'text-primary';
-          result = `Under ${100 - variation}%`;
-        }
-        return {
-          status,
-          speedometer: speedometer.name,
-          turns: speedometer.turns,
-          speed: speedometer.speed,
-          result,
-        };
-      });
-    }
+      if (variation > 100) {
+        status = 'text-red';
+        result = `Over ${variation - 100}%`;
+      } else if (variation === 100) {
+        status = 'text-green';
+        result = 'Reads correctly!';
+      } else {
+        status = 'text-primary';
+        result = `Under ${100 - variation}%`;
+      }
+      return {
+        status,
+        speedometer: speedometer.name,
+        turns: speedometer.turns,
+        speed: speedometer.speed,
+        result,
+      };
+    });
+  }
 
+  function calculateGearingData() {
     tableDataGearing.value = gear_ratios.value.map((gear: number, index) => {
       let parsedMaxSpeed: string;
       let maxSpeed = 0;
@@ -147,14 +120,8 @@
           (max_rpm.value / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60
         );
       }
-      // Correctly display max speed in mph or kph
-      if (metric.value) {
-        parsedMaxSpeed = `${Math.round(maxSpeed * kphFactor)}km/h`;
-      } else {
-        parsedMaxSpeed = `${maxSpeed}mph`;
-      }
+      parsedMaxSpeed = metric.value ? `${Math.round(maxSpeed * kphFactor)}km/h` : `${maxSpeed}mph`;
 
-      // Assign the topspeed value for display based on top gear max speed
       if (index === 3) {
         topSpeed.value = parsedMaxSpeed;
       }
@@ -165,44 +132,37 @@
         maxSpeed: parsedMaxSpeed,
       };
     });
+  }
 
+  function calculateRatio() {
+    tableHeadersGearing[2].label = metric.value ? 'Max Speed (km/h)' : 'Max Speed (mph)';
+    mapOptions.value.yAxis.title.text = metric.value ? 'Speed (km/h)' : 'Speed (mph)';
+
+    calculateTireDetails();
+    calculateSpeedoDetails();
+    calculateSpeedometerData();
+    calculateGearingData();
     generateChartData();
   }
 
   function generateChartData() {
     chartData.value = [];
+    const gearNames = ['1st Gear', '2nd Gear', '3rd Gear', '4th Gear'];
+
     gear_ratios.value.forEach((gear, index) => {
       const speedData: number[] = [];
-      let gearName = '';
       for (let rpm = 1000; rpm <= max_rpm.value; rpm += 500) {
         let speed = 0;
         if (typeCircInMiles.value !== null) {
           speed = Math.round((rpm / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60);
-          // Correctly display max speed in mph or kph
           if (metric.value) {
             speed = Math.round(speed * kphFactor);
           }
         }
         speedData.push(speed);
       }
-      switch (index) {
-        case 0:
-          gearName = '1st Gear';
-          break;
-        case 1:
-          gearName = '2nd Gear';
-          break;
-        case 2:
-          gearName = '3rd Gear';
-          break;
-        case 3:
-          gearName = '4th Gear';
-          break;
-        default:
-          break;
-      }
       chartData.value.push({
-        name: gearName,
+        name: gearNames[index],
         data: speedData,
       });
     });
