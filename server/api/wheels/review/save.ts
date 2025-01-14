@@ -29,32 +29,24 @@ export default defineEventHandler(async (event) => {
 
   if (body.auth !== config.app.validation_key) {
     return { response: 'User is not authorized' };
-  } else {
-    try {
-      if (newWheel.newWheel) {
-        addNewWheel(newWheel).then(() => {
-          deleteQueueItem();
-        });
-      } else if (newWheel.images && newWheel.images.length > 0) {
-        updateImages(newWheel, uuid).then(() => {
-          _.forEach(newWheel, (value, key) => {
-            if (value && key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
-              updateProperties({ key, value }, uuid);
-            }
-          });
-          deleteQueueItem();
-        });
-      } else {
-        _.forEach(newWheel, (value, key) => {
-          if (value && key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
-            updateProperties({ key, value }, uuid);
-          }
-        });
-        deleteQueueItem();
+  }
+
+  try {
+    if (newWheel.newWheel) {
+      await addNewWheel(newWheel);
+    } else {
+      if (newWheel.images && newWheel.images.length > 0) {
+        await updateImages(newWheel, uuid);
       }
-    } catch (error) {
-      throw new Error(`Error saving approved changes - ${error}`);
+      _.forEach(newWheel, (value, key) => {
+        if (value && key !== 'images' && key !== 'inReview' && key !== 'uuid' && value !== '') {
+          updateProperties({ key, value }, uuid);
+        }
+      });
     }
+    deleteQueueItem();
+  } catch (error) {
+    throw new Error(`Error saving approved changes - ${error}`);
   }
 
   return { response: 'wheel has been updated' };
@@ -101,38 +93,40 @@ export default defineEventHandler(async (event) => {
   }
 
   async function addNewWheel(wheel: IWheelsData): Promise<PutCommandOutput | void> {
-    const parsedImages = await wheel.images?.map((image) => ({
-      src: image,
-      inReview: false,
-    }));
+    try {
+      const parsedImages = wheel.images?.map((image) => ({
+        src: image,
+        inReview: false,
+      }));
 
-    const parsedNewWheel = {
-      uuid: wheel.uuid,
-      name: wheel.name,
-      type: wheel.type,
-      width: wheel.width,
-      size: wheel.size,
-      offset: wheel.offset,
-      notes: wheel.notes,
-      userName: wheel.userName,
-      inReview: false,
-      emailAddress: wheel.emailAddress,
-      referral: wheel.referral,
-      images: parsedImages,
-    };
+      const parsedNewWheel = {
+        uuid: wheel.uuid,
+        name: wheel.name,
+        type: wheel.type,
+        width: wheel.width,
+        size: wheel.size,
+        offset: wheel.offset,
+        notes: wheel.notes,
+        userName: wheel.userName,
+        inReview: false,
+        emailAddress: wheel.emailAddress,
+        referral: wheel.referral,
+        images: parsedImages,
+      };
 
-    return await docClient
-      .send(
+      return await docClient.send(
         new PutCommand({
           TableName: 'wheels',
           Item: { ...parsedNewWheel },
         })
-      )
-      .catch((e) => console.error(e));
+      );
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   async function deleteQueueItem(): Promise<DeleteCommandOutput> {
-    return docClient.send(
+    return await docClient.send(
       new DeleteCommand({
         TableName: 'wheelsQueue',
         Key: {
