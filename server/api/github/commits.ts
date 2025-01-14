@@ -20,7 +20,8 @@ export default defineEventHandler(async (): Promise<any> => {
         };
       });
     });
-  } catch (error) {
-    throw new Error(`Error getting github releases - ${error}`);
+  } catch (error: any) {
+    console.error(`Error getting GitHub commits: ${error?.message}`);
+    throw new Error('Failed to fetch GitHub commits.');
   }
 });

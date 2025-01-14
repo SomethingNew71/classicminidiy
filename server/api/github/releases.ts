@@ -11,12 +11,13 @@ export default defineEventHandler(async (): Promise<IGithubReleaseParsedResponse
       repo: 'MiniECUMaps',
     }).then(({ data }): IGithubReleaseParsedResponse => {
       const parsed: IGithubReleaseParsedResponse = {
-        latestRelease: data[0].tag_name || 'No releases',
+        latestRelease: data[0]?.tag_name || 'No releases',
         releases: data,
       };
       return parsed;
     });
-  } catch (error) {
-    throw new Error(`Error getting github releases - ${error}`);
+  } catch (error: any) {
+    console.error(`Error getting GitHub releases: ${error?.message}`);
+    throw new Error('Failed to fetch GitHub releases.');
   }
 });

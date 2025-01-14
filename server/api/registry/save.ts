@@ -3,7 +3,13 @@ import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
-  const body = await readBody(event);
+
+  let body;
+  try {
+    body = await readBody(event);
+  } catch (error: any) {
+    throw new Error(`Error reading request body - ${error?.message}`);
+  }
 
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -14,6 +20,7 @@ export default defineEventHandler(async (event) => {
       },
     })
   );
+
   if (body.password === config.app.validation_key) {
     body.details.buildDate = '---';
     return await docClient
@@ -23,7 +30,10 @@ export default defineEventHandler(async (event) => {
           Item: { ...body.details },
         })
       )
-      .catch((e) => console.error(e));
+      .catch((e: any) => {
+        console.error(e);
+        throw new Error(`Error saving to DynamoDB - ${e?.message}`);
+      });
   } else {
     return { status: 403, message: 'NOT AUTHORIZED' };
   }

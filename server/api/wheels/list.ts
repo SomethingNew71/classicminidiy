@@ -20,7 +20,7 @@ export default defineEventHandler(async () => {
     });
     allWheels = await docClient.send(scanCommand).then((res) => res.Items);
   } catch (error: any) {
-    throw new Error(error);
+    throw new Error(`Unable to fetch wheels - ${error?.message}`);
   }
 
   return allWheels;

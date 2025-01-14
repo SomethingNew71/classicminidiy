@@ -53,6 +53,7 @@ export const chartOptions = {
 export interface NeedleResponse {
   initial: Needle[];
   all: Needle[];
+  error?: string;
 }
 
 export interface Needle {
