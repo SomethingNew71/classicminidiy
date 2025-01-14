@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
     try {
       if (headers['content-type']?.includes('multipart/form-data')) {
         body = await parseMultipartNodeRequest(event.node.req).then(async (res) => {
-          const newUrls = await parseNewUrls(res);
+          const newUrls = parseNewUrls(res);
           await associateNewImagesDynamo(newUrls, uuid);
         });
       } else {
@@ -98,7 +98,7 @@ export default defineEventHandler(async (event) => {
   }
   function parseNewUrls(uploadedFiles: any): string[] {
     const fileList: string[] = [];
-    _.forEach(uploadedFiles, (value, key) => {
+    _.forEach(uploadedFiles, (value) => {
       fileList.push(value[0].location);
     });
     return fileList;

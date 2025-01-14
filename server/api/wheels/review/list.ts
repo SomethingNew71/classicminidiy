@@ -1,8 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, ScanCommand, type ScanCommandOutput } from '@aws-sdk/lib-dynamodb';
 
 export default defineEventHandler(async () => {
-  let allWheels;
   const config = useRuntimeConfig();
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -18,10 +17,10 @@ export default defineEventHandler(async () => {
     const scanCommand = new ScanCommand({
       TableName: 'wheelsQueue',
     });
-    allWheels = await docClient.send(scanCommand);
+    const response: ScanCommandOutput = await docClient.send(scanCommand);
+    return response.Items;
   } catch (error: any) {
-    throw new Error(error);
+    console.error('Error scanning DynamoDB table:', error);
+    throw createError({ statusCode: 500, statusMessage: 'Internal Server Error' });
   }
-
-  return allWheels.Items;
 });

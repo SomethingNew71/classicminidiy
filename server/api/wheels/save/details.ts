@@ -6,6 +6,7 @@ import { v5 as uuidv5 } from 'uuid';
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body: IWheelsData = await readBody(event);
+
   if (body.uuid === '' || body.newWheel) {
     body.uuid = uuidv5(`${body.userName}${body.name}${Math.random()}`, config.app.CMDIY_NAMEPSACE);
   }
@@ -19,13 +20,16 @@ export default defineEventHandler(async (event) => {
       },
     })
   );
-  return await docClient
-    .send(
+
+  try {
+    await docClient.send(
       new PutCommand({
         TableName: 'wheelsQueue',
         Item: { ...body, images: [] },
       })
-    )
-    .then(() => ({ uuid: body.uuid }))
-    .catch((e) => console.error(e));
+    );
+    return { uuid: body.uuid };
+  } catch (e) {
+    console.error(e);
+  }
 });

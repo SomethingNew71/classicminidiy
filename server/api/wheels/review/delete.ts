@@ -13,64 +13,64 @@ export default defineEventHandler(async (event) => {
   const docClient = DynamoDBDocumentClient.from(new DynamoDBClient({ region, credentials }));
   const s3Client = new S3Client({ region, credentials });
 
-  const dynamoCommand = new DeleteCommand({
-    TableName: 'wheelsQueue',
-    Key: {
-      uuid: body.uuid,
-    },
-  });
-
   if (body.auth !== config.app.validation_key) {
     return { response: 'User is not authorized' };
-  } else {
-    try {
-      return Promise.allSettled([
-        await docClient.send(dynamoCommand),
-        await deleteFolder(`wheels/uploads/${body.uuid}`),
-      ]);
-    } catch (error) {
-      throw new Error(`Error when deleting items - ${error}`);
-    }
   }
 
-  // This function came from here https://www.codemzy.com/blog/delete-s3-folder-nodejs
-  async function deleteFolder(location: any) {
-    let bucket = 'classicminidiy';
-    let count = 0; // number of files deleted
-    async function recursiveDelete(token?: any) {
-      // get the files
+  try {
+    const dynamoCommand = new DeleteCommand({
+      TableName: 'wheelsQueue',
+      Key: { uuid: body.uuid },
+    });
+
+    const deleteResults = await Promise.allSettled([
+      docClient.send(dynamoCommand),
+      deleteFolder(`wheels/uploads/${body.uuid}`),
+    ]);
+
+    return deleteResults;
+  } catch (error) {
+    console.error('Error when deleting items:', error);
+    throw createError({ statusCode: 500, statusMessage: 'Internal Server Error' });
+  }
+
+  async function deleteFolder(location: string) {
+    const bucket = 'classicminidiy';
+    let count = 0;
+
+    async function recursiveDelete(token?: string): Promise<number> {
       const listCommand = new ListObjectsV2Command({
         Bucket: bucket,
         Prefix: location,
         ContinuationToken: token,
       });
-      let list = await s3Client.send(listCommand);
+
+      const list = await s3Client.send(listCommand);
+
       if (list.KeyCount) {
-        // if items to delete
-        // delete the files
         const deleteCommand = new DeleteObjectsCommand({
           Bucket: bucket,
           Delete: {
-            Objects: list?.Contents?.map((item) => ({ Key: item.Key })),
+            Objects: list.Contents?.map((item) => ({ Key: item.Key })) || [],
             Quiet: false,
           },
         });
-        let deleted = await s3Client.send(deleteCommand);
-        if (deleted.Deleted) {
-          count += deleted.Deleted.length;
-        } else if (deleted.Errors) {
-          // log any errors deleting files
-          deleted.Errors.map((error) => console.log(`${error.Key} could not be deleted - ${error.Code}`));
+
+        const deleted = await s3Client.send(deleteCommand);
+        count += deleted.Deleted?.length || 0;
+
+        if (deleted.Errors) {
+          deleted.Errors.forEach((error) => console.error(`${error.Key} could not be deleted - ${error.Code}`));
         }
       }
-      // repeat if more files to delete
+
       if (list.NextContinuationToken) {
-        recursiveDelete(list.NextContinuationToken);
+        return recursiveDelete(list.NextContinuationToken);
       }
-      // return total deleted count when finished
-      return `${count} files deleted.`;
+
+      return count;
     }
-    // start the recursive function
+
     return recursiveDelete();
   }
 });
