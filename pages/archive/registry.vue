@@ -45,6 +45,9 @@
           <div class="columns">
             <div class="column is-8">
               <h1 class="title">The Classic Mini Registry</h1>
+              <h2 class="subtitle pt-4">
+                <strong>{{ registryItems?.length || 'Tons of' }}</strong> Minis added, and growing every day!
+              </h2>
               <p>
                 After watching many of the long standing Classic Mini Registry's start to go offline, or no longer get
                 maintained. I decided it was time to stand something up I know will be here and maintained for many
@@ -112,6 +115,7 @@
                   variant="solo-filled"
                 ></v-text-field>
                 <v-spacer v-if="mdAndUp"></v-spacer>
+                <v-chip color="primary" v-if="registryItems?.length">{{ registryItems?.length }} Total Minis</v-chip>
               </div>
             </header>
             <div class="card-content">
