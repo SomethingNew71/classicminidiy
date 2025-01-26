@@ -28,7 +28,13 @@
   const gasketVolume = computed(() => (gasket.value === 0 ? customGasket.value : gasket.value));
 
   const vc = computed(
-    () => pistonDish.value + gasketVolume.value + headVolume.value + deckVolume.value + ringland.value + decomp.value
+    () =>
+      Number(pistonDish.value) +
+      Number(gasketVolume.value) +
+      Number(headVolume.value) +
+      Number(deckVolume.value) +
+      Number(ringland.value) +
+      Number(decomp.value)
   );
 
   const ratio = computed(() => {
