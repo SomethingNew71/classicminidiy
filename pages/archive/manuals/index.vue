@@ -2,16 +2,21 @@
   import { HERO_TYPES } from '~/data/models/generic';
   import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const loading = ref(true);
-  const manuals = await queryContent('archive/manuals')
-    .find()
-    .then((response) =>
-      response.sort((a, b) => {
-        const k1 = a.download === null ? 0 : 1;
-        const k2 = b.download === null ? 0 : 2;
-        return k2 - k1;
-      })
-    )
-    .finally(() => (loading.value = false));
+  const route = useRoute();
+
+  const { data: manuals, status } = await useAsyncData(() => queryCollection('content').path('*').all());
+  // .then((response) => {
+  //   console.log(response);
+  //   return response.sort((a, b) => {
+  //     // @ts-ignore
+  //     const k1 = a.download === null ? 0 : 1;
+  //     // @ts-ignore
+  //     const k2 = b.download === null ? 0 : 2;
+  //     return k2 - k1;
+  //   });
+  // });
+
+  console.log(manuals);
 
   const crumbs = ref([
     {
@@ -64,12 +69,12 @@
           on the final production cars.
         </p>
       </v-col>
-      <template v-if="loading">
+      <template v-if="status === 'pending'">
         <v-col v-for="(_, k) in 4" :key="k" cols="12" sm="6">
           <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
         </v-col>
       </template>
-      <template v-if="!loading">
+      <!-- <template v-if="status !== 'pending' && manuals">
         <v-col v-for="manual in manuals" cols="12" md="6">
           <v-card elevation="4">
             <v-row>
@@ -173,7 +178,7 @@
             </v-row>
           </v-card>
         </v-col>
-      </template>
+      </template> -->
     </v-row>
   </v-container>
 </template>
