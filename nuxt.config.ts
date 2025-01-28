@@ -112,6 +112,13 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { prerender: true },
+    '/archive': { prerender: true },
+    '/archive/engines': { prerender: true },
+    '/archive/registry': { prerender: true },
+    '/maps': { prerender: true },
+    '/privacy': { prerender: true },
+    '/technical/parts': { prerender: true },
+    '/technical/torque': { prerender: true },
   },
 
   robots: {
