@@ -103,15 +103,13 @@ export default defineNuxtConfig({
     },
   ],
 
-  content: {
-    database: {
-      type: 'postgres',
-      url: process.env.POSTGRES_POSTGRES_URL || '',
+  nitro: {
+    storage: {
+      data: {
+        driver: 'vercelKV',
+        /* Vercel KV driver options */
+      },
     },
-  },
-
-  routeRules: {
-    '/': { prerender: true },
   },
 
   robots: {
