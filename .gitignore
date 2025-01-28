@@ -89,3 +89,6 @@ sw.*
 # Mac OSX
 .DS_Store
 .vercel
+
+# Nuxt Content
+.data/

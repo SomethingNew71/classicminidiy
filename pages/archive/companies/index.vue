@@ -1,16 +1,11 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '~/data/models/generic';
-  const loading = ref(true);
-  const companies = await queryContent('archive/companies')
-    .find()
-    .then((response) =>
-      response.sort((a, b) => {
-        const k1 = a.download === null ? 0 : 1;
-        const k2 = b.download === null ? 0 : 2;
-        return k2 - k1;
-      })
-    )
-    .finally(() => (loading.value = false));
+  const { data: companies, status } = await useAsyncData(() => queryCollection('companies').all());
+  companies?.value?.sort((a, b) => {
+    const k1 = a.download === null ? 0 : 1;
+    const k2 = b.download === null ? 0 : 2;
+    return k2 - k1;
+  });
 
   const crumbs = ref([
     {
@@ -66,12 +61,12 @@
         </p>
       </v-col>
       <v-col cols="12"></v-col>
-      <template v-if="loading">
+      <template v-if="status === 'pending'">
         <v-col v-for="(_, k) in 4" :key="k" cols="12" sm="4">
           <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
         </v-col>
       </template>
-      <template v-if="!loading">
+      <template v-if="status !== 'pending'">
         <v-col v-for="company in companies" cols="12" md="4">
           <v-card>
             <v-img width="60%" height="100" class="mx-auto py-10" :src="company.image"></v-img>

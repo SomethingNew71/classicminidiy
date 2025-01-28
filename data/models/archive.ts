@@ -1,4 +1,4 @@
-import type { ParsedContent } from '@nuxt/content';
+import type { ParsedContentv2 } from '@nuxt/content';
 
 export interface ArchiveCard {
   title: string;
@@ -8,7 +8,7 @@ export interface ArchiveCard {
   disabled: boolean;
 }
 
-export interface Post extends ParsedContent {
+export interface Post extends ParsedContentv2 {
   image?: string;
   author?: string;
   date?: string;

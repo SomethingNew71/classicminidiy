@@ -1,22 +1,14 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '~/data/models/generic';
   import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
-  const loading = ref(true);
-  const route = useRoute();
 
-  const { data: manuals, status } = await useAsyncData(() => queryCollection('content').path('*').all());
-  // .then((response) => {
-  //   console.log(response);
-  //   return response.sort((a, b) => {
-  //     // @ts-ignore
-  //     const k1 = a.download === null ? 0 : 1;
-  //     // @ts-ignore
-  //     const k2 = b.download === null ? 0 : 2;
-  //     return k2 - k1;
-  //   });
-  // });
+  const { data: manuals, status } = await useAsyncData(() => queryCollection('manuals').all());
 
-  console.log(manuals);
+  manuals?.value?.sort((a, b) => {
+    const k1 = a.download === null ? 0 : 1;
+    const k2 = b.download === null ? 0 : 2;
+    return k2 - k1;
+  });
 
   const crumbs = ref([
     {
@@ -74,7 +66,7 @@
           <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
         </v-col>
       </template>
-      <!-- <template v-if="status !== 'pending' && manuals">
+      <template v-if="status !== 'pending' && manuals">
         <v-col v-for="manual in manuals" cols="12" md="6">
           <v-card elevation="4">
             <v-row>
@@ -124,7 +116,7 @@
                           submitArchiveFile(
                             ARCHIVE_TYPES.MANUAL,
                             manual.title,
-                            manual._path,
+                            manual.path,
                             manual.code,
                             manual.description
                           )
@@ -140,7 +132,7 @@
                         prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
                         variant="flat"
                         border
-                        @click="shareArchiveItem(manual.title, manual._path)"
+                        @click="shareArchiveItem(manual.title, manual.path)"
                       >
                         Share
                       </v-btn>
@@ -154,7 +146,7 @@
                           submitArchiveFile(
                             ARCHIVE_TYPES.MANUAL,
                             manual.title,
-                            manual._path,
+                            manual.path,
                             manual.code,
                             manual.description
                           )
@@ -178,7 +170,7 @@
             </v-row>
           </v-card>
         </v-col>
-      </template> -->
+      </template>
     </v-row>
   </v-container>
 </template>
