@@ -89,10 +89,10 @@ export default defineNuxtConfig({
    */
   modules: [
     '@nuxtjs/fontaine',
-    '@nuxt/content',
     '@vite-pwa/nuxt',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
+    '@nuxt/content',
     '@nuxt/image',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
     (_options, nuxt) => {

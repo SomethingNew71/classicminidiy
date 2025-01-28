@@ -1,24 +1,45 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content';
-// @ts-ignore
-// import { asSitemapCollection } from '@nuxtjs/sitemap';
+import { asSitemapCollection } from '@nuxtjs/sitemap/content';
 
 export default defineContentConfig({
   collections: {
-    content: defineCollection({
-      // Load every file inside the `content` directory
-      source: '**/*.md',
-      // Specify the type of content in this collection
+    content: defineCollection(
+      // adds the robots frontmatter key to the collection
+      asSitemapCollection({
+        type: 'page',
+        // @ts-ignore
+        source: {
+          include: ['**/*.md'],
+          exclude: ['**/companies/**/*.md'],
+        },
+        schema: z.object({
+          code: z.string(),
+          download: z.string(),
+          image: z.string(),
+          author: z.string(),
+        }),
+      })
+    ),
+    manuals: defineCollection({
       type: 'page',
+      source: '**/manuals/**/*.md',
       schema: z.object({
-        tags: z.array(z.string()),
+        code: z.string(),
+        download: z.string(),
         image: z.string(),
-        date: z.date(),
+        author: z.string(),
       }),
     }),
-    // @ts-ignore
-    // sitemap: asSitemapCollection({
-    //   type: 'page',
-    //   source: '**/*.md',
-    // }),
+    companies: defineCollection({
+      type: 'page',
+      source: '**/companies/**/*.md',
+      schema: z.object({
+        code: z.string(),
+        download: z.string(),
+        image: z.string(),
+        author: z.string(),
+        slug: z.string(),
+      }),
+    }),
   },
 });
