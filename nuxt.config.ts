@@ -106,7 +106,7 @@ export default defineNuxtConfig({
   content: {
     database: {
       type: 'postgres',
-      url: process.env.POSTGRES_URL || '',
+      url: process.env.POSTGRES_POSTGRES_URL || '',
     },
   },
 
@@ -135,7 +135,7 @@ export default defineNuxtConfig({
       aws_secret_access_key: process.env.aws_secret_access_key,
       validation_key: process.env.validation_key,
       CMDIY_NAMEPSACE: process.env.CMDIY_NAMEPSACE,
-      POSTGRES_URL: process.env.POSTGRES_URL || '',
+      POSTGRES_POSTGRES_URL: process.env.POSTGRES_POSTGRES_URL || '',
     },
   },
 
