@@ -50,6 +50,7 @@
     "highcharts-vue": "^2.0.1",
     "luxon": "^3.5.0",
     "outdent": "^0.8.0",
+    "pg": "^8.13.1",
     "redirect-ssl": "^3.0.0",
     "sass": "^1.83.4",
     "uuid": "^11.0.5",
