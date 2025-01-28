@@ -103,6 +103,17 @@ export default defineNuxtConfig({
     },
   ],
 
+  content: {
+    database: {
+      type: 'postgres',
+      url: process.env.POSTGRES_URL || '',
+    },
+  },
+
+  routeRules: {
+    '/': { prerender: true },
+  },
+
   robots: {
     // provide simple disallow rules for all robots `user-agent: *`
     disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
@@ -124,6 +135,7 @@ export default defineNuxtConfig({
       aws_secret_access_key: process.env.aws_secret_access_key,
       validation_key: process.env.validation_key,
       CMDIY_NAMEPSACE: process.env.CMDIY_NAMEPSACE,
+      POSTGRES_URL: process.env.POSTGRES_URL || '',
     },
   },
 
