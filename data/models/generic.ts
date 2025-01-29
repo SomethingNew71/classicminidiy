@@ -204,6 +204,35 @@ export const ArchiveItems: ArchiveItem[] = [
     to: '/archive/heads',
     disabled: true,
   },
+  {
+    title: 'Catalogues',
+    description: '',
+    image: '',
+    path: '/archive/catalogues',
+    iconHtml: '<i class="fa-duotone fa-solid fa-book-open-cover"></i>',
+    to: '/archive/catalogues',
+    disabled: true,
+  },
+  {
+    title: 'Distributors',
+    description: '',
+    image: '',
+    path: '/archive/distros',
+    iconHtml:
+      '<i class="fa-duotone fa-solid fa-chart-network" style="--fa-primary-color: #004f2d; --fa-secondary-color: #004f2d;"></i>',
+    to: '/archive/distros',
+    disabled: true,
+  },
+  {
+    title: 'Dimensions',
+    description: '',
+    image: '',
+    path: '/archive/dimensions',
+    iconHtml:
+      '<i class="fa-duotone fa-solid fa-ruler-combined" style="--fa-primary-color: #74C0FC; --fa-secondary-color: #74C0FC;"></i>',
+    to: '/archive/dimensions',
+    disabled: true,
+  },
 ];
 
 export const LandingPageToolboxItems = [

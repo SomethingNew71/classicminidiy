@@ -82,3 +82,13 @@ export async function submitArchiveFile(
     console.error('cannot contribute', error);
   }
 }
+
+export function determineArchiveType(path: string) {
+  if (path.includes('manuals')) {
+    return ARCHIVE_TYPES.MANUAL;
+  } else if (path.includes('adverts')) {
+    return ARCHIVE_TYPES.ADVERT;
+  } else {
+    return ARCHIVE_TYPES.GENERIC;
+  }
+}
