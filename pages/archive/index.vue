@@ -36,7 +36,7 @@
         <h2 class="fancy-font-book-oblique">PRESERVING CLASSIC MINI HERITAGE</h2>
         <h3 class="fancy-font-bold is-size-3">The Classic Mini Archive</h3>
       </v-col>
-      <v-col cols="12" md="8" offset-md="2" class="text-center">
+      <v-col cols="12" class="text-center">
         <p class="is-size-5 pt-5 pb-5">
           Welcome to the Classic Mini Archives. Here you will find a collection of manuals, collections, guides, and
           other resources to help you with your classic mini projects. I will be expanding this archive over time to

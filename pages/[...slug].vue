@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '~/data/models/generic';
-  import { ARCHIVE_TYPES, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
+  import { determineArchiveType, shareArchiveItem, submitArchiveFile } from '~/data/models/helper-utils';
   const { path, fullPath } = await useRoute();
   const crumbs = ref([
     {
@@ -41,16 +41,6 @@
     ogType: 'article',
     author: currentPostData.value?.author,
   });
-
-  function determineArchiveType(path: string) {
-    if (path.includes('manuals')) {
-      return ARCHIVE_TYPES.MANUAL;
-    } else if (path.includes('adverts')) {
-      return ARCHIVE_TYPES.ADVERT;
-    } else {
-      return ARCHIVE_TYPES.GENERIC;
-    }
-  }
 </script>
 
 <template>
