@@ -31,30 +31,12 @@
   <hero :navigation="true" :title="'Archives'" :heroType="HERO_TYPES.ARCHIVE" />
   <v-container>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="12" class="text-center">
         <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" root></breadcrumb>
         <h2 class="fancy-font-book-oblique">PRESERVING CLASSIC MINI HERITAGE</h2>
         <h3 class="fancy-font-bold is-size-3">The Classic Mini Archive</h3>
       </v-col>
-      <v-col cols="12" md="4">
-        <v-card>
-          <v-toolbar color="brand-green-2">
-            <v-toolbar-title>Archives</v-toolbar-title>
-            <v-spacer></v-spacer>
-          </v-toolbar>
-
-          <v-list lines="two">
-            <v-list-item v-for="item in ArchiveItems" :key="item.title" :title="item.title" :to="item.to">
-              <template v-slot:prepend>
-                <v-avatar size="large">
-                  <span class="is-size-3" v-html="item.iconHtml"> </span>
-                </v-avatar>
-              </template>
-            </v-list-item>
-          </v-list>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="8" offset-md="2" class="text-center">
         <p class="is-size-5 pt-5 pb-5">
           Welcome to the Classic Mini Archives. Here you will find a collection of manuals, collections, guides, and
           other resources to help you with your classic mini projects. I will be expanding this archive over time to
@@ -85,6 +67,15 @@
         >
           Cover Server Costs
         </v-btn>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col v-for="archive in ArchiveItems" cols="6" md="3" align="stretch">
+        <v-card class="has-text-centered pa-5" :to="archive.to" :disabled="archive.disabled">
+          <p v-if="archive.disabled" class="is-size-7 text-right">Coming Soon!</p>
+          <span class="is-size-1 d-block" v-html="archive.iconHtml"> </span>
+          <v-card-text class="is-size-5">{{ archive.title }}</v-card-text>
+        </v-card>
       </v-col>
     </v-row>
     <v-row>

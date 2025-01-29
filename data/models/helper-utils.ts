@@ -1,6 +1,6 @@
 export enum ARCHIVE_TYPES {
   MANUAL = 'manual',
-  COMPANY = 'company',
+  ADVERT = 'advert',
   GENERIC = 'generic',
 }
 

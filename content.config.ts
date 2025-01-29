@@ -10,7 +10,6 @@ export default defineContentConfig({
         // @ts-ignore
         source: {
           include: ['**/*.md'],
-          exclude: ['**/companies/**/*.md'],
         },
         schema: z.object({
           code: z.string(),
@@ -30,15 +29,14 @@ export default defineContentConfig({
         author: z.string(),
       }),
     }),
-    companies: defineCollection({
+    adverts: defineCollection({
       type: 'page',
-      source: '**/companies/**/*.md',
+      source: '**/adverts/**/*.md',
       schema: z.object({
         code: z.string(),
         download: z.string(),
         image: z.string(),
         author: z.string(),
-        slug: z.string(),
       }),
     }),
   },

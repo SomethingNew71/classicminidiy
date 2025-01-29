@@ -33,6 +33,7 @@ export interface ArchiveItem {
   to: string;
   description: string;
   image: string;
+  disabled?: boolean;
 }
 export interface SocialItem {
   title: string;
@@ -163,6 +164,45 @@ export const ArchiveItems: ArchiveItem[] = [
     iconHtml:
       '<i class="fa-duotone fa-brush" style="--fa-primary-color: #431f23; --fa-secondary-color: #c3a166; --fa-secondary-opacity: 0.8;"></i>',
     to: '/archive/colors',
+  },
+  {
+    title: 'Adverts',
+    description: '',
+    image: '',
+    path: '/archive/adverts',
+    iconHtml:
+      '<i class="fa-duotone fa-solid fa-tv-retro" style="--fa-primary-color: #2f2f2f; --fa-secondary-color: #554416; --fa-secondary-opacity: 0.8;"></i>',
+    to: '/archive/adverts',
+  },
+  {
+    title: 'Brochures',
+    description: '',
+    image: '',
+    path: '/archive/brochures',
+    iconHtml:
+      '<i class="fa-duotone fa-light fa-newspaper" style="--fa-primary-color: #247ba0; --fa-secondary-color: #c3b299; --fa-secondary-opacity: 0.4;"></i>',
+    to: '/archive/brochures',
+    disabled: true,
+  },
+  {
+    title: 'Carburetor Specs',
+    description: '',
+    image: '',
+    path: '/archive/carbs',
+    iconHtml:
+      '<i class="fa-duotone fa-regular fa-bread-loaf" style="--fa-primary-color: #ba5c12; --fa-secondary-color: #ba5c12;"></i>',
+    to: '/archive/carbs',
+    disabled: true,
+  },
+  {
+    title: 'Cylinder Head Specs',
+    description: '',
+    image: '',
+    path: '/archive/heads',
+    iconHtml:
+      '<i class="fa-duotone fa-solid fa-head-side-gear" style="--fa-primary-color: #9b8816; --fa-secondary-color: #9b8816;"></i>',
+    to: '/archive/heads',
+    disabled: true,
   },
 ];
 
