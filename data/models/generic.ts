@@ -113,7 +113,7 @@ export const ArchiveItems: ArchiveItem[] = [
   {
     title: 'Mini Registry',
     description: '',
-    image: 'https://classicminidiy.s3.amazonaws.com/archive/images/registry.jpg',
+    image: 'https://cmdiy-archive.s3.us-east-1.amazonaws.com/manuals/images/registry.jpg',
     path: '/archive/registry',
     iconHtml:
       '<i class="fa-duotone fa-book-circle-arrow-up" style="--fa-secondary-color: #ED7135; --fa-secondary-opacity: 0.9;"></i>',
@@ -131,7 +131,7 @@ export const ArchiveItems: ArchiveItem[] = [
   {
     title: 'Workshop Manuals',
     description: '',
-    image: 'https://classicminidiy.s3.amazonaws.com/archive/images/manuals.jpg',
+    image: 'https://cmdiy-archive.s3.us-east-1.amazonaws.com/manuals/images/manuals.jpg',
     path: '/archive/manuals',
     iconHtml: '<i class="fa-duotone fa-book-sparkles"></i>',
     to: '/archive/manuals',
@@ -139,7 +139,7 @@ export const ArchiveItems: ArchiveItem[] = [
   {
     title: 'Electrical Diagrams',
     description: '',
-    image: 'https://classicminidiy.s3.amazonaws.com/archive/images/wiringDiagrams+copy.jpg',
+    image: 'https://cmdiy-archive.s3.us-east-1.amazonaws.com/manuals/images/wiringDiagrams+copy.jpg',
     path: '/archive/electrical',
     iconHtml:
       '<i class="fa-duotone fa-car-battery" style="--fa-secondary-color: #ff424d; --fa-secondary-opacity: 0.9;"></i>',
