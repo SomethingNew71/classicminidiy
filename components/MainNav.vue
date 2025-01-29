@@ -43,28 +43,6 @@
           Store
         </v-btn>
         <v-btn size="small" prepend-icon="fa:fad fa-books" variant="text" to="/archive"> Archive </v-btn>
-        <!-- <v-menu transition="scale-transition" close-delay="100" location="bottom end" open-delay="10" open-on-hover>
-          <template v-slot:activator="{ props }">
-            <v-btn
-              size="small"
-              prepend-icon="fa:fad fa-books"
-              variant="text"
-              append-icon="fa:fas fa-chevron-down"
-              v-bind="props"
-            >
-              Archive
-            </v-btn>
-          </template>
-
-          <v-list density="compact">
-            <v-list-item v-for="(item, i) in ArchiveItems" :key="i" :value="item" :to="item.path">
-              <template v-slot:prepend>
-                <span v-html="item.iconHtml" class="pr-2 is-size-4"></span>
-              </template>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu> -->
         <v-menu transition="scale-transition" close-delay="100" location="bottom end" open-delay="10" open-on-hover>
           <template v-slot:activator="{ props }">
             <v-btn
