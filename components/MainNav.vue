@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
-  import { ArchiveItems, ToolboxItems } from '~/data/models/generic';
+  import { ToolboxItems } from '~/data/models/generic';
   const { lgAndUp } = useDisplay();
   const showDrawer = ref(false);
 </script>
@@ -42,7 +42,8 @@
         >
           Store
         </v-btn>
-        <v-menu transition="scale-transition" close-delay="100" location="bottom end" open-delay="10" open-on-hover>
+        <v-btn size="small" prepend-icon="fa:fad fa-books" variant="text" to="/archive"> Archive </v-btn>
+        <!-- <v-menu transition="scale-transition" close-delay="100" location="bottom end" open-delay="10" open-on-hover>
           <template v-slot:activator="{ props }">
             <v-btn
               size="small"
@@ -63,7 +64,7 @@
               <v-list-item-title v-text="item.title"></v-list-item-title>
             </v-list-item>
           </v-list>
-        </v-menu>
+        </v-menu> -->
         <v-menu transition="scale-transition" close-delay="100" location="bottom end" open-delay="10" open-on-hover>
           <template v-slot:activator="{ props }">
             <v-btn
@@ -134,24 +135,13 @@
           ECU Maps
         </v-btn></v-list-item
       >
+      <v-list-item density="compact">
+        <v-btn prepend-icon="fa:fad fa-books" size="x-small" variant="text" to="/archive"> Archive </v-btn></v-list-item
+      >
       <v-list-subheader class="font-weight-bold"> Free Online Toolbox </v-list-subheader>
       <v-list-item
         density="compact"
         v-for="(item, i) in ToolboxItems"
-        :key="i"
-        :value="item"
-        :to="item.path"
-        class="mobile-menu"
-      >
-        <template v-slot:prepend>
-          <div v-html="item.iconHtml" class="pr-2 is-size-5"></div>
-        </template>
-        <v-list-item-title class="is-size-7" v-text="item.title"></v-list-item-title>
-      </v-list-item>
-      <v-list-subheader class="font-weight-bold"> Archives </v-list-subheader>
-      <v-list-item
-        density="compact"
-        v-for="(item, i) in ArchiveItems"
         :key="i"
         :value="item"
         :to="item.path"

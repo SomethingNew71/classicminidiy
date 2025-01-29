@@ -14,6 +14,9 @@
     return queryCollection('content').path(path).first();
   });
 
+  const archiveType = determineArchiveType(path);
+  const fileType = currentPostData?.value?.download?.split('.').pop();
+
   crumbs.value.push({
     title: currentPostData?.value?.title || '',
     disabled: true,
@@ -38,6 +41,16 @@
     ogType: 'article',
     author: currentPostData.value?.author,
   });
+
+  function determineArchiveType(path: string) {
+    if (path.includes('manuals')) {
+      return ARCHIVE_TYPES.MANUAL;
+    } else if (path.includes('adverts')) {
+      return ARCHIVE_TYPES.ADVERT;
+    } else {
+      return ARCHIVE_TYPES.GENERIC;
+    }
+  }
 </script>
 
 <template>
@@ -54,22 +67,26 @@
       </template>
       <template v-if="currentPostData && status !== 'pending'">
         <v-col cols="5" sm="3" md="2">
-          <v-img :src="currentPostData.image"></v-img>
+          <v-icon
+            class="mx-auto pt-10"
+            size="88"
+            v-if="!currentPostData.image || currentPostData.image === ''"
+            icon="fad fa-image-slash"
+          ></v-icon>
+          <v-img v-else :src="currentPostData.image" class="pa-10 mx-auto my-auto mt-3"></v-img>
         </v-col>
         <v-col cols="12" sm="9" md="10" class="post">
           <h2 class="text-h4 text-capitalize pb-2 px-5">{{ currentPostData.title?.toLowerCase() }}</h2>
-          <h3 class="px-5 pb-5" v-if="currentPostData.path?.includes('manuals')">
+          <h3 class="px-5 pb-5">
             <v-icon color="primary" icon="fad fa-list-timeline" start></v-icon>
             <span class="text-button ms-1"> {{ currentPostData.code }} </span>
           </h3>
-          <template v-if="currentPostData.path?.includes('manuals')">
-            <p class="px-5">{{ currentPostData.description }}</p>
-          </template>
-          <template v-if="currentPostData.path?.includes('companies')">
-            <div class="companies-content px-5 pt-4">
-              <ContentRenderer v-if="currentPostData" :value="currentPostData" />
-            </div>
-          </template>
+          <h3 v-if="currentPostData.download" class="px-5 pb-5">
+            <v-icon color="secondary" icon="fad fa-file" start></v-icon>
+            <span class="text-button ms-1"> Type: {{ fileType }} </span>
+          </h3>
+          <p class="px-5">{{ currentPostData.description }}</p>
+
           <v-divider></v-divider>
 
           <div class="pa-4 d-flex flex-wrap">
@@ -92,7 +109,7 @@
                 border
                 @click="
                   submitArchiveFile(
-                    ARCHIVE_TYPES.MANUAL,
+                    archiveType,
                     currentPostData.title,
                     currentPostData.path,
                     currentPostData.code,

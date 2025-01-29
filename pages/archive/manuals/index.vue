@@ -40,7 +40,7 @@
   useSeoMeta({
     ogTitle: 'Classic Mini Archive - Workshop Manuals',
     ogDescription: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
-    ogUrl: 'classicminidiy.com/archive/electrical',
+    ogUrl: 'classicminidiy.com/archive/manuals',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     ogType: 'website',
   });
