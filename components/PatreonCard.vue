@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+  import { track } from '@vercel/analytics';
+  const { path } = await useRoute();
+
   defineProps({
     size: {
       type: String,
@@ -6,6 +9,12 @@
       required: true,
     },
   });
+
+  function trackPatreonClick() {
+    track('Support Patreon', {
+      location: path,
+    });
+  }
 </script>
 
 <template>
@@ -36,6 +45,7 @@
               rel="noopener"
               href="https://patreon.com/classicminidiy"
               target="_blank"
+              @click="trackPatreonClick()"
             >
               <span class="icon">
                 <i class="fab fa-patreon" />
@@ -60,7 +70,13 @@
           <p class="pt-3">
             <strong>Membership comes with tons of free perks and benefits!</strong>
           </p>
-          <a class="mt-4 button is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
+          <a
+            class="mt-4 button is-patreon"
+            rel="noopener"
+            href="https://patreon.com/classicminidiy"
+            target="_blank"
+            @click="trackPatreonClick()"
+          >
             <span class="icon">
               <i class="fab fa-patreon" />
             </span>
