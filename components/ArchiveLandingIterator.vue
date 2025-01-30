@@ -38,99 +38,70 @@
     </template>
 
     <template v-slot:default="{ items }">
-      <v-row class="px-2">
-        <v-col v-for="{ raw: element } in items" :key="element.id" cols="12" md="6">
-          <v-card elevation="4">
-            <v-row>
-              <v-col cols="4" class="text-center">
-                <v-icon
-                  class="mx-auto pt-10"
-                  size="88"
-                  v-if="!element.image || element.image === ''"
-                  icon="fad fa-image-slash"
-                ></v-icon>
-                <v-img v-else :src="element.image" class="pa-10 mx-auto my-auto mt-3"></v-img>
-              </v-col>
-              <v-col cols="8">
-                <h2 class="text-h5 pt-5 pb-2 px-5" :class="{ 'pb-5': element.download }">
-                  {{ element.title }}
-                </h2>
-                <h4 v-if="element.download" class="px-5 pb-2">
-                  <v-icon color="secondary" icon="fad fa-file" start></v-icon>
-                  <span class="text-button ms-1"> Type: {{ element?.download?.split('.').pop() }} </span>
-                </h4>
-                <h4 v-if="!element.download || element.download === ''" class="px-5 pb-2">
-                  <v-chip prepend-icon="fa-duotone fa-solid fa-question" color="error"> File Missing </v-chip>
-                </h4>
-                <h4 class="px-5 pb-5">
-                  <v-icon color="primary" icon="fad fa-list-timeline" start></v-icon>
-                  <span class="text-button ms-1"> {{ element.code }} </span>
-                </h4>
-                <p class="px-5">{{ element.description }}</p>
-                <v-divider></v-divider>
+      <v-row dense>
+        <v-col v-for="{ raw: item } in items" :key="item.title" cols="auto" md="6" lg="4">
+          <v-card class="pb-3 pt-3" border flat>
+            <v-icon
+              class="mx-auto pt-10 text-center text-h2 d-block pb-10"
+              v-if="!item.image || item.image === ''"
+              icon="fad fa-image-slash"
+            >
+            </v-icon>
+            <v-img v-else :src="item.image" max-height="150"> </v-img>
 
-                <div class="pa-4 d-flex justify-end">
-                  <ClientOnly>
-                    <template v-if="!element.download || element.download === ''">
-                      <v-btn
-                        disabled
-                        color="primary"
-                        class="text-none me-1"
-                        prepend-icon="fa-duotone fa-solid fa-question"
-                        variant="flat"
-                      >
-                        Missing File
-                      </v-btn>
-                      <v-btn
-                        class="me-1 text-none"
-                        color="secondary"
-                        prepend-icon="fa-duotone fa-solid fa-plus-large"
-                        variant="elevated"
-                        border
-                        @click="
-                          submitArchiveFile(archiveType, element.title, element.path, element.code, element.description)
-                        "
-                      >
-                        Contribute
-                      </v-btn>
-                    </template>
-                    <template v-else>
-                      <v-btn
-                        class="me-2 text-none"
-                        color="brand-blue-1"
-                        prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
-                        variant="flat"
-                        border
-                        @click="shareArchiveItem(element.title, element.path)"
-                      >
-                        Share
-                      </v-btn>
-                      <v-btn
-                        class="me-1 text-none"
-                        color="secondary"
-                        prepend-icon="fa-duotone fa-solid fa-plus-large"
-                        variant="elevated"
-                        border
-                        @click="
-                          submitArchiveFile(archiveType, element.title, element.path, element.code, element.description)
-                        "
-                      >
-                        Contribute
-                      </v-btn>
-                      <v-btn
-                        color="primary"
-                        class="text-none"
-                        prepend-icon="fa-duotone fa-solid fa-download"
-                        variant="flat"
-                        :href="element.download"
-                      >
-                        Download
-                      </v-btn>
-                    </template>
-                  </ClientOnly>
-                </div>
-              </v-col>
-            </v-row>
+            <i
+              v-if="item.download && item.download !== ''"
+              class="fa-duotone fa-solid text-h4 text-right pr-3 d-flex ms-auto"
+              :class="'fa-file-' + item?.download?.split('.').pop()?.toLowerCase()"
+            ></i>
+
+            <v-list-item class="mb-2">
+              <template v-slot:title>
+                <strong class="text-h6 mb-2">{{ item.title }}</strong>
+              </template>
+              <v-list-item-subtitle class="d-flex justify-space-between">
+                <span>{{ item.code }}</span>
+              </v-list-item-subtitle>
+            </v-list-item>
+            <v-list-item class="pb-3">
+              <v-list-item-title class="text-caption">{{ item.description }}</v-list-item-title>
+            </v-list-item>
+
+            <div class="d-flex justify-space-between px-4">
+              <v-btn
+                class="text-none"
+                size="small"
+                prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
+                variant="flat"
+                border
+                @click="shareArchiveItem(item.title, item.path)"
+              >
+                Share
+              </v-btn>
+              <v-btn
+                class="text-none"
+                color="brand-blue-1"
+                prepend-icon="fa-duotone fa-solid fa-plus-large"
+                variant="elevated"
+                size="small"
+                border
+                @click="submitArchiveFile(archiveType, item.title, item.path, item.code, item.description)"
+              >
+                Contribute
+              </v-btn>
+              <v-btn
+                v-if="item.download && item.download !== ''"
+                class="text-none"
+                color="primary"
+                size="small"
+                text="Download"
+                variant="flat"
+                prepend-icon="fa-duotone fa-solid fa-download"
+                :href="item.download"
+                border
+              >
+              </v-btn>
+            </div>
           </v-card>
         </v-col>
       </v-row>
@@ -172,3 +143,16 @@
     </template>
   </v-data-iterator>
 </template>
+
+<style lang="scss">
+  .v-list-item-title {
+    -webkit-hyphens: unset;
+    hyphens: unset;
+    overflow-wrap: unset;
+    overflow: unset;
+    white-space: unset;
+    text-overflow: unset;
+    word-break: unset;
+    word-wrap: unset;
+  }
+</style>

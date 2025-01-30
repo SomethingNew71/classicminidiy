@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-  import { track } from '@vercel/analytics';
+  import { TRACKING_EVENTS, trackStuff } from '~/data/models/helper-utils';
+
   const { path } = await useRoute();
 
   defineProps({
@@ -9,12 +10,6 @@
       required: true,
     },
   });
-
-  function trackPatreonClick() {
-    track('Support Patreon', {
-      location: path,
-    });
-  }
 </script>
 
 <template>
@@ -45,7 +40,7 @@
               rel="noopener"
               href="https://patreon.com/classicminidiy"
               target="_blank"
-              @click="trackPatreonClick()"
+              @click="trackStuff(TRACKING_EVENTS.PATREON, path)"
             >
               <span class="icon">
                 <i class="fab fa-patreon" />
@@ -75,7 +70,7 @@
             rel="noopener"
             href="https://patreon.com/classicminidiy"
             target="_blank"
-            @click="trackPatreonClick()"
+            @click="trackStuff(TRACKING_EVENTS.PATREON, path)"
           >
             <span class="icon">
               <i class="fab fa-patreon" />

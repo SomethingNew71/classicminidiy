@@ -10,8 +10,7 @@
     },
   });
   import type { IWheelsData } from '~/data/models/wheels';
-  import { humanFileSize } from '~/data/models/helper-utils';
-  import { track } from '@vercel/analytics';
+  import { humanFileSize, TRACKING_EVENTS, trackStuff } from '~/data/models/helper-utils';
   const { path } = await useRoute();
   const wheel = ref();
   const pageLoad = ref(true);
@@ -134,11 +133,6 @@
         headers: { 'cache-control': 'no-cache' },
       }).catch((err) => console.error(err));
     }
-  }
-  function trackSupport() {
-    track('Support Server Costs', {
-      location: path,
-    });
   }
 </script>
 
@@ -485,7 +479,7 @@
               target="_blank"
               color="secondary"
               href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
-              @click="trackSupport()"
+              @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
             >
               Cover Server Costs
             </v-btn>

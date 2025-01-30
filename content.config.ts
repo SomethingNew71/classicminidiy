@@ -46,5 +46,18 @@ export default defineContentConfig({
         author: z.string(),
       }),
     }),
+    brochures: defineCollection({
+      type: 'page',
+      source: {
+        repository: 'https://github.com/Classic-Mini-DIY/archive',
+        include: '**/brochures/**/*.md',
+      },
+      schema: z.object({
+        code: z.string(),
+        download: z.string(),
+        image: z.string(),
+        author: z.string(),
+      }),
+    }),
   },
 });

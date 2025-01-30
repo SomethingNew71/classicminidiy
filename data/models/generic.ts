@@ -182,7 +182,6 @@ export const ArchiveItems: ArchiveItem[] = [
     iconHtml:
       '<i class="fa-duotone fa-light fa-newspaper" style="--fa-primary-color: #247ba0; --fa-secondary-color: #c3b299; --fa-secondary-opacity: 0.4;"></i>',
     to: '/archive/brochures',
-    disabled: true,
   },
   {
     title: 'Carburetor Specs',
