@@ -51,7 +51,12 @@
               </span>
               <span>Donate</span>
             </a>
-            <a class="button is-medium" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
+            <a
+              class="button is-medium"
+              rel="noopener"
+              href="https://github.com/Classic-Mini-DIY/classicminidiy"
+              target="_blank"
+            >
               <span class="icon">
                 <i class="fab fa-github" />
               </span>
