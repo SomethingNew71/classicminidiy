@@ -175,15 +175,6 @@ export const ArchiveItems: ArchiveItem[] = [
     to: '/archive/adverts',
   },
   {
-    title: 'Brochures',
-    description: '',
-    image: '',
-    path: '/archive/brochures',
-    iconHtml:
-      '<i class="fa-duotone fa-light fa-newspaper" style="--fa-primary-color: #247ba0; --fa-secondary-color: #c3b299; --fa-secondary-opacity: 0.4;"></i>',
-    to: '/archive/brochures',
-  },
-  {
     title: 'Carburetor Specs',
     description: '',
     image: '',
@@ -191,7 +182,6 @@ export const ArchiveItems: ArchiveItem[] = [
     iconHtml:
       '<i class="fa-duotone fa-regular fa-bread-loaf" style="--fa-primary-color: #ba5c12; --fa-secondary-color: #ba5c12;"></i>',
     to: '/archive/carbs',
-    disabled: true,
   },
   {
     title: 'Cylinder Head Specs',

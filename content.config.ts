@@ -46,11 +46,11 @@ export default defineContentConfig({
         author: z.string(),
       }),
     }),
-    brochures: defineCollection({
+    carbs: defineCollection({
       type: 'page',
       source: {
         repository: 'https://github.com/Classic-Mini-DIY/archive',
-        include: '**/brochures/**/*.md',
+        include: '**/carbs/**/*.md',
       },
       schema: z.object({
         code: z.string(),
