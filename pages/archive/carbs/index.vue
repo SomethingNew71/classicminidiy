@@ -9,9 +9,9 @@
   } from '~/data/models/helper-utils';
   const { path } = await useRoute();
   const archiveType = determineArchiveType(path);
-  const { data: brochures, status } = await useAsyncData(() => queryCollection('brochures').all());
+  const { data: carbs, status } = await useAsyncData(() => queryCollection('carbs').all());
 
-  brochures?.value?.sort((a, b) => {
+  carbs?.value?.sort((a, b) => {
     const k1 = a.download === null ? 0 : 1;
     const k2 = b.download === null ? 0 : 2;
     return k2 - k1;
@@ -29,25 +29,25 @@
       href: '/archive',
     },
     {
-      title: 'Brochures',
+      title: 'Advertisments',
       disabled: true,
     },
   ]);
 
   useHead({
-    title: 'Classic Mini Archive - Brochures',
+    title: 'Classic Mini Archive - Advertisments',
     meta: [
       {
         hid: 'description',
         name: 'description',
-        content: 'Currated collection of Classic Mini Brochures, parts lists and more.',
+        content: 'Currated collection of Classic Mini original Advertisments',
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Classic Mini Archive - Brochures',
-    ogDescription: 'Currated collection of Classic Mini Brochures, parts lists and more.',
-    ogUrl: 'classicminidiy.com/archive/manuals',
+    ogTitle: 'Classic Mini Archive - Advertisments',
+    ogDescription: 'Currated collection of Classic Mini original Advertisments',
+    ogUrl: 'classicminidiy.com/archive/adverts',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     ogType: 'website',
   });
@@ -62,11 +62,8 @@
         ></v-breadcrumbs>
       </v-col>
       <v-col cols="9">
-        <h1 class="title">Parts Lists & Brochures</h1>
-        <p>
-          Free copies of the unabridged Brochures. If you have a brochure that is not listed here, please consider
-          contributing it to the archive.
-        </p>
+        <h1 class="title">Original Carburettor Technical Documents</h1>
+        <p>Free copies of original technical material about Classic Mini Carburettors</p>
         <v-btn
           prepend-icon="fa:fad fa-paper-plane"
           class="me-3 mb-3 mt-3"
@@ -74,7 +71,7 @@
           :size="'large'"
           color="primary"
           target="_blank"
-          @click="submitArchiveFile(ARCHIVE_TYPES.BROCHURES)"
+          @click="submitArchiveFile(ARCHIVE_TYPES.CARBS)"
         >
           Add to Archive
         </v-btn>
@@ -90,12 +87,9 @@
           Cover Server Costs
         </v-btn>
       </v-col>
+
       <v-col cols="12">
-        <ArchiveLandingIterator
-          :archiveType="archiveType"
-          :content="brochures"
-          :loading="status"
-        ></ArchiveLandingIterator>
+        <ArchiveLandingIterator :archiveType="archiveType" :content="carbs" :loading="status"></ArchiveLandingIterator>
       </v-col>
     </v-row>
   </v-container>
