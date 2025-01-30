@@ -72,7 +72,7 @@
         </v-row>
       </v-col>
       <v-col cols="12">
-        <GearboxCalculator />
+        <CalculatorsGearbox />
       </v-col>
       <v-col cols="12" md="10" offset-md="1">
         <div class="divider">More</div>
