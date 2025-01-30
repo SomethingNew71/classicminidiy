@@ -48,7 +48,7 @@
       </v-col>
       <v-col cols="12" class="hr mt-5"></v-col>
       <v-col cols="12">
-        <NeedleConfigurator />
+        <CalculatorsNeedles />
       </v-col>
       <v-col cols="12" md="10" offset-md="1">
         <div class="divider">Needle Charts</div>
