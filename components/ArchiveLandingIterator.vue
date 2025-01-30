@@ -47,20 +47,24 @@
               icon="fad fa-image-slash"
             >
             </v-icon>
+            <a v-else-if="item.download && item.download !== ''" :href="item.download">
+              <v-img :src="item.image" max-height="150"> </v-img>
+            </a>
             <v-img v-else :src="item.image" max-height="150"> </v-img>
 
-            <i
-              v-if="item.download && item.download !== ''"
-              class="fa-duotone fa-solid text-h4 text-right pr-3 d-flex ms-auto"
-              :class="'fa-file-' + item?.download?.split('.').pop()?.toLowerCase()"
-            ></i>
+            <v-icon
+              class="text-h4 text-right pr-3 d-flex ms-auto"
+              color="secondary"
+              :icon="'fa-duotone fa-solid fa-file-' + item?.download?.split('.').pop()?.toLowerCase()"
+            >
+            </v-icon>
 
             <v-list-item class="mb-2">
               <template v-slot:title>
                 <strong class="text-h6 mb-2">{{ item.title }}</strong>
               </template>
               <v-list-item-subtitle class="d-flex justify-space-between">
-                <span>{{ item.code }}</span>
+                <span>Sort Key: {{ item.code }}</span>
               </v-list-item-subtitle>
             </v-list-item>
             <v-list-item class="pb-3">

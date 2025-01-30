@@ -63,6 +63,9 @@
             v-if="!currentPostData.image || currentPostData.image === ''"
             icon="fad fa-image-slash"
           ></v-icon>
+          <a v-else-if="currentPostData.download && currentPostData.download !== ''" :href="currentPostData.download">
+            <v-img :src="currentPostData.image" max-height="150"> </v-img>
+          </a>
           <v-img v-else :src="currentPostData.image" class="pa-10 mx-auto my-auto mt-3"></v-img>
         </v-col>
         <v-col cols="12" sm="9" md="10" class="post">
