@@ -9,6 +9,7 @@ export default defineContentConfig({
         type: 'page',
         // @ts-ignore
         source: {
+          repository: 'https://github.com/Classic-Mini-DIY/archive',
           include: ['**/*.md'],
         },
         schema: z.object({
@@ -21,7 +22,10 @@ export default defineContentConfig({
     ),
     manuals: defineCollection({
       type: 'page',
-      source: '**/manuals/**/*.md',
+      source: {
+        repository: 'https://github.com/Classic-Mini-DIY/archive',
+        include: '**/manuals/**/*.md',
+      },
       schema: z.object({
         code: z.string(),
         download: z.string(),
@@ -31,7 +35,10 @@ export default defineContentConfig({
     }),
     adverts: defineCollection({
       type: 'page',
-      source: '**/adverts/**/*.md',
+      source: {
+        repository: 'https://github.com/Classic-Mini-DIY/archive',
+        include: '**/adverts/**/*.md',
+      },
       schema: z.object({
         code: z.string(),
         download: z.string(),
