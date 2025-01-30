@@ -1,6 +1,8 @@
 <script setup lang="ts">
+  import { track } from '@vercel/analytics';
   import { ArchiveItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   import { ARCHIVE_TYPES, submitArchiveFile } from '~/data/models/helper-utils';
+  const { path } = await useRoute();
 
   useHead({
     title: 'Classic Mini Archives',
@@ -25,6 +27,11 @@
     ogType: 'website',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
   });
+  function trackSupport() {
+    track('Support Server Costs', {
+      location: path,
+    });
+  }
 </script>
 
 <template>
@@ -64,6 +71,7 @@
           target="_blank"
           color="secondary"
           href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
+          @click="trackSupport()"
         >
           Cover Server Costs
         </v-btn>
