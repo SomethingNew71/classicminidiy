@@ -1,6 +1,12 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '~/data/models/generic';
-  import { determineArchiveType } from '~/data/models/helper-utils';
+  import {
+    ARCHIVE_TYPES,
+    determineArchiveType,
+    submitArchiveFile,
+    TRACKING_EVENTS,
+    trackStuff,
+  } from '~/data/models/helper-utils';
   const { path } = await useRoute();
   const archiveType = determineArchiveType(path);
   const { data: adverts, status } = await useAsyncData(() => queryCollection('adverts').all());
@@ -58,6 +64,28 @@
       <v-col cols="9">
         <h1 class="title">Original Advertisments</h1>
         <p>Free copies of the unabridged Advertisments.</p>
+        <v-btn
+          prepend-icon="fa:fad fa-paper-plane"
+          class="me-3 mb-3 mt-3"
+          :variant="'elevated'"
+          :size="'large'"
+          color="primary"
+          target="_blank"
+          @click="submitArchiveFile(ARCHIVE_TYPES.ADVERT)"
+        >
+          Add to Archive
+        </v-btn>
+        <v-btn
+          prepend-icon="fa:fad fa-hand-holding-circle-dollar"
+          class="me-3 mb-3 mt-3"
+          :size="'large'"
+          target="_blank"
+          color="secondary"
+          href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
+          @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
+        >
+          Cover Server Costs
+        </v-btn>
       </v-col>
 
       <v-col cols="12">

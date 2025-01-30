@@ -9,9 +9,9 @@
   } from '~/data/models/helper-utils';
   const { path } = await useRoute();
   const archiveType = determineArchiveType(path);
-  const { data: manuals, status } = await useAsyncData(() => queryCollection('manuals').all());
+  const { data: brochures, status } = await useAsyncData(() => queryCollection('brochures').all());
 
-  manuals?.value?.sort((a, b) => {
+  brochures?.value?.sort((a, b) => {
     const k1 = a.download === null ? 0 : 1;
     const k2 = b.download === null ? 0 : 2;
     return k2 - k1;
@@ -29,24 +29,24 @@
       href: '/archive',
     },
     {
-      title: 'Workshop Manuals',
+      title: 'Brochures',
       disabled: true,
     },
   ]);
 
   useHead({
-    title: 'Classic Mini Archive - Workshop Manuals',
+    title: 'Classic Mini Archive - Brochures',
     meta: [
       {
         hid: 'description',
         name: 'description',
-        content: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
+        content: 'Currated collection of Classic Mini Brochures, parts lists and more.',
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Classic Mini Archive - Workshop Manuals',
-    ogDescription: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
+    ogTitle: 'Classic Mini Archive - Brochures',
+    ogDescription: 'Currated collection of Classic Mini Brochures, parts lists and more.',
     ogUrl: 'classicminidiy.com/archive/manuals',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     ogType: 'website',
@@ -62,10 +62,10 @@
         ></v-breadcrumbs>
       </v-col>
       <v-col cols="9">
-        <h1 class="title">Parts Lists & Workshop Manuals</h1>
+        <h1 class="title">Parts Lists & Brochures</h1>
         <p>
-          Free copies of the unabridged workshop manuals. Including early manuals as well as later workshop manuals used
-          on the final production cars.
+          Free copies of the unabridged Brochures. If you have a brochure that is not listed here, please consider
+          contributing it to the archive.
         </p>
         <v-btn
           prepend-icon="fa:fad fa-paper-plane"
@@ -74,7 +74,7 @@
           :size="'large'"
           color="primary"
           target="_blank"
-          @click="submitArchiveFile(ARCHIVE_TYPES.MANUAL)"
+          @click="submitArchiveFile(ARCHIVE_TYPES.BROCHURES)"
         >
           Add to Archive
         </v-btn>
@@ -93,7 +93,7 @@
       <v-col cols="12">
         <ArchiveLandingIterator
           :archiveType="archiveType"
-          :content="manuals"
+          :content="brochures"
           :loading="status"
         ></ArchiveLandingIterator>
       </v-col>
