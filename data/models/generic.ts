@@ -130,6 +130,15 @@ export const ArchiveItems: ArchiveItem[] = [
     to: '/archive/engines',
   },
   {
+    title: 'Mini Weights',
+    description: '',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png',
+    path: '/archive/weights',
+    iconHtml:
+      '<i class="fa-duotone fa-solid fa-weight-hanging" style="--fa-primary-color: #7dc978; --fa-secondary-color: #1f291f; --fa-secondary-opacity: 0.6;"></i>',
+    to: '/archive/weights',
+  },
+  {
     title: 'Workshop Manuals',
     description: '',
     image: 'https://cmdiy-archive.s3.us-east-1.amazonaws.com/manuals/images/manuals.jpg',
