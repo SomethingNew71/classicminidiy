@@ -1,11 +1,6 @@
 <script lang="ts" setup>
   import axios from 'axios';
-  defineProps({
-    admin: {
-      type: Boolean,
-      default: false,
-    },
-  });
+  import type { RegistryQueueSubmissionResponse } from '~/data/models/registry';
   const form = ref(false);
   const rules = ref({
     required: (value: string) => !!value || 'This field is required to submit',
@@ -33,21 +28,21 @@
   const issueCreated = ref(false);
   const apiError = ref(false);
   const apiMessage = ref('');
-  const submission = ref({ number: null, url: null });
+  const submission = ref<{
+    number: number | null;
+    url: string | null;
+  }>({ number: null, url: null });
   const processing = ref(false);
-  const password = ref('');
 
   async function submit() {
     processing.value = true;
     await axios
-      .post('/api/registry/submit', { details: details.value })
-      .then((response) => {
+      .post<RegistryQueueSubmissionResponse>('/api/registry/queue/submit', { details: details.value })
+      .then(async (response) => {
         issueCreated.value = true;
-        apiError.value = false;
-        submission.value = {
-          number: response.data.number,
-          url: response.data.url,
-        };
+        submission.value.number = response.data.issueNumber;
+        submission.value.url = response.data.issueUrl;
+        resetForm();
       })
       .catch(() => {
         issueCreated.value = false;
@@ -56,35 +51,7 @@
       })
       .finally(() => (processing.value = false));
   }
-  async function adminSubmit() {
-    processing.value = true;
-    await axios
-      .post('/api/registry/save', {
-        details: {
-          uniqueId: details.value.uniqueId,
-          year: Number(details.value.year),
-          model: details.value.model,
-          trim: details.value.trim,
-          bodyType: details.value.bodyType,
-          engineSize: details.value.engineSize,
-          color: details.value.color,
-          bodyNum: details.value.bodyNum,
-          engineNum: details.value.engineNum,
-          buildDate: details.value.buildDate,
-          notes: details.value.notes,
-          submittedBy: details.value.submittedBy,
-          submittedByEmail: details.value.submittedByEmail,
-        },
-        password: password.value,
-      })
-      .then(() => resetForm())
-      .catch((err) => {
-        issueCreated.value = false;
-        apiError.value = true;
-        apiMessage.value = `DynamoDb update failed - ${err}`;
-      })
-      .finally(() => (processing.value = false));
-  }
+
   function resetForm() {
     details.value.uniqueId = '';
     details.value.year = '';
@@ -123,7 +90,7 @@
           </h2>
           <ul class="pb-5">
             <li class="pb-2">
-              Your registry submission number is <strong>{{ submission.number }}</strong>
+              Your registry submission details. is <strong>{{ submission.number }}</strong>
             </li>
             <li>
               Track your submission here:
@@ -258,35 +225,8 @@
               ></v-textarea>
             </div>
           </div>
-          <div v-if="!admin">
+          <div>
             <v-btn :disabled="!form" prepend-icon="fad fa-paper-plane" size="x-large" color="primary" @click="submit()">
-              Submit
-            </v-btn>
-          </div>
-          <div v-if="admin">
-            <v-text-field
-              label="Unique ID"
-              v-model="details.uniqueId"
-              :rules="[rules.required]"
-              prepend-icon="fad fa-fingerprint"
-              append-inner-icon="fad fa-asterisk"
-              variant="outlined"
-            ></v-text-field>
-            <v-text-field
-              label="Password"
-              v-model="password"
-              :rules="[rules.required]"
-              prepend-icon="fad fa-key"
-              append-inner-icon="fad fa-asterisk"
-              variant="outlined"
-            ></v-text-field>
-            <v-btn
-              :disabled="!form"
-              prepend-icon="fad fa-paper-plane"
-              size="x-large"
-              color="primary"
-              @click="adminSubmit()"
-            >
               Submit
             </v-btn>
           </div>
