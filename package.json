@@ -45,7 +45,6 @@
     "bulma": "git@github.com:jgthms/bulma.git#2172fa18c91333521e6df886915bd0bf551b0fba",
     "core-js": "^3.40.0",
     "formidable": "^3.5.2",
-    "fuse.js": "^7.0.0",
     "highcharts": "^12.1.2",
     "highcharts-vue": "^2.0.1",
     "luxon": "^3.5.0",
