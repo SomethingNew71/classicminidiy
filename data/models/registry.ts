@@ -13,3 +13,10 @@ export interface RegistryItem extends Record<string, any> {
   engineSize: string;
   color: string;
 }
+
+export interface RegistryQueueSubmissionResponse {
+  issueNumber: number;
+  issueUrl: string;
+  uuid: string;
+  details: RegistryItem;
+}
