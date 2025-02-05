@@ -1,8 +1,8 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DeleteCommand, DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+import { DeleteCommand, DynamoDBDocumentClient, type DeleteCommandOutput } from '@aws-sdk/lib-dynamodb';
 import type { RegistryItem } from '~/data/models/registry';
 
-export default defineEventHandler(async (event): Promise<void> => {
+export default defineEventHandler(async (event: any): Promise<DeleteCommandOutput> => {
   const config = useRuntimeConfig();
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -20,7 +20,7 @@ export default defineEventHandler(async (event): Promise<void> => {
       issueNumber: string | number;
       details: RegistryItem;
     }>(event);
-    await docClient.send(
+    return await docClient.send(
       new DeleteCommand({
         TableName: 'MiniRegisterQueue',
         Key: {
@@ -30,6 +30,7 @@ export default defineEventHandler(async (event): Promise<void> => {
       })
     );
   } catch (error: any) {
-    throw new Error(`Error deleting registry queue item - ${error?.message}`);
+    console.error(`Error deleting registry queue item: ${error.message}`, error);
+    throw new Error(`Error deleting registry queue item - ${error.message}`);
   }
 });

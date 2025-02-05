@@ -1,8 +1,8 @@
 <script lang="ts" setup>
   import axios from 'axios';
-  import type { RegistryQueueSubmissionResponse } from '~/data/models/registry';
+  import type { RegistryItem, RegistryQueueSubmissionResponse } from '~/data/models/registry';
   const form = ref(false);
-  const rules = ref({
+  const validationRules = () => ({
     required: (value: string) => !!value || 'This field is required to submit',
     email: (value: string) => {
       const pattern =
@@ -10,12 +10,14 @@
       return pattern.test(value) || 'Invalid e-mail.';
     },
   });
-  const details = ref({
-    year: '',
+  const rules = ref(validationRules());
+
+  const initialDetails: RegistryItem = {
+    year: 1959,
     model: '',
     trim: '',
     bodyType: 'Saloon',
-    engineSize: '',
+    engineSize: 850,
     color: '',
     bodyNum: '',
     engineNum: '',
@@ -24,7 +26,9 @@
     submittedBy: '',
     submittedByEmail: '',
     uniqueId: '',
-  });
+  };
+
+  const details = ref({ ...initialDetails });
   const issueCreated = ref(false);
   const apiError = ref(false);
   const apiMessage = ref('');
@@ -36,36 +40,45 @@
 
   async function submit() {
     processing.value = true;
-    await axios
-      .post<RegistryQueueSubmissionResponse>('/api/registry/queue/submit', { details: details.value })
-      .then(async (response) => {
-        issueCreated.value = true;
-        submission.value.number = response.data.issueNumber;
-        submission.value.url = response.data.issueUrl;
+    try {
+      const response = await axios.post<RegistryQueueSubmissionResponse>('/api/registry/queue/submit', {
+        details: details.value,
+      });
+      issueCreated.value = true;
+      submission.value.number = response.data.issueNumber;
+      submission.value.url = response.data.issueUrl;
+      if (response.data.issueNumber) {
         resetForm();
-      })
-      .catch(() => {
-        issueCreated.value = false;
-        apiError.value = true;
-        apiMessage.value = 'API is currently unavailable. Please try again later.';
-      })
-      .finally(() => (processing.value = false));
+      }
+    } catch (error) {
+      issueCreated.value = false;
+      apiError.value = true;
+      console.error(error);
+      apiMessage.value = 'API is currently unavailable. Please try again later.';
+    } finally {
+      processing.value = false;
+    }
   }
 
+  function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+    let timeout: ReturnType<typeof setTimeout>;
+    return function (...args: Parameters<T>) {
+      clearTimeout(timeout);
+      // @ts-ignore
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  const debouncedSubmit = debounce(submit, 300);
+
   function resetForm() {
-    details.value.uniqueId = '';
-    details.value.year = '';
-    details.value.model = '';
-    details.value.trim = '';
-    details.value.bodyType = 'Saloon';
-    details.value.engineSize = '';
-    details.value.color = '';
-    details.value.bodyNum = '';
-    details.value.engineNum = '';
-    details.value.buildDate = [];
-    details.value.notes = '';
-    details.value.submittedBy = '';
-    details.value.submittedByEmail = '';
+    details.value = { ...initialDetails };
+  }
+
+  function submitAnotherMini() {
+    issueCreated.value = false;
+    apiError.value = false;
+    submission.value = { number: null, url: null };
   }
 </script>
 
@@ -75,12 +88,6 @@
       <h3 class="card-header-title">Submit Your Mini</h3>
     </header>
     <div class="card-content">
-      <div v-if="processing">
-        <div class="has-text-centered pt-5">
-          <i class="is-size-1 has-text-primary fa-duotone fa-arrows-rotate fa-spin fa-beat mt-5 mb-2"></i>
-          <h1 class="is-size-3 pb-1">Processing</h1>
-        </div>
-      </div>
       <div v-if="!processing && issueCreated && submission && !apiError">
         <div class="modal-card-body has-text-centered pt-5">
           <i class="is-size-1 has-text-success fa-duotone fa-box-check fa-beat pt-5 pb-2"></i>
@@ -97,24 +104,12 @@
               <a target="_blank" v-if="submission.url" :href="submission.url"> Submission {{ submission.number }}</a>
             </li>
           </ul>
+          <v-btn color="primary" prepend-icon="fa-duotone fa-solid fa-plus-large" @click="submitAnotherMini()">
+            Submit Another Mini</v-btn
+          >
         </div>
       </div>
-      <div v-if="!processing && !issueCreated && apiError">
-        <div class="modal-card-body has-text-centered pt-5">
-          <i
-            class="is-size-1 has-text-danger fa-duotone fa-triangle-exclamation fa-flash pt-5 pb-2"
-            style="--fa-flash-opacity: 0.67; --fa-flash-scale: 1.075"
-          ></i>
-          <h1 class="is-size-3 pb-1">I'm sorry!</h1>
-          <h2 class="is-size-6 pb-4">
-            There was a problem submitting your submission at this time, please try again later!
-          </h2>
-          <p class="pb-5">
-            The github API returned: <code>{{ apiMessage }}</code>
-          </p>
-        </div>
-      </div>
-      <div v-if="!processing && !issueCreated && !apiError">
+      <div v-if="!issueCreated">
         <v-form v-model="form" @submit.prevent="submit">
           <div class="columns is-multiline pt-3">
             <div class="column is-12">
@@ -146,15 +141,17 @@
               <h2 class="is-size-4"><strong>Car Details:</strong></h2>
             </div>
             <div class="column is-half">
-              <v-text-field
+              <v-number-input
+                :reverse="false"
+                controlVariant="split"
                 label="Model Year"
+                :hideInput="false"
+                :inset="false"
                 v-model="details.year"
-                placeholder="ex. 1960"
                 :rules="[rules.required]"
-                append-inner-icon="fad fa-asterisk"
                 prepend-icon="fad fa-calendar"
                 variant="outlined"
-              ></v-text-field>
+              ></v-number-input>
               <v-text-field
                 label="Model"
                 v-model="details.model"
@@ -183,15 +180,17 @@
               ></v-select>
             </div>
             <div class="column is-half">
-              <v-text-field
+              <v-select
                 label="Original Engine Size"
                 v-model="details.engineSize"
+                :items="[850, 997, 998, 1100, 1275]"
                 placeholder="ex. 1275"
                 :rules="[rules.required]"
                 append-inner-icon="fad fa-asterisk"
                 prepend-icon="fad fa-engine"
                 variant="outlined"
-              ></v-text-field>
+              >
+              </v-select>
               <v-text-field
                 label="Factory Color"
                 v-model="details.color"
@@ -226,7 +225,20 @@
             </div>
           </div>
           <div>
-            <v-btn :disabled="!form" prepend-icon="fad fa-paper-plane" size="x-large" color="primary" @click="submit()">
+            <v-alert v-model="apiError" title="I'm Sorry!" type="error" variant="outlined" :closable="true">
+              <h2 class="is-size-6 pb-4">
+                There was a problem submitting your submission at this time, please try again later!
+              </h2>
+              <p class="pb-5">Please check your entries and try again</p>
+            </v-alert>
+            <v-btn
+              :disabled="!form"
+              :loading="processing"
+              prepend-icon="fad fa-paper-plane"
+              size="x-large"
+              color="primary"
+              @click="debouncedSubmit()"
+            >
               Submit
             </v-btn>
           </div>

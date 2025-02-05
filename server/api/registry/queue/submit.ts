@@ -22,6 +22,7 @@ export default defineEventHandler(async (event): Promise<RegistryQueueSubmission
 
   try {
     const { details } = await readBody<{ details: RegistryItem }>(event);
+    validateDetails(details);
     details.uniqueId = uuidv5(details.submittedBy, CMDIY_NAMEPSACE);
     details.buildDate = '---';
     details.year = Number(details.year);
@@ -63,6 +64,29 @@ export default defineEventHandler(async (event): Promise<RegistryQueueSubmission
       details,
     };
   } catch (error: any) {
+    console.error(error);
     throw new Error(`Error submitting to Queue - ${error?.message}`);
   }
 });
+
+function validateDetails(details: RegistryItem): void {
+  if (!details || !details.submittedBy || !details.submittedByEmail || !details.year || !details.model) {
+    throw new Error('Missing required details');
+  }
+
+  if (!details.submittedBy || typeof details.submittedBy !== 'string') {
+    throw new Error('Invalid or missing submittedBy');
+  }
+  if (
+    (!details.submittedByEmail || typeof details.submittedByEmail !== 'string') &&
+    !details.submittedByEmail.includes('@')
+  ) {
+    throw new Error('Invalid or missing submittedByEmail');
+  }
+  if (!details.year || isNaN(Number(details.year))) {
+    throw new Error('Invalid or missing year');
+  }
+  if (!details.model || typeof details.model !== 'string') {
+    throw new Error('Invalid or missing model');
+  }
+}
