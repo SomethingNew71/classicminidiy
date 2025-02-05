@@ -10,7 +10,7 @@ export interface RegistryItem extends Record<string, any> {
   uniqueId: string;
   buildDate: string | any[] | null;
   bodyType: string;
-  engineSize: string;
+  engineSize: number;
   color: string;
 }
 

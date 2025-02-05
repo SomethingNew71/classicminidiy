@@ -20,30 +20,24 @@ export default defineEventHandler(async (event): Promise<void> => {
       issueNumber: string | number;
       details: RegistryItem;
     }>(event);
-    await docClient
-      .send(
-        new PutCommand({
-          TableName: 'MiniRegister',
-          Item: { ...details },
-        })
-      )
-      .catch((error) => {
-        throw new Error(`Error saving item to core registry - ${error?.message}`);
-      });
-    await docClient
-      .send(
-        new DeleteCommand({
-          TableName: 'MiniRegisterQueue',
-          Key: {
-            uniqueId: uuid,
-            year: details.year,
-          },
-        })
-      )
-      .catch((error) => {
-        throw new Error(`Error deleting registry queue item - ${error?.message}`);
-      });
+
+    await docClient.send(
+      new PutCommand({
+        TableName: 'MiniRegister',
+        Item: { ...details },
+      })
+    );
+
+    await docClient.send(
+      new DeleteCommand({
+        TableName: 'MiniRegisterQueue',
+        Key: {
+          uniqueId: uuid,
+          year: details.year,
+        },
+      })
+    );
   } catch (error: any) {
-    throw new Error(`Error submitting registry info - ${error?.message}`);
+    throw new Error(`Error saving registry info - ${error?.message}`);
   }
 });

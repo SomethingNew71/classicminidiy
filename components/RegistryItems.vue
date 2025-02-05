@@ -3,7 +3,14 @@
 
   const { data: registryItems, status } = await useFetch<RegistryItem[]>('/api/registry/queue/list');
 
-  const tableHeaders: any[] = [
+  interface TableHeader {
+    title: string;
+    value?: string;
+    key?: string;
+    sortable?: boolean;
+  }
+
+  const tableHeaders: TableHeader[] = [
     { title: 'Model', value: 'model' },
     { title: 'Body Number', value: 'bodyNum' },
     { title: 'Trim', value: 'trim' },
@@ -21,31 +28,33 @@
   ];
 
   async function saveItem(item: RegistryItem) {
-    await useFetch('/api/registry/queue/save', {
-      method: 'POST',
-      body: { uuid: item.uniqueId, details: { ...item } },
-      headers: { 'cache-control': 'no-cache' },
-    })
-      .then((res) => {
-        if (res) {
-          registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
-        }
-      })
-      .catch((err) => console.error(err));
+    try {
+      const res = await useFetch('/api/registry/queue/save', {
+        method: 'POST',
+        body: { uuid: item.uniqueId, details: { ...item } },
+        headers: { 'cache-control': 'no-cache' },
+      });
+      if (res) {
+        registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   async function deleteItem(item: RegistryItem) {
-    await useFetch('/api/registry/queue/delete', {
-      method: 'POST',
-      body: { uuid: item.uniqueId, details: { ...item } },
-      headers: { 'cache-control': 'no-cache' },
-    })
-      .then((res) => {
-        if (res) {
-          registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
-        }
-      })
-      .catch((err) => console.error(err));
+    try {
+      const res = await useFetch('/api/registry/queue/delete', {
+        method: 'POST',
+        body: { uuid: item.uniqueId, details: { ...item } },
+        headers: { 'cache-control': 'no-cache' },
+      });
+      if (res) {
+        registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 </script>
 <template>

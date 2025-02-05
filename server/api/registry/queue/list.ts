@@ -3,9 +3,8 @@ import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { DateTime } from 'luxon';
 import type { RegistryItem } from '~/data/models/registry';
 
-export default defineEventHandler(async (): Promise<RegistryItem[]> => {
-  const config = useRuntimeConfig();
-  const docClient = DynamoDBDocumentClient.from(
+const createDynamoDBClient = (config: any) => {
+  return DynamoDBDocumentClient.from(
     new DynamoDBClient({
       region: 'us-east-1',
       credentials: {
@@ -14,23 +13,23 @@ export default defineEventHandler(async (): Promise<RegistryItem[]> => {
       },
     })
   );
+};
+
+export default defineEventHandler(async (): Promise<RegistryItem[]> => {
+  const config = useRuntimeConfig();
+  const docClient = createDynamoDBClient(config);
 
   try {
-    const parsedResponse: RegistryItem[] = [];
-    await docClient
-      .send(
-        new ScanCommand({
-          TableName: 'MiniRegisterQueue',
-        })
-      )
-      .then(({ Items }) => {
-        parsedResponse.push(
-          ...(Items as RegistryItem[]).map((item) => ({
-            ...item,
-            buildDate: DateTime.fromISO(item.buildDate as string).toISODate(),
-          }))
-        );
-      });
+    const command = new ScanCommand({ TableName: 'MiniRegisterQueue' });
+    const { Items } = await docClient.send(command);
+    if (!Items) {
+      return [];
+    }
+
+    const parsedResponse: RegistryItem[] = (Items as RegistryItem[]).map((item) => ({
+      ...item,
+      buildDate: DateTime.fromISO(item.buildDate as string).toISODate(),
+    }));
 
     return parsedResponse;
   } catch (error: any) {
