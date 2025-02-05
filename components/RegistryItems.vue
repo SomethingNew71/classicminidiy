@@ -10,6 +10,9 @@
     sortable?: boolean;
   }
 
+  const key = ref<string>('');
+  const hasError = ref<boolean>(false);
+
   const tableHeaders: TableHeader[] = [
     { title: 'Model', value: 'model' },
     { title: 'Body Number', value: 'bodyNum' },
@@ -28,32 +31,32 @@
   ];
 
   async function saveItem(item: RegistryItem) {
-    try {
-      const res = await useFetch('/api/registry/queue/save', {
-        method: 'POST',
-        body: { uuid: item.uniqueId, details: { ...item } },
-        headers: { 'cache-control': 'no-cache' },
-      });
-      if (res) {
-        registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
-      }
-    } catch (err) {
-      console.error(err);
+    const { data, error, status } = await useFetch('/api/registry/queue/save', {
+      method: 'POST',
+      body: { uuid: item.uniqueId, details: { ...item }, auth: key },
+      headers: { 'cache-control': 'no-cache' },
+    });
+
+    if (status.value === 'success') {
+      registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
+    } else if (error && status.value === 'error') {
+      hasError.value = true;
+      console.error(error);
     }
   }
 
   async function deleteItem(item: RegistryItem) {
-    try {
-      const res = await useFetch('/api/registry/queue/delete', {
-        method: 'POST',
-        body: { uuid: item.uniqueId, details: { ...item } },
-        headers: { 'cache-control': 'no-cache' },
-      });
-      if (res) {
-        registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
-      }
-    } catch (err) {
-      console.error(err);
+    const { data, error } = await useFetch('/api/registry/queue/delete', {
+      method: 'POST',
+      body: { uuid: item.uniqueId, details: { ...item }, auth: key },
+      headers: { 'cache-control': 'no-cache' },
+    });
+
+    if (status.value === 'success') {
+      registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
+    } else if (error && status.value === 'error') {
+      hasError.value = true;
+      console.error(error);
     }
   }
 </script>
@@ -64,6 +67,23 @@
         <v-card>
           <v-card-title>Registry Queue</v-card-title>
           <v-card-text>
+            <v-text-field
+              v-model="key"
+              label="Auth Key"
+              outlined
+              dense
+              placeholder="Enter Auth Key"
+              prepend-icon="fa-duotone fa-regular fa-key"
+            />
+            <v-alert
+              v-model="hasError"
+              title="Error"
+              type="error"
+              variant="outlined"
+              :closable="true"
+              text="Error saving or deleting item."
+            >
+            </v-alert>
             <v-data-table
               :loading="status === 'pending'"
               :headers="tableHeaders"
