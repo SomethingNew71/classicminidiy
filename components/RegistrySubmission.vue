@@ -145,6 +145,8 @@
                 :reverse="false"
                 controlVariant="split"
                 label="Model Year"
+                :max="2000"
+                :min="1959"
                 :hideInput="false"
                 :inset="false"
                 v-model="details.year"

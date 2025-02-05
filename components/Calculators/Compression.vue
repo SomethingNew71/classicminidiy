@@ -28,13 +28,7 @@
   const gasketVolume = computed(() => (gasket.value === 0 ? customGasket.value : gasket.value));
 
   const vc = computed(
-    () =>
-      Number(pistonDish.value) +
-      Number(gasketVolume.value) +
-      Number(headVolume.value) +
-      Number(deckVolume.value) +
-      Number(ringland.value) +
-      Number(decomp.value)
+    () => pistonDish.value + gasketVolume.value + headVolume.value + deckVolume.value + ringland.value + decomp.value
   );
 
   const ratio = computed(() => {
@@ -175,29 +169,53 @@
     <v-col cols="12" md="4">
       <h3>Piston Dish size (cc)</h3>
       <v-slider color="brand-green-3" v-model="pistonDish" :min="0" :max="20" :step="0.1"></v-slider>
-      <v-text-field
-        :rules="[rules.required, rules.number]"
+      <v-number-input
+        :reverse="false"
+        controlVariant="split"
+        :step="0.1"
+        :min="0"
+        :max="20"
+        :hideInput="false"
+        :inset="false"
         v-model="pistonDish"
+        :rules="[rules.required]"
         prepend-icon="fas fa-circle-half fa-rotate-270"
-      ></v-text-field>
+        variant="outlined"
+      ></v-number-input>
     </v-col>
     <v-col cols="12" md="4">
       <h3>Cylinder Head Chamber Volume (cc)</h3>
       <v-slider color="brand-green-3" v-model="headVolume" :min="15" :max="35" :step="0.1"></v-slider>
-      <v-text-field
-        :rules="[rules.required, rules.number]"
+      <v-number-input
+        :reverse="false"
+        controlVariant="split"
+        :step="0.1"
+        :min="15"
+        :max="35"
+        :hideInput="false"
+        :inset="false"
         v-model="headVolume"
+        :rules="[rules.required]"
         prepend-icon="fad fa-arrows-to-dot"
-      ></v-text-field>
+        variant="outlined"
+      ></v-number-input>
     </v-col>
     <v-col cols="12" md="4">
       <h3>Piston Deck Height (thou)</h3>
       <v-slider color="brand-green-3" v-model="deckHeight" :min="0" :max="80" :step="1"></v-slider>
-      <v-text-field
-        :rules="[rules.required, rules.number]"
+      <v-number-input
+        :reverse="false"
+        controlVariant="split"
+        :step="1"
+        :min="0"
+        :max="80"
+        :hideInput="false"
+        :inset="false"
         v-model="deckHeight"
+        :rules="[rules.required]"
         prepend-icon="fad fa-arrow-up-to-line"
-      ></v-text-field>
+        variant="outlined"
+      ></v-number-input>
     </v-col>
   </v-row>
 
