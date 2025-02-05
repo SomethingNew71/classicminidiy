@@ -15,20 +15,30 @@ export default defineEventHandler(async (event: any): Promise<DeleteCommandOutpu
   );
 
   try {
-    const { uuid, details } = await readBody<{
+    const { uuid, details, auth } = await readBody<{
       uuid: string;
       issueNumber: string | number;
       details: RegistryItem;
+      auth: string;
     }>(event);
-    return await docClient.send(
-      new DeleteCommand({
-        TableName: 'MiniRegisterQueue',
-        Key: {
-          uniqueId: uuid,
-          year: details.year,
-        },
-      })
-    );
+
+    console.log('Deleting registry queue item:', auth);
+    console.log('Deleting registry queue item:', config.app.validation_key);
+    console.log('Deleting registry queue item:', auth === config.app.validation_key);
+
+    if (auth === config.app.validation_key) {
+      return await docClient.send(
+        new DeleteCommand({
+          TableName: 'MiniRegisterQueue',
+          Key: {
+            uniqueId: uuid,
+            year: details.year,
+          },
+        })
+      );
+    } else {
+      throw new Error('Unauthorized');
+    }
   } catch (error: any) {
     console.error(`Error deleting registry queue item: ${error.message}`, error);
     throw new Error(`Error deleting registry queue item - ${error.message}`);

@@ -15,11 +15,16 @@ export default defineEventHandler(async (event): Promise<void> => {
   );
 
   try {
-    const { uuid, details } = await readBody<{
+    const { uuid, details, auth } = await readBody<{
       uuid: string;
       issueNumber: string | number;
       details: RegistryItem;
+      auth: string;
     }>(event);
+
+    if (auth !== config.app.validation_key) {
+      throw new Error('Unauthorized');
+    }
 
     await docClient.send(
       new PutCommand({
