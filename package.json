@@ -30,14 +30,14 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.738.0",
-    "@aws-sdk/client-s3": "^3.740.0",
-    "@aws-sdk/lib-dynamodb": "^3.738.0",
-    "@aws-sdk/lib-storage": "^3.740.0",
-    "@nuxt/content": "^3.0.1",
+    "@aws-sdk/client-dynamodb": "^3.741.0",
+    "@aws-sdk/client-s3": "^3.741.0",
+    "@aws-sdk/lib-dynamodb": "^3.741.0",
+    "@aws-sdk/lib-storage": "^3.741.0",
+    "@nuxt/content": "^3.1.0",
     "@nuxtjs/robots": "^5.2.2",
     "@octokit/core": "^6.1.3",
-    "@types/node": "^22.13.0",
+    "@types/node": "^22.13.1",
     "@types/youtube": "^0.1.0",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
@@ -53,9 +53,9 @@
     "redirect-ssl": "^3.0.0",
     "sass": "^1.83.4",
     "uuid": "^11.0.5",
-    "vite-plugin-vuetify": "^2.0.4",
+    "vite-plugin-vuetify": "^2.1.0",
     "vue-cookie-law": "^1.13.3",
-    "vuetify": "3.7.9"
+    "vuetify": "3.7.11"
   },
   "devDependencies": {
     "@nuxt/image": "^1.9.0",
