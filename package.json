@@ -51,7 +51,7 @@
     "outdent": "^0.8.0",
     "pg": "^8.13.1",
     "redirect-ssl": "^3.0.0",
-    "sass": "^1.83.4",
+    "sass": "^1.84.0",
     "uuid": "^11.0.5",
     "vite-plugin-vuetify": "^2.1.0",
     "vue-cookie-law": "^1.13.3",
