@@ -26,7 +26,12 @@ export default defineEventHandler(async (event): Promise<IWheelsData> => {
         },
       })
     )
-    .then(({ Item }) => Item as IWheelsData)
+    .then(({ Item }) => {
+      if (Item?.notes) {
+        Item.notes = Item.notes.replace(/<\/?[^>]+(>|$)/g, '');
+      }
+      return Item as IWheelsData;
+    })
     .catch((err) => {
       console.error(err);
       throw new Error('Error fetching wheel data');
