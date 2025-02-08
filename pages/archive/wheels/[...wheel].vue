@@ -60,21 +60,23 @@
           <template v-if="wheel">
             <v-card-text class="pl-10 py-0 pt-3">
               <v-row align="center" no-gutters>
-                <v-col cols="12" md="6">
+                <v-col cols="12" md="6" class="top-section">
                   <h1 class="text-h4">{{ wheel.name }}</h1>
-                  <h2 class="text-h6 pt-4">{{ wheel.notes }}</h2>
+                  <h2 class="text-subtitle-1 pt-4">{{ wheel.notes }}</h2>
                 </v-col>
 
                 <v-col cols="12" md="6" class="pt-2">
                   <v-carousel v-if="wheel.images && wheel.images.length > 1" height="300" hide-delimiters>
                     <template v-for="image in wheel.images">
-                      <v-carousel-item :src="image.src"></v-carousel-item>
+                      <v-carousel-item :src="image.src" rounded></v-carousel-item>
                     </template>
                   </v-carousel>
                   <v-img
                     :alt="`Image of the ${wheel.name} wheels`"
                     max-height="300"
                     max-width="300"
+                    class="wheel-image"
+                    rounded="lg"
                     v-else-if="wheel.images"
                     cover
                     :src="wheel.images[0].src"
@@ -86,7 +88,7 @@
             <v-divider></v-divider>
             <v-row class="d-flex py-3 justify-space-between">
               <v-col cols="12" sm="6" md="3">
-                <v-list-item density="compact" prepend-icon="fad fa-arrow-right-to-line">
+                <v-list-item prepend-icon="fad fa-arrow-right-to-line">
                   <v-list-item-title>Offset</v-list-item-title>
                   <v-list-item-subtitle v-if="wheel.offset">{{ wheel.offset }}</v-list-item-subtitle>
                   <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
@@ -94,7 +96,7 @@
               </v-col>
               <v-divider vertical></v-divider>
               <v-col cols="12" sm="6" md="3">
-                <v-list-item density="compact" prepend-icon="fad fa-arrows-to-line">
+                <v-list-item prepend-icon="fad fa-arrows-to-line">
                   <v-list-item-title>Diameter</v-list-item-title>
                   <v-list-item-subtitle v-if="wheel.size">{{ wheel.size }}</v-list-item-subtitle>
                   <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
@@ -102,7 +104,7 @@
               </v-col>
               <v-divider vertical></v-divider>
               <v-col cols="12" sm="6" md="3">
-                <v-list-item density="compact" prepend-icon="fad fa-arrows-left-right-to-line">
+                <v-list-item prepend-icon="fad fa-arrows-left-right-to-line">
                   <v-list-item-title>Width</v-list-item-title>
                   <v-list-item-subtitle v-if="wheel.width">{{ wheel.width }}</v-list-item-subtitle>
                   <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
@@ -135,3 +137,20 @@
     </v-row>
   </v-container>
 </template>
+
+<style lang="scss">
+  @media (max-width: 600px) {
+    .top-section {
+      text-align: center;
+    }
+  }
+
+  .wheel-image {
+    margin-left: auto;
+
+    @media (max-width: 600px) {
+      margin-left: unset;
+      margin: auto;
+    }
+  }
+</style>
