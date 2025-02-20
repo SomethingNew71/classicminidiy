@@ -1,8 +1,37 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
-  import { ToolboxItems } from '~/data/models/generic';
+  import { ArchiveItems, ToolboxItems } from '~/data/models/generic';
   const { lgAndUp } = useDisplay();
   const showDrawer = ref(false);
+  const showArchive = ref(false);
+  const showToolbox = ref(false);
+  const showHome = ref(false);
+
+  function toggleDrawer() {
+    if (showArchive.value || showToolbox.value || showHome.value) {
+      showArchive.value = false;
+      showToolbox.value = false;
+      showHome.value = false;
+    }
+    showDrawer.value = !showDrawer.value;
+    showHome.value = !showHome.value;
+  }
+  function toggleSecondaryDrawer(drawer: 'home' | 'archive' | 'toolbox') {
+    showArchive.value = false;
+    showToolbox.value = false;
+    showHome.value = false;
+    switch (drawer) {
+      case 'home':
+        showHome.value = true;
+        break;
+      case 'archive':
+        showArchive.value = true;
+        break;
+      case 'toolbox':
+        showToolbox.value = true;
+        break;
+    }
+  }
 </script>
 
 <template>
@@ -20,9 +49,8 @@
     </template>
 
     <template #append>
-      <v-btn class="is-hidden-desktop" icon="fa:fad fa-bars" @click="showDrawer = !showDrawer" />
+      <v-btn class="is-hidden-desktop" icon="fa:fad fa-bars" @click="toggleDrawer()" />
       <div class="is-hidden-touch">
-        <!-- <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn> -->
         <v-btn
           prepend-icon="fa:fad fa-pencil"
           size="small"
@@ -79,51 +107,37 @@
       </div>
     </template>
   </v-app-bar>
+  <v-navigation-drawer v-model="showDrawer" theme="light" expand-on-hover permanent rail width="150">
+    <v-list density="compact" nav>
+      <v-list-item prepend-icon="fa:fad fa-house" title="Home" size="small" @click="toggleSecondaryDrawer('home')" />
+      <v-list-item
+        prepend-icon="fa:fad fa-books"
+        title="Archive"
+        size="small"
+        color="secondary"
+        @click="toggleSecondaryDrawer('archive')"
+      />
+      <v-list-item
+        prepend-icon="fa:fad fa-toolbox"
+        title="Tools"
+        color="primary"
+        size="small"
+        @click="toggleSecondaryDrawer('toolbox')"
+      />
+    </v-list>
+  </v-navigation-drawer>
 
-  <!-- MOBILE VERSION OF NAVIGATION -->
-  <v-navigation-drawer class="is-hidden-desktop" v-model="showDrawer">
-    <v-list density="compact" class="desktop-menu">
-      <v-list-item density="compact">
-        <v-btn prepend-icon="fa:fad fa-house" size="x-small" variant="text" to="/"> Home </v-btn></v-list-item
-      >
-      <v-list-item density="compact">
-        <v-btn
-          prepend-icon="fa:fad fa-pencil"
-          size="x-small"
-          variant="text"
-          target="_blank"
-          href="https://classicminidiy.substack.com/"
-        >
-          Blog
-        </v-btn></v-list-item
-      >
-      <v-list-item density="compact">
-        <v-btn
-          prepend-icon="fa:fad fa-store"
-          size="x-small"
-          variant="text"
-          target="_blank"
-          href="https://merch.classicminidiy.com"
-        >
-          Store
-        </v-btn></v-list-item
-      >
-      <v-list-item density="compact">
-        <v-btn prepend-icon="fa:fad fa-computer-classic" size="x-small" variant="text" to="/maps">
-          ECU Maps
-        </v-btn></v-list-item
-      >
-      <v-list-item density="compact">
-        <v-btn prepend-icon="fa:fad fa-books" size="x-small" variant="text" to="/archive"> Archive </v-btn></v-list-item
-      >
-      <v-list-subheader class="font-weight-bold"> Free Online Toolbox </v-list-subheader>
+  <v-navigation-drawer v-model="showDrawer" v-if="showArchive">
+    <v-list>
+      <v-list-subheader class="font-weight-bold"> Mini Archives </v-list-subheader>
       <v-list-item
         density="compact"
-        v-for="(item, i) in ToolboxItems"
+        v-for="(item, i) in ArchiveItems"
         :key="i"
         :value="item"
         :to="item.path"
-        class="mobile-menu"
+        :disabled="item.disabled"
+        class="mobile-menu pl-6"
       >
         <template v-slot:prepend>
           <div v-html="item.iconHtml" class="pr-2 is-size-5"></div>
@@ -131,6 +145,54 @@
         <v-list-item-title class="is-size-7" v-text="item.title"></v-list-item-title>
       </v-list-item>
     </v-list>
+  </v-navigation-drawer>
+  <v-navigation-drawer v-model="showDrawer" v-if="showToolbox">
+    <v-list>
+      <v-list-subheader class="font-weight-bold"> Free Online Toolbox </v-list-subheader>
+      <v-list-item
+        density="compact"
+        v-for="(item, i) in ToolboxItems"
+        :key="i"
+        :value="item"
+        :to="item.path"
+        class="mobile-menu pl-6"
+      >
+        <template v-slot:prepend>
+          <div v-html="item.iconHtml" class="pr-2 is-size-5"></div>
+        </template>
+        <v-list-item-title class="is-size-7" v-text="item.title"></v-list-item-title>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
+  <v-navigation-drawer v-model="showDrawer" v-if="showHome">
+    <v-list-item> <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn></v-list-item>
+    <v-list-item>
+      <v-btn
+        prepend-icon="fa:fad fa-pencil"
+        size="small"
+        variant="text"
+        target="_blank"
+        href="https://classicminidiy.substack.com/"
+      >
+        Blog
+      </v-btn></v-list-item
+    >
+    <v-list-item>
+      <v-btn
+        prepend-icon="fa:fad fa-store"
+        size="small"
+        variant="text"
+        target="_blank"
+        href="https://merch.classicminidiy.com"
+      >
+        Store
+      </v-btn></v-list-item
+    >
+    <v-list-item>
+      <v-btn prepend-icon="fa:fad fa-computer-classic" size="small" variant="text" to="/maps">
+        ECU Maps
+      </v-btn></v-list-item
+    >
   </v-navigation-drawer>
 </template>
 
