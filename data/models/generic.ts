@@ -26,6 +26,12 @@ export interface ToolboxItem {
   iconHtml: string;
   to: string;
 }
+export interface HomeItem {
+  title: string;
+  path: string;
+  iconHtml: string;
+  to: string;
+}
 export interface ArchiveItem {
   title: string;
   path: string;

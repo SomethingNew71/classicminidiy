@@ -135,6 +135,7 @@
               :loading="status === 'pending'"
               v-model:search="search"
               :items="colors || []"
+              :items-per-page-options="[10, 25]"
               :headers="tableHeaders"
               :item-value="'id'"
               fixed-header
@@ -145,7 +146,7 @@
                   variant="plain"
                   size="large"
                   icon="fad fa-share-from-square"
-                  :to="`/archive/colors/${item.id}`"
+                  :to="`/archive/colors/${item.id}?name=${item.name}`"
                 >
                 </v-btn>
               </template>
@@ -164,12 +165,21 @@
                     :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${item.code}.jpg`"
                     type="image/jpg"
                   />
-                  <img loading="lazy" alt="" :src="`https://classicminidiy.s3.amazonaws.com/colors/${item.code}.jpg`" />
+                  <v-img
+                    loading="lazy"
+                    width="200"
+                    alt=""
+                    :src="`https://classicminidiy.s3.amazonaws.com/colors/${item.code}.jpg`"
+                  />
                 </picture>
                 <picture v-else class="filler-image">
-                  <source srcset="https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp" type="image/webp" />
-                  <source srcset="https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg" type="image/jpg" />
-                  <img loading="lazy" alt="" src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg" />
+                  <source srcset="https://classicminidiy.s3.amazonaws.com/misc/noSwatch.jpeg" type="image/jpg" />
+                  <v-img
+                    loading="lazy"
+                    width="200"
+                    alt=""
+                    src="https://classicminidiy.s3.amazonaws.com/misc/noSwatch.jpeg"
+                  />
                 </picture>
               </template>
               <template v-slot:item.shortCode="{ item }">
@@ -217,7 +227,7 @@
                   variant="plain"
                   size="large"
                   icon="fa-duotone fa-edit"
-                  :to="`/archive/colors/contribute?colorId=${item.id}`"
+                  :to="`/archive/colors/contribute?color=${item.id}`"
                 >
                 </v-btn>
               </template>
@@ -228,11 +238,3 @@
     </v-container>
   </div>
 </template>
-<style lang="scss">
-  .filler-image {
-    img,
-    source {
-      filter: grayscale(100%);
-    }
-  }
-</style>
