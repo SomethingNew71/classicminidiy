@@ -1,14 +1,12 @@
 <script lang="ts" setup>
-  import { HERO_TYPES, SocialShareData } from '~/data/models/generic';
+  import { HERO_TYPES } from '~/data/models/generic';
   import { shareColorItem } from '~/data/models/helper-utils';
   const { params } = useRoute();
-  const colorId = ref(params.color);
   const { data: color, status } = await useFetch(`/api/colors/single`, {
     query: {
-      id: colorId,
+      id: params.color,
     },
   });
-  const socialShareUrl = ref(`${SocialShareData.preUrl}${color?.value?.raw.id}${SocialShareData.postUrl}`);
   const copied = ref(false);
   const shareImage = ref('');
 
@@ -16,7 +14,7 @@
     if (newColor?.raw.hasSwatch) {
       shareImage.value = `https://classicminidiy.s3.amazonaws.com/colors/${newColor.raw.code}.jpg`;
     } else {
-      shareImage.value = 'https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg';
+      shareImage.value = 'https://classicminidiy.s3.amazonaws.com/misc/noSwatch.jpeg';
     }
   });
 

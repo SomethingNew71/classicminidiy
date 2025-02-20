@@ -1,11 +1,10 @@
 <script lang="ts" setup>
   import type { PrettyColor } from '~/data/models/colors';
   import { HERO_TYPES } from '~/data/models/generic';
-  const route = useRoute();
-  const colorId = ref(route.query.colorId?.toString());
+  const { query } = useRoute();
   let { data: color, status } = await useFetch<PrettyColor>(`/api/colors/single`, {
     query: {
-      id: colorId,
+      id: query.color,
     },
   });
   const issueCreated = ref(false);

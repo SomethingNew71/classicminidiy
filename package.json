@@ -35,7 +35,7 @@
     "@aws-sdk/lib-dynamodb": "^3.751.0",
     "@aws-sdk/lib-storage": "^3.750.0",
     "@nuxt/content": "^3.1.1",
-    "@nuxtjs/robots": "^5.2.3",
+    "@nuxtjs/robots": "^5.2.4",
     "@octokit/core": "^6.1.4",
     "@types/node": "^22.13.4",
     "@types/youtube": "^0.1.0",
@@ -52,10 +52,10 @@
     "pg": "^8.13.3",
     "redirect-ssl": "^3.0.0",
     "sass": "^1.85.0",
-    "uuid": "^11.0.5",
+    "uuid": "^11.1.0",
     "vite-plugin-vuetify": "^2.1.0",
     "vue-cookie-law": "^1.13.3",
-    "vuetify": "3.7.12"
+    "vuetify": "3.7.13"
   },
   "devDependencies": {
     "@nuxt/image": "^1.9.0",
