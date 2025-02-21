@@ -1,4 +1,12 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import { ArchiveItems, ToolboxItems } from './data/models/generic';
+
+const parsedArchive = ArchiveItems.map((item) => {
+  return { title: item.title, description: item.description, href: `https://classicminidiy.com${item.to}` };
+});
+const parsedToolbox = ToolboxItems.map((item) => {
+  return { title: item.title, description: item.title, href: `https://classicminidiy.com${item.to}` };
+});
 
 export default defineNuxtConfig({
   /*
@@ -94,6 +102,7 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxt/content',
     '@nuxt/image',
+    'nuxt-llms',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
@@ -108,6 +117,45 @@ export default defineNuxtConfig({
       type: 'postgres',
       url: process.env.POSTGRES_POSTGRES_URL || '',
     },
+  },
+
+  llms: {
+    domain: 'https://classicminidiy.com',
+    title: 'Classic Mini DIY',
+    description:
+      'One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com',
+    sections: [
+      {
+        title: 'Archive',
+        description:
+          'Complete data protected repository of Classic Mini related documents, registries, libraries and more. Secured across multiple cloud locations to provide a permanent home for historical info for the Classic Mini',
+        links: parsedArchive,
+      },
+      {
+        title: 'Technical Toolbox',
+        description:
+          'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
+        links: parsedToolbox,
+      },
+      {
+        title: 'Manuals',
+        description:
+          'Technical documentation and guides for the classic mini. Currated and organized for easy viewing.',
+        contentCollection: 'manuals',
+      },
+      {
+        title: 'Advertisements',
+        description:
+          'Collection of hisorical advertisements for the classic mini. Currated and organized for easy viewing.',
+        contentCollection: 'adverts',
+      },
+      {
+        title: 'Carburetors',
+        description:
+          'Collection of hisorical related to Classic Mini Carburetors and tuning. Currated and organized for easy viewing.',
+        contentCollection: 'carbs',
+      },
+    ],
   },
 
   routeRules: {
