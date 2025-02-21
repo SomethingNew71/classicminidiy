@@ -107,7 +107,7 @@
       </div>
     </template>
   </v-app-bar>
-  <v-navigation-drawer v-model="showDrawer" theme="light" expand-on-hover permanent rail width="150">
+  <v-navigation-drawer v-model="showDrawer" theme="light" permanent rail width="150">
     <v-list density="compact" nav>
       <v-list-item prepend-icon="fa:fad fa-house" title="Home" size="small" @click="toggleSecondaryDrawer('home')" />
       <v-list-item
