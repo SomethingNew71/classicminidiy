@@ -280,7 +280,7 @@
               >
                 <template v-slot:prepend>
                   <v-avatar color="grey-lighten-1">
-                    <v-icon icon="fad fa-image"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-image"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
@@ -300,7 +300,7 @@
               >
                 <template v-slot:prepend>
                   <v-avatar color="grey-lighten-1">
-                    <v-icon icon="fad fa-image"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-image"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item> </v-list
@@ -378,42 +378,42 @@
               <v-list-item title="Wheel Name" :subtitle="name !== '' ? name : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
-                    <v-icon icon="fad fa-file-signature"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-file-signature"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
               <v-list-item title="Type" :subtitle="type !== '' ? type : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
-                    <v-icon icon="fad fa-box-open-full"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-box-open-full"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
               <v-list-item title="Width" :subtitle="width !== '' ? size : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
-                    <v-icon icon="fad fa-ruler-horizontal"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-ruler-horizontal"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
               <v-list-item title="Size" :subtitle="size !== '' ? size : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
-                    <v-icon icon="fad fa-ruler"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-ruler"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
               <v-list-item title="Offset" :subtitle="offset !== '' ? offset : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
-                    <v-icon icon="fad fa-arrow-right-from-line"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-arrow-right-from-line"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
               <v-list-item title="Notes" :subtitle="notes !== '' ? notes : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
-                    <v-icon icon="fad fa-notebook"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-notebook"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
@@ -421,14 +421,14 @@
               <v-list-item title="Your Name" :subtitle="userName">
                 <template v-slot:prepend>
                   <v-avatar>
-                    <v-icon icon="fad fa-id-card"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-id-card"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
               <v-list-item title="Email Address" :subtitle="emailAddress">
                 <template v-slot:prepend>
                   <v-avatar>
-                    <v-icon icon="fad fa-at"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-at"></v-icon>
                   </v-avatar>
                 </template>
               </v-list-item>
@@ -440,7 +440,7 @@
               <template v-if="dropFiles.length > 0">
                 <v-list-item v-for="(image, i) in dropFiles" :title="image.name" :subtitle="humanFileSize(image.size)">
                   <template v-slot:prepend>
-                    <v-icon icon="fad fa-image"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-image"></v-icon>
                   </template>
                 </v-list-item>
               </template>
@@ -456,7 +456,7 @@
       <v-card flat>
         <v-row dense class="mb-5" justify="center">
           <v-col cols="12" md="8" class="text-center">
-            <v-icon icon="fad check-to-slot" size=""></v-icon>
+            <v-icon hydrate-on-visible icon="fad check-to-slot" size=""></v-icon>
             <v-img
               alt="Classic Mini DIY Logo"
               src="https://classicminidiy.s3.amazonaws.com/misc/Small-Black.png"

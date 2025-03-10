@@ -31,7 +31,7 @@
   <v-col v-for="(table, name, index) in needlesTables" :key="index" cols="12" md="6">
     <v-card>
       <v-toolbar color="brand-green-3">
-        <v-icon class="ml-4" icon="fad fa-list-timeline"></v-icon>
+        <v-icon hydrate-on-visible class="ml-4" icon="fad fa-list-timeline"></v-icon>
         <v-toolbar-title>{{ table.title }}</v-toolbar-title>
       </v-toolbar>
       <v-card-text>

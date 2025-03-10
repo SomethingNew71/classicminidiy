@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { useDisplay } from 'vuetify';
-  import { ArchiveItems, ToolboxItems } from '~/data/models/generic';
+  import { ArchiveItems, DRAWER_TYPES, MobileMenuItems, ToolboxItems } from '~/data/models/generic';
   const { lgAndUp } = useDisplay();
   const showDrawer = ref(false);
   const showArchive = ref(false);
@@ -16,7 +16,7 @@
     showDrawer.value = !showDrawer.value;
     showHome.value = !showHome.value;
   }
-  function toggleSecondaryDrawer(drawer: 'home' | 'archive' | 'toolbox') {
+  function toggleSecondaryDrawer(drawer: DRAWER_TYPES) {
     showArchive.value = false;
     showToolbox.value = false;
     showHome.value = false;
@@ -107,23 +107,21 @@
       </div>
     </template>
   </v-app-bar>
-  <v-navigation-drawer v-model="showDrawer" theme="light" permanent rail width="150">
+  <v-navigation-drawer v-model="showDrawer" theme="light" permanent rail>
     <v-list density="compact" nav>
-      <v-list-item prepend-icon="fa:fad fa-house" title="Home" size="small" @click="toggleSecondaryDrawer('home')" />
       <v-list-item
-        prepend-icon="fa:fad fa-books"
-        title="Archive"
+        v-for="(item, i) in MobileMenuItems"
+        :key="i"
         size="small"
-        color="secondary"
-        @click="toggleSecondaryDrawer('archive')"
-      />
-      <v-list-item
-        prepend-icon="fa:fad fa-toolbox"
-        title="Tools"
-        color="primary"
-        size="small"
-        @click="toggleSecondaryDrawer('toolbox')"
-      />
+        @click="toggleSecondaryDrawer(item.drawer)"
+      >
+        <template v-slot:prepend>
+          <div v-html="item.iconHtml" class="pr-2 is-size-5"></div>
+        </template>
+        <v-list-item-title>
+          {{ item.title }}
+        </v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 
@@ -165,11 +163,16 @@
     </v-list>
   </v-navigation-drawer>
   <v-navigation-drawer v-model="showDrawer" v-if="showHome">
-    <v-list-item> <v-btn prepend-icon="fa:fad fa-house" size="small" variant="text" to="/"> Home </v-btn></v-list-item>
+    <v-list-item>
+      <v-btn prepend-icon="fa:fad fa-house" color="brand-green-1" size="small" variant="text" to="/">
+        Home
+      </v-btn></v-list-item
+    >
     <v-list-item>
       <v-btn
         prepend-icon="fa:fad fa-pencil"
         size="small"
+        color="secondary"
         variant="text"
         target="_blank"
         href="https://classicminidiy.substack.com/"
@@ -181,6 +184,7 @@
       <v-btn
         prepend-icon="fa:fad fa-store"
         size="small"
+        color="brand-blue-1"
         variant="text"
         target="_blank"
         href="https://merch.classicminidiy.com"

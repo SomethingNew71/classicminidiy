@@ -47,7 +47,7 @@
                 <div class="media">
                   <div class="media-left">
                     <figure class="image">
-                      <v-icon icon="fad fa-rectangle-history-circle-plus" size="x-large"></v-icon>
+                      <v-icon hydrate-on-visible icon="fad fa-rectangle-history-circle-plus" size="x-large"></v-icon>
                     </figure>
                   </div>
                   <div class="media-content">

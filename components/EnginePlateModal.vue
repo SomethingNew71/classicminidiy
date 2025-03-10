@@ -39,17 +39,19 @@
           <v-list lines="one">
             <v-list-item>
               <template v-slot:prepend>
-                <v-icon icon="fad fa-circle" :size="'x-small'"></v-icon>
+                <v-icon hydrate-on-visible icon="fad fa-circle" :size="'x-small'"></v-icon>
               </template>
               If the engine was rebuilt, and it was removed to deck the block
             </v-list-item>
             <v-list-item>
-              <template v-slot:prepend> <v-icon icon="fad fa-circle" :size="'x-small'"></v-icon> </template>
+              <template v-slot:prepend>
+                <v-icon hydrate-on-visible icon="fad fa-circle" :size="'x-small'"></v-icon>
+              </template>
               If the engine was replaced with a used engine, the plate may not have been transferred
             </v-list-item>
             <v-list-item>
               <template v-slot:prepend>
-                <v-icon icon="fad fa-circle" :size="'x-small'"></v-icon>
+                <v-icon hydrate-on-visible icon="fad fa-circle" :size="'x-small'"></v-icon>
               </template>
               They were removed by a previous owner for some reason.
             </v-list-item>

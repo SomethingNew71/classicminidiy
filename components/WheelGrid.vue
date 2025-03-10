@@ -52,7 +52,7 @@
   <v-data-iterator :loading="status === 'pending'" :items="filteredWheels || []" :items-per-page="12" :search="search">
     <template v-slot:header>
       <v-card-title class="d-flex align-center pe-2">
-        <v-icon icon="fad fa-tire fa-spin" class="me-1 py-2"></v-icon> &nbsp; Find Wheels
+        <v-icon hydrate-on-visible icon="fad fa-tire fa-spin" class="me-1 py-2"></v-icon> &nbsp; Find Wheels
         <v-spacer></v-spacer>
       </v-card-title>
       <v-card-text class="pb-10">

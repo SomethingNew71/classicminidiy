@@ -23,7 +23,13 @@
           <v-card class="mx-auto">
             <v-card-item title="Uh Oh!">
               <template v-slot:subtitle>
-                <v-icon class="me-1 pb-1" color="error" icon="fad fa-circle-exclamation" size="20"></v-icon>
+                <v-icon
+                  hydrate-on-visible
+                  class="me-1 pb-1"
+                  color="error"
+                  icon="fad fa-circle-exclamation"
+                  size="20"
+                ></v-icon>
 
                 An error occured when loading this page
               </template>
@@ -34,7 +40,12 @@
                 <v-col class="text-h2" cols="6"> {{ error?.statusCode }}</v-col>
 
                 <v-col class="text-right" cols="6">
-                  <v-icon color="yellow-darken-3" icon="fad fa-triangle-exclamation" size="88"></v-icon>
+                  <v-icon
+                    hydrate-on-visible
+                    color="yellow-darken-3"
+                    icon="fad fa-triangle-exclamation"
+                    size="88"
+                  ></v-icon>
                 </v-col>
               </v-row>
             </v-card-text>

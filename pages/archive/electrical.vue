@@ -64,7 +64,7 @@
                   target="_blank"
                 >
                   <template v-slot:subtitle>
-                    <v-icon icon="fad fa-calendar me-3"></v-icon>
+                    <v-icon hydrate-on-visible icon="fad fa-calendar me-3"></v-icon>
                     <template v-if="item.from || item.to"> {{ item.from || '?' }} - {{ item.to || '?' }} </template>
                     <template v-else> Dates Unknown </template>
                   </template>

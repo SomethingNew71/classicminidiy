@@ -58,7 +58,7 @@
     <v-row>
       <v-col cols="12">
         <v-breadcrumbs :items="crumbs" divider="/">
-          <template v-slot:prepend> <v-icon size="small" icon="fad fa-home"></v-icon> </template
+          <template v-slot:prepend> <v-icon hydrate-on-visible size="small" icon="fad fa-home"></v-icon> </template
         ></v-breadcrumbs>
       </v-col>
       <v-col cols="9">

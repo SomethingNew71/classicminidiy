@@ -49,7 +49,7 @@
     <v-row class="pt-5 mt-5">
       <v-col cols="12">
         <v-breadcrumbs :items="crumbs" divider="/">
-          <template v-slot:prepend> <v-icon size="small" icon="fad fa-book"></v-icon> </template
+          <template v-slot:prepend> <v-icon hydrate-on-visible size="small" icon="fad fa-book"></v-icon> </template
         ></v-breadcrumbs>
       </v-col>
       <template v-if="status === 'pending'">
@@ -58,6 +58,7 @@
       <template v-if="currentPostData && status !== 'pending'">
         <v-col cols="5" sm="3" md="2">
           <v-icon
+            hydrate-on-visible
             class="mx-auto pt-10"
             size="88"
             v-if="!currentPostData.image || currentPostData.image === ''"
@@ -71,11 +72,11 @@
         <v-col cols="12" sm="9" md="10" class="post">
           <h2 class="text-h4 text-capitalize pb-2 px-5">{{ currentPostData.title?.toLowerCase() }}</h2>
           <h3 class="px-5 pb-5">
-            <v-icon color="primary" icon="fad fa-list-timeline" start></v-icon>
+            <v-icon hydrate-on-visible color="primary" icon="fad fa-list-timeline" start></v-icon>
             <span class="text-button ms-1"> {{ currentPostData.code }} </span>
           </h3>
           <h3 v-if="currentPostData.download" class="px-5 pb-5">
-            <v-icon color="secondary" icon="fad fa-file" start></v-icon>
+            <v-icon hydrate-on-visible color="secondary" icon="fad fa-file" start></v-icon>
             <span class="text-button ms-1"> Type: {{ fileType }} </span>
           </h3>
           <p class="px-5">{{ currentPostData.description }}</p>

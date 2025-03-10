@@ -26,11 +26,16 @@ export interface ToolboxItem {
   iconHtml: string;
   to: string;
 }
-export interface HomeItem {
+export interface MobileMenuItem {
   title: string;
-  path: string;
   iconHtml: string;
-  to: string;
+  drawer: DRAWER_TYPES;
+}
+
+export enum DRAWER_TYPES {
+  HOME = 'home',
+  ARCHIVE = 'archive',
+  TOOLBOX = 'toolbox',
 }
 export interface ArchiveItem {
   title: string;
@@ -59,6 +64,25 @@ export const SocialItems: SocialItem[] = [
   { title: 'Classic Mini DIY on Facebook', href: 'https://facebook.com/classicminidiy', icon: 'fab fa-facebook' },
 ];
 
+export const MobileMenuItems: MobileMenuItem[] = [
+  {
+    title: 'Home',
+    iconHtml: '<i class="fa-duotone fa-house" style="--fa-primary-color: #417bbe; --fa-secondary-color: #5f6166;"></i>',
+    drawer: DRAWER_TYPES.HOME,
+  },
+  {
+    title: 'Toolbox',
+    iconHtml:
+      '<i class="fa-duotone fa-light fa-toolbox" style="--fa-primary-color: #2f2f2f; --fa-primary-opacity: 1; --fa-secondary-color: #fe424d; --fa-secondary-opacity: 0.9;"></i>',
+    drawer: DRAWER_TYPES.TOOLBOX,
+  },
+  {
+    title: 'Archive',
+    iconHtml:
+      '<i class="fa-duotone fa-solid fa-books" style="--fa-primary-color: #71784e; --fa-secondary-color: #af6946; --fa-secondary-opacity: 0.7;"></i>',
+    drawer: DRAWER_TYPES.ARCHIVE,
+  },
+];
 export const ToolboxItems: ToolboxItem[] = [
   {
     title: 'Torque Specs',

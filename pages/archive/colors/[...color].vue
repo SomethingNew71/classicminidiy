@@ -72,7 +72,14 @@
                 <v-col cols="6" class="text-center">
                   <h2 class="text-h5">{{ color.pretty.Name }}</h2>
                   <p class="text-capitalize pb-5 pt-2 text-body-1">
-                    <v-icon icon="fad fa-palette" size="18" color="primary" class="me-1 pb-1"></v-icon>Color Group:
+                    <v-icon
+                      hydrate-on-visible
+                      icon="fad fa-palette"
+                      size="18"
+                      color="primary"
+                      class="me-1 pb-1"
+                    ></v-icon
+                    >Color Group:
                     {{ color.pretty['Primary Color'] }}
                   </p>
                   <h3 class="text-h2">{{ color.pretty.Code }}</h3>

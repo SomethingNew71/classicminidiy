@@ -178,7 +178,12 @@
                     :items="yearRange.options[i]"
                   >
                     <template v-slot:prepend="{}">
-                      <v-icon icon="fas fa-circle-small" class="position" :class="'position-' + i"></v-icon>
+                      <v-icon
+                        hydrate-on-visible
+                        icon="fas fa-circle-small"
+                        class="position"
+                        :class="'position-' + i"
+                      ></v-icon>
                     </template>
                   </v-select>
                 </v-col>
@@ -186,7 +191,12 @@
               <v-col cols="12">
                 <v-text-field label="Enter your number hash" variant="outlined" v-model="reactiveForm.numbers">
                   <template v-slot:prepend="{}">
-                    <v-icon icon="fas fa-circle-small" class="position" :class="'position-numbers'"></v-icon> </template
+                    <v-icon
+                      hydrate-on-visible
+                      icon="fas fa-circle-small"
+                      class="position"
+                      :class="'position-numbers'"
+                    ></v-icon> </template
                 ></v-text-field>
                 <h3 v-if="yearRange.last.length < 1" class="fancy-font-bold is-size-6 pb-4">
                   Last position omitted in this year range
@@ -201,7 +211,7 @@
                   :items="yearRange.last"
                 >
                   <template v-slot:prepend="{}">
-                    <v-icon icon="fas fa-circle-small" class="position position-last"></v-icon>
+                    <v-icon hydrate-on-visible icon="fas fa-circle-small" class="position position-last"></v-icon>
                   </template>
                 </v-select>
               </v-col>
@@ -236,14 +246,24 @@
                   :title="'Position ' + i + (reactiveForm.options[i] ? ' - ' + reactiveForm.options[i] : '')"
                 >
                   <template v-slot:prepend="{}">
-                    <v-icon icon="fas fa-circle-small" class="position" :class="'position-' + i"></v-icon>
+                    <v-icon
+                      hydrate-on-visible
+                      icon="fas fa-circle-small"
+                      class="position"
+                      :class="'position-' + i"
+                    ></v-icon>
                   </template>
                 </v-list-item>
               </template>
               <v-list-item-title v-text="'Secondary Positions'"></v-list-item-title>
               <v-list-item :title="reactiveForm.numbers || '---'" :subtitle="'Sequential Build Number'">
                 <template v-slot:prepend="{}">
-                  <v-icon icon="fas fa-circle-small" class="position" :class="'position-numbers'"></v-icon>
+                  <v-icon
+                    hydrate-on-visible
+                    icon="fas fa-circle-small"
+                    class="position"
+                    :class="'position-numbers'"
+                  ></v-icon>
                 </template>
               </v-list-item>
               <v-list-item
@@ -251,7 +271,12 @@
                 :title="'Assembly Plant ' + (reactiveForm.last ? ' - ' + reactiveForm.last : '---')"
               >
                 <template v-slot:prepend="{}">
-                  <v-icon icon="fas fa-circle-small" class="position" :class="'position-last'"></v-icon>
+                  <v-icon
+                    hydrate-on-visible
+                    icon="fas fa-circle-small"
+                    class="position"
+                    :class="'position-last'"
+                  ></v-icon>
                 </template>
               </v-list-item>
             </v-list>
