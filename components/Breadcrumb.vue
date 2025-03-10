@@ -81,6 +81,6 @@
 </script>
 <template>
   <v-breadcrumbs :items="crumbs" divider="/">
-    <template v-slot:prepend> <v-icon size="small" icon="fad fa-home"></v-icon> </template
+    <template v-slot:prepend> <v-icon hydrate-on-visible size="small" icon="fad fa-home"></v-icon> </template
   ></v-breadcrumbs>
 </template>

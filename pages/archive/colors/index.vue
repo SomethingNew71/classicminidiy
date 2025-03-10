@@ -95,7 +95,7 @@
         <v-col cols="12">
           <v-card elevation="5">
             <v-card-title class="d-flex align-center pe-2">
-              <v-icon icon="fad fa-tire fa-spin" class="me-1 py-2"></v-icon> &nbsp; Find your Color
+              <v-icon hydrate-on-visible icon="fad fa-tire fa-spin" class="me-1 py-2"></v-icon> &nbsp; Find your Color
               <v-spacer></v-spacer>
               <v-text-field
                 v-if="mdAndUp"

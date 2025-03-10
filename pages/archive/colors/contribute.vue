@@ -98,7 +98,7 @@
       <v-col cols="12" md="4">
         <v-card>
           <v-toolbar color="grey">
-            <v-icon class="ml-4" icon="fad fa-list-timeline"></v-icon>
+            <v-icon hydrate-on-visible class="ml-4" icon="fad fa-list-timeline"></v-icon>
             <v-toolbar-title>Current Data</v-toolbar-title>
           </v-toolbar>
           <v-progress-circular v-if="status === 'pending'" :indeterminate="true" color="blue"></v-progress-circular>
@@ -138,7 +138,7 @@
       <v-col cols="12" md="8">
         <v-card>
           <v-toolbar color="primary">
-            <v-icon class="ml-4" icon="fad fa-sparkles"></v-icon>
+            <v-icon hydrate-on-visible class="ml-4" icon="fad fa-sparkles"></v-icon>
             <v-toolbar-title v-if="issueCreated">Submission Created</v-toolbar-title>
             <v-toolbar-title v-else>New Data</v-toolbar-title>
           </v-toolbar>

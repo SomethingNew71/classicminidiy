@@ -42,6 +42,7 @@
         <v-col v-for="{ raw: item } in items" :key="item.title" cols="auto" md="6" lg="4">
           <v-card class="pb-3 pt-3" border flat>
             <v-icon
+              hydrate-on-visible
               class="mx-auto pt-10 text-center text-h2 d-block pb-10"
               v-if="!item.image || item.image === ''"
               icon="fad fa-image-slash"
@@ -53,6 +54,7 @@
             <v-img v-else :src="item.image" max-height="150"> </v-img>
 
             <v-icon
+              hydrate-on-visible
               class="text-h4 text-right pr-3 d-flex ms-auto"
               color="secondary"
               :icon="'fa-duotone fa-solid fa-file-' + item?.download?.split('.').pop()?.toLowerCase()"

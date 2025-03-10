@@ -93,7 +93,7 @@
         <v-col cols="12">
           <v-card>
             <v-toolbar color="primary">
-              <v-icon class="ml-4" icon="fad fa-engine"></v-icon>
+              <v-icon hydrate-on-visible class="ml-4" icon="fad fa-engine"></v-icon>
               <v-toolbar-title>Engine Codes</v-toolbar-title>
             </v-toolbar>
             <v-toolbar color="primary">

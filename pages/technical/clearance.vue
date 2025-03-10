@@ -78,7 +78,7 @@
                 :search="table.search"
               >
                 <template v-slot:item.data-table-expand="{ item }">
-                  <v-icon icon="fad fa-chevron-down" :size="'small'"></v-icon>
+                  <v-icon hydrate-on-visible icon="fad fa-chevron-down" :size="'small'"></v-icon>
                 </template>
                 <template v-slot:expanded-row="{ columns, item }">
                   <tr>
