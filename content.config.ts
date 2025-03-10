@@ -7,10 +7,9 @@ export default defineContentConfig({
       // adds the robots frontmatter key to the collection
       asSitemapCollection({
         type: 'page',
-        // @ts-ignore
         source: {
           repository: 'https://github.com/Classic-Mini-DIY/archive',
-          include: ['**/*.md'],
+          include: '**/*.md',
         },
         schema: z.object({
           code: z.string(),
