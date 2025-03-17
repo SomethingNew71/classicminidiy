@@ -7,7 +7,7 @@
     type ISpeedometerTableItem,
     type IGearingTableItem,
     type ISpeedometer,
-  } from '../data/models/gearing';
+  } from '../../data/models/gearing';
 
   // Default Values for form elements
   const metric = ref(false);
@@ -317,7 +317,7 @@
         </div>
         <div class="level-item has-text-centered">
           <div>
-            <p class="heading">Circumfrence</p>
+            <p class="heading">Circumference</p>
             <p class="subtitle has-text-weight-bold">{{ tireInfo.circ || '---' }}mm</p>
           </div>
         </div>
@@ -386,7 +386,7 @@
     </v-col>
     <v-col cols="12">
       <div class="card">
-        <ClientOnly fallback-tag="p">
+        <ClientOnly fallback-tag="p" hydrate-on-visible>
           <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
           <template #fallback>
             <p class="pa-10 text-center text-h5">Chart is loading</p>
