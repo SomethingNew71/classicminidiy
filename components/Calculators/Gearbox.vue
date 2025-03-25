@@ -208,6 +208,14 @@
         :items="diffs"
         @update:modelValue="calculateRatio()"
       >
+        <template v-slot:item="{ props: itemProps, item }">
+          <v-list-item
+            v-bind="itemProps"
+            :value="item.raw.value"
+            :title="item.raw.label"
+            :subtitle="item.raw.subtitle"
+          ></v-list-item>
+        </template>
       </v-select>
     </v-col>
     <v-col cols="12"></v-col>
@@ -222,6 +230,14 @@
         :items="speedosRatios"
         @update:modelValue="calculateRatio()"
       >
+        <template v-slot:item="{ props: itemProps, item }">
+          <v-list-item
+            v-bind="itemProps"
+            :value="item.raw.value"
+            :title="item.raw.label"
+            :subtitle="item.raw.subtitle"
+          ></v-list-item>
+        </template>
       </v-select>
     </v-col>
     <v-col cols="12" md="6">
@@ -235,6 +251,14 @@
         :items="dropGears"
         @update:modelValue="calculateRatio()"
       >
+        <template v-slot:item="{ props: itemProps, item }">
+          <v-list-item
+            v-bind="itemProps"
+            :value="item.raw.value"
+            :title="item.raw.label"
+            :subtitle="item.raw.subtitle"
+          ></v-list-item>
+        </template>
       </v-select>
     </v-col>
     <v-col cols="12"></v-col>
