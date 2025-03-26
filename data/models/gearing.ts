@@ -147,7 +147,7 @@ export const options = {
     },
     {
       value: 3.47,
-      label: '3.47:1',
+      label: '3.47:1 17/59',
       subtitle: 'MED Straight Cut',
     },
     {
@@ -157,7 +157,7 @@ export const options = {
     },
     {
       value: 3.75,
-      label: '3.75:1',
+      label: '3.75:1 16/60',
       subtitle: 'MED LSD or MED Straight Cut',
     },
     {
@@ -167,7 +167,7 @@ export const options = {
     },
     {
       value: 3.88,
-      label: '3.88:1',
+      label: '3.88:1 16/62',
       subtitle: 'MED LSD or MED Straight Cut',
     },
     {
@@ -182,18 +182,18 @@ export const options = {
     { value: 3.875, label: '3.875:1 16/62', subtitle: 'Special' },
     {
       value: 4.066,
-      label: '4.066:1',
+      label: '4.066:1 15/61',
       subtitle: 'MED LSD or MED Straight Cut',
     },
     {
       value: 4.2,
-      label: '4.2:1',
+      label: '4.2:1 15/63',
       subtitle: 'MED LSD or MED Straight Cut',
     },
     { value: 4.35, label: '4.307:1 13/56', subtitle: 'Special' },
     {
       value: 4.5,
-      label: '4.5:1',
+      label: '4.5:1 14/63',
       subtitle: 'MED LSD',
     },
     { value: 4.571, label: '4.571:1 14/64', subtitle: 'Special' },
