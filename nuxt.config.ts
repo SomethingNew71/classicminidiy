@@ -29,14 +29,45 @@ export default defineNuxtConfig({
           content:
             'One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com',
         },
+        // Open Graph metadata for better social sharing
         {
           property: 'og:title',
           content: 'Classic Mini DIY',
         },
         {
+          property: 'og:description',
+          content: 'Technical information, tools, and resources for Classic Mini owners and enthusiasts.',
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          property: 'og:url',
+          content: 'https://classicminidiy.com',
+        },
+        {
           property: 'og:image',
           content: 'https://classicminidiy.s3.us-east-1.amazonaws.com/misc/seo-images/avatar.jpg',
         },
+        // Twitter Card metadata
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Classic Mini DIY',
+        },
+        {
+          name: 'twitter:description',
+          content: 'Technical information, tools, and resources for Classic Mini owners and enthusiasts.',
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://classicminidiy.s3.us-east-1.amazonaws.com/misc/seo-images/avatar.jpg',
+        },
+        // Facebook metadata
         {
           property: 'fb:pages',
           content: '615159745295369',
@@ -44,6 +75,11 @@ export default defineNuxtConfig({
         {
           name: 'facebook-domain-verification',
           content: 'hiuvhh3rwnxby3zewibo4t94tapz6u',
+        },
+        // Additional SEO metadata
+        {
+          name: 'theme-color',
+          content: '#ffffff',
         },
       ],
       link: [
@@ -60,13 +96,19 @@ export default defineNuxtConfig({
           sizes: '16x16',
         },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'preconnect preconnect preload dns-prefetch', href: 'https://use.typekit.net' },
+        // Performance optimizations for resource loading
+        { rel: 'preconnect', href: 'https://use.typekit.net', crossorigin: '' },
+        { rel: 'dns-prefetch', href: 'https://use.typekit.net' },
+        { rel: 'preconnect', href: 'https://classicminidiy.s3.us-east-1.amazonaws.com', crossorigin: '' },
+        { rel: 'dns-prefetch', href: 'https://classicminidiy.s3.us-east-1.amazonaws.com' },
         {
           rel: 'stylesheet',
           href: 'https://use.typekit.net/fgm1hlg.css',
           media: 'print',
           onload: 'this.media="all"',
         },
+        // Canonical URL to prevent duplicate content issues
+        { rel: 'canonical', href: 'https://classicminidiy.com' },
       ],
       script: [
         {
@@ -90,6 +132,16 @@ export default defineNuxtConfig({
    ** Global CSS
    */
   css: ['@/assets/main.scss', 'vuetify/lib/styles/main.sass'],
+  
+  // Performance optimization
+  experimental: {
+    // Enable view transitions for smoother page navigation
+    viewTransition: true,
+    // Improve performance with component islands
+    componentIslands: true,
+    // Optimize payload size
+    payloadExtraction: true,
+  },
 
   /*
    ** Plugins to load before mounting the App
@@ -115,6 +167,27 @@ export default defineNuxtConfig({
     database: {
       type: 'postgres',
       url: process.env.POSTGRES_POSTGRES_URL || '',
+    },
+  },
+
+  // Image optimization configuration
+  image: {
+    // Provider options
+    provider: 'ipx',
+    // Domains allowed for external images
+    domains: ['classicminidiy.s3.us-east-1.amazonaws.com'],
+    // Image formats to generate
+    format: ['webp', 'avif', 'jpg', 'png'],
+    // Default image quality
+    quality: 80,
+    // Responsive image sizes
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
     },
   },
 
@@ -166,6 +239,8 @@ export default defineNuxtConfig({
     '/privacy': { prerender: true },
     '/technical/parts': { prerender: true },
     '/technical/torque': { prerender: true },
+    '/technical/calculators/needles': { ssr: false },
+    '/technical/calculators/gearbox': { ssr: false },
   },
 
   robots: {
@@ -196,6 +271,27 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+  
+  // Optimize HTML output
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/archive', '/archive/engines', '/archive/registry', '/maps', '/privacy', '/technical/parts', '/technical/torque'],
+    },
+    // Enable compression for better performance
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true,
+    },
+    // Cache headers for static assets
+    routeRules: {
+      '/images/**': { headers: { 'cache-control': 'public,max-age=31536000,immutable' } },
+      '/fonts/**': { headers: { 'cache-control': 'public,max-age=31536000,immutable' } },
+      '/assets/**': { headers: { 'cache-control': 'public,max-age=31536000,immutable' } },
+    },
+    // Minify responses
+    minify: true,
+  },
   vite: {
     define: {
       'process.env.DEBUG': false,
@@ -203,6 +299,45 @@ export default defineNuxtConfig({
     vue: {
       template: {
         transformAssetUrls,
+      },
+    },
+    // Pre-optimize dependencies to prevent reloading on route changes
+    optimizeDeps: {
+      include: [
+        'luxon',
+        'lodash',
+        '@vercel/analytics',
+        'highcharts',
+        'highcharts/modules/exporting',
+        'highcharts/modules/export-data',
+        'highcharts/modules/accessibility'
+      ],
+      exclude: [],
+    },
+    // Optimize build performance
+    build: {
+      target: 'esnext',
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: process.env.NODE_ENV === 'production',
+        },
+      },
+      // Split chunks for better caching
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            highcharts: ['highcharts'],
+            vuetify: ['vuetify'],
+            vendors: ['luxon', 'lodash', '@vercel/analytics'],
+          },
+        },
+      },
+    },
+    // Optimize dev experience
+    server: {
+      hmr: {
+        overlay: true,
       },
     },
   },
@@ -213,6 +348,12 @@ export default defineNuxtConfig({
       name: 'Classic Mini Toolbox',
       short_name: 'CMDIY Toolbox',
       theme_color: '#ffffff',
+      background_color: '#ffffff',
+      description: 'Technical information and tools for Classic Mini owners and enthusiasts',
+      categories: ['automotive', 'tools', 'reference'],
+      lang: 'en',
+      display: 'standalone',
+      orientation: 'portrait',
       icons: [
         {
           src: 'icon.png',
@@ -236,6 +377,56 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      // Exclude Highcharts routes from service worker caching
+      // to prevent issues with client-side rendering
+      navigateFallbackDenylist: [/\/technical\/calculators\/needles/, /\/technical\/calculators\/gearbox/],
+      // Customize caching strategies
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/classicminidiy\.s3\.us-east-1\.amazonaws\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 's3-assets',
+            expiration: {
+              maxEntries: 100,
+              maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+            },
+          },
+        },
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg|webp)$/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images',
+            expiration: {
+              maxEntries: 60,
+              maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+            },
+          },
+        },
+        {
+          urlPattern: /\.(?:js|css)$/i,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'static-resources',
+            expiration: {
+              maxEntries: 60,
+              maxAgeSeconds: 60 * 60 * 24 * 7, // 7 days
+            },
+          },
+        },
+        {
+          urlPattern: /^https:\/\/fonts\.googleapis\.com/i,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'google-fonts',
+            expiration: {
+              maxEntries: 30,
+              maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+            },
+          },
+        },
+      ],
     },
     client: {
       installPrompt: true,
