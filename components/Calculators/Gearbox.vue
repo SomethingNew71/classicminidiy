@@ -31,7 +31,7 @@
   const speedos = ref(options.speedos);
   const rpmTicks = ref(options.rpmTicks);
 
-  // Component variables
+  // Component variables with proper typing
   const typeCircInMiles = ref<number | null>(null);
   const topSpeed = ref<string>('---');
   const tireInfo = ref({
@@ -50,12 +50,14 @@
   // Section for Table Data
   const tableDataGearing = ref<IGearingTableItem[]>([]);
   const tableDataSpeedos = ref<ISpeedometerTableItem[]>([]);
-  const tableHeadersGearing: any[] = tableHeaders.tableHeadersGearing;
-  const tableHeadersSpeedos: any[] = tableHeaders.tableHeadersSpeedos;
+  // Use type assertion to fix TypeScript errors with Vuetify table headers
+  const tableHeadersGearing = tableHeaders.tableHeadersGearing as any[];
+  const tableHeadersSpeedos = tableHeaders.tableHeadersSpeedos as any[];
 
-  // Section for Chart Data
-  const chartData = ref<any>([]);
-  const mapOptions = ref(chartOptions);
+  // Section for Chart Data with proper typing
+  const chartData = ref<Array<{ name: string; data: number[] }>>([]);
+  // Use type assertion to fix TypeScript errors
+  const mapOptions = ref(JSON.parse(JSON.stringify(chartOptions)) as typeof chartOptions);
 
   const YARDS_IN_MILE = 1760;
   const MM_IN_YARD = 914.4;
@@ -145,6 +147,14 @@
     generateChartData();
   }
 
+  // Make sure chart is properly rendered when component is mounted
+  onMounted(() => {
+    // Force chart redraw after component is mounted
+    nextTick(() => {
+      calculateRatio();
+    });
+  });
+
   function generateChartData() {
     chartData.value = [];
     const gearNames = ['1st Gear', '2nd Gear', '3rd Gear', '4th Gear'];
@@ -166,7 +176,8 @@
         data: speedData,
       });
     });
-    mapOptions.value.series = chartData.value;
+    // Use type assertion to fix TypeScript error
+    mapOptions.value.series = chartData.value as any;
   }
 
   calculateRatio();
@@ -410,9 +421,15 @@
     </v-col>
     <v-col cols="12">
       <div class="card">
-        <ClientOnly fallback-tag="p" hydrate-on-visible>
-          <highcharts ref="gearSpeedChart" :options="mapOptions"></highcharts>
+        <ClientOnly fallback-tag="span">
+          <highcharts
+            ref="gearSpeedChart"
+            :options="mapOptions"
+            :updateArgs="[true, true, true]"
+            :constructorType="'chart'"
+          ></highcharts>
           <template #fallback>
+            <v-skeleton-loader type="image" height="400px" class="pa-10"></v-skeleton-loader>
             <p class="pa-10 text-center text-h5">Chart is loading</p>
           </template>
         </ClientOnly>
