@@ -42,7 +42,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "axios": "^1.8.4",
-    "bulma": "git@github.com:jgthms/bulma.git#2172fa18c91333521e6df886915bd0bf551b0fba",
+    "bulma": "1.0.3",
     "core-js": "^3.41.0",
     "formidable": "^3.5.2",
     "highcharts": "^12.1.2",
