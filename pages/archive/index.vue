@@ -1,30 +1,78 @@
 <script setup lang="ts">
   import { ArchiveItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   import { ARCHIVE_TYPES, submitArchiveFile, TRACKING_EVENTS, trackStuff } from '~/data/models/helper-utils';
-  const { path } = await useRoute();
+  const { path } = useRoute();
 
+  // Enhanced SEO metadata
   useHead({
-    title: 'Classic Mini Archives',
+    title: 'Classic Mini Archives | Historical Documents & Resources | Classic Mini DIY',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content:
-          'Complete data protected repository of Classic Mini related documents, registries, libraries and more. Secured across multiple cloud locations to provide a permanent home for historical info for the Classic Mini',
+          'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources. Preserved digital collection for Mini enthusiasts and restorers.',
       },
       {
-        property: 'og:title',
-        content: 'CMDIY - Classic Mini Archive',
+        key: 'keywords',
+        name: 'keywords',
+        content:
+          'Classic Mini archives, Mini Cooper manuals, Mini registry, historical documents, Mini restoration, vintage Mini resources, classic car archives',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
       },
     ],
   });
+
   useSeoMeta({
-    ogTitle: 'CMDIY - Classic Mini Archive',
+    ogTitle: 'Classic Mini Archives | Historical Documents & Resources',
     ogDescription:
-      'Complete data protected repository of Classic Mini related documents, registries, libraries and more. Secured across multiple cloud locations to provide a permanent home for historical info for the Classic Mini',
-    ogUrl: 'classicminidiy.com/archive',
+      'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources. Preserved digital collection for Mini enthusiasts and restorers.',
+    ogUrl: 'https://classicminidiy.com/archive',
     ogType: 'website',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini Archives | Historical Documents & Resources',
+    twitterDescription:
+      'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+  });
+
+  // Add structured data for the archive collection
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Classic Mini Archives',
+    description:
+      'A comprehensive digital archive of Classic Mini documents, manuals, registries, and historical resources preserved for enthusiasts and restorers.',
+    url: 'https://classicminidiy.com/archive',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: ArchiveItems.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `https://classicminidiy.com${item.to}`,
+        name: item.title,
+      })),
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(collectionJsonLd),
+      },
+    ],
   });
 </script>
 

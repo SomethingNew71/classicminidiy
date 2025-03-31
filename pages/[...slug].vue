@@ -24,22 +24,86 @@
   });
 
   await useHead({
-    title: `Classic Mini Archive - ${currentPostData.value?.title}`,
+    title: `${currentPostData.value?.title} | Classic Mini Archive | Classic Mini DIY`,
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
-        content: currentPostData.value?.description,
+        content:
+          currentPostData.value?.description ||
+          `Archive resource for ${currentPostData.value?.title} in the Classic Mini DIY collection.`,
+      },
+      {
+        key: 'keywords',
+        name: 'keywords',
+        content: `Classic Mini, ${currentPostData.value?.title}, archive, Mini Cooper, ${fileType || 'resource'}, ${archiveType}`,
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: `https://classicminidiy.com${fullPath}`,
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
       },
     ],
   });
+
   await useSeoMeta({
-    ogTitle: `Classic Mini Archive - ${currentPostData.value?.title}`,
-    ogDescription: currentPostData.value?.description,
-    ogUrl: fullPath,
+    ogTitle: `${currentPostData.value?.title} | Classic Mini Archive`,
+    ogDescription:
+      currentPostData.value?.description ||
+      `Archive resource for ${currentPostData.value?.title} in the Classic Mini DIY collection.`,
+    ogUrl: `https://classicminidiy.com${fullPath}`,
     ogImage: currentPostData.value?.image,
     ogType: 'article',
     author: currentPostData.value?.author,
+    twitterCard: 'summary_large_image',
+    twitterTitle: `${currentPostData.value?.title} | Classic Mini Archive`,
+    twitterDescription:
+      currentPostData.value?.description ||
+      `Archive resource for ${currentPostData.value?.title} in the Classic Mini DIY collection.`,
+    twitterImage: currentPostData.value?.image,
+  });
+
+  // Add structured data for the archive item
+  const archiveItemJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'DigitalDocument',
+    name: currentPostData.value?.title,
+    description: currentPostData.value?.description,
+    url: `https://classicminidiy.com${fullPath}`,
+    image: currentPostData.value?.image,
+    encodingFormat: fileType,
+    author: {
+      '@type': 'Person',
+      name: currentPostData.value?.author || 'Classic Mini DIY',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://classicminidiy.s3.amazonaws.com/misc/logo.png',
+      },
+    },
+    isPartOf: {
+      '@type': 'CollectionPage',
+      name: 'Classic Mini Archives',
+      url: 'https://classicminidiy.com/archive',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(archiveItemJsonLd),
+      },
+    ],
   });
 </script>
 
@@ -63,14 +127,35 @@
             size="88"
             v-if="!currentPostData.image || currentPostData.image === ''"
             icon="fad fa-image-slash"
+            aria-label="No image available"
           ></v-icon>
-          <a v-else-if="currentPostData.download && currentPostData.download !== ''" :href="currentPostData.download">
-            <v-img :src="currentPostData.image" max-height="150"> </v-img>
+          <a
+            v-else-if="currentPostData.download && currentPostData.download !== ''"
+            :href="currentPostData.download"
+            :aria-label="`Download ${currentPostData.title}`"
+          >
+            <v-img
+              :src="currentPostData.image"
+              max-height="150"
+              :alt="`${currentPostData.title} preview image`"
+              width="150"
+              height="150"
+              loading="lazy"
+            >
+            </v-img>
           </a>
-          <v-img v-else :src="currentPostData.image" class="pa-10 mx-auto my-auto mt-3"></v-img>
+          <v-img
+            v-else
+            :src="currentPostData.image"
+            class="pa-10 mx-auto my-auto mt-3"
+            :alt="`${currentPostData.title} image`"
+            width="150"
+            height="150"
+            loading="lazy"
+          ></v-img>
         </v-col>
         <v-col cols="12" sm="9" md="10" class="post">
-          <h2 class="text-h4 text-capitalize pb-2 px-5">{{ currentPostData.title?.toLowerCase() }}</h2>
+          <h1 class="text-h4 text-capitalize pb-2 px-5">{{ currentPostData.title?.toLowerCase() }}</h1>
           <h3 class="px-5 pb-5">
             <v-icon hydrate-on-visible color="primary" icon="fad fa-list-timeline" start></v-icon>
             <span class="text-button ms-1"> {{ currentPostData.code }} </span>

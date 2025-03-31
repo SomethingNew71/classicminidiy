@@ -59,7 +59,7 @@
                 color="primary"
                 prepend-icon="fa-duotone fa-clipboard-question"
                 target="_blank"
-                href="https://github.com/SomethingNew71/classicminidiy/issues"
+                href="https://github.com/SomethingNew71/classicminidiy/issues?q=is%3Aissue%20"
                 >Track your Submission</v-btn
               >
             </div>
