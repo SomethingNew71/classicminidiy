@@ -81,6 +81,25 @@ export default defineNuxtConfig({
           name: 'theme-color',
           content: '#ffffff',
         },
+        // Mobile optimization
+        {
+          name: 'apple-mobile-web-app-capable',
+          content: 'yes',
+        },
+        {
+          name: 'apple-mobile-web-app-status-bar-style',
+          content: 'black-translucent',
+        },
+        // SEO tags
+        {
+          name: 'robots',
+          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        },
+        {
+          name: 'keywords',
+          content:
+            'classic mini, mini cooper, mini restoration, car repair, DIY, automotive, classic cars, british cars, mini parts',
+        },
       ],
       link: [
         {
@@ -109,11 +128,45 @@ export default defineNuxtConfig({
         },
         // Canonical URL to prevent duplicate content issues
         { rel: 'canonical', href: 'https://classicminidiy.com' },
+        // Alternative languages if you add them in the future
+        { rel: 'alternate', href: 'https://classicminidiy.com', hreflang: 'x-default' },
+        { rel: 'alternate', href: 'https://classicminidiy.com', hreflang: 'en' },
       ],
       script: [
         {
           src: 'https://kit.fontawesome.com/4e4435c885.js',
           crossorigin: 'anonymous',
+        },
+        // Structured data for better search results
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Classic Mini DIY',
+            url: 'https://classicminidiy.com',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://classicminidiy.com/search?q={search_term_string}',
+              'query-input': 'required name=search_term_string',
+            },
+          }),
+        },
+        // Organization schema
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Classic Mini DIY',
+            url: 'https://classicminidiy.com',
+            logo: 'https://classicminidiy.s3.us-east-1.amazonaws.com/misc/seo-images/avatar.jpg',
+            sameAs: [
+              'https://www.youtube.com/c/classicminidiy',
+              'https://www.facebook.com/classicminidiy',
+              'https://www.instagram.com/classicminidiy/',
+            ],
+          }),
         },
       ],
     },
@@ -126,13 +179,26 @@ export default defineNuxtConfig({
 
   sitemap: {
     sources: ['/api/__sitemap__/urls'],
+    xslColumns: [
+      { label: 'URL', width: '50%' },
+      { label: 'Last Modified', width: '25%' },
+      { label: 'Priority', width: '12.5%' },
+      { label: 'Change Frequency', width: '12.5%' },
+    ],
+    defaults: {
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    },
+    // Exclude client-only routes
+    exclude: ['/technical/calculators/needles', '/technical/calculators/gearbox'],
   },
 
   /*
    ** Global CSS
    */
   css: ['@/assets/main.scss', 'vuetify/lib/styles/main.sass'],
-  
+
   // Performance optimization
   experimental: {
     // Enable view transitions for smoother page navigation
@@ -141,6 +207,10 @@ export default defineNuxtConfig({
     componentIslands: true,
     // Optimize payload size
     payloadExtraction: true,
+    // Optimize page load with renderJsonPayloads
+    renderJsonPayloads: true,
+    // Improve performance with treeshaking
+    treeshakeClientOnly: true,
   },
 
   /*
@@ -246,6 +316,7 @@ export default defineNuxtConfig({
   robots: {
     // provide simple disallow rules for all robots `user-agent: *`
     disallow: ['/assets/', '/data/', '/server/', '/store/', '/plugins/'],
+    sitemap: ['/sitemap.xml'],
   },
 
   plugins: ['~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
@@ -271,12 +342,21 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
-  
+
   // Optimize HTML output
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/archive', '/archive/engines', '/archive/registry', '/maps', '/privacy', '/technical/parts', '/technical/torque'],
+      routes: [
+        '/',
+        '/archive',
+        '/archive/engines',
+        '/archive/registry',
+        '/maps',
+        '/privacy',
+        '/technical/parts',
+        '/technical/torque',
+      ],
     },
     // Enable compression for better performance
     compressPublicAssets: {
@@ -310,7 +390,7 @@ export default defineNuxtConfig({
         'highcharts',
         'highcharts/modules/exporting',
         'highcharts/modules/export-data',
-        'highcharts/modules/accessibility'
+        'highcharts/modules/accessibility',
       ],
       exclude: [],
     },
