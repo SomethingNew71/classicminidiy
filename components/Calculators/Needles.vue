@@ -7,7 +7,7 @@
   // Reactive chart options
   const reactiveChartOptions = ref(chartOptions);
   const allNeedles = ref<NeedleResponse>(needles);
-  const selectedNeedles = ref<Needle[]>(needles?.initial ? [...needles.initial] : []);
+  const selectedNeedles = ref<Needle[]>(needles.value.initial ? [...needles.value.initial] : []);
   const alreadyExistsError = ref(false);
   const emptyError = ref(false);
   const addNeedleValue: any = ref();
