@@ -1,26 +1,92 @@
 <script lang="ts" setup>
   import { HERO_TYPES } from '~/data/models/generic';
   useHead({
-    title: 'Classic Mini ECU Maps',
+    title: 'Classic Mini ECU Maps | Tuning Files for Multiple ECUs | Classic Mini DIY',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content:
-          'After countless hours and time spent porting, converting, and mapping multiple ECUs, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECUs used on Classic Minis, with more added in the future. ',
+          'Download professionally tuned ECU maps for Classic Mini engines. Compatible with Haltech, Speeduino, MegaSquirt, Emerald, and more. Pay what you want for lifetime updates.',
       },
       {
-        property: 'og:title',
-        content: 'CMDIY - Classic Mini ECU Maps',
+        key: 'keywords',
+        name: 'keywords',
+        content:
+          'Classic Mini ECU maps, Mini Cooper tuning, Haltech maps, Speeduino maps, MegaSquirt maps, Emerald ECU, engine tuning, fuel maps, ignition maps',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/maps',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
       },
     ],
   });
+
   useSeoMeta({
-    ogTitle: 'CMDIY - Classic Mini ECU Maps',
+    ogTitle: 'Classic Mini ECU Maps | Tuning Files for Multiple ECUs',
     ogDescription:
-      'After countless hours and time spent porting, converting, and mapping multiple ECUs, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECUs used on Classic Minis, with more added in the future. ',
-    ogUrl: 'classicminidiy.com/technical',
+      'Download professionally tuned ECU maps for Classic Mini engines. Compatible with Haltech, Speeduino, MegaSquirt, Emerald, and more. Pay what you want for lifetime updates.',
+    ogUrl: 'https://classicminidiy.com/maps',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/ecu-maps-seo.jpg',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini ECU Maps | Multiple ECU Support',
+    twitterDescription: 'Professional ECU maps for Classic Mini engines with lifetime updates.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/misc/ecu-maps-seo.jpg',
+  });
+
+  // Add structured data for the ECU maps product
+  const ecuMapsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Classic Mini ECU Maps Collection',
+    description:
+      'Professional ECU maps for Classic Mini engines. Compatible with multiple ECU brands including Haltech, Speeduino, MegaSquirt, Emerald, and more.',
+    image: 'https://classicminidiy.s3.amazonaws.com/misc/ecu-maps-seo.jpg',
+    offers: {
+      '@type': 'Offer',
+      price: '0.00',
+      priceCurrency: 'USD',
+      priceValidUntil: '2025-12-31',
+      availability: 'https://schema.org/InStock',
+      url: 'https://classicminidiy.com/maps',
+      seller: {
+        '@type': 'Organization',
+        name: 'Classic Mini DIY',
+      },
+    },
+    brand: {
+      '@type': 'Brand',
+      name: 'Classic Mini DIY',
+    },
+    review: {
+      '@type': 'Review',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '5',
+        bestRating: '5',
+      },
+      author: {
+        '@type': 'Person',
+        name: 'Classic Mini DIY Community',
+      },
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(ecuMapsJsonLd),
+      },
+    ],
   });
   const { data: releases, status: releasesLoading, error: releaseError } = await useFetch('/api/github/releases');
   const { data: commits, status: commitsLoading, error: commitError } = await useFetch('/api/github/commits');

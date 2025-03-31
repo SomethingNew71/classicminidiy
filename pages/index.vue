@@ -4,6 +4,91 @@
   const birthday = DateTime.local(1989, 5, 11);
   const today = DateTime.now();
   const age = ref<string | undefined>(today.diff(birthday, 'years').toObject().years?.toFixed(0));
+
+  // Enhanced SEO metadata
+  useHead({
+    title: 'Classic Mini DIY - Your Friendly Neighborhood Mini Resource',
+    meta: [
+      {
+        key: 'description',
+        name: 'description',
+        content:
+          'Classic Mini DIY provides DIY videos, tutorials, and tools to help keep your Classic Mini on the road. Resources for all skill levels of Classic Mini owners and enthusiasts.',
+      },
+      {
+        key: 'keywords',
+        name: 'keywords',
+        content: 'Classic Mini, DIY, tutorials, videos, car maintenance, Mini Cooper, automotive',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
+    ],
+  });
+
+  useSeoMeta({
+    ogTitle: 'Classic Mini DIY - Your Friendly Neighborhood Mini Resource',
+    ogDescription:
+      'Classic Mini DIY provides DIY videos, tutorials, and tools to help keep your Classic Mini on the road. Resources for all skill levels of Classic Mini owners and enthusiasts.',
+    ogUrl: 'https://classicminidiy.com/',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/home-seo.jpg',
+    ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini DIY - Your Friendly Neighborhood Mini Resource',
+    twitterDescription:
+      'Classic Mini DIY provides DIY videos, tutorials, and tools to help keep your Classic Mini on the road.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/misc/home-seo.jpg',
+  });
+
+  // Add structured data for homepage
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Classic Mini DIY',
+    url: 'https://classicminidiy.com/',
+    description:
+      'Classic Mini DIY provides DIY videos, tutorials, and tools to help keep your Classic Mini on the road.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://classicminidiy.com/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  // Add organization structured data
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Classic Mini DIY',
+    url: 'https://classicminidiy.com/',
+    logo: 'https://classicminidiy.s3.amazonaws.com/misc/logo.png',
+    sameAs: [
+      'https://www.youtube.com/c/classicminidiy',
+      'https://patreon.com/classicminidiy',
+      'https://github.com/Classic-Mini-DIY/classicminidiy',
+    ],
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(jsonLd),
+      },
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(organizationJsonLd),
+      },
+    ],
+  });
 </script>
 
 <template>
@@ -76,7 +161,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" md="5">
-            <video autoplay loop muted playsinline>
+            <video autoplay loop muted playsinline aria-label="Classic Mini Toolbox animation">
               <source src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.webm" type="video/webm" />
               <source src="https://classicminidiy.s3.amazonaws.com/misc/grey-tool-animation.mp4" type="video/mp4" />
             </video>
@@ -134,7 +219,7 @@
         </v-row>
         <v-row>
           <v-col cols="12" md="8" lg="6">
-            <h3 class="fancy-font-book-oblique"><i class="fad fa-hands-heart"></i> SUPPORT THE CHANNEL</h3>
+            <h2 class="fancy-font-book-oblique"><i class="fad fa-hands-heart"></i> SUPPORT THE CHANNEL</h2>
             <h3 class="fancy-font-bold is-size-3">Become a Patreon</h3>
             <p class="is-size-5">
               Classic Mini DIY is

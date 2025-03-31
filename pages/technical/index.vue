@@ -1,26 +1,70 @@
 <script lang="ts" setup>
   import { ToolboxItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
   useHead({
-    title: 'Technical Toolbox',
+    title: 'Classic Mini Technical Toolbox | DIY Calculators & Specifications',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content:
-          'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
+          'Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.',
       },
       {
-        property: 'og:title',
-        content: 'Technical Toolbox',
+        key: 'keywords',
+        name: 'keywords',
+        content:
+          'Classic Mini technical tools, Mini Cooper specifications, SU needle chart, compression calculator, torque specs, DIY Mini maintenance, technical reference',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/technical',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
       },
     ],
   });
+
   useSeoMeta({
-    ogTitle: 'CMDIY - Technical Toolkit',
+    ogTitle: 'Classic Mini Technical Toolbox | DIY Calculators & Specifications',
     ogDescription:
-      'The classic mini online toolbox, offering detailed information from a range of topics. Anything from torque specs to SU needle comparison can be found right here.',
-    ogUrl: 'classicminidiy.com/technical',
+      'Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.',
+    ogUrl: 'https://classicminidiy.com/technical',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/technical-seo.jpg',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini Technical Toolbox',
+    twitterDescription: 'DIY technical tools and specifications for Classic Mini maintenance and upgrades.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/misc/technical-seo.jpg',
+  });
+
+  // Add structured data for the technical toolbox collection
+  const toolboxJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Classic Mini Technical Toolbox',
+    description:
+      'Collection of technical tools, calculators, and specifications for Classic Mini maintenance and upgrades.',
+    url: 'https://classicminidiy.com/technical',
+    itemListElement: ToolboxItems.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://classicminidiy.com${item.to}`,
+      name: item.title,
+    })),
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(toolboxJsonLd),
+      },
+    ],
   });
 </script>
 

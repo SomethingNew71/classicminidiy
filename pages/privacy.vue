@@ -1,5 +1,67 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '~/data/models/generic';
+
+  useHead({
+    title: 'Privacy Policy | Classic Mini DIY',
+    meta: [
+      {
+        key: 'description',
+        name: 'description',
+        content:
+          'Classic Mini DIY privacy policy regarding data collection, storage, and use of YouTube API Services. Learn how we protect your information.',
+      },
+      {
+        key: 'keywords',
+        name: 'keywords',
+        content: 'privacy policy, Classic Mini DIY, data protection, YouTube API, terms of service, data collection',
+      },
+      {
+        key: 'robots',
+        content: 'noindex',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/privacy',
+      },
+    ],
+  });
+
+  useSeoMeta({
+    ogTitle: 'Privacy Policy | Classic Mini DIY',
+    ogDescription:
+      'Classic Mini DIY privacy policy regarding data collection, storage, and use of YouTube API Services.',
+    ogUrl: 'https://classicminidiy.com/privacy',
+    ogType: 'website',
+  });
+
+  // Add structured data for the privacy policy page
+  const privacyJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Privacy Policy',
+    description: 'Classic Mini DIY privacy policy regarding data collection, storage, and use of YouTube API Services.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://classicminidiy.s3.amazonaws.com/misc/logo.png',
+      },
+    },
+    url: 'https://classicminidiy.com/privacy',
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(privacyJsonLd),
+      },
+    ],
+  });
 </script>
 
 <template>
@@ -15,7 +77,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h2 class="text-h4 font-weight-medium">Policy</h2>
+        <h1 class="text-h4 font-weight-medium">Privacy Policy</h1>
 
         <ol class="pl-5 pt-5">
           <li>

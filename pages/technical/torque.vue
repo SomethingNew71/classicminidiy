@@ -11,22 +11,83 @@
   const panels = ref(['Engine']);
 
   useHead({
-    title: 'Tech - Mini Torque Specs',
+    title: 'Classic Mini Torque Specifications Chart | Classic Mini DIY',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
-        content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.',
+        content:
+          'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.',
+      },
+      {
+        key: 'keywords',
+        name: 'keywords',
+        content:
+          'Classic Mini torque specs, Mini Cooper fasteners, torque specifications, engine torque values, suspension torque, Mini maintenance, classic car specifications',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/technical/torque',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
       },
     ],
   });
+
   useSeoMeta({
-    ogTitle: 'Tech - Mini Torque Specs',
+    ogTitle: 'Classic Mini Torque Specifications Chart | Classic Mini DIY',
     ogDescription:
-      'Detailed torque specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
-    ogUrl: 'classicminidiy.com/technical/torque',
+      'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.',
+    ogUrl: 'https://classicminidiy.com/technical/torque',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini Torque Specifications Chart',
+    twitterDescription: 'Complete torque specifications for Classic Mini fasteners with values in lb/ft and Nm.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+  });
+
+  // Add structured data for the torque specifications reference
+  const torqueSpecsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Classic Mini Torque Specifications Chart',
+    description:
+      'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.',
+    image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    author: {
+      '@type': 'Person',
+      name: 'Classic Mini DIY',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://classicminidiy.s3.amazonaws.com/misc/logo.png',
+      },
+    },
+    url: 'https://classicminidiy.com/technical/torque',
+    mainEntity: {
+      '@type': 'Dataset',
+      name: 'Classic Mini Torque Specifications',
+      description: 'Comprehensive dataset of torque specifications for Classic Mini fasteners',
+      variableMeasured: ['Fastener Name', 'Torque in lb/ft', 'Torque in Nm', 'Additional Notes'],
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(torqueSpecsJsonLd),
+      },
+    ],
   });
 </script>
 
