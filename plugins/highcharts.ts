@@ -3,6 +3,7 @@ import 'highcharts/modules/exporting';
 import 'highcharts/modules/offline-exporting';
 import 'highcharts/modules/accessibility';
 import HighchartsVue, { Chart } from 'highcharts-vue';
+import { getCurrentInstance, onBeforeUnmount } from 'vue';
 
 // Set global Highcharts options for better rendering
 Highcharts.setOptions({
@@ -112,8 +113,11 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x: number, y: number, w: nu
 export default defineNuxtPlugin((nuxtApp) => {
   // Only register Highcharts on client-side to prevent SSR issues
   if (import.meta.client) {
-    // Register Highcharts with Vue
-    nuxtApp.vueApp.use(HighchartsVue, { highcharts: Highcharts });
+    // Register Highcharts with Vue using the plugin which will register the component automatically
+    nuxtApp.vueApp.use(HighchartsVue, {
+      highcharts: Highcharts,
+      tagName: 'highcharts', // Ensure consistent component name
+    });
 
     // Add a global mixin to handle chart resizing on tab/window visibility changes
     nuxtApp.vueApp.mixin({
@@ -127,17 +131,21 @@ export default defineNuxtPlugin((nuxtApp) => {
 
           document.addEventListener('visibilitychange', handleVisibilityChange);
 
-          // Clean up event listener
-          this.$on('hook:beforeDestroy', () => {
+          // Store cleanup function for unmounted hook
+          const cleanup = () => {
             document.removeEventListener('visibilitychange', handleVisibilityChange);
-          });
+          };
+
+          // Access the current component instance for cleanup
+          const instance = getCurrentInstance();
+          if (instance) {
+            // Use onBeforeUnmount for Vue 3 cleanup
+            onBeforeUnmount(cleanup, instance);
+          }
         }
       },
     });
   }
-
-  // Register the Chart component globally
-  nuxtApp.vueApp.component('highcharts', Chart);
 
   // Add a hook to ensure charts are properly rendered after route changes
   nuxtApp.hook('page:finish', () => {

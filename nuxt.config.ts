@@ -205,8 +205,8 @@ export default defineNuxtConfig({
     viewTransition: true,
     // Improve performance with component islands
     componentIslands: true,
-    // Optimize payload size
-    payloadExtraction: true,
+    // Disable payload extraction to prevent serialization errors with functions
+    payloadExtraction: false,
     // Optimize page load with renderJsonPayloads
     renderJsonPayloads: true,
     // Improve performance with treeshaking
@@ -343,6 +343,22 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
 
+  // Add custom reviver/replacer for functions that can't be serialized
+  hooks: {
+    'vite:extendConfig': (config) => {
+      // Ensure Highcharts is properly handled during SSR
+      if (!config.optimizeDeps) {
+        config.optimizeDeps = {};
+      }
+      if (!config.optimizeDeps.include) {
+        config.optimizeDeps.include = [];
+      }
+      if (Array.isArray(config.optimizeDeps.include)) {
+        config.optimizeDeps.include.push('highcharts', 'highcharts-vue');
+      }
+    },
+  },
+
   // Optimize HTML output
   nitro: {
     prerender: {
@@ -388,6 +404,7 @@ export default defineNuxtConfig({
         'lodash',
         '@vercel/analytics',
         'highcharts',
+        'highcharts-vue',
         'highcharts/modules/exporting',
         'highcharts/modules/export-data',
         'highcharts/modules/accessibility',
