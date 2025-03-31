@@ -38,7 +38,7 @@
     title: 'Classic Mini Archive - Advertisments',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'Currated collection of Classic Mini original Advertisments',
       },

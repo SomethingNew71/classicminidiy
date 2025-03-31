@@ -14,7 +14,7 @@
     title: 'Tech - Parts Equivalency',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'A complete list of parts which can be found at local parts sellers',
       },

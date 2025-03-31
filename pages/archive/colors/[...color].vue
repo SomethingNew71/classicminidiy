@@ -33,7 +33,7 @@
     title: `Mini Color - ${color.value?.pretty.Name} | ${color.value?.pretty.Code}`,
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'Check out the Classic Mini color I am looking at right now.',
       },

@@ -4,7 +4,7 @@
     title: 'Tech - Gearing Calculator',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content:
           "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",

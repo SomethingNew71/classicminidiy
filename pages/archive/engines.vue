@@ -16,7 +16,7 @@
     title: 'Tech - Engine Sizes and Displacements',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content:
           "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",

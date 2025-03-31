@@ -38,7 +38,7 @@
     title: 'Classic Mini Archive - Workshop Manuals',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
       },
