@@ -25,7 +25,7 @@
     title: 'Tech - Mini Clearances',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.',
       },

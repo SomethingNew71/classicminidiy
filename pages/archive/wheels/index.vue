@@ -4,7 +4,7 @@
     title: 'Archive - Wheel Dictionary',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content:
           'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',

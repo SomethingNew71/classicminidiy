@@ -20,7 +20,7 @@
     title: 'Archive - The Classic Mini Register',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'Complete compendium of all known minis, as submitted by their owners.',
       },

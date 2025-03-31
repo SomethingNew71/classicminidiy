@@ -7,7 +7,7 @@
     title: 'Archive - Electrical Diagrams',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
       },

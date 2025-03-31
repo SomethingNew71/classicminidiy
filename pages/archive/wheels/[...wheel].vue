@@ -32,7 +32,7 @@
     title: `Mini Wheels - ${wheel.value?.name} | ${wheel.value?.size} x ${wheel.value?.width}`,
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'Check out the Clasic Mini wheel I am looking at right now.',
       },

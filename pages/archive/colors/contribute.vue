@@ -32,7 +32,7 @@
     title: 'Contribute Color',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content:
           'The Classic Mini DIY Color Picker, an interactive tool allowing you to find the matching color code for your Classic Mini color swatch.',

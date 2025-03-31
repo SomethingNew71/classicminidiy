@@ -12,7 +12,7 @@
     title: 'Tech - Weights & Measurements',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content: 'Detailed weights & measurements can be found online right here at Classic Mini DIY.',
       },

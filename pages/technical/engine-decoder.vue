@@ -14,7 +14,7 @@
     title: 'Tech - Mini Engine Plate Decoder',
     meta: [
       {
-        hid: 'description',
+        key: 'description',
         name: 'description',
         content:
           "Decode your Classic Mini's Engine plate to determine the engine size and features of your car. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
