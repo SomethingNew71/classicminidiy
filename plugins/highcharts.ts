@@ -21,6 +21,14 @@ Highcharts.setOptions({
           }
         }, 100);
       },
+      render() {
+        // Add another reflow after render to ensure proper sizing
+        setTimeout(() => {
+          if (this.reflow) {
+            this.reflow();
+          }
+        }, 300);
+      },
     },
   },
   plotOptions: {
@@ -30,8 +38,40 @@ Highcharts.setOptions({
         inactive: {
           opacity: 0.6,
         },
+        hover: {
+          enabled: true,
+          lineWidth: 2,
+        },
+      },
+      // Improve accessibility with better point descriptions
+      point: {
+        events: {},
       },
     },
+  },
+  // Improve SEO with better text rendering
+  title: {
+    style: {
+      fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+      fontWeight: 'bold',
+    },
+  },
+  // Ensure responsive behavior
+  responsive: {
+    rules: [
+      {
+        condition: {
+          maxWidth: 500,
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom',
+          },
+        },
+      },
+    ],
   },
 });
 
@@ -70,8 +110,31 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x: number, y: number, w: nu
 ];
 
 export default defineNuxtPlugin((nuxtApp) => {
-  // Register Highcharts with Vue
-  nuxtApp.vueApp.use(HighchartsVue, { highcharts: Highcharts });
+  // Only register Highcharts on client-side to prevent SSR issues
+  if (import.meta.client) {
+    // Register Highcharts with Vue
+    nuxtApp.vueApp.use(HighchartsVue, { highcharts: Highcharts });
+
+    // Add a global mixin to handle chart resizing on tab/window visibility changes
+    nuxtApp.vueApp.mixin({
+      mounted() {
+        if (this.$refs.chart && this.$refs.chart.chart) {
+          const handleVisibilityChange = () => {
+            if (!document.hidden && this.$refs.chart && this.$refs.chart.chart) {
+              this.$refs.chart.chart.reflow();
+            }
+          };
+
+          document.addEventListener('visibilitychange', handleVisibilityChange);
+
+          // Clean up event listener
+          this.$on('hook:beforeDestroy', () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+          });
+        }
+      },
+    });
+  }
 
   // Register the Chart component globally
   nuxtApp.vueApp.component('highcharts', Chart);
