@@ -1,55 +1,99 @@
 <script lang="ts" setup>
   import type { IWheelsData } from '~/data/models/wheels';
+
+  // State management with proper typing
   const search = ref('');
   const size = ref('list');
-  const { data: wheels, status } = await useFetch<IWheelsData[]>(() => `/api/wheels/${size.value}`);
+  const selectedOffsets = ref<string[]>([]);
+  const selectedMaterials = ref<string[]>([]);
+
+  // Fetch wheels data with error handling
+  const {
+    data: wheels,
+    status,
+    error,
+  } = await useFetch<IWheelsData[]>(() => `/api/wheels/${size.value}`, {
+    watch: [size], // Automatically refetch when size changes
+    default: () => [], // Provide default value to prevent null reference errors
+  });
+
+  // Derived state with memoization
+  const allOffsets = computed(() => {
+    if (!wheels.value?.length) return [];
+
+    // Use Set for deduplication and performance
+    const offsetSet = new Set<string>();
+    wheels.value.forEach((wheel) => {
+      const trimmedOffset = wheel.offset?.trim() || '';
+      if (trimmedOffset) offsetSet.add(trimmedOffset);
+    });
+
+    return Array.from(offsetSet).sort();
+  });
+
+  const allMaterials = computed(() => {
+    if (!wheels.value?.length) return [];
+
+    // Use Set for deduplication and performance
+    const materialSet = new Set<string>();
+    wheels.value.forEach((wheel) => {
+      const trimmedType = wheel.type?.trim() || '';
+      if (trimmedType) materialSet.add(trimmedType);
+    });
+
+    return Array.from(materialSet).sort();
+  });
+
+  // Efficient filtering with memoization
   const filteredWheels = computed(() => {
-    if (!wheels.value) return [];
+    if (!wheels.value?.length) return [];
+
+    // Convert search to lowercase once for performance
+    const searchLower = search.value.toLowerCase();
+    const hasOffsetFilter = selectedOffsets.value.length > 0;
+    const hasMaterialFilter = selectedMaterials.value.length > 0;
+
     return wheels.value.filter((wheel) => {
-      const searchMatch = wheel.name.toLowerCase().includes(search.value.toLowerCase());
-      const offsetMatch = selectedOffsets.value.length === 0 || selectedOffsets.value.includes(wheel.offset.trim());
-      const materialMatch = selectedMaterials.value.length === 0 || selectedMaterials.value.includes(wheel.type.trim());
+      // Only perform string operations when necessary
+      const searchMatch = !searchLower || wheel.name.toLowerCase().includes(searchLower);
+
+      // Only check filter matches when filters are active
+      const offsetMatch = !hasOffsetFilter || selectedOffsets.value.includes(wheel.offset?.trim() || '');
+      const materialMatch = !hasMaterialFilter || selectedMaterials.value.includes(wheel.type?.trim() || '');
+
       return searchMatch && offsetMatch && materialMatch;
     });
   });
-  const allOffsets = ref<string[]>([]);
-  const selectedOffsets = ref<string[]>([]);
-  const allMaterials = ref<string[]>([]);
-  const selectedMaterials = ref<string[]>([]);
+
+  // Computed property for active filters state
   const filtersActive = computed(
     () => selectedOffsets.value.length > 0 || selectedMaterials.value.length > 0 || search.value !== ''
   );
 
-  function getAllOffsets() {
-    if (!wheels.value) return;
-    const offsets = wheels.value.map((wheel) => wheel.offset.trim());
-    allOffsets.value = Array.from(new Set(offsets))
-      .sort()
-      .filter((offset) => offset !== '');
-  }
-  function getAllMaterials() {
-    if (!wheels.value) return;
-    const materials = wheels.value.map((wheel) => wheel.type.trim());
-    allMaterials.value = Array.from(new Set(materials)).sort();
-  }
-
+  // Helper function to clear all filters
   function clearFilters() {
     search.value = '';
     selectedOffsets.value = [];
     selectedMaterials.value = [];
   }
-  // Watch for changes in wheels data and update offsets
-  watch(wheels, () => {
-    getAllOffsets();
-    getAllMaterials();
-  });
 
-  await getAllOffsets();
-  await getAllMaterials();
+  // Default fallback image URL for reuse
+  const DEFAULT_WHEEL_IMAGE = 'https://classicminidiy.s3.us-east-1.amazonaws.com/wheels/missing-wheel-image.png';
+
+  // Helper function to get proper image URL with fallback
+  function getWheelImageUrl(wheel: IWheelsData): string {
+    if (
+      !wheel.images?.[0]?.src ||
+      wheel.images[0].src === 'https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg'
+    ) {
+      return DEFAULT_WHEEL_IMAGE;
+    }
+    return wheel.images[0].src;
+  }
 </script>
 
 <template>
-  <v-data-iterator :loading="status === 'pending'" :items="filteredWheels || []" :items-per-page="12" :search="search">
+  <v-data-iterator :loading="status === 'pending'" :items="filteredWheels" :items-per-page="12" :search="search">
     <template v-slot:header>
       <v-card-title class="d-flex align-center pe-2">
         <v-icon hydrate-on-visible icon="fad fa-tire fa-spin" class="me-1 py-2"></v-icon> &nbsp; Find Wheels
@@ -114,27 +158,22 @@
 
     <template v-slot:default="{ items }">
       <v-row class="d-flex justify-center px-2">
-        <v-col v-for="{ raw: wheel } in items" :key="wheel.uuid" cols="12" sm="4" md="3">
+        <template v-if="error">
+          <v-col cols="12" class="text-center">
+            <v-alert type="error" title="Error loading wheels" :text="error.message" />
+          </v-col>
+        </template>
+        <v-col v-else v-for="{ raw: wheel } in items" :key="wheel.uuid" cols="12" sm="4" md="3">
           <v-card class="wheel-container" flat nuxt-link :to="`/archive/wheels/${wheel.uuid}`">
             <template v-if="wheel.images">
               <v-img
-                alt=""
-                :lazy-src="
-                  !wheel.images[0]?.src ||
-                  wheel.images[0]?.src === 'https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg'
-                    ? 'https://classicminidiy.s3.us-east-1.amazonaws.com/wheels/missing-wheel-image.png'
-                    : wheel.images[0].src
-                "
+                :alt="`${wheel.name} wheel`"
+                :lazy-src="getWheelImageUrl(wheel)"
                 class="mx-auto rounded-xl align-end wheel-image"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)"
                 aspect-ratio="1"
                 cover
-                :src="
-                  !wheel.images[0]?.src ||
-                  wheel.images[0]?.src === 'https://classicminidiy.s3.amazonaws.com/cloud-icon/missing.svg'
-                    ? 'https://classicminidiy.s3.us-east-1.amazonaws.com/wheels/missing-wheel-image.png'
-                    : wheel.images[0].src
-                "
+                :src="getWheelImageUrl(wheel)"
               >
                 <span class="float-right wheel-chip pr-2">
                   <v-chip v-if="wheel.size === '10'" color="green" class="" variant="flat"> {{ wheel.size }}in </v-chip>
@@ -180,7 +219,7 @@
 
     <template v-slot:loader>
       <v-row>
-        <v-col v-for="(_, k) in 12" :key="k" cols="12" sm="3">
+        <v-col v-for="index in 12" :key="`skeleton-${index}`" cols="12" sm="3">
           <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
         </v-col>
       </v-row>
