@@ -11,17 +11,22 @@
   });
   import type { IWheelsData } from '~/data/models/wheels';
   import { humanFileSize, TRACKING_EVENTS, trackStuff } from '~/data/models/helper-utils';
+
+  // Reactive state
   const { path } = await useRoute();
   const wheel = ref();
   const pageLoad = ref(true);
   const pageError = ref();
   const loading = ref(false);
   const hasError = ref(false);
-  const hasSuccess = ref();
+  const errorMessage = ref('');
+  const hasSuccess = ref(false);
   const detailsValid = ref(false);
   const imagesValid = ref(false);
   const contactValid = ref(false);
   const step = ref(1);
+
+  // Form fields
   const name = ref('');
   const type = ref('');
   const width = ref('');
@@ -32,12 +37,29 @@
   const emailAddress = ref('');
   const referral = ref('');
   const dropFiles = ref<File[]>([]);
+
+  // Available wheel sizes
+  const wheelSizes = ['10', '12', '13'];
+
+  // Form validation rules
   const contactRules = [
     (value: any) => {
       if (value?.length > 0) return true;
       return 'This field is required';
     },
   ];
+
+  const emailRules = [
+    (value: any) => {
+      if (value?.length > 0) return true;
+      return 'Email is required';
+    },
+    (value: any) => {
+      const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return pattern.test(value) || 'Please enter a valid email address';
+    },
+  ];
+
   const imageRules = [
     (value: any) => {
       return !value || !value.length || value[0].size < 3000000 || 'Wheel image size should be less than 3 MB!';
@@ -47,6 +69,7 @@
       return 'You cannot upload more than 5 images at a time.';
     },
   ];
+
   const imageRulesRequired = [
     (value: any) => {
       return !value || !value.length || value[0].size < 3000000 || 'Wheel image size should be less than 3 MB!';
@@ -61,6 +84,7 @@
     },
   ];
 
+  // Load existing wheel data if editing
   if (!props.newWheel) {
     await useFetch(`/api/wheels/wheel`, {
       query: {
@@ -69,8 +93,20 @@
     })
       .then(({ data }) => {
         wheel.value = data.value;
+        // Pre-populate form fields with existing data
+        if (wheel.value) {
+          name.value = wheel.value.name || '';
+          type.value = wheel.value.type || '';
+          width.value = wheel.value.width || '';
+          size.value = wheel.value.size || '';
+          offset.value = wheel.value.offset || '';
+          notes.value = wheel.value.notes || '';
+        }
       })
-      .catch((error) => (pageError.value = error))
+      .catch((error) => {
+        pageError.value = error;
+        errorMessage.value = 'Failed to load wheel data. Please try again.';
+      })
       .finally(() => {
         pageLoad.value = false;
       });
@@ -78,25 +114,54 @@
     pageLoad.value = false;
   }
 
-  async function sendNewInfo() {
-    loading.value = true;
-
-    await storeWheelDetails().then(async (res: any) => {
-      await storeWheelImages(res?.data?._rawValue.uuid)
-        .then(() => {
-          hasSuccess.value = true;
-          step.value = 5;
-        })
-        .catch((err) => {
-          hasError.value = true;
-          console.error(err);
-        })
-        .finally(() => {
-          loading.value = false;
-        });
-    });
+  // Reset form to initial state
+  function resetForm() {
+    name.value = '';
+    type.value = '';
+    width.value = '';
+    size.value = '';
+    offset.value = '';
+    notes.value = '';
+    userName.value = '';
+    emailAddress.value = '';
+    referral.value = '';
+    dropFiles.value = [];
+    step.value = 1;
+    hasError.value = false;
+    errorMessage.value = '';
+    hasSuccess.value = false;
   }
 
+  // Submit wheel data
+  async function sendNewInfo() {
+    loading.value = true;
+    hasError.value = false;
+    errorMessage.value = '';
+
+    try {
+      const detailsResponse = await storeWheelDetails();
+      const uuid = detailsResponse?.data?.value?.uuid;
+
+      if (!uuid) {
+        throw new Error('Failed to save wheel details');
+      }
+
+      if (dropFiles.value.length > 0) {
+        await storeWheelImages(uuid);
+      }
+
+      hasSuccess.value = true;
+      step.value = 5;
+    } catch (err: any) {
+      hasError.value = true;
+      errorMessage.value = err.message || 'An error occurred while submitting your wheel data';
+      console.error(err);
+    } finally {
+      loading.value = false;
+    }
+  }
+
+  // Store wheel details
   async function storeWheelDetails() {
     const details: IWheelsData = {
       uuid: props.uuid,
@@ -111,39 +176,57 @@
       referral: referral.value,
       newWheel: props.newWheel,
     };
+
     return await useFetch('/api/wheels/save/details', {
       method: 'POST',
       body: details,
       headers: { 'cache-control': 'no-cache' },
-    }).catch((err) => console.error(err));
+    }).catch((err) => {
+      console.error('Error saving wheel details:', err);
+      throw new Error('Failed to save wheel details');
+    });
   }
 
+  // Store wheel images
   async function storeWheelImages(uuid: string) {
+    if (!uuid || uuid === '') {
+      throw new Error('No UUID provided for image upload');
+    }
+
     const formData = new FormData();
-    await dropFiles.value.forEach((file, i) => {
+    dropFiles.value.forEach((file, i) => {
       formData.append(`file${i}`, file);
     });
-    if (uuid === '') {
-      console.error('No uuid provided for image upload');
-    } else {
-      await useFetch('/api/wheels/save/images', {
-        method: 'POST',
-        body: formData,
-        query: { uuid },
-        headers: { 'cache-control': 'no-cache' },
-      }).catch((err) => console.error(err));
-    }
+
+    return await useFetch('/api/wheels/save/images', {
+      method: 'POST',
+      body: formData,
+      query: { uuid },
+      headers: { 'cache-control': 'no-cache' },
+    }).catch((err) => {
+      console.error('Error uploading images:', err);
+      throw new Error('Failed to upload images');
+    });
   }
+
+  // Check if we can move to the next step
+  const canProceedToNextStep = computed(() => {
+    if (step.value === 1) return detailsValid.value;
+    if (step.value === 2) return imagesValid.value;
+    if (step.value === 3) return contactValid.value;
+    return true;
+  });
 </script>
 
 <template>
   <v-stepper v-model="step" :items="['Wheel Details', 'Images', 'Contact Info', 'Review', 'Submitted']">
     <template v-slot:item.1>
       <v-skeleton-loader v-if="pageLoad" type="list-item-two-line"> </v-skeleton-loader>
-      <div v-else-if="pageError">
-        <p>Error loading wheel - {{ pageError }}</p>
+      <div v-else-if="pageError" class="error-container pa-4">
+        <v-alert type="error" title="Error Loading Wheel" :text="errorMessage || 'Unable to load wheel data'" />
+        <v-btn color="primary" class="mt-4" @click="resetForm">Start Over</v-btn>
       </div>
-      <v-card v-else-if="wheel || newWheel" :title="newWheel ? 'Submit wheel' : 'Suggested Updates'" flat>
+      <v-card v-else-if="wheel || newWheel" :title="newWheel ? 'Submit New Wheel' : 'Suggest Updates'" flat>
         <v-form v-model="detailsValid">
           <v-container>
             <v-row>
@@ -210,7 +293,9 @@
                   :required="newWheel"
                   :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
                   label="Wheel Size"
-                  :items="['10', '12', '13']"
+                  :items="wheelSizes"
+                  hint="Diameter in inches"
+                  persistent-hint
                 ></v-select>
               </v-col>
 
@@ -341,12 +426,14 @@
               <v-text-field
                 prepend-icon="fad fa-at"
                 variant="solo-filled"
-                :rules="contactRules"
+                :rules="emailRules"
                 required
                 type="email"
                 v-model="emailAddress"
                 :counter="60"
                 label="Your Email"
+                hint="We'll never share your email with anyone else"
+                persistent-hint
               ></v-text-field>
               <v-label class="pb-2">How did you hear about CMIDY?</v-label>
               <v-text-field
@@ -389,7 +476,7 @@
                   </v-avatar>
                 </template>
               </v-list-item>
-              <v-list-item title="Width" :subtitle="width !== '' ? size : 'N/A'">
+              <v-list-item title="Width" :subtitle="width !== '' ? width : 'N/A'">
                 <template v-slot:prepend>
                   <v-avatar>
                     <v-icon hydrate-on-visible icon="fad fa-ruler-horizontal"></v-icon>
@@ -456,7 +543,7 @@
       <v-card flat>
         <v-row dense class="mb-5" justify="center">
           <v-col cols="12" md="8" class="text-center">
-            <v-icon hydrate-on-visible icon="fad check-to-slot" size=""></v-icon>
+            <v-icon hydrate-on-visible icon="fad fa-check-to-slot" size="x-large" color="success" class="mb-4"></v-icon>
             <v-img
               alt="Classic Mini DIY Logo"
               src="https://classicminidiy.s3.amazonaws.com/misc/Small-Black.png"
@@ -471,7 +558,15 @@
               resource and would like to contribute to keeping it online for years to come, please consider supporting
               the monthly hosting.
             </p>
-            <v-btn color="primary" href="https://patreon.com/classicminidiy" class="mx-1 my-1"> Support </v-btn>
+            <v-btn
+              color="primary"
+              href="https://patreon.com/classicminidiy"
+              class="mx-1 my-1"
+              target="_blank"
+              prepend-icon="fad fa-heart"
+            >
+              Support on Patreon
+            </v-btn>
             <v-btn
               prepend-icon="fa:fad fa-hand-holding-circle-dollar"
               class="me-3"
@@ -489,12 +584,80 @@
     </template>
     <template v-slot:actions>
       <v-row class="d-flex justify-space-between mx-5 mb-5">
-        <v-btn v-if="step !== 5" :disabled="step === 1" @click="step--">Previous</v-btn>
-        <v-btn v-if="step === 1" color="primary" @click="step++" :disabled="!detailsValid">Next</v-btn>
-        <v-btn v-if="step === 2" color="primary" @click="step++" :disabled="!imagesValid">Next</v-btn>
-        <v-btn v-if="step === 3" color="primary" @click="step++" :disabled="!contactValid">Next</v-btn>
-        <v-btn v-if="step === 4" color="primary" :loading="loading" @click="sendNewInfo()">Submit</v-btn>
+        <div>
+          <v-btn v-if="step !== 5 && step !== 1" variant="outlined" @click="step--" prepend-icon="fad fa-arrow-left">
+            Previous
+          </v-btn>
+          <v-btn v-if="step === 4" variant="outlined" class="ml-2" @click="resetForm"> Start Over </v-btn>
+        </div>
+
+        <div>
+          <v-btn
+            v-if="hasError"
+            color="error"
+            class="mr-2"
+            @click="
+              hasError = false;
+              errorMessage = '';
+            "
+          >
+            Clear Error
+          </v-btn>
+          <v-btn
+            v-if="step === 1"
+            color="primary"
+            @click="step++"
+            :disabled="!detailsValid"
+            append-icon="fad fa-arrow-right"
+          >
+            Next
+          </v-btn>
+          <v-btn
+            v-if="step === 2"
+            color="primary"
+            @click="step++"
+            :disabled="!imagesValid"
+            append-icon="fad fa-arrow-right"
+          >
+            Next
+          </v-btn>
+          <v-btn
+            v-if="step === 3"
+            color="primary"
+            @click="step++"
+            :disabled="!contactValid"
+            append-icon="fad fa-arrow-right"
+          >
+            Review
+          </v-btn>
+          <v-btn
+            v-if="step === 4"
+            color="primary"
+            :loading="loading"
+            @click="sendNewInfo()"
+            prepend-icon="fad fa-paper-plane"
+          >
+            Submit
+          </v-btn>
+        </div>
       </v-row>
+
+      <!-- Error alert -->
+      <v-alert
+        v-if="hasError"
+        type="error"
+        class="mx-5 mb-3"
+        closable
+        @click:close="
+          hasError = false;
+          errorMessage = '';
+        "
+      >
+        {{ errorMessage || 'An error occurred. Please try again.' }}
+      </v-alert>
+
+      <!-- Progress indicator -->
+      <v-progress-linear v-if="loading" indeterminate color="primary" class="mb-0"></v-progress-linear>
     </template>
   </v-stepper>
 </template>
