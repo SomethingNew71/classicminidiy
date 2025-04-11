@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   try {
     return await request('GET /repos/{owner}/{repo}', {
       headers: {
-        authorization: config.app.githubAPIKey,
+        authorization: config.githubAPIKey,
       },
       owner: 'SomethingNew71',
       repo: 'MiniECUMaps',

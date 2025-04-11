@@ -7,8 +7,8 @@ const createDynamoDBClient = (config: RuntimeConfig) => {
   return new DynamoDBClient({
     region: 'us-east-1',
     credentials: {
-      accessKeyId: config.app.dynamo_id,
-      secretAccessKey: config.app.dynamo_key,
+      accessKeyId: config.dynamo_id,
+      secretAccessKey: config.dynamo_key,
     },
   });
 };

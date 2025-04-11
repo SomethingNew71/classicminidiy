@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const baseURL = 'https://www.googleapis.com/youtube/v3/channels';
   const id = 'UCZIUfOFhrQ9nrR06IOoAJ2Q';
   const details = 'snippet,contentDetails,statistics';
-  const feed = `${baseURL}?key=${config.app.youtubeAPIKey}&id=${id}&part=${details}`;
+  const feed = `${baseURL}?key=${config.youtubeAPIKey}&id=${id}&part=${details}`;
 
   try {
     const response = await axios.get<YoutubeStatsResponse>(feed);

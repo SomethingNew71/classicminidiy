@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   return await request('POST /repos/SomethingNew71/classicminidiy/issues', {
     headers: {
-      authorization: config.app.githubAPIKey,
+      authorization: config.githubAPIKey,
       accept: 'application/vnd.github.v3+json',
     },
     title: `Update ${body.color.name} - ${body.color.code}`,

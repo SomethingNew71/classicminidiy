@@ -14,8 +14,8 @@ export default defineEventHandler(async (event) => {
   const uuid = params.uuid?.toString();
   const region = 'us-east-1';
   const credentials = {
-    accessKeyId: config.app.s3_id,
-    secretAccessKey: config.app.s3_key,
+    accessKeyId: config.s3_id,
+    secretAccessKey: config.s3_key,
   };
   const docClient = DynamoDBDocumentClient.from(new DynamoDBClient({ region, credentials }));
   const s3Client = new S3Client({ region, credentials });
