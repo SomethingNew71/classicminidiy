@@ -4,7 +4,7 @@
   const {
     data: registryItems,
     status: fetchStatus,
-    refresh,
+    refresh: refreshData,
   } = await useFetch<RegistryItem[]>('/api/registry/queue/list');
 
   interface TableHeader {
@@ -20,8 +20,10 @@
   const errorMessage = ref<string>('');
   const hasError = computed(() => !!errorMessage.value);
   const isProcessing = ref<boolean>(false);
+  const processingItemId = ref<string | null>(null);
   const selectedItem = ref<RegistryItem | null>(null);
   const showDeleteDialog = ref<boolean>(false);
+  const isRefreshing = ref<boolean>(false);
 
   const tableHeaders: TableHeader[] = [
     { title: 'Model', value: 'model', sortable: true },
@@ -41,6 +43,22 @@
   ];
 
   const isKeyValid = computed(() => key.value.length > 0);
+  const isTableLoading = computed(() => fetchStatus.value === 'pending' || isProcessing.value || isRefreshing.value);
+
+  // Wrapper for refresh to track loading state
+  async function refresh() {
+    if (isProcessing.value || isRefreshing.value) return;
+    
+    try {
+      isRefreshing.value = true;
+      await refreshData();
+    } catch (err) {
+      errorMessage.value = 'Failed to refresh data';
+      console.error('Refresh error:', err);
+    } finally {
+      isRefreshing.value = false;
+    }
+  }
 
   async function saveItem(item: RegistryItem) {
     if (!isKeyValid.value) {
@@ -48,8 +66,12 @@
       return;
     }
 
+    // Prevent multiple operations at once
+    if (isProcessing.value) return;
+
     try {
       isProcessing.value = true;
+      processingItemId.value = item.uniqueId;
       errorMessage.value = '';
 
       const { data, error, status } = await useFetch('/api/registry/queue/save', {
@@ -59,16 +81,27 @@
       });
 
       if (status.value === 'success') {
-        registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== item.uniqueId) || [];
+        // Type-safe approach to update the items list
+        if (registryItems.value) {
+          registryItems.value = registryItems.value.filter((i) => i.uniqueId !== item.uniqueId);
+        }
       } else if (error.value) {
-        errorMessage.value = error.value?.message || 'Error saving item';
-        console.error(error.value);
+        // More specific error handling
+        if (error.value.statusCode === 401) {
+          errorMessage.value = 'Invalid authentication key';
+        } else if (error.value.statusCode === 404) {
+          errorMessage.value = 'Registry item not found';
+        } else {
+          errorMessage.value = error.value?.message || 'Error saving item';
+        }
+        console.error('Save error:', error.value);
       }
     } catch (err) {
       errorMessage.value = 'Unexpected error occurred while saving';
-      console.error(err);
+      console.error('Save exception:', err);
     } finally {
       isProcessing.value = false;
+      processingItemId.value = null;
     }
   }
 
@@ -78,15 +111,20 @@
       return;
     }
 
+    // Prevent multiple operations at once
+    if (isProcessing.value) return;
+
     selectedItem.value = item;
     showDeleteDialog.value = true;
   }
 
   async function deleteItem() {
     if (!selectedItem.value) return;
+    if (isProcessing.value) return;
 
     try {
       isProcessing.value = true;
+      processingItemId.value = selectedItem.value.uniqueId;
       errorMessage.value = '';
 
       const { data, error, status } = await useFetch('/api/registry/queue/delete', {
@@ -100,18 +138,29 @@
       });
 
       if (status.value === 'success') {
-        registryItems.value = registryItems?.value?.filter((i) => i.uniqueId !== selectedItem.value?.uniqueId) || [];
+        // Type-safe approach to update the items list
+        if (registryItems.value) {
+          registryItems.value = registryItems.value.filter((i) => i.uniqueId !== selectedItem.value?.uniqueId);
+        }
         showDeleteDialog.value = false;
         selectedItem.value = null;
       } else if (error.value) {
-        errorMessage.value = error.value?.message || 'Error deleting item';
-        console.error(error.value);
+        // More specific error handling
+        if (error.value.statusCode === 401) {
+          errorMessage.value = 'Invalid authentication key';
+        } else if (error.value.statusCode === 404) {
+          errorMessage.value = 'Registry item not found';
+        } else {
+          errorMessage.value = error.value?.message || 'Error deleting item';
+        }
+        console.error('Delete error:', error.value);
       }
     } catch (err) {
       errorMessage.value = 'Unexpected error occurred while deleting';
-      console.error(err);
+      console.error('Delete exception:', err);
     } finally {
       isProcessing.value = false;
+      processingItemId.value = null;
     }
   }
 </script>
@@ -128,7 +177,7 @@
               variant="text"
               prepend-icon="fa-duotone fa-regular fa-rotate"
               @click="refresh"
-              :loading="fetchStatus === 'pending'"
+              :loading="isRefreshing || fetchStatus === 'pending'"
               :disabled="isProcessing"
               size="small"
             >
@@ -143,7 +192,7 @@
               dense
               placeholder="Enter Auth Key"
               prepend-icon="fa-duotone fa-regular fa-key"
-              :error-messages="!isKeyValid && key !== '' ? 'Auth key is required' : ''"
+              :error-messages="!isKeyValid && (key !== '' || hasError) ? 'Auth key is required' : ''"
               hide-details="auto"
               class="mb-4"
               autocomplete="off"
@@ -160,7 +209,7 @@
               {{ errorMessage }}
             </v-alert>
             <v-data-table
-              :loading="fetchStatus === 'pending' || isProcessing"
+              :loading="isTableLoading"
               :headers="tableHeaders"
               :items="registryItems || []"
               :item-value="'uniqueId'"
@@ -187,7 +236,7 @@
                   @click="saveItem(item)"
                   variant="text"
                   :disabled="!isKeyValid || isProcessing"
-                  :loading="isProcessing && selectedItem?.uniqueId === item.uniqueId"
+                  :loading="isProcessing && processingItemId === item.uniqueId"
                 >
                   Save
                 </v-btn>
@@ -198,6 +247,7 @@
                   @click="confirmDelete(item)"
                   variant="text"
                   :disabled="!isKeyValid || isProcessing"
+                  :loading="isProcessing && processingItemId === item.uniqueId && showDeleteDialog"
                 >
                   Delete
                 </v-btn>
