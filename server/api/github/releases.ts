@@ -6,7 +6,7 @@ export default defineEventHandler(async (): Promise<IGithubReleaseParsedResponse
 
   try {
     return await request('GET /repos/{owner}/{repo}/releases', {
-      headers: { authorization: config.app.githubAPIKey },
+      headers: { authorization: config.githubAPIKey },
       owner: 'SomethingNew71',
       repo: 'MiniECUMaps',
     }).then(({ data }): IGithubReleaseParsedResponse => {

@@ -9,13 +9,13 @@ const CMDIY_NAMEPSACE = 'a48a62bf-fec1-4ed7-9381-a1bf2a08738c';
 
 export default defineEventHandler(async (event): Promise<RegistryQueueSubmissionResponse> => {
   const config = useRuntimeConfig();
-  const octokit = new Octokit({ auth: config.app.githubAPIKey });
+  const octokit = new Octokit({ auth: config.githubAPIKey });
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: config.app.dynamo_id,
-        secretAccessKey: config.app.dynamo_key,
+        accessKeyId: config.dynamo_id,
+        secretAccessKey: config.dynamo_key,
       },
     })
   );

@@ -8,8 +8,8 @@ export default defineEventHandler(async (event: any): Promise<DeleteCommandOutpu
     new DynamoDBClient({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: config.app.dynamo_id,
-        secretAccessKey: config.app.dynamo_key,
+        accessKeyId: config.dynamo_id,
+        secretAccessKey: config.dynamo_key,
       },
     })
   );
@@ -23,10 +23,10 @@ export default defineEventHandler(async (event: any): Promise<DeleteCommandOutpu
     }>(event);
 
     console.log('Deleting registry queue item:', auth);
-    console.log('Deleting registry queue item:', config.app.validation_key);
-    console.log('Deleting registry queue item:', auth === config.app.validation_key);
+    console.log('Deleting registry queue item:', config.validation_key);
+    console.log('Deleting registry queue item:', auth === config.validation_key);
 
-    if (auth === config.app.validation_key) {
+    if (auth === config.validation_key) {
       return await docClient.send(
         new DeleteCommand({
           TableName: 'MiniRegisterQueue',

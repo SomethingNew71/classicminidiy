@@ -21,13 +21,13 @@ export default defineEventHandler(async (event) => {
     new DynamoDBClient({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: config.app.dynamo_id,
-        secretAccessKey: config.app.dynamo_key,
+        accessKeyId: config.dynamo_id,
+        secretAccessKey: config.dynamo_key,
       },
     })
   );
 
-  if (body.auth !== config.app.validation_key) {
+  if (body.auth !== config.validation_key) {
     return { response: 'User is not authorized' };
   }
 

@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
   const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
   const id = 'UUZIUfOFhrQ9nrR06IOoAJ2Q';
   const details = 'snippet';
-  const feed = `${baseURL}?key=${config.app.youtubeAPIKey}&playlistId=${id}&part=${details}`;
+  const feed = `${baseURL}?key=${config.youtubeAPIKey}&playlistId=${id}&part=${details}`;
 
   try {
     const response = await axios.get<YoutubeDataResponse>(feed);

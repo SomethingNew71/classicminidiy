@@ -11,8 +11,8 @@ export default defineEventHandler(async (event): Promise<GitlabRelease[]> => {
     return await axios
       .get(gitlabUrl, {
         headers: {
-          Authorization: `Bearer ${config.app.GITLAB}`,
-          'PRIVATE-TOKEN': `${config.app.GITLAB}`,
+          Authorization: `Bearer ${config.GITLAB}`,
+          'PRIVATE-TOKEN': `${config.GITLAB}`,
         },
       })
       .then(({ data }) => data);

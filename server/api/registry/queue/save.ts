@@ -8,8 +8,8 @@ export default defineEventHandler(async (event): Promise<void> => {
     new DynamoDBClient({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: config.app.dynamo_id,
-        secretAccessKey: config.app.dynamo_key,
+        accessKeyId: config.dynamo_id,
+        secretAccessKey: config.dynamo_key,
       },
     })
   );
@@ -22,7 +22,7 @@ export default defineEventHandler(async (event): Promise<void> => {
       auth: string;
     }>(event);
 
-    if (auth !== config.app.validation_key) {
+    if (auth !== config.validation_key) {
       throw new Error('Unauthorized');
     }
 

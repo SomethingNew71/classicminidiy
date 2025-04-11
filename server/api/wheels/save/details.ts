@@ -8,15 +8,15 @@ export default defineEventHandler(async (event) => {
   const body: IWheelsData = await readBody(event);
 
   if (body.uuid === '' || body.newWheel) {
-    body.uuid = uuidv5(`${body.userName}${body.name}${Math.random()}`, config.app.CMDIY_NAMEPSACE);
+    body.uuid = uuidv5(`${body.userName}${body.name}${Math.random()}`, config.CMDIY_NAMEPSACE);
   }
 
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: config.app.dynamo_id,
-        secretAccessKey: config.app.dynamo_key,
+        accessKeyId: config.dynamo_id,
+        secretAccessKey: config.dynamo_key,
       },
     })
   );
