@@ -26,7 +26,6 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "nuxi preview",
-    "fa": "npm config set \"@fortawesome:registry\" https://npm.fontawesome.com/ npm config set \"//npm.fontawesome.com/:_authToken\" ${fontAwesome}",
     "format": "prettier --write ."
   },
   "dependencies": {
