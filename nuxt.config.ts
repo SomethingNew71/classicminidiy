@@ -304,7 +304,6 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/archive': { prerender: true },
     '/archive/engines': { prerender: true },
-    '/maps': { prerender: true },
     '/privacy': { prerender: true },
     '/technical/parts': { prerender: true },
     '/technical/torque': { prerender: true },
@@ -364,7 +363,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/archive', '/archive/engines', '/maps', '/privacy', '/technical/parts', '/technical/torque'],
+      routes: ['/', '/archive', '/archive/engines', '/privacy', '/technical/parts', '/technical/torque'],
     },
     // Enable compression for better performance
     compressPublicAssets: {
