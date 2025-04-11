@@ -14,8 +14,8 @@ export default defineEventHandler(async (event): Promise<RegistryQueueSubmission
     new DynamoDBClient({
       region: 'us-east-1',
       credentials: {
-        accessKeyId: config.app.aws_access_key_id,
-        secretAccessKey: config.app.aws_secret_access_key,
+        accessKeyId: config.app.dynamo_id,
+        secretAccessKey: config.app.dynamo_key,
       },
     })
   );

@@ -25,8 +25,6 @@ const WHITELIST_PATHS = [
 ];
 
 export default defineEventHandler((event: H3Event) => {
-  console.log('Rate limiter passed');
-
   // Skip rate limiting for whitelisted paths
   const path = event.node.req.url || '';
   if (WHITELIST_PATHS.some((whitelistedPath) => path.startsWith(whitelistedPath))) {

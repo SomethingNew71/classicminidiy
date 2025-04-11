@@ -40,8 +40,6 @@ const SUSPICIOUS_PATTERNS = [
 ];
 
 export default defineEventHandler(async (event: H3Event) => {
-  console.log('API security middleware passed');
-
   // Get the path
   const path = event.node.req.url || '';
 
