@@ -26,16 +26,16 @@
     </div>
 
     <div class="stat">
-      <div class="stat-figure text-secondary">
-        <i class="fad fa-user text-accent text-3xl"></i>
+      <div class="stat-figure">
+        <i class="fad fa-user text-secondary text-3xl"></i>
       </div>
       <div class="stat-title">Subscribers</div>
-      <div class="stat-value text-accent" v-if="stats && stats.subscribers">{{ stats?.subscribers }}</div>
+      <div class="stat-value text-secondary" v-if="stats && stats.subscribers">{{ stats?.subscribers }}</div>
       <div class="stat-desc">across the world</div>
     </div>
 
     <div class="stat">
-      <div class="stat-figure text-info">
+      <div class="stat-figure">
         <i class="fad fa-video-camera text-info text-3xl"></i>
       </div>
       <div class="stat-value text-info" v-if="stats && stats.videos">{{ stats?.videos }}</div>

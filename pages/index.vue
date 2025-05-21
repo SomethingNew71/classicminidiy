@@ -18,13 +18,13 @@
     :navigation="true"
   />
   <div class="spacer layer"></div>
-  <div class="container pt-10">
+  <div class="container mx-auto px-4 pt-10">
     <div class="grid grid-cols-12 gap-4 pb-5">
       <div class="col-span-12"></div>
       <div class="col-span-12 md:col-span-8">
         <h2 class="fancy-font-book-oblique"><i class="fad fa-book"></i> THE MINI MISSION</h2>
-        <h3 class="fancy-font-bold text-h4 pt-2 pb-3">Keeping the Classics on the Road</h3>
-        <p class="text-xl pb-5">
+        <h3 class="text-3xl font-bold pt-2 pb-3">Keeping the Classics on the Road</h3>
+        <p class="text-lg pb-5">
           Classic Mini DIY started out of my small driveway workshop in 2015. I always focus on two things: keeping your
           Classic Mini on the road and making DIY car work accessible for all skill levels. I make DIY videos and
           tutorials showing exactly how to complete a wide range of jobs on your Classic Mini. I also partner with
@@ -35,8 +35,8 @@
       </div>
       <div class="col-span-12 md:col-span-4">
         <h3 class="fancy-font-book-oblique"><i class="fad fa-gift"></i> SUPPORT THE MISSION</h3>
-        <h4 class="fancy-font-bold text-h4 pt-2 pb-3">Support</h4>
-        <p class="text-xl pt-2 pb-3">
+        <h4 class="text-3xl font-bold pt-2 pb-3">Support</h4>
+        <p class="text-lg pt-2 pb-3">
           Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive,
           consider supporting on Patreon or if you have skills in JS and modern web technologies, please consider
           supporting the open source codebase on github.
@@ -61,7 +61,7 @@
   </div>
   <div class="spacer layer1"></div>
   <div class="bg-color-section">
-    <div class="container">
+    <div class="container mx-auto px-4 pt-10">
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12 md:col-span-5">
           <video autoplay loop muted playsinline>
@@ -71,9 +71,9 @@
         </div>
         <div class="col-span-12 md:col-span-7">
           <h3 class="fancy-font-book-oblique"><i class="fad fa-handshake-alt"></i> THE COMPLETELY FREE</h3>
-          <h3 class="fancy-font-bold text-h4">Classic Mini Toolbox</h3>
+          <h3 class="text-3xl font-bold">Classic Mini Toolbox</h3>
           <h4 class="fancy-font-book-oblique pt-5 pb-5">THE TOOLKIT FOR THE DIY MECHANIC</h4>
-          <p class="pb-5">
+          <p class="pb-5 text-lg">
             One of the largest reasons for starting this channel, was about making infromation related to working your
             Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining
             information from all over the web to bring you one location to find anything you need.
@@ -84,8 +84,8 @@
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12 md:col-span-8 lg:col-span-6">
           <h3 class="fancy-font-book-oblique pb-5"><i class="fad fa-hands-heart"></i> SUPPORT THE CHANNEL</h3>
-          <h3 class="fancy-font-bold text-h4 pb-5">Become a Patreon</h3>
-          <p class="text-xl">
+          <h3 class="text-3xl font-bold pb-5">Become a Patreon</h3>
+          <p class="text-lg">
             Classic Mini DIY is
             <strong>completely free resource</strong> supported by our viewers. If you are interested in helping to keep
             the channel alive, consider supporting on Patreon.
@@ -98,19 +98,19 @@
           </a>
 
           <div class="max-w-2xl mx-auto">
-            <div class="p-4 mt-5 max-w-md bg-white rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-4 mt-5 max-w-md bg-white rounded-lg shadow-md sm:p-8">
               <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold leading-none">Membership Includes</h3>
               </div>
               <div class="flow-root">
-                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700 benefits-list">
+                <ul role="list" class="divide-y divide-gray-200 benefits-list">
                   <li class="py-3 sm:py-4">
                     <div class="flex items-center space-x-4">
                       <div class="flex-shrink-0">
                         <i class="text-h4 fab fa-discord pt-2"></i>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium">Access to Live DIY Chat</p>
+                        <p class="text-lg font-medium">Access to Live DIY Chat</p>
                       </div>
                     </div>
                   </li>
@@ -120,7 +120,7 @@
                         <i class="text-h4 fad fa-video pt-2"></i>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium">Early Access to videos</p>
+                        <p class="text-lg font-medium">Early Access to videos</p>
                       </div>
                     </div>
                   </li>
@@ -130,7 +130,7 @@
                         <i class="text-h4 fad fa-gift pt-2"></i>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium">Free gifts and merch</p>
+                        <p class="text-lg font-medium">Free gifts and merch</p>
                       </div>
                     </div>
                   </li>
@@ -140,7 +140,7 @@
                         <i class="text-h4 fad fa-circle-info pt-2"></i>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium">Insider information and much more...</p>
+                        <p class="text-lg font-medium">Insider information and much more...</p>
                       </div>
                     </div>
                   </li>
@@ -157,7 +157,7 @@
   </div>
   <div class="spacer layer2"></div>
   <div class="mb-5">
-    <div class="container">
+    <div class="container mx-auto px-4">
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12 md:col-span-7">
           <h3 class="fancy-font-bold text-2xl"><i class="fad fa-address-card"></i> About Me</h3>
