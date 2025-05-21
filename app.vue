@@ -13,17 +13,13 @@
 </script>
 
 <template>
-  <v-app>
-    <main-nav></main-nav>
-    <NuxtLoadingIndicator />
-    <NuxtPage />
-    <div class="spacer layer1 mt-10"></div>
-    <Footer></Footer>
-    <v-spacer></v-spacer>
-    <VitePwaManifest />
-    <Analytics />
-    <SpeedInsights />
-  </v-app>
+  <MainNav></MainNav>
+  <NuxtLoadingIndicator />
+  <NuxtPage />
+  <Footer></Footer>
+  <VitePwaManifest />
+  <Analytics />
+  <SpeedInsights />
 </template>
 
 <style lang="scss">
