@@ -1,4 +1,4 @@
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import tailwindcss from '@tailwindcss/vite';
 import { ArchiveItems, ToolboxItems } from './data/models/generic';
 
 const parsedArchive = ArchiveItems.map((item) => {
@@ -19,7 +19,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
         prefix: 'og: https://ogp.me/ns#',
-        'data-theme': 'light',
+        'data-theme': 'cmdiy',
       },
       meta: [
         { charset: 'utf-8' },
@@ -197,7 +197,7 @@ export default defineNuxtConfig({
   /*
    ** Global CSS
    */
-  css: ['@/assets/main.scss', 'vuetify/lib/styles/main.sass'],
+  css: ['@/assets/daisy.css'],
 
   // Performance optimization
   experimental: {
@@ -225,12 +225,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-llms',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
-    (_options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) => {
-        // @ts-expect-error
-        config.plugins.push(vuetify({ autoImport: true }));
-      });
-    },
   ],
 
   content: {
@@ -318,7 +312,7 @@ export default defineNuxtConfig({
     sitemap: ['/sitemap.xml'],
   },
 
-  plugins: ['~/plugins/vuetify.ts', { src: '~/plugins/highcharts.ts', mode: 'client' }],
+  plugins: [{ src: '~/plugins/highcharts.ts', mode: 'client' }],
 
   runtimeConfig: {
     public: {
@@ -336,10 +330,6 @@ export default defineNuxtConfig({
     validation_key: process.env.validation_key,
     CMDIY_NAMEPSACE: process.env.CMDIY_NAMEPSACE,
     POSTGRES_POSTGRES_URL: process.env.POSTGRES_URL || '',
-  },
-
-  build: {
-    transpile: ['vuetify'],
   },
 
   // Add custom reviver/replacer for functions that can't be serialized
@@ -390,11 +380,7 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false,
     },
-    vue: {
-      template: {
-        transformAssetUrls,
-      },
-    },
+    plugins: [tailwindcss()],
     // Pre-optimize dependencies to prevent reloading on route changes
     optimizeDeps: {
       include: [
@@ -423,7 +409,6 @@ export default defineNuxtConfig({
         output: {
           manualChunks: {
             highcharts: ['highcharts'],
-            vuetify: ['vuetify'],
             vendors: ['luxon', 'lodash', '@vercel/analytics'],
           },
         },

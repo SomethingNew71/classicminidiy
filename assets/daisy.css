@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: 'cmdiy';
+  default: true;
+  prefersdark: false;
+  color-scheme: 'light';
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0 0);
+  --color-base-300: oklch(95% 0 0);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: #859369;
+  --color-primary-content: oklch(93% 0.034 272.788);
+  --color-secondary: #ed7135;
+  --color-secondary-content: oklch(94% 0.028 342.258);
+  --color-accent: #5e6647;
+  --color-accent-content: oklch(97% 0 0);
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: oklch(70% 0.165 254.624);
+  --color-info-content: oklch(97% 0 0);
+  --color-success: #4a7023;
+  --color-success-content: oklch(97% 0 0);
+  --color-warning: oklch(79% 0.184 86.047);
+  --color-warning-content: oklch(97% 0 0);
+  --color-error: #b22222;
+  --color-error-content: oklch(97% 0 0);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+.is-patreon {
+  background-color: #f96854 !important;
+  border-color: #f96854 !important;
+  color: white !important;
+}
+
+.is-guessworks {
+  background-color: #b8b8b8 !important;
+  border-color: #b8b8b8 !important;
+  color: white !important;
+}
+
+.is-amazon {
+  background-color: #febd69 !important;
+  border-color: #febd69 !important;
+  color: white !important;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.sentence-case {
+  text-transform: capitalize;
+}
+
+.spacer {
+  aspect-ratio: 900/100;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.spacer.layer {
+  margin-top: -10%;
+  background-image: url('/img/layer.svg');
+}
+.spacer.layer1 {
+  margin-top: -5%;
+  background-image: url('/img/layer1.svg');
+}
+.spacer.layer2 {
+  background-image: url('/img/layer2.svg');
+}
+
+@font-face {
+  font-family: discord;
+  src: url('~/assets/fonts/discord-thin.otf') format('opentype');
+}
+
+@font-face {
+  font-family: discord-bold;
+  src: url('~/assets/fonts/discord-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: whitney-book;
+  src: url('~/assets/fonts/whitneybook.woff') format('opentype');
+}
+
+@font-face {
+  font-family: whitney-semibold;
+  src: url('~/assets/fonts/whitneysemibold.woff') format('opentype');
+}
+
+/* Futura PT Heavy */
+.fancy-font-heavy {
+  font-family: futura-pt, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Heavy Oblique */
+.fancy-font-heavy-oblique {
+  font-family: futura-pt, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura PT Book */
+.fancy-font-book {
+  font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Book Oblique */
+.fancy-font-book-oblique {
+  font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura PT Bold */
+.fancy-font-bold {
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Bold Oblique */
+.fancy-font-bold-oblique {
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura PT Cond Book */
+.fancy-font-cond-book {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Futura PT Cond Book Oblique */
+.fancy-font-cond-book-oblique {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura PT Cond Bold */
+.fancy-font-cond-bold {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Cond Bold Oblique */
+.fancy-font-cond-bold-oblique {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
