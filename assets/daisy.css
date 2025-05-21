@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import '@fontsource/outfit';
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
 @plugin "daisyui/theme" {
@@ -6,12 +7,13 @@
   default: true;
   prefersdark: false;
   color-scheme: 'light';
+  font-family: Outfit;
   --color-base-100: oklch(100% 0 0);
   --color-base-200: oklch(98% 0 0);
   --color-base-300: oklch(95% 0 0);
   --color-base-content: oklch(21% 0.006 285.885);
   --color-primary: #859369;
-  --color-primary-content: oklch(93% 0.034 272.788);
+  --color-primary-content: oklch(97% 0 0);
   --color-secondary: #ed7135;
   --color-secondary-content: oklch(94% 0.028 342.258);
   --color-accent: #5e6647;
@@ -75,14 +77,14 @@
 
 .spacer.layer {
   margin-top: -10%;
-  background-image: url('/img/layer.svg');
+  background-image: url('https://classicminidiy.s3.us-east-1.amazonaws.com/misc/layer.svg');
 }
 .spacer.layer1 {
   margin-top: -5%;
-  background-image: url('/img/layer1.svg');
+  background-image: url('https://classicminidiy.s3.us-east-1.amazonaws.com/misc/layer1.svg');
 }
 .spacer.layer2 {
-  background-image: url('/img/layer2.svg');
+  background-image: url('https://classicminidiy.s3.us-east-1.amazonaws.com/misc/layer2.svg');
 }
 
 @font-face {
