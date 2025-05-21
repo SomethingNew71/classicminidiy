@@ -197,6 +197,7 @@ export default defineNuxtConfig({
   /*
    ** Global CSS
    */
+  // Global CSS files
   css: ['@/assets/daisy.css'],
 
   // Performance optimization
@@ -376,6 +377,7 @@ export default defineNuxtConfig({
     // Minify responses
     minify: true,
   },
+
   vite: {
     define: {
       'process.env.DEBUG': false,
