@@ -7,14 +7,13 @@
   // Reactive chart options
   const reactiveChartOptions = ref(chartOptions);
   const allNeedles = ref<NeedleResponse>(needles);
-  const selectedNeedles = ref<Needle[]>(needles.value.initial ? [...needles.value.initial] : []);
+  const selectedNeedles = ref<Needle[]>(needles?.value?.initial ? [...needles.value.initial] : []);
   const alreadyExistsError = ref(false);
   const emptyError = ref(false);
   const addNeedleValue: any = ref();
 
   // DaisyUI specific reactive properties
   const searchText = ref('');
-  const dropdownOpen = ref(false);
 
   // Computed property for filtered needles based on search text
   const filteredNeedles = computed(() => {
@@ -23,22 +22,6 @@
       needle.name.toLowerCase().includes(searchText.value.toLowerCase())
     );
   });
-
-  // Function to select a needle from the dropdown
-  function selectNeedle(needle: Needle) {
-    addNeedleValue.value = needle;
-    searchText.value = needle.name;
-    dropdownOpen.value = false;
-    // Log for debugging
-    console.log('Selected needle:', needle);
-  }
-
-  // Function to handle blur event on the input
-  function handleBlur() {
-    window.setTimeout(() => {
-      dropdownOpen.value = false;
-    }, 200);
-  }
 
   function updateArrayItem() {
     reactiveChartOptions.value.series = selectedNeedles.value;
@@ -77,7 +60,7 @@
 
 <template>
   <div class="grid grid-cols-12 gap-3 configurator-component">
-    <div class="col-span-4">
+    <div class="col-span-12 md:col-span-4">
       <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
           <h3 class="fancy-font-bold text-xl pb-3">Add a Needle To Compare</h3>
@@ -113,10 +96,7 @@
           <template v-else-if="allNeedles && selectedNeedles">
             <!-- Needle selection dropdown -->
             <div class="form-control w-full">
-              <select 
-                class="select select-bordered w-full" 
-                v-model="addNeedleValue"
-              >
+              <select class="select select-bordered w-full" v-model="addNeedleValue">
                 <option :value="null" disabled selected>Select a needle</option>
                 <option v-for="needle in allNeedles.all" :key="needle.name" :value="needle">
                   {{ needle.name }}
@@ -204,7 +184,7 @@
         </div>
       </div>
     </div>
-    <div class="col-span-8">
+    <div class="col-span-12 md:col-span-8">
       <div class="card bg-base-100 shadow-xl">
         <div class="card-body p-2">
           <ClientOnly fallback-tag="span">
