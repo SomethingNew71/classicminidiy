@@ -83,8 +83,8 @@
         <li>
           <details>
             <summary><i class="fad fa-toolbox"></i>Toolbox</summary>
-            <ul class="p-2">
-              <li v-for="item in ToolboxItems" class="w-40">
+            <ul class="p-2 z-100">
+              <li v-for="item in ToolboxItems" class="w-40 z-100">
                 <nuxt-link :to="item.to"> <span v-html="item.iconHtml"></span> {{ item.title }} </nuxt-link>
               </li>
             </ul>
