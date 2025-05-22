@@ -29,7 +29,7 @@
 
 <template>
   <div class="grid grid-cols-12 gap-6">
-    <div v-for="(table, name) in needlesTables" :key="name" class="col-span-6">
+    <div v-for="(table, name) in needlesTables" :key="name" class="col-span-12 md:col-span-6">
       <div class="card bg-base-100 shadow-xl">
         <div class="card-body p-0">
           <!-- Card header -->
