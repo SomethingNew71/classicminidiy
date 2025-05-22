@@ -86,54 +86,56 @@
 
 <template>
   <hero :navigation="true" :title="'Needle Configurator'" :heroType="HERO_TYPES.TECH" />
-  <v-container>
-    <v-row>
-      <v-col cols="12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-12">
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Needle Comparison"></breadcrumb>
-      </v-col>
-      <v-col cols="12">
-        <h1 class="fancy-font-bold is-size-3">SU Carburettor Needles Comparison Tool</h1>
-        <p class="is-size-5 pt-5">
+      </div>
+      <div class="col-span-12">
+        <h1 class="fancy-font-bold text-2xl">SU Carburettor Needles Comparison Tool</h1>
+        <p class="text-lg pt-5">
           One of the most confusing things about working on your Classic Mini often is the carburettor needle used on
           your car. Below you will find a multi-needle comparison chart which will allow you to compare needle profiles
           of multiple SU needles at the same time. Choose the needles you would like to compare and click Compare which
           will redraw the chart with new profiles. A huge thank you to the mintylamb site for posting this information
           publically.
         </p>
-      </v-col>
-      <v-col cols="12" class="hr mt-5"></v-col>
-      <v-col cols="12">
+      </div>
+      <div class="col-span-12 border-t border-base-300 mt-5"></div>
+      <div class="col-span-12">
         <CalculatorsNeedles />
-      </v-col>
-      <v-col cols="12" md="10" offset-md="1">
+      </div>
+      <div class="col-span-12">
         <div class="divider">Needle Charts</div>
-      </v-col>
-      <v-col cols="12" class="has-text-centered">
-        <h2 class="fancy-font-book is-size-3">Find the needle for your carb</h2>
-        <h3 class="fancy-font-book is-size-5">
+      </div>
+      <div class="col-span-12 text-center">
+        <h2 class="fancy-font-book text-2xl">Find the needle for your carb</h2>
+        <h3 class="fancy-font-book text-lg">
           Information provided by
-          <a href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html" target="_blank"
+          <a
+            href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html"
+            target="_blank"
+            class="link link-primary"
             >Seven Mini Parts</a
           >
         </h3>
-      </v-col>
-      <NeedleTable />
-      <v-col cols="12" md="10" offset-md="1">
+      </div>
+      <div class="col-span-12">
+        <NeedleTable />
+      </div>
+      <div class="col-span-12">
         <div class="divider">Support</div>
-      </v-col>
-      <v-col cols="12">
+      </div>
+      <div class="col-span-12">
         <patreon-card size="large" />
-      </v-col>
-    </v-row>
-  </v-container>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
   .b-tabs .tab-content {
     padding-left: 0px;
     padding-right: 0px;
-  }
-  .hr {
-    border-top: 1px solid whitesmoke;
   }
 </style>
