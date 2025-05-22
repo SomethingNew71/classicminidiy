@@ -185,3 +185,20 @@
   font-style: italic;
   font-display: swap;
 }
+
+/* Navigation active link styling */
+.menu a.active {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+  font-weight: 600;
+}
+
+.menu a.active:hover {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+}
+
+.dropdown-content .menu a.active {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+}
