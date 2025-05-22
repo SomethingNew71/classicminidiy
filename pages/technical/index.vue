@@ -69,45 +69,53 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Technical Toolbox'" :heroType="HERO_TYPES.TECH" />
-  <v-container>
-    <v-row>
-      <v-col cols="12">
+  <hero
+    :navigation="true"
+    :title="'Technical Toolbox'"
+    textSize="text-3xl"
+    subtitle="Keeping Minis Driving"
+    :heroType="HERO_TYPES.TECH"
+  />
+  <div class="container mx-auto px-4 py-15">
+    <div class="grid grid-cols-1 gap-4">
+      <div class="col-span-1 text-center">
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" root></breadcrumb>
-        <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
-        <h3 class="fancy-font-bold is-size-3">Technical Information for the DIY Mechanic</h3>
-      </v-col>
-      <v-col cols="12" md="4">
-        <v-card>
-          <v-toolbar color="brand-green-2">
-            <v-toolbar-title>Toolbox</v-toolbar-title>
-            <v-spacer></v-spacer>
-          </v-toolbar>
-
-          <v-list lines="one">
-            <v-list-item v-for="item in ToolboxItems" :key="item.title" :title="item.title" :to="item.to">
-              <template v-slot:prepend>
-                <v-avatar size="large">
-                  <span class="is-size-3" v-html="item.iconHtml"> </span>
-                </v-avatar>
-              </template>
-            </v-list-item>
-          </v-list>
-        </v-card>
-      </v-col>
-      <v-col cols="12" md="8">
-        <p class="is-size-5 pt-5 pb-5">
-          One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
-          So to make this easier for you, I have collected technical information from various sources and consolidated
-          it right here on classicminidiy.com.
-        </p>
-        <v-col cols="12" md="10" offset-md="1">
-          <div class="divider">Support</div>
-        </v-col>
-        <v-col cols="12">
-          <patreon-card size="large" />
-        </v-col>
-      </v-col>
-    </v-row>
-  </v-container>
+        <h3 class="fancy-font-bold text-2xl">Technical Information for the DIY Mechanic</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div class="col-span-1 md:col-span-4">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-title p-4 bg-primary text-primary-content">
+              <h2 class="text-xl">Toolbox</h2>
+            </div>
+            <div class="card-body p-0">
+              <ul class="menu bg-base-100 w-full">
+                <li v-for="item in ToolboxItems" :key="item.title">
+                  <NuxtLink :to="item.to" class="flex items-center p-3">
+                    <span class="text-2xl mr-3" v-html="item.iconHtml"></span>
+                    <span class="text-base">{{ item.title }}</span>
+                  </NuxtLink>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 md:col-span-8">
+          <p class="text-lg py-5">
+            One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
+            So to make this easier for you, I have collected technical information from various sources and consolidated
+            it right here on classicminidiy.com.
+          </p>
+          <div class="grid grid-cols-12 gap-4 mt-6">
+            <div class="col-span-12 md:col-span-10 md:col-start-2">
+              <div class="divider">Support</div>
+            </div>
+            <div class="col-span-12">
+              <patreon-card size="large" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
