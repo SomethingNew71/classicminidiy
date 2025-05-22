@@ -1,14 +1,15 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
-  const expanded = ref([]);
+  const expanded = ref<string[]>([]);
   const { data: tables, status } = await useFetch('/api/torque');
-  const tableHeaders: any = ref([
-    { title: 'Fastener', key: 'name', align: 'start' },
-    { title: 'Torque (lb/ft)', key: 'lbft', align: 'start' },
-    { title: 'Torque (Nm)', key: 'nm', align: 'start' },
-    { title: 'Notes', key: 'data-table-expand', align: 'end' },
-  ]);
-  const panels = ref(['Engine']);
+  const tableSearchQueries = ref<Record<string, string>>({});
+  const tableHeaders = [
+    { title: 'Fastener', key: 'name' },
+    { title: 'Torque (lb/ft)', key: 'lbft' },
+    { title: 'Torque (Nm)', key: 'nm' },
+    { title: 'Notes', key: 'notes' },
+  ];
+  const activePanel = ref('Engine');
 
   useHead({
     title: 'Classic Mini Torque Specifications Chart | Classic Mini DIY',
@@ -89,77 +90,150 @@
       },
     ],
   });
+
+  // Filter function for table items
+  const filterItems = (items: any[], tableName: string) => {
+    const query = tableSearchQueries.value[tableName];
+    if (!query) return items;
+    const queryLower = query.toLowerCase();
+    return items.filter(
+      (item: any) =>
+        item.name.toLowerCase().includes(queryLower) || (item.notes && item.notes.toLowerCase().includes(queryLower))
+    );
+  };
+
+  // Toggle expanded state for a row
+  const toggleExpanded = (itemName: string) => {
+    if (expanded.value.includes(itemName)) {
+      expanded.value = expanded.value.filter((name) => name !== itemName);
+    } else {
+      expanded.value = [...expanded.value, itemName];
+    }
+  };
 </script>
 
 <template>
   <hero :navigation="true" :title="'Torque Specs'" :textSize="'text-3xl'" :heroType="HERO_TYPES.TECH" />
-  <v-container>
-    <v-row>
-      <v-col cols="12">
+  <div class="container mx-auto px-4 pt-10">
+    <div class="grid grid-cols-12 gap-4">
+      <div class="col-span-12">
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Torque Specs"></breadcrumb>
-      </v-col>
-      <v-col cols="12">
-        <template v-if="status === 'pending'">
-          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
-          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
-          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
-        </template>
-        <v-expansion-panels v-if="tables && status !== 'pending'" v-model="panels" variant="popout" multiple>
-          <v-expansion-panel v-for="(table, name, index) in tables" :key="`${name}-${index}`" :value="table.title">
-            <v-expansion-panel-title color="brand-green-3" expand-icon="fad fa-plus" collapse-icon="fad fa-plus">
+      </div>
+      <div class="col-span-12">
+        <!-- Loading state -->
+        <div v-if="status === 'pending'" class="space-y-4">
+          <div class="skeleton h-12 w-full"></div>
+          <div class="skeleton h-12 w-full"></div>
+          <div class="skeleton h-12 w-full"></div>
+        </div>
+
+        <!-- Content when loaded -->
+        <div v-if="tables && status !== 'pending'" class="space-y-6">
+          <div
+            v-for="(table, name, index) in tables"
+            :key="`${name}-${index}`"
+            class="collapse collapse-plus bg-base-100 border border-base-300 mb-2"
+          >
+            <!-- Accordion header -->
+            <input
+              type="radio"
+              :name="'torque-accordion'"
+              :checked="table.title === activePanel"
+              @change="activePanel = table.title"
+            />
+            <div class="collapse-title font-semibold text-xl">
               {{ table.title }}
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <v-row class="pb-5">
-                <v-spacer></v-spacer>
-                <v-text-field
-                  label="Search This Table"
-                  v-model="table.search"
-                  append-inner-icon="fad fa-search"
-                  variant="underlined"
-                  class="pr-4 pt-2"
-                ></v-text-field>
-              </v-row>
-              <v-data-table
-                v-model:expanded="expanded"
-                :headers="tableHeaders"
-                :items="table.items"
-                show-expand
-                expand-on-click
-                :density="'compact'"
-                :item-value="'name'"
-                items-per-page="10"
-                :search="table.search"
-              >
-                <template v-slot:item.data-table-expand="{ item }">
-                  <v-icon hydrate-on-visible v-if="item.notes" icon="fad fa-plus" :size="'small'"></v-icon>
-                </template>
-                <template v-slot:expanded-row="{ columns, item }">
-                  <tr>
-                    <td class="has-background-light pt-4 pb-4" colspan="4">
-                      <strong>Extra Notes:</strong>
-                      <br />
-                      {{ item.notes || '---' }}
-                    </td>
-                  </tr>
-                </template>
-              </v-data-table>
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-col>
-      <v-col cols="12" md="10" offset-md="1">
-        <div class="divider">Support</div>
-      </v-col>
-      <v-col cols="12">
+            </div>
+
+            <!-- Accordion content -->
+            <div class="collapse-content">
+              <!-- Search field -->
+              <div class="flex justify-end mb-4">
+                <div class="form-control w-full max-w-xs">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      placeholder="Search this table"
+                      v-model="tableSearchQueries[name]"
+                      class="input input-bordered w-full input-md"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Table -->
+              <div class="overflow-x-auto">
+                <table class="table table-zebra w-full table-md">
+                  <!-- Table header -->
+                  <thead>
+                    <tr>
+                      <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>
+                      <th class="w-10"></th>
+                      <!-- Extra column for expand button -->
+                    </tr>
+                  </thead>
+
+                  <!-- Table body -->
+                  <tbody>
+                    <template v-for="(item, itemIndex) in filterItems(table.items, name)" :key="itemIndex">
+                      <!-- Main row -->
+                      <tr class="hover cursor-pointer" @click="toggleExpanded(item.name)">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.lbft }}</td>
+                        <td>{{ item.nm }}</td>
+                        <td>{{ item.notes ? item.notes : '---' }}</td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support section -->
+      <div class="col-span-12 pb-15">
         <patreon-card size="large" />
-      </v-col>
-    </v-row>
-  </v-container>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-  .card-header {
-    background-color: whitesmoke;
+  .divider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    &:before,
+    &:after {
+      flex-grow: 1;
+      background-color: hsl(var(--b3));
+      height: 1px;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      content: '';
+    }
+  }
+
+  .skeleton {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: hsl(var(--b3));
+    border-radius: 0.25rem;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
 </style>
