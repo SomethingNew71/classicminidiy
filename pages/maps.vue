@@ -223,275 +223,271 @@
       :title="'Classic Mini DIY ECU Maps'"
       :subtitle="'Pay what your want, always'"
       :heroType="HERO_TYPES.MAPS"
-      :size="'is-medium'"
+      :textSize="'3xl'"
     />
-    <v-container>
-      <v-row>
-        <v-col cols="12" md="6" offset-md="3">
-          <h1 class="fancy-font-bold is-size-3 has-text-centered">The Classic Mini ECU Map</h1>
-          <h2 class="fancy-font-book-oblique has-text-centered is-size-4">
-            Hey folks! Cole here with Classic Mini DIY. After countless hours and time spent porting, converting, and
-            mapping multiple ECU's, I am proud to release my collection of ECU maps with two options for access.
-            Offering support for many popular ECU's used on Classic Minis, with more added in the future.
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-12 md:col-span-6 md:col-start-4">
+          <h1 class="fancy-font-bold text-2xl text-center pt-10 pb-5">The Classic Mini ECU Map</h1>
+          <h2 class="fancy-font-book-oblique text-center text-xl">
+            After years of tuning Classic Mini engines, building custom harnesses, and mapping multiple ECU's, I am
+            proud to release my collection of ECU maps with two options for access. Offering support for many popular
+            ECU's used on Classic Minis, with more added in the future.
           </h2>
-        </v-col>
-        <v-col cols="12" md="10" offset-md="1" class="pt-10 pb-10">
-          <nav class="level">
-            <div class="level-item has-text-centered">
-              <div>
-                <i class="fad fa-flag-checkered is-size-2 pb-3"></i>
-                <h3 class="subtitle">A Safe Start</h3>
-              </div>
+        </div>
+        <div class="col-span-12 md:col-span-10 md:col-start-2 py-10">
+          <div class="flex flex-wrap justify-center gap-8">
+            <div class="text-center">
+              <i class="fad fa-flag-checkered text-3xl pb-3"></i>
+              <h3 class="text-lg">Lifetime Updates</h3>
             </div>
-            <div class="level-item has-text-centered">
-              <div>
-                <i class="fad fa-microchip is-size-2 pb-3"></i>
-                <h3 class="subtitle">Support for Multiple ECUs</h3>
-              </div>
+            <div class="text-center">
+              <i class="fad fa-microchip text-3xl pb-3"></i>
+              <h3 class="text-lg">Multiple ECU's</h3>
             </div>
-            <div class="level-item has-text-centered">
-              <div>
-                <i class="fa-duotone fa-arrows-rotate fa-spin is-size-2 mb-3"></i>
-                <h3 class="subtitle">Lifetime Updates</h3>
-              </div>
+            <div class="text-center">
+              <i class="fad fa-arrows-rotate text-3xl pb-3"></i>
+              <h3 class="text-lg">Constantly Updated</h3>
             </div>
-            <div class="level-item has-text-centered">
-              <div>
-                <i class="fad fa-money-bill fa-beat is-size-2 pb-3"></i>
-                <h3 class="subtitle">Pay what you want</h3>
-              </div>
-            </div>
-          </nav>
-        </v-col>
-
-        <v-col cols="12" md="6" class="has-text-centered">
-          <v-card>
-            <v-card-text>
-              <i class="fad fa-credit-card is-size-2 pb-3"></i>
-              <h3 class="fancy-font-bold is-size-3">Option 1 - Purchase</h3>
-              <p class="is-size-5 pt-5 pb-8">
-                Help support the time and energy that went into creating these by purchasing them directly on my my
-                store. All maps are reaosnably priced at <strong>$25</strong> including all future updates.
-              </p>
-              <h4 v-if="releasesLoading === 'pending'" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
-              <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-4">
-                Latest Releases - {{ releases.latestRelease }}
-              </h4>
-              <v-btn
-                prepend-icon="fad fa-download"
-                size="x-large"
-                color="primary"
-                href="https://store.classicminidiy.com/collections/efi-base-maps"
-              >
-                Download
-              </v-btn>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="6" class="has-text-centered">
-          <v-card class="pb-2">
-            <v-card-text>
-              <i class="fad fa-download is-size-2 pb-3"></i>
-              <h3 class="fancy-font-bold is-size-3">Option 2 - Download</h3>
-              <p class="is-size-5 pt-5 pb-5">
-                Are you a more of a DIYer? Or perhaps you have a tight budget you are working on? Well no problem
-                because all my maps are availble free of charge directly on Github.
-              </p>
-              <h4 v-if="releasesLoading === 'pending'" class="fancy-font-bold is-size-4 pb-4">Loading</h4>
-              <h4 v-else-if="releases" class="fancy-font-bold is-size-4 pb-5">
-                Latest Release - {{ releaseError ? 'Error Loading Releases' : releases.latestRelease }}
-              </h4>
-
-              <v-btn
-                prepend-icon="fab fa-github"
-                size="x-large"
-                color="secondary"
-                href="https://github.com/SomethingNew71/MiniECUMaps"
-              >
-                View Source
-              </v-btn>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="10" offset-md="1">
-          <div class="divider">More Details</div>
-        </v-col>
-        <v-col cols="12">
-          <v-card>
-            <v-card-text>
-              <v-table>
-                <thead>
-                  <tr>
-                    <th>Features</th>
-                    <th class="text-center">Haltech</th>
-                    <th class="text-center">Speeduino</th>
-                    <th class="text-center">Megasquirt</th>
-                    <th class="text-center">Emerald</th>
-                    <th class="text-center">ECUMaster</th>
-                    <th class="text-center">MaxxECU</th>
-                    <th class="text-center">DTAFast</th>
-                    <th class="text-center">MegaJolt</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="row in items">
-                    <td class="text-center pt-3" v-for="(ecu, index) in row" :key="ecu">
-                      <p class="text-left" v-if="index === 'features'">
-                        {{ ecu }}
-                      </p>
-
-                      <i
-                        v-if="ecu === 'wip'"
-                        class="text-h6 fa-sharp-duotone fa-solid fa-road-barrier"
-                        style="--fa-primary-color: #562b00; --fa-secondary-color: #f5c147; --fa-secondary-opacity: 1"
-                      ></i>
-                      <i
-                        v-if="ecu === 'yes'"
-                        class="text-h6 fa-duotone fa-solid fa-octagon-check"
-                        style="
-                          --fa-primary-color: #71784e;
-                          --fa-primary-opacity: 0.1;
-                          --fa-secondary-color: #71784e;
-                          --fa-secondary-opacity: 1;
-                        "
-                      ></i>
-                      <i v-if="ecu === 'no'" class="text-h6 fa-solid fa-xmark" style="color: #da4d32"></i>
-                      <i v-if="ecu === 'na'" class="text-h6 fa-solid fa-dash"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </v-table>
-
-              <v-row class="pt-5">
-                <v-col v-for="item in legend" cols="12" md="3">
-                  <v-list-item :key="item.name" :title="item.name" :subtitle="item.description">
-                    <template v-slot:prepend>
-                      <i
-                        v-if="item.id === 'wip'"
-                        class="text-h6 pr-3 fa-sharp-duotone fa-solid fa-road-barrier"
-                        style="--fa-primary-color: #562b00; --fa-secondary-color: #f5c147; --fa-secondary-opacity: 1"
-                      ></i>
-                      <i
-                        v-if="item.id === 'yes'"
-                        class="text-h6 pr-3 fa-duotone fa-solid fa-octagon-check"
-                        style="
-                          --fa-primary-color: #71784e;
-                          --fa-primary-opacity: 0.1;
-                          --fa-secondary-color: #71784e;
-                          --fa-secondary-opacity: 1;
-                        "
-                      ></i>
-                      <i v-if="item.id === 'no'" class="text-h6 pr-3 fa-solid fa-xmark" style="color: #da4d32"></i>
-                      <i v-if="item.id === 'na'" class="text-h6 pr-3 fa-solid fa-dash"></i>
-                    </template>
-                  </v-list-item>
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" md="6">
-          <nav class="panel is-secondary">
-            <h5 class="panel-heading"><i class="fad fa-code-branch" /> Latest Updates</h5>
-            <v-progress-circular v-if="commitsLoading === 'pending'"></v-progress-circular>
-            <template v-if="commits?.length">
-              <template v-for="(commitItem, i) in commits">
-                <a class="panel-block has-text-left" :href="commitItem.commit.url" target="_blank" v-if="i < 10">
-                  <span class="panel-icon">
-                    <i class="fad fa-code-commit" aria-hidden="true"></i>
-                  </span>
-                  <span class="date pr-2">
-                    {{ commitItem.date }}
-                  </span>
-
-                  {{ commitItem.commit.message }}
-                </a>
-              </template>
-            </template>
-            <template v-else-if="commitError">
-              <p class="panel-block has-text-left">
-                <span class="panel-icon">
-                  <i class="fad fa-code-commit" aria-hidden="true"></i>
-                </span>
-                <span class="date pr-2"> --- </span>
-
-                Error loading update history from Github
-              </p>
-              <template v-for="i in 10">
-                <p class="panel-block has-text-left" v-if="i < 10">
-                  <span class="panel-icon">
-                    <i class="fad fa-code-commit" aria-hidden="true"></i>
-                  </span>
-                  <span class="date pr-2"> --- </span>
-                  ---
-                </p>
-              </template>
-            </template>
-            <template v-else>
-              <p class="panel-block has-text-left">
-                <span class="panel-icon">
-                  <i class="fad fa-code-commit" aria-hidden="true"></i>
-                </span>
-                <span class="date pr-2"> --- </span>
-
-                Error loading update history from Github
-              </p>
-              <template v-for="i in 10">
-                <p class="panel-block has-text-left" v-if="i < 10">
-                  <span class="panel-icon">
-                    <i class="fad fa-code-commit" aria-hidden="true"></i>
-                  </span>
-                  <span class="date pr-2"> --- </span>
-                  ---
-                </p>
-              </template>
-            </template>
-            <div class="panel-block">
-              <v-btn
-                prepend-icon="fad fa-code-branch"
-                color="grey-darken-3"
-                class="mx-auto flex-grow-1"
-                href="https://github.com/SomethingNew71/MiniECUMaps"
-              >
-                View All Commits
-              </v-btn>
-            </div>
-          </nav>
-        </v-col>
-        <v-col cols="12" md="6">
-          <h3 class="fancy-font-bold is-size-2 has-text-centered pb-5">Supported ECU's</h3>
-          <div class="columns is-multiline">
-            <div class="column is-8 is-offset-2">
-              <div class="divider">Support for the ecu you need</div>
-            </div>
-            <div class="column is-12 image">
-              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/haltech.jpg" alt="" />
-            </div>
-            <div class="column is-12 image">
-              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/speeduino.jpg" alt="" />
-            </div>
-            <div class="column is-12 image">
-              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/megasquirt.png" alt="" />
-            </div>
-            <div class="column is-12 image">
-              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/emerald.png" alt="" />
-            </div>
-            <div class="column is-12 image">
-              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/megajolt.png" alt="" />
-            </div>
-            <div class="column is-12 image">
-              <img class="" src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/dta.jpg" alt="" />
+            <div class="text-center">
+              <i class="fad fa-money-bill fa-beat text-3xl pb-3"></i>
+              <h3 class="text-lg">Pay what you want</h3>
             </div>
           </div>
-        </v-col>
-        <v-col cols="12" md="10" offset-md="1">
+        </div>
+
+        <div class="col-span-12 md:col-span-6 text-center">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <i class="fad fa-credit-card text-3xl pb-3"></i>
+              <h3 class="fancy-font-bold text-2xl">Option 1 - Purchase</h3>
+              <p class="py-3">
+                Purchase the ECU maps directly from the Classic Mini DIY store. This option is perfect for those who
+                want to support the channel and get the maps without having to use Github. This option also comes with
+                priority support via email.
+              </p>
+              <div class="card-actions justify-center">
+                <a href="https://store.classicminidiy.com/collections/efi-base-maps" class="btn btn-primary">
+                  <i class="fad fa-credit-card mr-2"></i> Download
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-6 text-center">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <i class="fad fa-download text-3xl pb-3"></i>
+              <h3 class="fancy-font-bold text-2xl">Option 2 - Download</h3>
+              <p class="py-3">
+                Download the ECU maps directly from Github. This option is perfect for those who want to get the maps
+                for free. This option also comes with the ability to contribute to the project by submitting pull
+                requests.
+              </p>
+              <div class="card-actions justify-center">
+                <a
+                  href="https://github.com/SomethingNew71/MiniECUMaps/archive/refs/heads/master.zip"
+                  class="btn btn-primary"
+                >
+                  <i class="fad fa-download mr-2"></i> Download
+                </a>
+                <a href="https://github.com/SomethingNew71/MiniECUMaps" class="btn btn-neutral">
+                  <i class="fad fa-code-branch mr-2"></i> View Source
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-10 md:col-start-2">
+          <div class="divider">More Details</div>
+        </div>
+        <div class="col-span-12">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <div class="overflow-x-auto">
+                <table class="table table-zebra">
+                  <thead>
+                    <tr>
+                      <th>Features</th>
+                      <th class="text-center">Haltech</th>
+                      <th class="text-center">Speeduino</th>
+                      <th class="text-center">MegaSquirt</th>
+                      <th class="text-center">Emerald</th>
+                      <th class="text-center">ECUMaster</th>
+                      <th class="text-center">MaxxECU</th>
+                      <th class="text-center">DTAFast</th>
+                      <th class="text-center">MegaJolt</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="row in items">
+                      <td class="text-center py-3" v-for="(ecu, index) in row" :key="ecu">
+                        <p class="text-left" v-if="index === 'features'">
+                          {{ ecu }}
+                        </p>
+                        <i v-if="ecu === 'yes'" class="text-lg fa-solid fa-check" style="color: #4a7023"></i>
+                        <i v-if="ecu === 'no'" class="text-lg fa-solid fa-xmark" style="color: #b22222"></i>
+                        <i
+                          v-if="ecu === 'wip'"
+                          class="text-lg fa-solid fa-spinner fa-spin-pulse"
+                          style="color: #ed7135"
+                        ></i>
+                        <i v-if="ecu === 'na'" class="text-lg fa-solid fa-dash"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pt-5">
+                <div v-for="item in legend" class="flex items-center p-2">
+                  <div class="mr-3">
+                    <i v-if="item.id === 'yes'" class="text-lg fa-solid fa-check" style="color: #4a7023"></i>
+                    <i v-if="item.id === 'no'" class="text-lg fa-solid fa-xmark" style="color: #b22222"></i>
+                    <i
+                      v-if="item.id === 'wip'"
+                      class="text-lg fa-solid fa-spinner fa-spin-pulse"
+                      style="color: #ed7135"
+                    ></i>
+                    <i v-if="item.id === 'na'" class="text-lg fa-solid fa-dash"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold">{{ item.name }}</div>
+                    <div class="text-sm opacity-70">{{ item.description }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-6">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body p-0">
+              <div class="bg-base-200 p-4 flex items-center">
+                <i class="fad fa-code-branch mr-2"></i>
+                <h5 class="font-bold text-lg">Latest Updates</h5>
+              </div>
+              <div class="p-2">
+                <div v-if="commitsLoading === 'pending'" class="flex justify-center p-4">
+                  <span class="loading loading-spinner loading-md"></span>
+                </div>
+                <div v-if="commits && commits.length > 0">
+                  <template v-for="(commitItem, index) in commits">
+                    <a
+                      v-if="index < 15"
+                      class="flex items-center p-3 hover:bg-base-200 border-b border-base-200"
+                      :href="`https://github.com/SomethingNew71/MiniECUMaps/commit/${commitItem.sha}`"
+                    >
+                      <span class="mr-2">
+                        <i class="fad fa-code-commit" aria-hidden="true"></i>
+                      </span>
+                      <span class="date pr-2 font-bold min-w-[15%]">
+                        {{ commitItem.date }}
+                      </span>
+                      <span>{{ commitItem.commit.message }}</span>
+                    </a>
+                  </template>
+                </div>
+                <div v-else-if="commitError">
+                  <div class="flex items-center p-3 border-b border-base-200">
+                    <span class="mr-2">
+                      <i class="fad fa-code-commit" aria-hidden="true"></i>
+                    </span>
+                    <span class="date pr-2 font-bold min-w-[15%]"> --- </span>
+                    <span>Error loading update history from Github</span>
+                  </div>
+                  <div v-for="i in 10" class="flex items-center p-3 border-b border-base-200">
+                    <span class="mr-2">
+                      <i class="fad fa-code-commit" aria-hidden="true"></i>
+                    </span>
+                    <span class="date pr-2 font-bold min-w-[15%]"> --- </span>
+                    <span>---</span>
+                  </div>
+                </div>
+                <div v-else>
+                  <div class="flex items-center p-3 border-b border-base-200">
+                    <span class="mr-2">
+                      <i class="fad fa-code-commit" aria-hidden="true"></i>
+                    </span>
+                    <span class="date pr-2 font-bold min-w-[15%]"> --- </span>
+                    <span>Error loading update history from Github</span>
+                  </div>
+                  <div v-for="i in 10" class="flex items-center p-3 border-b border-base-200">
+                    <span class="mr-2">
+                      <i class="fad fa-code-commit" aria-hidden="true"></i>
+                    </span>
+                    <span class="date pr-2 font-bold min-w-[15%]"> --- </span>
+                    <span>---</span>
+                  </div>
+                </div>
+                <div class="card-actions justify-center p-4">
+                  <a href="https://github.com/SomethingNew71/MiniECUMaps" class="btn btn-neutral w-full">
+                    <i class="fad fa-code-branch mr-2"></i> View All Commits
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-6">
+          <h3 class="fancy-font-bold text-3xl text-center pb-5">Supported ECU's</h3>
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <div class="divider">Support for the ecu you need</div>
+              <div class="grid grid-cols-1 gap-6">
+                <div class="image">
+                  <img
+                    class="mx-auto w-1/2"
+                    src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/haltech.jpg"
+                    alt="Haltech ECU"
+                  />
+                </div>
+                <div class="image">
+                  <img
+                    class="mx-auto w-1/2"
+                    src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/speeduino.jpg"
+                    alt="Speeduino ECU"
+                  />
+                </div>
+                <div class="image">
+                  <img
+                    class="mx-auto w-1/2"
+                    src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/megasquirt.png"
+                    alt="MegaSquirt ECU"
+                  />
+                </div>
+                <div class="image">
+                  <img
+                    class="mx-auto w-1/2"
+                    src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/emerald.png"
+                    alt="Emerald ECU"
+                  />
+                </div>
+                <div class="image">
+                  <img
+                    class="mx-auto w-1/2"
+                    src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/megajolt.png"
+                    alt="MegaJolt ECU"
+                  />
+                </div>
+                <div class="image">
+                  <img
+                    class="mx-auto w-1/2"
+                    src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/ecus/dta.jpg"
+                    alt="DTA Fast ECU"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-12 md:col-span-10 md:col-start-2">
           <div class="divider">Other ways to support</div>
-        </v-col>
-        <v-col cols="12">
+        </div>
+        <div class="col-span-12 pb-10">
           <patreon-card size="large" />
-        </v-col>
-      </v-row>
-    </v-container>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

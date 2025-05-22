@@ -1,10 +1,8 @@
 <script lang="ts" setup>
   const searchValue = ref('');
   const expanded = ref([]);
-  import { useDisplay } from 'vuetify';
   import { HERO_TYPES } from '~/data/models/generic';
   import type { RegistryItem } from '~/data/models/registry';
-  const { mdAndUp } = useDisplay();
 
   const tableHeaders: any[] = [
     { title: '', key: 'data-table-expand', align: 'start' },
@@ -114,7 +112,7 @@
                   hide-details
                   variant="solo-filled"
                 ></v-text-field>
-                <v-spacer v-if="mdAndUp"></v-spacer>
+                <!-- <v-spacer v-if="mdAndUp"></v-spacer> -->
                 <v-chip color="primary" v-if="registryItems?.length">{{ registryItems?.length }} Total Minis</v-chip>
               </div>
             </header>
