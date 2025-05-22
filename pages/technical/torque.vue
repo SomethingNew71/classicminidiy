@@ -92,7 +92,7 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Torque Specs'" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="'Torque Specs'" :textSize="'text-3xl'" :heroType="HERO_TYPES.TECH" />
   <v-container>
     <v-row>
       <v-col cols="12">

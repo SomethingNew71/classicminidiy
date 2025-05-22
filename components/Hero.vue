@@ -23,7 +23,7 @@
       type: String,
       default: '',
     },
-    size: {
+    textSize: {
       type: String,
       default: '',
     },
@@ -80,8 +80,13 @@
 
 <template>
   <section
-    class="hero flex md:h-144 sm:h-96"
-    :class="size"
+    class="hero flex"
+    :class="{
+      [textSize]: textSize,
+      'md:h-144 sm:h-96': heroType === HERO_TYPES.HOME,
+      'md:h-60 sm:h-48': heroType === HERO_TYPES.TECH || heroType === HERO_TYPES.ARCHIVE,
+      'md:h-112 sm:h-96': heroType === HERO_TYPES.BLOG || heroType === HERO_TYPES.MAPS,
+    }"
     :style="[!showImage ? { backgroundImage: 'none' } : styleObject]"
   >
     <div class="hero-content flex-col" :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]">
