@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-  import { useDisplay } from 'vuetify';
   import type { Color } from '~/data/models/colors';
   import { HERO_TYPES } from '~/data/models/generic';
   let { data: colors, status } = await useFetch<Color[]>(() => `/api/colors/list`);
-  const { smAndDown, mdAndUp } = useDisplay();
   const search = ref('');
   const tableHeaders = ref<any[]>([
     {
@@ -98,7 +96,6 @@
               <v-icon hydrate-on-visible icon="fad fa-tire fa-spin" class="me-1 py-2"></v-icon> &nbsp; Find your Color
               <v-spacer></v-spacer>
               <v-text-field
-                v-if="mdAndUp"
                 v-model="search"
                 prepend-inner-icon="fad fa-search"
                 density="compact"
@@ -109,7 +106,7 @@
                 variant="solo-filled"
               ></v-text-field>
             </v-card-title>
-            <v-card-text v-if="smAndDown">
+            <v-card-text>
               <v-text-field
                 v-model="search"
                 prepend-inner-icon="fad fa-search"
