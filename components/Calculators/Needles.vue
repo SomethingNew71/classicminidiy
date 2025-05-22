@@ -12,6 +12,34 @@
   const emptyError = ref(false);
   const addNeedleValue: any = ref();
 
+  // DaisyUI specific reactive properties
+  const searchText = ref('');
+  const dropdownOpen = ref(false);
+
+  // Computed property for filtered needles based on search text
+  const filteredNeedles = computed(() => {
+    if (!allNeedles.value?.all) return [];
+    return allNeedles.value.all.filter((needle: Needle) =>
+      needle.name.toLowerCase().includes(searchText.value.toLowerCase())
+    );
+  });
+
+  // Function to select a needle from the dropdown
+  function selectNeedle(needle: Needle) {
+    addNeedleValue.value = needle;
+    searchText.value = needle.name;
+    dropdownOpen.value = false;
+    // Log for debugging
+    console.log('Selected needle:', needle);
+  }
+
+  // Function to handle blur event on the input
+  function handleBlur() {
+    window.setTimeout(() => {
+      dropdownOpen.value = false;
+    }, 200);
+  }
+
   function updateArrayItem() {
     reactiveChartOptions.value.series = selectedNeedles.value;
   }
@@ -20,12 +48,13 @@
     alreadyExistsError.value = selectedNeedles.value.some((obj: Needle) => obj.name === addNeedleValue.value?.name);
     emptyError.value = !addNeedleValue.value;
     if (alreadyExistsError.value) {
-      setTimeout(() => (alreadyExistsError.value = false), 5000);
+      window.setTimeout(() => (alreadyExistsError.value = false), 5000);
     } else if (emptyError.value) {
-      setTimeout(() => (emptyError.value = false), 5000);
+      window.setTimeout(() => (emptyError.value = false), 5000);
     } else {
       selectedNeedles.value.push(addNeedleValue.value as Needle);
       addNeedleValue.value = null;
+      searchText.value = '';
       updateArrayItem();
     }
   }
@@ -47,105 +76,147 @@
 </script>
 
 <template>
-  <v-row class="configurator-component">
-    <v-col cols="12" md="4">
-      <div class="card">
-        <div class="card-content">
-          <h3 class="fancy-font-bold is-size-4 pb-3">Add a Needle To Compare</h3>
+  <div class="grid grid-cols-12 gap-3 configurator-component">
+    <div class="col-span-4">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h3 class="fancy-font-bold text-xl pb-3">Add a Needle To Compare</h3>
           <p class="pb-3">
-            Start typing the name of the needles you would like to compate. Unsure of what the graph values mean? Check
+            Start typing the name of the needles you would like to compare. Unsure of what the graph values mean? Check
             out the needle diagram below to learn more.
           </p>
-          <v-dialog width="500">
-            <template v-slot:activator="{ props }">
-              <v-btn class="has-text-weight-bold mb-5" size="small" variant="flat" color="grey" v-bind="props"
-                >Helpful diagram</v-btn
-              >
-            </template>
-
-            <template v-slot:default="{ isActive }">
-              <v-card title="Diagram of Needle Measurements">
+          <!-- Modal dialog for diagram -->
+          <div>
+            <button class="btn btn-sm btn-neutral mb-5" onclick="diagram_modal.showModal()">Helpful diagram</button>
+            <dialog id="diagram_modal" class="modal">
+              <div class="modal-box w-11/12 max-w-5xl">
+                <h3 class="font-bold text-lg">Diagram of Needle Measurements</h3>
                 <img
                   loading="lazy"
-                  class="diagram"
+                  class="diagram mx-auto"
                   src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/diagram.jpg"
                   alt="Diagram of Needle Measurements"
                 />
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn variant="flat" color="brand-green-3" text="Close" @click="isActive.value = false"></v-btn>
-                </v-card-actions>
-              </v-card>
-            </template>
-          </v-dialog>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <button class="btn btn-primary">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+          </div>
+
           <template v-if="pending">
-            <!-- <v-col cols="12" md="3">
-              <v-skeleton-loader class="mx-auto border" max-width="300" type="image, article"></v-skeleton-loader>
-            </v-col> -->
+            <!-- Loading state -->
+            <div class="skeleton h-32 w-full"></div>
           </template>
           <template v-else-if="allNeedles && selectedNeedles">
-            <v-autocomplete
-              v-model="addNeedleValue"
-              label="Add a Needle"
-              return-object
-              :items="allNeedles.all"
-              item-title="name"
-              item-value="name"
-              variant="outlined"
-            >
-              <template v-slot:item="{ props, item }">
-                <v-list-item v-bind="props" :title="item.raw.name"> </v-list-item>
-              </template>
-            </v-autocomplete>
-
-            <v-alert
-              v-if="alreadyExistsError"
-              icon="fad fa-circle-info"
-              color="info "
-              variant="tonal"
-              class="mb-4"
-              text="Needle already exists in your list"
-            ></v-alert>
-            <v-alert
-              v-if="emptyError"
-              icon="fad fa-circle-info"
-              color="info "
-              variant="tonal"
-              class="mb-4"
-              text="You must select another needle to add before clicking add."
-            ></v-alert>
-
-            <v-btn prepend-icon="fa:fad fa-plus" color="brand-green-3" variant="flat" @click="addArrayItem()">
-              Add Needle
-            </v-btn>
-            <v-divider></v-divider>
-            <h3 class="text-h6">Currently selected Needles</h3>
-            <v-chip-group v-if="selectedNeedles" class="mt-3" column>
-              <template v-for="(needle, index) in selectedNeedles" :key="index">
-                <v-chip
-                  :disabled="selectedNeedles.length === 1"
-                  append-icon="fad fa-close"
-                  @click="removeArrayItem(selectedNeedles[index])"
-                >
+            <!-- Needle selection dropdown -->
+            <div class="form-control w-full">
+              <select 
+                class="select select-bordered w-full" 
+                v-model="addNeedleValue"
+              >
+                <option :value="null" disabled selected>Select a needle</option>
+                <option v-for="needle in allNeedles.all" :key="needle.name" :value="needle">
                   {{ needle.name }}
-                </v-chip>
-              </template>
-            </v-chip-group>
+                </option>
+              </select>
+            </div>
+
+            <!-- Alerts -->
+            <div v-if="alreadyExistsError" class="alert alert-info mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="stroke-current shrink-0 w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span>Needle already exists in your list</span>
+            </div>
+            <div v-if="emptyError" class="alert alert-info mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="stroke-current shrink-0 w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span>You must select another needle to add before clicking add.</span>
+            </div>
+
+            <!-- Add needle button -->
+            <button class="btn btn-primary mt-2" @click="addArrayItem()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+              Add Needle
+            </button>
+
+            <div class="divider"></div>
+
+            <h3 class="text-lg font-medium">Currently selected Needles</h3>
+            <div v-if="selectedNeedles" class="flex flex-wrap gap-2 mt-3">
+              <div
+                v-for="(needle, index) in selectedNeedles"
+                :key="index"
+                class="badge badge-lg gap-1"
+                :class="{ 'badge-neutral': selectedNeedles.length === 1, 'badge-primary': selectedNeedles.length > 1 }"
+              >
+                <span>{{ needle.name }}</span>
+                <button
+                  v-if="selectedNeedles.length > 1"
+                  @click="removeArrayItem(selectedNeedles[index])"
+                  class="btn btn-xs btn-circle btn-ghost"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </template>
         </div>
       </div>
-    </v-col>
-    <v-col cols="12" md="8">
-      <div class="card">
-        <ClientOnly fallback-tag="span">
-          <highcharts ref="needlesChart" :options="reactiveChartOptions"></highcharts>
-          <template #fallback>
-            <p class="pa-10 text-center text-h5">Chart is loading</p>
-          </template>
-        </ClientOnly>
+    </div>
+    <div class="col-span-8">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body p-2">
+          <ClientOnly fallback-tag="span">
+            <highcharts ref="needlesChart" :options="reactiveChartOptions"></highcharts>
+            <template #fallback>
+              <p class="p-10 text-center text-xl">Chart is loading</p>
+            </template>
+          </ClientOnly>
+        </div>
       </div>
-    </v-col>
-  </v-row>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
