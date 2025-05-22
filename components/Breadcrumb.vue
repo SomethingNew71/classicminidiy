@@ -80,7 +80,19 @@
   }
 </script>
 <template>
-  <v-breadcrumbs :items="crumbs" divider="/">
-    <template v-slot:prepend> <v-icon hydrate-on-visible size="small" icon="fad fa-home"></v-icon> </template
-  ></v-breadcrumbs>
+  <div class="text-base breadcrumbs">
+    <ul>
+      <li v-for="(crumb, index) in crumbs" :key="index">
+        <div v-if="index === 0" class="flex items-center">
+          <i class="fa-duotone fa-home mr-1"></i>
+          <NuxtLink v-if="!crumb.disabled" :to="crumb.href">{{ crumb.title }}</NuxtLink>
+          <span v-else class="opacity-60">{{ crumb.title }}</span>
+        </div>
+        <div v-else>
+          <NuxtLink v-if="!crumb.disabled" :to="crumb.href">{{ crumb.title }}</NuxtLink>
+          <span v-else class="opacity-60">{{ crumb.title }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
