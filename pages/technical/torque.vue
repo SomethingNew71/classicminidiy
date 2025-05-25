@@ -132,7 +132,7 @@
           <div
             v-for="(table, name, index) in tables"
             :key="`${name}-${index}`"
-            class="collapse collapse-plus bg-base-100 border border-base-300 mb-2"
+            class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
           >
             <!-- Accordion header -->
             <input
@@ -141,14 +141,14 @@
               :checked="table.title === activePanel"
               @change="activePanel = table.title"
             />
-            <div class="collapse-title font-semibold text-xl">
+            <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
               {{ table.title }}
             </div>
 
             <!-- Accordion content -->
             <div class="collapse-content">
               <!-- Search field -->
-              <div class="flex justify-end mb-4">
+              <div class="flex justify-end mb-4 mt-4">
                 <div class="form-control w-full max-w-xs">
                   <div class="input-group">
                     <input
