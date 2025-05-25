@@ -1,7 +1,27 @@
 <script lang="ts" setup>
   import axios from 'axios';
   import type { RegistryItem, RegistryQueueSubmissionResponse } from '~/data/models/registry';
-  const form = ref(false);
+  const isFormValid = ref(false);
+  interface TouchedFields {
+    submittedBy: boolean;
+    submittedByEmail: boolean;
+    year: boolean;
+    model: boolean;
+    trim: boolean;
+    bodyType: boolean;
+    engineSize: boolean;
+    [key: string]: boolean;
+  }
+
+  const touchedFields = ref<TouchedFields>({
+    submittedBy: false,
+    submittedByEmail: false,
+    year: false,
+    model: false,
+    trim: false,
+    bodyType: false,
+    engineSize: false,
+  });
   const validationRules = () => ({
     required: (value: string) => !!value || 'This field is required to submit',
     email: (value: string) => {
@@ -38,7 +58,30 @@
   }>({ number: null, url: null });
   const processing = ref(false);
 
+  function validateForm() {
+    const requiredFields = [
+      details.value.submittedBy,
+      details.value.submittedByEmail && rules.value.email(details.value.submittedByEmail),
+      details.value.year,
+      details.value.model,
+      details.value.trim,
+      details.value.bodyType,
+      details.value.engineSize,
+    ];
+
+    return requiredFields.every((field) => !!field);
+  }
+
   async function submit() {
+    // Mark all fields as touched when submitting
+    Object.keys(touchedFields.value).forEach((key: string) => {
+      touchedFields.value[key] = true;
+    });
+
+    if (!validateForm()) {
+      return;
+    }
+
     processing.value = true;
     try {
       const response = await axios.post<RegistryQueueSubmissionResponse>('/api/registry/queue/submit', {
@@ -73,6 +116,10 @@
 
   function resetForm() {
     details.value = { ...initialDetails };
+    // Reset touched state when form is reset
+    Object.keys(touchedFields.value).forEach((key: string) => {
+      touchedFields.value[key] = false;
+    });
   }
 
   function submitAnotherMini() {
@@ -83,184 +130,280 @@
 </script>
 
 <template>
-  <div class="card">
-    <header class="card-header">
-      <h3 class="card-header-title">Submit Your Mini</h3>
-    </header>
-    <div class="card-content">
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Submit Your Mini</h2>
       <div v-if="!processing && issueCreated && submission && !apiError">
-        <div class="modal-card-body has-text-centered pt-5">
-          <i class="is-size-1 has-text-success fa-duotone fa-box-check fa-beat pt-5 pb-2"></i>
-          <h1 class="is-size-3 pb-1">Thank you!</h1>
-          <h2 class="is-size-5 pb-4">
+        <div class="text-center py-5">
+          <i class="text-4xl text-success fa-duotone fa-box-check fa-beat py-5"></i>
+          <h1 class="text-2xl font-bold mb-1">Thank you!</h1>
+          <h2 class="text-lg mb-4">
             Your registry entry has been submitted. Please allow 1-2 days for it to appear in the list.
           </h2>
-          <ul class="pb-5">
-            <li class="pb-2">
-              Your registry submission details. is <strong>{{ submission.number }}</strong>
+          <ul class="mb-5">
+            <li class="mb-2">
+              Your registry submission details is <strong>{{ submission.number }}</strong>
             </li>
             <li>
               Track your submission here:
-              <a target="_blank" v-if="submission.url" :href="submission.url"> Submission {{ submission.number }}</a>
+              <a class="link link-primary" target="_blank" v-if="submission.url" :href="submission.url">
+                Submission {{ submission.number }}</a
+              >
             </li>
           </ul>
-          <v-btn color="primary" prepend-icon="fa-duotone fa-solid fa-plus-large" @click="submitAnotherMini()">
-            Submit Another Mini</v-btn
-          >
+          <button class="btn btn-primary" @click="submitAnotherMini()">
+            <i class="fa-duotone fa-solid fa-plus-large mr-2"></i>
+            Submit Another Mini
+          </button>
         </div>
       </div>
       <div v-if="!issueCreated">
-        <v-form v-model="form" @submit.prevent="submit">
-          <div class="columns is-multiline pt-3">
-            <div class="column is-12">
-              <h2 class="is-size-4"><strong>Personal Info:</strong></h2>
+        <form @submit.prevent="submit">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
+            <div class="col-span-1 md:col-span-2">
+              <h2 class="text-xl font-bold">Personal Info:</h2>
             </div>
-            <div class="column is-half">
-              <v-text-field
-                label="Your Name"
+            <div class="form-control w-full">
+              <label class="label">
+                <span class="label-text">Your Name <span class="text-error">*</span></span>
+                <span class="label-text-alt"><i class="fad fa-user"></i></span>
+              </label>
+              <input
+                type="text"
+                placeholder="ex. John Smith"
                 v-model="details.submittedBy"
-                placeholder="Cole G"
-                :rules="[rules.required]"
-                append-inner-icon="fad fa-asterisk"
-                prepend-icon="fad fa-signature"
-                variant="outlined"
-              ></v-text-field>
+                class="input input-bordered w-full"
+                :class="{ 'input-error': details.submittedBy === '' && touchedFields.submittedBy }"
+                required
+                @blur="touchedFields.submittedBy = true"
+              />
+              <label v-if="details.submittedBy === '' && touchedFields.submittedBy" class="label">
+                <span class="label-text-alt text-error">This field is required to submit</span>
+              </label>
             </div>
-            <div class="column is-half">
-              <v-text-field
-                label="Email Address (to prevent spam)"
+            <div class="form-control w-full">
+              <label class="label">
+                <span class="label-text">Your Email <span class="text-error">*</span></span>
+                <span class="label-text-alt"><i class="fad fa-at"></i></span>
+              </label>
+              <input
+                type="email"
+                placeholder="ex. john@example.com"
                 v-model="details.submittedByEmail"
-                placeholder="minis@arecool.com"
-                :rules="[rules.required, rules.email]"
-                append-inner-icon="fad fa-asterisk"
-                prepend-icon="fad fa-at"
-                variant="outlined"
-              ></v-text-field>
-            </div>
-            <div class="column is-12">
-              <h2 class="is-size-4"><strong>Car Details:</strong></h2>
-            </div>
-            <div class="column is-half">
-              <v-number-input
-                :reverse="false"
-                controlVariant="split"
-                label="Model Year"
-                :max="2000"
-                :min="1959"
-                :hideInput="false"
-                :inset="false"
-                v-model="details.year"
-                :rules="[rules.required]"
-                prepend-icon="fad fa-calendar"
-                variant="outlined"
-              ></v-number-input>
-              <v-text-field
-                label="Model"
-                v-model="details.model"
-                placeholder="ex. Morris Mini"
-                :rules="[rules.required]"
-                append-inner-icon="fad fa-asterisk"
-                prepend-icon="fad fa-car"
-                variant="outlined"
-              ></v-text-field>
-              <v-text-field
-                label="Trim"
-                v-model="details.trim"
-                placeholder="ex. Mini 50"
-                :rules="[rules.required]"
-                append-inner-icon="fad fa-asterisk"
-                prepend-icon="fad fa-scissors"
-                variant="outlined"
-              ></v-text-field>
-              <v-select
-                label="Body Type"
-                v-model="details.bodyType"
-                prepend-icon="fad fa-cars"
-                :rules="[rules.required]"
-                :items="['Saloon', 'Pickup', 'Estate', 'Cabriolet', 'Clubman', 'Van', 'Hornet']"
-                variant="outlined"
-              ></v-select>
-            </div>
-            <div class="column is-half">
-              <v-select
-                label="Original Engine Size"
-                v-model="details.engineSize"
-                :items="[850, 997, 998, 1100, 1275]"
-                placeholder="ex. 1275"
-                :rules="[rules.required]"
-                append-inner-icon="fad fa-asterisk"
-                prepend-icon="fad fa-engine"
-                variant="outlined"
+                class="input input-bordered w-full"
+                :class="{
+                  'input-error':
+                    (details.submittedByEmail === '' || !rules.email(details.submittedByEmail)) &&
+                    touchedFields.submittedByEmail,
+                }"
+                required
+                @blur="touchedFields.submittedByEmail = true"
+              />
+              <label
+                v-if="
+                  (details.submittedByEmail === '' || !rules.email(details.submittedByEmail)) &&
+                  touchedFields.submittedByEmail
+                "
+                class="label"
               >
-              </v-select>
-              <v-text-field
-                label="Factory Color"
-                v-model="details.color"
-                placeholder="ex. Clipper Blue"
-                prepend-icon="fad fa-palette"
-                variant="outlined"
-              ></v-text-field>
-              <v-text-field
-                label="Body Shell Number"
-                v-model="details.bodyNum"
-                placeholder="ex. GB190fW"
-                prepend-icon="fad fa-hashtag"
-                variant="outlined"
-              ></v-text-field>
-              <v-text-field
-                label="Engine Plate Number"
-                v-model="details.engineNum"
-                placeholder="ex. 12H4102"
-                prepend-icon="fad fa-hashtag"
-                variant="outlined"
-              ></v-text-field>
+                <span class="label-text-alt text-error">
+                  {{ details.submittedByEmail === '' ? 'This field is required to submit' : 'Invalid e-mail.' }}
+                </span>
+              </label>
             </div>
-            <div class="column is-12">
-              <v-textarea
-                label="Special or Additional Notes"
-                variant="outlined"
-                prepend-icon="fad fa-note"
-                v-model="details.notes"
-                clearable
-                :placeholder="'ex. This car was only produced from 1959 to 1960'"
-              ></v-textarea>
+            <div class="col-span-1 md:col-span-2">
+              <h2 class="text-xl font-bold">Car Details:</h2>
+            </div>
+            <div>
+              <div class="form-control w-full">
+                <label class="label">
+                  <span class="label-text">Model Year <span class="text-error">*</span></span>
+                  <span class="label-text-alt"><i class="fad fa-calendar"></i></span>
+                </label>
+                <input
+                  type="number"
+                  min="1959"
+                  max="2000"
+                  v-model.number="details.year"
+                  class="input input-bordered w-full"
+                  :class="{ 'input-error': !details.year && touchedFields.year }"
+                  required
+                  @blur="touchedFields.year = true"
+                />
+                <label v-if="!details.year && touchedFields.year" class="label">
+                  <span class="label-text-alt text-error">This field is required to submit</span>
+                </label>
+              </div>
+
+              <div class="form-control w-full mt-2">
+                <label class="label">
+                  <span class="label-text">Model <span class="text-error">*</span></span>
+                  <span class="label-text-alt"><i class="fad fa-car"></i></span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="ex. Morris Mini"
+                  v-model="details.model"
+                  class="input input-bordered w-full"
+                  :class="{ 'input-error': details.model === '' && touchedFields.model }"
+                  required
+                  @blur="touchedFields.model = true"
+                />
+                <label v-if="details.model === '' && touchedFields.model" class="label">
+                  <span class="label-text-alt text-error">This field is required to submit</span>
+                </label>
+              </div>
+
+              <div class="form-control w-full mt-2">
+                <label class="label">
+                  <span class="label-text">Trim <span class="text-error">*</span></span>
+                  <span class="label-text-alt"><i class="fad fa-scissors"></i></span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="ex. Mini 50"
+                  v-model="details.trim"
+                  class="input input-bordered w-full"
+                  :class="{ 'input-error': details.trim === '' && touchedFields.trim }"
+                  required
+                  @blur="touchedFields.trim = true"
+                />
+                <label v-if="details.trim === '' && touchedFields.trim" class="label">
+                  <span class="label-text-alt text-error">This field is required to submit</span>
+                </label>
+              </div>
+
+              <div class="form-control w-full mt-2">
+                <label class="label">
+                  <span class="label-text">Body Type <span class="text-error">*</span></span>
+                  <span class="label-text-alt"><i class="fad fa-cars"></i></span>
+                </label>
+                <select
+                  v-model="details.bodyType"
+                  class="select select-bordered w-full"
+                  :class="{ 'select-error': details.bodyType === '' && touchedFields.bodyType }"
+                  required
+                  @blur="touchedFields.bodyType = true"
+                  @change="touchedFields.bodyType = true"
+                >
+                  <option
+                    v-for="type in ['Saloon', 'Pickup', 'Estate', 'Cabriolet', 'Clubman', 'Van', 'Hornet']"
+                    :key="type"
+                    :value="type"
+                  >
+                    {{ type }}
+                  </option>
+                </select>
+                <label v-if="details.bodyType === '' && touchedFields.bodyType" class="label">
+                  <span class="label-text-alt text-error">This field is required to submit</span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="form-control w-full">
+                <label class="label">
+                  <span class="label-text">Original Engine Size <span class="text-error">*</span></span>
+                  <span class="label-text-alt"><i class="fad fa-engine"></i></span>
+                </label>
+                <select
+                  v-model.number="details.engineSize"
+                  class="select select-bordered w-full"
+                  :class="{ 'select-error': !details.engineSize && touchedFields.engineSize }"
+                  required
+                  @blur="touchedFields.engineSize = true"
+                  @change="touchedFields.engineSize = true"
+                >
+                  <option v-for="size in [850, 997, 998, 1100, 1275]" :key="size" :value="size">
+                    {{ size }}
+                  </option>
+                </select>
+                <label v-if="!details.engineSize && touchedFields.engineSize" class="label">
+                  <span class="label-text-alt text-error">This field is required to submit</span>
+                </label>
+              </div>
+
+              <div class="form-control w-full mt-2">
+                <label class="label">
+                  <span class="label-text">Factory Color</span>
+                  <span class="label-text-alt"><i class="fad fa-palette"></i></span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="ex. Clipper Blue"
+                  v-model="details.color"
+                  class="input input-bordered w-full"
+                />
+              </div>
+
+              <div class="form-control w-full mt-2">
+                <label class="label">
+                  <span class="label-text">Body Shell Number</span>
+                  <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="ex. GB190fW"
+                  v-model="details.bodyNum"
+                  class="input input-bordered w-full"
+                />
+              </div>
+
+              <div class="form-control w-full mt-2">
+                <label class="label">
+                  <span class="label-text">Engine Plate Number</span>
+                  <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="ex. 12H4102"
+                  v-model="details.engineNum"
+                  class="input input-bordered w-full"
+                />
+              </div>
+            </div>
+            <div class="col-span-1 md:col-span-2">
+              <div class="form-control w-full">
+                <label class="label">
+                  <span class="label-text">Special or Additional Notes</span>
+                  <span class="label-text-alt"><i class="fad fa-note"></i></span>
+                </label>
+                <textarea
+                  class="textarea textarea-bordered h-24"
+                  placeholder="ex. This car was only produced from 1959 to 1960"
+                  v-model="details.notes"
+                ></textarea>
+              </div>
             </div>
           </div>
-          <div>
-            <v-alert v-model="apiError" title="I'm Sorry!" type="error" variant="outlined" :closable="true">
-              <h2 class="is-size-6 pb-4">
-                There was a problem submitting your submission at this time, please try again later!
-              </h2>
-              <p class="pb-5">Please check your entries and try again</p>
-            </v-alert>
-            <v-btn
-              :disabled="!form"
-              :loading="processing"
-              prepend-icon="fad fa-paper-plane"
-              size="x-large"
-              color="primary"
+          <div class="mt-6">
+            <div v-if="apiError" class="alert alert-error mb-4">
+              <i class="fa-duotone fa-circle-exclamation"></i>
+              <div>
+                <h3 class="font-bold">I'm Sorry!</h3>
+                <div class="text-sm">
+                  There was a problem submitting your submission at this time, please try again later!
+                  <p class="mt-2">Please check your entries and try again</p>
+                </div>
+              </div>
+              <button class="btn btn-sm" @click="apiError = false">Dismiss</button>
+            </div>
+            <button
+              class="btn btn-primary btn-lg"
+              :class="{ 'btn-disabled': !validateForm() }"
+              :disabled="processing"
               @click="debouncedSubmit()"
             >
+              <i class="fad fa-paper-plane mr-2" v-if="!processing"></i>
+              <span class="loading loading-spinner" v-if="processing"></span>
               Submit
-            </v-btn>
+            </button>
           </div>
-        </v-form>
+        </form>
       </div>
     </div>
   </div>
 </template>
 <style lang="scss">
-  .v-picker-title {
-    display: none !important;
-  }
-  .v-picker__header {
-    padding-top: 1rem;
-    .v-date-picker-header {
-      .v-date-picker-header__content {
-        font-size: 1rem;
-      }
-    }
-  }
   .fad.fa-asterisk {
     font-size: 1rem !important;
   }
