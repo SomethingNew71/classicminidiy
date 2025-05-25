@@ -9,47 +9,41 @@
 <template>
   <div>
     <hero :navigation="true" :title="'Submit a Wheel'" :heroType="HERO_TYPES.ARCHIVE" />
-    <section id="scrollLocation" class="section">
-      <v-container>
-        <v-row>
-          <v-col cols="8">
-            <nav class="breadcrumb" aria-label="breadcrumbs">
+    <section id="scrollLocation" class="py-4">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-12 gap-4">
+          <div class="col-span-12 md:col-span-8">
+            <div class="breadcrumbs text-base">
               <ul>
                 <li>
                   <NuxtLink to="/">
-                    <span class="icon is-small">
-                      <i class="fas fa-home" aria-hidden="true" />
-                    </span>
-                    <span>Home</span>
+                    <i class="fas fa-home mr-1"></i>
+                    Home
                   </NuxtLink>
                 </li>
                 <li>
                   <NuxtLink to="/archive/wheels">
-                    <span class="icon is-small">
-                      <i class="fas fa-tire" aria-hidden="true" />
-                    </span>
-                    <span>Wheels</span>
+                    <i class="fas fa-tire mr-1"></i>
+                    Wheels
                   </NuxtLink>
                 </li>
-                <li class="is-active">
-                  <NuxtLink to="">
-                    <span class="icon is-small">
-                      <i class="fas fa-tire" aria-hidden="true" />
-                    </span>
-                    <span>Wheel Submission</span>
-                  </NuxtLink>
+                <li>
+                  <span>
+                    <i class="fas fa-tire mr-1"></i>
+                    Wheel Submission
+                  </span>
                 </li>
               </ul>
-            </nav>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12">
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-12 gap-4 mt-4">
+          <div class="col-span-12">
             <WheelSubmit v-if="!newWheel" :uuid="uuid"></WheelSubmit>
             <WheelSubmit v-if="newWheel" :newWheel="newWheel"></WheelSubmit>
-          </v-col>
-        </v-row>
-      </v-container>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
