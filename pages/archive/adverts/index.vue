@@ -54,47 +54,48 @@
 </script>
 <template>
   <hero :navigation="true" :title="'Classic Mini Archives'" :heroType="HERO_TYPES.ARCHIVE" />
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-breadcrumbs :items="crumbs" divider="/">
-          <template v-slot:prepend> <v-icon hydrate-on-visible size="small" icon="fad fa-home"></v-icon> </template
-        ></v-breadcrumbs>
-      </v-col>
-      <v-col cols="9">
-        <h1 class="title">Original Advertisments</h1>
+  <div class="container mx-auto px-4 py-4">
+    <div class="grid grid-cols-12 gap-4">
+      <div class="col-span-12">
+        <div class="breadcrumbs text-base py-2">
+          <ul>
+            <li v-for="(crumb, index) in crumbs" :key="index">
+              <NuxtLink v-if="!crumb.disabled" :to="crumb.href">
+                <i v-if="index === 0" class="fad fa-home mr-1"></i>
+                {{ crumb.title }}
+              </NuxtLink>
+              <span v-else>{{ crumb.title }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-span-12 md:col-span-9">
+        <h1 class="text-2xl font-bold mb-2">Original Advertisments</h1>
         <p>Free copies of the unabridged Advertisments.</p>
-        <v-btn
-          prepend-icon="fa:fad fa-paper-plane"
-          class="me-3 mb-3 mt-3"
-          :variant="'elevated'"
-          :size="'large'"
-          color="primary"
-          target="_blank"
-          @click="submitArchiveFile(ARCHIVE_TYPES.ADVERT)"
-        >
-          Add to Archive
-        </v-btn>
-        <v-btn
-          prepend-icon="fa:fad fa-hand-holding-circle-dollar"
-          class="me-3 mb-3 mt-3"
-          :size="'large'"
-          target="_blank"
-          color="secondary"
-          href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
-          @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
-        >
-          Cover Server Costs
-        </v-btn>
-      </v-col>
+        <div class="my-3 flex flex-wrap gap-3">
+          <button class="btn btn-primary" @click="submitArchiveFile(ARCHIVE_TYPES.ADVERT)" target="_blank">
+            <i class="fad fa-paper-plane mr-2"></i>
+            Add to Archive
+          </button>
+          <a
+            class="btn btn-secondary"
+            href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
+            target="_blank"
+            @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
+          >
+            <i class="fad fa-hand-holding-circle-dollar mr-2"></i>
+            Cover Server Costs
+          </a>
+        </div>
+      </div>
 
-      <v-col cols="12">
+      <div class="col-span-12">
         <ArchiveLandingIterator
           :archiveType="archiveType"
           :content="adverts"
           :loading="status"
         ></ArchiveLandingIterator>
-      </v-col>
-    </v-row>
-  </v-container>
+      </div>
+    </div>
+  </div>
 </template>
