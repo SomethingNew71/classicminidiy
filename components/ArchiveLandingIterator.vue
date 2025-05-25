@@ -4,154 +4,184 @@
   import { shareArchiveItem, submitArchiveFile, type ARCHIVE_TYPES } from '~/data/models/helper-utils';
 
   const search = ref('');
-  defineProps({
+  const currentPage = ref(1);
+  const itemsPerPage = 12;
+
+  const props = defineProps({
     archiveType: {
       type: String as PropType<ARCHIVE_TYPES>,
       default: '',
     },
     content: {
       type: Array as PropType<AdvertsCollectionItem[] | ManualsCollectionItem[] | ContentCollectionItem[] | null>,
-      default: [],
+      default: () => [],
     },
     loading: {
       type: String as PropType<'idle' | 'pending' | 'success' | 'error'>,
+      default: 'idle',
     },
   });
+
+  const filteredItems = computed(() => {
+    if (!props.content) return [];
+
+    return props.content.filter((item) => {
+      const searchLower = search.value.toLowerCase();
+      if (!searchLower) return true;
+
+      return (
+        item.title?.toLowerCase().includes(searchLower) ||
+        item.description?.toLowerCase().includes(searchLower) ||
+        item.code?.toLowerCase().includes(searchLower)
+      );
+    });
+  });
+
+  const paginatedItems = computed(() => {
+    const startIndex = (currentPage.value - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return filteredItems.value.slice(startIndex, endIndex);
+  });
+
+  const pageCount = computed(() => {
+    return Math.ceil(filteredItems.value.length / itemsPerPage);
+  });
+
+  function prevPage() {
+    if (currentPage.value > 1) {
+      currentPage.value--;
+    }
+  }
+
+  function nextPage() {
+    if (currentPage.value < pageCount.value) {
+      currentPage.value++;
+    }
+  }
 </script>
 
 <template>
-  <v-data-iterator :loading="loading === 'pending'" :items="content || []" :items-per-page="12" :search="search">
-    <template v-slot:header>
-      <v-card-text class="pb-10">
-        <v-row>
-          <v-col cols="12">
-            <v-text-field
-              v-model="search"
-              prepend-inner-icon="fad fa-search"
-              placeholder="Search for anything (ex. MPI, Cooper S, Carburettor HIF44)"
-              hide-details
-              variant="solo-filled"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-      </v-card-text>
-    </template>
+  <div class="w-full">
+    <!-- Search Header -->
+    <div class="mb-8 w-full">
+      <div class="form-control w-full">
+        <div class="input-group w-full">
+          <span class="input-group-addon">
+            <i class="fad fa-search"></i>
+          </span>
+          <input
+            type="text"
+            v-model="search"
+            placeholder="Search for anything (ex. MPI, Cooper S, Carburettor HIF44)"
+            class="input input-bordered w-full"
+          />
+        </div>
+      </div>
+    </div>
 
-    <template v-slot:default="{ items }">
-      <v-row dense>
-        <v-col v-for="{ raw: item } in items" :key="item.title" cols="auto" md="6" lg="4">
-          <v-card class="pb-3 pt-3" border flat>
-            <v-icon
-              hydrate-on-visible
-              class="mx-auto pt-10 text-center text-h2 d-block pb-10"
-              v-if="!item.image || item.image === ''"
-              icon="fad fa-image-slash"
-            >
-            </v-icon>
-            <a v-else-if="item.download && item.download !== ''" :href="item.download">
-              <v-img :src="item.image" max-height="150"> </v-img>
+    <!-- Loading Skeleton -->
+    <div v-if="loading === 'pending'" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div v-for="k in 12" :key="k" class="card card-bordered bg-base-100 shadow-sm animate-pulse">
+        <div class="h-[150px] bg-base-200"></div>
+        <div class="card-body">
+          <div class="h-4 bg-base-200 rounded w-3/4 mb-2"></div>
+          <div class="h-3 bg-base-200 rounded w-1/2 mb-4"></div>
+          <div class="h-3 bg-base-200 rounded w-full"></div>
+          <div class="card-actions justify-between mt-4">
+            <div class="h-8 bg-base-200 rounded w-1/4"></div>
+            <div class="h-8 bg-base-200 rounded w-1/4"></div>
+            <div class="h-8 bg-base-200 rounded w-1/4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div v-else>
+      <!-- Empty State -->
+      <div v-if="filteredItems.length === 0" class="text-center py-8">
+        <div class="card card-bordered bg-base-100 shadow-sm">
+          <div class="card-body">
+            <p class="text-base-content">No items meeting current filters exist</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Items Grid -->
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div v-for="item in paginatedItems" :key="item.title" class="card card-bordered bg-base-100 shadow-sm">
+          <!-- Image Section -->
+          <figure v-if="item.image && item.image !== ''">
+            <a v-if="item.download && item.download !== ''" :href="item.download">
+              <img :src="item.image" alt="item.title" class="h-[150px] w-full object-cover" />
             </a>
-            <v-img v-else :src="item.image" max-height="150"> </v-img>
+            <img v-else :src="item.image" alt="item.title" class="h-[150px] w-full object-cover" />
+          </figure>
+          <div v-else class="flex justify-center items-center h-[150px] bg-base-200">
+            <i class="fad fa-image-slash text-4xl text-base-content/50"></i>
+          </div>
 
-            <v-icon
-              hydrate-on-visible
-              class="text-h4 text-right pr-3 d-flex ms-auto"
-              color="secondary"
-              :icon="'fa-duotone fa-solid fa-file-' + item?.download?.split('.').pop()?.toLowerCase()"
-            >
-            </v-icon>
+          <!-- File Type Icon -->
+          <div class="absolute top-2 right-2">
+            <i
+              v-if="item.download"
+              :class="[
+                'fad',
+                'fa-file-' + (item?.download?.split('.').pop()?.toLowerCase() || ''),
+                'text-2xl',
+                'text-secondary',
+              ]"
+            ></i>
+          </div>
 
-            <v-list-item class="mb-2">
-              <template v-slot:title>
-                <strong class="text-h6 mb-2">{{ item.title }}</strong>
-              </template>
-              <v-list-item-subtitle class="d-flex justify-space-between">
-                <span>Sort Key: {{ item.code }}</span>
-              </v-list-item-subtitle>
-            </v-list-item>
-            <v-list-item class="pb-3">
-              <v-list-item-title class="text-caption">{{ item.description }}</v-list-item-title>
-            </v-list-item>
+          <div class="card-body p-4">
+            <!-- Title and Code -->
+            <h2 class="card-title text-lg font-bold">{{ item.title }}</h2>
+            <p class="text-sm text-base-content/70">Sort Key: {{ item.code }}</p>
 
-            <div class="d-flex justify-space-between px-4">
-              <v-btn
-                class="text-none"
-                size="small"
-                prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
-                variant="flat"
-                border
-                @click="shareArchiveItem(item.title, item.path)"
-              >
-                Share
-              </v-btn>
-              <v-btn
-                class="text-none"
-                color="brand-blue-1"
-                prepend-icon="fa-duotone fa-solid fa-plus-large"
-                variant="elevated"
-                size="small"
-                border
+            <!-- Description -->
+            <p class="text-sm my-2">{{ item.description }}</p>
+
+            <!-- Actions -->
+            <div class="card-actions justify-between mt-4">
+              <button class="btn btn-sm btn-outline" @click="shareArchiveItem(item.title, item.path)">
+                <i class="fad fa-arrow-up-from-bracket mr-1"></i> Share
+              </button>
+
+              <button
+                class="btn btn-sm btn-outline btn-info"
                 @click="submitArchiveFile(archiveType, item.title, item.path, item.code, item.description)"
               >
-                Contribute
-              </v-btn>
-              <v-btn
-                v-if="item.download && item.download !== ''"
-                class="text-none"
-                color="primary"
-                size="small"
-                text="Download"
-                variant="flat"
-                prepend-icon="fa-duotone fa-solid fa-download"
-                :href="item.download"
-                border
-              >
-              </v-btn>
+                <i class="fad fa-plus-large mr-1"></i> Contribute
+              </button>
+
+              <a v-if="item.download && item.download !== ''" class="btn btn-sm btn-primary" :href="item.download">
+                <i class="fad fa-download mr-1"></i> Download
+              </a>
             </div>
-          </v-card>
-        </v-col>
-      </v-row>
-    </template>
-
-    <template v-slot:footer="{ page, pageCount, prevPage, nextPage }">
-      <v-col v-if="content?.length === 0" cols="12" class="text-center">
-        <v-card flat>
-          <v-card-text class="text-body">No wheels meeting current filters exist</v-card-text>
-        </v-card>
-      </v-col>
-      <div class="d-flex align-center justify-center pa-4">
-        <v-btn
-          :disabled="page === 1"
-          density="comfortable"
-          icon="fad fa-arrow-left"
-          variant="tonal"
-          rounded
-          @click="prevPage"
-        ></v-btn>
-        <div class="mx-2 text-caption">Page {{ page }} of {{ pageCount }}</div>
-        <v-btn
-          :disabled="page >= pageCount"
-          density="comfortable"
-          icon="fad fa-arrow-right"
-          variant="tonal"
-          rounded
-          @click="nextPage"
-        ></v-btn>
+          </div>
+        </div>
       </div>
-    </template>
 
-    <template v-slot:loader>
-      <v-row>
-        <v-col v-for="(_, k) in 12" :key="k" cols="12" sm="3">
-          <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
-        </v-col>
-      </v-row>
-    </template>
-  </v-data-iterator>
+      <!-- Pagination -->
+      <div v-if="pageCount > 1" class="flex justify-center items-center mt-8 space-x-2">
+        <button class="btn btn-circle btn-sm" :disabled="currentPage === 1" @click="prevPage">
+          <i class="fad fa-arrow-left"></i>
+        </button>
+
+        <span class="text-sm">Page {{ currentPage }} of {{ pageCount }}</span>
+
+        <button class="btn btn-circle btn-sm" :disabled="currentPage >= pageCount" @click="nextPage">
+          <i class="fad fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
-  .v-list-item-title {
+  .card-title,
+  .card-body p {
     -webkit-hyphens: unset;
     hyphens: unset;
     overflow-wrap: unset;
