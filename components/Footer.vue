@@ -3,7 +3,7 @@
   const socials = ref(SocialItems);
 </script>
 <template>
-  <footer class="footer p-10 bg-base-200 text-center flex flex-col">
+  <footer class="footer p-10 bg-base-200 text-center flex flex-col w-full">
     <div class="container mx-auto">
       <div class="pb-2 mx-auto">
         <div class="flex justify-center">
