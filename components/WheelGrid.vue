@@ -4,6 +4,7 @@
   // State management with proper typing
   const search = ref('');
   const size = ref('list');
+  const page = ref(1);
   const selectedOffsets = ref<string[]>([]);
   const selectedMaterials = ref<string[]>([]);
 
@@ -93,138 +94,176 @@
 </script>
 
 <template>
-  <v-data-iterator :loading="status === 'pending'" :items="filteredWheels" :items-per-page="12" :search="search">
-    <template v-slot:header>
-      <v-card-title class="d-flex align-center pe-2">
-        <v-icon hydrate-on-visible icon="fad fa-tire fa-spin" class="me-1 py-2"></v-icon> &nbsp; Find Wheels
-        <v-spacer></v-spacer>
-      </v-card-title>
-      <v-card-text class="pb-10">
-        <v-row>
-          <v-col cols="12" md="6">
-            <v-btn-toggle v-model="size" mandatory rounded="10" color="primary" group elevation="2">
-              <v-btn value="list" :active="size === 'list'"> All </v-btn>
-              <v-btn value="ten" :active="size === 'ten'"> 10 </v-btn>
-              <v-btn value="twelve" :active="size === 'twelve'"> 12 </v-btn>
-              <v-btn value="thirteen" :active="size === 'thirteen'"> 13 </v-btn>
-            </v-btn-toggle>
-          </v-col>
-          <v-col cols="12" md="6" class="d-flex justify-end">
-            <v-btn
-              :disabled="!filtersActive"
-              :variant="'flat'"
-              @click="clearFilters"
-              class="text-caption"
-              color="primary"
-              >Clear Filters</v-btn
-            >
-          </v-col>
-          <v-col cols="12">
-            <v-text-field
-              v-model="search"
-              prepend-inner-icon="fad fa-search"
-              placeholder="Search for anything (ex. Momos, 10in, ET20)"
-              hide-details
-              variant="solo-filled"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-select v-model="selectedOffsets" :items="allOffsets" label="Offsets" multiple>
-              <template v-slot:selection="{ item, index }">
-                <v-chip v-if="index < 2">
-                  <span>{{ item.title }}</span>
-                </v-chip>
-                <span v-if="index === 2" class="text-grey text-caption align-self-center">
-                  (+{{ selectedOffsets.length - 2 }} others)
-                </span>
-              </template>
-            </v-select>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-select v-model="selectedMaterials" :items="allMaterials" label="Material" multiple>
-              <template v-slot:selection="{ item, index }">
-                <v-chip v-if="index < 2">
-                  <span>{{ item.title }}</span>
-                </v-chip>
-                <span v-if="index === 2" class="text-grey text-caption align-self-center">
-                  (+{{ selectedMaterials.length - 2 }} others)
-                </span>
-              </template>
-            </v-select>
-          </v-col>
-        </v-row>
-      </v-card-text>
-    </template>
-
-    <template v-slot:default="{ items }">
-      <v-row class="d-flex justify-center px-2">
-        <template v-if="error">
-          <v-col cols="12" class="text-center">
-            <v-alert type="error" title="Error loading wheels" :text="error.message" />
-          </v-col>
-        </template>
-        <v-col v-else v-for="{ raw: wheel } in items" :key="wheel.uuid" cols="12" sm="4" md="3">
-          <v-card class="wheel-container" flat nuxt-link :to="`/archive/wheels/${wheel.uuid}`">
-            <template v-if="wheel.images">
-              <v-img
-                :alt="`${wheel.name} wheel`"
-                :lazy-src="getWheelImageUrl(wheel)"
-                class="mx-auto rounded-xl align-end wheel-image"
-                gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)"
-                aspect-ratio="1"
-                cover
-                :src="getWheelImageUrl(wheel)"
-              >
-                <span class="float-right wheel-chip pr-2">
-                  <v-chip v-if="wheel.size === '10'" color="green" class="" variant="flat"> {{ wheel.size }}in </v-chip>
-                  <v-chip v-if="wheel.size === '12'" color="orange" variant="flat"> {{ wheel.size }}in </v-chip>
-                  <v-chip v-if="wheel.size === '13'" color="blue" variant="flat"> {{ wheel.size }}in </v-chip>
-                </span>
-                <h2 class="text-h6 px-4 mb-4 text-white text-bold">
-                  {{ wheel.name }}
-                </h2>
-              </v-img>
-            </template>
-          </v-card>
-        </v-col>
-      </v-row>
-    </template>
-
-    <template v-slot:footer="{ page, pageCount, prevPage, nextPage }">
-      <v-col v-if="filteredWheels.length === 0" cols="12" class="text-center">
-        <v-card flat>
-          <v-card-text class="text-body">No wheels meeting current filters exist</v-card-text>
-        </v-card>
-      </v-col>
-      <div class="d-flex align-center justify-center pa-4">
-        <v-btn
-          :disabled="page === 1"
-          density="comfortable"
-          icon="fad fa-arrow-left"
-          variant="tonal"
-          rounded
-          @click="prevPage"
-        ></v-btn>
-        <div class="mx-2 text-caption">Page {{ page }} of {{ pageCount }}</div>
-        <v-btn
-          :disabled="page >= pageCount"
-          density="comfortable"
-          icon="fad fa-arrow-right"
-          variant="tonal"
-          rounded
-          @click="nextPage"
-        ></v-btn>
+  <div class="card bg-base-100 shadow-lg" :class="{ loading: status === 'pending' }">
+    <!-- Header section -->
+    <div class="card-body pb-0">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="card-title"><i class="fad fa-tire fa-spin mr-2"></i> Find Wheels</h2>
       </div>
-    </template>
 
-    <template v-slot:loader>
-      <v-row>
-        <v-col v-for="index in 12" :key="`skeleton-${index}`" cols="12" sm="3">
-          <v-skeleton-loader class="border" type="image, article"></v-skeleton-loader>
-        </v-col>
-      </v-row>
-    </template>
-  </v-data-iterator>
+      <div class="mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div class="col-span-1 md:col-span-1">
+            <div class="btn-group w-full">
+              <button
+                class="btn flex-1"
+                :class="{ 'btn-primary': size === 'list', 'btn-outline': size !== 'list' }"
+                @click="size = 'list'"
+              >
+                All
+              </button>
+              <button
+                class="btn flex-1"
+                :class="{ 'btn-primary': size === 'ten', 'btn-outline': size !== 'ten' }"
+                @click="size = 'ten'"
+              >
+                10
+              </button>
+              <button
+                class="btn flex-1"
+                :class="{ 'btn-primary': size === 'twelve', 'btn-outline': size !== 'twelve' }"
+                @click="size = 'twelve'"
+              >
+                12
+              </button>
+              <button
+                class="btn flex-1"
+                :class="{ 'btn-primary': size === 'thirteen', 'btn-outline': size !== 'thirteen' }"
+                @click="size = 'thirteen'"
+              >
+                13
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-control mb-4">
+          <div class="input-group w-full">
+            <span><i class="fad fa-search"></i></span>
+            <input
+              v-model="search"
+              type="text"
+              placeholder="Search for anything (ex. Momos, 10in, ET20)"
+              class="input input-bordered w-full"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Offsets</span>
+              </label>
+              <select class="select select-bordered w-full" multiple v-model="selectedOffsets">
+                <option v-for="offset in allOffsets" :key="offset" :value="offset">{{ offset }}</option>
+              </select>
+              <div v-if="selectedOffsets.length > 0" class="flex flex-wrap gap-2 mt-2">
+                <div
+                  v-for="(offset, index) in selectedOffsets.slice(0, 2)"
+                  :key="index"
+                  class="badge badge-primary badge-outline"
+                >
+                  {{ offset }}
+                </div>
+                <div v-if="selectedOffsets.length > 2" class="badge badge-ghost">
+                  +{{ selectedOffsets.length - 2 }} others
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Material</span>
+              </label>
+              <select class="select select-bordered w-full" multiple v-model="selectedMaterials">
+                <option v-for="material in allMaterials" :key="material" :value="material">{{ material }}</option>
+              </select>
+              <div v-if="selectedMaterials.length > 0" class="flex flex-wrap gap-2 mt-2">
+                <div
+                  v-for="(material, index) in selectedMaterials.slice(0, 2)"
+                  :key="index"
+                  class="badge badge-secondary badge-outline"
+                >
+                  {{ material }}
+                </div>
+                <div v-if="selectedMaterials.length > 2" class="badge badge-ghost">
+                  +{{ selectedMaterials.length - 2 }} others
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content section -->
+    <div class="p-4">
+      <!-- Error state -->
+      <div v-if="error" class="alert alert-error">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>{{ error.message || 'Error loading wheels' }}</span>
+      </div>
+
+      <!-- Wheels grid -->
+      <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <NuxtLink
+          v-for="wheel in filteredWheels.slice((page - 1) * 12, page * 12)"
+          :key="wheel.uuid"
+          :to="`/archive/wheels/${wheel.uuid}`"
+          class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow"
+        >
+          <figure class="relative">
+            <img :src="getWheelImageUrl(wheel)" :alt="`${wheel.name} wheel`" class="h-48 w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70"></div>
+            <div class="absolute top-2 right-2">
+              <div v-if="wheel.size === '10'" class="badge badge-success">{{ wheel.size }}in</div>
+              <div v-if="wheel.size === '12'" class="badge badge-warning">{{ wheel.size }}in</div>
+              <div v-if="wheel.size === '13'" class="badge badge-info">{{ wheel.size }}in</div>
+            </div>
+            <div class="absolute bottom-0 left-0 p-4 text-white">
+              <h2 class="font-bold text-lg">{{ wheel.name }}</h2>
+            </div>
+          </figure>
+        </NuxtLink>
+      </div>
+
+      <!-- Empty state -->
+      <div v-if="filteredWheels.length === 0 && !error" class="text-center py-8">
+        <div class="card bg-base-200">
+          <div class="card-body">
+            <p>No wheels meeting current filters exist</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination footer -->
+    <div class="flex items-center justify-center p-4">
+      <div class="join">
+        <button class="join-item btn" :class="{ 'btn-disabled': page === 1 }" @click="page > 1 && page--">
+          <i class="fad fa-arrow-left"></i>
+        </button>
+        <button class="join-item btn btn-ghost">Page {{ page }} of {{ Math.ceil(filteredWheels.length / 12) }}</button>
+        <button
+          class="join-item btn"
+          :class="{ 'btn-disabled': page >= Math.ceil(filteredWheels.length / 12) }"
+          @click="page < Math.ceil(filteredWheels.length / 12) && page++"
+        >
+          <i class="fad fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div v-if="status === 'pending'" class="p-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div v-for="index in 12" :key="`skeleton-${index}`" class="skeleton h-48 w-full"></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
