@@ -54,43 +54,44 @@
 </script>
 <template>
   <hero :navigation="true" :title="'Classic Mini Archives'" :heroType="HERO_TYPES.ARCHIVE" />
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-breadcrumbs :items="crumbs" divider="/">
-          <template v-slot:prepend> <v-icon hydrate-on-visible size="small" icon="fad fa-home"></v-icon> </template
-        ></v-breadcrumbs>
-      </v-col>
-      <v-col cols="9">
-        <h1 class="title">Original Carburettor Technical Documents</h1>
-        <p>Free copies of original technical material about Classic Mini Carburettors</p>
-        <v-btn
-          prepend-icon="fa:fad fa-paper-plane"
-          class="me-3 mb-3 mt-3"
-          :variant="'elevated'"
-          :size="'large'"
-          color="primary"
-          target="_blank"
-          @click="submitArchiveFile(ARCHIVE_TYPES.CARBS)"
-        >
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 gap-4">
+      <div class="col-span-1">
+        <div class="breadcrumbs text-base my-4">
+          <ul>
+            <li>
+              <NuxtLink to="/" class="flex items-center">
+                <i class="fas fa-home mr-1"></i>
+                Home
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/archive">Archive</NuxtLink>
+            </li>
+            <li class="text-base-content/70">Advertisments</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-span-1 md:col-span-9 lg:col-span-9">
+        <h1 class="text-2xl font-bold mb-2">Original Carburettor Technical Documents</h1>
+        <p class="mb-4">Free copies of original technical material about Classic Mini Carburettors</p>
+        <button class="btn btn-primary mr-3 mb-3 mt-3" @click="submitArchiveFile(ARCHIVE_TYPES.CARBS)">
+          <i class="fad fa-paper-plane mr-2"></i>
           Add to Archive
-        </v-btn>
-        <v-btn
-          prepend-icon="fa:fad fa-hand-holding-circle-dollar"
-          class="me-3 mb-3 mt-3"
-          :size="'large'"
-          target="_blank"
-          color="secondary"
+        </button>
+        <a
+          class="btn btn-secondary mr-3 mb-3 mt-3"
           href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
+          target="_blank"
           @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
         >
+          <i class="fad fa-hand-holding-circle-dollar mr-2"></i>
           Cover Server Costs
-        </v-btn>
-      </v-col>
-
-      <v-col cols="12">
+        </a>
+      </div>
+      <div class="col-span-12 md:col-span-9 lg:col-span-9">
         <ArchiveLandingIterator :archiveType="archiveType" :content="carbs" :loading="status"></ArchiveLandingIterator>
-      </v-col>
-    </v-row>
-  </v-container>
+      </div>
+    </div>
+  </div>
 </template>
