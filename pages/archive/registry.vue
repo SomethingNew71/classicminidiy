@@ -326,9 +326,9 @@
           </div>
         </div>
         <div class="col-span-12 md:col-span-10 md:col-start-2">
-          <div class="divider" id="submitAnchor">contribute - Its free!</div>
+          <div class="divider" id="submitAnchor">Add your Mini to the Registry - Its free!</div>
         </div>
-        <div class="col-span-12 md:col-span-4">
+        <div class="col-span-12 md:col-span-10 md:col-start-2">
           <RegistrySubmission></RegistrySubmission>
         </div>
         <div class="col-span-12 md:col-span-10 md:col-start-2">
