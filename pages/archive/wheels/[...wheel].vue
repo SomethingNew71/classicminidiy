@@ -48,94 +48,92 @@
 </script>
 <template>
   <hero :navigation="true" :title="'Color Swatch'" :heroType="HERO_TYPES.ARCHIVE" />
-  <v-container>
-    <v-row align="center">
-      <v-col cols="8">
+  <div class="container mx-auto px-4 py-4">
+    <div class="grid grid-cols-12 gap-4 items-center">
+      <div class="col-span-12 md:col-span-8">
         <breadcrumb :page="wheel?.name" subpage="Wheels" subpage-href="/archive/wheels"></breadcrumb>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12">
-        <v-card :loading="status === 'pending'" elevation="4">
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-4">
+      <div class="col-span-12">
+        <div class="card bg-base-100 shadow-xl" :class="{'loading': status === 'pending'}">
           <template v-if="wheel">
-            <v-card-text class="pl-10 py-0 pt-3">
-              <v-row align="center" no-gutters>
-                <v-col cols="12" md="6" class="top-section">
-                  <h1 class="text-h4">{{ wheel.name }}</h1>
-                  <h2 class="text-subtitle-1 pt-4">{{ wheel.notes }}</h2>
-                </v-col>
+            <div class="card-body">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="top-section">
+                  <h1 class="text-2xl font-bold">{{ wheel.name }}</h1>
+                  <h2 class="text-lg pt-4">{{ wheel.notes }}</h2>
+                </div>
 
-                <v-col cols="12" md="6" class="pt-2">
-                  <v-carousel v-if="wheel.images && wheel.images.length > 1" height="300" hide-delimiters>
-                    <template v-for="image in wheel.images">
-                      <v-carousel-item :src="image.src" rounded></v-carousel-item>
-                    </template>
-                  </v-carousel>
-                  <v-img
-                    :alt="`Image of the ${wheel.name} wheels`"
-                    max-height="300"
-                    max-width="300"
-                    class="wheel-image"
-                    rounded="lg"
+                <div class="pt-2">
+                  <div v-if="wheel.images && wheel.images.length > 1" class="carousel w-full h-[300px]">
+                    <div v-for="(image, index) in wheel.images" :key="index" :id="`slide${index}`" class="carousel-item relative w-full rounded-lg">
+                      <img :src="image.src" class="w-full object-cover rounded-lg" />
+                      <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a :href="`#slide${index === 0 ? wheel.images.length - 1 : index - 1}`" class="btn btn-circle">❮</a> 
+                        <a :href="`#slide${index === wheel.images.length - 1 ? 0 : index + 1}`" class="btn btn-circle">❯</a>
+                      </div>
+                    </div>
+                  </div>
+                  <img
                     v-else-if="wheel.images"
-                    cover
+                    :alt="`Image of the ${wheel.name} wheels`"
+                    class="wheel-image rounded-lg max-h-[300px] max-w-[300px] object-cover"
                     :src="wheel.images[0].src"
-                  ></v-img>
-                </v-col>
-              </v-row>
-            </v-card-text>
+                  />
+                </div>
+              </div>
+            </div>
 
-            <v-divider></v-divider>
-            <v-row class="d-flex py-3 justify-space-between">
-              <v-col cols="12" sm="6" md="3">
-                <v-list-item prepend-icon="fad fa-arrow-right-to-line">
-                  <v-list-item-title>Offset</v-list-item-title>
-                  <v-list-item-subtitle v-if="wheel.offset">{{ wheel.offset }}</v-list-item-subtitle>
-                  <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
-                </v-list-item>
-              </v-col>
-              <v-divider vertical></v-divider>
-              <v-col cols="12" sm="6" md="3">
-                <v-list-item prepend-icon="fad fa-arrows-to-line">
-                  <v-list-item-title>Diameter</v-list-item-title>
-                  <v-list-item-subtitle v-if="wheel.size">{{ wheel.size }}</v-list-item-subtitle>
-                  <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
-                </v-list-item>
-              </v-col>
-              <v-divider vertical></v-divider>
-              <v-col cols="12" sm="6" md="3">
-                <v-list-item prepend-icon="fad fa-arrows-left-right-to-line">
-                  <v-list-item-title>Width</v-list-item-title>
-                  <v-list-item-subtitle v-if="wheel.width">{{ wheel.width }}</v-list-item-subtitle>
-                  <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
-                </v-list-item>
-              </v-col>
-            </v-row>
-            <v-divider></v-divider>
-            <v-card-actions class="d-flex justify-space-around">
-              <v-btn v-if="copied" prepend-icon="fad fa-link" disabled size="large">Copied</v-btn>
-              <v-btn v-else prepend-icon="fad fa-link" @click="copyUrl()" size="large">Copy Link</v-btn>
-              <v-btn
-                @click="shareWheelItem(wheel.name, wheel.uuid)"
-                size="large"
-                prepend-icon="fad fa-solid fa-arrow-up-from-bracket"
-              >
-                Share
-              </v-btn>
-              <v-btn
-                class="text-center"
-                size="large"
-                prepend-icon="fad fa-edit"
-                :to="`/archive/wheels/submit?uuid=${wheel.uuid}`"
-              >
-                Contribute
-              </v-btn>
-            </v-card-actions>
+            <div class="divider mx-4"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4">
+              <div class="flex items-start">
+                <i class="fad fa-arrow-right-to-line text-xl mr-2 mt-1"></i>
+                <div>
+                  <h3 class="font-bold">Offset</h3>
+                  <p v-if="wheel.offset">{{ wheel.offset }}</p>
+                  <p v-else class="text-error">Missing</p>
+                </div>
+              </div>
+              <div class="divider divider-horizontal hidden sm:flex"></div>
+              <div class="flex items-start">
+                <i class="fad fa-arrows-to-line text-xl mr-2 mt-1"></i>
+                <div>
+                  <h3 class="font-bold">Diameter</h3>
+                  <p v-if="wheel.size">{{ wheel.size }}</p>
+                  <p v-else class="text-error">Missing</p>
+                </div>
+              </div>
+              <div class="divider divider-horizontal hidden sm:flex"></div>
+              <div class="flex items-start">
+                <i class="fad fa-arrows-left-right-to-line text-xl mr-2 mt-1"></i>
+                <div>
+                  <h3 class="font-bold">Width</h3>
+                  <p v-if="wheel.width">{{ wheel.width }}</p>
+                  <p v-else class="text-error">Missing</p>
+                </div>
+              </div>
+            </div>
+            <div class="divider mx-4"></div>
+            <div class="card-actions justify-center gap-4 p-4">
+              <button v-if="copied" class="btn btn-disabled" disabled>
+                <i class="fad fa-link mr-2"></i> Copied
+              </button>
+              <button v-else class="btn btn-primary" @click="copyUrl()">
+                <i class="fad fa-link mr-2"></i> Copy Link
+              </button>
+              <button class="btn btn-secondary" @click="shareWheelItem(wheel.name, wheel.uuid)">
+                <i class="fad fa-solid fa-arrow-up-from-bracket mr-2"></i> Share
+              </button>
+              <NuxtLink :to="`/archive/wheels/submit?uuid=${wheel.uuid}`" class="btn btn-accent">
+                <i class="fad fa-edit mr-2"></i> Contribute
+              </NuxtLink>
+            </div>
           </template>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
