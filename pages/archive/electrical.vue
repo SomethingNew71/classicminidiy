@@ -109,7 +109,7 @@
           <div
             v-for="(diagram, name, index) in diagrams"
             :key="`${name}-${index}`"
-            class="collapse collapse-plus bg-base-100 border border-base-300 mb-2"
+            class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
           >
             <!-- Accordion header -->
             <input
@@ -118,7 +118,7 @@
               :checked="diagram.title === activePanel"
               @change="activePanel = diagram.title"
             />
-            <div class="collapse-title font-semibold text-xl">
+            <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
               {{ diagram.title }}
             </div>
 
