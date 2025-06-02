@@ -2,20 +2,25 @@
   import { HERO_TYPES } from '~/data/models/generic';
   import { shareWheelItem } from '~/data/models/helper-utils';
   import type { IWheelsData } from '~/data/models/wheels';
-  const { params } = await useRoute();
-  const wheelId = ref(params.wheel);
-  let { data: wheel, status } = await useFetch<IWheelsData>(`/api/wheels/wheel`, {
+
+  const route = useRoute();
+  const wheelId = ref(route.params.wheel);
+  const {
+    data: wheel,
+    pending,
+    error,
+  } = useFetch<IWheelsData>('/api/wheels/wheel', {
     query: {
       uuid: wheelId.value[0],
     },
+    server: false, // Ensure this runs on client-side
   });
+
   const copied = ref<boolean>(false);
-  let shareImage: string;
-  if (wheel.value?.images && wheel.value?.images?.length > 0) {
-    shareImage = wheel.value.images[0].src;
-  } else {
-    shareImage = 'no-image';
-  }
+  const shareImage = computed(() => {
+    if (!wheel.value?.images?.length) return 'no-image';
+    return wheel.value.images[0].src;
+  });
 
   async function copyUrl() {
     const url = `https://classicminidiy.com/archive/wheels/${wheel.value?.uuid}`;
@@ -28,108 +33,172 @@
     }
   }
 
-  useHead({
-    title: `Mini Wheels - ${wheel.value?.name} | ${wheel.value?.size} x ${wheel.value?.width}`,
-    meta: [
-      {
-        key: 'description',
-        name: 'description',
-        content: 'Check out the Clasic Mini wheel I am looking at right now.',
-      },
-    ],
-  });
-  useSeoMeta({
-    ogTitle: `Mini Wheels - ${wheel.value?.name} | ${wheel.value?.size} x ${wheel.value?.width}`,
-    ogDescription: 'Check out the Clasic Mini wheel I am looking at right now.',
-    ogUrl: `classicminidiy.com/archive/wheels/${wheel.value?.uuid}`,
-    ogImage: shareImage,
-    ogType: 'website',
+  // Update head and meta tags when wheel data is loaded
+  watchEffect(() => {
+    if (wheel.value) {
+      const title = `Mini Wheels - ${wheel.value.name} | ${wheel.value.size} x ${wheel.value.width}`;
+      const description = 'Check out the Classic Mini wheel I am looking at right now.';
+
+      useHead({
+        title,
+        meta: [
+          {
+            key: 'description',
+            name: 'description',
+            content: description,
+          },
+        ],
+      });
+
+      useSeoMeta({
+        ogTitle: title,
+        ogDescription: description,
+        ogUrl: `classicminidiy.com/archive/wheels/${wheel.value.uuid}`,
+        ogImage: shareImage.value,
+        ogType: 'website',
+      });
+    }
   });
 </script>
 <template>
-  <hero :navigation="true" :title="'Color Swatch'" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="'Wheel Details'" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4 py-4">
-    <div class="grid grid-cols-12 gap-4 items-center">
-      <div class="col-span-12 md:col-span-8">
-        <breadcrumb :page="wheel?.name" subpage="Wheels" subpage-href="/archive/wheels"></breadcrumb>
+    <!-- Loading State -->
+    <div v-if="pending" class="flex justify-center items-center min-h-[50vh]">
+      <div class="text-center">
+        <span class="loading loading-spinner loading-lg text-primary"></span>
+        <p class="mt-4">Loading wheel details...</p>
       </div>
     </div>
-    <div class="grid grid-cols-12 gap-4">
-      <div class="col-span-12">
-        <div class="card bg-base-100 shadow-xl" :class="{'loading': status === 'pending'}">
-          <template v-if="wheel">
-            <div class="card-body">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="top-section">
-                  <h1 class="text-2xl font-bold">{{ wheel.name }}</h1>
-                  <h2 class="text-lg pt-4">{{ wheel.notes }}</h2>
+
+    <!-- Error State -->
+    <div v-else-if="error" class="alert alert-error my-8">
+      <i class="fas fa-exclamation-triangle mr-2"></i>
+      <span>Failed to load wheel details. Please try again later.</span>
+      <NuxtLink to="/archive/wheels" class="btn btn-sm btn-ghost ml-4">
+        <i class="fas fa-arrow-left mr-2"></i> Back to Wheels
+      </NuxtLink>
+    </div>
+
+    <!-- Content -->
+    <div v-else>
+      <div class="grid grid-cols-12 gap-4 items-center">
+        <div class="col-span-12 md:col-span-8">
+          <breadcrumb
+            :page="wheel?.name || 'Wheel Details'"
+            subpage="Wheels"
+            subpage-href="/archive/wheels"
+          ></breadcrumb>
+        </div>
+      </div>
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-12">
+          <div class="card bg-base-100 shadow-xl">
+            <div v-if="wheel" class="card-body p-6">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="flex-1">
+                  <h1 class="text-3xl font-bold mb-4">{{ wheel.name }}</h1>
+                  <p v-if="wheel.notes" class="text-gray-600 text-lg">{{ wheel.notes }}</p>
                 </div>
 
-                <div class="pt-2">
-                  <div v-if="wheel.images && wheel.images.length > 1" class="carousel w-full h-[300px]">
-                    <div v-for="(image, index) in wheel.images" :key="index" :id="`slide${index}`" class="carousel-item relative w-full rounded-lg">
-                      <img :src="image.src" class="w-full object-cover rounded-lg" />
-                      <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a :href="`#slide${index === 0 ? wheel.images.length - 1 : index - 1}`" class="btn btn-circle">❮</a> 
-                        <a :href="`#slide${index === wheel.images.length - 1 ? 0 : index + 1}`" class="btn btn-circle">❯</a>
+                <div class="w-full md:w-1/2 flex justify-center">
+                  <div class="w-full max-w-md">
+                    <div
+                      v-if="wheel.images && wheel.images.length > 1"
+                      class="carousel w-full rounded-lg overflow-hidden"
+                    >
+                      <div
+                        v-for="(image, index) in wheel.images"
+                        :key="index"
+                        :id="`slide${index}`"
+                        class="carousel-item relative w-full aspect-square"
+                      >
+                        <img :src="image.src" class="w-full h-full object-cover" />
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
+                          <a
+                            :href="`#slide${index === 0 ? wheel.images.length - 1 : index - 1}`"
+                            class="btn btn-circle btn-sm bg-white/80 hover:bg-white text-gray-800 border-0 shadow-md"
+                          >
+                            <i class="fas fa-chevron-left"></i>
+                          </a>
+                          <a
+                            :href="`#slide${index === wheel.images.length - 1 ? 0 : index + 1}`"
+                            class="btn btn-circle btn-sm bg-white/80 hover:bg-white text-gray-800 border-0 shadow-md"
+                          >
+                            <i class="fas fa-chevron-right"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
+                    <img
+                      v-else-if="wheel.images && wheel.images[0]"
+                      :alt="`Image of the ${wheel.name} wheels`"
+                      class="w-full h-auto rounded-lg shadow-md"
+                      :src="wheel.images[0].src"
+                    />
+                    <div v-else class="w-full aspect-square flex items-center justify-center bg-gray-100 rounded-lg">
+                      <i class="fas fa-image text-6xl text-gray-300"></i>
+                    </div>
                   </div>
-                  <img
-                    v-else-if="wheel.images"
-                    :alt="`Image of the ${wheel.name} wheels`"
-                    class="wheel-image rounded-lg max-h-[300px] max-w-[300px] object-cover"
-                    :src="wheel.images[0].src"
-                  />
                 </div>
               </div>
-            </div>
 
-            <div class="divider mx-4"></div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4">
-              <div class="flex items-start">
-                <i class="fad fa-arrow-right-to-line text-xl mr-2 mt-1"></i>
-                <div>
-                  <h3 class="font-bold">Offset</h3>
-                  <p v-if="wheel.offset">{{ wheel.offset }}</p>
-                  <p v-else class="text-error">Missing</p>
+              <div class="divider my-2"></div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 py-4">
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+                    <i class="fad fa-arrow-right-to-line text-xl text-primary"></i>
+                  </div>
+                  <h3 class="font-semibold text-gray-600 mb-1">Offset</h3>
+                  <p v-if="wheel.offset" class="text-lg font-medium">{{ wheel.offset }}</p>
+                  <p v-else class="text-error text-sm">Not specified</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-2">
+                    <i class="fad fa-arrows-to-line text-xl text-secondary"></i>
+                  </div>
+                  <h3 class="font-semibold text-gray-600 mb-1">Diameter</h3>
+                  <p v-if="wheel.size" class="text-lg font-medium">{{ wheel.size }}</p>
+                  <p v-else class="text-error text-sm">Not specified</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-12 h-12 rounded-full bg-info/10 flex items-center justify-center mb-2">
+                    <i class="fad fa-arrows-left-right-to-line text-xl text-info"></i>
+                  </div>
+                  <h3 class="font-semibold text-gray-600 mb-1">Width</h3>
+                  <p v-if="wheel.width" class="text-lg font-medium">{{ wheel.width }}</p>
+                  <p v-else class="text-error text-sm">Not specified</p>
                 </div>
               </div>
-              <div class="divider divider-horizontal hidden sm:flex"></div>
-              <div class="flex items-start">
-                <i class="fad fa-arrows-to-line text-xl mr-2 mt-1"></i>
-                <div>
-                  <h3 class="font-bold">Diameter</h3>
-                  <p v-if="wheel.size">{{ wheel.size }}</p>
-                  <p v-else class="text-error">Missing</p>
-                </div>
-              </div>
-              <div class="divider divider-horizontal hidden sm:flex"></div>
-              <div class="flex items-start">
-                <i class="fad fa-arrows-left-right-to-line text-xl mr-2 mt-1"></i>
-                <div>
-                  <h3 class="font-bold">Width</h3>
-                  <p v-if="wheel.width">{{ wheel.width }}</p>
-                  <p v-else class="text-error">Missing</p>
-                </div>
+              <div class="divider my-2"></div>
+              <div class="flex flex-wrap justify-center gap-3 pt-2">
+                <button v-if="copied" class="btn btn-lg btn-primary/10 border border-base-300 gap-2" disabled>
+                  <i class="fad fa-check text-success"></i>
+                  <span>Copied!</span>
+                </button>
+                <button v-else class="btn btn-lg btn-primary border border-base-300 gap-2" @click="copyUrl">
+                  <i class="fad fa-link"></i>
+                  <span>Copy Link</span>
+                </button>
+                <button
+                  v-if="wheel.name && wheel.uuid"
+                  class="btn btn-lg btn-secondary border border-base-300 gap-2"
+                  @click="shareWheelItem(wheel.name, wheel.uuid)"
+                >
+                  <i class="fad fa-share"></i>
+                  <span>Share</span>
+                </button>
+                <NuxtLink
+                  v-if="wheel.uuid"
+                  :to="`/archive/wheels/submit?uuid=${wheel.uuid}`"
+                  class="btn btn-lg btn-outlined gap-2"
+                >
+                  <i class="fad fa-edit"></i>
+                  <span>Contribute</span>
+                </NuxtLink>
               </div>
             </div>
-            <div class="divider mx-4"></div>
-            <div class="card-actions justify-center gap-4 p-4">
-              <button v-if="copied" class="btn btn-disabled" disabled>
-                <i class="fad fa-link mr-2"></i> Copied
-              </button>
-              <button v-else class="btn btn-primary" @click="copyUrl()">
-                <i class="fad fa-link mr-2"></i> Copy Link
-              </button>
-              <button class="btn btn-secondary" @click="shareWheelItem(wheel.name, wheel.uuid)">
-                <i class="fad fa-solid fa-arrow-up-from-bracket mr-2"></i> Share
-              </button>
-              <NuxtLink :to="`/archive/wheels/submit?uuid=${wheel.uuid}`" class="btn btn-accent">
-                <i class="fad fa-edit mr-2"></i> Contribute
-              </NuxtLink>
-            </div>
-          </template>
+          </div>
         </div>
       </div>
     </div>
