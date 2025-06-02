@@ -94,62 +94,73 @@
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-lg" :class="{ loading: status === 'pending' }">
+  <div class="card bg-base-100 shadow-lg">
     <!-- Header section -->
     <div class="card-body pb-0">
       <div class="flex items-center justify-between mb-4">
         <h2 class="card-title"><i class="fad fa-tire fa-spin mr-2"></i> Find Wheels</h2>
+        <div v-if="filtersActive" class="tooltip tooltip-left" data-tip="Clear Filters">
+          <button class="btn btn-ghost btn-sm" @click="clearFilters">
+            <i class="fas fa-filter-circle-xmark"></i>
+            Clear Filters
+          </button>
+        </div>
       </div>
 
       <div class="mb-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div class="col-span-1 md:col-span-1">
-            <div class="btn-group w-full">
-              <button
-                class="btn flex-1"
-                :class="{ 'btn-primary': size === 'list', 'btn-outline': size !== 'list' }"
-                @click="size = 'list'"
-              >
-                All
-              </button>
-              <button
-                class="btn flex-1"
-                :class="{ 'btn-primary': size === 'ten', 'btn-outline': size !== 'ten' }"
-                @click="size = 'ten'"
-              >
-                10
-              </button>
-              <button
-                class="btn flex-1"
-                :class="{ 'btn-primary': size === 'twelve', 'btn-outline': size !== 'twelve' }"
-                @click="size = 'twelve'"
-              >
-                12
-              </button>
-              <button
-                class="btn flex-1"
-                :class="{ 'btn-primary': size === 'thirteen', 'btn-outline': size !== 'thirteen' }"
-                @click="size = 'thirteen'"
-              >
-                13
-              </button>
-            </div>
+          <div class="col-span-1 md:col-span-1 mb-4">
+            <form class="filter">
+              <input
+                type="radio"
+                name="wheel-size"
+                class="btn filter-reset"
+                :class="{ 'btn-primary': size === 'list' }"
+                @change="size = 'list'"
+                :checked="size === 'list'"
+                aria-label="All Sizes"
+              />
+              <input
+                type="radio"
+                name="wheel-size"
+                class="btn"
+                :class="{ 'btn-primary': size === 'ten' }"
+                @change="size = 'ten'"
+                :checked="size === 'ten'"
+                aria-label='10" Wheels'
+              />
+              <input
+                type="radio"
+                name="wheel-size"
+                class="btn"
+                :class="{ 'btn-primary': size === 'twelve' }"
+                @change="size = 'twelve'"
+                :checked="size === 'twelve'"
+                aria-label='12" Wheels'
+              />
+              <input
+                type="radio"
+                name="wheel-size"
+                class="btn"
+                :class="{ 'btn-primary': size === 'thirteen' }"
+                @change="size = 'thirteen'"
+                :checked="size === 'thirteen'"
+                aria-label='13" Wheels'
+              />
+            </form>
           </div>
         </div>
 
-        <div class="form-control mb-4">
+        <div class="form-control">
           <div class="input-group w-full">
-            <span><i class="fad fa-search"></i></span>
-            <input
-              v-model="search"
-              type="text"
-              placeholder="Search for anything (ex. Momos, 10in, ET20)"
-              class="input input-bordered w-full"
-            />
+            <label class="input w-full">
+              <span class="label"><i class="fad fa-search"></i></span>
+              <input v-model="search" type="text" placeholder="Search for anything (ex. Momos, 10in, ET20)" />
+            </label>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <div class="form-control">
               <label class="label">
@@ -195,7 +206,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -207,34 +218,56 @@
         <span>{{ error.message || 'Error loading wheels' }}</span>
       </div>
 
-      <!-- Wheels grid -->
-      <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <NuxtLink
-          v-for="wheel in filteredWheels.slice((page - 1) * 12, page * 12)"
-          :key="wheel.uuid"
-          :to="`/archive/wheels/${wheel.uuid}`"
-          class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow"
-        >
-          <figure class="relative">
-            <img :src="getWheelImageUrl(wheel)" :alt="`${wheel.name} wheel`" class="h-48 w-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/70"></div>
-            <div class="absolute top-2 right-2">
-              <div v-if="wheel.size === '10'" class="badge badge-success">{{ wheel.size }}in</div>
-              <div v-if="wheel.size === '12'" class="badge badge-warning">{{ wheel.size }}in</div>
-              <div v-if="wheel.size === '13'" class="badge badge-info">{{ wheel.size }}in</div>
-            </div>
-            <div class="absolute bottom-0 left-0 p-4 text-white">
-              <h2 class="font-bold text-lg">{{ wheel.name }}</h2>
-            </div>
-          </figure>
-        </NuxtLink>
+      <!-- Loading state -->
+      <div v-else-if="status === 'pending'" class="flex justify-center p-8">
+        <span class="loading loading-spinner loading-lg"></span>
       </div>
 
-      <!-- Empty state -->
-      <div v-if="filteredWheels.length === 0 && !error" class="text-center py-8">
-        <div class="card bg-base-200">
+      <!-- No results -->
+      <div v-else-if="filteredWheels.length === 0" class="text-center p-8">
+        <i class="fas fa-tire text-6xl text-gray-400 mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">No wheels found</h3>
+        <p class="text-gray-500">Try adjusting your search or filters</p>
+      </div>
+
+      <!-- Grid of wheels -->
+      <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div
+          v-for="wheel in filteredWheels.slice((page - 1) * 12, page * 12)"
+          :key="wheel.uuid"
+          class="card card-compact bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
+          <figure class="relative pt-[100%] bg-gray-100">
+            <img
+              :src="getWheelImageUrl(wheel)"
+              :alt="wheel.name"
+              class="absolute inset-0 w-full h-full object-contain p-4"
+              loading="lazy"
+            />
+          </figure>
           <div class="card-body">
-            <p>No wheels meeting current filters exist</p>
+            <h3 class="card-title text-lg">{{ wheel.name }}</h3>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div>
+                <div class="text-gray-500">Size</div>
+                <div class="font-medium">{{ wheel.size || 'N/A' }}</div>
+              </div>
+              <div>
+                <div class="text-gray-500">Width</div>
+                <div class="font-medium">{{ wheel.width || 'N/A' }}</div>
+              </div>
+              <div>
+                <div class="text-gray-500">Offset</div>
+                <div class="font-medium">{{ wheel.offset || 'N/A' }}</div>
+              </div>
+              <div>
+                <div class="text-gray-500">Material</div>
+                <div class="font-medium">{{ wheel.type || 'N/A' }}</div>
+              </div>
+            </div>
+            <div class="card-actions justify-end mt-2">
+              <NuxtLink :to="`/archive/wheels/${wheel.uuid}`" class="btn btn-sm btn-secondary"> View Details </NuxtLink>
+            </div>
           </div>
         </div>
       </div>
@@ -256,22 +289,58 @@
         </button>
       </div>
     </div>
-
-    <!-- Loading state -->
-    <div v-if="status === 'pending'" class="p-4">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div v-for="index in 12" :key="`skeleton-${index}`" class="skeleton h-48 w-full"></div>
-      </div>
-    </div>
   </div>
 </template>
 
 <style scoped>
   .wheel-chip {
     position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+    backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Custom styling for multi-select dropdowns */
+  select[multiple] {
+    min-height: 6rem;
+  }
+
+  /* Loading state for the card */
+  .loading {
+    position: relative;
+    pointer-events: none;
+  }
+
+  .loading::after {
+    content: '';
+    position: absolute;
     top: 0;
+    left: 0;
     right: 0;
-    margin-top: 0.5rem;
-    margin-right: 0.3rem;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loading::before {
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid #3b82f6;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 11;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 </style>
