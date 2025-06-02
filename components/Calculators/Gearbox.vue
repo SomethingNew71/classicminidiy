@@ -184,284 +184,279 @@
 </script>
 
 <template>
-  <v-row>
-    <v-col cols="12" class="py-4"></v-col>
-    <v-col cols="4">
-      <v-switch
-        v-model="metric"
-        color="primary"
-        label="Imperial or Metric"
-        @update:modelValue="calculateRatio()"
-      ></v-switch>
-    </v-col>
-    <v-col cols="12"></v-col>
-    <v-col cols="12" md="6">
-      <v-select
-        variant="outlined"
-        prepend-icon="fad fa-tire"
-        v-model="tire_type"
-        label="Tire Size"
-        item-title="label"
-        item-value="value"
-        :items="tires"
-        @update:modelValue="calculateRatio()"
-      >
-      </v-select>
-    </v-col>
-    <v-col cols="12" md="6">
-      <v-select
-        variant="outlined"
-        prepend-icon="fad fa-gear"
-        v-model="final_drive"
-        label="Final Drive Gear Size"
-        item-title="label"
-        item-value="value"
-        :items="diffs"
-        @update:modelValue="calculateRatio()"
-      >
-        <template v-slot:item="{ props: itemProps, item }">
-          <v-list-item
-            v-bind="itemProps"
-            :value="item.raw.value"
-            :title="item.raw.label"
-            :subtitle="item.raw.subtitle"
-          ></v-list-item>
-        </template>
-      </v-select>
-    </v-col>
-    <v-col cols="12"></v-col>
-    <v-col cols="12" md="6">
-      <v-select
-        variant="outlined"
-        prepend-icon="fad fa-percent"
-        v-model="speedo_drive"
-        label="Speedo Drive Ratio"
-        item-title="label"
-        item-value="value"
-        :items="speedosRatios"
-        @update:modelValue="calculateRatio()"
-      >
-        <template v-slot:item="{ props: itemProps, item }">
-          <v-list-item
-            v-bind="itemProps"
-            :value="item.raw.value"
-            :title="item.raw.label"
-            :subtitle="item.raw.subtitle"
-          ></v-list-item>
-        </template>
-      </v-select>
-    </v-col>
-    <v-col cols="12" md="6">
-      <v-select
-        variant="outlined"
-        prepend-icon="fad fa-gear"
-        v-model="drop_gear"
-        label="Drop Gear Size"
-        item-title="label"
-        item-value="value"
-        :items="dropGears"
-        @update:modelValue="calculateRatio()"
-      >
-        <template v-slot:item="{ props: itemProps, item }">
-          <v-list-item
-            v-bind="itemProps"
-            :value="item.raw.value"
-            :title="item.raw.label"
-            :subtitle="item.raw.subtitle"
-          ></v-list-item>
-        </template>
-      </v-select>
-    </v-col>
-    <v-col cols="12"></v-col>
-    <v-col cols="12" md="6">
-      <v-select
-        variant="outlined"
-        prepend-icon="fad fa-gear"
-        v-model="gear_ratios"
-        label="Gearset"
-        item-title="label"
-        item-value="value"
-        :items="gearRatios"
-        @update:modelValue="calculateRatio()"
-      >
-      </v-select>
-    </v-col>
-    <v-col cols="12" md="6">
-      <h3>Maximum RPM</h3>
-      <v-slider
-        v-model="max_rpm"
-        :min="6000"
-        :max="9000"
-        :step="500"
-        show-ticks="always"
-        tick-size="4"
-        :ticks="rpmTicks"
-        @update:modelValue="calculateRatio()"
-      ></v-slider>
-    </v-col>
-    <v-col cols="12" md="10" offset-md="1">
-      <div class="divider">Results</div>
-    </v-col>
-    <v-col cols="12">
-      <nav class="level pb-5">
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Revolutions per/Mile</p>
-            <p class="title">{{ speedoDetails.engineRevsMile || '---' }}</p>
+  <div class="grid grid-cols-1 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      <div class="col-span-1 md:col-span-4">
+        <div class="form-control">
+          <label class="label cursor-pointer">
+            <span class="label-text">Imperial or Metric</span>
+            <input type="checkbox" class="toggle toggle-primary" v-model="metric" @change="calculateRatio()" />
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-12 md:col-span-6">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text"
+              >Tire Size <span><i class="fad fa-tire"></i></span
+            ></span>
+          </label>
+          <div class="input-group">
+            <select class="select select-bordered w-full" v-model="tire_type" @change="calculateRatio()">
+              <option v-for="item in tires" :key="item.label" :value="item.value">
+                {{ item.label }}
+              </option>
+            </select>
           </div>
         </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Cable Turns per/Mile</p>
-            <p class="title">{{ speedoDetails.turnsPerMile || '---' }}</p>
+      </div>
+      <div class="form-control col-span-12 md:col-span-6">
+        <label class="label">
+          <span class="label-text"
+            >Speedo Drive Ratio <span><i class="fad fa-percent"></i></span
+          ></span>
+        </label>
+        <div class="input-group">
+          <select class="select select-bordered w-full" v-model="speedo_drive" @change="calculateRatio()">
+            <option v-for="item in speedosRatios" :key="item.label" :value="item.value">
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-control col-span-12 md:col-span-6">
+        <label class="label">
+          <span class="label-text"
+            >Drop Gear Ratio <span><i class="fad fa-gears"></i></span
+          ></span>
+        </label>
+        <div class="input-group">
+          <select class="select select-bordered w-full" v-model="drop_gear" @change="calculateRatio()">
+            <option v-for="item in dropGears" :key="item.label" :value="item.value">
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-control col-span-12 md:col-span-6">
+        <label class="label">
+          <span class="label-text"
+            >Gearset <span><i class="fad fa-gear"></i></span
+          ></span>
+        </label>
+        <div class="input-group">
+          <select class="select select-bordered w-full" v-model="gear_ratios" @change="calculateRatio()">
+            <option v-for="item in gearRatios" :key="item.label" :value="item.value">
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-control col-span-12 md:col-span-6">
+        <label class="label">
+          <span class="label-text"
+            >Final Drive <span><i class="fad fa-gears"></i></span
+          ></span>
+        </label>
+        <div class="input-group">
+          <select class="select select-bordered w-full" v-model="final_drive" @change="calculateRatio()">
+            <option v-for="item in diffs" :key="item.label" :value="item.value">
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-control col-span-12 md:col-span-6">
+        <label class="label">
+          <span class="label-text"
+            >Max RPM <span><i class="fad fa-tachometer-alt"></i></span
+          ></span>
+        </label>
+        <div class="w-full">
+          <input
+            type="range"
+            min="3000"
+            max="9000"
+            step="500"
+            v-model.number="max_rpm"
+            class="range range-primary range-xs"
+            @change="calculateRatio()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="divider">Results</div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card bg-base-200 shadow-sm">
+        <div class="card-body text-center">
+          <h3 class="text-lg opacity-70">Revolutions per/Mile</h3>
+          <p class="text-3xl font-bold">{{ speedoDetails.engineRevsMile || '---' }}</p>
+        </div>
+      </div>
+      <div class="card bg-base-200 shadow-sm">
+        <div class="card-body text-center">
+          <h3 class="text-lg opacity-70">Turns per/Mile</h3>
+          <p class="text-3xl font-bold">{{ speedoDetails.turnsPerMile || '---' }}</p>
+        </div>
+      </div>
+      <div class="card bg-base-200 shadow-sm">
+        <div class="card-body text-center">
+          <h3 class="text-lg opacity-70">Top Speed</h3>
+          <p class="text-3xl font-bold">{{ topSpeed || '---' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-4">
+      <div class="card bg-base-100 shadow-sm">
+        <div class="card-body p-4 text-center">
+          <h3 class="text-sm opacity-70">Tire Width</h3>
+          <p class="text-lg font-bold">{{ tireInfo.width || '---' }}mm</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-sm">
+        <div class="card-body p-4 text-center">
+          <h3 class="text-sm opacity-70">Tire Profile</h3>
+          <p class="text-lg font-bold">{{ tireInfo.profile || '---' }}%</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-sm">
+        <div class="card-body p-4 text-center">
+          <h3 class="text-sm opacity-70">Tire Size</h3>
+          <p class="text-lg font-bold">{{ tireInfo.size || '---' }}"</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-sm">
+        <div class="card-body p-4 text-center">
+          <h3 class="text-sm opacity-70">Tire Diameter</h3>
+          <p class="text-lg font-bold">{{ tireInfo.diameter || '---' }}mm</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-sm">
+        <div class="card-body p-4 text-center">
+          <h3 class="text-sm opacity-70">Circumference</h3>
+          <p class="text-lg font-bold">{{ tireInfo.circ || '---' }}mm</p>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-sm">
+        <div class="card-body p-4 text-center">
+          <h3 class="text-sm opacity-70">Turns Per Mile</h3>
+          <p class="text-lg font-bold">{{ tireInfo.tireTurnsPerMile || '---' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6">
+      <div class="col-span-1 md:col-span-7">
+        <div class="card bg-base-100 shadow-md">
+          <div class="card-body">
+            <h2 class="card-title">
+              <i class="fa-duotone fa-gauge mr-2"></i>
+              Speedo Information
+            </h2>
+            <div class="overflow-x-auto">
+              <table class="table table-zebra table-compact w-full">
+                <thead>
+                  <tr>
+                    <th v-for="header in tableHeadersSpeedos" :key="header.key">{{ header.title }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, index) in tableDataSpeedos" :key="index">
+                    <td class="font-bold">{{ item.speedometer }}</td>
+                    <td>{{ item.turns }}</td>
+                    <td>{{ item.speed }}{{ metric ? 'kph' : 'mph' }}</td>
+                    <td :class="item.status">{{ item.result }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Top Speed</p>
-            <p class="title">{{ topSpeed || '---' }}</p>
+      </div>
+
+      <div class="col-span-1 md:col-span-5">
+        <div class="card bg-base-100 shadow-md">
+          <div class="card-body">
+            <h2 class="card-title">
+              <i class="fa-duotone fa-gear fa-spin mr-2"></i>
+              Gearing Information
+            </h2>
+            <div class="overflow-x-auto">
+              <table class="table table-zebra table-compact w-full">
+                <thead>
+                  <tr>
+                    <th v-for="header in tableHeadersGearing" :key="header.key">{{ header.title }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, index) in tableDataGearing" :key="index">
+                    <td>{{ item.gear }}</td>
+                    <td>{{ item.ratio }}</td>
+                    <td>{{ item.maxSpeed }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </nav>
-    </v-col>
-    <v-col cols="12">
-      <nav class="level pb-5">
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Tire Width</p>
-            <p class="subtitle has-text-weight-bold">{{ tireInfo.width || '---' }}mm</p>
-          </div>
+        <div class="mt-6">
+          <div class="divider">Support</div>
+          <patreon-card size="large" />
         </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Tire Profile</p>
-            <p class="subtitle has-text-weight-bold">{{ tireInfo.profile || '---' }}%</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Wheel Size</p>
-            <p class="subtitle has-text-weight-bold">{{ tireInfo.size || '---' }}in</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Tire Diameter</p>
-            <p class="subtitle has-text-weight-bold">{{ tireInfo.diameter || '---' }}mm</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Circumference</p>
-            <p class="subtitle has-text-weight-bold">{{ tireInfo.circ || '---' }}mm</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Turns Per Mile</p>
-            <p class="subtitle has-text-weight-bold">
-              {{ tireInfo.tireTurnsPerMile || '---' }}
-            </p>
-          </div>
-        </div>
-      </nav>
-    </v-col>
-    <v-col cols="12" md="7">
-      <div class="card">
-        <div class="card-header">
-          <p class="card-header-title">
-            <span class="icon is-size-4">
-              <i class="fa-duotone fa-gauge"></i>
-            </span>
-            <span class="pl-3 has-text-weight-bold">Speedo Information</span>
-          </p>
-        </div>
-        <div class="card-content">
-          <v-data-table
-            :class="'speedo-table'"
-            :headers="tableHeadersSpeedos"
-            :items="tableDataSpeedos"
-            density="compact"
-            :items-per-page="20"
-          >
-            <template v-slot:item.speed="{ item }">
-              <p class="pr-5">{{ item.speed }}{{ metric ? 'kph' : 'mph' }}</p>
+      </div>
+    </div>
+
+    <div class="mt-6">
+      <div class="card bg-base-100 shadow-md">
+        <div class="card-body">
+          <ClientOnly fallback-tag="span">
+            <highcharts
+              ref="gearSpeedChart"
+              :options="mapOptions"
+              :updateArgs="[true, true, true]"
+              :constructorType="'chart'"
+            ></highcharts>
+            <template #fallback>
+              <div class="skeleton h-96 w-full"></div>
+              <p class="py-10 text-center text-2xl">Chart is loading</p>
             </template>
-            <template v-slot:item.speedometer="{ item }">
-              <p class="font-weight-bold">{{ item.speedometer }}</p>
-            </template>
-            <template v-slot:item.result="{ item }">
-              <p class="font-weight-bold" :class="item.status">{{ item.result }}</p>
-            </template>
-          </v-data-table>
+          </ClientOnly>
         </div>
       </div>
-    </v-col>
-    <v-col cols="12" md="5">
-      <div class="card">
-        <div class="card-header">
-          <p class="card-header-title">
-            <span class="icon is-size-4">
-              <i class="fa-duotone fa-gear fa-spin"></i>
-            </span>
-            <span class="pl-3 has-text-weight-bold">Gearing Information</span>
-          </p>
-        </div>
-        <div class="card-content">
-          <v-data-table-virtual :headers="tableHeadersGearing" :items="tableDataGearing" density="compact">
-          </v-data-table-virtual>
-        </div>
-      </div>
-      <v-col cols="12" md="10" offset-md="1">
-        <div class="divider">Support</div>
-      </v-col>
-      <v-col cols="12">
-        <patreon-card size="large" />
-      </v-col>
-    </v-col>
-    <v-col cols="12">
-      <div class="card">
-        <ClientOnly fallback-tag="span">
-          <highcharts
-            ref="gearSpeedChart"
-            :options="mapOptions"
-            :updateArgs="[true, true, true]"
-            :constructorType="'chart'"
-          ></highcharts>
-          <template #fallback>
-            <v-skeleton-loader type="image" height="400px" class="pa-10"></v-skeleton-loader>
-            <p class="pa-10 text-center text-h5">Chart is loading</p>
-          </template>
-        </ClientOnly>
-      </div>
-    </v-col>
-    <v-col cols="12">
-      <div class="content has-text-centered">
-        <p>
-          Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building
-          your engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one
-          source. The mathematical equations used in this tool can be found here:
-          <a
-            href="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Equation Source Code</a
-          >
-        </p>
-      </div>
-    </v-col>
-  </v-row>
+    </div>
+
+    <div class="mt-6 text-center max-w-3xl mx-auto">
+      <p>
+        Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building your
+        engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one source.
+        The mathematical equations used in this tool can be found here:
+        <a
+          href="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link link-primary"
+        >
+          Equation Source Code
+        </a>
+      </p>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
-  .speedo-table {
-    tbody tr:nth-of-type(odd) {
-      background-color: rgba(0, 0, 0, 0.02);
-    }
-    .v-data-table-footer,
-    .v-divider {
-      display: none;
-    }
+  .text-red {
+    color: #ff5252;
+  }
+  .text-green {
+    color: #4caf50;
+  }
+  .text-primary {
+    color: #2196f3;
   }
 </style>
