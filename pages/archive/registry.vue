@@ -334,7 +334,7 @@
         <div class="col-span-12 md:col-span-10 md:col-start-2">
           <div class="divider">Other ways to support</div>
         </div>
-        <div class="col-span-12 md:col-span-4">
+        <div class="col-span-12 md:col-span-10 md:col-start-2">
           <patreon-card size="large" />
         </div>
       </div>

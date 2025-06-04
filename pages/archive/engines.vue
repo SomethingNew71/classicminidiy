@@ -36,14 +36,13 @@
 <template>
   <hero :navigation="true" :title="'Engine Sizes'" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-12 gap-4">
+    <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" page="Engine Sizes"></breadcrumb>
-
-        <div class="grid grid-cols-12 md:grid-cols-12 gap-4">
+        <breadcrumb class="my-6" page="Engine Sizes"></breadcrumb>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-2xl font-bold mb-2">Engine Displacement and Sizes</h1>
-            <p>
+            <h1 class="text-2xl font-bold mb-4">Engine Displacement and Sizes</h1>
+            <p class="mb-6">
               Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard
               bore, engine size chart to figure out how big your current engine is, or how big you'd like your next
               build to be!
