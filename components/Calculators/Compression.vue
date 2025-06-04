@@ -147,7 +147,7 @@
         class="ml-10"
         label="Custom Gasket Size"
         v-if="gasket === 0"
-        v-model="customGasket"
+        v-model.number="customGasket"
       ></v-text-field>
     </v-col>
     <v-col cols="12" md="6">
