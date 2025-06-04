@@ -1,12 +1,13 @@
 <script lang="ts" setup>
   import { HERO_TYPES } from '~/data/models/generic';
   import { shareColorItem } from '~/data/models/helper-utils';
+  import type { PrettyColor } from '~/data/models/colors';
+
   const { params } = useRoute();
-  const { data: color, status } = await useFetch(`/api/colors/single`, {
-    query: {
-      id: params.color,
-    },
+  const { data: color, status } = await useFetch<PrettyColor>(`/api/colors/single`, {
+    query: { id: params.color },
   });
+
   const copied = ref(false);
   const shareImage = ref('');
 
@@ -55,110 +56,179 @@
     ogType: 'website',
   });
 </script>
-<template>
-  <hero :navigation="true" :title="'Color Swatch'" :heroType="HERO_TYPES.ARCHIVE" />
-  <v-container>
-    <v-row align="center">
-      <v-col cols="8">
-        <breadcrumb page="Swatch" subpage="Colors" subpage-href="/archive/colors"></breadcrumb>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12" md="10" offset-md="1">
-        <v-card :loading="status === 'pending'" elevation="4">
-          <template v-if="color">
-            <v-card-text class="py-0">
-              <v-row align="center" no-gutters>
-                <v-col cols="6" class="text-center">
-                  <h2 class="text-h5">{{ color.pretty.Name }}</h2>
-                  <p class="text-capitalize pb-5 pt-2 text-body-1">
-                    <v-icon
-                      hydrate-on-visible
-                      icon="fad fa-palette"
-                      size="18"
-                      color="primary"
-                      class="me-1 pb-1"
-                    ></v-icon
-                    >Color Group:
-                    {{ color.pretty['Primary Color'] }}
-                  </p>
-                  <h3 class="text-h2">{{ color.pretty.Code }}</h3>
-                </v-col>
 
-                <v-col cols="6" class="pt-2">
-                  <v-img
-                    v-if="color.raw.hasSwatch"
-                    class="rounded-xl"
-                    :src="`https://classicminidiy.s3.amazonaws.com/colors/${color.raw.code}.jpg`"
-                  >
-                    <template #sources>
-                      <source :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.raw.code}.webp`" />
-                    </template>
-                  </v-img>
-                  <v-img class="rounded-xl" v-else src="https://classicminidiy.s3.amazonaws.com/misc/color-filler.jpg">
-                    <template #sources>
-                      <source srcset="https://classicminidiy.s3.amazonaws.com/misc/color-filler.webp" />
-                    </template>
-                  </v-img>
-                </v-col>
-              </v-row>
-            </v-card-text>
-            <v-divider></v-divider>
-            <v-row class="d-flex py-3 justify-space-between">
-              <v-col cols="12" sm="6" md="3">
-                <v-list-item density="compact" prepend-icon="fad fa-calendar">
-                  <v-list-item-title>Years</v-list-item-title>
-                  <v-list-item-subtitle v-if="color.pretty.Years">{{ color.pretty.Years }}</v-list-item-subtitle>
-                  <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
-                </v-list-item>
-              </v-col>
-              <v-col cols="12" sm="6" md="3">
-                <v-list-item density="compact" prepend-icon="fad fa-code-simple">
-                  <v-list-item-title>Short Code</v-list-item-title>
-                  <v-list-item-subtitle v-if="color.pretty['Short Code']">{{
-                    color.pretty['Short Code']
-                  }}</v-list-item-subtitle>
-                  <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
-                </v-list-item>
-              </v-col>
-              <v-col cols="12" sm="6" md="3">
-                <v-list-item density="compact" prepend-icon="fad fa-square-code">
-                  <v-list-item-title>Ditzler PPG Code</v-list-item-title>
-                  <v-list-item-subtitle v-if="color.pretty['Ditzler PPG Code']">{{
-                    color.pretty['Ditzler PPG Code']
-                  }}</v-list-item-subtitle>
-                  <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
-                </v-list-item>
-              </v-col>
-              <v-col cols="12" sm="6" md="3">
-                <v-list-item density="compact" prepend-icon="fad fa-square-code">
-                  <v-list-item-title>Dulux Code</v-list-item-title>
-                  <v-list-item-subtitle v-if="color.pretty['Dulux Code']">{{
-                    color.pretty['Dulux Code']
-                  }}</v-list-item-subtitle>
-                  <v-list-item-subtitle v-else class="text-red-darken-2">Missing</v-list-item-subtitle>
-                </v-list-item>
-              </v-col>
-            </v-row>
-            <v-divider></v-divider>
-            <v-card-actions class="d-flex justify-space-around pb-4">
-              <v-btn v-if="copied" prepend-icon="fad fa-link" disabled>Copied</v-btn>
-              <v-btn v-else prepend-icon="fad fa-link" @click="copyUrl()">Copy Link</v-btn>
-              <v-btn
-                color="brandGreen"
-                :href="`mailto:?subject=Mini Color Swatch - ${color.pretty.Name} | ${color.pretty.Code}&body=Color%20Name%20-%20${color.pretty.Name}%20%0ABMC%20Code%20-%20${color.pretty.Code}%20%0ADulux%20Code%20-%20${color.pretty['Dulux Code']}%20%0ADitzler%20Code%20-%20${color.pretty['Ditzler PPG Code']}%20`"
-                prepend-icon="fad fa-paper-plane"
-                >Email</v-btn
-              >
-              <v-btn
-                prepend-icon="fa-duotone fa-solid fa-arrow-up-from-bracket"
-                @click="shareColorItem(color.pretty.Name, color.pretty.ID)"
-                >Share</v-btn
-              >
-            </v-card-actions>
-          </template>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+<template>
+  <div class="min-h-screen bg-base-200">
+    <!-- Hero Section -->
+    <div class="bg-primary text-primary-content py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center gap-2 mb-4">
+          <i class="fas fa-palette text-3xl"></i>
+          <h1 class="text-3xl font-bold">Color Swatch</h1>
+        </div>
+        <div class="text-sm breadcrumbs">
+          <ul>
+            <li><NuxtLink to="/">Home</NuxtLink></li>
+            <li><NuxtLink to="/archive/colors">Colors</NuxtLink></li>
+            <li v-if="color">{{ color.pretty.Name }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="card bg-base-100 shadow-xl">
+        <div v-if="status === 'pending'" class="flex justify-center p-8">
+          <span class="loading loading-spinner loading-lg text-primary"></span>
+        </div>
+
+        <div v-else-if="color" class="card-body">
+          <!-- Color Header -->
+          <div class="flex flex-col md:flex-row gap-6 items-center">
+            <!-- Color Info -->
+            <div class="flex-1 text-center md:text-left">
+              <h2 class="card-title text-3xl font-bold mb-2">{{ color.pretty.Name }}</h2>
+              <div class="badge badge-lg badge-primary mb-4">
+                <i class="fas fa-palette mr-1"></i>
+                {{ color.pretty['Primary Color'] }}
+              </div>
+              <h3 class="text-5xl font-bold text-primary mb-6">{{ color.pretty.Code }}</h3>
+            </div>
+
+            <!-- Color Swatch -->
+            <div class="w-full md:w-1/2 lg:w-1/3">
+              <figure class="relative aspect-square rounded-xl overflow-hidden shadow-lg">
+                <img
+                  v-if="color.raw.hasSwatch"
+                  :src="`https://classicminidiy.s3.amazonaws.com/colors/${color.raw.code}.jpg`"
+                  :alt="`${color.pretty.Name} color swatch`"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  v-else
+                  class="w-full h-full bg-gradient-to-br from-base-200 to-base-300 flex items-center justify-center"
+                >
+                  <i class="fas fa-paint-roller text-6xl opacity-30"></i>
+                </div>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Color Details -->
+          <div class="divider">Details</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="stats bg-base-200">
+              <div class="stat">
+                <div class="stat-figure text-primary">
+                  <i class="fas fa-calendar-days text-2xl"></i>
+                </div>
+                <div class="stat-title">Years</div>
+                <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty.Years }">
+                  {{ color.pretty.Years || 'Missing' }}
+                </div>
+              </div>
+            </div>
+
+            <div class="stats bg-base-200">
+              <div class="stat">
+                <div class="stat-figure text-primary">
+                  <i class="fas fa-code text-2xl"></i>
+                </div>
+                <div class="stat-title">Short Code</div>
+                <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Short Code'] }">
+                  {{ color.pretty['Short Code'] || 'Missing' }}
+                </div>
+              </div>
+            </div>
+
+            <div class="stats bg-base-200">
+              <div class="stat">
+                <div class="stat-figure text-primary">
+                  <i class="fas fa-barcode text-2xl"></i>
+                </div>
+                <div class="stat-title">Ditzler PPG Code</div>
+                <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Ditzler PPG Code'] }">
+                  {{ color.pretty['Ditzler PPG Code'] || 'Missing' }}
+                </div>
+              </div>
+            </div>
+
+            <div class="stats bg-base-200">
+              <div class="stat">
+                <div class="stat-figure text-primary">
+                  <i class="fas fa-barcode text-2xl"></i>
+                </div>
+                <div class="stat-title">Dulux Code</div>
+                <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Dulux Code'] }">
+                  {{ color.pretty['Dulux Code'] || 'Missing' }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="divider">Share</div>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <button @click="copyUrl()" class="btn btn-primary" :class="{ 'btn-success': copied }">
+              <i class="fas fa-link mr-2"></i>
+              {{ copied ? 'Copied!' : 'Copy Link' }}
+            </button>
+
+            <a
+              :href="`mailto:?subject=Mini Color Swatch - ${color.pretty.Name} | ${color.pretty.Code}&body=Color%20Name%20-%20${color.pretty.Name}%20%0ABMC%20Code%20-%20${color.pretty.Code}%20%0ADulux%20Code%20-%20${color.pretty['Dulux Code']}%20%0ADitzler%20Code%20-%20${color.pretty['Ditzler PPG Code']}%20`"
+              class="btn btn-secondary"
+            >
+              <i class="fas fa-envelope mr-2"></i>
+              Email
+            </a>
+
+            <button @click="shareColorItem(color.pretty.Name, color.pretty.ID)" class="btn btn-accent">
+              <i class="fas fa-share-nodes mr-2"></i>
+              Share
+            </button>
+
+            <NuxtLink :to="`/archive/colors/contribute?color=${color.raw.id}`" class="btn btn-outline">
+              <i class="fas fa-edit mr-2"></i>
+              Contribute Updates
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+  .card {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  .card:hover {
+    --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .stat-value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .btn {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  figure {
+    transition: transform 0.3s ease;
+  }
+
+  figure:hover {
+    transform: translateY(-4px);
+  }
+</style>
