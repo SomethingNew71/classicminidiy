@@ -65,24 +65,25 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Weights & Measurements'" :textSize="'text-3xl'" :heroType="HERO_TYPES.ARCHIVE" />
-  <div class="container mx-auto px-4 pt-10">
-    <div class="grid grid-cols-12 gap-4">
+  <hero :navigation="true" :title="'Weights & Measurements'" :heroType="HERO_TYPES.ARCHIVE" />
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" page="Weights & Measurements"></breadcrumb>
-      </div>
-
-      <div class="col-span-12">
-        <h1 class="text-2xl font-bold mb-4">Mini Weights</h1>
-        <p class="mb-4">
-          Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These weights
-          were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you would like
-          to contribute please click the link below to email me.
-        </p>
-        <a href="mailto:classicminidiy@gmail.com" class="btn btn-outline mb-6 mt-2" target="_blank">
-          <i class="fas fa-paper-plane mr-2"></i>
-          classicminidiy@gmail.com
-        </a>
+        <breadcrumb class="my-6" page="Weights & Measurements"></breadcrumb>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="col-span-12 md:col-span-8">
+            <h1 class="text-2xl font-bold mb-4">Mini Weights</h1>
+            <p class="mb-6">
+              Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These weights
+              were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you would like
+              to contribute please click the link below to email me.
+            </p>
+            <a href="mailto:classicminidiy@gmail.com" class="btn btn-outline mb-6" target="_blank">
+              <i class="fas fa-paper-plane mr-2"></i>
+              classicminidiy@gmail.com
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="col-span-12">
