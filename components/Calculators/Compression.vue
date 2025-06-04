@@ -167,8 +167,7 @@
       <v-input></v-input>
     </v-col>
     <v-col cols="12" md="4">
-      <h3>Piston Dish size (cc)</h3>
-      <v-slider color="brand-green-3" v-model="pistonDish" :min="0" :max="20" :step="0.1"></v-slider>
+      <h3 class="pl-10 pb-2">Piston Dish size (cc)</h3>
       <v-number-input
         :reverse="false"
         controlVariant="split"
@@ -184,8 +183,7 @@
       ></v-number-input>
     </v-col>
     <v-col cols="12" md="4">
-      <h3>Cylinder Head Chamber Volume (cc)</h3>
-      <v-slider color="brand-green-3" v-model="headVolume" :min="15" :max="35" :step="0.1"></v-slider>
+      <h3 class="pl-10 pb-2">Cylinder Head Chamber Volume (cc)</h3>
       <v-number-input
         :reverse="false"
         controlVariant="split"
@@ -201,8 +199,7 @@
       ></v-number-input>
     </v-col>
     <v-col cols="12" md="4">
-      <h3>Piston Deck Height (thou)</h3>
-      <v-slider color="brand-green-3" v-model="deckHeight" :min="0" :max="80" :step="1"></v-slider>
+      <h3 class="pl-10 pb-2">Piston Deck Height (thou)</h3>
       <v-number-input
         :reverse="false"
         controlVariant="split"
