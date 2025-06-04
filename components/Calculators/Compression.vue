@@ -171,7 +171,7 @@
       <v-number-input
         :reverse="false"
         controlVariant="split"
-        :step="0.1"
+        :step="1"
         :min="0"
         :max="20"
         :hideInput="false"
@@ -187,7 +187,7 @@
       <v-number-input
         :reverse="false"
         controlVariant="split"
-        :step="0.1"
+        :step="1"
         :min="15"
         :max="35"
         :hideInput="false"
