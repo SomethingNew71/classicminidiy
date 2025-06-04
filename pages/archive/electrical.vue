@@ -81,19 +81,20 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Electrical Diagrams'" :textSize="'text-3xl'" :heroType="HERO_TYPES.ARCHIVE" />
-  <div class="container mx-auto px-4 pt-10">
-    <div class="grid grid-cols-12 gap-4">
+  <hero :navigation="true" :title="'Electrical Diagrams'" :heroType="HERO_TYPES.ARCHIVE" />
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" page="Electrical Diagrams"></breadcrumb>
-      </div>
-
-      <div class="col-span-12 md:col-span-10">
-        <h1 class="text-2xl font-bold mb-4">Electrical Diagrams</h1>
-        <p class="mb-6">
-          Find the wiring diagrams you need with our collection of fully digitized diagrams sourced directly from The
-          Mini Forum. Archived here for postarity and preservation.
-        </p>
+        <breadcrumb class="my-6" page="Electrical Diagrams"></breadcrumb>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="col-span-12 md:col-span-8">
+            <h1 class="text-2xl font-bold mb-4">Electrical Diagrams</h1>
+            <p class="mb-6">
+              Find the wiring diagrams you need with our collection of fully digitized diagrams sourced directly from The
+              Mini Forum. Archived here for postarity and preservation.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="col-span-12">

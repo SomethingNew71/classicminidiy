@@ -54,38 +54,30 @@
 </script>
 <template>
   <hero :navigation="true" :title="'Classic Mini Archives'" :heroType="HERO_TYPES.ARCHIVE" />
-  <div class="container mx-auto px-4 py-4">
-    <div class="grid grid-cols-12 gap-4">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <div class="breadcrumbs text-base py-2">
-          <ul>
-            <li v-for="(crumb, index) in crumbs" :key="index">
-              <NuxtLink v-if="!crumb.disabled" :to="crumb.href">
-                <i v-if="index === 0" class="fad fa-home mr-1"></i>
-                {{ crumb.title }}
-              </NuxtLink>
-              <span v-else>{{ crumb.title }}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-span-12 md:col-span-9">
-        <h1 class="text-2xl font-bold mb-2">Original Advertisments</h1>
-        <p>Free copies of the unabridged Advertisments.</p>
-        <div class="my-3 flex flex-wrap gap-3">
-          <button class="btn btn-primary" @click="submitArchiveFile(ARCHIVE_TYPES.ADVERT)" target="_blank">
-            <i class="fad fa-paper-plane mr-2"></i>
-            Add to Archive
-          </button>
-          <a
-            class="btn btn-secondary"
-            href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
-            target="_blank"
-            @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
-          >
-            <i class="fad fa-hand-holding-circle-dollar mr-2"></i>
-            Cover Server Costs
-          </a>
+        <breadcrumb class="my-6" page="Advertisments"></breadcrumb>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="col-span-12 md:col-span-8">
+            <h1 class="text-2xl font-bold mb-4">Original Advertisments</h1>
+            <p class="mb-6">Free copies of the unabridged Advertisments.</p>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <button class="btn btn-primary" @click="submitArchiveFile(ARCHIVE_TYPES.ADVERT)" target="_blank">
+                <i class="fad fa-paper-plane mr-2"></i>
+                Add to Archive
+              </button>
+              <a
+                class="btn btn-secondary"
+                href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
+                target="_blank"
+                @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
+              >
+                <i class="fad fa-hand-holding-circle-dollar mr-2"></i>
+                Cover Server Costs
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -95,6 +87,12 @@
           :content="adverts"
           :loading="status"
         ></ArchiveLandingIterator>
+      </div>
+
+      <!-- Support section -->
+      <div class="col-span-12 mt-8 mb-10">
+        <div class="divider">Support</div>
+        <patreon-card size="large" />
       </div>
     </div>
   </div>
