@@ -121,222 +121,220 @@
 </script>
 
 <template>
-  <div>
-    <hero :navigation="true" :title="'Mini Registry'" :heroType="HERO_TYPES.ARCHIVE" />
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-12 gap-6">
-        <div class="col-span-12">
-          <breadcrumb class="my-6" page="Mini Registry"></breadcrumb>
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <div class="col-span-12 md:col-span-8">
-              <h1 class="text-3xl font-bold">The Classic Mini Registry</h1>
-              <h2 class="text-xl mt-4">
-                <strong>{{ registryItems?.length || 'Tons of' }}</strong> Minis added, and growing every day!
-              </h2>
-              <p class="my-4">
-                After watching many of the long standing Classic Mini Registry's start to go offline, or no longer get
-                maintained. I decided it was time to stand something up I know will be here and maintained for many
-                years to come. Classic Mini DIY is proud to now provide a <strong>free</strong> online register for all
-                Classic Mini's of all model years and styles.
-              </p>
-              <p class="font-bold mt-4 mb-2">Looking for the status of your submission?</p>
-              <a
-                class="btn btn-primary"
-                target="_blank"
-                href="https://github.com/SomethingNew71/classicminidiy/issues?q=is%3Aissue%20"
-              >
-                <i class="fa-duotone fa-clipboard-question mr-2"></i>
-                Track your Submission
-              </a>
-            </div>
-            <div class="col-span-12 md:col-span-4">
-              <a href="#submitAnchor" class="block">
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                  <div class="card-body">
-                    <div class="flex items-start space-x-4">
-                      <div class="flex-shrink-0">
-                        <figure class="w-16 h-16">
-                          <picture>
-                            <source
-                              srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp"
-                              type="image/webp"
-                            />
-                            <source
-                              srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
-                              type="image/png"
-                            />
-                            <nuxt-img
-                              loading="lazy"
-                              src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
-                              alt="Image of compression calculator"
-                              class="w-16 h-16"
-                            />
-                          </picture>
-                        </figure>
-                      </div>
-                      <div>
-                        <h2 class="card-title">Submit Your Mini Today</h2>
-                        <p>
-                          Click here to fill out our short form to submit your mini to our registry of all classic minis
-                        </p>
-                      </div>
+  <hero :navigation="true" :title="'Mini Registry'" :heroType="HERO_TYPES.ARCHIVE" />
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-12 gap-6">
+      <div class="col-span-12">
+        <breadcrumb class="my-6" page="Mini Registry"></breadcrumb>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="col-span-12 md:col-span-8">
+            <h1 class="text-3xl font-bold">The Classic Mini Registry</h1>
+            <h2 class="text-xl mt-4">
+              <strong>{{ registryItems?.length || 'Tons of' }}</strong> Minis added, and growing every day!
+            </h2>
+            <p class="my-4">
+              After watching many of the long standing Classic Mini Registry's start to go offline, or no longer get
+              maintained. I decided it was time to stand something up I know will be here and maintained for many years
+              to come. Classic Mini DIY is proud to now provide a <strong>free</strong> online register for all Classic
+              Mini's of all model years and styles.
+            </p>
+            <p class="font-bold mt-4 mb-5">Looking for the status of your submission?</p>
+            <a
+              class="btn btn-primary"
+              target="_blank"
+              href="https://github.com/SomethingNew71/classicminidiy/issues?q=is%3Aissue%20"
+            >
+              <i class="fa-duotone fa-clipboard-question mr-2"></i>
+              Track your Submission
+            </a>
+          </div>
+          <div class="col-span-12 md:col-span-4">
+            <a href="#submitAnchor" class="block">
+              <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                <div class="card-body">
+                  <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                      <figure class="w-16 h-16">
+                        <picture>
+                          <source
+                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp"
+                            type="image/webp"
+                          />
+                          <source
+                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
+                            type="image/png"
+                          />
+                          <nuxt-img
+                            loading="lazy"
+                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
+                            alt="Image of compression calculator"
+                            class="w-16 h-16"
+                          />
+                        </picture>
+                      </figure>
+                    </div>
+                    <div>
+                      <h2 class="card-title">Submit Your Mini Today</h2>
+                      <p>
+                        Click here to fill out our short form to submit your mini to our registry of all classic minis
+                      </p>
                     </div>
                   </div>
                 </div>
-              </a>
-            </div>
+              </div>
+            </a>
           </div>
         </div>
-        <div class="col-span-12">
-          <div class="card bg-base-100 shadow-xl">
-            <div class="card-body">
-              <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
-                <div class="form-control w-full max-w-md">
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      v-model="searchValue"
-                      placeholder="Search for any detail"
-                      class="input input-bordered w-full"
-                    />
-                  </div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <div v-if="registryItems?.length" class="badge badge-primary badge-lg">
-                    {{ registryItems?.length }} Total Minis
-                  </div>
-                  <div class="form-control">
-                    <select v-model="pageSize" class="select select-bordered select-sm">
-                      <option :value="10">10 per page</option>
-                      <option :value="25">25 per page</option>
-                      <option :value="50">50 per page</option>
-                      <option :value="100">100 per page</option>
-                    </select>
-                  </div>
+      </div>
+      <div class="col-span-12">
+        <div class="card bg-base-100 shadow-xl">
+          <div class="card-body">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
+              <div class="form-control w-full max-w-md">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    v-model="searchValue"
+                    placeholder="Search for any detail"
+                    class="input input-bordered w-full"
+                  />
                 </div>
               </div>
-
-              <!-- Loading state -->
-              <div v-if="status === 'pending'" class="flex justify-center items-center py-8">
-                <span class="loading loading-spinner loading-lg text-primary"></span>
+              <div class="flex items-center gap-2">
+                <div v-if="registryItems?.length" class="badge badge-primary badge-lg">
+                  {{ registryItems?.length }} Total Minis
+                </div>
+                <div class="form-control">
+                  <select v-model="pageSize" class="select select-bordered select-sm">
+                    <option :value="10">10 per page</option>
+                    <option :value="25">25 per page</option>
+                    <option :value="50">50 per page</option>
+                    <option :value="100">100 per page</option>
+                  </select>
+                </div>
               </div>
+            </div>
 
-              <!-- Table -->
-              <div v-else class="overflow-x-auto">
-                <table class="table table-zebra w-full">
-                  <thead>
-                    <tr>
-                      <th class="w-10"></th>
-                      <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>
+            <!-- Loading state -->
+            <div v-if="status === 'pending'" class="flex justify-center items-center py-8">
+              <span class="loading loading-spinner loading-lg text-primary"></span>
+            </div>
+
+            <!-- Table -->
+            <div v-else class="overflow-x-auto">
+              <table class="table table-zebra w-full">
+                <thead>
+                  <tr>
+                    <th class="w-10"></th>
+                    <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template v-for="(item, index) in paginatedItems" :key="item.uniqueId">
+                    <tr class="hover:bg-base-200 cursor-pointer" @click="toggleExpanded(item.uniqueId)">
+                      <td>
+                        <button class="btn btn-ghost btn-xs">
+                          <i
+                            :class="
+                              expanded.includes(item.uniqueId)
+                                ? 'fa-solid fa-chevron-down'
+                                : 'fa-solid fa-chevron-right'
+                            "
+                          ></i>
+                        </button>
+                      </td>
+                      <td v-for="header in tableHeaders" :key="header.key">{{ item[header.key] }}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    <template v-for="(item, index) in paginatedItems" :key="item.uniqueId">
-                      <tr class="hover:bg-base-200 cursor-pointer" @click="toggleExpanded(item.uniqueId)">
-                        <td>
-                          <button class="btn btn-ghost btn-xs">
-                            <i
-                              :class="
-                                expanded.includes(item.uniqueId)
-                                  ? 'fa-solid fa-chevron-down'
-                                  : 'fa-solid fa-chevron-right'
-                              "
-                            ></i>
-                          </button>
-                        </td>
-                        <td v-for="header in tableHeaders" :key="header.key">{{ item[header.key] }}</td>
-                      </tr>
-                      <tr v-if="expanded.includes(item.uniqueId)" class="bg-base-200">
-                        <td></td>
-                        <td colspan="2" class="p-4">
-                          <div class="grid grid-cols-1 gap-2">
-                            <div>
-                              <strong>Build Date:</strong>
-                              <div>{{ item.buildDate || '---' }}</div>
-                            </div>
-                            <div>
-                              <strong>Body #:</strong>
-                              <div>{{ item.bodyNum || '---' }}</div>
-                            </div>
-                            <div>
-                              <strong>Engine #:</strong>
-                              <div>{{ item.engineNum || '---' }}</div>
-                            </div>
+                    <tr v-if="expanded.includes(item.uniqueId)" class="bg-base-200">
+                      <td></td>
+                      <td colspan="2" class="p-4">
+                        <div class="grid grid-cols-1 gap-2">
+                          <div>
+                            <strong>Build Date:</strong>
+                            <div>{{ item.buildDate || '---' }}</div>
                           </div>
-                        </td>
-                        <td colspan="2" class="p-4">
-                          <div class="grid grid-cols-1 gap-2">
-                            <div>
-                              <strong>Submitted by:</strong>
-                              <div>{{ item.submittedBy || '---' }}</div>
-                            </div>
-                            <div>
-                              <strong>Notes:</strong>
-                              <div>{{ item.notes || '---' }}</div>
-                            </div>
+                          <div>
+                            <strong>Body #:</strong>
+                            <div>{{ item.bodyNum || '---' }}</div>
                           </div>
-                        </td>
-                      </tr>
-                    </template>
-                  </tbody>
-                </table>
+                          <div>
+                            <strong>Engine #:</strong>
+                            <div>{{ item.engineNum || '---' }}</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td colspan="2" class="p-4">
+                        <div class="grid grid-cols-1 gap-2">
+                          <div>
+                            <strong>Submitted by:</strong>
+                            <div>{{ item.submittedBy || '---' }}</div>
+                          </div>
+                          <div>
+                            <strong>Notes:</strong>
+                            <div>{{ item.notes || '---' }}</div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </template>
+                </tbody>
+              </table>
 
-                <!-- Pagination -->
-                <div class="flex justify-center mt-6" v-if="totalPages > 1">
-                  <div class="join">
-                    <!-- Previous button -->
+              <!-- Pagination -->
+              <div class="flex justify-center mt-6" v-if="totalPages > 1">
+                <div class="join">
+                  <!-- Previous button -->
+                  <button
+                    class="join-item btn"
+                    :class="{ 'btn-disabled': currentPage === 1 }"
+                    @click="currentPage > 1 && changePage(currentPage - 1)"
+                  >
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+
+                  <!-- Page numbers -->
+                  <template v-for="(page, index) in paginationArray" :key="index">
                     <button
-                      class="join-item btn"
-                      :class="{ 'btn-disabled': currentPage === 1 }"
-                      @click="currentPage > 1 && changePage(currentPage - 1)"
+                      v-if="page === 'ellipsis-start' || page === 'ellipsis-end'"
+                      class="join-item btn btn-disabled"
                     >
-                      <i class="fa-solid fa-chevron-left"></i>
+                      ...
                     </button>
-
-                    <!-- Page numbers -->
-                    <template v-for="(page, index) in paginationArray" :key="index">
-                      <button
-                        v-if="page === 'ellipsis-start' || page === 'ellipsis-end'"
-                        class="join-item btn btn-disabled"
-                      >
-                        ...
-                      </button>
-                      <button
-                        v-else
-                        class="join-item btn"
-                        :class="{ 'btn-active': currentPage === page }"
-                        @click="changePage(page as number)"
-                      >
-                        {{ page }}
-                      </button>
-                    </template>
-
-                    <!-- Next button -->
                     <button
+                      v-else
                       class="join-item btn"
-                      :class="{ 'btn-disabled': currentPage === totalPages }"
-                      @click="currentPage < totalPages && changePage(currentPage + 1)"
+                      :class="{ 'btn-active': currentPage === page }"
+                      @click="changePage(page as number)"
                     >
-                      <i class="fa-solid fa-chevron-right"></i>
+                      {{ page }}
                     </button>
-                  </div>
+                  </template>
+
+                  <!-- Next button -->
+                  <button
+                    class="join-item btn"
+                    :class="{ 'btn-disabled': currentPage === totalPages }"
+                    @click="currentPage < totalPages && changePage(currentPage + 1)"
+                  >
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-span-12 md:col-span-10 md:col-start-2">
-          <div class="divider" id="submitAnchor">Add your Mini to the Registry - Its free!</div>
-        </div>
-        <div class="col-span-12 md:col-span-10 md:col-start-2">
-          <RegistrySubmission></RegistrySubmission>
-        </div>
-        <div class="col-span-12 md:col-span-10 md:col-start-2">
-          <div class="divider">Other ways to support</div>
-        </div>
-        <div class="col-span-12 md:col-span-10 md:col-start-2">
-          <patreon-card size="large" />
-        </div>
+      </div>
+      <div class="col-span-12 md:col-span-10 md:col-start-2">
+        <div class="divider" id="submitAnchor">Add your Mini to the Registry - Its free!</div>
+      </div>
+      <div class="col-span-12 md:col-span-10 md:col-start-2">
+        <RegistrySubmission></RegistrySubmission>
+      </div>
+      <div class="col-span-12 md:col-span-10 md:col-start-2">
+        <div class="divider">Other ways to support</div>
+      </div>
+      <div class="col-span-12 md:col-span-10 md:col-start-2">
+        <patreon-card size="large" />
       </div>
     </div>
   </div>
