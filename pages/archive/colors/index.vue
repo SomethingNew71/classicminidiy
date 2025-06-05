@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { ref } from 'vue';
   import type { Color } from '~/data/models/colors';
   import { HERO_TYPES } from '~/data/models/generic';
 

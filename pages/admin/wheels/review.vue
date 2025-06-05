@@ -1,26 +1,5 @@
-<script lang="ts" setup>
+<script setup lang="ts">
   import type { IWheelsData, IWheelsDataReviewItem } from '~/data/models/wheels';
-
-  const { data: rawWheels, status: fetchStatus, refresh } = await useFetch<IWheelsData[]>('/api/wheels/review/list');
-
-  const wheelsToReview = ref<IWheelsDataReviewItem[]>([]);
-
-  rawWheels?.value?.forEach(async (wheel) => {
-    if (wheel.newWheel) return;
-    const { data: oldWheel } = await useFetch<IWheelsData>('/api/wheels/wheel', {
-      method: 'GET',
-      query: {
-        uuid: wheel.uuid,
-      },
-    });
-    if (oldWheel.value) {
-      wheelsToReview.value.push({
-        ...wheel,
-        oldWheel: oldWheel.value,
-      });
-    }
-    return;
-  });
 
   interface TableHeader {
     title: string;
@@ -31,50 +10,119 @@
     width?: string;
   }
 
-  const expanded = ref<string[]>([]);
-  const key = ref<string>('');
-  const errorMessage = ref<string>('');
-  const hasError = computed(() => !!errorMessage.value);
-  const isProcessing = ref<boolean>(false);
+  // State
+  const key = ref('');
+  const errorMessage = ref('');
+  const isProcessing = ref(false);
+  const processingItemId = ref<string | null>(null);
   const selectedItem = ref<IWheelsDataReviewItem | null>(null);
-  const showDeleteDialog = ref<boolean>(false);
+  const showDeleteDialog = ref(false);
+  const expandedItems = ref<Record<string, boolean>>({});
 
-  const isKeyValid = computed(() => key.value.length > 0);
+  // API Data
+  const {
+    data: rawWheels,
+    status: fetchStatus,
+    refresh: refreshData,
+  } = await useFetch<IWheelsData[]>('/api/wheels/review/list');
 
+  const wheelsToReview = ref<IWheelsDataReviewItem[]>([]);
+
+  // Load wheel data
+  async function loadWheelData() {
+    if (!rawWheels.value) return;
+
+    const wheels: IWheelsDataReviewItem[] = [];
+
+    for (const wheel of rawWheels.value) {
+      if (wheel.newWheel) continue;
+
+      try {
+        const { data: oldWheel } = await useFetch<IWheelsData>('/api/wheels/wheel', {
+          method: 'GET',
+          query: { uuid: wheel.uuid },
+        });
+
+        if (oldWheel.value) {
+          wheels.push({
+            ...wheel,
+            oldWheel: oldWheel.value,
+          });
+        }
+      } catch (error) {
+        console.error('Error loading wheel data:', error);
+      }
+    }
+
+    wheelsToReview.value = wheels;
+  }
+
+  // Table Configuration
   const tableHeaders: TableHeader[] = [
-    { title: 'Wheel', value: 'oldWheel.name', sortable: true },
-    { title: 'User', value: 'userName', sortable: true },
-    { title: 'Email', value: 'emailAddress', sortable: true },
-    { title: 'Referral', value: 'referral', sortable: true },
-    { title: 'New Wheel', value: 'newWheel', sortable: true },
-    { title: 'Actions', key: 'actions', sortable: false, align: 'center', width: '150px' },
+    { title: 'Wheel', value: 'oldWheel.name' },
+    { title: 'User', value: 'userName' },
+    { title: 'Email', value: 'emailAddress' },
+    { title: 'Referral', value: 'referral' },
+    { title: 'New Wheel', value: 'newWheel', align: 'center' },
+    { title: 'Actions', key: 'actions', align: 'center', width: '200px' },
   ];
 
-  async function saveItem(item: IWheelsData) {
+  // Computed
+  const isKeyValid = computed(() => key.value.length > 0);
+  const isLoading = computed(() => fetchStatus.value === 'pending' || isProcessing.value);
+
+  // Methods
+  async function refresh() {
+    if (isLoading.value) return;
+    try {
+      await refreshData();
+      await loadWheelData();
+      errorMessage.value = '';
+    } catch (error) {
+      errorMessage.value = 'Failed to refresh data. Please try again.';
+      console.error('Refresh error:', error);
+    }
+  }
+
+  function toggleExpand(uuid: string) {
+    expandedItems.value = {
+      ...expandedItems.value,
+      [uuid]: !expandedItems.value[uuid],
+    };
+  }
+
+  async function approveItem(item: IWheelsData) {
     if (!isKeyValid.value) {
-      errorMessage.value = 'Please enter an auth key before saving';
+      errorMessage.value = 'Please enter a valid auth key';
       return;
     }
 
     isProcessing.value = true;
+    processingItemId.value = item.uuid;
+    errorMessage.value = '';
 
     try {
-      const { data, error } = await useFetch('/api/wheels/review/save', {
+      const { error } = await useFetch('/api/wheels/review/save', {
         method: 'POST',
-        body: { uuid: item.uuid, details: { ...item }, auth: key.value },
-        headers: { 'cache-control': 'no-cache' },
+        body: {
+          uuid: item.uuid,
+          details: { ...item },
+          auth: key.value,
+        },
       });
 
       if (error.value) {
-        errorMessage.value = error.value?.message || 'Error saving item';
-      } else {
-        wheelsToReview.value = wheelsToReview?.value?.filter((i) => i.uuid !== item.uuid) || [];
+        throw new Error(error.value.data?.message || 'Failed to approve item');
       }
-    } catch (err) {
-      errorMessage.value = 'An unexpected error occurred';
-      console.error(err);
+
+      // Remove item from the list
+      wheelsToReview.value = wheelsToReview.value.filter((i) => i.uuid !== item.uuid);
+    } catch (error) {
+      errorMessage.value = error instanceof Error ? error.message : 'Failed to approve item';
+      console.error('Approve error:', error);
     } finally {
       isProcessing.value = false;
+      processingItemId.value = null;
     }
   }
 
@@ -85,207 +133,234 @@
 
   async function deleteItem() {
     if (!selectedItem.value || !isKeyValid.value) {
-      errorMessage.value = 'Please enter an auth key before deleting';
+      showDeleteDialog.value = false;
       return;
     }
 
     isProcessing.value = true;
+    processingItemId.value = selectedItem.value.uuid;
+    errorMessage.value = '';
 
     try {
-      const { data, error } = await useFetch('/api/wheels/review/delete', {
+      const { error } = await useFetch('/api/wheels/review/delete', {
         method: 'POST',
         body: {
           uuid: selectedItem.value.uuid,
           details: { ...selectedItem.value },
           auth: key.value,
         },
-        headers: { 'cache-control': 'no-cache' },
       });
 
       if (error.value) {
-        errorMessage.value = error.value?.message || 'Error deleting item';
-      } else {
-        wheelsToReview.value = wheelsToReview?.value?.filter((i) => i.uuid !== selectedItem.value?.uuid) || [];
-        showDeleteDialog.value = false;
-        selectedItem.value = null;
+        throw new Error(error.value.data?.message || 'Failed to delete item');
       }
-    } catch (err) {
-      errorMessage.value = 'An unexpected error occurred';
-      console.error(err);
+
+      // Remove item from the list
+      wheelsToReview.value = wheelsToReview.value.filter((i) => i.uuid !== selectedItem.value?.uuid);
+    } catch (error) {
+      errorMessage.value = error instanceof Error ? error.message : 'Failed to delete item';
+      console.error('Delete error:', error);
     } finally {
       isProcessing.value = false;
+      showDeleteDialog.value = false;
+      processingItemId.value = null;
+      selectedItem.value = null;
     }
   }
+
+  // Load initial data
+  onMounted(() => {
+    loadWheelData();
+  });
 </script>
+
 <template>
-  <v-container class="mt-10 mb-10">
-    <v-row class="mt-10 pt-10">
-      <v-col cols="12">
-        <v-card>
-          <v-card-title>Wheels to Add Queue</v-card-title>
-          <v-card-text>
-            <v-text-field
-              v-model="key"
-              label="Auth Key"
-              outlined
-              dense
-              placeholder="Enter Auth Key"
-              prepend-icon="fa-duotone fa-regular fa-key"
-            />
-            <v-alert
-              v-if="hasError"
-              title="Error"
-              type="error"
-              variant="outlined"
-              closable
-              @click:close="errorMessage = ''"
-              class="mb-4"
-            >
-              {{ errorMessage }}
-            </v-alert>
-            <v-data-table
-              :loading="fetchStatus === 'pending' || isProcessing"
-              :headers="tableHeaders"
-              :items="wheelsToReview || []"
-              :item-value="'uuid'"
-              :items-per-page="100"
-              expand-on-click
-              show-expand
-              :expanded="expanded"
-              class="elevation-1"
-            >
-              <template v-slot:no-data>
-                <div class="pa-4 text-center">
-                  <p v-if="fetchStatus === 'pending'">Loading wheel data...</p>
-                  <p v-else>No wheels in the review queue</p>
-                </div>
-              </template>
-              <!-- <template v-slot:item.images="{ item }">
-                <p v-if="!item.images || item.images?.length < 0">No Images</p>
-                <v-row v-else>
-                  <v-col v-for="(image, index) in item.images" :key="index" cols="12" md="4">
-                    <v-img :src="image" width="100%" height="100%" />
-                  </v-col>
-                </v-row>
-              </template> -->
-              <template v-slot:item.actions="{ item }">
-                <v-btn
-                  class="me-2"
-                  prepend-icon="fa-duotone fa-regular fa-floppy-disk"
-                  size="small"
-                  color="primary"
-                  @click="saveItem(item)"
-                  variant="text"
-                  :disabled="isProcessing || !isKeyValid"
-                >
-                  Save
-                </v-btn>
-                <v-btn
-                  size="small"
-                  color="error"
-                  prepend-icon="fa-duotone fa-regular fa-trash"
-                  @click="confirmDelete(item)"
-                  variant="text"
-                  :disabled="isProcessing || !isKeyValid"
-                >
-                  Delete
-                </v-btn>
-              </template>
-              <template v-slot:expanded-row="{ columns, item }">
-                <tr>
-                  <td :colspan="columns.length" class="pa-4">
-                    <v-card flat>
-                      <v-card-text>
-                        <v-row>
-                          <v-col cols="12">
-                            <div class="text-subtitle-1 font-weight-bold mb-2">UUID: {{ item.uuid || '---' }}</div>
-                          </v-col>
-                        </v-row>
-                        <v-row>
-                          <v-col cols="12" sm="6" md="4">
-                            <v-card variant="outlined" class="mb-4">
-                              <v-card-title class="text-subtitle-2">Type</v-card-title>
-                              <v-card-text>
-                                <div class="d-flex flex-column">
-                                  <div class="text-body-1">New: {{ item.type || '---' }}</div>
-                                  <div class="text-caption text-grey">Old: {{ item.oldWheel?.type || '---' }}</div>
-                                </div>
-                              </v-card-text>
-                            </v-card>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <v-card variant="outlined" class="mb-4">
-                              <v-card-title class="text-subtitle-2">Width</v-card-title>
-                              <v-card-text>
-                                <div class="d-flex flex-column">
-                                  <div class="text-body-1">New: {{ item.width || '---' }}</div>
-                                  <div class="text-caption text-grey">Old: {{ item.oldWheel?.width || '---' }}</div>
-                                </div>
-                              </v-card-text>
-                            </v-card>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <v-card variant="outlined" class="mb-4">
-                              <v-card-title class="text-subtitle-2">Size</v-card-title>
-                              <v-card-text>
-                                <div class="d-flex flex-column">
-                                  <div class="text-body-1">New: {{ item.size || '---' }}</div>
-                                  <div class="text-caption text-grey">Old: {{ item.oldWheel?.size || '---' }}</div>
-                                </div>
-                              </v-card-text>
-                            </v-card>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="4">
-                            <v-card variant="outlined" class="mb-4">
-                              <v-card-title class="text-subtitle-2">Offset</v-card-title>
-                              <v-card-text>
-                                <div class="d-flex flex-column">
-                                  <div class="text-body-1">New: {{ item.offset || '---' }}</div>
-                                  <div class="text-caption text-grey">Old: {{ item.oldWheel?.offset || '---' }}</div>
-                                </div>
-                              </v-card-text>
-                            </v-card>
-                          </v-col>
-                          <v-col cols="12" sm="6" md="8">
-                            <v-card variant="outlined" class="mb-4">
-                              <v-card-title class="text-subtitle-2">Notes</v-card-title>
-                              <v-card-text>
-                                <div class="d-flex flex-column">
-                                  <div class="text-body-1">New: {{ item.notes || '---' }}</div>
-                                  <div class="text-caption text-grey">Old: {{ item.oldWheel?.notes || '---' }}</div>
-                                </div>
-                              </v-card-text>
-                            </v-card>
-                          </v-col>
-                        </v-row>
-                      </v-card-text>
-                    </v-card>
-                  </td>
-                </tr>
-              </template>
-            </v-data-table>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-  <v-dialog v-model="showDeleteDialog" max-width="500px">
-    <v-card>
-      <v-card-title>Confirm Delete</v-card-title>
-      <v-card-text>
-        Are you sure you want to delete this wheel data?
-        <div v-if="selectedItem" class="mt-4">
-          <strong>Wheel:</strong> {{ selectedItem.oldWheel?.name || 'Unknown' }}<br />
-          <strong>Submitted by:</strong> {{ selectedItem.userName || 'Unknown' }}
+  <div class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Wheels Review Queue</h1>
+      <button class="btn btn-primary" @click="refresh" :disabled="isLoading">
+        <span v-if="isLoading" class="loading loading-spinner"></span>
+        {{ isLoading ? 'Loading...' : 'Refresh' }}
+      </button>
+    </div>
+
+    <!-- Auth Key Input -->
+    <div class="mb-6">
+      <label class="form-control w-full max-w-xs">
+        <div class="label">
+          <span class="label-text">Auth Key</span>
         </div>
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary" variant="text" @click="showDeleteDialog = false" :disabled="isProcessing">Cancel</v-btn>
-        <v-btn color="error" variant="text" @click="deleteItem()" :disabled="isProcessing" :loading="isProcessing"
-          >Delete</v-btn
-        >
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+        <input
+          v-model="key"
+          type="password"
+          placeholder="Enter auth key"
+          class="input input-bordered w-full max-w-xs"
+          :disabled="isLoading"
+        />
+      </label>
+    </div>
+
+    <!-- Error Message -->
+    <div v-if="errorMessage" class="alert alert-error mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <span>{{ errorMessage }}</span>
+    </div>
+
+    <!-- Loading State -->
+    <div v-if="fetchStatus === 'pending'" class="flex justify-center my-8">
+      <span class="loading loading-spinner loading-lg"></span>
+    </div>
+
+    <!-- Empty State -->
+    <div v-else-if="!wheelsToReview?.length" class="alert alert-info shadow-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+      <span>No wheels in the review queue.</span>
+    </div>
+
+    <!-- Wheels Table -->
+    <div v-else class="overflow-x-auto">
+      <table class="table table-zebra w-full">
+        <thead>
+          <tr>
+            <th
+              v-for="header in tableHeaders"
+              :key="header.title"
+              :class="{
+                'text-center': header.align === 'center',
+                'text-right': header.align === 'end',
+                'w-[200px]': header.width === '200px',
+              }"
+            >
+              {{ header.title }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <template v-for="item in wheelsToReview" :key="item.uuid">
+            <tr @click="toggleExpand(item.uuid)" class="cursor-pointer hover:bg-base-200">
+              <td>{{ item.oldWheel?.name || '-' }}</td>
+              <td>{{ item.userName || '-' }}</td>
+              <td>{{ item.emailAddress || '-' }}</td>
+              <td>{{ item.referral || '-' }}</td>
+              <td class="text-center">
+                <span v-if="item.newWheel" class="badge badge-success">New</span>
+                <span v-else class="badge">Update</span>
+              </td>
+              <td class="space-x-2">
+                <button
+                  class="btn btn-sm btn-success"
+                  @click.stop="approveItem(item)"
+                  :disabled="!isKeyValid || isProcessing"
+                >
+                  <span
+                    v-if="isProcessing && processingItemId === item.uuid"
+                    class="loading loading-spinner loading-xs"
+                  ></span>
+                  Approve
+                </button>
+                <button
+                  class="btn btn-sm btn-error"
+                  @click.stop="confirmDelete(item)"
+                  :disabled="!isKeyValid || isProcessing"
+                >
+                  Reject
+                </button>
+              </td>
+            </tr>
+
+            <!-- Expanded Row -->
+            <tr v-if="expandedItems[item.uuid]" class="bg-base-200">
+              <td :colspan="tableHeaders.length" class="p-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h3 class="font-bold mb-2">Wheel Details</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                      <div><strong>UUID:</strong></div>
+                      <div class="truncate" :title="item.uuid">{{ item.uuid || '-' }}</div>
+
+                      <div v-if="item.oldWheel">
+                        <div class="grid grid-cols-2 gap-2">
+                          <div><strong>Name:</strong></div>
+                          <div>{{ item.oldWheel.name || '-' }}</div>
+
+                          <div><strong>Manufacturer:</strong></div>
+                          <div>{{ item.oldWheel.manufacturer || '-' }}</div>
+
+                          <div><strong>Size:</strong></div>
+                          <div>{{ item.oldWheel.size || '-' }}</div>
+
+                          <div><strong>Width:</strong></div>
+                          <div>{{ item.oldWheel.width || '-' }}</div>
+
+                          <div><strong>Offset:</strong></div>
+                          <div>{{ item.oldWheel.offset || '-' }}</div>
+
+                          <div><strong>Bolt Pattern:</strong></div>
+                          <div>{{ item.oldWheel.boltPattern || '-' }}</div>
+
+                          <div><strong>Center Bore:</strong></div>
+                          <div>{{ item.oldWheel.centerBore || '-' }}</div>
+
+                          <div><strong>Weight:</strong></div>
+                          <div>{{ item.oldWheel.weight || '-' }} lbs</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div v-if="item.images?.length">
+                    <h3 class="font-bold mb-2">Images</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                      <div v-for="(image, index) in item.images" :key="index" class="aspect-square">
+                        <img
+                          :src="image"
+                          :alt="`Wheel image ${index + 1}`"
+                          class="w-full h-full object-cover rounded"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <dialog :class="['modal', { 'modal-open': showDeleteDialog }]">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">Confirm Rejection</h3>
+        <p class="py-4">Are you sure you want to reject this wheel submission? This action cannot be undone.</p>
+        <div v-if="selectedItem" class="bg-base-200 p-4 rounded-lg mb-4">
+          <p><strong>Wheel:</strong> {{ selectedItem.oldWheel?.name || 'Unknown' }}</p>
+          <p><strong>Submitted by:</strong> {{ selectedItem.userName || 'Unknown' }}</p>
+          <p><strong>Email:</strong> {{ selectedItem.emailAddress || 'No email provided' }}</p>
+        </div>
+        <div class="modal-action">
+          <button class="btn" @click="showDeleteDialog = false" :disabled="isProcessing">Cancel</button>
+          <button class="btn btn-error" @click="deleteItem" :disabled="isProcessing">
+            <span v-if="isProcessing" class="loading loading-spinner loading-xs"></span>
+            Reject Submission
+          </button>
+        </div>
+      </div>
+    </dialog>
+  </div>
 </template>
