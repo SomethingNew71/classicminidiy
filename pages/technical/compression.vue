@@ -170,10 +170,10 @@
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <CalculatorsCompression />
       </div>
-      <div class="col-span-12 md:col-span-4 md:col-start-2">
+      <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="divider">More</div>
       </div>
-      <div class="col-span-12">
+      <div class="col-span-12 md:col-span-10 md:col-start-2">
         <patreon-card size="large" />
       </div>
     </div>

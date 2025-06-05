@@ -2,21 +2,13 @@
   import { formOptions } from '~/data/models/compression';
   const reactiveFormOptions = ref(formOptions);
 
-  const rules = ref({
-    required: (value: any) => value >= 0 || 'Field is required',
-    number: (value: any) => {
-      const pattern = /^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/;
-      return pattern.test(value) || 'Must be a Number';
-    },
-  });
-
   // All Form Inputs
   const pistonDish = ref<number>(6.5);
   const headVolume = ref<number>(25.5);
   const deckHeight = ref<number>(20);
-  const bore = ref<number>(6.29);
-  const stroke = ref<number>(6.826);
-  const gasket = ref<number>(2.4);
+  const bore = ref<number>(7.06);
+  const stroke = ref<number>(8.128);
+  const gasket = ref<number>(3.4);
   const decomp = ref<number>(0);
   const customGasket = ref<number>(0.1);
   const showHelpModal = ref(false);
@@ -93,31 +85,35 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Piston Size Select -->
       <div class="form-control">
-        <label class="label">
-          <span class="label-text">Piston Size</span>
-        </label>
-        <div class="input-group">
-          <span><i class="fad fa-engine"></i></span>
-          <select class="select select-bordered w-full" v-model="bore">
-            <option v-for="option in reactiveFormOptions.pistonOptions" :key="option.value" :value="option.value">
-              {{ option.label }}
-            </option>
-          </select>
+        <div class="input-group w-full">
+          <label class="label pb-2">
+            <span class="label-text">Piston Size</span>
+          </label>
+          <label class="select w-full">
+            <span class="label"><i class="fad fa-engine"></i></span>
+            <select class="select-ghost w-full" v-model="bore">
+              <option v-for="option in reactiveFormOptions.pistonOptions" :key="option.value" :value="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+          </label>
         </div>
       </div>
 
       <!-- Crankshaft Select -->
       <div class="form-control">
-        <label class="label">
-          <span class="label-text">Crankshaft</span>
-        </label>
-        <div class="input-group">
-          <span><i class="fad fa-arrows-rotate fa-spin"></i></span>
-          <select class="select select-bordered w-full" v-model="stroke">
-            <option v-for="option in reactiveFormOptions.crankshaftOptions" :key="option.value" :value="option.value">
-              {{ option.label }}
-            </option>
-          </select>
+        <div class="input-group w-full">
+          <label class="label pb-2">
+            <span class="label-text">Crankshaft</span>
+          </label>
+          <label class="select w-full">
+            <span class="label"><i class="fad fa-arrows-rotate fa-spin"></i></span>
+            <select class="select-ghost w-full" v-model="stroke">
+              <option v-for="option in reactiveFormOptions.crankshaftOptions" :key="option.value" :value="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+          </label>
         </div>
       </div>
     </div>
@@ -125,47 +121,57 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Head Gasket Select -->
       <div class="form-control">
-        <label class="label">
-          <span class="label-text">Head Gasket</span>
-        </label>
-        <div class="input-group">
-          <span><i class="fad fa-head-side-gear"></i></span>
-          <select class="select select-bordered w-full" v-model.number="gasket">
-            <option v-for="option in reactiveFormOptions.headGasketOptions" :key="option.value" :value="option.value">
-              {{ option.label }}
-            </option>
-          </select>
+        <div class="input-group w-full">
+          <label class="label pb-2">
+            <span class="label-text">Head Gasket</span>
+          </label>
+          <label class="select w-full">
+            <span class="label"><i class="fad fa-head-side-gear"></i></span>
+            <select class="select-ghost w-full" v-model.number="gasket">
+              <option v-for="option in reactiveFormOptions.headGasketOptions" :key="option.value" :value="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+          </label>
         </div>
         <div v-if="gasket === 0" class="mt-2">
-          <label class="label">
-            <span class="label-text">Custom Gasket Size (cc)</span>
-          </label>
-          <div class="input-group">
-            <span><i class="fad fa-ruler"></i></span>
-            <input
-              type="number"
-              min="0.1"
-              max="10"
-              step="0.1"
-              v-model.number="customGasket"
-              class="input input-bordered w-full"
-            />
+          <div class="input-group w-full">
+            <label class="label pb-2">
+              <span class="label-text">Custom Gasket Size (cc)</span>
+            </label>
+            <label class="input w-full">
+              <span class="label"><i class="fad fa-ruler"></i></span>
+              <input
+                type="number"
+                min="0.1"
+                max="10"
+                step="0.1"
+                v-model.number="customGasket"
+                class="input input-bordered w-full"
+              />
+            </label>
           </div>
         </div>
       </div>
 
       <!-- Decompression Plate Select -->
       <div class="form-control">
-        <label class="label">
-          <span class="label-text">Decompression Plate</span>
-        </label>
-        <div class="input-group">
-          <span><i class="fad fa-arrow-down-to-line"></i></span>
-          <select class="select select-bordered w-full" v-model="decomp">
-            <option v-for="option in reactiveFormOptions.decompPlateOptions" :key="option.value" :value="option.value">
-              {{ option.label }}
-            </option>
-          </select>
+        <div class="input-group w-full">
+          <label class="label pb-2">
+            <span class="label-text">Decompression Plate</span>
+          </label>
+          <label class="select w-full">
+            <span class="label"><i class="fad fa-arrow-down-to-line"></i></span>
+            <select class="select-ghost w-full" v-model="decomp">
+              <option
+                v-for="option in reactiveFormOptions.decompPlateOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </option>
+            </select>
+          </label>
         </div>
       </div>
     </div>
@@ -173,79 +179,54 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Piston Dish Size -->
       <div class="form-control">
-        <label class="label">
-          <span class="label-text">Piston Dish size (cc)</span>
-        </label>
-        <input
-          type="range"
-          min="0"
-          max="20"
-          step="0.1"
-          v-model.number="pistonDish"
-          class="range range-primary range-xs"
-        />
-        <div class="input-group mt-2">
-          <span><i class="fas fa-circle-half fa-rotate-270"></i></span>
-          <input
-            type="number"
-            min="0"
-            max="20"
-            step="0.1"
-            v-model.number="pistonDish"
-            class="input input-bordered w-full"
-          />
+        <div class="input-group w-full">
+          <label class="label pb-2">
+            <span class="label-text">Piston Dish Size (cc)</span>
+          </label>
+          <label class="input w-full">
+            <span class="label"><i class="fad fa-circle-half fa-rotate-270"></i></span>
+            <input
+              v-model.number="pistonDish"
+              type="number"
+              min="0"
+              max="20"
+              step="0.1"
+              class="input-bordered w-full"
+            />
+          </label>
         </div>
       </div>
 
       <!-- Cylinder Head Chamber Volume -->
       <div class="form-control">
-        <label class="label">
-          <span class="label-text">Cylinder Head Chamber Volume (cc)</span>
-        </label>
-        <input
-          type="range"
-          min="15"
-          max="35"
-          step="0.1"
-          v-model.number="headVolume"
-          class="range range-primary range-xs"
-        />
-        <div class="input-group mt-2">
-          <span><i class="fad fa-arrows-to-dot"></i></span>
-          <input
-            type="number"
-            min="15"
-            max="35"
-            step="0.1"
-            v-model.number="headVolume"
-            class="input input-bordered w-full"
-          />
+        <div class="input-group w-full">
+          <label class="label pb-2">
+            <span class="label-text">Cylinder Head Chamber Volume (cc)</span>
+          </label>
+          <label class="input w-full">
+            <span class="label"><i class="fad fa-arrows-to-dot"></i></span>
+            <input
+              v-model.number="headVolume"
+              type="number"
+              min="15"
+              max="35"
+              step="0.1"
+              class="input-bordered w-full"
+            />
+          </label>
         </div>
       </div>
 
       <!-- Piston Deck Height -->
       <div class="form-control">
-        <label class="label">
-          <span class="label-text">Piston Deck Height (thou)</span>
-        </label>
-        <input
-          type="range"
-          min="0"
-          max="80"
-          step="1"
-          v-model.number="deckHeight"
-          class="range range-primary range-xs"
-        />
-        <div class="input-group mt-2">
-          <span><i class="fad fa-arrow-up-to-line"></i></span>
-          <input
-            type="number"
-            min="0"
-            max="80"
-            step="1"
-            v-model.number="deckHeight"
-            class="input input-bordered w-full"
-          />
+        <div class="input-group w-full">
+          <label class="label pb-2">
+            <span class="label-text">Piston Deck Height (thou)</span>
+          </label>
+          <label class="input w-full">
+            <span class="label"><i class="fad fa-arrow-up-to-line"></i></span>
+            <input v-model.number="deckHeight" type="number" min="0" max="80" step="1" class="input-bordered w-full" />
+          </label>
         </div>
       </div>
     </div>

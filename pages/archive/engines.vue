@@ -84,7 +84,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="mb-2">
+        <div class="mb-5">
           <i class="fas fa-circle text-primary mr-2"></i> Standard <i class="fas fa-circle text-info mx-2"></i> Standard
           Overbore <i class="fas fa-circle text-error mx-2"></i> Different Stroke
         </div>
@@ -125,9 +125,9 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">Support</div>
+        <div class="divider">More</div>
       </div>
-      <div class="col-span-12">
+      <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
         <patreon-card size="large" />
       </div>
     </div>
