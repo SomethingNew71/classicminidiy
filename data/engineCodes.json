@@ -511,13 +511,6 @@
     "description": "SPi (TBi - throttle body injection) with 10-1 CR"
   },
   {
-    "code": "With the following suffixes:",
-    "size": "1275",
-    "variant": "1990-onwards",
-    "gearbox": "",
-    "description": ""
-  },
-  {
     "code": "F75",
     "size": "1275",
     "variant": "1990-onwards",
