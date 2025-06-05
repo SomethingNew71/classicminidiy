@@ -1,4 +1,9 @@
 <script lang="ts" setup>
+  declare const URL: {
+    createObjectURL(file: File): string;
+    revokeObjectURL(url: string): void;
+  };
+
   const props = defineProps({
     uuid: {
       type: String,
@@ -9,8 +14,9 @@
       default: false,
     },
   });
+
   import type { IWheelsData } from '~/data/models/wheels';
-  import { humanFileSize, TRACKING_EVENTS, trackStuff } from '~/data/models/helper-utils';
+  import { humanFileSize } from '~/data/models/helper-utils';
 
   // Reactive state
   const { path } = await useRoute();
@@ -37,52 +43,34 @@
   const emailAddress = ref('');
   const referral = ref('');
   const dropFiles = ref<File[]>([]);
+  const fileInput = ref<HTMLInputElement | null>(null);
+  const fileError = ref('');
+  const termsAgreed = ref(false);
 
   // Available wheel sizes
   const wheelSizes = ['10', '12', '13'];
 
-  // Form validation rules
-  const contactRules = [
-    (value: any) => {
-      if (value?.length > 0) return true;
-      return 'This field is required';
-    },
-  ];
+  // Form validation
+  const validateRequired = (value: string) => !!value.trim() || 'This field is required';
+  const validateEmail = (value: string) => {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(value) || 'Please enter a valid email address';
+  };
+  const validateFileSize = (files: File[]) => {
+    if (!files.length) return true;
+    return files.every((file) => file.size < 3000000) || 'File size should be less than 3MB';
+  };
+  const validateFileCount = (files: File[], required = false) => {
+    if (required && !files.length) return 'At least one image is required';
+    return files.length <= 5 || 'You cannot upload more than 5 images';
+  };
 
-  const emailRules = [
-    (value: any) => {
-      if (value?.length > 0) return true;
-      return 'Email is required';
-    },
-    (value: any) => {
-      const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return pattern.test(value) || 'Please enter a valid email address';
-    },
-  ];
-
-  const imageRules = [
-    (value: any) => {
-      return !value || !value.length || value[0].size < 3000000 || 'Wheel image size should be less than 3 MB!';
-    },
-    (value: any) => {
-      if (value?.length <= 5) return true;
-      return 'You cannot upload more than 5 images at a time.';
-    },
-  ];
-
-  const imageRulesRequired = [
-    (value: any) => {
-      return !value || !value.length || value[0].size < 3000000 || 'Wheel image size should be less than 3 MB!';
-    },
-    (value: any) => {
-      if (value?.length > 0) return true;
-      return 'This field is required';
-    },
-    (value: any) => {
-      if (value?.length <= 5) return true;
-      return 'You cannot upload more than 5 images at a time.';
-    },
-  ];
+  const handleFileChange = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+      dropFiles.value = Array.from(input.files);
+    }
+  };
 
   // Load existing wheel data if editing
   if (!props.newWheel) {
@@ -216,448 +204,550 @@
     if (step.value === 3) return contactValid.value;
     return true;
   });
+
+  // Form validation state
+  const validateForm = () => {
+    // Debug logging
+    console.log('Validating form...');
+    console.log('Name:', name.value, 'Width:', width.value, 'Size:', size.value);
+
+    detailsValid.value = !!name.value.trim() && !!width.value && !!size.value;
+    imagesValid.value = !props.newWheel || dropFiles.value.length > 0;
+    contactValid.value = !!userName.value.trim() && validateEmail(emailAddress.value) === true;
+
+    console.log('Step:', step.value, 'Can proceed:', canProceedToNextStep.value);
+  };
+
+  // Submit form handler
+  const submitForm = async () => {
+    try {
+      loading.value = true;
+      if (props.newWheel) {
+        await storeWheelDetails();
+      } else {
+        await storeWheelImages(props.uuid);
+      }
+      step.value++;
+    } catch (error) {
+      hasError.value = true;
+      errorMessage.value = error instanceof Error ? error.message : 'An error occurred';
+    } finally {
+      loading.value = false;
+    }
+  };
+
+  // Watch form fields for changes
+  watch([name, width, size, userName, emailAddress, dropFiles], validateForm, { deep: true });
+
+  // Handle next step click
+  const handleNextStep = () => {
+    validateForm(); // Re-validate before proceeding
+    if (canProceedToNextStep.value) {
+      step.value++;
+    } else {
+      console.log('Cannot proceed to next step. Validation failed.');
+      console.log('detailsValid:', detailsValid.value);
+      console.log('imagesValid:', imagesValid.value);
+      console.log('contactValid:', contactValid.value);
+    }
+  };
+
+  // Initial validation on mount
+  onMounted(() => {
+    validateForm();
+  });
 </script>
 
 <template>
-  <v-stepper v-model="step" :items="['Wheel Details', 'Images', 'Contact Info', 'Review', 'Submitted']">
-    <template v-slot:item.1>
-      <v-skeleton-loader v-if="pageLoad" type="list-item-two-line"> </v-skeleton-loader>
-      <div v-else-if="pageError" class="error-container pa-4">
-        <v-alert type="error" title="Error Loading Wheel" :text="errorMessage || 'Unable to load wheel data'" />
-        <v-btn color="primary" class="mt-4" @click="resetForm">Start Over</v-btn>
+  <div class="container mx-auto px-4 py-6">
+    <!-- Stepper -->
+    <ul class="steps w-full mb-8">
+      <li :class="['step', step >= 1 ? 'step-primary' : '']">Wheel Details</li>
+      <li :class="['step', step >= 2 ? 'step-primary' : '']">Images</li>
+      <li :class="['step', step >= 3 ? 'step-primary' : '']">Contact Info</li>
+      <li :class="['step', step >= 4 ? 'step-primary' : '']">Review</li>
+      <li :class="['step', step >= 5 ? 'step-primary' : '']">Submitted</li>
+    </ul>
+
+    <!-- Step 1: Wheel Details -->
+    <div v-if="step === 1">
+      <div v-if="pageLoad" class="skeleton w-full h-32"></div>
+      <div v-else-if="pageError" class="alert alert-error">
+        <div>
+          <span>{{ errorMessage || 'Unable to load wheel data' }}</span>
+          <button class="btn btn-sm btn-primary ml-4" @click="resetForm">Start Over</button>
+        </div>
       </div>
-      <v-card v-else-if="wheel || newWheel" :title="newWheel ? 'Submit New Wheel' : 'Suggest Updates'" flat>
-        <v-form v-model="detailsValid">
-          <v-container>
-            <v-row>
-              <v-col cols="12" md="4">
-                <v-label class="pb-2" v-if="!newWheel && wheel">
+      <div v-else-if="wheel || newWheel" class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">{{ newWheel ? 'Submit New Wheel' : 'Suggest Updates' }}</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Wheel Name -->
+            <div class="form-control">
+              <label class="label" v-if="!newWheel && wheel">
+                <span class="label-text">
                   Current Name:
-                  <strong class="pl-1">{{ wheel.name && wheel.name !== '' ? wheel.name : 'No data' }}</strong>
-                </v-label>
-                <v-text-field
-                  prepend-icon="fad fa-file-signature"
-                  variant="solo-filled"
+                  <span class="font-semibold">{{ wheel.name || 'No data' }}</span>
+                </span>
+              </label>
+              <label class="label">
+                <span class="label-text">Wheel Name <span v-if="newWheel" class="text-error">*</span></span>
+              </label>
+              <div class="relative">
+                <input
+                  type="text"
                   v-model="name"
-                  :rules="newWheel ? contactRules : []"
-                  :required="newWheel"
-                  :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
-                  :counter="30"
-                  label="Wheel Name"
-                ></v-text-field>
-              </v-col>
+                  placeholder="Enter wheel name"
+                  class="input input-bordered w-full pl-10"
+                  :class="{ 'input-error': newWheel && !name.trim() }"
+                />
+                <span class="absolute left-3 top-1/2 -translate-y-1/2">
+                  <i class="fas fa-file-signature text-gray-400"></i>
+                </span>
+              </div>
+              <label class="label" v-if="newWheel && !name.trim()">
+                <span class="label-text-alt text-error">Wheel name is required</span>
+              </label>
+            </div>
 
-              <v-col cols="12" md="4">
-                <v-label class="pb-2" v-if="!newWheel && wheel">
+            <!-- Wheel Type -->
+            <div class="form-control">
+              <label class="label" v-if="!newWheel && wheel">
+                <span class="label-text">
                   Current Type:
-                  <strong class="pl-1">{{ wheel.type && wheel.type !== '' ? wheel.type : 'No data' }}</strong>
-                </v-label>
-                <v-text-field
-                  prepend-icon="fad fa-box-open-full"
-                  variant="solo-filled"
+                  <span class="font-semibold">{{ wheel.type || 'No data' }}</span>
+                </span>
+              </label>
+              <label class="label">
+                <span class="label-text">Wheel Material Type</span>
+              </label>
+              <div class="relative">
+                <input
+                  type="text"
                   v-model="type"
-                  :counter="30"
-                  label="Wheel Material Type"
-                ></v-text-field>
-              </v-col>
+                  placeholder="e.g., Alloy, Steel, etc."
+                  class="input input-bordered w-full pl-10"
+                />
+                <span class="absolute left-3 top-1/2 -translate-y-1/2">
+                  <i class="fas fa-box-open-full text-gray-400"></i>
+                </span>
+              </div>
+            </div>
 
-              <v-col cols="12" md="4">
-                <v-label class="pb-2" v-if="!newWheel && wheel">
+            <!-- Wheel Width -->
+            <div class="form-control">
+              <label class="label" v-if="!newWheel && wheel">
+                <span class="label-text">
                   Current Width:
-                  <strong class="pl-1">{{ wheel.width }}</strong>
-                </v-label>
-
-                <v-text-field
-                  prepend-icon="fad fa-ruler-horizontal"
-                  variant="solo-filled"
-                  v-model="width"
-                  :rules="newWheel ? contactRules : []"
-                  :required="newWheel"
+                  <span class="font-semibold">{{ wheel.width || 'No data' }}</span>
+                </span>
+              </label>
+              <label class="label">
+                <span class="label-text">Wheel Width <span v-if="newWheel" class="text-error">*</span></span>
+              </label>
+              <div class="relative">
+                <input
                   type="number"
-                  :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
-                  label="Wheel Width"
-                ></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row class="pb-3">
-              <v-col cols="12" md="4">
-                <v-label class="pb-2" v-if="!newWheel && wheel">
+                  v-model="width"
+                  placeholder="Enter width"
+                  class="input input-bordered w-full pl-10"
+                  :class="{ 'input-error': newWheel && !width }"
+                />
+                <span class="absolute left-3 top-1/2 -translate-y-1/2">
+                  <i class="fas fa-ruler-horizontal text-gray-400"></i>
+                </span>
+              </div>
+              <label class="label" v-if="newWheel && !width">
+                <span class="label-text-alt text-error">Width is required</span>
+              </label>
+            </div>
+
+            <!-- Wheel Size -->
+            <div class="form-control">
+              <label class="label" v-if="!newWheel && wheel">
+                <span class="label-text">
                   Current Size:
-                  <strong class="pl-1">{{ wheel.size && wheel.size !== '' ? wheel.size : 'No data' }}</strong>
-                </v-label>
-                <v-select
-                  prepend-icon="fad fa-ruler"
-                  variant="solo-filled"
+                  <span class="font-semibold">{{ wheel.size || 'No data' }}</span>
+                </span>
+              </label>
+              <label class="label">
+                <span class="label-text">Wheel Size <span v-if="newWheel" class="text-error">*</span></span>
+              </label>
+              <div class="relative">
+                <select
                   v-model="size"
-                  :rules="newWheel ? contactRules : []"
-                  :required="newWheel"
-                  :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
-                  label="Wheel Size"
-                  :items="wheelSizes"
-                  hint="Diameter in inches"
-                  persistent-hint
-                ></v-select>
-              </v-col>
+                  class="select select-bordered w-full pl-10"
+                  :class="{ 'select-error': newWheel && !size }"
+                >
+                  <option disabled value="">Select wheel size</option>
+                  <option v-for="wheelSize in wheelSizes" :key="wheelSize" :value="wheelSize">{{ wheelSize }}"</option>
+                </select>
+                <span class="absolute left-3 top-1/2 -translate-y-1/2">
+                  <i class="fas fa-ruler text-gray-400"></i>
+                </span>
+              </div>
+              <label class="label">
+                <span class="label-text-alt">Diameter in inches</span>
+              </label>
+              <label class="label" v-if="newWheel && !size">
+                <span class="label-text-alt text-error">Wheel size is required</span>
+              </label>
+            </div>
 
-              <v-col cols="12" md="4">
-                <v-label class="pb-2" v-if="!newWheel && wheel">
+            <!-- Offset -->
+            <div class="form-control">
+              <label class="label" v-if="!newWheel && wheel">
+                <span class="label-text">
                   Current Offset:
-                  <strong class="pl-1">{{ wheel.offset && wheel.offset !== '' ? wheel.offset : 'No data' }}</strong>
-                </v-label>
-                <v-text-field
-                  prepend-icon="fad fa-arrow-right-from-line"
-                  variant="solo-filled"
+                  <span class="font-semibold">{{ wheel.offset || 'No data' }}</span>
+                </span>
+              </label>
+              <label class="label">
+                <span class="label-text">Offset Information</span>
+              </label>
+              <div class="relative">
+                <input
+                  type="text"
                   v-model="offset"
-                  :counter="30"
-                  label="Offset Information"
-                ></v-text-field>
-              </v-col>
+                  placeholder="e.g., ET25"
+                  class="input input-bordered w-full pl-10"
+                  maxlength="30"
+                />
+                <span class="absolute left-3 top-1/2 -translate-y-1/2">
+                  <i class="fas fa-arrow-right-from-line text-gray-400"></i>
+                </span>
+              </div>
+            </div>
 
-              <v-col cols="12" md="4">
-                <v-label class="pb-2" v-if="!newWheel && wheel">
+            <!-- Notes -->
+            <div class="form-control col-span-1 md:col-span-2">
+              <label class="label" v-if="!newWheel && wheel">
+                <span class="label-text">
                   Current Notes:
-                  <strong class="pl-1">
-                    {{ wheel.notes && wheel.notes !== '' ? wheel.notes : 'No data' }}
-                  </strong>
-                </v-label>
-                <v-text-field
-                  prepend-icon="fad fa-notebook"
-                  variant="solo-filled"
+                  <span class="font-semibold">{{ wheel.notes || 'No data' }}</span>
+                </span>
+              </label>
+              <label class="label">
+                <span class="label-text">Extra Notes</span>
+              </label>
+              <div class="relative">
+                <textarea
                   v-model="notes"
-                  :counter="250"
-                  label="Extra Notes"
-                ></v-text-field>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-form>
-      </v-card>
-    </template>
+                  class="textarea textarea-bordered w-full pl-10"
+                  placeholder="Any additional information about these wheels..."
+                  rows="3"
+                  maxlength="250"
+                ></textarea>
+                <span class="absolute left-3 top-4">
+                  <i class="fas fa-notebook text-gray-400"></i>
+                </span>
+              </div>
+              <label class="label">
+                <span class="label-text-alt">{{ notes.length }}/250 characters</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <template v-slot:item.2>
-      <v-row>
-        <v-col cols="12" md="6">
-          <h3 class="text-h5 pb-1">Add your own images</h3>
-          <h4 class="text-subtitle pb-4" v-if="newWheel">
-            To submit a new wheel, you must include at least one image for the registry
-          </h4>
-          <v-form v-model="imagesValid">
-            <v-file-input
-              :rules="newWheel ? imageRulesRequired : imageRules"
-              :required="newWheel"
-              :append-inner-icon="newWheel ? 'fad fa-asterisk' : ''"
-              accept="image/png, image/jpeg"
-              label="Upload up to 5 images"
-              variant="filled"
-              multiple
-              prepend-icon="fad fa-camera"
-              v-model="dropFiles"
-            ></v-file-input>
-          </v-form>
-          <template v-if="!newWheel">
-            <v-list v-if="dropFiles && dropFiles.length > 0" lines="two">
-              <v-list-subheader>Files to upload</v-list-subheader>
-              <v-list-item
-                v-for="(image, i) in dropFiles"
-                :key="i"
-                :title="image.name"
-                :subtitle="humanFileSize(image.size)"
-              >
-                <template v-slot:prepend>
-                  <v-avatar color="grey-lighten-1">
-                    <v-icon hydrate-on-visible icon="fad fa-image"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-            </v-list>
-          </template>
-        </v-col>
-        <v-col cols="12" md="6">
-          <template v-if="newWheel">
-            <h3 class="text-h5 pb-1">Your Images</h3>
-            <v-list v-if="dropFiles && dropFiles.length > 0" lines="two">
-              <v-list-subheader>Files to upload</v-list-subheader>
-              <v-list-item
-                v-for="(image, i) in dropFiles"
-                :key="i"
-                :title="image.name"
-                :subtitle="humanFileSize(image.size)"
-              >
-                <template v-slot:prepend>
-                  <v-avatar color="grey-lighten-1">
-                    <v-icon hydrate-on-visible icon="fad fa-image"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item> </v-list
-          ></template>
-          <template v-else>
-            <h3 class="text-h5 pb-1">Existing Images</h3>
-            <v-col v-for="(image, i) in wheel.images" :key="i" class="d-flex child-flex" cols="4">
-              <v-img :src="image.src" aspect-ratio="1" cover class="bg-grey-lighten-2">
-                <template v-slot:placeholder>
-                  <v-row class="fill-height ma-0" align="center" justify="center">
-                    <v-progress-circular indeterminate color="grey-lighten-5"></v-progress-circular>
-                  </v-row>
-                </template>
-              </v-img>
-            </v-col>
-          </template>
-        </v-col>
-      </v-row>
-    </template>
+    <!-- Step 2: Images -->
+    <div v-else-if="step === 2" class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Wheel Images</h2>
 
-    <template v-slot:item.3>
-      <v-form v-model="contactValid">
-        <v-card title="Your Details" flat>
-          <v-row>
-            <v-col cols="12" md="12" lg="8">
-              <v-label class="pb-2">Your Name</v-label>
-              <v-text-field
-                prepend-icon="fad fa-id-card"
-                variant="solo-filled"
-                :rules="contactRules"
-                type="name"
-                required
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Image Upload -->
+          <div class="form-control">
+            <h3 class="text-xl font-semibold mb-2">Add your own images</h3>
+            <p class="text-sm text-gray-500 mb-4" v-if="newWheel">
+              To submit a new wheel, you must include at least one image for the registry
+            </p>
+
+            <div class="form-control w-full">
+              <label class="label">
+                <span class="label-text">
+                  Upload up to 5 images
+                  <span v-if="newWheel" class="text-error">*</span>
+                </span>
+              </label>
+              <input
+                type="file"
+                ref="fileInput"
+                class="file-input file-input-bordered w-full"
+                accept="image/png, image/jpeg"
+                multiple
+                @change="handleFileChange"
+              />
+              <label class="label">
+                <span class="label-text-alt"> Accepted formats: JPG, PNG (Max 3MB each) </span>
+              </label>
+              <div v-if="fileError" class="text-error text-sm mt-1">
+                {{ fileError }}
+              </div>
+            </div>
+
+            <!-- Files to upload -->
+            <div v-if="dropFiles.length > 0" class="mt-4">
+              <h4 class="font-medium mb-2">Files to upload ({{ dropFiles.length }})</h4>
+              <div class="overflow-x-auto">
+                <table class="table table-zebra table-compact w-full">
+                  <tbody>
+                    <tr v-for="(file, index) in dropFiles" :key="index">
+                      <td class="w-10">
+                        <i class="fas fa-image text-gray-400"></i>
+                      </td>
+                      <td class="truncate max-w-[200px]">{{ file.name }}</td>
+                      <td class="text-right">{{ humanFileSize(file.size) }}</td>
+                      <td class="w-10">
+                        <button class="btn btn-ghost btn-xs" @click="dropFiles.splice(index, 1)">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Preview -->
+          <div>
+            <h3 class="text-xl font-semibold mb-4">
+              {{ newWheel ? 'Your Images' : 'Existing Images' }}
+            </h3>
+
+            <div v-if="!newWheel && wheel?.images?.length" class="grid grid-cols-2 gap-4">
+              <div v-for="(image, i) in wheel.images" :key="i" class="relative aspect-square">
+                <img :src="image.src" :alt="`Wheel image ${i + 1}`" class="w-full h-full object-cover rounded-lg" />
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100"
+                >
+                  <button class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div v-else-if="dropFiles.length > 0" class="grid grid-cols-2 gap-4">
+              <div v-for="(file, i) in dropFiles" :key="i" class="relative aspect-square">
+                <img
+                  :src="URL.createObjectURL(file)"
+                  :alt="`Preview ${i + 1}`"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100"
+                >
+                  <button class="btn btn-ghost btn-sm text-white" @click="dropFiles.splice(i, 1)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div v-else class="text-center p-8 border-2 border-dashed rounded-lg">
+              <i class="fas fa-images text-4xl text-gray-300 mb-2"></i>
+              <p class="text-gray-500">No images uploaded yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Step 3: Contact Information -->
+    <div v-else-if="step === 3" class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Contact Information</h2>
+
+        <div class="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Your Name <span class="text-error">*</span></span>
+            </label>
+            <div class="relative">
+              <input
+                type="text"
                 v-model="userName"
-                :counter="30"
-                label="Your Name"
-              ></v-text-field>
-              <v-label class="pb-2">Email Address:</v-label>
-              <v-text-field
-                prepend-icon="fad fa-at"
-                variant="solo-filled"
-                :rules="emailRules"
+                placeholder="Enter your name"
+                class="input input-bordered w-full pl-10"
+                :class="{ 'input-error': !userName.trim() }"
                 required
+              />
+              <span class="absolute left-3 top-1/2 -translate-y-1/2">
+                <i class="fas fa-user text-gray-400"></i>
+              </span>
+            </div>
+            <label class="label" v-if="!userName.trim()">
+              <span class="label-text-alt text-error">Your name is required</span>
+            </label>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Email Address <span class="text-error">*</span></span>
+            </label>
+            <div class="relative">
+              <input
                 type="email"
                 v-model="emailAddress"
-                :counter="60"
-                label="Your Email"
-                hint="We'll never share your email with anyone else"
-                persistent-hint
-              ></v-text-field>
-              <v-label class="pb-2">How did you hear about CMIDY?</v-label>
-              <v-text-field
-                prepend-icon="fad fa-user-group"
-                variant="solo-filled"
-                v-model="referral"
-                :counter="20"
-                label="ex. Friend, Google, etc"
-              ></v-text-field>
-            </v-col>
-            <v-col cols="12" lg="4">
-              <h3 class="text-h5 pb-3">Why do we need this?</h3>
-              <p>
-                We require this information so I can follow up and ask more questions as needed. Your name and email are
-                required in order to contribute to this site. This also helps me prevent spam from getting uploaded.
-                <strong>We do not sell or share your information.</strong>
-              </p>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-form>
-    </template>
-    <template v-slot:item.4>
-      <v-card title="Review" flat>
-        <v-row dense class="mb-5">
-          <v-col cols="12" md="6">
-            <v-list lines="two" elevation="2">
-              <v-list-subheader> Wheel Information </v-list-subheader>
-              <v-list-item title="Wheel Name" :subtitle="name !== '' ? name : 'N/A'">
-                <template v-slot:prepend>
-                  <v-avatar>
-                    <v-icon hydrate-on-visible icon="fad fa-file-signature"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-              <v-list-item title="Type" :subtitle="type !== '' ? type : 'N/A'">
-                <template v-slot:prepend>
-                  <v-avatar>
-                    <v-icon hydrate-on-visible icon="fad fa-box-open-full"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-              <v-list-item title="Width" :subtitle="width !== '' ? width : 'N/A'">
-                <template v-slot:prepend>
-                  <v-avatar>
-                    <v-icon hydrate-on-visible icon="fad fa-ruler-horizontal"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-              <v-list-item title="Size" :subtitle="size !== '' ? size : 'N/A'">
-                <template v-slot:prepend>
-                  <v-avatar>
-                    <v-icon hydrate-on-visible icon="fad fa-ruler"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-              <v-list-item title="Offset" :subtitle="offset !== '' ? offset : 'N/A'">
-                <template v-slot:prepend>
-                  <v-avatar>
-                    <v-icon hydrate-on-visible icon="fad fa-arrow-right-from-line"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-              <v-list-item title="Notes" :subtitle="notes !== '' ? notes : 'N/A'">
-                <template v-slot:prepend>
-                  <v-avatar>
-                    <v-icon hydrate-on-visible icon="fad fa-notebook"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-              <v-list-subheader> Contact Information </v-list-subheader>
-              <v-list-item title="Your Name" :subtitle="userName">
-                <template v-slot:prepend>
-                  <v-avatar>
-                    <v-icon hydrate-on-visible icon="fad fa-id-card"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-              <v-list-item title="Email Address" :subtitle="emailAddress">
-                <template v-slot:prepend>
-                  <v-avatar>
-                    <v-icon hydrate-on-visible icon="fad fa-at"></v-icon>
-                  </v-avatar>
-                </template>
-              </v-list-item>
-            </v-list>
-          </v-col>
-          <v-col cols="6">
-            <v-list density="compact" :lines="false" elevation="2">
-              <v-list-subheader> Wheel Images </v-list-subheader>
-              <template v-if="dropFiles.length > 0">
-                <v-list-item v-for="(image, i) in dropFiles" :title="image.name" :subtitle="humanFileSize(image.size)">
-                  <template v-slot:prepend>
-                    <v-icon hydrate-on-visible icon="fad fa-image"></v-icon>
-                  </template>
-                </v-list-item>
-              </template>
-              <template v-else>
-                <v-list-item title="No Images" subtitle="No images were uploaded to this submission"></v-list-item>
-              </template>
-            </v-list>
-          </v-col>
-        </v-row>
-      </v-card>
-    </template>
-    <template v-slot:item.5>
-      <v-card flat>
-        <v-row dense class="mb-5" justify="center">
-          <v-col cols="12" md="8" class="text-center">
-            <v-icon hydrate-on-visible icon="fad fa-check-to-slot" size="x-large" color="success" class="mb-4"></v-icon>
-            <v-img
-              alt="Classic Mini DIY Logo"
-              src="https://classicminidiy.s3.amazonaws.com/misc/Small-Black.png"
-              :width="115"
-              class="shrink mx-auto pb-5"
-              :transition="false"
-            />
-            <h2 class="text-h5 pt-10 pb-2">Thank you for contributing!</h2>
-            <h3 class="text-h6 pb-5">Your submission has been added to our queue for review.</h3>
-            <p class="pb-5">
-              Classic Mini DIY's technical site is completely free and supported by people like you! If you like this
-              resource and would like to contribute to keeping it online for years to come, please consider supporting
-              the monthly hosting.
-            </p>
-            <v-btn
-              color="primary"
-              href="https://patreon.com/classicminidiy"
-              class="mx-1 my-1"
-              target="_blank"
-              prepend-icon="fad fa-heart"
+                placeholder="your@email.com"
+                class="input input-bordered w-full pl-10"
+                :class="{ 'input-error': emailAddress && !validateEmail(emailAddress) }"
+                required
+              />
+              <span class="absolute left-3 top-1/2 -translate-y-1/2">
+                <i class="fas fa-envelope text-gray-400"></i>
+              </span>
+            </div>
+            <label class="label" v-if="emailAddress && !validateEmail(emailAddress)">
+              <span class="label-text-alt text-error">Please enter a valid email address</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Review -->
+    <div v-if="step === 4" class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Review Your Submission</h2>
+
+        <div v-if="!newWheel" class="alert alert-info mb-6">
+          <div>
+            <i class="fas fa-info-circle"></i>
+            <span
+              >You are suggesting updates to an existing wheel. Your changes will be reviewed before being
+              published.</span
             >
-              Support on Patreon
-            </v-btn>
-            <v-btn
-              prepend-icon="fa:fad fa-hand-holding-circle-dollar"
-              class="me-3"
-              :size="'large'"
-              target="_blank"
-              color="secondary"
-              href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
-              @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
-            >
-              Cover Server Costs
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-card>
-    </template>
-    <template v-slot:actions>
-      <v-row class="d-flex justify-space-between mx-5 mb-5">
-        <div>
-          <v-btn v-if="step !== 5 && step !== 1" variant="outlined" @click="step--" prepend-icon="fad fa-arrow-left">
-            Previous
-          </v-btn>
-          <v-btn v-if="step === 4" variant="outlined" class="ml-2" @click="resetForm"> Start Over </v-btn>
+          </div>
         </div>
 
-        <div>
-          <v-btn
-            v-if="hasError"
-            color="error"
-            class="mr-2"
-            @click="
-              hasError = false;
-              errorMessage = '';
-            "
-          >
-            Clear Error
-          </v-btn>
-          <v-btn
-            v-if="step === 1"
-            color="primary"
-            @click="step++"
-            :disabled="!detailsValid"
-            append-icon="fad fa-arrow-right"
-          >
-            Next
-          </v-btn>
-          <v-btn
-            v-if="step === 2"
-            color="primary"
-            @click="step++"
-            :disabled="!imagesValid"
-            append-icon="fad fa-arrow-right"
-          >
-            Next
-          </v-btn>
-          <v-btn
-            v-if="step === 3"
-            color="primary"
-            @click="step++"
-            :disabled="!contactValid"
-            append-icon="fad fa-arrow-right"
-          >
-            Review
-          </v-btn>
-          <v-btn
-            v-if="step === 4"
-            color="primary"
-            :loading="loading"
-            @click="sendNewInfo()"
-            prepend-icon="fad fa-paper-plane"
-          >
-            Submit
-          </v-btn>
-        </div>
-      </v-row>
+        <div class="space-y-6">
+          <!-- Wheel Details -->
+          <div class="card bg-base-200">
+            <div class="card-body p-4">
+              <h3 class="card-title text-lg mb-4">Wheel Details</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <div class="text-sm font-semibold text-gray-500">Name</div>
+                  <div class="text-base">{{ name || 'Not provided' }}</div>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-gray-500">Type</div>
+                  <div class="text-base">{{ type || 'Not provided' }}</div>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-gray-500">Width</div>
+                  <div class="text-base">{{ width || 'Not provided' }}</div>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-gray-500">Size</div>
+                  <div class="text-base">{{ size || 'Not provided' }}</div>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-gray-500">Offset</div>
+                  <div class="text-base">{{ offset || 'Not provided' }}</div>
+                </div>
+                <div class="md:col-span-2">
+                  <div class="text-sm font-semibold text-gray-500">Notes</div>
+                  <div class="text-base whitespace-pre-line">{{ notes || 'No additional notes' }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <!-- Error alert -->
-      <v-alert
-        v-if="hasError"
-        type="error"
-        class="mx-5 mb-3"
-        closable
-        @click:close="
-          hasError = false;
-          errorMessage = '';
-        "
+          <!-- Images -->
+          <div class="card bg-base-200">
+            <div class="card-body p-4">
+              <h3 class="card-title text-lg mb-4">Images</h3>
+              <div v-if="dropFiles.length > 0" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <div v-for="(file, i) in dropFiles" :key="i" class="relative aspect-square">
+                  <img
+                    :src="URL.createObjectURL(file)"
+                    :alt="`Preview ${i + 1}`"
+                    class="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+              <div v-else class="text-center py-8 text-gray-500">
+                <i class="fas fa-images text-3xl mb-2"></i>
+                <p>No images added</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="card bg-base-200">
+            <div class="card-body p-4">
+              <h3 class="card-title text-lg mb-4">Contact Information</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <div class="text-sm font-semibold text-gray-500">Name</div>
+                  <div class="text-base">{{ userName }}</div>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-gray-500">Email</div>
+                  <div class="text-base">{{ emailAddress }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Submitted -->
+    <div v-else-if="step === 5" class="card bg-base-100 shadow-xl text-center">
+      <div class="card-body">
+        <div class="flex justify-center mb-4">
+          <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
+            <i class="fas fa-check text-3xl text-green-500"></i>
+          </div>
+        </div>
+        <h2 class="card-title justify-center text-3xl">Thank You!</h2>
+        <p class="text-lg mb-6">Your submission has been received.</p>
+
+        <div class="bg-base-200 rounded-lg p-4 mb-6 max-w-2xl mx-auto">
+          <p v-if="newWheel" class="mb-2">
+            Your wheel has been submitted for review. We'll notify you at
+            <span class="font-semibold">{{ emailAddress }}</span> once it's been approved and added to the registry.
+          </p>
+          <p v-else>
+            Your suggested updates have been submitted for review. We'll notify you at
+            <span class="font-semibold">{{ emailAddress }}</span> once they've been processed.
+          </p>
+        </div>
+
+        <button class="btn btn-primary" @click="resetForm">
+          <i class="fas fa-plus-circle mr-2"></i>
+          Submit Another Wheel
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-end gap-4 mt-8">
+      <button v-if="step > 1 && step < 5" @click="step--" class="btn btn-ghost">
+        <i class="fas fa-arrow-left mr-2"></i>
+        Back
+      </button>
+
+      <button v-if="step < 4" @click="handleNextStep" :disabled="!canProceedToNextStep" class="btn btn-primary">
+        Next
+        <i class="fas fa-arrow-right ml-2"></i>
+      </button>
+
+      <button
+        v-else-if="step === 4"
+        @click="submitForm"
+        :disabled="!canProceedToNextStep"
+        :class="['btn', 'btn-primary', { loading: loading }]"
       >
-        {{ errorMessage || 'An error occurred. Please try again.' }}
-      </v-alert>
-
-      <!-- Progress indicator -->
-      <v-progress-linear v-if="loading" indeterminate color="primary" class="mb-0"></v-progress-linear>
-    </template>
-  </v-stepper>
+        <i class="fas fa-paper-plane mr-2"></i>
+        Submit
+      </button>
+    </div>
+  </div>
 </template>
