@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { ref } from 'vue';
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
 
   interface PartItem {

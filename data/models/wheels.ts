@@ -11,6 +11,10 @@ export interface IWheelsData {
   referral: string;
   images?: any[];
   newWheel?: boolean;
+  manufacturer?: string;
+  boltPattern?: string;
+  centerBore?: string;
+  weight?: string | number;
 }
 export interface IWheelsDataReviewItem {
   uuid: string;
