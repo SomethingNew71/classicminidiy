@@ -74,9 +74,9 @@
           <div class="col-span-12 md:col-span-8">
             <h1 class="text-2xl font-bold mb-4">Mini Weights</h1>
             <p class="mb-6">
-              Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These weights
-              were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you would like
-              to contribute please click the link below to email me.
+              Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These
+              weights were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you
+              would like to contribute please click the link below to email me.
             </p>
             <a href="mailto:classicminidiy@gmail.com" class="btn btn-outline mb-6" target="_blank">
               <i class="fas fa-paper-plane mr-2"></i>
@@ -117,13 +117,16 @@
               <!-- Search field -->
               <div class="flex justify-end mb-4 mt-4">
                 <div class="form-control w-full max-w-xs">
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      placeholder="Search this table"
-                      v-model="tableSearchQueries[name]"
-                      class="input input-bordered w-full input-md"
-                    />
+                  <div class="input-group w-full">
+                    <label class="input w-full">
+                      <span class="label"><i class="fad fa-search"></i></span>
+                      <input
+                        v-model="tableSearchQueries[name]"
+                        type="text"
+                        placeholder="Search this table"
+                        class="input-bordered w-full"
+                      />
+                    </label>
                   </div>
                 </div>
               </div>
