@@ -41,7 +41,7 @@ export const formOptions = {
       value: 6.8,
     },
     {
-      label: 'Stock - 70.60mm',
+      label: 'Stock 1275 - 70.60mm',
       subtitle: '1275',
       value: 7.06,
     },
