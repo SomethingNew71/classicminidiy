@@ -1,6 +1,5 @@
 <script lang="ts" setup>
   import type { AdvertsCollectionItem, ContentCollectionItem, ManualsCollectionItem } from '@nuxt/content';
-  import type { PropType } from 'vue';
   import { shareArchiveItem, submitArchiveFile, type ARCHIVE_TYPES } from '~/data/models/helper-utils';
 
   const search = ref('');
