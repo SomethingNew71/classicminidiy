@@ -54,7 +54,7 @@
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
       <div class="col-span-12">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Engine Sizes"></breadcrumb>
+        <breadcrumb class="my-4" :version="BREADCRUMB_VERSIONS.TECH" page="Engine Sizes"></breadcrumb>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div class="col-span-12 md:col-span-7">
@@ -167,7 +167,7 @@
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="divider mb-4">Support</div>
       </div>
-      <div class="col-span-12">
+      <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
         <patreon-card size="large" />
       </div>
     </div>
