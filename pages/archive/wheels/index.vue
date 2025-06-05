@@ -24,18 +24,14 @@
 <template>
   <div>
     <hero :navigation="true" :title="'Wheel Dictionary'" :heroType="HERO_TYPES.ARCHIVE" />
-    <div class="container mx-auto px-4 py-4">
-      <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-12 md:col-span-8">
-          <breadcrumb page="Wheel Library"></breadcrumb>
-        </div>
-      </div>
+    <div class="container mx-auto px-4">
+      <breadcrumb page="Wheel Dictionary" class="my-6"></breadcrumb>
       <div class="grid grid-cols-12 gap-4 items-center">
         <div class="col-span-12 md:col-span-8">
-          <h2 class="text-xl font-bold mb-2">The Classic Mini DIY Wheel Dictionary</h2>
+          <h1 class="text-3xl font-bold mb-2">The Classic Mini DIY Wheel Dictionary</h1>
           <p class="pb-5">
             Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel
-            Library comes in. You can now search for the right wheel for your Classic Mini Cooper. With
+            Dictionary comes in. You can now search for the right wheel for your Classic Mini Cooper. With
             <strong>about 1,000 wheels</strong> and growing, we hope you'll be able to find exactly the wheel you are
             looking for.
           </p>
@@ -68,7 +64,9 @@
         <div>
           <h2 class="text-xl font-bold mb-2">
             All data collected and currated by Jan W. from
-            <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer" class="link link-primary">Mini-Forum.de</a>.
+            <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer" class="link link-primary"
+              >Mini-Forum.de</a
+            >.
           </h2>
           <p class="pb-5">
             Looking for that one wheel you saw the other day online but you just cant quite find? That's where the Wheel

@@ -97,8 +97,8 @@
             </div>
 
             <!-- Color Swatch -->
-            <div class="w-full md:w-1/2 lg:w-1/3">
-              <figure class="relative aspect-square rounded-xl overflow-hidden shadow-lg">
+            <div class="w-full md:w-1/3 lg:w-1/4">
+              <figure class="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
                 <img
                   v-if="color.raw.hasSwatch"
                   :src="`https://classicminidiy.s3.amazonaws.com/colors/${color.raw.code}.jpg`"

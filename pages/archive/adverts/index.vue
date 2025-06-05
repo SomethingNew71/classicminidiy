@@ -61,7 +61,11 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
             <h1 class="text-2xl font-bold mb-4">Original Advertisments</h1>
-            <p class="mb-6">Free copies of the unabridged Advertisments.</p>
+            <p class="mb-6">
+              Free copies of the unabridged Advertisments. This is an effort to archive and compile all the various
+              historical advertisements and documents made for the classic mini. If you have any missing Advertisments,
+              please consider contributing!
+            </p>
             <div class="flex flex-wrap gap-3 mb-6">
               <button class="btn btn-primary" @click="submitArchiveFile(ARCHIVE_TYPES.ADVERT)" target="_blank">
                 <i class="fad fa-paper-plane mr-2"></i>

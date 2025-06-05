@@ -85,6 +85,7 @@
       <div class="grid grid-cols-12 gap-4 items-center">
         <div class="col-span-12 md:col-span-8">
           <breadcrumb
+            class="mt-6"
             :page="wheel?.name || 'Wheel Details'"
             subpage="Wheels"
             subpage-href="/archive/wheels"
@@ -101,8 +102,8 @@
                   <p v-if="wheel.notes" class="text-gray-600 text-lg">{{ wheel.notes }}</p>
                 </div>
 
-                <div class="w-full md:w-1/2 flex justify-center">
-                  <div class="w-full max-w-md">
+                <div class="w-full md:w-1/3 flex justify-center">
+                  <div class="w-full max-w-sm">
                     <div
                       v-if="wheel.images && wheel.images.length > 1"
                       class="carousel w-full rounded-lg overflow-hidden"
@@ -111,7 +112,7 @@
                         v-for="(image, index) in wheel.images"
                         :key="index"
                         :id="`slide${index}`"
-                        class="carousel-item relative w-full aspect-square"
+                        class="carousel-item relative w-full aspect-[4/3]"
                       >
                         <img :src="image.src" class="w-full h-full object-cover" />
                         <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
@@ -172,17 +173,17 @@
               </div>
               <div class="divider my-2"></div>
               <div class="flex flex-wrap justify-center gap-3 pt-2">
-                <button v-if="copied" class="btn btn-lg btn-primary/10 border border-base-300 gap-2" disabled>
+                <button v-if="copied" class="btn btn-lg btn-primary/10 gap-2" disabled>
                   <i class="fad fa-check text-success"></i>
                   <span>Copied!</span>
                 </button>
-                <button v-else class="btn btn-lg btn-primary border border-base-300 gap-2" @click="copyUrl">
+                <button v-else class="btn btn-lg btn-primary gap-2" @click="copyUrl">
                   <i class="fad fa-link"></i>
                   <span>Copy Link</span>
                 </button>
                 <button
                   v-if="wheel.name && wheel.uuid"
-                  class="btn btn-lg btn-secondary border border-base-300 gap-2"
+                  class="btn btn-lg btn-secondary gap-2"
                   @click="shareWheelItem(wheel.name, wheel.uuid)"
                 >
                   <i class="fad fa-share"></i>
