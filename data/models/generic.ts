@@ -91,12 +91,12 @@ export const ToolboxItems: ToolboxItem[] = [
       '<i class="fa-duotone fa-screwdriver-wrench" style="--fa-primary-color: #417bbe; --fa-secondary-color: #5f6166;"></i>',
     to: '/technical/torque',
   },
-  {
-    title: 'Chassis Number Decoder',
-    path: '/technical/chassis-decoder',
-    iconHtml: '<i class="fa-duotone fa-hashtag" ></i>',
-    to: '/technical/chassis-decoder',
-  },
+  // {
+  //   title: 'Chassis Number Decoder',
+  //   path: '/technical/chassis-decoder',
+  //   iconHtml: '<i class="fa-duotone fa-hashtag" ></i>',
+  //   to: '/technical/chassis-decoder',
+  // },
   {
     title: 'Engine Number Decoder',
     path: '/technical/engine-decoder',
