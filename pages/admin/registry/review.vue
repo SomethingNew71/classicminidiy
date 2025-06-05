@@ -1,104 +1,90 @@
-<script lang="ts" setup>
+<script setup lang="ts">
   import type { RegistryItem } from '~/data/models/registry';
-
-  const {
-    data: registryItems,
-    status: fetchStatus,
-    refresh: refreshData,
-  } = await useFetch<RegistryItem[]>('/api/registry/queue/list');
 
   interface TableHeader {
     title: string;
     value?: string;
     key?: string;
     sortable?: boolean;
-    align?: "start" | "center" | "end";
+    align?: 'start' | 'center' | 'end';
     width?: string;
   }
 
-  const key = ref<string>('');
-  const errorMessage = ref<string>('');
-  const hasError = computed(() => !!errorMessage.value);
-  const isProcessing = ref<boolean>(false);
+  // State
+  const key = ref('');
+  const errorMessage = ref('');
+  const isProcessing = ref(false);
   const processingItemId = ref<string | null>(null);
   const selectedItem = ref<RegistryItem | null>(null);
-  const showDeleteDialog = ref<boolean>(false);
-  const isRefreshing = ref<boolean>(false);
+  const showDeleteDialog = ref(false);
 
+  // API Data
+  const {
+    data: registryItems,
+    status: fetchStatus,
+    refresh: refreshData,
+  } = await useFetch<RegistryItem[]>('/api/registry/queue/list');
+
+  // Table Configuration
   const tableHeaders: TableHeader[] = [
     { title: 'Model', value: 'model', sortable: true },
     { title: 'Body Number', value: 'bodyNum', sortable: true },
-    { title: 'Trim', value: 'trim', sortable: true },
-    { title: 'Name', value: 'submittedBy', sortable: true },
-    { title: 'Email', value: 'submittedByEmail', sortable: true },
-    { title: 'Engine', value: 'engineNum', sortable: true },
-    { title: 'Notes', value: 'notes', width: '150px' },
-    { title: 'Year', value: 'year', sortable: true, align: 'center' },
-    { title: 'UUID', value: 'uniqueId', width: '280px' },
-    // { title: 'Build Date', value: 'buildDate' },
-    { title: 'Body', value: 'bodyType', sortable: true },
-    { title: 'Displacement', value: 'engineSize', sortable: true },
-    { title: 'Color', value: 'color', sortable: true },
-    { title: 'Actions', key: 'actions', sortable: false, align: 'center' },
+    { title: 'Trim', value: 'trim' },
+    { title: 'Name', value: 'submittedBy' },
+    { title: 'Email', value: 'submittedByEmail' },
+    { title: 'Year', value: 'year', align: 'center' },
+    { title: 'Actions', key: 'actions', align: 'center', width: '200px' },
   ];
 
+  // Computed
   const isKeyValid = computed(() => key.value.length > 0);
-  const isTableLoading = computed(() => fetchStatus.value === 'pending' || isProcessing.value || isRefreshing.value);
+  const isLoading = computed(() => fetchStatus.value === 'pending' || isProcessing.value);
 
-  // Wrapper for refresh to track loading state
+  // Methods
   async function refresh() {
-    if (isProcessing.value || isRefreshing.value) return;
-    
+    if (isLoading.value) return;
     try {
-      isRefreshing.value = true;
       await refreshData();
-    } catch (err) {
-      errorMessage.value = 'Failed to refresh data';
-      console.error('Refresh error:', err);
-    } finally {
-      isRefreshing.value = false;
+      errorMessage.value = '';
+    } catch (error) {
+      errorMessage.value = 'Failed to refresh data. Please try again.';
+      console.error('Refresh error:', error);
     }
   }
 
-  async function saveItem(item: RegistryItem) {
+  async function approveItem(item: RegistryItem) {
     if (!isKeyValid.value) {
-      errorMessage.value = 'Please enter an auth key before saving';
+      errorMessage.value = 'Please enter a valid auth key';
       return;
     }
 
-    // Prevent multiple operations at once
-    if (isProcessing.value) return;
+    isProcessing.value = true;
+    processingItemId.value = item.uniqueId;
+    errorMessage.value = '';
 
     try {
-      isProcessing.value = true;
-      processingItemId.value = item.uniqueId;
-      errorMessage.value = '';
-
-      const { data, error, status } = await useFetch('/api/registry/queue/save', {
+      const { error } = await useFetch('/api/registry/queue/approve', {
         method: 'POST',
-        body: { uuid: item.uniqueId, details: { ...item }, auth: key.value },
-        headers: { 'cache-control': 'no-cache' },
+        body: {
+          id: item.uniqueId,
+          key: key.value,
+        },
       });
 
-      if (status.value === 'success') {
-        // Type-safe approach to update the items list
-        if (registryItems.value) {
-          registryItems.value = registryItems.value.filter((i) => i.uniqueId !== item.uniqueId);
-        }
-      } else if (error.value) {
-        // More specific error handling
-        if (error.value.statusCode === 401) {
-          errorMessage.value = 'Invalid authentication key';
-        } else if (error.value.statusCode === 404) {
-          errorMessage.value = 'Registry item not found';
-        } else {
-          errorMessage.value = error.value?.message || 'Error saving item';
-        }
-        console.error('Save error:', error.value);
+      if (error.value) {
+        throw new Error(error.value.data?.message || 'Failed to approve item');
       }
-    } catch (err) {
-      errorMessage.value = 'Unexpected error occurred while saving';
-      console.error('Save exception:', err);
+
+      // Remove item from the list
+      if (registryItems.value) {
+        const index = registryItems.value.findIndex((i) => i.uniqueId === item.uniqueId);
+        if (index !== -1) {
+          registryItems.value.splice(index, 1);
+        }
+      }
+    } catch (error) {
+      errorMessage.value = error instanceof Error ? error.message : 'Failed to approve item';
+      console.error('Approve error:', error);
     } finally {
       isProcessing.value = false;
       processingItemId.value = null;
@@ -106,177 +92,166 @@
   }
 
   function confirmDelete(item: RegistryItem) {
-    if (!isKeyValid.value) {
-      errorMessage.value = 'Please enter an auth key before deleting';
-      return;
-    }
-
-    // Prevent multiple operations at once
-    if (isProcessing.value) return;
-
     selectedItem.value = item;
     showDeleteDialog.value = true;
   }
 
   async function deleteItem() {
-    if (!selectedItem.value) return;
-    if (isProcessing.value) return;
+    if (!selectedItem.value || !isKeyValid.value) {
+      showDeleteDialog.value = false;
+      return;
+    }
+
+    isProcessing.value = true;
+    processingItemId.value = selectedItem.value.uniqueId;
+    errorMessage.value = '';
 
     try {
-      isProcessing.value = true;
-      processingItemId.value = selectedItem.value.uniqueId;
-      errorMessage.value = '';
-
-      const { data, error, status } = await useFetch('/api/registry/queue/delete', {
+      const { error } = await useFetch('/api/registry/queue/reject', {
         method: 'POST',
         body: {
-          uuid: selectedItem.value.uniqueId,
-          details: { ...selectedItem.value },
-          auth: key.value,
+          id: selectedItem.value.uniqueId,
+          key: key.value,
         },
-        headers: { 'cache-control': 'no-cache' },
       });
 
-      if (status.value === 'success') {
-        // Type-safe approach to update the items list
-        if (registryItems.value) {
-          registryItems.value = registryItems.value.filter((i) => i.uniqueId !== selectedItem.value?.uniqueId);
-        }
-        showDeleteDialog.value = false;
-        selectedItem.value = null;
-      } else if (error.value) {
-        // More specific error handling
-        if (error.value.statusCode === 401) {
-          errorMessage.value = 'Invalid authentication key';
-        } else if (error.value.statusCode === 404) {
-          errorMessage.value = 'Registry item not found';
-        } else {
-          errorMessage.value = error.value?.message || 'Error deleting item';
-        }
-        console.error('Delete error:', error.value);
+      if (error.value) {
+        throw new Error(error.value.data?.message || 'Failed to delete item');
       }
-    } catch (err) {
-      errorMessage.value = 'Unexpected error occurred while deleting';
-      console.error('Delete exception:', err);
+
+      // Remove item from the list
+      if (registryItems.value) {
+        const index = registryItems.value.findIndex((i) => i.uniqueId === selectedItem.value?.uniqueId);
+        if (index !== -1) {
+          registryItems.value.splice(index, 1);
+        }
+      }
+    } catch (error) {
+      errorMessage.value = error instanceof Error ? error.message : 'Failed to delete item';
+      console.error('Delete error:', error);
     } finally {
       isProcessing.value = false;
+      showDeleteDialog.value = false;
       processingItemId.value = null;
+      selectedItem.value = null;
     }
   }
 </script>
-<template>
-  <v-container class="mt-10 mb-10">
-    <v-row class="mt-10 pt-10">
-      <v-col cols="12">
-        <v-card>
-          <v-card-title class="d-flex align-center">
-            <span>Registry Queue</span>
-            <v-spacer></v-spacer>
-            <v-btn
-              color="primary"
-              variant="text"
-              prepend-icon="fa-duotone fa-regular fa-rotate"
-              @click="refresh"
-              :loading="isRefreshing || fetchStatus === 'pending'"
-              :disabled="isProcessing"
-              size="small"
-            >
-              Refresh
-            </v-btn>
-          </v-card-title>
-          <v-card-text>
-            <v-text-field
-              v-model="key"
-              label="Auth Key"
-              outlined
-              dense
-              placeholder="Enter Auth Key"
-              prepend-icon="fa-duotone fa-regular fa-key"
-              :error-messages="!isKeyValid && (key !== '' || hasError) ? 'Auth key is required' : ''"
-              hide-details="auto"
-              class="mb-4"
-              autocomplete="off"
-            />
-            <v-alert
-              v-if="hasError"
-              title="Error"
-              type="error"
-              variant="outlined"
-              closable
-              @click:close="errorMessage = ''"
-              class="mb-4"
-            >
-              {{ errorMessage }}
-            </v-alert>
-            <v-data-table
-              :loading="isTableLoading"
-              :headers="tableHeaders"
-              :items="registryItems || []"
-              :item-value="'uniqueId'"
-              :items-per-page="100"
-              class="elevation-1"
-            >
-              <template v-slot:no-data>
-                <div class="pa-4 text-center">
-                  <p v-if="fetchStatus === 'pending'">Loading registry items...</p>
-                  <p v-else>No registry items in the queue</p>
-                </div>
-              </template>
-              <template v-slot:item.notes="{ item }">
-                <div class="text-truncate" :title="item.notes" style="max-width: 150px">
-                  {{ item.notes }}
-                </div>
-              </template>
-              <template v-slot:item.actions="{ item }">
-                <v-btn
-                  class="me-2"
-                  prepend-icon="fa-duotone fa-regular fa-floppy-disk"
-                  size="small"
-                  color="primary"
-                  @click="saveItem(item)"
-                  variant="text"
-                  :disabled="!isKeyValid || isProcessing"
-                  :loading="isProcessing && processingItemId === item.uniqueId"
-                >
-                  Save
-                </v-btn>
-                <v-btn
-                  size="small"
-                  color="error"
-                  prepend-icon="fa-duotone fa-regular fa-trash"
-                  @click="confirmDelete(item)"
-                  variant="text"
-                  :disabled="!isKeyValid || isProcessing"
-                  :loading="isProcessing && processingItemId === item.uniqueId && showDeleteDialog"
-                >
-                  Delete
-                </v-btn>
-              </template>
-            </v-data-table>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
 
-    <!-- Delete Confirmation Dialog -->
-    <v-dialog v-model="showDeleteDialog" max-width="500px">
-      <v-card>
-        <v-card-title>Confirm Deletion</v-card-title>
-        <v-card-text>
-          Are you sure you want to delete this registry item?
-          <div class="mt-2 pa-2 bg-grey-lighten-4 rounded">
-            <strong>{{ selectedItem?.model }}</strong> - {{ selectedItem?.year }} - Submitted by:
-            {{ selectedItem?.submittedBy }}
-          </div>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" variant="text" @click="showDeleteDialog = false" :disabled="isProcessing"
-            >Cancel</v-btn
-          >
-          <v-btn color="error" variant="text" @click="deleteItem()" :loading="isProcessing">Delete</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-container>
+<template>
+  <div class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Registry Queue</h1>
+      <button class="btn btn-primary" @click="refresh" :disabled="isLoading">
+        <span v-if="isLoading" class="loading loading-spinner"></span>
+        {{ isLoading ? 'Loading...' : 'Refresh' }}
+      </button>
+    </div>
+
+    <!-- Auth Key Input -->
+    <div class="mb-6">
+      <label class="form-control w-full max-w-xs">
+        <div class="label">
+          <span class="label-text">Auth Key</span>
+        </div>
+        <input
+          v-model="key"
+          type="password"
+          placeholder="Enter auth key"
+          class="input input-bordered w-full max-w-xs"
+          :disabled="isLoading"
+        />
+      </label>
+    </div>
+
+    <!-- Error Message -->
+    <div v-if="errorMessage" class="alert alert-error mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <span>{{ errorMessage }}</span>
+    </div>
+
+    <!-- Loading State -->
+    <div v-if="fetchStatus === 'pending'" class="flex justify-center my-8">
+      <span class="loading loading-spinner loading-lg"></span>
+    </div>
+
+    <!-- Empty State -->
+    <div v-else-if="!registryItems?.length" class="alert alert-info shadow-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+      <span>No registry items in the queue.</span>
+    </div>
+
+    <!-- Registry Items Table -->
+    <div v-else class="overflow-x-auto">
+      <table class="table table-zebra w-full">
+        <thead>
+          <tr>
+            <th
+              v-for="header in tableHeaders"
+              :key="header.title"
+              :class="{
+                'text-center': header.align === 'center',
+                'text-right': header.align === 'end',
+                'w-[200px]': header.width === '200px',
+              }"
+            >
+              {{ header.title }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in registryItems" :key="item.uniqueId">
+            <td>{{ item.model || '-' }}</td>
+            <td>{{ item.bodyNum || '-' }}</td>
+            <td>{{ item.trim || '-' }}</td>
+            <td>{{ item.submittedBy || '-' }}</td>
+            <td>{{ item.submittedByEmail || '-' }}</td>
+            <td class="text-center">{{ item.year || '-' }}</td>
+            <td class="space-x-2">
+              <button class="btn btn-sm btn-success" @click="approveItem(item)" :disabled="!isKeyValid || isProcessing">
+                <span
+                  v-if="isProcessing && processingItemId === item.uniqueId"
+                  class="loading loading-spinner loading-xs"
+                ></span>
+                Approve
+              </button>
+              <button class="btn btn-sm btn-error" @click="confirmDelete(item)" :disabled="!isKeyValid || isProcessing">
+                Reject
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <dialog :class="['modal', { 'modal-open': showDeleteDialog }]">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">Confirm Rejection</h3>
+        <p class="py-4">Are you sure you want to reject this registry item? This action cannot be undone.</p>
+        <div class="modal-action">
+          <button class="btn" @click="showDeleteDialog = false" :disabled="isProcessing">Cancel</button>
+          <button class="btn btn-error" @click="deleteItem" :disabled="isProcessing">
+            <span v-if="isProcessing" class="loading loading-spinner loading-xs"></span>
+            Reject Item
+          </button>
+        </div>
+      </div>
+    </dialog>
+  </div>
 </template>
