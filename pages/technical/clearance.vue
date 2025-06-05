@@ -1,40 +1,44 @@
 <script lang="ts" setup>
+  import { ref } from 'vue';
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '~/data/models/generic';
-  const expanded = ref([]);
-  const { data: tables } = await useFetch('/api/clearance');
-  const panels = ref(['Engine', 'Clutch & Gearbox']);
-  const tableHeaders: any[] = [
-    {
-      title: 'Part',
-      key: 'name',
-      align: 'start',
-    },
-    {
-      title: 'Clearance/Endfloat(thou)',
-      key: 'thou',
-      align: 'start',
-    },
-    {
-      title: 'Clearance/Endfloat (mm)',
-      key: 'mm',
-      align: 'start',
-    },
-    { title: '', key: 'data-table-expand', align: 'start' },
-  ];
+
+  interface ClearanceItem {
+    name: string;
+    thou: string;
+    mm: string;
+    notes?: string;
+    [key: string]: any;
+  }
+
+  interface ClearanceTable {
+    title: string;
+    items: ClearanceItem[];
+    search?: string;
+  }
+
+  const { data: tables } = await useFetch<Record<string, ClearanceTable>>('/api/clearance');
+  const searchValue = ref('');
+  const expandedRows = ref<Record<string, boolean>>({});
+
+  const toggleRow = (id: string) => {
+    expandedRows.value[id] = !expandedRows.value[id];
+  };
+
   useHead({
     title: 'Tech - Mini Clearances',
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: 'Detailed torque specifications can be found online right here at Classic Mini DIY.',
+        content: 'Detailed clearance specifications can be found online right here at Classic Mini DIY.',
       },
     ],
   });
+
   useSeoMeta({
     ogTitle: 'Tech - Mini Clearances',
     ogDescription:
-      'Detailed torque specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
+      'Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
     ogUrl: 'classicminidiy.com/technical/clearance',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
     ogType: 'website',
@@ -43,70 +47,83 @@
 
 <template>
   <hero :navigation="true" :title="'Common Clearances'" :heroType="HERO_TYPES.TECH" />
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Common Clearances"></breadcrumb>
-      </v-col>
-      <v-col cols="12">
-        <v-expansion-panels v-model="panels" variant="popout" multiple>
-          <v-expansion-panel v-for="(table, name, index) in tables" :key="`${name}-${index}`" :value="table.title">
-            <v-expansion-panel-title color="brand-green-3" expand-icon="fad fa-plus" collapse-icon="fad fa-plus">
-              {{ table.title }}
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <v-row class="pb-5">
-                <v-spacer></v-spacer>
-                <v-text-field
-                  label="Search This Table"
-                  v-model="table.search"
-                  placeholder="Crankshaft"
-                  append-inner-icon="fad fa-search"
-                  variant="underlined"
-                  class="pr-4 pt-2"
-                ></v-text-field>
-              </v-row>
-              <v-data-table
-                v-model:expanded="expanded"
-                :headers="tableHeaders"
-                :items="table.items"
-                show-expand
-                expand-on-click
-                :density="'compact'"
-                :item-value="'name'"
-                items-per-page="10"
-                :search="table.search"
-              >
-                <template v-slot:item.data-table-expand="{ item }">
-                  <v-icon hydrate-on-visible icon="fad fa-chevron-down" :size="'small'"></v-icon>
-                </template>
-                <template v-slot:expanded-row="{ columns, item }">
-                  <tr>
-                    <td class="has-background-light pt-4 pb-4" colspan="4">
-                      <strong>Extra Notes:</strong>
-                      <br />
-                      {{ item.notes || '---' }}
-                    </td>
-                  </tr>
-                </template>
-              </v-data-table>
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-col>
-      <v-col cols="12">
-        <v-card>
-          <v-card-item>
-            <patreon-card size="large" />
-          </v-card-item>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-</template>
 
-<style lang="scss" scoped>
-  .card-header {
-    background-color: whitesmoke;
-  }
-</style>
+  <div class="container mx-auto px-4 py-6">
+    <div class="mb-6">
+      <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Common Clearances" />
+    </div>
+
+    <div class="space-y-4">
+      <div v-for="(table, name, index) in tables" :key="`${name}-${index}`" class="collapse collapse-arrow bg-base-200">
+        <input type="checkbox" checked />
+        <div class="collapse-title text-xl font-medium">
+          {{ table.title }}
+        </div>
+        <div class="collapse-content">
+          <div class="py-4">
+            <div class="form-control w-full max-w-xs ml-auto mb-4">
+              <div class="relative">
+                <input
+                  type="text"
+                  v-model="searchValue"
+                  placeholder="Search..."
+                  class="input input-bordered w-full pr-10"
+                />
+                <span class="absolute right-3 top-1/2 -translate-y-1/2">
+                  <i class="fas fa-search text-gray-400"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="table w-full">
+                <thead>
+                  <tr>
+                    <th>Part</th>
+                    <th>Clearance/Endfloat (thou)</th>
+                    <th>Clearance/Endfloat (mm)</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template
+                    v-for="(item, itemIndex) in table.items.filter((i) =>
+                      Object.values(i).some((val) => String(val).toLowerCase().includes(searchValue.toLowerCase()))
+                    )"
+                    :key="itemIndex"
+                  >
+                    <tr class="hover cursor-pointer" @click="toggleRow(`${name}-${itemIndex}`)">
+                      <td>{{ item.name }}</td>
+                      <td>{{ item.thou || '---' }}</td>
+                      <td>{{ item.mm || '---' }}</td>
+                      <td class="text-right">
+                        <i
+                          class="fas transition-transform duration-200"
+                          :class="expandedRows[`${name}-${itemIndex}`] ? 'fa-chevron-up' : 'fa-chevron-down'"
+                        ></i>
+                      </td>
+                    </tr>
+                    <tr v-if="expandedRows[`${name}-${itemIndex}`]" class="bg-base-200">
+                      <td colspan="4" class="p-4">
+                        <div class="font-semibold mb-2">Extra Notes:</div>
+                        <div class="whitespace-pre-line">{{ item.notes || 'No additional notes available.' }}</div>
+                      </td>
+                    </tr>
+                  </template>
+                  <tr v-if="!table.items.length">
+                    <td colspan="4" class="text-center py-4">No items found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider my-12">Support</div>
+    <div class="mb-8">
+      <patreon-card size="large" />
+    </div>
+  </div>
+</template>

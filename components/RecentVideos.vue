@@ -7,9 +7,7 @@
     <h3 class="font-bold text-3xl text-center pb-5">Recent Videos</h3>
   </div>
 
-  <div v-if="status === 'pending'" class="col-span-12 md:col-span-3" v-for="item in 3">
-    <!-- <v-skeleton-loader class="mx-auto border" max-width="300" type="image, article"></v-skeleton-loader> -->
-  </div>
+  <div v-if="status === 'pending'" class="col-span-12 md:col-span-3" v-for="item in 3"></div>
   <div v-else-if="error" class="col-span-12">
     <p>Unable to load youtube data</p>
   </div>
