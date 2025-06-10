@@ -1,6 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DeleteCommand, DynamoDBDocumentClient, type DeleteCommandOutput } from '@aws-sdk/lib-dynamodb';
-import type { RegistryItem } from '~/data/models/registry';
+import { DynamoDBDocumentClient, UpdateCommand, type DeleteCommandOutput } from '@aws-sdk/lib-dynamodb';
+import { RegistryItemStatus, type RegistryItem } from '~/data/models/registry';
 
 export default defineEventHandler(async (event: any): Promise<DeleteCommandOutput> => {
   const config = useRuntimeConfig();
@@ -21,18 +21,20 @@ export default defineEventHandler(async (event: any): Promise<DeleteCommandOutpu
       details: RegistryItem;
       auth: string;
     }>(event);
-
-    console.log('Deleting registry queue item:', auth);
-    console.log('Deleting registry queue item:', config.validation_key);
-    console.log('Deleting registry queue item:', auth === config.validation_key);
-
     if (auth === config.validation_key) {
       return await docClient.send(
-        new DeleteCommand({
+        new UpdateCommand({
           TableName: 'MiniRegisterQueue',
           Key: {
             uniqueId: uuid,
             year: details.year,
+          },
+          UpdateExpression: 'set #itemStatus = :itemStatus',
+          ExpressionAttributeNames: {
+            '#itemStatus': 'status',
+          },
+          ExpressionAttributeValues: {
+            ':itemStatus': RegistryItemStatus.REJECTED,
           },
         })
       );
@@ -40,7 +42,7 @@ export default defineEventHandler(async (event: any): Promise<DeleteCommandOutpu
       throw new Error('Unauthorized');
     }
   } catch (error: any) {
-    console.error(`Error deleting registry queue item: ${error.message}`, error);
-    throw new Error(`Error deleting registry queue item - ${error.message}`);
+    console.error(`Error rejecting registry queue item: ${error.message}`, error);
+    throw new Error(`Error rejecting registry queue item - ${error.message}`);
   }
 });

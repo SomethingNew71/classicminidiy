@@ -17,20 +17,14 @@ export default defineEventHandler(async (): Promise<RegistryItem[]> => {
 
   try {
     const parsedResponse: RegistryItem[] = [];
-    await docClient
-      .send(
-        new ScanCommand({
-          TableName: 'MiniRegister',
-        })
-      )
-      .then(({ Items }) => {
-        parsedResponse.push(
-          ...(Items as RegistryItem[]).map((item) => ({
-            ...item,
-            buildDate: DateTime.fromISO(item.buildDate as string).toISODate(),
-          }))
-        );
-      });
+    await docClient.send(new ScanCommand({ TableName: 'MiniRegister' })).then(({ Items }) => {
+      parsedResponse.push(
+        ...(Items as RegistryItem[]).map((item) => ({
+          ...item,
+          buildDate: DateTime.fromISO(item.buildDate as string).toISODate(),
+        }))
+      );
+    });
 
     return parsedResponse;
   } catch (error: any) {
