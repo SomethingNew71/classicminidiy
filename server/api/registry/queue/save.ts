@@ -1,6 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DeleteCommand, DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
-import type { RegistryItem } from '~/data/models/registry';
+import { DynamoDBDocumentClient, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import { RegistryItemStatus, type RegistryItem } from '~/data/models/registry';
 
 export default defineEventHandler(async (event): Promise<void> => {
   const config = useRuntimeConfig();
@@ -34,11 +34,18 @@ export default defineEventHandler(async (event): Promise<void> => {
     );
 
     await docClient.send(
-      new DeleteCommand({
+      new UpdateCommand({
         TableName: 'MiniRegisterQueue',
         Key: {
           uniqueId: uuid,
           year: details.year,
+        },
+        UpdateExpression: 'set #itemStatus = :itemStatus',
+        ExpressionAttributeNames: {
+          '#itemStatus': 'status'
+        },
+        ExpressionAttributeValues: {
+          ':itemStatus': RegistryItemStatus.APPROVED,
         },
       })
     );
