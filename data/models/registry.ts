@@ -12,11 +12,16 @@ export interface RegistryItem extends Record<string, any> {
   bodyType: string;
   engineSize: number;
   color: string;
+  status?: RegistryItemStatus;
 }
 
 export interface RegistryQueueSubmissionResponse {
-  issueNumber: number;
-  issueUrl: string;
   uuid: string;
   details: RegistryItem;
+}
+
+export enum RegistryItemStatus {
+  PENDING = 'P',
+  APPROVED = 'A',
+  REJECTED = 'R',
 }

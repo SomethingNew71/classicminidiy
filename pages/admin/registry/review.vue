@@ -63,11 +63,12 @@
     errorMessage.value = '';
 
     try {
-      const { error } = await useFetch('/api/registry/queue/approve', {
+      const { error } = await useFetch('/api/registry/queue/reject', {
         method: 'POST',
         body: {
-          id: item.uniqueId,
-          key: key.value,
+          uuid: item.uniqueId,
+          details: item,
+          auth: key.value,
         },
       });
 
@@ -110,8 +111,9 @@
       const { error } = await useFetch('/api/registry/queue/reject', {
         method: 'POST',
         body: {
-          id: selectedItem.value.uniqueId,
-          key: key.value,
+          uuid: selectedItem.value.uniqueId,
+          details: selectedItem.value,
+          auth: key.value,
         },
       });
 
