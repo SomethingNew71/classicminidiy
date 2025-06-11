@@ -235,14 +235,14 @@
     <div class="mt-8">
       <h2 class="text-2xl font-bold mb-4">Results:</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="card bg-base-200 shadow-sm">
-          <div class="card-body text-center">
+        <div class="card bg-secondary shadow-sm">
+          <div class="card-body text-center text-white">
             <h3 class="text-lg opacity-70">Compression Ratio</h3>
             <p class="text-3xl font-bold">{{ ratio || '?' }}</p>
           </div>
         </div>
-        <div class="card bg-base-200 shadow-sm">
-          <div class="card-body text-center">
+        <div class="card bg-primary shadow-sm">
+          <div class="card-body text-center text-white">
             <h3 class="text-lg opacity-70">Engine Capacity</h3>
             <p class="text-3xl font-bold">{{ capacity || '?' }}</p>
           </div>

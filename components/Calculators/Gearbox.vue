@@ -29,7 +29,6 @@
   const dropGears = ref(options.dropGears);
   const gearRatios = ref(options.gearRatios);
   const speedos = ref(options.speedos);
-  const rpmTicks = ref(options.rpmTicks);
 
   // Component variables with proper typing
   const typeCircInMiles = ref<number | null>(null);
@@ -276,15 +275,17 @@
           ></span>
         </label>
         <div class="w-full">
-          <input
-            type="range"
-            min="3000"
-            max="9000"
-            step="500"
-            v-model.number="max_rpm"
-            class="range range-primary range-xs"
-            @change="calculateRatio()"
-          />
+          <select class="select select-bordered w-full" v-model.number="max_rpm" @change="calculateRatio()">
+            <option value="5000">5000 RPM</option>
+            <option value="5500">5500 RPM</option>
+            <option value="6000">6000 RPM</option>
+            <option value="6500">6500 RPM</option>
+            <option value="7000">7000 RPM</option>
+            <option value="7500">7500 RPM</option>
+            <option value="8000">8000 RPM</option>
+            <option value="8500">8500 RPM</option>
+            <option value="9000">9000 RPM</option>
+          </select>
         </div>
       </div>
     </div>
@@ -292,65 +293,82 @@
     <div class="divider">Results</div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="card bg-base-200 shadow-sm">
+      <div class="card bg-stone-400 shadow-sm">
         <div class="card-body text-center">
-          <h3 class="text-lg opacity-70">Revolutions per/Mile</h3>
-          <p class="text-3xl font-bold">{{ speedoDetails.engineRevsMile || '---' }}</p>
+          <h3 class="text-lg text-white opacity-70">Revolutions per/Mile</h3>
+          <p class="text-3xl text-white font-bold">{{ speedoDetails.engineRevsMile || '---' }}</p>
         </div>
       </div>
-      <div class="card bg-base-200 shadow-sm">
+      <div class="card bg-secondary shadow-sm">
         <div class="card-body text-center">
-          <h3 class="text-lg opacity-70">Turns per/Mile</h3>
-          <p class="text-3xl font-bold">{{ speedoDetails.turnsPerMile || '---' }}</p>
+          <h3 class="text-lg text-white opacity-70">Turns per/Mile</h3>
+          <p class="text-3xl text-white font-bold">{{ speedoDetails.turnsPerMile || '---' }}</p>
         </div>
       </div>
-      <div class="card bg-base-200 shadow-sm">
+      <div class="card bg-primary shadow-sm">
         <div class="card-body text-center">
-          <h3 class="text-lg opacity-70">Top Speed</h3>
-          <p class="text-3xl font-bold">{{ topSpeed || '---' }}</p>
+          <h3 class="text-lg text-white opacity-70">Top Speed</h3>
+          <p class="text-3xl text-white font-bold">{{ topSpeed || '---' }}</p>
         </div>
       </div>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-4">
-      <div class="card bg-base-100 shadow-sm">
+      <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">Tire Width</h3>
           <p class="text-lg font-bold">{{ tireInfo.width || '---' }}mm</p>
         </div>
       </div>
-      <div class="card bg-base-100 shadow-sm">
+      <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">Tire Profile</h3>
           <p class="text-lg font-bold">{{ tireInfo.profile || '---' }}%</p>
         </div>
       </div>
-      <div class="card bg-base-100 shadow-sm">
+      <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">Tire Size</h3>
           <p class="text-lg font-bold">{{ tireInfo.size || '---' }}"</p>
         </div>
       </div>
-      <div class="card bg-base-100 shadow-sm">
+      <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">Tire Diameter</h3>
           <p class="text-lg font-bold">{{ tireInfo.diameter || '---' }}mm</p>
         </div>
       </div>
-      <div class="card bg-base-100 shadow-sm">
+      <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">Circumference</h3>
           <p class="text-lg font-bold">{{ tireInfo.circ || '---' }}mm</p>
         </div>
       </div>
-      <div class="card bg-base-100 shadow-sm">
+      <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">Turns Per Mile</h3>
           <p class="text-lg font-bold">{{ tireInfo.tireTurnsPerMile || '---' }}</p>
         </div>
       </div>
     </div>
-
+    <div class="mt-6">
+      <div class="card bg-base-100 shadow-md">
+        <div class="card-body">
+          <ClientOnly fallback-tag="span">
+            <highcharts
+              ref="gearSpeedChart"
+              :options="mapOptions"
+              :updateArgs="[true, true, true]"
+              :constructorType="'chart'"
+            ></highcharts>
+            <template #fallback>
+              <div class="skeleton h-96 w-full"></div>
+              <p class="py-10 text-center text-2xl">Chart is loading</p>
+            </template>
+          </ClientOnly>
+        </div>
+      </div>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6">
       <div class="col-span-1 md:col-span-7">
         <div class="card bg-base-100 shadow-md">
@@ -408,25 +426,6 @@
         <div class="mt-6">
           <div class="divider">Support</div>
           <patreon-card size="large" />
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-6">
-      <div class="card bg-base-100 shadow-md">
-        <div class="card-body">
-          <ClientOnly fallback-tag="span">
-            <highcharts
-              ref="gearSpeedChart"
-              :options="mapOptions"
-              :updateArgs="[true, true, true]"
-              :constructorType="'chart'"
-            ></highcharts>
-            <template #fallback>
-              <div class="skeleton h-96 w-full"></div>
-              <p class="py-10 text-center text-2xl">Chart is loading</p>
-            </template>
-          </ClientOnly>
         </div>
       </div>
     </div>

@@ -362,7 +362,7 @@
         <div class="col-span-12 md:col-span-6">
           <div class="card bg-base-100 shadow-xl">
             <div class="card-body p-0">
-              <div class="bg-base-200 p-4 flex items-center">
+              <div class="bg-primary text-white p-4 flex items-center">
                 <i class="fad fa-code-branch mr-2"></i>
                 <h5 class="font-bold text-lg">Latest Updates</h5>
               </div>
@@ -483,7 +483,7 @@
         <div class="col-span-12 md:col-span-10 md:col-start-2">
           <div class="divider">Other ways to support</div>
         </div>
-        <div class="col-span-12 pb-10">
+        <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
           <patreon-card size="large" />
         </div>
       </div>
