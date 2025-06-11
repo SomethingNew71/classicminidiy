@@ -98,7 +98,7 @@
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="divider">Submit a New Mini</div>
       </div>
-      <div class="col-span-12 md:col-span-10 md:col-start-2">
+      <div class="col-span-12 md:col-span-10 md:col-start-2 pb-15">
         <RegistrySubmission />
       </div>
     </div>
