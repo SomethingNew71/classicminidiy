@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import type { IWheelsData } from '~/data/models/wheels';
+  import Fuse from 'fuse.js';
 
   // State management with proper typing
   const search = ref('');
@@ -18,52 +19,40 @@
     default: () => [], // Provide default value to prevent null reference errors
   });
 
-  // Derived state with memoization
-  const allOffsets = computed(() => {
-    if (!wheels.value?.length) return [];
+  // Create a Fuse instance for fuzzy searching with memoization
+  const fuseInstance = computed(() => {
+    if (!wheels.value?.length) return null;
 
-    // Use Set for deduplication and performance
-    const offsetSet = new Set<string>();
-    wheels.value.forEach((wheel) => {
-      const trimmedOffset = wheel.offset?.trim() || '';
-      if (trimmedOffset) offsetSet.add(trimmedOffset);
-    });
+    // Configure Fuse.js options
+    const options = {
+      keys: ['name', 'size', 'width', 'offset', 'type'],
+      threshold: 0.4, // Lower threshold means more strict matching
+      ignoreLocation: true,
+      shouldSort: true,
+    };
 
-    return Array.from(offsetSet).sort();
+    return new Fuse(wheels.value, options);
   });
 
-  const allMaterials = computed(() => {
-    if (!wheels.value?.length) return [];
-
-    // Use Set for deduplication and performance
-    const materialSet = new Set<string>();
-    wheels.value.forEach((wheel) => {
-      const trimmedType = wheel.type?.trim() || '';
-      if (trimmedType) materialSet.add(trimmedType);
-    });
-
-    return Array.from(materialSet).sort();
-  });
-
-  // Efficient filtering with memoization
+  // Efficient filtering with memoization using Fuse.js
   const filteredWheels = computed(() => {
     if (!wheels.value?.length) return [];
-
-    // Convert search to lowercase once for performance
-    const searchLower = search.value.toLowerCase();
     const hasOffsetFilter = selectedOffsets.value.length > 0;
     const hasMaterialFilter = selectedMaterials.value.length > 0;
-
-    return wheels.value.filter((wheel) => {
-      // Only perform string operations when necessary
-      const searchMatch = !searchLower || wheel.name.toLowerCase().includes(searchLower);
-
+    // First apply material and offset filters
+    let results = wheels.value.filter((wheel) => {
       // Only check filter matches when filters are active
       const offsetMatch = !hasOffsetFilter || selectedOffsets.value.includes(wheel.offset?.trim() || '');
       const materialMatch = !hasMaterialFilter || selectedMaterials.value.includes(wheel.type?.trim() || '');
-
-      return searchMatch && offsetMatch && materialMatch;
+      return offsetMatch && materialMatch;
     });
+
+    // Then apply Fuse.js search if search term exists
+    if (search.value && fuseInstance.value) {
+      results = fuseInstance.value.search(search.value).map((result) => result.item);
+    }
+
+    return results;
   });
 
   // Computed property for active filters state
@@ -159,54 +148,6 @@
             </label>
           </div>
         </div>
-
-        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Offsets</span>
-              </label>
-              <select class="select select-bordered w-full" multiple v-model="selectedOffsets">
-                <option v-for="offset in allOffsets" :key="offset" :value="offset">{{ offset }}</option>
-              </select>
-              <div v-if="selectedOffsets.length > 0" class="flex flex-wrap gap-2 mt-2">
-                <div
-                  v-for="(offset, index) in selectedOffsets.slice(0, 2)"
-                  :key="index"
-                  class="badge badge-primary badge-outline"
-                >
-                  {{ offset }}
-                </div>
-                <div v-if="selectedOffsets.length > 2" class="badge badge-ghost">
-                  +{{ selectedOffsets.length - 2 }} others
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Material</span>
-              </label>
-              <select class="select select-bordered w-full" multiple v-model="selectedMaterials">
-                <option v-for="material in allMaterials" :key="material" :value="material">{{ material }}</option>
-              </select>
-              <div v-if="selectedMaterials.length > 0" class="flex flex-wrap gap-2 mt-2">
-                <div
-                  v-for="(material, index) in selectedMaterials.slice(0, 2)"
-                  :key="index"
-                  class="badge badge-secondary badge-outline"
-                >
-                  {{ material }}
-                </div>
-                <div v-if="selectedMaterials.length > 2" class="badge badge-ghost">
-                  +{{ selectedMaterials.length - 2 }} others
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
 

@@ -46,6 +46,7 @@
     "core-js": "^3.43.0",
     "daisyui": "^5.0.43",
     "formidable": "^3.5.4",
+    "fuse.js": "^7.1.0",
     "highcharts": "^12.2.0",
     "highcharts-vue": "^2.0.1",
     "luxon": "^3.6.1",
