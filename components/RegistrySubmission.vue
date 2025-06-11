@@ -84,13 +84,12 @@
 
     processing.value = true;
     try {
-      const response = await axios.post<RegistryQueueSubmissionResponse>('/api/registry/queue/submit', {
-        details: details.value,
+      const { data } = await useFetch<RegistryQueueSubmissionResponse>('/api/registry/queue/submit', {
+        method: 'POST',
+        body: { details: details.value },
       });
       issueCreated.value = true;
-      submission.value.number = response.data.issueNumber;
-      submission.value.url = response.data.issueUrl;
-      if (response.data.issueNumber) {
+      if (data.value?.uuid) {
         resetForm();
       }
     } catch (error) {
@@ -363,15 +362,16 @@
             </div>
             <div class="col-span-1 md:col-span-2">
               <div class="form-control w-full">
-                <label class="label">
-                  <span class="label-text">Special or Additional Notes</span>
-                  <span class="label-text-alt"><i class="fad fa-note"></i></span>
-                </label>
-                <textarea
-                  class="textarea textarea-bordered h-24"
-                  placeholder="ex. This car was only produced from 1959 to 1960"
-                  v-model="details.notes"
-                ></textarea>
+                <fieldset class="fieldset">
+                  <legend class="fieldset-legend">
+                    Special or Additional Notes <span class="label-text-alt"><i class="fad fa-note"></i></span>
+                  </legend>
+                  <textarea
+                    class="textarea h-24 w-full"
+                    placeholder="ex. This car was only produced from 1959 to 1960"
+                    v-model="details.notes"
+                  ></textarea>
+                </fieldset>
               </div>
             </div>
           </div>
