@@ -56,7 +56,7 @@
             <div v-if="status === 'pending'" class="flex justify-center items-center py-8">
               <span class="loading loading-spinner loading-lg"></span>
             </div>
-            <table v-else class="table table-zebra table-sm w-full">
+            <table v-else class="table table-zebra w-full">
               <thead>
                 <tr>
                   <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>

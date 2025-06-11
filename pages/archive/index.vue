@@ -84,7 +84,7 @@
     subtitle="Preserving Classic Mini Heritage"
     :heroType="HERO_TYPES.ARCHIVE"
   />
-  <div class="container mx-auto px-4 pt-15">
+  <div class="container mx-auto px-4 pb-15 pt-6">
     <div class="grid grid-cols-1 gap-4">
       <div class="col-span-1 text-center">
         <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" root></breadcrumb>

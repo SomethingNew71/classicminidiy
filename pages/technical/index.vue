@@ -76,11 +76,10 @@
     subtitle="Keeping Minis Driving"
     :heroType="HERO_TYPES.TECH"
   />
-  <div class="container mx-auto px-4 py-15">
+  <div class="container mx-auto px-4 pb-15 pt-6">
     <div class="grid grid-cols-1 gap-4">
       <div class="col-span-1 text-center">
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" root></breadcrumb>
-        <h3 class="fancy-font-bold text-2xl">Technical Information for the DIY Mechanic</h3>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
         <div class="col-span-1 md:col-span-4">
@@ -101,6 +100,7 @@
           </div>
         </div>
         <div class="col-span-1 md:col-span-8">
+          <h3 class="fancy-font-bold text-2xl">Technical Information for the DIY Mechanic</h3>
           <p class="text-lg py-5">
             One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
             So to make this easier for you, I have collected technical information from various sources and consolidated
