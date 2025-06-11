@@ -19,7 +19,6 @@
   import { humanFileSize } from '~/data/models/helper-utils';
 
   // Reactive state
-  const { path } = await useRoute();
   const wheel = ref();
   const pageLoad = ref(true);
   const pageError = ref();
@@ -31,6 +30,9 @@
   const imagesValid = ref(false);
   const contactValid = ref(false);
   const step = ref(1);
+
+  // Track field interactions
+  const touchedFields = ref(new Set());
 
   // Form fields
   const name = ref('');
@@ -51,18 +53,9 @@
   const wheelSizes = ['10', '12', '13'];
 
   // Form validation
-  const validateRequired = (value: string) => !!value.trim() || 'This field is required';
   const validateEmail = (value: string) => {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return pattern.test(value) || 'Please enter a valid email address';
-  };
-  const validateFileSize = (files: File[]) => {
-    if (!files.length) return true;
-    return files.every((file) => file.size < 3000000) || 'File size should be less than 3MB';
-  };
-  const validateFileCount = (files: File[], required = false) => {
-    if (required && !files.length) return 'At least one image is required';
-    return files.length <= 5 || 'You cannot upload more than 5 images';
   };
 
   const handleFileChange = (event: Event) => {
@@ -118,35 +111,7 @@
     hasError.value = false;
     errorMessage.value = '';
     hasSuccess.value = false;
-  }
-
-  // Submit wheel data
-  async function sendNewInfo() {
-    loading.value = true;
-    hasError.value = false;
-    errorMessage.value = '';
-
-    try {
-      const detailsResponse = await storeWheelDetails();
-      const uuid = detailsResponse?.data?.value?.uuid;
-
-      if (!uuid) {
-        throw new Error('Failed to save wheel details');
-      }
-
-      if (dropFiles.value.length > 0) {
-        await storeWheelImages(uuid);
-      }
-
-      hasSuccess.value = true;
-      step.value = 5;
-    } catch (err: any) {
-      hasError.value = true;
-      errorMessage.value = err.message || 'An error occurred while submitting your wheel data';
-      console.error(err);
-    } finally {
-      loading.value = false;
-    }
+    touchedFields.value = new Set();
   }
 
   // Store wheel details
@@ -204,6 +169,16 @@
     if (step.value === 3) return contactValid.value;
     return true;
   });
+
+  // Mark field as touched when user interacts with it and tabs out
+  const markFieldAsTouched = (fieldName: string) => {
+    touchedFields.value.add(fieldName);
+  };
+
+  // Check if a field has been touched
+  const isFieldTouched = (fieldName: string) => {
+    return touchedFields.value.has(fieldName);
+  };
 
   // Form validation state
   const validateForm = () => {
@@ -300,13 +275,14 @@
                   v-model="name"
                   placeholder="Enter wheel name"
                   class="input input-bordered w-full pl-10"
-                  :class="{ 'input-error': newWheel && !name.trim() }"
+                  :class="{ 'input-error': isFieldTouched('name') && newWheel && !name.trim() }"
+                  @blur="markFieldAsTouched('name')"
                 />
                 <span class="absolute left-3 top-1/2 -translate-y-1/2">
                   <i class="fas fa-file-signature text-gray-400"></i>
                 </span>
               </div>
-              <label class="label" v-if="newWheel && !name.trim()">
+              <label class="label" v-if="isFieldTouched('name') && newWheel && !name.trim()">
                 <span class="label-text-alt text-error">Wheel name is required</span>
               </label>
             </div>
@@ -352,13 +328,14 @@
                   v-model="width"
                   placeholder="Enter width"
                   class="input input-bordered w-full pl-10"
-                  :class="{ 'input-error': newWheel && !width }"
+                  :class="{ 'input-error': isFieldTouched('width') && newWheel && !width }"
+                  @blur="markFieldAsTouched('width')"
                 />
                 <span class="absolute left-3 top-1/2 -translate-y-1/2">
                   <i class="fas fa-ruler-horizontal text-gray-400"></i>
                 </span>
               </div>
-              <label class="label" v-if="newWheel && !width">
+              <label class="label" v-if="isFieldTouched('width') && newWheel && !width">
                 <span class="label-text-alt text-error">Width is required</span>
               </label>
             </div>
@@ -378,7 +355,8 @@
                 <select
                   v-model="size"
                   class="select select-bordered w-full pl-10"
-                  :class="{ 'select-error': newWheel && !size }"
+                  :class="{ 'select-error': isFieldTouched('size') && newWheel && !size }"
+                  @blur="markFieldAsTouched('size')"
                 >
                   <option disabled value="">Select wheel size</option>
                   <option v-for="wheelSize in wheelSizes" :key="wheelSize" :value="wheelSize">{{ wheelSize }}"</option>
@@ -390,7 +368,7 @@
               <label class="label">
                 <span class="label-text-alt">Diameter in inches</span>
               </label>
-              <label class="label" v-if="newWheel && !size">
+              <label class="label" v-if="isFieldTouched('size') && newWheel && !size">
                 <span class="label-text-alt text-error">Wheel size is required</span>
               </label>
             </div>
@@ -572,14 +550,15 @@
                 v-model="userName"
                 placeholder="Enter your name"
                 class="input input-bordered w-full pl-10"
-                :class="{ 'input-error': !userName.trim() }"
+                :class="{ 'input-error': isFieldTouched('userName') && !userName.trim() }"
+                @blur="markFieldAsTouched('userName')"
                 required
               />
               <span class="absolute left-3 top-1/2 -translate-y-1/2">
                 <i class="fas fa-user text-gray-400"></i>
               </span>
             </div>
-            <label class="label" v-if="!userName.trim()">
+            <label class="label" v-if="isFieldTouched('userName') && !userName.trim()">
               <span class="label-text-alt text-error">Your name is required</span>
             </label>
           </div>
@@ -594,14 +573,17 @@
                 v-model="emailAddress"
                 placeholder="your@email.com"
                 class="input input-bordered w-full pl-10"
-                :class="{ 'input-error': emailAddress && !validateEmail(emailAddress) }"
+                :class="{
+                  'input-error': isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress),
+                }"
+                @blur="markFieldAsTouched('emailAddress')"
                 required
               />
               <span class="absolute left-3 top-1/2 -translate-y-1/2">
                 <i class="fas fa-envelope text-gray-400"></i>
               </span>
             </div>
-            <label class="label" v-if="emailAddress && !validateEmail(emailAddress)">
+            <label class="label" v-if="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress)">
               <span class="label-text-alt text-error">Please enter a valid email address</span>
             </label>
           </div>
