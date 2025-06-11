@@ -329,8 +329,8 @@
                         <i v-if="ecu === 'no'" class="text-lg fa-solid fa-xmark" style="color: #b22222"></i>
                         <i
                           v-if="ecu === 'wip'"
-                          class="text-lg fa-solid fa-spinner fa-spin-pulse"
-                          style="color: #ed7135"
+                          class="text-h6 pr-3 fa-sharp-duotone fa-solid fa-road-barrier"
+                          style="--fa-primary-color: #562b00; --fa-secondary-color: #f5c147; --fa-secondary-opacity: 1"
                         ></i>
                         <i v-if="ecu === 'na'" class="text-lg fa-solid fa-dash"></i>
                       </td>
@@ -345,8 +345,8 @@
                     <i v-if="item.id === 'no'" class="text-lg fa-solid fa-xmark" style="color: #b22222"></i>
                     <i
                       v-if="item.id === 'wip'"
-                      class="text-lg fa-solid fa-spinner fa-spin-pulse"
-                      style="color: #ed7135"
+                      class="text-h6 pr-3 fa-sharp-duotone fa-solid fa-road-barrier"
+                      style="--fa-primary-color: #562b00; --fa-secondary-color: #f5c147; --fa-secondary-opacity: 1"
                     ></i>
                     <i v-if="item.id === 'na'" class="text-lg fa-solid fa-dash"></i>
                   </div>
