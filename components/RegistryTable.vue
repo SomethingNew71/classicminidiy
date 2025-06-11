@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { ref, computed } from 'vue';
   import type { RegistryItem } from '~/data/models/registry';
   import { RegistryItemStatus } from '~/data/models/registry';
 
