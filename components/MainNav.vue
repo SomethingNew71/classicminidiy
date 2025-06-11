@@ -31,7 +31,7 @@
           >
         </li>
         <li>
-          <a href="https://classicminidiy.substack.com/" target="_blank">
+          <a href="https://store.classicminidiy.com/" target="_blank">
             <span><i class="fad fa-store"></i></span> Store</a
           >
         </li>
@@ -67,7 +67,7 @@
             >
           </li>
           <li>
-            <a href="https://classicminidiy.substack.com/" target="_blank">
+            <a href="https://store.classicminidiy.com/" target="_blank">
               <span><i class="fad fa-store"></i></span> Store</a
             >
           </li>
