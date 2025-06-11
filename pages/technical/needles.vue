@@ -88,7 +88,7 @@
   <hero :navigation="true" :title="'Needle Configurator'" text-size="text-3xl" :heroType="HERO_TYPES.TECH" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
-      <div class="col-span-12">
+      <div class="col-span-12 pt-6">
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Needle Comparison"></breadcrumb>
       </div>
       <div class="col-span-12">
