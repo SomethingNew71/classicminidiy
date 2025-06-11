@@ -90,13 +90,13 @@
     :style="[!showImage ? { backgroundImage: 'none' } : styleObject]"
   >
     <div class="hero-content flex-col" :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]">
-      <div class="pl-20" :class="{ 'has-text-centered': centered }">
-        <p class="subtitle text-white" :class="{ 'has-text-centered': blog }">
+      <div class="pl-20 prose lg:prose-xl" :class="{ 'has-text-centered': centered }">
+        <p class="text-white" :class="{ 'has-text-centered': blog }">
           {{ subtitle }}
         </p>
         <h1
           v-if="title"
-          class="title fancy-font-bold text-white"
+          class="fancy-font-bold text-white"
           :class="{ 'special-title': special, 'has-text-centered': blog }"
           v-html="title"
         />
