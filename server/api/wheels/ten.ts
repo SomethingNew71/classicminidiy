@@ -12,20 +12,59 @@ const createDynamoDBClient = (config: RuntimeConfig) => {
   });
 };
 
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (event) => {
+  // Set cache headers - cache for 3 months since wheel data is relatively static
+  setResponseHeaders(event, {
+    'Cache-Control': 'public, max-age=7776000, s-maxage=7776000',
+    'CDN-Cache-Control': 'public, max-age=7776000',
+  });
+
   const config = useRuntimeConfig();
   const client = createDynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
 
-  const command = new QueryCommand({
-    TableName: 'wheels',
-    IndexName: 'size-index',
-    KeyConditionExpression: 'size = :size',
-    ExpressionAttributeValues: {
-      ':size': '10',
-    },
-  });
+  try {
+    // Create a promise that will reject after timeout
+    const timeoutPromise = new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error('DynamoDB request timed out')), 5000);
+    });
 
-  const response = await docClient.send(command);
-  return response.Items;
+    const command = new QueryCommand({
+      TableName: 'wheels',
+      IndexName: 'size-index',
+      KeyConditionExpression: 'size = :size',
+      ExpressionAttributeValues: {
+        ':size': '10',
+      },
+    });
+
+    // Race between the actual request and the timeout
+    const response = await Promise.race([docClient.send(command), timeoutPromise]);
+
+    return response.Items || [];
+  } catch (error: any) {
+    console.error('Error fetching 10-inch wheels:', error);
+
+    if (error.name === 'TimeoutError' || error.message?.includes('timed out')) {
+      throw createError({
+        statusCode: 504,
+        statusMessage: 'Database request timed out',
+      });
+    } else if (error.name === 'ValidationException') {
+      throw createError({
+        statusCode: 400,
+        statusMessage: `Invalid request: ${error.message}`,
+      });
+    } else if (error.name === 'ResourceNotFoundException') {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Wheels table not found',
+      });
+    } else {
+      throw createError({
+        statusCode: 500,
+        statusMessage: `Error fetching 10-inch wheels: ${error.message || 'Unknown error'}`,
+      });
+    }
+  }
 });
