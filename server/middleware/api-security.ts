@@ -25,6 +25,10 @@ const WHITELIST_PATHS = [
   '/', // Main page
   '/favicon.ico',
   '/robots.txt',
+  '/ads.txt',
+  '/favicon-16x16.png',
+  '/favicon-32x32.png',
+  '/icon.png',
   // Add other public paths here
 ];
 
