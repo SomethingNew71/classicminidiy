@@ -42,7 +42,7 @@
     "@types/youtube": "^0.1.2",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "axios": "^1.9.0",
+    "axios": "^1.10.0",
     "better-sqlite3": "^11.10.0",
     "core-js": "^3.43.0",
     "daisyui": "^5.0.43",
@@ -63,7 +63,7 @@
   "devDependencies": {
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/fontaine": "^0.5.0",
-    "@nuxtjs/sitemap": "^7.3.1",
+    "@nuxtjs/sitemap": "^7.4.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/formidable": "^3.4.5",
     "@types/lodash": "^4.17.17",
