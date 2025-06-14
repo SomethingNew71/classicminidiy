@@ -418,7 +418,7 @@ export const chassisRanges: ChassisRange[] = [
         8: 'Y-',
         9: 'B-',
         10: 'B-',
-        11: 'D-',
+        11: 'A-',
         numbers: '###',
         last: '',
       },
