@@ -69,7 +69,12 @@ export const chassisRanges: ChassisRange[] = [
           { value: 'R', name: ' Riley' },
           { value: 'W', name: ' Wolseley' },
         ],
-        2: [{ value: 'A', name: 'All Engine Types' }],
+        2: [
+          {
+            value: 'A',
+            name: 'A-series engine (848cc, 970cc Cooper S, 997cc Cooper, 998cc Cooper and non-Cooper, 1071cc Cooper S, 1275cc Cooper S)',
+          },
+        ],
         // Body Type
         3: [
           {
@@ -150,7 +155,10 @@ export const chassisRanges: ChassisRange[] = [
             value: '1',
             name: 'Round nose. Includes: Mini 1000, Mk3 Cooper S, Van, and Pick-up',
           },
-          { value: '2', name: 'Clubman, square nose style. Clubman saloon, Clubman Estate, and 1275GT' },
+          {
+            value: '2',
+            name: 'Clubman, square nose style. Clubman saloon, Clubman Estate, and 1275GT',
+          },
         ],
         5: [{ value: 'N', name: 'Mini 1000' }],
         6: [],
@@ -302,7 +310,7 @@ export const chassisRanges: ChassisRange[] = [
         1: 'SAX-',
         2: '',
         3: '',
-        4: '',
+        4: 'X-',
         5: 'K',
         6: '2S',
         7: '',
@@ -317,7 +325,7 @@ export const chassisRanges: ChassisRange[] = [
         1: [{ value: 'SAX', name: 'MG - Rover' }],
         2: [],
         3: [],
-        4: [],
+        4: [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
         5: [
           { value: 'C', name: '1098cc' },
           { value: 'K', name: '848cc' },
@@ -358,7 +366,7 @@ export const chassisRanges: ChassisRange[] = [
         1: 'SAX-',
         2: '',
         3: '',
-        4: '',
+        4: 'X-',
         5: 'L',
         6: '2S',
         7: '',
@@ -373,7 +381,7 @@ export const chassisRanges: ChassisRange[] = [
         1: [{ value: 'SAX', name: 'MG - Rover' }],
         2: [],
         3: [],
-        4: [],
+        4: [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
         5: [{ value: 'L', name: '998cc' }],
         6: [
           {
@@ -408,7 +416,7 @@ export const chassisRanges: ChassisRange[] = [
     value: {
       //'SAX-XN-N-A-Y-B-B-D-######'
       PrimaryExample: {
-        1: 'SAX-',
+        1: 'SAX',
         2: '',
         3: '',
         4: 'XN-',
@@ -418,8 +426,8 @@ export const chassisRanges: ChassisRange[] = [
         8: 'Y-',
         9: 'B-',
         10: 'B-',
-        11: 'A-',
-        numbers: '###',
+        11: 'D-',
+        numbers: '######',
         last: '',
       },
       options: {
@@ -459,9 +467,9 @@ export const chassisRanges: ChassisRange[] = [
           { value: 'A', name: '1300 Special Edition' },
           { value: 'B', name: '1300' },
         ],
-        11: [{ value: 'A', name: 'Longbridge' }],
+        11: [{ value: 'D', name: 'Longbridge' }],
       },
-      number: '###',
+      number: '######',
       last: [],
     },
   },

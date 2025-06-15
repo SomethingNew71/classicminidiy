@@ -79,6 +79,16 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
 
   // Decode each position
   let currentIndex = 0;
+  const is1959To1969 = range.title === '1959-1969';
+  const canHaveMissingAssemblyPlant = [
+    '1959-1969',
+    '1969-1974',
+    '1974-1980',
+    '1980',
+    '1980-1985',
+    '1985-1990',
+  ].includes(range.title);
+  const isNonEnglishWhenMissing = ['1985-1990', '1990-on'].includes(range.title);
 
   for (let pos = 1; pos <= 11; pos++) {
     const posKey = pos.toString() as '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11';
@@ -93,6 +103,57 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
       name: 'Unknown',
       matched: false,
     };
+
+    // Special handling for 1959-1969 position 5 (trim level)
+    if (is1959To1969 && pos === 5) {
+      // Check if we're at the numbers section (position 5 might be missing)
+      const remainingChars = cleanChassisNumber.substring(currentIndex);
+
+      // For 1959-1969, after position 4, we should either see:
+      // 1. A trim code (D, L, S) followed by optional dash then numbers
+      // 2. A dash followed by numbers (position 5 missing)
+      // 3. Numbers directly (position 5 missing, no separating dash)
+
+      if (/^-?\d/.test(remainingChars)) {
+        // Position 5 is missing - either "-digits" or "digits"
+        // Skip the optional dash if present
+        if (remainingChars.startsWith('-')) {
+          currentIndex++; // Skip the dash
+        }
+
+        const inferredPosition: ChassisPosition = {
+          position: 5,
+          value: '(missing)',
+          name: 'Standard RHD (inferred from missing position)',
+          matched: true,
+        };
+        response.decodedPositions.push(inferredPosition);
+        continue; // Skip to numbers processing
+      }
+    }
+
+    // Special handling for 1990-on position 11 (assembly plant)
+    if (range.title === '1990-on' && pos === 11) {
+      // Check if we're at the numbers section (position 11 might be missing)
+      const remainingChars = cleanChassisNumber.substring(currentIndex);
+
+      if (/^-?\d/.test(remainingChars)) {
+        // Position 11 is missing - either "-digits" or "digits"
+        // Skip the optional dash if present
+        if (remainingChars.startsWith('-')) {
+          currentIndex++; // Skip the dash
+        }
+
+        const inferredPosition: ChassisPosition = {
+          position: 11,
+          value: '(missing)',
+          name: 'Non-English built car (inferred from missing position)',
+          matched: true,
+        };
+        response.decodedPositions.push(inferredPosition);
+        continue;
+      }
+    }
 
     // Extract the value from the chassis number
     if (currentIndex < cleanChassisNumber.length) {
@@ -246,9 +307,27 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
       }
 
       response.decodedPositions.push(lastPosition);
-    } else {
-      response.errors.push('Chassis number is missing the assembly plant code');
-      response.isValid = false;
+    } else if (canHaveMissingAssemblyPlant) {
+      // Special handling for 1959-1969, 1969-1974, 1974-1980, and 1980: assembly plant might be missing
+      // For 1985-1990 and 1990-on, if assembly plant is missing, it's likely a non-English built car
+      const inferredLastPosition: ChassisPosition = {
+        position: 13,
+        value: '(missing)',
+        name: isNonEnglishWhenMissing
+          ? 'Non-English built car (inferred from missing position)'
+          : 'Unknown assembly plant (inferred from missing position)',
+        matched: true,
+      };
+      response.decodedPositions.push(inferredLastPosition);
+    } else if (isNonEnglishWhenMissing) {
+      // Special handling for ranges like 1990-on where missing assembly plant indicates non-English built
+      const inferredLastPosition: ChassisPosition = {
+        position: 13,
+        value: '(missing)',
+        name: 'Non-English built car (inferred from missing position)',
+        matched: true,
+      };
+      response.decodedPositions.push(inferredLastPosition);
     }
   }
 
