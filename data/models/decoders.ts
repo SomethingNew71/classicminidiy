@@ -81,7 +81,7 @@ export const chassisRanges: ChassisRange[] = [
             value: '2S',
             name: '2-door Saloon. Bureaucratic bungles often interpret this as 25',
           },
-          { value: 'B', name: 'Moke (“Buckboard”!)' },
+          { value: 'B', name: 'Moke (“Buckboard”)' },
           { value: 'U', name: 'Pick-up. "U" and "V" can be mistaken one for the other' },
           { value: 'V', name: 'Panel van. "U" and "V" can be mistaken one for the other' },
           { value: 'W', name: 'Estate (with or without wood). Officially, “Dual-purpose”' },
@@ -139,25 +139,34 @@ export const chassisRanges: ChassisRange[] = [
       },
       options: {
         1: [{ value: 'X', name: 'This is simply dismissed by the factory as "non-significant"!' }],
-        2: [{ value: 'A', name: 'All Engine Types' }],
+        2: [
+          { value: 'A', name: '848cc engine' },
+          { value: 'A', name: '998cc engine' },
+          { value: 'A', name: '1275cc Cooper S and 1275 GT engine' },
+        ],
         3: [
           {
             value: '2S',
-            name: '2-door S aloon(except Mk3 Cooper S and 1275GT). Bureaucratic bungles often misinterpret this as 25',
+            name: '2-door Saloon (except Mk3 Cooper S and 1275GT). Caution: bureaucratic bungles often misinterpret this as 25',
           },
           { value: '2W', name: 'Estate (“2-door Dual Purpose”)' },
           { value: 'D', name: '2-door saloon (Mk3 Cooper S and 1275GT only)' },
-          { value: 'U', name: 'Pick-up. "U" and "V" can be mistaken one for the other' },
-          { value: 'V', name: 'Panel van. "U" and "V" can be mistaken one for the other' },
+          { value: 'U', name: 'Pick-up. Caution: "U" and "V" can be mistaken one for the other' },
+          { value: 'V', name: 'Panel van. Caution: "U" and "V" can be mistaken one for the other' },
         ],
         4: [
+          { value: '', name: 'Mini 850. Produced only in the "round nose" style' },
           {
             value: '1',
-            name: 'Round nose. Includes: Mini 1000, Mk3 Cooper S, Van, and Pick-up',
+            name: 'Round nose, traditional Mini body style. Includes: Mini 1000, Mk3 Cooper S, Van, and Pick-up',
+          },
+          {
+            value: 'I',
+            name: 'Round nose, traditional Mini body style. Includes: Mini 1000, Mk3 Cooper S, Van, and Pick-up',
           },
           {
             value: '2',
-            name: 'Clubman, square nose style. Clubman saloon, Clubman Estate, and 1275GT',
+            name: 'Clubman, square nose style. Includes: Clubman saloon, Clubman Estate, and 1275GT',
           },
         ],
         5: [{ value: 'N', name: 'Mini 1000' }],
