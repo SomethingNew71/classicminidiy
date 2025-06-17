@@ -1,5 +1,9 @@
 import { chassisRanges, type ChassisRange } from '~/data/models/decoders';
 
+// Test data
+// A-AB1-L/807922 - 1965 - Moke
+// XAU1N-547206A - 1972 - pickup
+
 interface ChassisDecoderRequest {
   yearRange: string;
   chassisNumber: string;
@@ -80,6 +84,7 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
   // Decode each position
   let currentIndex = 0;
   const is1959To1969 = range.title === '1959-1969';
+  const is1969To1974 = range.title === '1969-1974';
   const canHaveMissingAssemblyPlant = [
     '1959-1969',
     '1969-1974',
@@ -155,9 +160,132 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
       }
     }
 
-    // Extract the value from the chassis number
     if (currentIndex < cleanChassisNumber.length) {
-      if (expectedValue.endsWith('-')) {
+      // Special handling for 1959-1969 positions 3 and 4 (body type and series)
+      if (is1959To1969 && (pos === 3 || pos === 4) && options && options.length > 0) {
+        // Try to match against available options, prioritizing longer matches first
+        const sortedOptions = options.sort((a, b) => b.value.length - a.value.length);
+        let matched = false;
+
+        for (const option of sortedOptions) {
+          const optionLength = option.value.length;
+          if (currentIndex + optionLength <= cleanChassisNumber.length) {
+            const candidateValue = cleanChassisNumber.substring(currentIndex, currentIndex + optionLength);
+            if (candidateValue === option.value) {
+              position.value = candidateValue;
+              position.name = option.name;
+              position.matched = true;
+              currentIndex += optionLength;
+              matched = true;
+              break;
+            }
+          }
+        }
+
+        if (!matched) {
+          // Fallback to expected length if no option matches
+          const endIndex = currentIndex + expectedValue.length;
+          if (endIndex > cleanChassisNumber.length) {
+            response.errors.push(`Position ${pos}: Chassis number is too short for expected value "${expectedValue}"`);
+            response.isValid = false;
+            position.matched = false;
+          } else {
+            const extractedValue = cleanChassisNumber.substring(currentIndex, endIndex);
+            position.value = extractedValue;
+            position.matched = false;
+            response.errors.push(`Position ${pos}: "${extractedValue}" is not a valid option for ${range.title}`);
+            response.isValid = false;
+            currentIndex = endIndex;
+          }
+        }
+
+        // For 1959-1969, skip optional separator after positions 3 and 4
+        if (currentIndex < cleanChassisNumber.length && cleanChassisNumber[currentIndex] === '-') {
+          currentIndex++;
+        }
+      } else if (is1969To1974 && pos === 3 && options && options.length > 0) {
+        // Special handling for 1969-1974 position 3 which has variable-length body types
+        const sortedOptions = options.sort((a, b) => b.value.length - a.value.length);
+        let matched = false;
+
+        for (const option of sortedOptions) {
+          const optionLength = option.value.length;
+          if (currentIndex + optionLength <= cleanChassisNumber.length) {
+            const candidateValue = cleanChassisNumber.substring(currentIndex, currentIndex + optionLength);
+            if (candidateValue === option.value) {
+              position.value = candidateValue;
+              position.name = option.name;
+              position.matched = true;
+              currentIndex += optionLength;
+              matched = true;
+              break;
+            }
+          }
+        }
+
+        if (!matched) {
+          // Fallback to expected length if no option matches
+          const endIndex = currentIndex + expectedValue.length;
+          if (endIndex > cleanChassisNumber.length) {
+            response.errors.push(`Position ${pos}: Chassis number is too short for expected value "${expectedValue}"`);
+            response.isValid = false;
+            position.matched = false;
+          } else {
+            const extractedValue = cleanChassisNumber.substring(currentIndex, endIndex);
+            position.value = extractedValue;
+            position.matched = false;
+            response.errors.push(`Position ${pos}: "${extractedValue}" is not a valid option for ${range.title}`);
+            response.isValid = false;
+            currentIndex = endIndex;
+          }
+        }
+      } else if (is1969To1974 && pos === 4 && options && options.length > 0) {
+        // Special handling for 1969-1974 position 4 which can be blank, "1", or "2"
+        let matched = false;
+
+        // First, try matching non-blank options ("1" and "2")
+        for (const option of options) {
+          if (option.value !== '') {
+            if (currentIndex < cleanChassisNumber.length && cleanChassisNumber[currentIndex] === option.value) {
+              position.value = option.value;
+              position.name = option.name;
+              position.matched = true;
+              currentIndex++;
+              matched = true;
+              break;
+            }
+          }
+        }
+
+        // If no match and the next character is "N", then position 4 is blank (Mini 850)
+        if (!matched && currentIndex < cleanChassisNumber.length && cleanChassisNumber[currentIndex] === 'N') {
+          const blankOption = options.find((opt) => opt.value === '');
+          if (blankOption) {
+            position.value = '';
+            position.name = blankOption.name;
+            position.matched = true;
+            matched = true;
+            // Don't increment currentIndex as position 4 is blank
+          }
+        }
+
+        if (!matched) {
+          // Fallback to expected length if no option matches
+          const endIndex = currentIndex + expectedValue.length;
+          if (endIndex > cleanChassisNumber.length) {
+            response.errors.push(`Position ${pos}: Chassis number is too short for expected value "${expectedValue}"`);
+            response.isValid = false;
+            position.matched = false;
+          } else {
+            const extractedValue = cleanChassisNumber.substring(currentIndex, endIndex);
+            position.value = extractedValue;
+            position.matched = false;
+            response.errors.push(`Position ${pos}: "${extractedValue}" is not a valid option for ${range.title}`);
+            response.isValid = false;
+            currentIndex = endIndex;
+          }
+        }
+      } else if (expectedValue.endsWith('-')) {
         // Fixed prefix - extract the exact length
         const prefixLength = expectedValue.length - 1;
         const endIndex = currentIndex + prefixLength;
@@ -180,7 +308,7 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
           currentIndex++;
         }
       } else {
-        // Single character or specific pattern
+        // Standard single character or specific pattern parsing
         const endIndex = currentIndex + expectedValue.length;
 
         // Check bounds before extraction
@@ -197,8 +325,8 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
         currentIndex = endIndex;
       }
 
-      // Find matching option
-      if (options && options.length > 0) {
+      // Find matching option (only for non-1959-1969 variable positions or when not already matched)
+      if (!position.matched && options && options.length > 0) {
         const matchingOption = options.find((opt: { value: string; name: string }) => opt.value === position.value);
         if (matchingOption) {
           position.name = matchingOption.name;
@@ -208,7 +336,7 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
           response.errors.push(`Position ${pos}: "${position.value}" is not a valid option for ${range.title}`);
           response.isValid = false;
         }
-      } else {
+      } else if (!position.matched && (!options || options.length === 0)) {
         // No options defined, just validate the format
         position.matched = position.value === expectedValue;
         if (!position.matched) {
@@ -227,6 +355,11 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
   // Handle numbers section
   if (range.value.number && range.value.number !== '') {
     if (currentIndex < cleanChassisNumber.length) {
+      // Skip optional separators (dash or forward slash) before numbers
+      if (currentIndex < cleanChassisNumber.length && /[\-\/]/.test(cleanChassisNumber[currentIndex])) {
+        currentIndex++;
+      }
+
       // Extract all consecutive digits (variable length from 1 to 8 digits)
       let numbersSection = '';
       let tempIndex = currentIndex;
@@ -395,11 +528,11 @@ export default defineEventHandler(async (event): Promise<ChassisDecoderResponse>
     }
 
     // Validate chassis number contains only allowed characters
-    if (!/^[A-Za-z0-9\-\s]+$/.test(body.chassisNumber)) {
+    if (!/^[A-Za-z0-9\-\s\/]+$/.test(body.chassisNumber)) {
       throw createError({
         statusCode: 400,
         statusMessage:
-          'Chassis number contains invalid characters. Only letters, numbers, hyphens, and spaces are allowed',
+          'Chassis number contains invalid characters. Only letters, numbers, hyphens, spaces, and forward slashes are allowed',
       });
     }
 
