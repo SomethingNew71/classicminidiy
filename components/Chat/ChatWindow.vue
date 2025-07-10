@@ -29,7 +29,7 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
               <button @click="toggleChatHistory" class="btn btn-ghost btn-sm">
-                <!-- <Icon name="mdi:history" class="h-5 w-5" /> -->
+                <i class="fa-solid fa-list-timeline"></i>
               </button>
               <h1 class="text-xl font-semibold">LangGraph Chat</h1>
             </div>
@@ -147,13 +147,51 @@
   // Stream context
   let streamContext: ReturnType<typeof createStreamSession> | null = null;
 
+  // Methods
+  const loadThreads = async () => {
+    if (!isConfigured.value) return;
+
+    try {
+      const response = await $fetch('/api/langgraph/threads', {
+        method: 'GET',
+        headers: {
+          'x-api-key': apiKey.value || '',
+        },
+      });
+
+      if (Array.isArray(response)) {
+        threads.value = response;
+      } else if (response && Array.isArray(response.threads)) {
+        threads.value = response.threads;
+      } else {
+        console.warn('Unexpected threads response format:', response);
+        threads.value = [];
+      }
+    } catch (error) {
+      console.error('Failed to load threads:', error);
+      threads.value = [];
+    }
+  };
+
   // Create stream session when configuration is ready
   watch(
     [isConfigured, apiUrl, apiKey, assistantId, threadId],
     () => {
       if (isConfigured.value) {
-        streamContext = createStreamSession(apiUrl.value, apiKey.value, assistantId.value, threadId.value);
+        streamContext = createStreamSession(
+          apiUrl.value,
+          apiKey.value,
+          assistantId.value,
+          threadId.value,
+          // Callback when new thread is created
+          (newThreadId: string) => {
+            console.log('New thread created:', newThreadId);
+            loadThreads(); // Refresh thread list
+          }
+        );
         provideStreamContext(streamContext);
+        // Load existing threads
+        loadThreads();
       }
     },
     { immediate: true }
@@ -168,7 +206,6 @@
     return streamContext?.isLoading.value || false;
   });
 
-  // Methods
   const handleConfiguration = (config: { apiUrl: string; assistantId: string; apiKey?: string }) => {
     setApiUrl(config.apiUrl);
     setAssistantId(config.assistantId);
@@ -235,9 +272,30 @@
     artifactOpen.value = false;
   };
 
-  const deleteThread = (threadId: string) => {
-    // Implement thread deletion
-    threads.value = threads.value.filter((t) => t.id !== threadId);
+  const deleteThread = async (threadIdToDelete: string) => {
+    if (!isConfigured.value) return;
+
+    try {
+      // Call API to delete the thread
+      await $fetch(`/api/langgraph/threads/${threadIdToDelete}`, {
+        method: 'DELETE',
+        headers: {
+          'x-api-key': apiKey.value || '',
+        },
+      });
+
+      // Remove from local state
+      threads.value = threads.value.filter((t) => t.thread_id !== threadIdToDelete);
+
+      // If we deleted the current thread, start a new one
+      if (threadId.value === threadIdToDelete) {
+        startNewThread();
+      }
+    } catch (error) {
+      console.error('Failed to delete thread:', error);
+      // Still remove from local state even if API call fails
+      threads.value = threads.value.filter((t) => t.thread_id !== threadIdToDelete);
+    }
   };
 
   // Auto-resize textarea on input
