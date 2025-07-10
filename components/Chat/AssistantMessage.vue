@@ -19,7 +19,7 @@
         <!-- Regular AI message -->
         <template v-else-if="!isToolResult">
           <!-- Message text content -->
-          <div v-if="contentString.length > 0" class="py-1">
+          <div v-if="contentString.length > 0" class="mr-auto w-fit rounded-3xl bg-primary/10 px-4 py-2">
             <MarkdownText :content="contentString" />
           </div>
 

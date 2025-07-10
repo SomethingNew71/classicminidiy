@@ -87,10 +87,10 @@ export function useStreamProvider() {
 }
 
 // Stream session management
-export function createStreamSession(apiUrl: string, apiKey: string, assistantId: string, threadId: string | null) {
+export const createStreamSession = (apiUrl: string, apiKey: string, assistantId: string, threadId: string | null = null, onThreadCreated?: (threadId: string) => void) => {
   const messages = ref<any[]>([]);
   const isLoading = ref(false);
-  const currentThreadId = ref(threadId);
+  const currentThreadId = ref<string | null>(threadId);
 
   // Transform API URL for our Nuxt proxy
   const proxyApiUrl = '/api/langgraph';
@@ -142,31 +142,58 @@ export function createStreamSession(apiUrl: string, apiKey: string, assistantId:
         throw new Error('No response body');
       }
 
-      const reader = response.body.getReader();
+      const reader = response.body?.getReader();
       const decoder = new TextDecoder();
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+      if (reader) {
+        let buffer = '';
+        let dataBuffer = '';
+        
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
 
-        const chunk = decoder.decode(value);
-        const lines = chunk.split('\n').filter((line) => line.trim());
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop() || ''; // Keep the last incomplete line in buffer
 
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const dataContent = line.slice(6);
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              const dataContent = line.slice(6);
 
-            // Handle the [DONE] signal
-            if (dataContent === '[DONE]') {
-              console.log('Stream completed');
-              break;
-            }
+              // Handle the [DONE] signal
+              if (dataContent === '[DONE]') {
+                console.log('Stream completed');
+                break;
+              }
 
-            try {
-              const data = JSON.parse(dataContent);
-              handleStreamEvent(data, options);
-            } catch (e) {
-              console.error('Failed to parse stream data:', e, 'Content:', dataContent);
+              // Accumulate data content
+              dataBuffer += dataContent;
+              
+              // Try to parse the accumulated data
+              try {
+                const data = JSON.parse(dataBuffer);
+                handleStreamEvent(data, options);
+                dataBuffer = ''; // Reset buffer after successful parse
+              } catch (e) {
+                // If parsing fails, it might be incomplete JSON, continue accumulating
+                // Only log error if the buffer is getting too large (likely a real error)
+                if (dataBuffer.length > 50000) {
+                  console.error('Failed to parse stream data after accumulating:', e, 'Content length:', dataBuffer.length);
+                  dataBuffer = ''; // Reset to prevent memory issues
+                }
+              }
+            } else if (line.trim() === '') {
+              // Empty line might indicate end of a data block, try parsing accumulated data
+              if (dataBuffer) {
+                try {
+                  const data = JSON.parse(dataBuffer);
+                  handleStreamEvent(data, options);
+                  dataBuffer = ''; // Reset buffer after successful parse
+                } catch (e) {
+                  // Still incomplete, continue accumulating
+                }
+              }
             }
           }
         }
@@ -179,13 +206,22 @@ export function createStreamSession(apiUrl: string, apiKey: string, assistantId:
   };
 
   const handleStreamEvent = (event: any, options: any) => {
+    // Debug: Log all events to see what we're receiving
+    console.log('Stream event received:', event);
+    
     // Handle different event types from LangGraph streaming
     if (event.event === 'thread_id') {
       // Update the current thread ID
-      const threadId = event.data?.thread_id;
-      if (threadId) {
-        currentThreadId.value = threadId;
-        console.log('Thread ID updated:', threadId);
+      const newThreadId = event.data?.thread_id;
+      if (newThreadId) {
+        const wasNewThread = !currentThreadId.value;
+        currentThreadId.value = newThreadId;
+        console.log('Thread ID updated:', newThreadId);
+        
+        // Call the callback if a new thread was created
+        if (wasNewThread && onThreadCreated) {
+          onThreadCreated(newThreadId);
+        }
       }
     } else if (event.event === 'messages/partial') {
       // Update or add message
@@ -205,6 +241,16 @@ export function createStreamSession(apiUrl: string, apiKey: string, assistantId:
       if (existingIndex >= 0) {
         messages.value[existingIndex] = completedMessage;
       }
+    } else if (event.event === 'values') {
+      // Handle 'values' event type which might contain messages
+      console.log('Values event data:', event.data);
+      if (event.data && event.data.messages) {
+        // Replace all messages with the new state
+        messages.value = event.data.messages;
+      }
+    } else {
+      // Log unhandled events for debugging
+      console.log('Unhandled stream event:', event.event, event);
     }
   };
 

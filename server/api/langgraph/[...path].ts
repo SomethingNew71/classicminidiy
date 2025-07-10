@@ -50,6 +50,19 @@ export default defineEventHandler(async (event) => {
       return thread;
     }
 
+    if (method === 'DELETE' && pathParts[0] === 'threads' && pathParts[1] && pathParts.length === 2) {
+      // Delete a specific thread
+      const threadId = pathParts[1];
+      try {
+        await client.threads.delete(threadId);
+        return { success: true, message: 'Thread deleted successfully' };
+      } catch (error: any) {
+        console.error('Failed to delete thread:', error);
+        setResponseStatus(event, 500);
+        return { error: 'Failed to delete thread', message: error.message };
+      }
+    }
+
     if (method === 'POST' && pathParts[0] === 'threads' && pathParts[2] === 'runs' && pathParts[3] === 'stream') {
       // Handle streaming runs
       let threadId = pathParts[1];

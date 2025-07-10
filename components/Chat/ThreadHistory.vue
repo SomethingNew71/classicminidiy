@@ -1,29 +1,22 @@
 <template>
   <div class="space-y-2">
-    <!-- Search Filter -->
-    <div class="form-control">
-      <input
-        v-model="searchQuery"
-        type="text"
-        placeholder="Search conversations..."
-        class="input input-bordered input-sm"
-      />
-    </div>
-
     <!-- Thread List -->
     <div class="space-y-1">
       <div
         v-for="thread in filteredThreads"
-        :key="thread.id"
+        :key="thread.thread_id"
         class="group flex items-center justify-between rounded-lg p-2 hover:bg-base-200"
-        :class="{ 'bg-primary/10': thread.id === currentThreadId }"
+        :class="{ 'bg-primary/10': thread.thread_id === currentThreadId }"
       >
-        <button @click="selectThread(thread.id)" class="flex min-w-0 flex-1 flex-col items-start gap-1 text-left">
+        <button
+          @click="selectThread(thread.thread_id)"
+          class="flex min-w-0 flex-1 flex-col items-start gap-1 text-left"
+        >
           <span class="truncate text-sm font-medium">
-            {{ thread.title || 'New Conversation' }}
+            {{ getThreadTitle(thread) }}
           </span>
           <span class="truncate text-xs text-base-content/60">
-            {{ formatDate(thread.updatedAt) }}
+            {{ formatDate(thread.updated_at) }}
           </span>
         </button>
 
@@ -32,20 +25,17 @@
           <button
             @click="confirmDelete(thread)"
             class="btn btn-ghost btn-xs btn-square text-error"
-            :title="`Delete ${thread.title || 'conversation'}`"
+            :title="`Delete ${getThreadTitle(thread)}`"
           >
-            <Icon name="mdi:delete" class="h-3 w-3" />
+            <i class="fa-solid fa-trash"></i>
           </button>
         </div>
       </div>
 
       <!-- Empty State -->
       <div v-if="filteredThreads.length === 0" class="py-8 text-center">
-        <Icon name="mdi:chat-outline" class="mx-auto h-12 w-12 text-base-content/40" />
-        <p class="mt-2 text-sm text-base-content/60">
-          {{ searchQuery ? 'No matching conversations' : 'No conversations yet' }}
-        </p>
-        <p v-if="!searchQuery" class="text-xs text-base-content/40">Start a new chat to see it here</p>
+        <i class="fa-solid fa-comments text-2xl"></i>
+        <p class="text-xs text-base-content/40">Start a new chat to see it here</p>
       </div>
     </div>
 
@@ -54,8 +44,7 @@
       <div class="modal-box">
         <h3 class="text-lg font-bold">Delete Conversation</h3>
         <p class="py-4">
-          Are you sure you want to delete "{{ threadToDelete.title || 'this conversation' }}"? This action cannot be
-          undone.
+          Are you sure you want to delete "{{ getThreadTitle(threadToDelete) }}"? This action cannot be undone.
         </p>
         <div class="modal-action">
           <button @click="cancelDelete" class="btn">Cancel</button>
@@ -68,10 +57,19 @@
 
 <script setup lang="ts">
   interface Thread {
-    id: string;
-    title?: string;
-    updatedAt: string;
-    messageCount?: number;
+    thread_id: string;
+    created_at: string;
+    updated_at: string;
+    metadata: {
+      graph_id: string;
+      assistant_id: string;
+    };
+    status: string;
+    config: any;
+    values: {
+      messages: any[];
+    };
+    interrupts: any;
   }
 
   interface Props {
@@ -92,13 +90,25 @@
   const searchQuery = ref('');
   const threadToDelete = ref<Thread | null>(null);
 
+  const getThreadTitle = (thread: Thread) => {
+    // Get the first human message as the thread title
+    const firstHumanMessage = thread.values.messages.find((msg) => msg.type === 'human');
+    if (firstHumanMessage && firstHumanMessage.content) {
+      // Truncate to first 50 characters
+      return firstHumanMessage.content.length > 50
+        ? firstHumanMessage.content.substring(0, 50) + '...'
+        : firstHumanMessage.content;
+    }
+    return 'New Conversation';
+  };
+
   const filteredThreads = computed(() => {
     if (!searchQuery.value) {
       return props.threads;
     }
 
     const query = searchQuery.value.toLowerCase();
-    return props.threads.filter((thread) => (thread.title || '').toLowerCase().includes(query));
+    return props.threads.filter((thread) => getThreadTitle(thread).toLowerCase().includes(query));
   });
 
   const selectThread = (threadId: string) => {
@@ -115,7 +125,7 @@
 
   const deleteThread = () => {
     if (threadToDelete.value) {
-      emit('deleteThread', threadToDelete.value.id);
+      emit('deleteThread', threadToDelete.value.thread_id);
       threadToDelete.value = null;
     }
   };
