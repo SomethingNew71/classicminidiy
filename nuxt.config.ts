@@ -331,6 +331,8 @@ export default defineNuxtConfig({
     validation_key: process.env.validation_key,
     CMDIY_NAMEPSACE: process.env.CMDIY_NAMEPSACE,
     POSTGRES_POSTGRES_URL: process.env.POSTGRES_URL || '',
+    NUXT_LANGGRAPH_API_URL: process.env.NUXT_LANGGRAPH_API_URL,
+    NUXT_LANGSMITH_API_KEY: process.env.NUXT_LANGSMITH_API_KEY,
   },
 
   // Add custom reviver/replacer for functions that can't be serialized
