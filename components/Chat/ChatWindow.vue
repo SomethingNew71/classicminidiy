@@ -5,7 +5,7 @@
     <button
       v-if="!isExpanded"
       @click="toggleChat"
-      class="btn btn-primary btn-circle btn-lg shadow-lg hover:shadow-xl transition-all duration-200"
+      class="btn btn-primary btn-circle btn-xl shadow-lg hover:shadow-xl transition-all duration-200"
       :class="{ 'animate-pulse': hasUnreadMessages }"
     >
       <i class="fa-solid fa-comments text-xl"></i>
@@ -132,7 +132,7 @@
             <ThreadHistory
               :threads="threads"
               :current-thread-id="threadId"
-              @select-thread="setThreadId"
+              @select-thread="handleThreadSelection"
               @delete-thread="deleteThread"
             />
           </div>
@@ -286,6 +286,61 @@
   const startNewThread = () => {
     setThreadId(null);
     input.value = '';
+    // Clear messages when starting new thread
+    if (streamContext) {
+      streamContext.messages.value = [];
+    }
+  };
+
+  const loadThreadMessages = async (threadIdToLoad: string) => {
+    if (!isConfigured.value || !threadIdToLoad) return;
+
+    try {
+      // Fetch thread data from API
+      const threadData = await $fetch(`/api/langgraph/threads/${threadIdToLoad}`, {
+        headers: {
+          'x-api-key': apiKey.value || '',
+        },
+      });
+
+      // Update thread ID first
+      setThreadId(threadIdToLoad);
+
+      // Check different possible message locations in the response
+      let messages = null;
+      if (threadData.values?.messages) {
+        messages = threadData.values.messages;
+      } else if (threadData.messages) {
+        messages = threadData.messages;
+      } else if (Array.isArray(threadData)) {
+        messages = threadData;
+      }
+
+      // Update stream context messages if we have them
+      if (streamContext && messages) {
+        // Clear existing messages first
+        streamContext.messages.value.splice(0);
+
+        // Add new messages one by one to ensure reactivity
+        messages.forEach((message: any) => {
+          streamContext!.messages.value.push(message);
+        });
+
+        // Also update the current thread ID in stream context
+        if (streamContext.threadId) {
+          streamContext.threadId.value = threadIdToLoad;
+        }
+      }
+
+      // Close chat history overlay
+      chatHistoryOpen.value = false;
+    } catch (error) {
+      console.error('Failed to load thread messages:', error);
+    }
+  };
+
+  const handleThreadSelection = (threadIdToSelect: string) => {
+    loadThreadMessages(threadIdToSelect);
   };
 
   const toggleChatHistory = () => {
