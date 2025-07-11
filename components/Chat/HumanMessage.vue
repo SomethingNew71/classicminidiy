@@ -50,17 +50,13 @@
   import type { Message, HumanMessageProps } from '~/data/models/chat';
   import { useStreamContext } from '~/composables/useStreamProvider';
 
-  interface Props extends HumanMessageProps {}
-
-  const props = defineProps<Props>();
-
+  const props = defineProps<HumanMessageProps>();
   const streamContext = useStreamContext();
-
   const isEditing = ref(false);
   const editValue = ref('');
 
   // Helper function to extract content string from message
-  const getContentString = (content: any): string => {
+  function getContentString(content: any): string {
     if (typeof content === 'string') {
       return content;
     }
@@ -71,23 +67,21 @@
         .join('\n');
     }
     return '';
-  };
+  }
 
-  const contentString = computed(() => {
-    return getContentString(props.message.content);
-  });
+  const contentString = computed(() => getContentString(props.message.content));
 
-  const startEdit = () => {
+  function startEdit() {
     editValue.value = contentString.value;
     isEditing.value = true;
-  };
+  }
 
-  const cancelEdit = () => {
+  function cancelEdit() {
     isEditing.value = false;
     editValue.value = '';
-  };
+  }
 
-  const submitEdit = () => {
+  function submitEdit() {
     if (!editValue.value.trim()) {
       cancelEdit();
       return;
@@ -120,9 +114,9 @@
 
     isEditing.value = false;
     editValue.value = '';
-  };
+  }
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  function handleKeyDown(e: KeyboardEvent) {
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
       e.preventDefault();
       submitEdit();
@@ -130,9 +124,9 @@
       e.preventDefault();
       cancelEdit();
     }
-  };
+  }
 
-  const copyToClipboard = async (text: string) => {
+  async function copyToClipboard(text: string) {
     if (!text) return;
 
     try {
@@ -141,5 +135,5 @@
     } catch (error) {
       console.error('Failed to copy to clipboard:', error);
     }
-  };
+  }
 </script>

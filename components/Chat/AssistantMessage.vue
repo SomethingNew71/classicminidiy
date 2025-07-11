@@ -120,9 +120,7 @@
   import { useStreamContext } from '~/composables/useStreamProvider';
   import MarkdownText from './MarkdownText.vue';
 
-  interface Props extends AssistantMessageProps {}
-
-  const props = withDefaults(defineProps<Props>(), {
+  const props = withDefaults(defineProps<AssistantMessageProps>(), {
     hideToolCalls: false,
   });
 
@@ -133,7 +131,7 @@
   const streamContext = useStreamContext();
 
   // Helper function to extract content string from message
-  const getContentString = (content: any): string => {
+  function getContentString(content: any): string {
     if (typeof content === 'string') {
       return content;
     }
@@ -144,7 +142,7 @@
         .join('\n');
     }
     return '';
-  };
+  }
 
   const contentString = computed(() => {
     return props.message ? getContentString(props.message.content) : '';
@@ -236,13 +234,13 @@
     }
   });
 
-  const handleRegenerate = () => {
+  function handleRegenerate() {
     if (!props.message) return;
 
     const meta = streamContext.getMessagesMetadata(props.message);
     const parentCheckpoint = meta?.firstSeenState?.parent_checkpoint;
     emit('regenerate', parentCheckpoint);
-  };
+  }
 
   const copyToClipboard = async (text: string) => {
     if (!text) return;

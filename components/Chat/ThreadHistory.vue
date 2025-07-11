@@ -10,7 +10,7 @@
       >
         <button
           @click="selectThread(thread.thread_id)"
-          class="flex min-w-0 flex-1 flex-col items-start gap-1 text-left"
+          class="flex min-w-0 flex-1 flex-col items-start gap-1 text-left cursor-pointer"
         >
           <span class="truncate text-sm font-medium">
             {{ getThreadTitle(thread) }}
@@ -24,7 +24,7 @@
         <div class="flex items-center gap-1 opacity-0 group-hover:opacity-100">
           <button
             @click="confirmDelete(thread)"
-            class="btn btn-ghost btn-xs btn-square text-error"
+            class="btn btn-ghost btn-xs btn-square text-error cursor-pointer"
             :title="`Delete ${getThreadTitle(thread)}`"
           >
             <i class="fa-solid fa-trash"></i>
@@ -47,8 +47,8 @@
           Are you sure you want to delete "{{ getThreadTitle(threadToDelete) }}"? This action cannot be undone.
         </p>
         <div class="modal-action">
-          <button @click="cancelDelete" class="btn">Cancel</button>
-          <button @click="deleteThread" class="btn btn-error">Delete</button>
+          <button @click="cancelDelete" class="btn cursor-pointer">Cancel</button>
+          <button @click="deleteThread" class="btn btn-error cursor-pointer">Delete</button>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
   const searchQuery = ref('');
   const threadToDelete = ref<Thread | null>(null);
 
-  const getThreadTitle = (thread: Thread) => {
+  function getThreadTitle(thread: Thread) {
     // Get the first human message as the thread title
     const firstHumanMessage = thread.values.messages.find((msg) => msg.type === 'human');
     if (firstHumanMessage && firstHumanMessage.content) {
@@ -81,7 +81,7 @@
         : firstHumanMessage.content;
     }
     return 'New Conversation';
-  };
+  }
 
   const filteredThreads = computed(() => {
     if (!searchQuery.value) {
@@ -92,26 +92,26 @@
     return props.threads.filter((thread) => getThreadTitle(thread).toLowerCase().includes(query));
   });
 
-  const selectThread = (threadId: string) => {
+  function selectThread(threadId: string) {
     emit('selectThread', threadId);
-  };
+  }
 
-  const confirmDelete = (thread: Thread) => {
+  function confirmDelete(thread: Thread) {
     threadToDelete.value = thread;
-  };
+  }
 
-  const cancelDelete = () => {
+  function cancelDelete() {
     threadToDelete.value = null;
-  };
+  }
 
-  const deleteThread = () => {
+  function deleteThread() {
     if (threadToDelete.value) {
       emit('deleteThread', threadToDelete.value.thread_id);
       threadToDelete.value = null;
     }
-  };
+  }
 
-  const formatDate = (dateString: string) => {
+  function formatDate(dateString: string) {
     const date = new Date(dateString);
     const now = new Date();
     const diffMs = now.getTime() - date.getTime();
@@ -126,5 +126,5 @@
     } else {
       return date.toLocaleDateString();
     }
-  };
+  }
 </script>

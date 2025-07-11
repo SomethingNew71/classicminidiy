@@ -26,11 +26,11 @@
 
   defineProps<ToolCallsProps>();
 
-  const formatArgs = (args: Record<string, any>): string => {
+  function formatArgs(args: Record<string, any>): string {
     try {
       return JSON.stringify(args, null, 2);
     } catch (error) {
       return String(args);
     }
-  };
+  }
 </script>
