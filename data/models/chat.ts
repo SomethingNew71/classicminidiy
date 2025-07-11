@@ -90,7 +90,3 @@ export interface MarkdownTextProps {
 export interface ArtifactContentProps {
   artifact: Artifact;
 }
-
-export interface ConfigurationPanelProps {
-  configuration: Configuration;
-}

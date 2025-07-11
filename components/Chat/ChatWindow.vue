@@ -40,82 +40,69 @@
       <!-- Chat Content (hidden when minimized) -->
       <div v-if="!isMinimized" class="flex flex-1 overflow-hidden chat-content">
         <div class="flex flex-1 flex-col">
-          <!-- Configuration Panel -->
-          <div v-if="!isConfigured" class="flex flex-1 items-center justify-center p-4">
-            <div class="text-center">
-              <ConfigurationPanel @configure="handleConfiguration" />
+          <!-- Chat Controls -->
+          <div v-if="isAdmin" class="border-b border-base-300 p-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <button @click="toggleChatHistory" class="btn btn-ghost btn-xs">
+                  <i class="fa-solid fa-list-timeline"></i>
+                </button>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer gap-1 py-0">
+                  <span class="label-text text-xs">Hide Tools</span>
+                  <input v-model="hideToolCalls" type="checkbox" class="toggle toggle-xs" />
+                </label>
+              </div>
             </div>
           </div>
 
-          <!-- Chat Interface -->
-          <template v-else>
-            <!-- Chat Controls -->
-            <div v-if="isAdmin" class="border-b border-base-300 p-2">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                  <button @click="toggleChatHistory" class="btn btn-ghost btn-xs">
-                    <i class="fa-solid fa-list-timeline"></i>
-                  </button>
-                  <button @click="startNewThread" class="btn btn-primary btn-xs" :disabled="isLoading">
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
-                </div>
-                <div class="form-control">
-                  <label class="label cursor-pointer gap-1 py-0">
-                    <span class="label-text text-xs">Hide Tools</span>
-                    <input v-model="hideToolCalls" type="checkbox" class="toggle toggle-xs" />
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <!-- Messages Area -->
-            <div class="flex-1 overflow-y-auto p-3">
-              <div class="space-y-3 break-words">
-                <!-- Messagess -->
-                <template v-for="message in messages" :key="message.id">
-                  <div class="break-words overflow-wrap-anywhere">
-                    <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
-                    <AssistantMessage
-                      v-else-if="message.type === 'ai' || message.type === 'tool'"
-                      :message="message"
-                      :is-loading="isLoading"
-                      :hide-tool-calls="hideToolCalls"
-                      @regenerate="handleRegenerate"
-                    />
-                  </div>
-                </template>
-
-                <!-- Loading Message -->
+          <!-- Messages Area -->
+          <div class="flex-1 overflow-y-auto p-3">
+            <div class="space-y-3 break-words">
+              <!-- Messagess -->
+              <template v-for="message in messages" :key="message.id">
                 <div class="break-words overflow-wrap-anywhere">
-                  <AssistantMessage v-if="isLoading" :is-loading="true" :hide-tool-calls="hideToolCalls" />
+                  <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
+                  <AssistantMessage
+                    v-else-if="message.type === 'ai' || message.type === 'tool'"
+                    :message="message"
+                    :is-loading="isLoading"
+                    :hide-tool-calls="hideToolCalls"
+                    @regenerate="handleRegenerate"
+                  />
                 </div>
+              </template>
+
+              <!-- Loading Message -->
+              <div class="break-words overflow-wrap-anywhere">
+                <AssistantMessage v-if="isLoading" :is-loading="true" :hide-tool-calls="hideToolCalls" />
               </div>
             </div>
+          </div>
 
-            <!-- Input Area -->
-            <div class="border-t border-base-300 p-3">
-              <form @submit.prevent="handleSubmit" class="flex gap-2">
-                <textarea
-                  ref="inputRef"
-                  v-model="input"
-                  @keydown="handleInputKeyDown"
-                  class="textarea textarea-bordered textarea-sm flex-1 resize-none text-sm"
-                  rows="1"
-                  placeholder="Type your message..."
-                  :disabled="isLoading"
-                ></textarea>
+          <!-- Input Area -->
+          <div class="border-t border-base-300 p-3">
+            <form @submit.prevent="handleSubmit" class="flex gap-2">
+              <textarea
+                ref="inputRef"
+                v-model="input"
+                @keydown="handleInputKeyDown"
+                class="textarea textarea-bordered textarea-sm flex-1 resize-none text-sm"
+                rows="1"
+                placeholder="Type your message..."
+                :disabled="isLoading"
+              ></textarea>
 
-                <button v-if="isLoading" @click="stopGeneration" type="button" class="btn btn-error btn-sm">
-                  <i class="fa-solid fa-stop"></i>
-                </button>
+              <button v-if="isLoading" @click="stopGeneration" type="button" class="btn btn-error btn-sm">
+                <i class="fa-solid fa-stop"></i>
+              </button>
 
-                <button v-else type="submit" class="btn btn-primary btn-sm" :disabled="!input.trim()">
-                  <i class="fa-solid fa-paper-plane"></i>
-                </button>
-              </form>
-            </div>
-          </template>
+              <button v-else type="submit" class="btn btn-primary btn-sm" :disabled="!input.trim()">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
         </div>
 
         <!-- Chat History Sidebar (overlay) -->
@@ -147,7 +134,6 @@
   import HumanMessage from './HumanMessage.vue';
   import AssistantMessage from './AssistantMessage.vue';
   import ThreadHistory from './ThreadHistory.vue';
-  import ConfigurationPanel from './ConfigurationPanel.vue';
 
   const { apiUrl, assistantId, apiKey, threadId, isConfigured, setApiKey, setApiUrl, setAssistantId, setThreadId } =
     useStreamProvider();
@@ -172,7 +158,7 @@
   let streamContext: ReturnType<typeof createStreamSession> | null = null;
 
   // Methods
-  const loadThreads = async () => {
+  async function loadThreads() {
     if (!isConfigured.value) return;
 
     try {
@@ -195,7 +181,7 @@
       console.error('Failed to load threads:', error);
       threads.value = [];
     }
-  };
+  }
 
   // Create stream session when configuration is ready
   watch(
@@ -219,23 +205,18 @@
   );
 
   // Computed properties
-  const messages = computed(() => {
-    return streamContext?.messages.value || [];
-  });
+  const messages = computed(() => streamContext?.messages.value || []);
+  const isLoading = computed(() => streamContext?.isLoading.value || false);
 
-  const isLoading = computed(() => {
-    return streamContext?.isLoading.value || false;
-  });
-
-  const handleConfiguration = (config: { apiUrl: string; assistantId: string; apiKey?: string }) => {
+  function handleConfiguration(config: { apiUrl: string; assistantId: string; apiKey?: string }) {
     setApiUrl(config.apiUrl);
     setAssistantId(config.assistantId);
     if (config.apiKey) {
       setApiKey(config.apiKey);
     }
-  };
+  }
 
-  const handleSubmit = async () => {
+  async function handleSubmit() {
     if (!input.value.trim() || !streamContext) return;
 
     const message = input.value.trim();
@@ -250,9 +231,9 @@
 
     // Submit message
     streamContext.submit({ messages: [{ type: 'human', content: message }] }, { streamMode: ['values'] });
-  };
+  }
 
-  const handleInputKeyDown = (e: KeyboardEvent) => {
+  function handleInputKeyDown(e: KeyboardEvent) {
     if (e.key === 'Enter' && !e.shiftKey && !e.metaKey && !e.ctrlKey) {
       e.preventDefault();
       handleSubmit();
@@ -265,31 +246,31 @@
         inputRef.value.style.height = inputRef.value.scrollHeight + 'px';
       }
     });
-  };
+  }
 
-  const handleRegenerate = (checkpoint: any) => {
+  function handleRegenerate(checkpoint: any) {
     if (!streamContext) return;
 
     // Implement regeneration logic
     streamContext.submit({ messages: [] }, { checkpoint, streamMode: ['values'] });
-  };
+  }
 
-  const stopGeneration = () => {
+  function stopGeneration() {
     if (streamContext) {
       streamContext.stop();
     }
-  };
+  }
 
-  const startNewThread = () => {
+  function startNewThread() {
     setThreadId(null);
     input.value = '';
     // Clear messages when starting new thread
     if (streamContext) {
       streamContext.messages.value = [];
     }
-  };
+  }
 
-  const loadThreadMessages = async (threadIdToLoad: string) => {
+  async function loadThreadMessages(threadIdToLoad: string) {
     if (!isConfigured.value || !threadIdToLoad) return;
 
     try {
@@ -334,21 +315,17 @@
     } catch (error) {
       console.error('Failed to load thread messages:', error);
     }
-  };
+  }
 
-  const handleThreadSelection = (threadIdToSelect: string) => {
+  function handleThreadSelection(threadIdToSelect: string) {
     loadThreadMessages(threadIdToSelect);
-  };
+  }
 
-  const toggleChatHistory = () => {
+  function toggleChatHistory() {
     chatHistoryOpen.value = !chatHistoryOpen.value;
-  };
+  }
 
-  const closeArtifact = () => {
-    artifactOpen.value = false;
-  };
-
-  const deleteThread = async (threadIdToDelete: string) => {
+  async function deleteThread(threadIdToDelete: string) {
     if (!isConfigured.value) return;
 
     try {
@@ -372,20 +349,20 @@
       // Still remove from local state even if API call fails
       threads.value = threads.value.filter((t) => t.thread_id !== threadIdToDelete);
     }
-  };
+  }
 
   // Floating chat widget methods
-  const toggleChat = () => {
+  function toggleChat() {
     isExpanded.value = !isExpanded.value;
     if (isExpanded.value) {
       isMinimized.value = false;
       unreadCount.value = 0; // Clear unread count when opening
     }
-  };
+  }
 
-  const toggleMinimize = () => {
+  function toggleMinimize() {
     isMinimized.value = !isMinimized.value;
-  };
+  }
 
   // Track unread messages
   watch(
