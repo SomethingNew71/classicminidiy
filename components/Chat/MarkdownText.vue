@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue';
   import { marked } from 'marked';
   import { markedHighlight } from 'marked-highlight';
   import hljs from 'highlight.js';
@@ -44,128 +43,194 @@
 
   .markdown-content {
     font-size: 1rem;
-    line-height: 1.625;
+    line-height: 1.6;
+    color: hsl(var(--bc));
   }
 
-  .markdown-content h1,
-  .markdown-content h2,
-  .markdown-content h3,
-  .markdown-content h4,
-  .markdown-content h5,
-  .markdown-content h6 {
-    font-weight: 600;
+  /* Headings */
+  .markdown-content :deep(h1) {
+    font-size: 1.875rem;
+    font-weight: 700;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
+    color: hsl(var(--bc));
   }
 
-  .markdown-content h1 {
+  .markdown-content :deep(h2) {
     font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    margin-top: 1.25rem;
+    color: hsl(var(--bc));
   }
 
-  .markdown-content h2 {
+  .markdown-content :deep(h3) {
     font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    color: hsl(var(--bc));
   }
 
-  .markdown-content h3 {
+  .markdown-content :deep(h4) {
     font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 0.75rem;
+    color: hsl(var(--bc));
   }
 
-  .markdown-content p {
+  .markdown-content :deep(h5) {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    color: hsl(var(--bc));
+  }
+
+  .markdown-content :deep(h6) {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    color: hsl(var(--bc));
+  }
+
+  /* Paragraphs */
+  .markdown-content :deep(p) {
     margin-bottom: 1rem;
+    line-height: 1.7;
+    color: hsl(var(--bc));
   }
 
-  .markdown-content ul,
-  .markdown-content ol {
+  /* Lists */
+  .markdown-content :deep(ul) {
+    list-style-type: disc;
     margin-bottom: 1rem;
     padding-left: 1.5rem;
+    color: hsl(var(--bc));
   }
 
-  .markdown-content ul {
-    list-style-type: disc;
-  }
-
-  .markdown-content ol {
+  .markdown-content :deep(ol) {
     list-style-type: decimal;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    color: hsl(var(--bc));
   }
 
-  .markdown-content li {
+  .markdown-content :deep(li) {
+    margin-bottom: 0.25rem;
+    line-height: 1.6;
+  }
+
+  /* Nested lists */
+  .markdown-content :deep(ul ul),
+  .markdown-content :deep(ol ol),
+  .markdown-content :deep(ul ol),
+  .markdown-content :deep(ol ul) {
+    margin-left: 1rem;
+    margin-top: 0.25rem;
     margin-bottom: 0.25rem;
   }
 
-  .markdown-content blockquote {
-    border-left: 4px solid #d1d5db;
-    padding-left: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-    background-color: #f9fafb;
-    font-style: italic;
-  }
-
-  .markdown-content code {
-    background-color: #f3f4f6;
-    padding: 0.125rem 0.25rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
-  }
-
-  .markdown-content pre {
-    background-color: #1f2937;
-    color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
-    overflow-x: auto;
-  }
-
-  .markdown-content pre code {
-    background-color: transparent;
-    padding: 0;
-    font-size: 0.875rem;
-  }
-
-  .markdown-content table {
-    width: 100%;
-    margin-bottom: 1rem;
-    border-collapse: collapse;
-  }
-
-  .markdown-content th,
-  .markdown-content td {
-    border: 1px solid #d1d5db;
-    padding: 0.5rem 1rem;
-    text-align: left;
-  }
-
-  .markdown-content th {
-    background-color: #f3f4f6;
-    font-weight: 600;
-  }
-
-  .markdown-content a {
+  /* Links */
+  .markdown-content :deep(a) {
     color: hsl(var(--p));
     text-decoration: underline;
     font-weight: 500;
+    transition: color 0.2s ease;
   }
 
-  .markdown-content a:hover {
+  .markdown-content :deep(a:hover) {
     color: hsl(var(--pf));
-    text-decoration: underline;
   }
 
-  .markdown-content a:visited {
-    color: hsl(var(--s));
+  /* Code */
+  .markdown-content :deep(code) {
+    background-color: hsl(var(--b2));
+    color: hsl(var(--bc));
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   }
 
-  .markdown-content img {
-    max-width: 100%;
-    height: auto;
+  .markdown-content :deep(pre) {
+    background-color: #0d1117 !important;
+    color: #f0f6fc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  }
+
+  .markdown-content :deep(pre code) {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  /* Blockquotes */
+  .markdown-content :deep(blockquote) {
+    border-left: 4px solid hsl(var(--b3));
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: hsl(var(--bc) / 0.8);
+  }
+
+  /* Tables */
+  .markdown-content :deep(table) {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 1rem;
   }
 
-  .markdown-content hr {
-    border-color: #d1d5db;
+  .markdown-content :deep(th),
+  .markdown-content :deep(td) {
+    border: 1px solid hsl(var(--b3));
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+
+  .markdown-content :deep(th) {
+    background-color: hsl(var(--b2));
+    font-weight: 600;
+  }
+
+  /* Horizontal rules */
+  .markdown-content :deep(hr) {
+    border: none;
+    border-top: 1px solid hsl(var(--b3));
     margin: 1.5rem 0;
+  }
+
+  /* Strong and emphasis */
+  .markdown-content :deep(strong) {
+    font-weight: 700;
+    color: hsl(var(--bc));
+  }
+
+  .markdown-content :deep(em) {
+    font-style: italic;
+    color: hsl(var(--bc));
+  }
+
+  /* Images */
+  .markdown-content :deep(img) {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 0.375rem;
+  }
+
+  /* Remove default margins from first and last elements */
+  .markdown-content :deep(> *:first-child) {
+    margin-top: 0;
+  }
+
+  .markdown-content :deep(> *:last-child) {
+    margin-bottom: 0;
   }
 </style>
