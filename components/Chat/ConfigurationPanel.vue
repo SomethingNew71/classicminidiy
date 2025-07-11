@@ -37,17 +37,9 @@
               <span class="text-error">*</span>
             </span>
           </label>
-          <input
-            v-model="form.assistantId"
-            type="text"
-            placeholder="agent"
-            class="input input-bordered"
-            required
-          />
+          <input v-model="form.assistantId" type="text" placeholder="agent" class="input input-bordered" required />
           <label class="label">
-            <span class="label-text-alt text-base-content/60">
-              ID of the graph or assistant to connect to
-            </span>
+            <span class="label-text-alt text-base-content/60"> ID of the graph or assistant to connect to </span>
           </label>
         </div>
 
@@ -56,12 +48,7 @@
           <label class="label">
             <span class="label-text">LangSmith API Key</span>
           </label>
-          <input
-            v-model="form.apiKey"
-            type="password"
-            placeholder="lsv2_pt_..."
-            class="input input-bordered"
-          />
+          <input v-model="form.apiKey" type="password" placeholder="lsv2_pt_..." class="input input-bordered" />
           <label class="label">
             <span class="label-text-alt text-base-content/60">
               Not required for local servers. Stored in browser localStorage.
@@ -71,19 +58,15 @@
 
         <!-- Connection Status -->
         <div v-if="connectionStatus" class="alert" :class="connectionStatusClass">
-          <Icon :name="connectionStatusIcon" class="h-5 w-5" />
+          <i :class="connectionStatusIcon" class="h-5 w-5" />
           <span>{{ connectionStatus }}</span>
         </div>
 
         <!-- Submit Button -->
         <div class="form-control mt-6">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            :disabled="isConnecting || !form.apiUrl || !form.assistantId"
-          >
-            <Icon v-if="isConnecting" name="mdi:loading" class="h-4 w-4 animate-spin" />
-            <Icon v-else name="mdi:arrow-right" class="h-4 w-4" />
+          <button type="submit" class="btn btn-primary" :disabled="isConnecting || !form.apiUrl || !form.assistantId">
+            <i v-if="isConnecting" class="fa-solid fa-spinner animate-spin h-4 w-4" />
+            <i v-else class="fa-solid fa-arrow-right h-4 w-4" />
             {{ isConnecting ? 'Connecting...' : 'Connect' }}
           </button>
         </div>
@@ -93,86 +76,78 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+  import { ref, computed } from 'vue';
+  import type { Configuration } from '~/data/models/chat';
 
-interface Configuration {
-  apiUrl: string
-  assistantId: string
-  apiKey?: string
-}
+  const emit = defineEmits<{
+    configure: [config: Configuration];
+  }>();
 
-const emit = defineEmits<{
-  configure: [config: Configuration]
-}>()
+  // Form state
+  const form = ref({
+    apiUrl: process.env.NUXT_PUBLIC_API_URL || 'http://localhost:2024',
+    assistantId: process.env.NUXT_PUBLIC_ASSISTANT_ID || 'agent',
+    apiKey: '',
+  });
 
-// Form state
-const form = ref({
-  apiUrl: process.env.NUXT_PUBLIC_API_URL || 'http://localhost:2024',
-  assistantId: process.env.NUXT_PUBLIC_ASSISTANT_ID || 'agent',
-  apiKey: ''
-})
+  const isConnecting = ref(false);
+  const connectionStatus = ref('');
+  const connectionError = ref(false);
 
-const isConnecting = ref(false)
-const connectionStatus = ref('')
-const connectionError = ref(false)
+  const connectionStatusClass = computed(() => {
+    return connectionError.value ? 'alert-error' : 'alert-success';
+  });
 
-const connectionStatusClass = computed(() => {
-  return connectionError.value ? 'alert-error' : 'alert-success'
-})
+  const connectionStatusIcon = computed(() => {
+    return connectionError.value ? 'fa-solid fa-exclamation-circle' : 'fa-solid fa-check-circle';
+  });
 
-const connectionStatusIcon = computed(() => {
-  return connectionError.value ? 'mdi:alert-circle' : 'mdi:check-circle'
-})
+  const checkConnection = async (apiUrl: string, apiKey?: string) => {
+    try {
+      const response = await fetch(`${apiUrl}/info`, {
+        headers: {
+          ...(apiKey && { 'X-Api-Key': apiKey }),
+        },
+      });
 
-const checkConnection = async (apiUrl: string, apiKey?: string) => {
-  try {
-    const response = await fetch(`${apiUrl}/info`, {
-      headers: {
-        ...(apiKey && { 'X-Api-Key': apiKey })
-      }
-    })
-
-    return response.ok
-  } catch (error) {
-    console.error('Connection check failed:', error)
-    return false
-  }
-}
-
-const handleSubmit = async () => {
-  if (!form.value.apiUrl || !form.value.assistantId) return
-
-  isConnecting.value = true
-  connectionStatus.value = 'Testing connection...'
-  connectionError.value = false
-
-  try {
-    const isConnected = await checkConnection(
-      form.value.apiUrl,
-      form.value.apiKey || undefined
-    )
-
-    if (isConnected) {
-      connectionStatus.value = 'Connected successfully!'
-      connectionError.value = false
-
-      // Emit configuration after a brief success message
-      setTimeout(() => {
-        emit('configure', {
-          apiUrl: form.value.apiUrl,
-          assistantId: form.value.assistantId,
-          apiKey: form.value.apiKey || undefined
-        })
-      }, 1000)
-    } else {
-      connectionStatus.value = 'Failed to connect to the server. Please check your settings.'
-      connectionError.value = true
+      return response.ok;
+    } catch (error) {
+      console.error('Connection check failed:', error);
+      return false;
     }
-  } catch (error) {
-    connectionStatus.value = 'Connection error occurred.'
-    connectionError.value = true
-  } finally {
-    isConnecting.value = false
-  }
-}
+  };
+
+  const handleSubmit = async () => {
+    if (!form.value.apiUrl || !form.value.assistantId) return;
+
+    isConnecting.value = true;
+    connectionStatus.value = 'Testing connection...';
+    connectionError.value = false;
+
+    try {
+      const isConnected = await checkConnection(form.value.apiUrl, form.value.apiKey || undefined);
+
+      if (isConnected) {
+        connectionStatus.value = 'Connected successfully!';
+        connectionError.value = false;
+
+        // Emit configuration after a brief success message
+        setTimeout(() => {
+          emit('configure', {
+            apiUrl: form.value.apiUrl,
+            assistantId: form.value.assistantId,
+            apiKey: form.value.apiKey || undefined,
+          });
+        }, 1000);
+      } else {
+        connectionStatus.value = 'Failed to connect to the server. Please check your settings.';
+        connectionError.value = true;
+      }
+    } catch (error) {
+      connectionStatus.value = 'Connection error occurred.';
+      connectionError.value = true;
+    } finally {
+      isConnecting.value = false;
+    }
+  };
 </script>

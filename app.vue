@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { Analytics } from '@vercel/analytics/nuxt';
   import { SpeedInsights } from '@vercel/speed-insights/nuxt';
+  import ChatWindow from '~/components/Chat/ChatWindow.vue';
 
   const route = useRoute();
   const isHomepage = ref(route.path === '/');
@@ -25,6 +26,7 @@
     <VitePwaManifest />
     <Analytics />
     <SpeedInsights />
+    <ChatWindow />
   </div>
 </template>
 

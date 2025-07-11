@@ -2,7 +2,7 @@
   <div class="space-y-2">
     <div v-for="toolCall in toolCalls" :key="toolCall.id" class="rounded-lg border border-base-300 bg-base-100 p-3">
       <div class="mb-2 flex items-center gap-2">
-        <Icon name="mdi:tool" class="h-4 w-4 text-primary" />
+        <i class="fa-solid fa-tool"></i>
         <span class="text-sm font-medium">{{ toolCall.name }}</span>
         <span class="text-xs text-base-content/60">{{ toolCall.id }}</span>
       </div>
@@ -22,18 +22,9 @@
 </template>
 
 <script setup lang="ts">
-  interface ToolCall {
-    id: string;
-    name: string;
-    args?: Record<string, any>;
-    type: string;
-  }
+  import type { ToolCallsProps } from '~/data/models/chat';
 
-  interface Props {
-    toolCalls: ToolCall[];
-  }
-
-  const props = defineProps<Props>();
+  defineProps<ToolCallsProps>();
 
   const formatArgs = (args: Record<string, any>): string => {
     try {

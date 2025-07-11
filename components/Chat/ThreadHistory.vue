@@ -56,28 +56,9 @@
 </template>
 
 <script setup lang="ts">
-  interface Thread {
-    thread_id: string;
-    created_at: string;
-    updated_at: string;
-    metadata: {
-      graph_id: string;
-      assistant_id: string;
-    };
-    status: string;
-    config: any;
-    values: {
-      messages: any[];
-    };
-    interrupts: any;
-  }
+  import type { Thread, ThreadHistoryProps } from '~/data/models/chat';
 
-  interface Props {
-    threads: Thread[];
-    currentThreadId?: string | null;
-  }
-
-  const props = withDefaults(defineProps<Props>(), {
+  const props = withDefaults(defineProps<ThreadHistoryProps>(), {
     threads: () => [],
     currentThreadId: null,
   });
