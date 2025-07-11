@@ -13,15 +13,23 @@
         <!-- Tool result message -->
         <div v-if="isToolResult && !hideToolCalls" class="rounded-lg bg-base-200 p-3">
           <div class="text-sm font-medium text-base-content/70">Tool Result</div>
-          
+
           <!-- Enhanced display for Tavily search results -->
           <div v-if="isTavilySearchResult" class="mt-3">
             <div class="text-sm font-medium mb-2">Search Results:</div>
             <div class="space-y-3">
-              <div v-for="(result, index) in tavilyResults" :key="index" class="border border-base-300 rounded-lg p-3 bg-base-100">
+              <div
+                v-for="(result, index) in tavilyResults"
+                :key="index"
+                class="border border-base-300 rounded-lg p-3 bg-base-100"
+              >
                 <div class="flex items-start justify-between gap-2 mb-2">
-                  <a :href="result.url" target="_blank" rel="noopener noreferrer" 
-                     class="text-sm font-medium text-primary hover:text-primary-focus underline flex-1">
+                  <a
+                    :href="result.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-medium text-primary hover:text-primary-focus underline flex-1"
+                  >
                     {{ result.title }}
                   </a>
                   <span class="text-xs text-base-content/50 bg-base-200 px-2 py-1 rounded">
@@ -36,15 +44,48 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Default tool result display -->
           <div v-else class="mt-1 text-sm">{{ getContentString(message.content) }}</div>
         </div>
 
         <!-- Regular AI message -->
         <template v-else-if="!isToolResult">
+          <!-- Enhanced display for Tavily search results in AI messages -->
+          <div v-if="isTavilySearchResult" class="rounded-lg bg-base-200 p-3">
+            <div class="text-sm font-medium text-base-content/70">Search Results</div>
+            <div class="mt-3">
+              <div class="space-y-3">
+                <div
+                  v-for="(result, index) in tavilyResults"
+                  :key="index"
+                  class="border border-base-300 rounded-lg p-3 bg-base-100"
+                >
+                  <div class="flex items-start justify-between gap-2 mb-2">
+                    <a
+                      :href="result.url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-sm font-medium text-primary hover:text-primary-focus underline flex-1"
+                    >
+                      {{ result.title }}
+                    </a>
+                    <span class="text-xs text-base-content/50 bg-base-200 px-2 py-1 rounded">
+                      {{ Math.round(result.score * 100) }}%
+                    </span>
+                  </div>
+                  <p class="text-sm text-base-content/80 mb-2">{{ result.content }}</p>
+                  <div class="flex items-center gap-1 text-xs text-base-content/50">
+                    <i class="fa-solid fa-link"></i>
+                    <span>{{ result.url }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Message text content -->
-          <div v-if="contentString.length > 0" class="mr-auto w-fit rounded-3xl bg-primary/10 px-4 py-2">
+          <div v-else-if="contentString.length > 0" class="mr-auto w-fit rounded-3xl bg-primary/10 px-4 py-2">
             <MarkdownText :content="contentString" />
           </div>
 
@@ -74,7 +115,6 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
   import type { AssistantMessageProps } from '~/data/models/chat';
   import type { Checkpoint } from '@langchain/langgraph-sdk';
   import { useStreamContext } from '~/composables/useStreamProvider';
@@ -111,6 +151,12 @@
   });
 
   const isToolResult = computed(() => {
+    // Add debugging to understand message structure
+    if (props.message) {
+      console.log('Message type:', props.message.type);
+      console.log('Message content:', props.message.content);
+      console.log('Full message:', props.message);
+    }
     return props.message?.type === 'tool';
   });
 
@@ -153,23 +199,43 @@
 
   // Check if this is a Tavily search result
   const isTavilySearchResult = computed(() => {
-    if (!isToolResult.value || !props.message) return false;
-    
+    if (!props.message) return false;
+
+    // Check both tool result messages and regular AI messages that might contain Tavily results
+    const shouldCheck = isToolResult.value || props.message.type === 'ai' || props.message.type === 'assistant';
+    if (!shouldCheck) return false;
+
     try {
       const content = getContentString(props.message.content);
-      const parsed = JSON.parse(content);
-      
+      console.log('Checking Tavily - Content string:', content);
+
+      // Try to parse as JSON
+      let parsed;
+      try {
+        parsed = JSON.parse(content);
+      } catch {
+        // If not JSON, check if content contains Tavily-like structure
+        if (content.includes('"url"') && content.includes('"title"') && content.includes('"score"')) {
+          console.log('Content looks like Tavily but failed JSON parse');
+        }
+        return false;
+      }
+
+      console.log('Parsed content:', parsed);
+
       // Check if it's an array of objects with url, title, content, and score properties
-      return Array.isArray(parsed) && 
-             parsed.length > 0 && 
-             parsed.every((item: any) => 
-               typeof item === 'object' && 
-               'url' in item && 
-               'title' in item && 
-               'content' in item && 
-               'score' in item
-             );
-    } catch {
+      const isTavily =
+        Array.isArray(parsed) &&
+        parsed.length > 0 &&
+        parsed.every(
+          (item: any) =>
+            typeof item === 'object' && 'url' in item && 'title' in item && 'content' in item && 'score' in item
+        );
+
+      console.log('Is Tavily result:', isTavily);
+      return isTavily;
+    } catch (error) {
+      console.log('Error checking Tavily:', error);
       return false;
     }
   });
@@ -177,7 +243,7 @@
   // Parse Tavily search results
   const tavilyResults = computed(() => {
     if (!isTavilySearchResult.value || !props.message) return [];
-    
+
     try {
       const content = getContentString(props.message.content);
       return JSON.parse(content);
