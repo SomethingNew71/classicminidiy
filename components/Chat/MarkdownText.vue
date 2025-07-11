@@ -7,12 +7,9 @@
   import { marked } from 'marked';
   import { markedHighlight } from 'marked-highlight';
   import hljs from 'highlight.js';
+  import type { MarkdownTextProps } from '~/data/models/chat';
 
-  interface Props {
-    content: string;
-  }
-
-  const props = defineProps<Props>();
+  const props = defineProps<MarkdownTextProps>();
 
   // Configure marked with syntax highlighting
   marked.use(
@@ -147,12 +144,18 @@
   }
 
   .markdown-content a {
-    color: #2563eb;
+    color: hsl(var(--p));
     text-decoration: underline;
+    font-weight: 500;
   }
 
   .markdown-content a:hover {
-    color: #1d4ed8;
+    color: hsl(var(--pf));
+    text-decoration: underline;
+  }
+
+  .markdown-content a:visited {
+    color: hsl(var(--s));
   }
 
   .markdown-content img {

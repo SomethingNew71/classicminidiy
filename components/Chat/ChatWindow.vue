@@ -1,125 +1,143 @@
 <template>
-  <div class="flex h-full w-full">
-    <!-- Chat History Sidebar -->
-    <div v-if="chatHistoryOpen" class="flex w-80 flex-col border-r border-base-300 bg-base-100">
-      <div class="border-b border-base-300 p-4">
-        <h2 class="text-lg font-semibold">Chat History</h2>
+  <!-- Floating Chat Widget -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <!-- Chat Trigger Button -->
+    <button
+      v-if="!isExpanded"
+      @click="toggleChat"
+      class="btn btn-primary btn-circle btn-lg shadow-lg hover:shadow-xl transition-all duration-200"
+      :class="{ 'animate-pulse': hasUnreadMessages }"
+    >
+      <i class="fa-solid fa-comments text-xl"></i>
+      <span v-if="unreadCount > 0" class="absolute -top-2 -right-2 badge badge-error badge-sm">{{ unreadCount }}</span>
+    </button>
+
+    <!-- Expanded Chat Window -->
+    <div
+      v-if="isExpanded"
+      class="bg-base-100 rounded-lg shadow-2xl border border-base-300 w-96 flex flex-col transition-all duration-300 transform"
+      :class="isMinimized ? 'h-12' : 'h-[600px]'"
+    >
+      <!-- Chat Header -->
+      <div
+        class="flex items-center justify-between p-3 bg-base-200"
+        :class="isMinimized ? 'rounded-lg border-0' : 'border-b border-base-300 rounded-t-lg'"
+      >
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-comments text-primary"></i>
+          <span class="font-semibold text-sm">DIY Helper</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <button @click="toggleMinimize" class="btn btn-ghost btn-xs">
+            <i :class="isMinimized ? 'fa-solid fa-expand' : 'fa-solid fa-minus'"></i>
+          </button>
+          <button @click="toggleChat" class="btn btn-ghost btn-xs">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
       </div>
-      <div class="flex-1 overflow-y-auto p-4">
-        <ThreadHistory
-          :threads="threads"
-          :current-thread-id="threadId"
-          @select-thread="setThreadId"
-          @delete-thread="deleteThread"
-        />
-      </div>
-    </div>
 
-    <!-- Main Chat Area -->
-    <div class="flex flex-1 flex-col">
-      <!-- Configuration Panel -->
-      <div v-if="!isConfigured" class="flex h-full items-center justify-center">
-        <ConfigurationPanel @configure="handleConfiguration" />
-      </div>
-
-      <!-- Chat Interface -->
-      <template v-else>
-        <!-- Header -->
-        <div class="border-b border-base-300 bg-base-100 p-4">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <button @click="toggleChatHistory" class="btn btn-ghost btn-sm">
-                <i class="fa-solid fa-list-timeline"></i>
-              </button>
-              <h1 class="text-xl font-semibold">LangGraph Chat</h1>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <!-- Hide Tool Calls Toggle -->
-              <div class="form-control">
-                <label class="label cursor-pointer gap-2">
-                  <span class="label-text text-sm">Hide Tool Calls</span>
-                  <input v-model="hideToolCalls" type="checkbox" class="toggle toggle-sm" />
-                </label>
-              </div>
-
-              <!-- New Thread Button -->
-              <button @click="startNewThread" class="btn btn-primary btn-sm" :disabled="isLoading">
-                <!-- <Icon name="mdi:plus" class="h-4 w-4" /> -->
-                New Chat
-              </button>
+      <!-- Chat Content (hidden when minimized) -->
+      <div v-if="!isMinimized" class="flex flex-1 overflow-hidden chat-content">
+        <div class="flex flex-1 flex-col">
+          <!-- Configuration Panel -->
+          <div v-if="!isConfigured" class="flex flex-1 items-center justify-center p-4">
+            <div class="text-center">
+              <ConfigurationPanel @configure="handleConfiguration" />
             </div>
           </div>
-        </div>
 
-        <!-- Messages Area -->
-        <div class="flex flex-1 overflow-hidden">
-          <!-- Chat Messages -->
-          <div class="flex flex-1 flex-col">
-            <div class="flex-1 overflow-y-auto p-4">
-              <div class="mx-auto max-w-4xl space-y-4">
-                <!-- Messages -->
+          <!-- Chat Interface -->
+          <template v-else>
+            <!-- Chat Controls -->
+            <div v-if="isAdmin" class="border-b border-base-300 p-2">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <button @click="toggleChatHistory" class="btn btn-ghost btn-xs">
+                    <i class="fa-solid fa-list-timeline"></i>
+                  </button>
+                  <button @click="startNewThread" class="btn btn-primary btn-xs" :disabled="isLoading">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+                <div class="form-control">
+                  <label class="label cursor-pointer gap-1 py-0">
+                    <span class="label-text text-xs">Hide Tools</span>
+                    <input v-model="hideToolCalls" type="checkbox" class="toggle toggle-xs" />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="flex-1 overflow-y-auto p-3">
+              <div class="space-y-3 break-words">
+                <!-- Messagess -->
                 <template v-for="message in messages" :key="message.id">
-                  <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
-                  <AssistantMessage
-                    v-else-if="message.type === 'ai' || message.type === 'tool'"
-                    :message="message"
-                    :is-loading="isLoading"
-                    :hide-tool-calls="hideToolCalls"
-                    @regenerate="handleRegenerate"
-                  />
+                  <div class="break-words overflow-wrap-anywhere">
+                    <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
+                    <AssistantMessage
+                      v-else-if="message.type === 'ai' || message.type === 'tool'"
+                      :message="message"
+                      :is-loading="isLoading"
+                      :hide-tool-calls="hideToolCalls"
+                      @regenerate="handleRegenerate"
+                    />
+                  </div>
                 </template>
 
                 <!-- Loading Message -->
-                <AssistantMessage v-if="isLoading" :is-loading="true" :hide-tool-calls="hideToolCalls" />
+                <div class="break-words overflow-wrap-anywhere">
+                  <AssistantMessage v-if="isLoading" :is-loading="true" :hide-tool-calls="hideToolCalls" />
+                </div>
               </div>
             </div>
 
             <!-- Input Area -->
-            <div class="border-t border-base-300 bg-base-100 p-4">
-              <form @submit.prevent="handleSubmit" class="mx-auto max-w-4xl">
-                <div class="flex gap-2">
-                  <textarea
-                    ref="inputRef"
-                    v-model="input"
-                    @keydown="handleInputKeyDown"
-                    class="textarea textarea-bordered flex-1 resize-none"
-                    rows="1"
-                    placeholder="Type your message..."
-                    :disabled="isLoading"
-                  ></textarea>
+            <div class="border-t border-base-300 p-3">
+              <form @submit.prevent="handleSubmit" class="flex gap-2">
+                <textarea
+                  ref="inputRef"
+                  v-model="input"
+                  @keydown="handleInputKeyDown"
+                  class="textarea textarea-bordered textarea-sm flex-1 resize-none text-sm"
+                  rows="1"
+                  placeholder="Type your message..."
+                  :disabled="isLoading"
+                ></textarea>
 
-                  <button v-if="isLoading" @click="stopGeneration" type="button" class="btn btn-error">
-                    <!-- <Icon name="mdi:stop" class="h-4 w-4" /> -->
-                    Stop
-                  </button>
+                <button v-if="isLoading" @click="stopGeneration" type="button" class="btn btn-error btn-sm">
+                  <i class="fa-solid fa-stop"></i>
+                </button>
 
-                  <button v-else type="submit" class="btn btn-primary" :disabled="!input.trim()">
-                    <!-- <Icon name="mdi:send" class="h-4 w-4" /> -->
-                    Send
-                  </button>
-                </div>
+                <button v-else type="submit" class="btn btn-primary btn-sm" :disabled="!input.trim()">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
               </form>
             </div>
-          </div>
+          </template>
+        </div>
 
-          <!-- Artifact Panel -->
-          <div v-if="artifactOpen" class="flex w-96 flex-col border-l border-base-300 bg-base-100">
-            <div class="border-b border-base-300 p-4">
-              <div class="flex items-center justify-between">
-                <h3 class="font-semibold">Artifact</h3>
-                <button @click="closeArtifact" class="btn btn-ghost btn-sm btn-square">
-                  <!-- <Icon name="mdi:close" class="h-4 w-4" /> -->
-                  Close
-                </button>
-              </div>
+        <!-- Chat History Sidebar (overlay) -->
+        <div v-if="chatHistoryOpen" class="absolute inset-0 bg-base-100 rounded-lg flex flex-col z-10">
+          <div class="border-b border-base-300 p-3 bg-base-200 rounded-t-lg">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-sm">Chat History</h3>
+              <button @click="toggleChatHistory" class="btn btn-ghost btn-xs">
+                <i class="fa-solid fa-times"></i>
+              </button>
             </div>
-            <div class="flex-1 overflow-y-auto p-4">
-              <ArtifactContent />
-            </div>
+          </div>
+          <div class="flex-1 overflow-y-auto p-3">
+            <ThreadHistory
+              :threads="threads"
+              :current-thread-id="threadId"
+              @select-thread="setThreadId"
+              @delete-thread="deleteThread"
+            />
           </div>
         </div>
-      </template>
+      </div>
     </div>
   </div>
 </template>
@@ -130,19 +148,25 @@
   import AssistantMessage from './AssistantMessage.vue';
   import ThreadHistory from './ThreadHistory.vue';
   import ConfigurationPanel from './ConfigurationPanel.vue';
-  import ArtifactContent from './ArtifactContent.vue';
-  // import Icon from '@nuxt/icon';
 
   const { apiUrl, assistantId, apiKey, threadId, isConfigured, setApiKey, setApiUrl, setAssistantId, setThreadId } =
     useStreamProvider();
 
-  // UI State
+  // Reactive state
+  const route = useRoute();
+  const isAdmin = ref(route.query.admin === 'true');
   const input = ref('');
-  const hideToolCalls = ref(false);
+  const hideToolCalls = ref(true);
   const chatHistoryOpen = ref(false);
   const artifactOpen = ref(false);
   const threads = ref<any[]>([]);
   const inputRef = ref<HTMLTextAreaElement>();
+
+  // Floating chat widget state
+  const isExpanded = ref(false);
+  const isMinimized = ref(false);
+  const unreadCount = ref(0);
+  const hasUnreadMessages = computed(() => unreadCount.value > 0);
 
   // Stream context
   let streamContext: ReturnType<typeof createStreamSession> | null = null;
@@ -298,6 +322,35 @@
     }
   };
 
+  // Floating chat widget methods
+  const toggleChat = () => {
+    isExpanded.value = !isExpanded.value;
+    if (isExpanded.value) {
+      isMinimized.value = false;
+      unreadCount.value = 0; // Clear unread count when opening
+    }
+  };
+
+  const toggleMinimize = () => {
+    isMinimized.value = !isMinimized.value;
+  };
+
+  // Track unread messages
+  watch(
+    messages,
+    (newMessages, oldMessages) => {
+      if (!isExpanded.value || isMinimized.value) {
+        const newMessageCount = newMessages.length - (oldMessages?.length || 0);
+        if (newMessageCount > 0) {
+          // Only count AI messages as unread
+          const newAiMessages = newMessages.slice(-newMessageCount).filter((m) => m.type === 'ai');
+          unreadCount.value += newAiMessages.length;
+        }
+      }
+    },
+    { deep: true }
+  );
+
   // Auto-resize textarea on input
   watch(input, () => {
     nextTick(() => {
@@ -317,3 +370,30 @@
     });
   });
 </script>
+
+<style scoped>
+  /* Ensure text wrapping in chat messages */
+  .break-words {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+  }
+
+  /* Ensure chat window content doesn't overflow */
+  .chat-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Force text content to wrap within containers */
+  .chat-content * {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+</style>

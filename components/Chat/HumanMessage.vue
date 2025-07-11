@@ -31,12 +31,12 @@
           class="ml-auto flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
         >
           <button @click="startEdit" class="btn btn-sm btn-ghost" :disabled="isLoading">
-            <Icon name="mdi:pencil" class="h-4 w-4" />
+            <i class="fa-solid fa-pencil h-4 w-4" />
             Edit
           </button>
 
           <button @click="copyToClipboard(contentString)" class="btn btn-sm btn-ghost">
-            <Icon name="mdi:content-copy" class="h-4 w-4" />
+            <i class="fa-solid fa-content-copy h-4 w-4" />
             Copy
           </button>
         </div>
@@ -47,13 +47,10 @@
 
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import type { Message, Checkpoint } from '@langchain/langgraph-sdk';
+  import type { Message, HumanMessageProps } from '~/data/models/chat';
   import { useStreamContext } from '~/composables/useStreamProvider';
 
-  interface Props {
-    message: Message;
-    isLoading: boolean;
-  }
+  interface Props extends HumanMessageProps {}
 
   const props = defineProps<Props>();
 

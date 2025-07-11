@@ -33,12 +33,12 @@
             class="mr-auto flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
           >
             <button v-if="!isLoading" @click="handleRegenerate" class="btn btn-sm btn-ghost">
-              <Icon name="mdi:refresh" class="h-4 w-4" />
+              <i class="fa-solid fa-refresh h-4 w-4" />
               Regenerate
             </button>
 
             <button @click="copyToClipboard(contentString)" class="btn btn-sm btn-ghost">
-              <Icon name="mdi:content-copy" class="h-4 w-4" />
+              <i class="fa-solid fa-copy h-4 w-4" />
               Copy
             </button>
           </div>
@@ -50,15 +50,12 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Message, Checkpoint } from '@langchain/langgraph-sdk';
+  import type { AssistantMessageProps } from '~/data/models/chat';
+  import type { Checkpoint } from '@langchain/langgraph-sdk';
   import { useStreamContext } from '~/composables/useStreamProvider';
   import MarkdownText from './MarkdownText.vue';
 
-  interface Props {
-    message?: Message;
-    isLoading: boolean;
-    hideToolCalls?: boolean;
-  }
+  interface Props extends AssistantMessageProps {}
 
   const props = withDefaults(defineProps<Props>(), {
     hideToolCalls: false,

@@ -1,23 +1,9 @@
 import { ref, computed, provide, inject, onMounted, watch, type InjectionKey, type Ref } from 'vue';
 import { Client } from '@langchain/langgraph-sdk';
-
-// Basic type definitions to replace LangGraph SDK types
-interface Message {
-  id?: string;
-  type: string;
-  content: any;
-}
+import type { Message, UseStreamContextProvider } from '~/data/models/chat';
 
 // Injection key for stream context
 const StreamContextKey: InjectionKey<UseStreamContextProvider> = Symbol('StreamContext');
-interface UseStreamContextProvider {
-  messages: Ref<Message[]>;
-  isLoading: Ref<boolean>;
-  submit: (input: any, options?: any) => Promise<void>;
-  stop: () => void;
-  threadId: Ref<string | null>;
-  getMessagesMetadata: (message: Message) => any;
-}
 
 // Vue composition function to replace React's context
 export function useStreamProvider() {
@@ -87,7 +73,13 @@ export function useStreamProvider() {
 }
 
 // Stream session management
-export const createStreamSession = (apiUrl: string, apiKey: string, assistantId: string, threadId: string | null = null, onThreadCreated?: (threadId: string) => void) => {
+export const createStreamSession = (
+  apiUrl: string,
+  apiKey: string,
+  assistantId: string,
+  threadId: string | null = null,
+  onThreadCreated?: (threadId: string) => void
+) => {
   const messages = ref<any[]>([]);
   const isLoading = ref(false);
   const currentThreadId = ref<string | null>(threadId);
@@ -148,7 +140,7 @@ export const createStreamSession = (apiUrl: string, apiKey: string, assistantId:
       if (reader) {
         let buffer = '';
         let dataBuffer = '';
-        
+
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
@@ -169,7 +161,7 @@ export const createStreamSession = (apiUrl: string, apiKey: string, assistantId:
 
               // Accumulate data content
               dataBuffer += dataContent;
-              
+
               // Try to parse the accumulated data
               try {
                 const data = JSON.parse(dataBuffer);
@@ -179,7 +171,12 @@ export const createStreamSession = (apiUrl: string, apiKey: string, assistantId:
                 // If parsing fails, it might be incomplete JSON, continue accumulating
                 // Only log error if the buffer is getting too large (likely a real error)
                 if (dataBuffer.length > 50000) {
-                  console.error('Failed to parse stream data after accumulating:', e, 'Content length:', dataBuffer.length);
+                  console.error(
+                    'Failed to parse stream data after accumulating:',
+                    e,
+                    'Content length:',
+                    dataBuffer.length
+                  );
                   dataBuffer = ''; // Reset to prevent memory issues
                 }
               }
@@ -208,7 +205,7 @@ export const createStreamSession = (apiUrl: string, apiKey: string, assistantId:
   const handleStreamEvent = (event: any, options: any) => {
     // Debug: Log all events to see what we're receiving
     console.log('Stream event received:', event);
-    
+
     // Handle different event types from LangGraph streaming
     if (event.event === 'thread_id') {
       // Update the current thread ID
@@ -217,7 +214,7 @@ export const createStreamSession = (apiUrl: string, apiKey: string, assistantId:
         const wasNewThread = !currentThreadId.value;
         currentThreadId.value = newThreadId;
         console.log('Thread ID updated:', newThreadId);
-        
+
         // Call the callback if a new thread was created
         if (wasNewThread && onThreadCreated) {
           onThreadCreated(newThreadId);
@@ -277,7 +274,7 @@ export const createStreamSession = (apiUrl: string, apiKey: string, assistantId:
     threadId: currentThreadId,
     getMessagesMetadata,
   };
-}
+};
 
 // Provide the stream context
 export function provideStreamContext(context: UseStreamContextProvider) {
