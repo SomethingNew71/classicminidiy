@@ -1,6 +1,13 @@
 <template>
-  <div class="group ml-auto flex items-center gap-2" :class="{ 'w-full max-w-xl': isEditing }">
-    <div class="flex flex-col gap-2" :class="{ 'w-full': isEditing }">
+  <div class="chat chat-end group" :class="{ 'w-full max-w-xl': isEditing }">
+    <div class="chat-image avatar">
+      <i class="fa-solid fa-circle-user w-10 h-10 text-xl"></i>
+    </div>
+    <div class="chat-header">
+      You
+      <time class="text-xs opacity-50">{{ formatTime(message?.created_at) }}</time>
+    </div>
+    <div v-if="isEditing || contentString" class="chat-bubble" :class="{ 'w-full': isEditing }">
       <!-- Editing mode -->
       <div v-if="isEditing" class="w-full">
         <textarea
@@ -17,29 +24,28 @@
       </div>
 
       <!-- Display mode -->
-      <div v-else class="flex flex-col gap-2">
-        <!-- Message bubble -->
-        <div
-          v-if="contentString"
-          class="ml-auto w-fit rounded-3xl bg-base-200 px-4 py-2 text-right whitespace-pre-wrap"
-        >
+      <div v-else>
+        <!-- Message content -->
+        <div v-if="contentString" class="whitespace-pre-wrap">
           {{ contentString }}
         </div>
+      </div>
+    </div>
 
-        <!-- Action buttons (shown on hover) -->
-        <div
-          class="ml-auto flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
-        >
-          <button @click="startEdit" class="btn btn-sm btn-ghost" :disabled="isLoading">
-            <i class="fa-solid fa-pencil h-4 w-4" />
-            Edit
-          </button>
+    <!-- Action buttons (shown on hover) -->
+    <div class="chat-footer opacity-50">
+      <div
+        class="flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
+      >
+        <button @click="startEdit" class="btn btn-sm btn-ghost" :disabled="isLoading">
+          <i class="fa-solid fa-pencil h-4 w-4" />
+          Edit
+        </button>
 
-          <button @click="copyToClipboard(contentString)" class="btn btn-sm btn-ghost">
-            <i class="fa-solid fa-content-copy h-4 w-4" />
-            Copy
-          </button>
-        </div>
+        <button @click="copyToClipboard(contentString)" class="btn btn-sm btn-ghost">
+          <i class="fa-solid fa-content-copy h-4 w-4" />
+          Copy
+        </button>
       </div>
     </div>
   </div>
@@ -136,4 +142,13 @@
       console.error('Failed to copy to clipboard:', error);
     }
   }
+
+  const formatTime = (timestamp: string | undefined) => {
+    if (!timestamp) return '';
+    try {
+      return new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    } catch {
+      return '';
+    }
+  };
 </script>
