@@ -208,10 +208,7 @@
           assistantId.value,
           threadId.value,
           // Callback when new thread is created
-          (newThreadId: string) => {
-            console.log('New thread created:', newThreadId);
-            loadThreads(); // Refresh thread list
-          }
+          (newThreadId: string) => loadThreads()
         );
         provideStreamContext(streamContext);
         // Load existing threads

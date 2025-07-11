@@ -131,17 +131,15 @@
     }
   });
 
-  const formatFileSize = (bytes: number) => {
+  function formatFileSize(bytes: number): string {
     if (bytes === 0) return '0 B';
-
     const k = 1024;
     const sizes = ['B', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-
     return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
-  };
+  }
 
-  const copyArtifact = async () => {
+  async function copyArtifact() {
     if (!currentArtifact.value?.content) return;
 
     try {
@@ -153,9 +151,9 @@
     } catch (error) {
       console.error('Failed to copy artifact:', error);
     }
-  };
+  }
 
-  const downloadArtifact = () => {
+  function downloadArtifact() {
     if (!currentArtifact.value) return;
 
     const blob = new Blob([currentArtifact.value.content], {
@@ -170,15 +168,12 @@
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-  };
+  }
 
-  const getFileName = () => {
+  function getFileName() {
     if (!currentArtifact.value) return 'artifact.txt';
-
     const title = currentArtifact.value.title || 'artifact';
     const language = currentArtifact.value.language;
-
-    // Get appropriate file extension
     const extensions: Record<string, string> = {
       javascript: 'js',
       typescript: 'ts',
@@ -194,10 +189,7 @@
 
     const ext = extensions[language || ''] || 'txt';
     return `${title.replace(/[^a-zA-Z0-9]/g, '_')}.${ext}`;
-  };
-
-  // TODO: Connect to actual artifact state from stream context
-  // This is a placeholder implementation
+  }
 </script>
 
 <style scoped>
