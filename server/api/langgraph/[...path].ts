@@ -1,14 +1,9 @@
 import { Client } from '@langchain/langgraph-sdk';
 
 export default defineEventHandler(async (event) => {
-  // Get the path after /api/langgraph/
   const path = getRouterParam(event, 'path') || '';
   const pathParts = path.split('/');
-
-  // Get the request method
-  const method = getMethod(event);
-
-  // Get API configuration from environment or request headers
+  const method = event.method;
   const apiUrl = process.env.NUXT_LANGGRAPH_API_URL;
   const apiKey = process.env.NUXT_LANGSMITH_API_KEY || getHeader(event, 'x-api-key') || '';
 
