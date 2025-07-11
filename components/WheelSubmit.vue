@@ -182,15 +182,9 @@
 
   // Form validation state
   const validateForm = () => {
-    // Debug logging
-    console.log('Validating form...');
-    console.log('Name:', name.value, 'Width:', width.value, 'Size:', size.value);
-
     detailsValid.value = !!name.value.trim() && !!width.value && !!size.value;
     imagesValid.value = !props.newWheel || dropFiles.value.length > 0;
     contactValid.value = !!userName.value.trim() && validateEmail(emailAddress.value) === true;
-
-    console.log('Step:', step.value, 'Can proceed:', canProceedToNextStep.value);
   };
 
   // Submit form handler
@@ -220,10 +214,11 @@
     if (canProceedToNextStep.value) {
       step.value++;
     } else {
-      console.log('Cannot proceed to next step. Validation failed.');
-      console.log('detailsValid:', detailsValid.value);
-      console.log('imagesValid:', imagesValid.value);
-      console.log('contactValid:', contactValid.value);
+      console.error('Cannot proceed to next step. Validation failed.', {
+        detailsValid: detailsValid.value,
+        imagesValid: imagesValid.value,
+        contactValid: contactValid.value,
+      });
     }
   };
 

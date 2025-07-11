@@ -73,13 +73,13 @@ export function useStreamProvider() {
 }
 
 // Stream session management
-export const createStreamSession = (
+export function createStreamSession(
   apiUrl: string,
   apiKey: string,
   assistantId: string,
   threadId: string | null = null,
   onThreadCreated?: (threadId: string) => void
-) => {
+) {
   const messages = ref<any[]>([]);
   const isLoading = ref(false);
   const currentThreadId = ref<string | null>(threadId);
@@ -113,13 +113,6 @@ export const createStreamSession = (
           },
         };
       }
-
-      console.log('LangGraph API Request:', {
-        endpoint,
-        assistantId,
-        payload,
-        options,
-      });
 
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -155,7 +148,6 @@ export const createStreamSession = (
 
               // Handle the [DONE] signal
               if (dataContent === '[DONE]') {
-                console.log('Stream completed');
                 break;
               }
 
@@ -202,10 +194,7 @@ export const createStreamSession = (
     }
   };
 
-  const handleStreamEvent = (event: any, options: any) => {
-    // Debug: Log all events to see what we're receiving
-    console.log('Stream event received:', event);
-
+  function handleStreamEvent(event: any, options: any) {
     // Handle different event types from LangGraph streaming
     if (event.event === 'thread_id') {
       // Update the current thread ID
@@ -213,7 +202,6 @@ export const createStreamSession = (
       if (newThreadId) {
         const wasNewThread = !currentThreadId.value;
         currentThreadId.value = newThreadId;
-        console.log('Thread ID updated:', newThreadId);
 
         // Call the callback if a new thread was created
         if (wasNewThread && onThreadCreated) {
@@ -240,16 +228,15 @@ export const createStreamSession = (
       }
     } else if (event.event === 'values') {
       // Handle 'values' event type which might contain messages
-      console.log('Values event data:', event.data);
       if (event.data && event.data.messages) {
         // Replace all messages with the new state
         messages.value = event.data.messages;
       }
     } else {
       // Log unhandled events for debugging
-      console.log('Unhandled stream event:', event.event, event);
+      console.warn('Unhandled stream event:', event.event, event);
     }
-  };
+  }
 
   const getMessagesMetadata = (message: Message) => {
     // Placeholder implementation for message metadata
@@ -263,7 +250,6 @@ export const createStreamSession = (
 
   const stop = () => {
     isLoading.value = false;
-    // TODO: Implement actual stream cancellation
   };
 
   return {
@@ -274,7 +260,7 @@ export const createStreamSession = (
     threadId: currentThreadId,
     getMessagesMetadata,
   };
-};
+}
 
 // Provide the stream context
 export function provideStreamContext(context: UseStreamContextProvider) {

@@ -150,21 +150,12 @@
     return props.message ? getContentString(props.message.content) : '';
   });
 
-  const isToolResult = computed(() => {
-    // Add debugging to understand message structure
-    if (props.message) {
-      console.log('Message type:', props.message.type);
-      console.log('Message content:', props.message.content);
-      console.log('Full message:', props.message);
-    }
-    return props.message?.type === 'tool';
-  });
+  const isToolResult = computed(() => props.message?.type === 'tool');
 
-  const hasToolCalls = computed(() => {
-    return (
+  const hasToolCalls = computed(
+    () =>
       props.message && 'tool_calls' in props.message && props.message.tool_calls && props.message.tool_calls.length > 0
-    );
-  });
+  );
 
   const hasAnthropicToolCalls = computed(() => {
     // Parse Anthropic streamed tool calls from content
@@ -207,21 +198,15 @@
 
     try {
       const content = getContentString(props.message.content);
-      console.log('Checking Tavily - Content string:', content);
-
-      // Try to parse as JSON
       let parsed;
       try {
         parsed = JSON.parse(content);
       } catch {
-        // If not JSON, check if content contains Tavily-like structure
         if (content.includes('"url"') && content.includes('"title"') && content.includes('"score"')) {
-          console.log('Content looks like Tavily but failed JSON parse');
+          console.error('Content looks like Tavily but failed JSON parse');
         }
         return false;
       }
-
-      console.log('Parsed content:', parsed);
 
       // Check if it's an array of objects with url, title, content, and score properties
       const isTavily =
@@ -232,10 +217,9 @@
             typeof item === 'object' && 'url' in item && 'title' in item && 'content' in item && 'score' in item
         );
 
-      console.log('Is Tavily result:', isTavily);
       return isTavily;
     } catch (error) {
-      console.log('Error checking Tavily:', error);
+      console.error('Error checking Tavily:', error);
       return false;
     }
   });
