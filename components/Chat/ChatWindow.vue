@@ -15,7 +15,7 @@
     <!-- Expanded Chat Window -->
     <div
       v-if="isExpanded"
-      class="bg-base-100 rounded-lg shadow-2xl border border-base-300 w-96 flex flex-col transition-all duration-300 transform"
+      class="bg-base-100 rounded-lg shadow-2xl border border-base-300 w-96 lg:w-[50vw] flex flex-col transition-all duration-300 transform"
       :class="isMinimized ? 'h-12' : 'h-[600px]'"
     >
       <!-- Chat Header -->
@@ -25,7 +25,7 @@
       >
         <div class="flex items-center gap-2">
           <i class="fa-solid fa-comments text-primary"></i>
-          <span class="font-semibold text-sm">DIY Helper</span>
+          <span class="font-semibold text-base">DIY Helper</span>
         </div>
         <div class="flex items-center gap-1">
           <button @click="toggleMinimize" class="btn btn-ghost btn-xs">
@@ -88,7 +88,7 @@
                 ref="inputRef"
                 v-model="input"
                 @keydown="handleInputKeyDown"
-                class="textarea textarea-bordered textarea-sm flex-1 resize-none text-sm"
+                class="textarea textarea-bordered textarea-md flex-1 resize-none text-base"
                 rows="1"
                 placeholder="Type your message..."
                 :disabled="isLoading"
@@ -109,7 +109,7 @@
         <div v-if="chatHistoryOpen" class="absolute inset-0 bg-base-100 rounded-lg flex flex-col z-10">
           <div class="border-b border-base-300 p-3 bg-base-200 rounded-t-lg">
             <div class="flex items-center justify-between">
-              <h3 class="font-semibold text-sm">Chat History</h3>
+              <h3 class="font-semibold text-base">Chat History</h3>
               <button @click="toggleChatHistory" class="btn btn-ghost btn-xs">
                 <i class="fa-solid fa-times"></i>
               </button>
