@@ -10,7 +10,44 @@
 
   const props = defineProps<MarkdownTextProps>();
 
-  // Configure marked with syntax highlighting
+  // Function to add UTM parameters to URLs
+  function addUtmParameters(url: string): string {
+    try {
+      const urlObj = new URL(url);
+
+      // UTM parameters for your store
+      const utmParams = {
+        utm_source: 'diy_chat_bot',
+        utm_medium: 'chat',
+        utm_campaign: 'assistant_recommendation',
+        utm_content: 'chat_response',
+      };
+
+      // Add UTM parameters if they don't already exist
+      Object.entries(utmParams).forEach(([key, value]) => {
+        if (!urlObj.searchParams.has(key)) {
+          urlObj.searchParams.set(key, value);
+        }
+      });
+
+      return urlObj.toString();
+    } catch (error) {
+      // If URL parsing fails, return original URL
+      console.warn('Failed to parse URL for UTM parameters:', url);
+      return url;
+    }
+  }
+
+  // Custom renderer for links
+  const renderer = new marked.Renderer();
+  renderer.link = function ({ href, title, tokens }: any) {
+    const processedHref = addUtmParameters(href);
+    const titleAttr = title ? ` title="${title}"` : '';
+    const text = this.parser.parseInline(tokens);
+    return `<a href="${processedHref}"${titleAttr} target="_blank" rel="noopener noreferrer">${text}</a>`;
+  };
+
+  // Configure marked with syntax highlighting and custom renderer
   marked.use(
     markedHighlight({
       langPrefix: 'language-',
@@ -25,6 +62,7 @@
   marked.setOptions({
     breaks: true,
     gfm: true,
+    renderer: renderer,
   });
 
   const renderedMarkdown = computed(() => {

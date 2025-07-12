@@ -78,6 +78,9 @@
               <div class="break-words overflow-wrap-anywhere">
                 <AssistantMessage v-if="isLoading" :is-loading="true" :hide-tool-calls="hideToolCalls" />
               </div>
+
+              <!-- Useful Links from Tavily Search Results -->
+              <UsefulLinks v-if="!isLoading && usefulLinks.length > 0" :links="usefulLinks" />
             </div>
           </div>
 
@@ -134,6 +137,7 @@
   import HumanMessage from './HumanMessage.vue';
   import AssistantMessage from './AssistantMessage.vue';
   import ThreadHistory from './ThreadHistory.vue';
+  import UsefulLinks from './UsefulLinks.vue';
 
   const { apiUrl, assistantId, apiKey, threadId, isConfigured, setApiKey, setApiUrl, setAssistantId, setThreadId } =
     useStreamProvider();
@@ -144,7 +148,6 @@
   const input = ref('');
   const hideToolCalls = ref(true);
   const chatHistoryOpen = ref(false);
-  const artifactOpen = ref(false);
   const threads = ref<any[]>([]);
   const inputRef = ref<HTMLTextAreaElement>();
 
@@ -153,6 +156,41 @@
   const isMinimized = ref(false);
   const unreadCount = ref(0);
   const hasUnreadMessages = computed(() => unreadCount.value > 0);
+
+  // Extract useful links from Tavily search results in the current conversation
+  const usefulLinks = computed(() => {
+    if (!streamContext?.messages.value) return [];
+
+    const links: Array<{ url: string; title: string; content: string; score: number }> = [];
+
+    // Look through all messages for Tavily search results
+    for (const message of streamContext.messages.value) {
+      if (message.type === 'tool' && message.name === 'tavily_search') {
+        try {
+          const content = typeof message.content === 'string' ? message.content : JSON.stringify(message.content);
+          const searchData = JSON.parse(content);
+
+          if (searchData.results && Array.isArray(searchData.results)) {
+            for (const result of searchData.results) {
+              if (result.url && result.title && result.content && typeof result.score === 'number') {
+                links.push({
+                  url: result.url,
+                  title: result.title,
+                  content: result.content,
+                  score: result.score,
+                });
+              }
+            }
+          }
+        } catch (error) {
+          // Ignore parsing errors
+        }
+      }
+    }
+
+    // Sort by score (highest first) and limit to top 5
+    return links.sort((a, b) => b.score - a.score).slice(0, 5);
+  });
 
   // Stream context
   let streamContext: ReturnType<typeof createStreamSession> | null = null;

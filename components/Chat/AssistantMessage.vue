@@ -7,12 +7,7 @@
       DIY Bot
       <time class="text-xs opacity-50">{{ formatTime(message?.created_at) }}</time>
     </div>
-    <div
-      v-if="
-        isLoading || (message && (isToolResult || contentString.length > 0 || hasToolCalls || hasAnthropicToolCalls))
-      "
-      class="chat-bubble chat-bubble-primary"
-    >
+    <div v-if="isLoading || (message && hasVisibleContent)" class="chat-bubble chat-bubble-primary">
       <div class="flex flex-col gap-2">
         <!-- Loading state -->
         <div v-if="isLoading && !message" class="flex h-8 items-center gap-1 rounded-2xl bg-base-200 px-4 py-2">
@@ -24,7 +19,7 @@
         <!-- Message content -->
         <template v-else-if="message">
           <!-- Tool result message -->
-          <div v-if="isToolResult && !hideToolCalls" class="rounded-lg bg-base-200 p-3">
+          <div v-if="isToolResult && !hideToolCalls && isAdmin" class="rounded-lg bg-base-200 p-3">
             <div class="text-sm font-medium text-base-content/70">Tool Result</div>
 
             <!-- Enhanced display for Tavily search results -->
@@ -98,12 +93,12 @@
             </div>
 
             <!-- Message text content -->
-            <div v-else-if="contentString.length > 0" class="mr-auto w-fit rounded-3xl bg-primary/10 px-4 py-2">
+            <div v-else-if="contentString.trim().length > 0" class="mr-auto w-fit rounded-3xl bg-primary/10 px-4 py-2">
               <MarkdownText :content="contentString" />
             </div>
 
             <!-- Tool calls -->
-            <div v-if="!hideToolCalls && (hasToolCalls || hasAnthropicToolCalls)" class="mt-2">
+            <div v-if="!hideToolCalls && (hasToolCalls || hasAnthropicToolCalls) && isAdmin" class="mt-2">
               <ToolCalls :tool-calls="displayToolCalls" />
             </div>
 
@@ -133,9 +128,11 @@
   import type { Checkpoint } from '@langchain/langgraph-sdk';
   import { useStreamContext } from '~/composables/useStreamProvider';
   import MarkdownText from './MarkdownText.vue';
+  const route = useRoute();
+  const isAdmin = ref(route.query.admin === 'true');
 
   const props = withDefaults(defineProps<AssistantMessageProps>(), {
-    hideToolCalls: false,
+    hideToolCalls: true,
   });
 
   const emit = defineEmits<{
@@ -246,6 +243,35 @@
     } catch {
       return [];
     }
+  });
+
+  // Computed property to determine if there's actually visible content
+  const hasVisibleContent = computed(() => {
+    if (!props.message) return false;
+
+    const hasContent = contentString.value.trim().length > 0;
+    const isToolRes = isToolResult.value;
+    const hasTC = hasToolCalls.value;
+    const hasATC = hasAnthropicToolCalls.value;
+    const hideTC = props.hideToolCalls;
+    const toolCallsArray = displayToolCalls.value;
+
+    // Check for tool result content first (takes precedence over general text content)
+    if (isToolRes) {
+      return !hideTC; // Only show if tool calls are not hidden
+    }
+
+    // Check for regular text content (non-tool-result messages)
+    if (hasContent) {
+      return true;
+    }
+
+    // Check for tool calls (only if not hidden and have actual calls)
+    if (!hideTC && (hasTC || hasATC)) {
+      return toolCallsArray && toolCallsArray.length > 0;
+    }
+
+    return false;
   });
 
   function handleRegenerate() {
