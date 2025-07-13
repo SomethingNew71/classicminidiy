@@ -5,11 +5,23 @@
     <button
       v-if="!isExpanded"
       @click="toggleChat"
-      class="btn btn-primary btn-circle btn-xl shadow-lg hover:shadow-xl transition-all duration-200"
-      :class="{ 'animate-pulse': hasUnreadMessages }"
+      class="btn btn-primary btn-circle btn-xl shadow-xl hover:shadow-xl transition-all duration-200 relative"
+      :class="{
+        'animate-pulse': hasUnreadMessages,
+        wiggle: shouldWiggle,
+      }"
     >
       <i class="fa-solid fa-comments text-xl"></i>
+
+      <!-- Unread count badge -->
       <span v-if="unreadCount > 0" class="absolute -top-2 -right-2 badge badge-error badge-sm">{{ unreadCount }}</span>
+
+      <!-- New notification indicator (small dot) -->
+      <span
+        v-else-if="!hasEverBeenOpened"
+        class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"
+        style="box-shadow: 0 0 6px rgba(239, 68, 68, 0.6)"
+      ></span>
     </button>
 
     <!-- Expanded Chat Window -->
@@ -60,7 +72,48 @@
           <!-- Messages Area -->
           <div class="flex-1 overflow-y-auto p-3">
             <div class="space-y-3 break-words">
-              <!-- Messagess -->
+              <!-- Welcome Message & Starter Questions (shown when chat is empty) -->
+              <div v-if="isChatEmpty && !isLoading" class="space-y-4">
+                <!-- Welcome Message -->
+                <div class="card bg-primary/10 border border-primary/20">
+                  <div class="card-body p-4">
+                    <div class="flex items-start gap-3">
+                      <div class="flex-1">
+                        <h3 class="font-semibold text-base mb-2 text-primary">Welcome to CMDIY Helper Bot!</h3>
+                        <p class="text-sm text-base-content/80 leading-relaxed">
+                          I'm your Classic Mini DIY assistant, here to help you with technical questions, decode chassis
+                          numbers, find parts information, navigate the archives, and provide guidance on Classic Mini
+                          restoration and maintenance. Ask me anything about your Classic Mini project!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Starter Questions -->
+                <div v-if="starterQuestions.length > 0" class="space-y-3">
+                  <div class="text-center">
+                    <div class="text-sm text-base-content/70 mb-3">
+                      <i class="fa-solid fa-lightbulb text-primary mr-1"></i>
+                      Here are some questions to get you started:
+                    </div>
+                  </div>
+                  <div class="grid gap-2">
+                    <button
+                      v-for="(question, index) in starterQuestions"
+                      :key="index"
+                      @click="handleStarterQuestion(question)"
+                      class="btn btn-outline btn-sm text-left justify-start h-auto py-3 px-4 whitespace-normal text-wrap"
+                      :disabled="isLoading"
+                    >
+                      <i class="fa-solid fa-comment-dots text-primary mr-2 flex-shrink-0"></i>
+                      <span class="text-sm leading-relaxed">{{ question }}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Messages -->
               <template v-for="message in messages" :key="message.id">
                 <div class="break-words overflow-wrap-anywhere">
                   <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
@@ -138,6 +191,7 @@
   import AssistantMessage from './AssistantMessage.vue';
   import ThreadHistory from './ThreadHistory.vue';
   import UsefulLinks from './UsefulLinks.vue';
+  import { getStarterQuestions } from '~/data/models/pages';
 
   const { apiUrl, assistantId, apiKey, threadId, isConfigured, setApiKey, setApiUrl, setAssistantId, setThreadId } =
     useStreamProvider();
@@ -156,6 +210,18 @@
   const isMinimized = ref(false);
   const unreadCount = ref(0);
   const hasUnreadMessages = computed(() => unreadCount.value > 0);
+  const shouldWiggle = ref(false);
+  const hasEverBeenOpened = ref(false);
+
+  // Get starter questions for the current page
+  const starterQuestions = computed(() => {
+    return getStarterQuestions(route.path) || [];
+  });
+
+  // Check if chat is empty (no messages)
+  const isChatEmpty = computed(() => {
+    return !streamContext?.messages.value || streamContext.messages.value.length === 0;
+  });
 
   // Extract useful links from Tavily search results in the current conversation
   const usefulLinks = computed(() => {
@@ -389,12 +455,20 @@
     }
   }
 
+  // Handle starter question click
+  function handleStarterQuestion(question: string) {
+    input.value = question;
+    handleSubmit();
+  }
+
   // Floating chat widget methods
   function toggleChat() {
     isExpanded.value = !isExpanded.value;
     if (isExpanded.value) {
       isMinimized.value = false;
       unreadCount.value = 0; // Clear unread count when opening
+      hasEverBeenOpened.value = true; // Mark as opened
+      shouldWiggle.value = false; // Stop wiggle animation
     }
   }
 
@@ -435,10 +509,52 @@
         inputRef.value.focus();
       }
     });
+
+    // Start wiggle animation after 10 seconds if chat hasn't been opened
+    setTimeout(() => {
+      if (!isExpanded.value) {
+        shouldWiggle.value = true;
+        // Stop wiggling after 3 seconds
+        setTimeout(() => {
+          shouldWiggle.value = false;
+        }, 3000);
+      }
+    }, 10000);
   });
 </script>
 
 <style scoped>
+  /* Wiggle animation for chat button */
+  @keyframes wiggle {
+    0%,
+    7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-15deg);
+    }
+    20% {
+      transform: rotateZ(10deg);
+    }
+    25% {
+      transform: rotateZ(-10deg);
+    }
+    30% {
+      transform: rotateZ(6deg);
+    }
+    35% {
+      transform: rotateZ(-4deg);
+    }
+    40%,
+    100% {
+      transform: rotateZ(0);
+    }
+  }
+
+  .wiggle {
+    animation: wiggle 2s ease-in-out infinite;
+  }
+
   /* Ensure text wrapping in chat messages */
   .break-words {
     word-wrap: break-word;
