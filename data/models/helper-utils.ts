@@ -2,9 +2,10 @@ import { track } from '@vercel/analytics';
 
 export enum ARCHIVE_TYPES {
   ADVERT = 'advert',
-  CARBS = 'carbs',
+  CATALOGUES = 'catalogues',
   MANUAL = 'manual',
   GENERIC = 'generic',
+  TUNING = 'tuning',
 }
 
 export enum TRACKING_EVENTS {
