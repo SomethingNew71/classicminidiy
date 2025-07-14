@@ -7,6 +7,9 @@
     query: {
       id: query.color,
     },
+    // Only fetch if we have a color ID
+    server: !!query.color,
+    default: () => null,
   });
 
   watch(color, (newColor: PrettyColor | null) => {
