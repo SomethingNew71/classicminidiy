@@ -287,10 +287,16 @@ export default defineNuxtConfig({
         contentCollection: 'adverts',
       },
       {
-        title: 'Carburetors',
+        title: 'Tuning',
         description:
-          'Collection of hisorical related to Classic Mini Carburetors and tuning. Currated and organized for easy viewing.',
-        contentCollection: 'carbs',
+          'Collection of hisorical documents related to Classic Mini tuning and modifications. Currated and organized for easy viewing.',
+        contentCollection: 'tuning',
+      },
+      {
+        title: 'Catalogues',
+        description:
+          'Collection of hisorical documents related to Classic Mini Vendor Catalogues. Currated and organized for easy viewing.',
+        contentCollection: 'catalogues',
       },
     ],
   },
@@ -303,8 +309,8 @@ export default defineNuxtConfig({
     '/privacy': { prerender: true },
     '/technical/parts': { prerender: true },
     '/technical/torque': { prerender: true },
-    '/technical/calculators/needles': { ssr: false },
-    '/technical/calculators/gearbox': { ssr: false },
+    '/technical/calculators/needles': { prerender: false },
+    '/technical/calculators/gearbox': { prerender: false },
   },
 
   robots: {
@@ -401,6 +407,8 @@ export default defineNuxtConfig({
     },
     // Optimize build performance
     build: {
+      // Disable sourcemaps in production to avoid Tailwind CSS warnings
+      sourcemap: process.env.NODE_ENV !== 'production',
       target: 'esnext',
       minify: 'terser',
       terserOptions: {
