@@ -7,7 +7,6 @@
       @click="toggleChat"
       class="btn btn-primary btn-circle btn-xl shadow-xl hover:shadow-xl transition-all duration-200 relative"
       :class="{
-        'animate-pulse': hasUnreadMessages,
         wiggle: shouldWiggle,
       }"
     >
@@ -19,7 +18,7 @@
       <!-- New notification indicator (small dot) -->
       <span
         v-else-if="!hasEverBeenOpened"
-        class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"
+        class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"
         style="box-shadow: 0 0 6px rgba(239, 68, 68, 0.6)"
       ></span>
     </button>
