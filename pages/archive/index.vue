@@ -118,16 +118,17 @@
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-10">
       <div v-for="archive in ArchiveItems" class="col-span-1">
-        <NuxtLink
-          :to="archive.to"
-          :class="[
-            'card bg-base-100 shadow-xl text-center p-5 h-full',
-            { 'opacity-50 cursor-not-allowed': archive.disabled },
-          ]"
-          :tabindex="archive.disabled ? -1 : undefined"
-          @click="archive.disabled ? $event.preventDefault() : null"
-        >
-          <p v-if="archive.disabled" class="text-xs text-right">Coming Soon!</p>
+        <template v-if="archive.disabled">
+          <div class="card bg-base-100 shadow-xl text-center p-5 h-full opacity-50 cursor-not-allowed">
+            <p class="text-xs text-right">Coming Soon!</p>
+            <span class="text-4xl block" v-html="archive.iconHtml"> </span>
+            <div class="card-body p-2">
+              <p class="text-lg">{{ archive.title }}</p>
+            </div>
+          </div>
+        </template>
+
+        <NuxtLink v-else :to="archive.to" class="card bg-base-100 shadow-xl text-center p-5 h-full">
           <span class="text-4xl block" v-html="archive.iconHtml"> </span>
           <div class="card-body p-2">
             <p class="text-lg">{{ archive.title }}</p>

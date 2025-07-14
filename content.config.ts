@@ -45,11 +45,24 @@ export default defineContentConfig({
         author: z.string(),
       }),
     }),
-    carbs: defineCollection({
+    catalogues: defineCollection({
       type: 'page',
       source: {
         repository: 'https://github.com/Classic-Mini-DIY/archive',
-        include: '**/carbs/**/*.md',
+        include: '**/catalogues/**/*.md',
+      },
+      schema: z.object({
+        code: z.string(),
+        download: z.string(),
+        image: z.string(),
+        author: z.string(),
+      }),
+    }),
+    tuning: defineCollection({
+      type: 'page',
+      source: {
+        repository: 'https://github.com/Classic-Mini-DIY/archive',
+        include: '**/tuning/**/*.md',
       },
       schema: z.object({
         code: z.string(),

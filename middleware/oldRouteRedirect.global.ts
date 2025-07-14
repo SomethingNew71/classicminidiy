@@ -23,4 +23,7 @@ export default defineNuxtRouteMiddleware((to: any, from: any) => {
   if (to.path.includes('registry') && !to.path.includes('archive') && !to.path.includes('admin')) {
     return navigateTo('/archive/registry');
   }
+  if (to.path.includes('archive/carbs')) {
+    return navigateTo('/archive/tuning');
+  }
 });

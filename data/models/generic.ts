@@ -214,42 +214,21 @@ export const ArchiveItems: ArchiveItem[] = [
     to: '/archive/adverts',
   },
   {
-    title: 'Carburetor Specs',
-    description: '',
-    image: '',
-    path: '/archive/carbs',
-    iconHtml:
-      '<i class="fa-duotone fa-regular fa-bread-loaf" style="--fa-primary-color: #ba5c12; --fa-secondary-color: #ba5c12;"></i>',
-    to: '/archive/carbs',
-  },
-  {
-    title: 'Cylinder Head Specs',
-    description: '',
-    image: '',
-    path: '/archive/heads',
-    iconHtml:
-      '<i class="fa-duotone fa-solid fa-head-side-gear" style="--fa-primary-color: #9b8816; --fa-secondary-color: #9b8816;"></i>',
-    to: '/archive/heads',
-    disabled: true,
-  },
-  {
-    title: 'Catalogues',
+    title: 'Vendor Catalogues',
     description: '',
     image: '',
     path: '/archive/catalogues',
     iconHtml: '<i class="fa-duotone fa-solid fa-book-open-cover"></i>',
     to: '/archive/catalogues',
-    disabled: true,
   },
   {
-    title: 'Distributors',
+    title: 'Tuning and Modifications',
     description: '',
     image: '',
-    path: '/archive/distros',
+    path: '/archive/tuning',
     iconHtml:
       '<i class="fa-duotone fa-solid fa-chart-network" style="--fa-primary-color: #004f2d; --fa-secondary-color: #004f2d;"></i>',
-    to: '/archive/distros',
-    disabled: true,
+    to: '/archive/tuning',
   },
   {
     title: 'Dimensions',
