@@ -15,8 +15,9 @@
     data: currentPostData,
     status,
     error,
-  } = await useAsyncData(path, () => {
-    return queryCollection('content').path(path).first();
+  } = await useAsyncData(path, async () => {
+    const result = await queryCollection('content').path(path).first();
+    return result || null;
   });
 
   // Provide default values and handle potential undefined values
