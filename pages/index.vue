@@ -159,7 +159,7 @@
   <div class="mb-5">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-12 md:col-span-7">
+        <div class="col-span-12 md:col-span-7 mb-5 pb-10">
           <h3 class="fancy-font-bold text-2xl"><i class="fad fa-address-card"></i> About Me</h3>
           <h4 class="fancy-font-book-oblique pt-5">MY NAME IS COLE</h4>
           <p>
