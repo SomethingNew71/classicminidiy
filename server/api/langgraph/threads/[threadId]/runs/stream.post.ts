@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const body = await readBody(event);
-    const { assistant_id, input, stream_mode = 'updates', ...config } = body || {};
+    const { assistant_id, input, stream_mode = 'updates', metadata, ...config } = body || {};
 
     if (!assistant_id) {
       setResponseStatus(event, 400);
@@ -42,11 +42,22 @@ export default defineEventHandler(async (event) => {
           const threadInfo = JSON.stringify({ event: 'thread_id', data: { thread_id: threadId } });
           controller.enqueue(`data: ${threadInfo}\n\n`);
 
-          const streamResponse = client.runs.stream(threadId, assistant_id, {
+          // Prepare stream options with metadata
+          const streamOptions: any = {
             input,
             streamMode: stream_mode,
             ...config,
-          });
+          };
+
+          // Add metadata if provided
+          if (metadata) {
+            streamOptions.metadata = {
+              environment: process.env.NODE_ENV || 'development',
+              ...metadata,
+            };
+          }
+
+          const streamResponse = client.runs.stream(threadId, assistant_id, streamOptions);
 
           for await (const chunk of streamResponse) {
             // Send each chunk as a server-sent event
