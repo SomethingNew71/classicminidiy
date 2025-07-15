@@ -281,8 +281,18 @@
       }
     });
 
-    // Submit message
-    streamContext.submit({ messages: [{ type: 'human', content: message }] }, { streamMode: ['values'] });
+    // Submit message with metadata
+    const metadata = {
+      pageSlug: route.path,
+    };
+
+    streamContext.submit(
+      { messages: [{ type: 'human', content: message }] },
+      {
+        streamMode: ['values'],
+        metadata,
+      }
+    );
   }
 
   function handleInputKeyDown(e: KeyboardEvent) {

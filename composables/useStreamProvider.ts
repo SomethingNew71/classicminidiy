@@ -53,6 +53,11 @@ export function createStreamSession(
         stream_mode: options.streamMode || ['values'],
       };
 
+      // Add metadata if provided in options
+      if (options.metadata) {
+        payload.metadata = options.metadata;
+      }
+
       // Add config if checkpoint is provided
       if (options.checkpoint) {
         payload.config = {

@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const body = await readBody(event);
-    const { assistant_id, input, ...config } = body || {};
+    const { assistant_id, input, metadata, ...config } = body || {};
 
     if (!assistant_id) {
       setResponseStatus(event, 400);
@@ -27,10 +27,21 @@ export default defineEventHandler(async (event) => {
       return { error: 'Failed to create thread', message: error.message };
     }
 
-    const run = await client.runs.create(threadId, assistant_id, {
+    // Prepare run options with metadata
+    const runOptions: any = {
       input,
       ...config,
-    });
+    };
+
+    // Add metadata if provided
+    if (metadata) {
+      runOptions.metadata = {
+        environment: process.env.NODE_ENV || 'development',
+        ...metadata
+      };
+    }
+
+    const run = await client.runs.create(threadId, assistant_id, runOptions);
 
     // Wait for the run to complete and return the result
     const result = await client.runs.join(threadId, run.run_id);
