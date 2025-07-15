@@ -7,16 +7,8 @@ export default defineEventHandler(async (event) => {
   const apiUrl = process.env.NUXT_LANGGRAPH_API_URL;
   const apiKey = process.env.NUXT_LANGSMITH_API_KEY || getHeader(event, 'x-api-key') || '';
 
-  if (!apiUrl) {
-    setResponseStatus(event, 500);
-    return { error: 'LangGraph API URL not configured' };
-  }
-
   // Initialize LangGraph client
-  const client = new Client({
-    apiUrl,
-    apiKey: apiKey || undefined,
-  });
+  const client = new Client({ apiUrl, apiKey });
 
   try {
     // Get request body for POST/PUT/PATCH requests
@@ -43,19 +35,6 @@ export default defineEventHandler(async (event) => {
       const threadId = pathParts[1];
       const thread = await client.threads.get(threadId);
       return thread;
-    }
-
-    if (method === 'DELETE' && pathParts[0] === 'threads' && pathParts[1] && pathParts.length === 2) {
-      // Delete a specific thread
-      const threadId = pathParts[1];
-      try {
-        await client.threads.delete(threadId);
-        return { success: true, message: 'Thread deleted successfully' };
-      } catch (error: any) {
-        console.error('Failed to delete thread:', error);
-        setResponseStatus(event, 500);
-        return { error: 'Failed to delete thread', message: error.message };
-      }
     }
 
     if (method === 'POST' && pathParts[0] === 'threads' && pathParts[2] === 'runs' && pathParts[3] === 'stream') {

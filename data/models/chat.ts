@@ -86,7 +86,3 @@ export interface HumanMessageProps {
 export interface MarkdownTextProps {
   content: string;
 }
-
-export interface ArtifactContentProps {
-  artifact: Artifact;
-}

@@ -52,7 +52,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from 'vue';
   import type { Message, HumanMessageProps } from '~/data/models/chat';
   import { useStreamContext } from '~/composables/useStreamProvider';
 

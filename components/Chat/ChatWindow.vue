@@ -51,23 +51,6 @@
       <!-- Chat Content (hidden when minimized) -->
       <div v-if="!isMinimized" class="flex flex-1 overflow-hidden chat-content">
         <div class="flex flex-1 flex-col">
-          <!-- Chat Controls -->
-          <div v-if="isAdmin" class="border-b border-base-300 p-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <button @click="toggleChatHistory" class="btn btn-ghost btn-xs">
-                  <i class="fa-solid fa-list-timeline"></i>
-                </button>
-              </div>
-              <div class="form-control">
-                <label class="label cursor-pointer gap-1 py-0">
-                  <span class="label-text text-xs">Hide Tools</span>
-                  <input v-model="hideToolCalls" type="checkbox" class="toggle toggle-xs" />
-                </label>
-              </div>
-            </div>
-          </div>
-
           <!-- Messages Area -->
           <div class="flex-1 overflow-y-auto p-3">
             <div class="space-y-3 break-words">
@@ -115,6 +98,7 @@
               <!-- Messages -->
               <template v-for="message in messages" :key="message.id">
                 <div class="break-words overflow-wrap-anywhere">
+                  {{ message }}
                   <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
                   <AssistantMessage
                     v-else-if="message.type === 'ai' || message.type === 'tool'"
@@ -126,9 +110,9 @@
                 </div>
               </template>
 
-              <!-- Loading Message -->
-              <div class="break-words overflow-wrap-anywhere">
-                <AssistantMessage v-if="isLoading" :is-loading="true" :hide-tool-calls="hideToolCalls" />
+              <!-- Loading Message (only show if no messages or last message is not AI) -->
+              <div v-if="isLoading && shouldShowLoadingBubble" class="break-words overflow-wrap-anywhere">
+                <AssistantMessage :is-loading="true" :hide-tool-calls="hideToolCalls" />
               </div>
 
               <!-- Useful Links from Tavily Search Results -->
@@ -159,26 +143,6 @@
             </form>
           </div>
         </div>
-
-        <!-- Chat History Sidebar (overlay) -->
-        <div v-if="chatHistoryOpen" class="absolute inset-0 bg-base-100 rounded-lg flex flex-col z-10">
-          <div class="border-b border-base-300 p-3 bg-base-200 rounded-t-lg">
-            <div class="flex items-center justify-between">
-              <h3 class="font-semibold text-base">Chat History</h3>
-              <button @click="toggleChatHistory" class="btn btn-ghost btn-xs">
-                <i class="fa-solid fa-times"></i>
-              </button>
-            </div>
-          </div>
-          <div class="flex-1 overflow-y-auto p-3">
-            <ThreadHistory
-              :threads="threads"
-              :current-thread-id="threadId"
-              @select-thread="handleThreadSelection"
-              @delete-thread="deleteThread"
-            />
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -188,19 +152,15 @@
   import { useStreamProvider, createStreamSession, provideStreamContext } from '~/composables/useStreamProvider';
   import HumanMessage from './HumanMessage.vue';
   import AssistantMessage from './AssistantMessage.vue';
-  import ThreadHistory from './ThreadHistory.vue';
   import UsefulLinks from './UsefulLinks.vue';
   import { getStarterQuestions } from '~/data/models/pages';
 
-  const { apiUrl, assistantId, apiKey, threadId, isConfigured, setApiKey, setApiUrl, setAssistantId, setThreadId } =
-    useStreamProvider();
+  const { assistantId, threadId, isConfigured, setThreadId } = useStreamProvider();
 
   // Reactive state
   const route = useRoute();
-  const isAdmin = ref(route.query.admin === 'true');
   const input = ref('');
   const hideToolCalls = ref(true);
-  const chatHistoryOpen = ref(false);
   const threads = ref<any[]>([]);
   const inputRef = ref<HTMLTextAreaElement>();
 
@@ -208,7 +168,6 @@
   const isExpanded = ref(false);
   const isMinimized = ref(false);
   const unreadCount = ref(0);
-  const hasUnreadMessages = computed(() => unreadCount.value > 0);
   const shouldWiggle = ref(false);
   const hasEverBeenOpened = ref(false);
 
@@ -257,6 +216,18 @@
     return links.sort((a, b) => b.score - a.score).slice(0, 5);
   });
 
+  // Determine if we should show the loading bubble
+  const shouldShowLoadingBubble = computed(() => {
+    if (!streamContext?.messages.value) return true; // Show if no messages yet
+
+    const messages = streamContext.messages.value;
+    if (messages.length === 0) return true; // Show if empty
+
+    // Don't show loading bubble if the last message is already an AI message being streamed
+    const lastMessage = messages[messages.length - 1];
+    return lastMessage.type !== 'ai' && lastMessage.type !== 'assistant';
+  });
+
   // Stream context
   let streamContext: ReturnType<typeof createStreamSession> | null = null;
 
@@ -267,9 +238,6 @@
     try {
       const response = await $fetch('/api/langgraph/threads', {
         method: 'GET',
-        headers: {
-          'x-api-key': apiKey.value || '',
-        },
       });
 
       if (Array.isArray(response)) {
@@ -288,12 +256,10 @@
 
   // Create stream session when configuration is ready
   watch(
-    [isConfigured, apiUrl, apiKey, assistantId, threadId],
+    [isConfigured, assistantId, threadId],
     () => {
       if (isConfigured.value) {
         streamContext = createStreamSession(
-          apiUrl.value,
-          apiKey.value,
           assistantId.value,
           threadId.value,
           // Callback when new thread is created
@@ -310,14 +276,6 @@
   // Computed properties
   const messages = computed(() => streamContext?.messages.value || []);
   const isLoading = computed(() => streamContext?.isLoading.value || false);
-
-  function handleConfiguration(config: { apiUrl: string; assistantId: string; apiKey?: string }) {
-    setApiUrl(config.apiUrl);
-    setAssistantId(config.assistantId);
-    if (config.apiKey) {
-      setApiKey(config.apiKey);
-    }
-  }
 
   async function handleSubmit() {
     if (!input.value.trim() || !streamContext) return;
@@ -370,87 +328,6 @@
     // Clear messages when starting new thread
     if (streamContext) {
       streamContext.messages.value = [];
-    }
-  }
-
-  async function loadThreadMessages(threadIdToLoad: string) {
-    if (!isConfigured.value || !threadIdToLoad) return;
-
-    try {
-      // Fetch thread data from API
-      const threadData = await $fetch(`/api/langgraph/threads/${threadIdToLoad}`, {
-        headers: {
-          'x-api-key': apiKey.value || '',
-        },
-      });
-
-      // Update thread ID first
-      setThreadId(threadIdToLoad);
-
-      // Check different possible message locations in the response
-      let messages = null;
-      if (threadData.values?.messages) {
-        messages = threadData.values.messages;
-      } else if (threadData.messages) {
-        messages = threadData.messages;
-      } else if (Array.isArray(threadData)) {
-        messages = threadData;
-      }
-
-      // Update stream context messages if we have them
-      if (streamContext && messages) {
-        // Clear existing messages first
-        streamContext.messages.value.splice(0);
-
-        // Add new messages one by one to ensure reactivity
-        messages.forEach((message: any) => {
-          streamContext!.messages.value.push(message);
-        });
-
-        // Also update the current thread ID in stream context
-        if (streamContext.threadId) {
-          streamContext.threadId.value = threadIdToLoad;
-        }
-      }
-
-      // Close chat history overlay
-      chatHistoryOpen.value = false;
-    } catch (error) {
-      console.error('Failed to load thread messages:', error);
-    }
-  }
-
-  function handleThreadSelection(threadIdToSelect: string) {
-    loadThreadMessages(threadIdToSelect);
-  }
-
-  function toggleChatHistory() {
-    chatHistoryOpen.value = !chatHistoryOpen.value;
-  }
-
-  async function deleteThread(threadIdToDelete: string) {
-    if (!isConfigured.value) return;
-
-    try {
-      // Call API to delete the thread
-      await $fetch(`/api/langgraph/threads/${threadIdToDelete}`, {
-        method: 'DELETE',
-        headers: {
-          'x-api-key': apiKey.value || '',
-        },
-      });
-
-      // Remove from local state
-      threads.value = threads.value.filter((t) => t.thread_id !== threadIdToDelete);
-
-      // If we deleted the current thread, start a new one
-      if (threadId.value === threadIdToDelete) {
-        startNewThread();
-      }
-    } catch (error) {
-      console.error('Failed to delete thread:', error);
-      // Still remove from local state even if API call fails
-      threads.value = threads.value.filter((t) => t.thread_id !== threadIdToDelete);
     }
   }
 
