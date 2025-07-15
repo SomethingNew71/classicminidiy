@@ -1,5 +1,3 @@
-import { ref, computed, provide, inject, onMounted, watch, type InjectionKey, type Ref } from 'vue';
-import { Client } from '@langchain/langgraph-sdk';
 import type { Message, UseStreamContextProvider } from '~/data/models/chat';
 
 // Injection key for stream context
@@ -10,11 +8,7 @@ export function useStreamProvider() {
   // Configuration state
   const assistantId = ref(process.env.NUXT_PUBLIC_LANGGRAPH_ASSISTANT_ID || 'agent');
   const threadId = ref<string | null>(null);
-
-  // Configuration state
-  const isConfigured = computed(() => {
-    return !!assistantId.value;
-  });
+  const isConfigured = computed(() => !!assistantId.value);
 
   const setThreadId = (id: string | null) => {
     threadId.value = id;
