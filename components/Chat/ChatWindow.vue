@@ -24,8 +24,13 @@
     <!-- Expanded Chat Window -->
     <div
       v-if="isExpanded"
-      class="bg-base-100 rounded-lg shadow-2xl border border-base-300 w-96 lg:w-[50vw] flex flex-col transition-all duration-300 transform"
-      :class="isMinimized ? 'h-12' : 'h-[600px]'"
+      class="bg-base-100 shadow-2xl border border-base-300 flex flex-col transition-all duration-300 transform"
+      :class="[
+        isFullscreen 
+          ? 'fixed inset-0 w-full h-full rounded-none z-[60]' 
+          : 'rounded-lg w-96 lg:w-[50vw]',
+        isMinimized ? 'h-12' : (isFullscreen ? 'h-full' : 'h-[600px]')
+      ]"
     >
       <!-- Chat Header -->
       <div
@@ -37,10 +42,13 @@
           <span class="font-semibold text-base">DIY Helper</span>
         </div>
         <div class="flex items-center gap-1">
-          <button @click="toggleMinimize" class="btn btn-ghost btn-xs">
-            <i :class="isMinimized ? 'fa-solid fa-expand' : 'fa-solid fa-minus'"></i>
+          <button @click="toggleFullscreen" class="btn btn-ghost btn-xs" :title="isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'">
+            <i :class="isFullscreen ? 'fa-solid fa-compress' : 'fa-solid fa-expand'"></i>
           </button>
-          <button @click="toggleChat" class="btn btn-ghost btn-xs">
+          <button @click="toggleMinimize" class="btn btn-ghost btn-xs" :title="isMinimized ? 'Expand' : 'Minimize'">
+            <i :class="isMinimized ? 'fa-solid fa-window-maximize' : 'fa-solid fa-minus'"></i>
+          </button>
+          <button @click="toggleChat" class="btn btn-ghost btn-xs" title="Close">
             <i class="fa-solid fa-times"></i>
           </button>
         </div>
@@ -158,6 +166,7 @@
   // Floating chat widget state
   const isExpanded = ref(false);
   const isMinimized = ref(false);
+  const isFullscreen = ref(false);
   const unreadCount = ref(0);
   const shouldWiggle = ref(false);
   const hasEverBeenOpened = ref(false);
@@ -337,6 +346,14 @@
     isMinimized.value = !isMinimized.value;
   }
 
+  function toggleFullscreen() {
+    isFullscreen.value = !isFullscreen.value;
+    // Exit minimize mode when going fullscreen
+    if (isFullscreen.value) {
+      isMinimized.value = false;
+    }
+  }
+
   // Track unread messages
   watch(
     messages,
@@ -363,8 +380,20 @@
     });
   });
 
+  // Handle keyboard shortcuts
+  function handleKeyDown(e: KeyboardEvent) {
+    // Exit fullscreen on Escape key
+    if (e.key === 'Escape' && isFullscreen.value) {
+      e.preventDefault();
+      isFullscreen.value = false;
+    }
+  }
+
   // Focus input on mount
   onMounted(() => {
+    // Add global keyboard event listener
+    document.addEventListener('keydown', handleKeyDown);
+    
     nextTick(() => {
       if (inputRef.value) {
         inputRef.value.focus();
@@ -381,6 +410,11 @@
         }, 3000);
       }
     }, 10000);
+  });
+
+  // Cleanup event listener on unmount
+  onUnmounted(() => {
+    document.removeEventListener('keydown', handleKeyDown);
   });
 </script>
 
