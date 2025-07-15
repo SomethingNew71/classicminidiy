@@ -6,9 +6,7 @@
       v-if="!isExpanded"
       @click="toggleChat"
       class="btn btn-primary btn-circle btn-xl shadow-xl hover:shadow-xl transition-all duration-200 relative"
-      :class="{
-        wiggle: shouldWiggle,
-      }"
+      :class="{ wiggle: shouldWiggle }"
     >
       <i class="fa-solid fa-comments text-xl"></i>
 
@@ -98,23 +96,17 @@
               <!-- Messages -->
               <template v-for="message in messages" :key="message.id">
                 <div class="break-words overflow-wrap-anywhere">
-                  {{ message }}
+                  <!-- {{ message }} -->
                   <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
-                  <AssistantMessage
-                    v-else-if="message.type === 'ai' || message.type === 'tool'"
-                    :message="message"
-                    :is-loading="isLoading"
-                    :hide-tool-calls="hideToolCalls"
-                    @regenerate="handleRegenerate"
-                  />
+                  <AssistantMessage v-else-if="message.type === 'ai'" :message="message" :is-loading="isLoading" />
                 </div>
               </template>
 
-              <!-- Loading Message (only show if no messages or last message is not AI) -->
-              <div v-if="isLoading && shouldShowLoadingBubble" class="break-words overflow-wrap-anywhere">
-                <AssistantMessage :is-loading="true" :hide-tool-calls="hideToolCalls" />
+              <div v-if="isLoading" class="flex h-8 items-center gap-1 rounded-2xl bg-base-200 px-4 py-2">
+                <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50"></div>
+                <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-500"></div>
+                <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-1000"></div>
               </div>
-
               <!-- Useful Links from Tavily Search Results -->
               <UsefulLinks v-if="!isLoading && usefulLinks.length > 0" :links="usefulLinks" />
             </div>
@@ -155,12 +147,11 @@
   import UsefulLinks from './UsefulLinks.vue';
   import { getStarterQuestions } from '~/data/models/pages';
 
-  const { assistantId, threadId, isConfigured, setThreadId } = useStreamProvider();
+  const { assistantId, threadId, isConfigured } = useStreamProvider();
 
   // Reactive state
   const route = useRoute();
   const input = ref('');
-  const hideToolCalls = ref(true);
   const threads = ref<any[]>([]);
   const inputRef = ref<HTMLTextAreaElement>();
 
@@ -309,25 +300,9 @@
     });
   }
 
-  function handleRegenerate(checkpoint: any) {
-    if (!streamContext) return;
-
-    // Implement regeneration logic
-    streamContext.submit({ messages: [] }, { checkpoint, streamMode: ['values'] });
-  }
-
   function stopGeneration() {
     if (streamContext) {
       streamContext.stop();
-    }
-  }
-
-  function startNewThread() {
-    setThreadId(null);
-    input.value = '';
-    // Clear messages when starting new thread
-    if (streamContext) {
-      streamContext.messages.value = [];
     }
   }
 

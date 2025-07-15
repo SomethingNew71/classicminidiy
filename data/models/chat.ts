@@ -62,11 +62,6 @@ export interface UseStreamContextProvider {
   getMessagesMetadata: (message: Message) => any;
 }
 
-// Component Props Interfaces
-export interface ToolCallsProps {
-  toolCalls: ToolCall[];
-}
-
 export interface ThreadHistoryProps {
   threads: Thread[];
   currentThreadId?: string | null;
@@ -75,7 +70,6 @@ export interface ThreadHistoryProps {
 export interface AssistantMessageProps {
   message?: Message;
   isLoading: boolean;
-  hideToolCalls?: boolean;
 }
 
 export interface HumanMessageProps {
