@@ -26,9 +26,6 @@
             </div>
           </div>
           <div class="flex-shrink-0 flex items-center gap-2">
-            <!-- <div class="flex items-center text-primary">
-              <i v-for="n in getRelevanceLevel(link.score)" :key="n" class="fa-solid fa-chevron-right text-xs"></i>
-            </div> -->
             <i class="fa-solid fa-external-link text-xs text-base-content/50"></i>
           </div>
         </div>
@@ -49,16 +46,7 @@
     links: UsefulLink[];
   }
 
-  const props = defineProps<Props>();
-
-  // Convert relevance score to number of chevrons (1-5)
-  const getRelevanceLevel = (score: number): number => {
-    if (score >= 0.9) return 5;
-    if (score >= 0.7) return 4;
-    if (score >= 0.5) return 3;
-    if (score >= 0.3) return 2;
-    return 1;
-  };
+  defineProps<Props>();
 
   // Add UTM parameters to URLs for tracking
   const addUtmParams = (url: string): string => {

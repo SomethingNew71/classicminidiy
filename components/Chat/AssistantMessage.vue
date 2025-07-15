@@ -1,5 +1,5 @@
 <template>
-  <div class="chat chat-start group">
+  <div v-if="message" class="chat chat-start group">
     <div class="chat-image avatar">
       <i class="fa-solid fa-head-side-gear w-10 h-10 text-xl"></i>
     </div>
@@ -7,7 +7,7 @@
       DIY Bot
       <time class="text-xs opacity-50">{{ formatTime(message?.created_at) }}</time>
     </div>
-    <div v-if="isLoading || (message && hasVisibleContent)" class="chat-bubble chat-bubble-primary">
+    <div v-if="(isLoading && !message) || (message && hasVisibleContent)" class="chat-bubble chat-bubble-primary">
       <div class="flex flex-col gap-2">
         <!-- Loading state -->
         <div v-if="isLoading && !message" class="flex h-8 items-center gap-1 rounded-2xl bg-base-200 px-4 py-2">
@@ -106,11 +106,6 @@
             <div
               class="mr-auto flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
             >
-              <button v-if="!isLoading" @click="handleRegenerate" class="btn btn-sm btn-ghost">
-                <i class="fa-solid fa-refresh h-4 w-4" />
-                Regenerate
-              </button>
-
               <button @click="copyToClipboard(contentString)" class="btn btn-sm btn-ghost">
                 <i class="fa-solid fa-copy h-4 w-4" />
                 Copy
@@ -256,12 +251,18 @@
     const hideTC = props.hideToolCalls;
     const toolCallsArray = displayToolCalls.value;
 
-    // Check for tool result content first (takes precedence over general text content)
+    // For tool result messages
     if (isToolRes) {
-      return !hideTC; // Only show if tool calls are not hidden
+      // Show tool results if not hidden AND they have actual content
+      if (!hideTC) {
+        // Check if tool result has meaningful content
+        const toolContent = getContentString(props.message.content);
+        return toolContent && toolContent.trim().length > 0;
+      }
+      return false;
     }
 
-    // Check for regular text content (non-tool-result messages)
+    // For regular AI messages, check for text content
     if (hasContent) {
       return true;
     }
@@ -269,6 +270,11 @@
     // Check for tool calls (only if not hidden and have actual calls)
     if (!hideTC && (hasTC || hasATC)) {
       return toolCallsArray && toolCallsArray.length > 0;
+    }
+
+    // Check for Tavily search results (these should always be visible if present)
+    if (isTavilySearchResult.value) {
+      return tavilyResults.value && tavilyResults.value.length > 0;
     }
 
     return false;
