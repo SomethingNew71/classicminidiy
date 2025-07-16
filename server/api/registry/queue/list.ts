@@ -1,7 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { DateTime } from 'luxon';
-import type { RegistryItem } from '~/data/models/registry';
+import type { RegistryItem } from '../../../../data/models/registry';
 
 const createDynamoDBClient = (config: any) => {
   return DynamoDBDocumentClient.from(

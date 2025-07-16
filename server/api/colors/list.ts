@@ -1,6 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
-import type { Color } from '~/data/models/colors';
+import type { Color } from '../../../data/models/colors';
 
 export default defineEventHandler(async (event): Promise<Color[]> => {
   // Set cache headers - cache for 3 months since color data is relatively static

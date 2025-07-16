@@ -1,8 +1,8 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
-import type { RegistryItem, RegistryQueueSubmissionResponse } from '~/data/models/registry';
+import type { RegistryItem, RegistryQueueSubmissionResponse } from '../../../../data/models/registry';
 import { v5 as uuidv5 } from 'uuid';
-import { RegistryItemStatus } from '~/data/models/registry';
+import { RegistryItemStatus } from '../../../../data/models/registry';
 
 const CMDIY_NAMEPSACE = 'a48a62bf-fec1-4ed7-9381-a1bf2a08738c';
 

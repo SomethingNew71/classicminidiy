@@ -210,8 +210,6 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     // Optimize page load with renderJsonPayloads
     renderJsonPayloads: true,
-    // Improve performance with treeshaking
-    treeshakeClientOnly: true,
   },
 
   /*

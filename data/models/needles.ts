@@ -1,4 +1,4 @@
-import StarterNeedles from '~/data/default-needles.json';
+import StarterNeedles from '../../data/default-needles.json';
 export const chartOptions = {
   chart: { zoomType: 'x' },
   title: { text: 'Needle Comparison Chart' },
