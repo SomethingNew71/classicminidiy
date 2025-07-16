@@ -1,5 +1,5 @@
 import { request } from '@octokit/request';
-import type { GithubRawResponseRelease, IGithubReleaseParsedResponse, ReleaseItem } from '~/data/models/github';
+import type { IGithubReleaseParsedResponse, ReleaseItem } from '../../../data/models/github';
 
 export default defineEventHandler(async (event): Promise<IGithubReleaseParsedResponse> => {
   const config = useRuntimeConfig();

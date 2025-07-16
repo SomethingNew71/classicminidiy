@@ -1,4 +1,4 @@
-import type { IWheelsData } from '~/data/models/wheels';
+import type { IWheelsData } from '../../../../data/models/wheels';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
 import { v5 as uuidv5 } from 'uuid';

@@ -1,6 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
-import { RegistryItemStatus, type RegistryItem } from '~/data/models/registry';
+import { RegistryItemStatus, type RegistryItem } from '../../../../data/models/registry';
 
 export default defineEventHandler(async (event): Promise<void> => {
   const config = useRuntimeConfig();
@@ -42,7 +42,7 @@ export default defineEventHandler(async (event): Promise<void> => {
         },
         UpdateExpression: 'set #itemStatus = :itemStatus',
         ExpressionAttributeNames: {
-          '#itemStatus': 'status'
+          '#itemStatus': 'status',
         },
         ExpressionAttributeValues: {
           ':itemStatus': RegistryItemStatus.APPROVED,

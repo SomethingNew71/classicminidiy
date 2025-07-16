@@ -9,7 +9,7 @@ import {
   type DeleteCommandOutput,
 } from '@aws-sdk/lib-dynamodb';
 import _ from 'lodash';
-import type { IWheelsData } from '~/data/models/wheels';
+import type { IWheelsData } from '../../../../data/models/wheels';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();

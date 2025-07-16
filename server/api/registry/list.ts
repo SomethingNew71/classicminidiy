@@ -1,7 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { DateTime } from 'luxon';
-import type { RegistryItem } from '~/data/models/registry';
+import type { RegistryItem } from '../../../data/models/registry';
 
 export default defineEventHandler(async (event): Promise<RegistryItem[]> => {
   // Set cache headers - cache for 15 minutes since registry data changes occasionally

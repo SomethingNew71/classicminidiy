@@ -1,7 +1,7 @@
 import { GetCommand } from '@aws-sdk/lib-dynamodb';
-import { createDynamoDBClient, APIError } from '~/server/utils/api-utils';
-import { getCached, setCache } from '~/server/utils/cache';
-import type { PrettyColor } from '~/data/models/colors';
+import { createDynamoDBClient, APIError } from '../../../server/utils/api-utils';
+import { getCached, setCache } from '../../../server/utils/cache';
+import type { PrettyColor } from '../../../data/models/colors';
 
 export default defineEventHandler(async (event): Promise<PrettyColor> => {
   const config = useRuntimeConfig();

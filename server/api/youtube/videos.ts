@@ -1,10 +1,5 @@
 import axios from 'axios';
-import type {
-  YoutubeDataResponse,
-  YoutubeThumbnails,
-  YoutubeThumbnailsParsed,
-  YoutubeVideoItemParsed,
-} from '~/data/models/youtube';
+import type { YoutubeDataResponse, YoutubeThumbnails, YoutubeThumbnailsParsed } from '../../../data/models/youtube';
 import * as _ from 'lodash';
 import { DateTime } from 'luxon';
 

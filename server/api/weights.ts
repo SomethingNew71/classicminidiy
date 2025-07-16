@@ -1,5 +1,5 @@
 import specs from '../../data/weights.json';
-import type { Weights } from '~/data/models/weights';
+import type { Weights } from '../../data/models/weights';
 
 export default defineEventHandler((event): Weights => {
   try {

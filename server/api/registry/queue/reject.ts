@@ -1,6 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, UpdateCommand, type DeleteCommandOutput } from '@aws-sdk/lib-dynamodb';
-import { RegistryItemStatus, type RegistryItem } from '~/data/models/registry';
+import { RegistryItemStatus, type RegistryItem } from '../../../../data/models/registry';
 
 export default defineEventHandler(async (event: any): Promise<DeleteCommandOutput> => {
   const config = useRuntimeConfig();

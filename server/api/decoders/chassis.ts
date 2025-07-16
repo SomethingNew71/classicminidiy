@@ -1,4 +1,4 @@
-import { chassisRanges, type ChassisRange } from '~/data/models/decoders';
+import { chassisRanges, type ChassisRange } from '../../../data/models/decoders';
 
 // Test data
 // A-AB1-L/807922 - 1965 - Moke
@@ -356,7 +356,7 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
   if (range.value.number && range.value.number !== '') {
     if (currentIndex < cleanChassisNumber.length) {
       // Skip optional separators (dash or forward slash) before numbers
-      if (currentIndex < cleanChassisNumber.length && /[\-\/]/.test(cleanChassisNumber[currentIndex])) {
+      if (currentIndex < cleanChassisNumber.length && /[\-\/]/.test(cleanChassisNumber[currentIndex] || '')) {
         currentIndex++;
       }
 
@@ -365,7 +365,7 @@ const validateChassisNumber = (chassisNumber: string, range: ChassisRange): Chas
       let tempIndex = currentIndex;
 
       // Extract consecutive digits
-      while (tempIndex < cleanChassisNumber.length && /\d/.test(cleanChassisNumber[tempIndex])) {
+      while (tempIndex < cleanChassisNumber.length && /\d/.test(cleanChassisNumber[tempIndex] || '')) {
         numbersSection += cleanChassisNumber[tempIndex];
         tempIndex++;
       }
