@@ -2,7 +2,7 @@ import Highcharts from 'highcharts';
 import 'highcharts/modules/exporting';
 import 'highcharts/modules/offline-exporting';
 import 'highcharts/modules/accessibility';
-import HighchartsVue, { Chart } from 'highcharts-vue';
+import HighchartsVue from 'highcharts-vue';
 import { getCurrentInstance, onBeforeUnmount } from 'vue';
 
 // Set global Highcharts options for better rendering

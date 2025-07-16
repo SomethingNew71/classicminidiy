@@ -97,7 +97,7 @@
       </div>
       <div class="col-span-12">
         <RegistryTable
-          :items="registryItems"
+          :items="registryItems || []"
           :loading="status === 'pending'"
           :tableHeaders="tableHeaders"
           :defaultPageSize="10"

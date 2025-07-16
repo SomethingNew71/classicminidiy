@@ -89,7 +89,7 @@
       </div>
       <div class="col-span-12">
         <RegistryTable
-          :items="pendingItemsRaw"
+          :items="pendingItemsRaw || []"
           :loading="status === 'pending'"
           :tableHeaders="tableHeaders"
           :defaultPageSize="10"

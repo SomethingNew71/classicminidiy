@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import type { NuxtError } from '#app';
-  const props = defineProps({
+  defineProps({
     error: Object as () => NuxtError,
   });
   const route = useRoute();

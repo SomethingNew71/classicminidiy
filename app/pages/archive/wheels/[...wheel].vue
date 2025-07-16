@@ -11,7 +11,7 @@
     error,
   } = useFetch<IWheelsData>('/api/wheels/wheel', {
     query: {
-      uuid: wheelId.value[0] || 'noWheel',
+      uuid: wheelId.value?.[0] || 'noWheel',
     },
     server: !!wheelId.value?.[0], // Only fetch on server if wheel UUID exists
     default: () => ({}) as IWheelsData, // Provide default value when fetch is skipped
