@@ -39,8 +39,11 @@
 
       try {
         const { data: oldWheel } = await useFetch<IWheelsData>('/api/wheels/wheel', {
-          method: 'GET',
-          query: { uuid: wheel.uuid },
+          query: {
+            uuid: wheel.uuid || 'noWheel',
+          },
+          server: !!wheel.uuid, // Only fetch on server if wheel UUID exists
+          default: () => ({}) as IWheelsData, // Provide default value when fetch is skipped
         });
 
         if (oldWheel.value) {

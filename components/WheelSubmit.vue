@@ -69,8 +69,10 @@
   if (!props.newWheel) {
     await useFetch(`/api/wheels/wheel`, {
       query: {
-        uuid: props.uuid,
+        uuid: props.uuid || 'noWheel',
       },
+      server: !!props.uuid, // Only fetch on server if wheel UUID exists
+      default: () => ({}) as IWheelsData, // Provide default value when fetch is skipped
     })
       .then(({ data }) => {
         wheel.value = data.value;
