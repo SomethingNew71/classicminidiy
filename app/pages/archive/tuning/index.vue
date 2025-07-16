@@ -7,7 +7,7 @@
     TRACKING_EVENTS,
     trackStuff,
   } from '../../../../data/models/helper-utils';
-  const { path } = await useRoute();
+  const { path } = useRoute();
   const archiveType = determineArchiveType(path);
   const { data: tuning, status } = await useAsyncData(() => queryCollection('tuning').all());
 

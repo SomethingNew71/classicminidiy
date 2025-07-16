@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '../../data/models/generic';
   import { determineArchiveType, shareArchiveItem, submitArchiveFile } from '../../data/models/helper-utils';
-  const { path, fullPath } = await useRoute();
+  const { path, fullPath } = useRoute();
   const crumbs = ref([
     {
       title: 'Archive',

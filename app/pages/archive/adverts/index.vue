@@ -7,7 +7,7 @@
     TRACKING_EVENTS,
     trackStuff,
   } from '../../../../data/models/helper-utils';
-  const { path } = await useRoute();
+  const { path } = useRoute();
   const archiveType = determineArchiveType(path);
   const { data: adverts, status } = await useAsyncData(() => queryCollection('adverts').all());
 
@@ -16,23 +16,6 @@
     const k2 = b.download === null ? 0 : 2;
     return k2 - k1;
   });
-
-  const crumbs = ref([
-    {
-      title: 'Home',
-      disabled: false,
-      href: '/',
-    },
-    {
-      title: 'Archive',
-      disabled: false,
-      href: '/archive',
-    },
-    {
-      title: 'Advertisments',
-      disabled: true,
-    },
-  ]);
 
   useHead({
     title: 'Classic Mini Archive - Advertisments',
