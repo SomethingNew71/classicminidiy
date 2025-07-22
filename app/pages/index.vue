@@ -184,6 +184,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Floating Chat Input -->
+  <FloatingChatInput />
   <SpeedInsights />
 </template>
 
