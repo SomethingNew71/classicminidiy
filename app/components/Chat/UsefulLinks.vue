@@ -6,7 +6,7 @@
     </div>
     <div class="space-y-2">
       <a
-        v-for="(link, index) in links"
+        v-for="(link, index) in links.slice(0, 3)"
         :key="index"
         :href="addUtmParams(link.url)"
         target="_blank"

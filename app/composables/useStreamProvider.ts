@@ -1,4 +1,5 @@
 import type { Message, UseStreamContextProvider } from '../../data/models/chat';
+import { usePersistentThread } from './usePersistentThread';
 
 // Injection key for stream context
 const StreamContextKey: InjectionKey<UseStreamContextProvider> = Symbol('StreamContext');
@@ -7,18 +8,42 @@ const StreamContextKey: InjectionKey<UseStreamContextProvider> = Symbol('StreamC
 export function useStreamProvider() {
   // Configuration state
   const assistantId = ref(process.env.NUXT_PUBLIC_LANGGRAPH_ASSISTANT_ID || 'agent');
-  const threadId = ref<string | null>(null);
   const isConfigured = computed(() => !!assistantId.value);
 
+  // Use persistent thread management
+  const persistentThread = usePersistentThread();
+
+  // Thread ID comes from persistent storage
+  const threadId = computed(() => persistentThread.currentThreadId.value);
+
   const setThreadId = (id: string | null) => {
-    threadId.value = id;
+    if (id) {
+      // Persist the new thread ID
+      persistentThread.persistThread(id);
+    } else {
+      // Clear the persisted thread
+      persistentThread.clearPersistedThread();
+    }
+  };
+
+  const createNewThread = () => {
+    persistentThread.createNewThread();
+  };
+
+  const updateThreadUsage = (messageCount?: number) => {
+    persistentThread.updateThreadUsage(messageCount);
   };
 
   return {
     assistantId: readonly(assistantId),
     threadId: readonly(threadId),
     isConfigured,
+    isThreadLoaded: persistentThread.isThreadLoaded,
+    isThreadExpired: persistentThread.isThreadExpired,
     setThreadId,
+    createNewThread,
+    updateThreadUsage,
+    getThreadData: persistentThread.getThreadData,
   };
 }
 
@@ -32,33 +57,59 @@ export function createStreamSession(
   const isLoading = ref(false);
   const currentThreadId = ref<string | null>(threadId);
 
+  // Track message count for thread persistence
+  const messageCount = computed(() => messages.value.length);
+
   // Transform API URL for our Nuxt proxy
   const proxyApiUrl = '/api/langgraph';
+
+  // Load historical messages if thread exists
+  const loadThreadHistory = async () => {
+    if (!currentThreadId.value) return;
+
+    try {
+      const endpoint = `${proxyApiUrl}/threads/${currentThreadId.value}/state`;
+      const response = await fetch(endpoint, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        const threadState = await response.json();
+        if (threadState && threadState.values && threadState.values.messages) {
+          const threadMessages = threadState.values.messages;
+          if (Array.isArray(threadMessages) && threadMessages.length > 0) {
+            messages.value = threadMessages;
+          }
+        }
+      } else {
+        console.warn('Failed to load thread history:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.warn('Error loading thread history:', error);
+    }
+  };
+
+  // Load history when session is created with existing thread
+  if (currentThreadId.value) {
+    loadThreadHistory();
+  }
 
   const submit = async (input: any, options: any = {}) => {
     isLoading.value = true;
 
     try {
-      // Use the correct LangGraph API endpoint structure
-      // Based on LangGraph SDK: client.runs.stream(thread_id, assistant_id, options)
-      // The URL should include both thread_id and assistant_id
       const threadIdForUrl = currentThreadId.value || 'new';
       const endpoint = `${proxyApiUrl}/threads/${threadIdForUrl}/runs/stream`;
-
-      // Prepare the request payload to match LangGraph SDK format
-      // The SDK expects: client.runs.stream(thread_id, assistant_id, options)
       const payload: any = {
         assistant_id: assistantId,
         input: input,
         stream_mode: options.streamMode || ['values'],
       };
 
-      // Add metadata if provided in options
       if (options.metadata) {
         payload.metadata = options.metadata;
       }
-
-      // Add config if checkpoint is provided
       if (options.checkpoint) {
         payload.config = {
           configurable: {
@@ -96,22 +147,15 @@ export function createStreamSession(
             if (line.startsWith('data: ')) {
               const dataContent = line.slice(6);
 
-              // Handle the [DONE] signal
               if (dataContent === '[DONE]') {
                 break;
               }
-
-              // Accumulate data content
               dataBuffer += dataContent;
-
-              // Try to parse the accumulated data
               try {
                 const data = JSON.parse(dataBuffer);
                 handleStreamEvent(data, options);
                 dataBuffer = ''; // Reset buffer after successful parse
               } catch (e) {
-                // If parsing fails, it might be incomplete JSON, continue accumulating
-                // Only log error if the buffer is getting too large (likely a real error)
                 if (dataBuffer.length > 50000) {
                   console.error(
                     'Failed to parse stream data after accumulating:',
@@ -123,7 +167,6 @@ export function createStreamSession(
                 }
               }
             } else if (line.trim() === '') {
-              // Empty line might indicate end of a data block, try parsing accumulated data
               if (dataBuffer) {
                 try {
                   const data = JSON.parse(dataBuffer);
@@ -131,6 +174,7 @@ export function createStreamSession(
                   dataBuffer = ''; // Reset buffer after successful parse
                 } catch (e) {
                   // Still incomplete, continue accumulating
+                  console.error('Failed to parse stream data:', e);
                 }
               }
             }
@@ -145,9 +189,7 @@ export function createStreamSession(
   };
 
   function handleStreamEvent(event: any, options: any) {
-    // Handle different event types from LangGraph streaming
     if (event.event === 'thread_id') {
-      // Update the current thread ID
       const newThreadId = event.data?.thread_id;
       if (newThreadId) {
         const wasNewThread = !currentThreadId.value;

@@ -4,8 +4,8 @@
     <div class="mb-1">
       <h1 class="text-3xl font-bold text-base-content mb-2">CMDIY Assistant</h1>
       <p class="text-base-content/70">
-        Your Classic Mini DIY assistant - ask technical questions, decode chassis numbers, find parts information, and
-        get guidance on restoration projects.
+        Your Classic Mini DIY assistant - ask technical questions, find parts information, and get guidance on
+        restoration projects. Or just chat with me about your Classic Mini!
       </p>
     </div>
 

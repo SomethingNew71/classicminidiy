@@ -46,7 +46,7 @@
           >
         </li>
         <li>
-          <nuxt-link to="/chat" :class="{ active: isActive('/chat') }">
+          <nuxt-link to="/chat" class="btn btn-primary" :class="{ active: isActive('/chat') }">
             <span><i class="fad fa-comments"></i></span> Chat</nuxt-link
           >
         </li>
