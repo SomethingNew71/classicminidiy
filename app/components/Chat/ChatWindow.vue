@@ -1,92 +1,97 @@
 <template>
   <!-- Chat Interface -->
   <div class="flex flex-col h-full bg-base-100">
-    <!-- Chat Header -->
-    <div class="flex items-center justify-between p-4 border-b border-base-300">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-comments text-primary text-xl"></i>
-        <div>
-          <h2 class="font-semibold text-lg">DIY Helper</h2>
-          <p class="text-sm text-base-content/70">Classic Mini Assistant</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <button
-          v-if="streamContext?.threadId"
-          @click="startNewThread"
-          class="btn btn-outline btn-sm"
-          title="Start New Conversation"
-        >
-          <i class="fa-solid fa-plus"></i>
-          New Chat
-        </button>
-        <div class="dropdown dropdown-end">
-          <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+    <!-- Welcome Banner (shown when chat is empty) -->
+    <div v-if="isChatEmpty && !isLoading" class="flex-1 flex items-center justify-center px-4">
+      <div class="max-w-2xl mx-auto text-center space-y-6">
+        <!-- Welcome Message -->
+        <div class="card bg-primary/10 border border-primary/20">
+          <div class="card-body p-6">
+            <div class="flex flex-col items-center gap-4">
+              <i class="fa-solid fa-comments text-primary text-4xl"></i>
+              <div>
+                <h3 class="font-semibold text-xl mb-3 text-primary">Welcome to CMDIY Assistant!</h3>
+                <p class="text-base text-base-content/80 leading-relaxed">
+                  I'm your Classic Mini DIY assistant, here to help you with technical questions, decode chassis
+                  numbers, find parts information, navigate the archives, and provide guidance on Classic Mini
+                  restoration and maintenance. Ask me anything about your Classic Mini project!
+                </p>
+              </div>
+            </div>
           </div>
-          <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            <li>
-              <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report" class="flex items-center gap-2">
-                <i class="fa-solid fa-envelope text-sm"></i>
-                Report Issue
-              </a>
-            </li>
-          </ul>
+        </div>
+
+        <!-- Starter Questions -->
+        <div v-if="starterQuestions.length > 0" class="space-y-3">
+          <h4 class="text-sm font-medium text-base-content/70 uppercase tracking-wide">Quick Start</h4>
+          <div class="grid gap-2">
+            <button
+              v-for="question in starterQuestions.slice(0, 4)"
+              :key="question"
+              @click="handleStarterQuestion(question)"
+              class="btn btn-outline btn-sm text-left justify-start hover:btn-primary transition-colors"
+            >
+              {{ question }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Centered Input Area (when chat is empty) -->
+        <div class="w-full max-w-2xl">
+          <form @submit.prevent="handleSubmit" class="relative">
+            <div class="flex items-end gap-3 bg-base-200 rounded-2xl p-3 shadow-sm border border-base-300">
+              <textarea
+                ref="inputRef"
+                v-model="input"
+                @keydown="handleInputKeyDown"
+                placeholder="Type your message..."
+                class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
+                rows="1"
+              ></textarea>
+
+              <button
+                v-if="isLoading"
+                @click="stopGeneration"
+                type="button"
+                class="btn btn-circle btn-sm btn-error flex-shrink-0"
+              >
+                <i class="fa-solid fa-stop"></i>
+              </button>
+
+              <button
+                v-else
+                type="submit"
+                class="btn btn-circle btn-sm btn-primary flex-shrink-0"
+                :disabled="!input.trim()"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+
+          <!-- Report Issue Link Below Centered Input -->
+          <div class="flex justify-center mt-3">
+            <a
+              href="mailto:support@classicminidiy.com?subject=Chat Issue Report"
+              class="text-sm text-base-content/60 hover:text-base-content/80 flex items-center gap-2 transition-colors"
+            >
+              <i class="fa-solid fa-envelope text-xs"></i>
+              Report Issue
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Chat Content -->
-    <div class="flex flex-1 overflow-hidden relative">
+    <!-- Chat Content (shown when messages exist) -->
+    <div v-else class="flex flex-1 overflow-hidden relative">
       <div class="flex flex-1 flex-col">
         <!-- Messages Area -->
         <div ref="messagesContainer" class="flex-1 overflow-y-auto px-4 py-6" @scroll="handleScroll">
           <div class="space-y-4 break-words max-w-none">
-            <!-- Welcome Message & Starter Questions (shown when chat is empty) -->
-            <div v-if="isChatEmpty && !isLoading" class="space-y-4">
-              <!-- Welcome Message -->
-              <div class="card bg-primary/10 border border-primary/20">
-                <div class="card-body p-4">
-                  <div class="flex items-start gap-3">
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-base mb-2 text-primary">Welcome to CMDIY Helper Bot!</h3>
-                      <p class="text-sm text-base-content/80 leading-relaxed">
-                        I'm your Classic Mini DIY assistant, here to help you with technical questions, decode chassis
-                        numbers, find parts information, navigate the archives, and provide guidance on Classic Mini
-                        restoration and maintenance. Ask me anything about your Classic Mini project!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Starter Questions -->
-              <div v-if="starterQuestions.length > 0" class="space-y-3">
-                <div class="text-center">
-                  <div class="text-sm text-base-content/70 mb-3">
-                    <i class="fa-solid fa-lightbulb text-primary mr-1"></i>
-                    Here are some questions to get you started:
-                  </div>
-                </div>
-                <div class="grid gap-2">
-                  <button
-                    v-for="(question, index) in starterQuestions"
-                    :key="index"
-                    @click="handleStarterQuestion(question)"
-                    class="btn btn-outline btn-sm text-left justify-start h-auto py-3 px-4 whitespace-normal text-wrap"
-                    :disabled="isLoading"
-                  >
-                    <i class="fa-solid fa-comment-dots text-primary mr-2 flex-shrink-0"></i>
-                    <span class="text-sm leading-relaxed">{{ question }}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
             <!-- Messages -->
             <template v-for="message in messages" :key="message.id">
               <div class="break-words overflow-wrap-anywhere">
-                <!-- {{ message }} -->
                 <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
                 <AssistantMessage v-else-if="message.type === 'ai'" :message="message" :is-loading="isLoading" />
               </div>
@@ -114,8 +119,8 @@
       </div>
     </div>
 
-    <!-- Floating Input Area -->
-    <div class="p-4 bg-base-100">
+    <!-- Floating Input Area (when messages exist) -->
+    <div v-if="!isChatEmpty || isLoading" class="p-4 bg-base-100">
       <form @submit.prevent="handleSubmit" class="relative">
         <div class="flex items-end gap-3 bg-base-200 rounded-2xl p-3 shadow-sm border border-base-300">
           <textarea
@@ -146,6 +151,17 @@
           </button>
         </div>
       </form>
+
+      <!-- Report Issue Link Below Chat -->
+      <div class="flex justify-center mt-3">
+        <a
+          href="mailto:support@classicminidiy.com?subject=Chat Issue Report"
+          class="text-sm text-base-content/60 hover:text-base-content/80 flex items-center gap-2 transition-colors"
+        >
+          <i class="fa-solid fa-envelope text-xs"></i>
+          Report Issue
+        </a>
+      </div>
     </div>
   </div>
 </template>
