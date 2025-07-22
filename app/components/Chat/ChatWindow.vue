@@ -173,7 +173,8 @@
   import UsefulLinks from './UsefulLinks.vue';
   import { getStarterQuestions } from '../../../data/models/pages';
 
-  const { assistantId, threadId, isConfigured } = useStreamProvider();
+  const { assistantId, threadId, isConfigured, isThreadLoaded, setThreadId, updateThreadUsage, getThreadData } =
+    useStreamProvider();
 
   // Reactive state
   const route = useRoute();
@@ -187,9 +188,23 @@
     return getStarterQuestions(route.path) || [];
   });
 
-  // Check if chat is empty (no messages)
+  // Check if chat is empty (no messages and no persisted thread)
   const isChatEmpty = computed(() => {
-    return !streamContext?.messages.value || streamContext.messages.value.length === 0;
+    // If we have messages in the current context, chat is not empty
+    if (streamContext?.messages.value && streamContext.messages.value.length > 0) {
+      return false;
+    }
+
+    // If we have a persisted thread with messages, chat is not empty
+    if (threadId.value && isThreadLoaded.value) {
+      const threadData = getThreadData();
+      if (threadData && threadData.messageCount > 0) {
+        return false;
+      }
+    }
+
+    // Otherwise, chat is empty
+    return true;
   });
 
   // Extract useful links from Tavily search results in the current conversation
@@ -246,10 +261,17 @@
 
   // Create stream session when configuration is ready
   watch(
-    [isConfigured, assistantId, threadId],
+    [isConfigured, assistantId, isThreadLoaded],
     () => {
-      if (isConfigured.value) {
-        streamContext = createStreamSession(assistantId.value, threadId.value);
+      if (isConfigured.value && isThreadLoaded.value && !streamContext) {
+        streamContext = createStreamSession(
+          assistantId.value,
+          threadId.value,
+          // Callback when new thread is created
+          (newThreadId: string) => {
+            setThreadId(newThreadId);
+          }
+        );
         provideStreamContext(streamContext);
       }
     },
@@ -285,6 +307,9 @@
         metadata,
       }
     );
+
+    // Update thread usage after submitting a message
+    updateThreadUsage();
   }
 
   function handleInputKeyDown(e: KeyboardEvent) {
