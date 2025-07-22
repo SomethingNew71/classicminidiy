@@ -388,9 +388,42 @@
     { deep: true }
   );
 
-  // Focus input on mount
+  // Handle pre-populated message from query parameter
+  const hasAutoSubmitted = ref(false);
+
+  // Watch for stream context to be ready, then auto-submit if needed
+  watch(
+    () => streamContext?.messages,
+    () => {
+      const queryMessage = route.query.message;
+      if (
+        !hasAutoSubmitted.value &&
+        queryMessage &&
+        typeof queryMessage === 'string' &&
+        queryMessage.trim() &&
+        streamContext &&
+        isConfigured.value
+      ) {
+        hasAutoSubmitted.value = true;
+        input.value = queryMessage.trim();
+
+        // Wait a bit more to ensure everything is fully initialized
+        nextTick(() => {
+          setTimeout(() => {
+            if (streamContext && input.value.trim()) {
+              console.log('Auto-submitting message from homepage:', input.value);
+              handleSubmit();
+            }
+          }, 100);
+        });
+      }
+    },
+    { immediate: true }
+  );
+
   onMounted(() => {
     nextTick(() => {
+      // Just focus and scroll, auto-submission is handled by the watcher above
       if (inputRef.value) {
         inputRef.value.focus();
       }
