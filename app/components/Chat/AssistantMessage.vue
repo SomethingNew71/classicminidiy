@@ -1,39 +1,26 @@
 <template>
-  <div v-if="message" class="chat chat-start group">
-    <div class="chat-image avatar">
-      <i class="fa-solid fa-head-side-gear w-10 h-10 text-xl"></i>
+  <div v-if="message" class="mb-6 group">
+    <!-- Loading state -->
+    <div v-if="isLoading && !message" class="flex items-center gap-2 text-base-content/70 mb-2">
+      <div class="flex items-center gap-1">
+        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50"></div>
+        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-500"></div>
+        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-1000"></div>
+      </div>
     </div>
-    <div class="chat-header">
-      DIY Bot
-      <time class="text-xs opacity-50">{{ formatTime(message?.created_at) }}</time>
-    </div>
-    <div v-if="(isLoading && !message) || (message && hasVisibleContent)" class="chat-bubble chat-bubble-primary">
-      <div class="flex flex-col gap-2">
-        <!-- Loading state -->
-        <div v-if="isLoading && !message" class="flex h-8 items-center gap-1 rounded-2xl bg-base-200 px-4 py-2">
-          <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50"></div>
-          <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-500"></div>
-          <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-1000"></div>
-        </div>
 
-        <!-- Message content -->
-        <div
-          v-else-if="message && !isToolResult && contentString.trim().length > 0"
-          class="mr-auto w-fit rounded-3xl bg-primary/10 px-4 py-2"
-        >
-          <MarkdownText :content="contentString" />
-        </div>
-      </div>
+    <!-- Message content -->
+    <div v-else-if="message && !isToolResult && contentString.trim().length > 0" class="">
+      <MarkdownText :content="contentString" />
     </div>
-    <div class="chat-footer opacity-50">
-      <div
-        class="flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
-      >
-        <button @click="copyToClipboard(contentString)" class="btn btn-sm btn-ghost">
-          <i class="fa-solid fa-copy h-4 w-4" />
-          Copy
-        </button>
-      </div>
+
+    <!-- Copy button (appears on hover) -->
+    <div class="flex items-center gap-2 mt-2 opacity-0 transition-opacity group-hover:opacity-100">
+      <button @click="copyToClipboard(contentString)" class="btn btn-xs btn-ghost text-base-content/50">
+        <i class="fa-solid fa-copy h-3 w-3" />
+        Copy
+      </button>
+      <time v-if="message?.created_at" class="text-xs text-base-content/50">{{ formatTime(message?.created_at) }}</time>
     </div>
   </div>
 </template>

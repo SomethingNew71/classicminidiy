@@ -25,7 +25,7 @@
     <VitePwaManifest />
     <Analytics />
     <SpeedInsights />
-    <ChatWindow />
+
   </div>
 </template>
 
