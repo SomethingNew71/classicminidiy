@@ -45,6 +45,11 @@
             <span><i class="fad fa-toolbox"></i></span> Toolbox</nuxt-link
           >
         </li>
+        <li>
+          <nuxt-link to="/chat" :class="{ active: isActive('/chat') }">
+            <span><i class="fad fa-comments"></i></span> Chat</nuxt-link
+          >
+        </li>
       </ul>
       <a class="btn donate" href="https://patreon.com/classicminidiy"> <i class="fab fa-patreon"></i>Join CMDIY</a>
     </div>
@@ -79,6 +84,11 @@
           <li>
             <nuxt-link to="/technical" :class="{ active: isActive('/technical') }">
               <span><i class="fad fa-toolbox"></i></span> Toolbox</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link to="/chat" :class="{ active: isActive('/chat') }">
+              <span><i class="fad fa-comments"></i></span> Chat</nuxt-link
             >
           </li>
         </ul>

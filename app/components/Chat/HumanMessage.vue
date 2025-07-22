@@ -1,26 +1,18 @@
 <template>
-  <div class="chat chat-end group">
-    <div class="chat-image avatar">
-      <i class="fa-solid fa-circle-user w-10 h-10 text-xl"></i>
-    </div>
-    <div class="chat-header">You</div>
+  <div class="mb-6 group flex justify-end">
     <!-- Message content -->
-    <div v-if="contentString" class="chat-bubble">
+    <div v-if="contentString" class="bg-primary text-primary-content rounded-2xl px-4 py-3 max-w-[80%] ml-auto">
       <div class="whitespace-pre-wrap">
         {{ contentString }}
       </div>
     </div>
 
     <!-- Action buttons (shown on hover) -->
-    <div class="chat-footer opacity-50">
-      <div
-        class="flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
-      >
-        <button @click="copyToClipboard(contentString)" class="btn btn-sm btn-ghost">
-          <i class="fa-solid fa-copy h-4 w-4" />
-          Copy
-        </button>
-      </div>
+    <div class="flex items-center gap-2 mt-2 opacity-0 transition-opacity group-hover:opacity-100 justify-end">
+      <button @click="copyToClipboard(contentString)" class="btn btn-xs btn-ghost text-base-content/50">
+        <i class="fa-solid fa-copy h-3 w-3" />
+        Copy
+      </button>
     </div>
   </div>
 </template>
