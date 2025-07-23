@@ -43,7 +43,7 @@
     "@types/youtube": "^0.1.2",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "axios": "^1.10.0",
+    "axios": "^1.11.0",
     "better-sqlite3": "^12.2.0",
     "core-js": "^3.44.0",
     "daisyui": "^5.0.46",
