@@ -1,6 +1,17 @@
 <template>
   <!-- Chat Interface -->
   <div class="flex flex-col h-full bg-base-100">
+    <!-- Experimental Disclaimer (always visible) -->
+    <div class="bg-warning/10 border-b border-warning/20 px-4 py-2">
+      <div class="flex items-start gap-3">
+        <i class="fa-solid fa-triangle-exclamation text-warning text-sm mt-0.5 flex-shrink-0"></i>
+        <div class="text-sm text-base-content/80">
+          <strong class="text-warning">Experimental Feature:</strong> This AI assistant is in beta and should not be
+          used as your only source of technical information. Always verify critical information with official
+          documentation, qualified mechanics, or experienced Classic Mini enthusiasts.
+        </div>
+      </div>
+    </div>
     <!-- Welcome Banner (shown when chat is empty) -->
     <div v-if="isChatEmpty && !isLoading" class="flex-1 flex items-center justify-center px-4">
       <div class="max-w-2xl mx-auto text-center space-y-6">
