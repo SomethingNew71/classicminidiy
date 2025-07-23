@@ -61,6 +61,33 @@
   const YARDS_IN_MILE = 1760;
   const MM_IN_YARD = 914.4;
 
+  // Computed properties for metric conversion of "per Mile" values
+  const displayEngineRevs = computed(() => {
+    if (!speedoDetails.value.engineRevsMile) return '---';
+    const value = metric.value
+      ? Math.round(speedoDetails.value.engineRevsMile / kphFactor)
+      : speedoDetails.value.engineRevsMile;
+    return value.toString();
+  });
+
+  const displayGearTurns = computed(() => {
+    if (!speedoDetails.value.turnsPerMile) return '---';
+    const value = metric.value
+      ? Math.round(speedoDetails.value.turnsPerMile / kphFactor)
+      : speedoDetails.value.turnsPerMile;
+    return value.toString();
+  });
+
+  const displayTireTurns = computed(() => {
+    if (!tireInfo.value.tireTurnsPerMile) return '---';
+    const value = metric.value
+      ? Math.round(tireInfo.value.tireTurnsPerMile / kphFactor)
+      : tireInfo.value.tireTurnsPerMile;
+    return value.toString();
+  });
+
+  const distanceUnit = computed(() => (metric.value ? 'Km' : 'Mile'));
+
   function calculateTireDetails() {
     tireInfo.value.width = tire_type.value.width;
     tireInfo.value.profile = tire_type.value.profile;
@@ -295,19 +322,23 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="card bg-stone-400 shadow-sm">
         <div class="card-body text-center">
-          <h3 class="text-lg text-white opacity-70">Revolutions per/Mile</h3>
-          <p class="text-3xl text-white font-bold">{{ speedoDetails.engineRevsMile || '---' }}</p>
+          <h3 class="text-lg text-white opacity-70">
+            <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin"></i> Revolutions per/{{ distanceUnit }}
+          </h3>
+          <p class="text-3xl text-white font-bold">{{ displayEngineRevs }}</p>
         </div>
       </div>
       <div class="card bg-secondary shadow-sm">
         <div class="card-body text-center">
-          <h3 class="text-lg text-white opacity-70">Turns per/Mile</h3>
-          <p class="text-3xl text-white font-bold">{{ speedoDetails.turnsPerMile || '---' }}</p>
+          <h3 class="text-lg text-white opacity-70">
+            <i class="fa-jelly-duo fa-regular fa-arrow-rotate-right fa-spin"></i> Gear Turns per/{{ distanceUnit }}
+          </h3>
+          <p class="text-3xl text-white font-bold">{{ displayGearTurns }}</p>
         </div>
       </div>
       <div class="card bg-primary shadow-sm">
         <div class="card-body text-center">
-          <h3 class="text-lg text-white opacity-70">Top Speed</h3>
+          <h3 class="text-lg text-white opacity-70"><i class="fa-jelly-duo fa-regular fa-gauge"></i> Top Speed</h3>
           <p class="text-3xl text-white font-bold">{{ topSpeed || '---' }}</p>
         </div>
       </div>
@@ -316,38 +347,42 @@
     <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-4">
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">Tire Width</h3>
+          <h3 class="text-sm opacity-70"><i class="fa-jelly-duo fa-regular fa-arrow-down-to-line"></i> Tire Width</h3>
           <p class="text-lg font-bold">{{ tireInfo.width || '---' }}mm</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">Tire Profile</h3>
+          <h3 class="text-sm opacity-70"><i class="fa-jelly fa-regular fa-circle"></i> Tire Profile</h3>
           <p class="text-lg font-bold">{{ tireInfo.profile || '---' }}%</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">Tire Size</h3>
+          <h3 class="text-sm opacity-70"><i class="fa-jelly-duo fa-regular fa-expand"></i> Tire Size</h3>
           <p class="text-lg font-bold">{{ tireInfo.size || '---' }}"</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">Tire Diameter</h3>
+          <h3 class="text-sm opacity-70">
+            <i class="fa-jelly-duo fa-regular fa-arrow-right-to-bracket"></i> Tire Diameter
+          </h3>
           <p class="text-lg font-bold">{{ tireInfo.diameter || '---' }}mm</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">Circumference</h3>
+          <h3 class="text-sm opacity-70"><i class="fa-jelly-duo fa-regular fa-circle"></i> Circumference</h3>
           <p class="text-lg font-bold">{{ tireInfo.circ || '---' }}mm</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">Turns Per Mile</h3>
-          <p class="text-lg font-bold">{{ tireInfo.tireTurnsPerMile || '---' }}</p>
+          <h3 class="text-sm opacity-70">
+            <i class="fa-duotone fa-solid fa-tire fa-spin"></i> Tire Turns per/{{ distanceUnit }}
+          </h3>
+          <p class="text-lg font-bold">{{ displayTireTurns }}</p>
         </div>
       </div>
     </div>
