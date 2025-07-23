@@ -237,13 +237,15 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="card bg-secondary shadow-sm">
           <div class="card-body text-center text-white">
-            <h3 class="text-lg opacity-70">Compression Ratio</h3>
+            <h3 class="text-lg opacity-70">
+              <i class="fa-jelly-duo fa-regular fa-compress fa-beat"></i> Compression Ratio
+            </h3>
             <p class="text-3xl font-bold">{{ ratio || '?' }}</p>
           </div>
         </div>
         <div class="card bg-primary shadow-sm">
           <div class="card-body text-center text-white">
-            <h3 class="text-lg opacity-70">Engine Capacity</h3>
+            <h3 class="text-lg opacity-70"><i class="fa-duotone fa-solid fa-fill"></i> Engine Capacity</h3>
             <p class="text-3xl font-bold">{{ capacity || '?' }}</p>
           </div>
         </div>

@@ -80,41 +80,35 @@
     <div class="grid grid-cols-1 gap-4">
       <div class="col-span-1 text-center">
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" root></breadcrumb>
+        <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
+        <h3 class="fancy-font-bold text-2xl">The Technical Toolbox</h3>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-        <div class="col-span-1 md:col-span-4">
-          <div class="card bg-base-100 shadow-xl">
-            <div class="card-title p-4 bg-primary text-primary-content">
-              <h2 class="text-xl">Toolbox</h2>
-            </div>
-            <div class="card-body p-0">
-              <ul class="menu bg-base-100 w-full">
-                <li v-for="item in ToolboxItems" :key="item.title">
-                  <NuxtLink :to="item.to" class="flex items-center p-3">
-                    <span class="text-2xl mr-3" v-html="item.iconHtml"></span>
-                    <span class="text-base">{{ item.title }}</span>
-                  </NuxtLink>
-                </li>
-              </ul>
-            </div>
+      <div class="col-span-1 text-center">
+        <p class="text-lg py-5">
+          One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
+          So to make this easier for you, I have collected technical information from various sources and consolidated
+          it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and
+          troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need
+          is at your fingertips.
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-10">
+      <div v-for="tool in ToolboxItems" class="col-span-1">
+        <NuxtLink :to="tool.to" class="card bg-base-100 shadow-xl text-center p-5 h-full">
+          <span class="text-4xl block" v-html="tool.iconHtml"> </span>
+          <div class="card-body p-2">
+            <p class="text-lg">{{ tool.title }}</p>
           </div>
-        </div>
-        <div class="col-span-1 md:col-span-8">
-          <h3 class="fancy-font-bold text-2xl">Technical Information for the DIY Mechanic</h3>
-          <p class="text-lg py-5">
-            One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
-            So to make this easier for you, I have collected technical information from various sources and consolidated
-            it right here on classicminidiy.com.
-          </p>
-          <div class="grid grid-cols-12 gap-4 mt-6">
-            <div class="col-span-12 md:col-span-10 md:col-start-2">
-              <div class="divider">Support</div>
-            </div>
-            <div class="col-span-12">
-              <patreon-card size="large" />
-            </div>
-          </div>
-        </div>
+        </NuxtLink>
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-4 mt-6">
+      <div class="col-span-12 md:col-span-10 md:col-start-2">
+        <div class="divider">Support</div>
+      </div>
+      <div class="col-span-12">
+        <patreon-card size="large" />
       </div>
     </div>
   </div>
