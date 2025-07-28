@@ -1,13 +1,46 @@
 # Classic Mini DIY MCP Server
 
-This directory contains the Model Context Protocol (MCP) server implementation for Classic Mini DIY calculators. This allows LLMs to access the compression ratio and gearbox calculators through standardized MCP endpoints.
+Model Context Protocol (MCP) server providing Classic Mini calculator tools for LLMs.
 
 ## Overview
 
-The MCP server exposes two main calculator tools:
+This MCP server exposes two main calculator tools:
+- **Compression Calculator**: Calculate compression ratio and engine capacity
+- **Gearbox Calculator**: Calculate gear ratios, top speed, and speedometer compatibility
 
-1. **Compression Calculator** - Calculate compression ratio and engine capacity
-2. **Gearbox Calculator** - Calculate gear ratios, top speed, and speedometer compatibility
+## Authentication
+
+**All MCP endpoints require authentication via API key.**
+
+### API Key Setup
+
+1. **Environment Variables**: Set one of the following:
+   ```bash
+   # Single API key
+   MCP_API_KEY=your-secure-api-key
+
+   # Multiple API keys (comma-separated)
+   MCP_API_KEYS=key1,key2,key3
+   ```
+
+2. **Development Mode**: In development, a default key is available:
+   ```
+   dev-mcp-key-classic-mini-diy
+   ```
+
+### Usage
+
+Include the API key in the Authorization header:
+```bash
+Authorization: Bearer your-api-key
+```
+
+### Security Notes
+
+- API keys should be kept secure and not exposed in client-side code
+- Use environment variables to manage keys
+- Rotate keys regularly for production use
+- Each LLM integration should have its own unique API key
 
 ## Endpoints
 

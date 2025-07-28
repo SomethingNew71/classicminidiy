@@ -3,6 +3,8 @@
  * Provides compression ratio and gearbox calculation tools for LLMs
  */
 
+import { requireMcpAuth } from '../../utils/mcpAuth';
+
 export default defineEventHandler(async (event) => {
   const method = event.method;
   const url = getRequestURL(event);
@@ -17,6 +19,9 @@ export default defineEventHandler(async (event) => {
   if (method === 'OPTIONS') {
     return new Response(null, { status: 200 });
   }
+
+  // Require authentication for all MCP endpoints
+  requireMcpAuth(event);
 
   try {
     // MCP Server Info endpoint
