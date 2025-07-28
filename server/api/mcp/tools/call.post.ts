@@ -3,6 +3,8 @@
  * Handles tool execution requests from MCP clients
  */
 
+import { requireMcpAuth } from '../../../utils/mcpAuth';
+
 export default defineEventHandler(async (event) => {
   // Only allow POST requests
   if (event.method !== 'POST') {
@@ -17,6 +19,9 @@ export default defineEventHandler(async (event) => {
   setHeader(event, 'Access-Control-Allow-Methods', 'POST, OPTIONS');
   setHeader(event, 'Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
+  // Require authentication
+  requireMcpAuth(event);
+
   try {
     const body = await readBody(event);
     const { name, arguments: args } = body as { name: string; arguments: any };
@@ -24,10 +29,12 @@ export default defineEventHandler(async (event) => {
     if (name === 'compression_calculator') {
       // Call the compression calculator endpoint
       const baseURL = getRequestURL(event).origin;
+      const authHeader = getHeader(event, 'authorization') || getHeader(event, 'Authorization');
       const response = await fetch(`${baseURL}/api/mcp/compression`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: authHeader || '',
         },
         body: JSON.stringify(args),
       }).then((res) => res.json());
@@ -67,10 +74,12 @@ export default defineEventHandler(async (event) => {
     if (name === 'gearbox_calculator') {
       // Call the gearbox calculator endpoint
       const baseURL = getRequestURL(event).origin;
+      const authHeader = getHeader(event, 'authorization') || getHeader(event, 'Authorization');
       const response = await fetch(`${baseURL}/api/mcp/gearbox`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: authHeader || '',
         },
         body: JSON.stringify(args),
       }).then((res) => res.json());

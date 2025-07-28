@@ -1,13 +1,17 @@
 import { options, kphFactor } from '../../../data/models/gearing';
+import { requireMcpAuth } from '../../utils/mcpAuth';
 
 export default defineEventHandler(async (event) => {
   // Only allow POST requests
-  if (getMethod(event) !== 'POST') {
+  if (event.method !== 'POST') {
     throw createError({
       statusCode: 405,
       statusMessage: 'Method Not Allowed',
     });
   }
+
+  // Require authentication
+  requireMcpAuth(event);
 
   try {
     const body = await readBody(event);
@@ -117,7 +121,7 @@ export default defineEventHandler(async (event) => {
     const factor = metric ? kphFactor : 1;
     const turnsPer = speedoDetails.turnsPerMile / factor;
 
-    const speedometerData = speedometers.map((speedometer) => {
+    const speedometerData = speedometers.map((speedometer: { turns: number; speed: number; name: string }) => {
       const calculatedSpeed = Math.round((speedometer.turns / turnsPer) * speedometer.speed);
       const difference = Math.abs(calculatedSpeed - speedometer.speed);
       const percentageDiff = Math.round((difference / speedometer.speed) * 100);
@@ -147,13 +151,15 @@ export default defineEventHandler(async (event) => {
 
     // Find matching options for context
     const matchingTire = options.tires.find(
-      (t) =>
+      (t: any) =>
         t.value.width === tire_type.width && t.value.profile === tire_type.profile && t.value.size === tire_type.size
     );
 
-    const matchingDiff = options.diffs.find((d) => d.value === final_drive);
-    const matchingGearRatio = options.gearRatios.find((g) => JSON.stringify(g.value) === JSON.stringify(gear_ratios));
-    const matchingSpeedoDrive = options.speedosRatios.find((s) => s.value === speedo_drive);
+    const matchingDiff = options.diffs.find((d: any) => d.value === final_drive);
+    const matchingGearRatio = options.gearRatios.find(
+      (g: any) => JSON.stringify(g.value) === JSON.stringify(gear_ratios)
+    );
+    const matchingSpeedoDrive = options.speedosRatios.find((s: any) => s.value === speedo_drive);
 
     // Convert display values for metric
     const displayEngineRevs = metric

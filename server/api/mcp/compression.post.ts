@@ -1,4 +1,5 @@
 import { formOptions } from '../../../data/models/compression';
+import { requireMcpAuth } from '../../utils/mcpAuth';
 
 export default defineEventHandler(async (event) => {
   // Only allow POST requests
@@ -8,6 +9,9 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Method Not Allowed',
     });
   }
+
+  // Require authentication
+  requireMcpAuth(event);
 
   try {
     const body = await readBody(event);
