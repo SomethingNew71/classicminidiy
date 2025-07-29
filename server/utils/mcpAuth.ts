@@ -4,19 +4,17 @@
  */
 
 /**
- * Validates MCP API key from request headers
+ * Validates MCP API key from query parameters
  * @param event - H3 event object
  * @returns boolean - true if authenticated, false otherwise
  */
 export function validateMcpAuth(event: any): boolean {
-  const authHeader = getHeader(event, 'authorization') || getHeader(event, 'Authorization');
+  const query = getQuery(event);
+  const apiKey = query.api_key || query.apiKey || query.key;
 
-  if (!authHeader) {
+  if (!apiKey || typeof apiKey !== 'string') {
     return false;
   }
-
-  // Extract Bearer token
-  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader;
 
   // Get valid API keys from environment variables
   const validKeys = process.env.MCP_API_KEYS?.split(',') || [];
@@ -31,7 +29,7 @@ export function validateMcpAuth(event: any): boolean {
     validKeys.push('dev-mcp-key-classic-mini-diy');
   }
 
-  return validKeys.includes(token);
+  return validKeys.includes(apiKey);
 }
 
 /**
@@ -46,24 +44,9 @@ export function requireMcpAuth(event: any): void {
       statusMessage: 'Unauthorized - Valid MCP API key required',
       data: {
         error: 'INVALID_API_KEY',
-        message: 'Please provide a valid API key in the Authorization header',
-        format: 'Authorization: Bearer <your-api-key>',
+        message: 'Please provide a valid API key as a query parameter',
+        format: '?api_key=<your-api-key> or ?apiKey=<your-api-key> or ?key=<your-api-key>',
       },
     });
   }
-}
-
-/**
- * Generate a secure API key for MCP access
- * @returns string - Generated API key
- */
-export function generateMcpApiKey(): string {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let result = 'mcp_';
-
-  for (let i = 0; i < 32; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-
-  return result;
 }

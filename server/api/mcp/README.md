@@ -30,9 +30,13 @@ This MCP server exposes two main calculator tools:
 
 ### Usage
 
-Include the API key in the Authorization header:
+Include the API key as a query parameter:
 ```bash
-Authorization: Bearer your-api-key
+?api_key=your-api-key
+# or
+?apiKey=your-api-key
+# or
+?key=your-api-key
 ```
 
 ### Security Notes
@@ -229,10 +233,10 @@ You can test the MCP server endpoints directly:
 
 ```bash
 # Get server info
-curl http://localhost:3000/api/mcp/server
+curl "http://localhost:3000/api/mcp/server?api_key=dev-mcp-key-classic-mini-diy"
 
 # Test compression calculator
-curl -X POST http://localhost:3000/api/mcp/tools/call \
+curl -X POST "http://localhost:3000/api/mcp/tools/call?api_key=dev-mcp-key-classic-mini-diy" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "compression_calculator",
@@ -245,7 +249,7 @@ curl -X POST http://localhost:3000/api/mcp/tools/call \
   }'
 
 # Test gearbox calculator
-curl -X POST http://localhost:3000/api/mcp/tools/call \
+curl -X POST "http://localhost:3000/api/mcp/tools/call?api_key=dev-mcp-key-classic-mini-diy" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "gearbox_calculator",
