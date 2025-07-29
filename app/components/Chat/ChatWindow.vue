@@ -101,7 +101,7 @@
               <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-1000"></div>
             </div>
             <!-- Useful Links from Tavily Search Results (Mobile Only) -->
-            <UsefulLinks v-if="!isLoading && usefulLinks.length > 0" :links="usefulLinks" class="lg:hidden" />
+            <UsefulLinks v-if="!isLoading && usefulLinks.length > 0" :links="usefulLinks" class="md:hidden" />
           </div>
         </div>
 
@@ -117,7 +117,7 @@
       </div>
 
       <!-- Right Sidebar for Useful Links (Desktop/Tablet Only) -->
-      <div class="lg:flex lg:flex-col lg:w-80 lg:border-l lg:border-base-300 lg:bg-base-50">
+      <div class="hidden md:flex md:flex-col md:w-80 md:border-l md:border-base-300 md:bg-base-50">
         <div class="flex-1 overflow-y-auto p-4">
           <!-- Useful Links Sidebar -->
           <div v-if="!isLoading && usefulLinks.length > 0" class="sticky top-0">
