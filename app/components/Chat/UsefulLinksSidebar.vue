@@ -1,0 +1,105 @@
+<template>
+  <div v-if="links && links.length > 0" class="space-y-4">
+    <!-- Header -->
+    <div class="flex items-center gap-2 pb-2 border-b border-base-300">
+      <i class="fa-solid fa-link text-primary"></i>
+      <h3 class="text-sm font-semibold text-base-content">Useful Links</h3>
+      <span class="text-xs text-base-content/50 ml-auto">{{ links.length }}</span>
+    </div>
+
+    <!-- Links List -->
+    <div class="space-y-3">
+      <a
+        v-for="(link, index) in links"
+        :key="index"
+        :href="addUtmParams(link.url)"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block p-3 rounded-lg bg-base-100 hover:bg-base-200 transition-colors border border-base-200 hover:border-base-300 group"
+      >
+        <div class="space-y-2">
+          <!-- Title and Score -->
+          <div class="flex items-start justify-between gap-2">
+            <h4 class="font-medium text-sm text-primary group-hover:text-primary-focus line-clamp-2 leading-tight">
+              {{ link.title }}
+            </h4>
+            <div class="flex-shrink-0 flex items-center gap-1">
+              <span class="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
+                {{ Math.round(link.score * 100) }}%
+              </span>
+              <i class="fa-solid fa-external-link text-xs text-base-content/50"></i>
+            </div>
+          </div>
+
+          <!-- Content Preview -->
+          <p class="text-xs text-base-content/70 line-clamp-3 leading-relaxed">
+            {{ link.content }}
+          </p>
+
+          <!-- URL -->
+          <div class="text-xs text-base-content/50 truncate">
+            {{ link.url }}
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Show More Indicator if many links -->
+    <div v-if="links.length > 5" class="text-center pt-2 border-t border-base-300">
+      <p class="text-xs text-base-content/50">Showing all {{ links.length }} search results</p>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+  interface UsefulLink {
+    url: string;
+    title: string;
+    content: string;
+    score: number;
+  }
+
+  interface Props {
+    links: UsefulLink[];
+  }
+
+  defineProps<Props>();
+
+  // Add UTM parameters to URLs for tracking
+  const addUtmParams = (url: string): string => {
+    try {
+      const urlObj = new URL(url);
+
+      // Only add UTM params if they don't already exist
+      if (!urlObj.searchParams.has('utm_source')) {
+        urlObj.searchParams.set('utm_source', 'diy_chat_bot');
+        urlObj.searchParams.set('utm_medium', 'chat');
+        urlObj.searchParams.set('utm_campaign', 'useful_links_sidebar');
+        urlObj.searchParams.set('utm_content', 'search_results');
+      }
+
+      return urlObj.toString();
+    } catch (error) {
+      // If URL parsing fails, return original URL
+      return url;
+    }
+  };
+</script>
+
+<style scoped>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 3;
+  }
+</style>

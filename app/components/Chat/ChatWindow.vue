@@ -32,21 +32,6 @@
           </div>
         </div>
 
-        <!-- Starter Questions -->
-        <div v-if="starterQuestions.length > 0" class="space-y-3">
-          <h4 class="text-sm font-medium text-base-content/70 uppercase tracking-wide">Quick Start</h4>
-          <div class="grid gap-2">
-            <button
-              v-for="question in starterQuestions.slice(0, 4)"
-              :key="question"
-              @click="handleStarterQuestion(question)"
-              class="btn btn-outline btn-sm text-left justify-start hover:btn-primary transition-colors"
-            >
-              {{ question }}
-            </button>
-          </div>
-        </div>
-
         <!-- Centered Input Area (when chat is empty) -->
         <div class="w-full max-w-2xl">
           <form @submit.prevent="handleSubmit" class="relative">
@@ -96,6 +81,7 @@
 
     <!-- Chat Content (shown when messages exist) -->
     <div v-else class="flex flex-1 overflow-hidden relative">
+      <!-- Main Chat Area -->
       <div class="flex flex-1 flex-col">
         <!-- Messages Area -->
         <div ref="messagesContainer" class="flex-1 overflow-y-auto px-4 py-6" @scroll="handleScroll">
@@ -103,6 +89,7 @@
             <!-- Messages -->
             <template v-for="message in messages" :key="message.id">
               <div class="break-words overflow-wrap-anywhere">
+                {{ message }}
                 <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
                 <AssistantMessage v-else-if="message.type === 'ai'" :message="message" :is-loading="isLoading" />
               </div>
@@ -113,8 +100,8 @@
               <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-500"></div>
               <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-1000"></div>
             </div>
-            <!-- Useful Links from Tavily Search Results -->
-            <UsefulLinks v-if="!isLoading && usefulLinks.length > 0" :links="usefulLinks" />
+            <!-- Useful Links from Tavily Search Results (Mobile Only) -->
+            <UsefulLinks v-if="!isLoading && usefulLinks.length > 0" :links="usefulLinks" class="lg:hidden" />
           </div>
         </div>
 
@@ -122,11 +109,26 @@
         <button
           v-if="showScrollButton"
           @click="scrollToBottom"
-          class="absolute bottom-24 right-6 btn btn-circle btn-sm bg-base-200 border border-base-300 shadow-lg hover:shadow-xl transition-all duration-200 z-10"
+          class="absolute bottom-24 right-6 lg:right-80 btn btn-circle btn-sm bg-base-200 border border-base-300 shadow-lg hover:shadow-xl transition-all duration-200 z-10"
           title="Scroll to bottom"
         >
           <i class="fa-solid fa-chevron-down text-sm"></i>
         </button>
+      </div>
+
+      <!-- Right Sidebar for Useful Links (Desktop/Tablet Only) -->
+      <div class="lg:flex lg:flex-col lg:w-80 lg:border-l lg:border-base-300 lg:bg-base-50">
+        <div class="flex-1 overflow-y-auto p-4">
+          <!-- Useful Links Sidebar -->
+          <div v-if="!isLoading && usefulLinks.length > 0" class="sticky top-0">
+            <UsefulLinksSidebar :links="usefulLinks" />
+          </div>
+          <!-- Placeholder when no links -->
+          <div v-else class="text-center text-base-content/50 mt-8">
+            <i class="fa-solid fa-link text-2xl mb-2 block"></i>
+            <p class="text-sm">Useful links will appear here when available</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -182,7 +184,7 @@
   import HumanMessage from './HumanMessage.vue';
   import AssistantMessage from './AssistantMessage.vue';
   import UsefulLinks from './UsefulLinks.vue';
-  import { getStarterQuestions } from '../../../data/models/pages';
+  import UsefulLinksSidebar from './UsefulLinksSidebar.vue';
 
   const { assistantId, threadId, isConfigured, isThreadLoaded, setThreadId, updateThreadUsage, getThreadData } =
     useStreamProvider();
@@ -193,11 +195,6 @@
   const inputRef = ref<HTMLTextAreaElement>();
   const messagesContainer = ref<HTMLDivElement>();
   const showScrollButton = ref(false);
-
-  // Get starter questions for the current page
-  const starterQuestions = computed(() => {
-    return getStarterQuestions(route.path) || [];
-  });
 
   // Check if chat is empty (no messages and no persisted thread)
   const isChatEmpty = computed(() => {
@@ -343,23 +340,6 @@
       streamContext.stop();
     }
   }
-
-  // Handle starter question click
-  function handleStarterQuestion(question: string) {
-    input.value = question;
-    handleSubmit();
-  }
-
-  // Start new thread
-  function startNewThread() {
-    if (streamContext) {
-      // Reset the current thread ID to start a new conversation
-      streamContext.threadId.value = null;
-      // Clear messages
-      streamContext.messages.value = [];
-    }
-  }
-
   // Auto-resize textarea on input
   watch(input, () => {
     nextTick(() => {
