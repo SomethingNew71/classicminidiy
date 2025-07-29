@@ -89,7 +89,6 @@
             <!-- Messages -->
             <template v-for="message in messages" :key="message.id">
               <div class="break-words overflow-wrap-anywhere">
-                {{ message }}
                 <HumanMessage v-if="message.type === 'human'" :message="message" :is-loading="isLoading" />
                 <AssistantMessage v-else-if="message.type === 'ai'" :message="message" :is-loading="isLoading" />
               </div>
