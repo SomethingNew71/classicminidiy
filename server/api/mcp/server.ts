@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
   // Set CORS headers for MCP client compatibility
   setHeader(event, 'Access-Control-Allow-Origin', '*');
   setHeader(event, 'Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  setHeader(event, 'Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  setHeader(event, 'Access-Control-Allow-Headers', 'Content-Type');
 
   // Handle preflight requests
   if (method === 'OPTIONS') {

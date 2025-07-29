@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
   // Set CORS headers for MCP client compatibility
   setHeader(event, 'Access-Control-Allow-Origin', '*');
   setHeader(event, 'Access-Control-Allow-Methods', 'POST, OPTIONS');
-  setHeader(event, 'Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  setHeader(event, 'Access-Control-Allow-Headers', 'Content-Type');
 
   // Require authentication
   requireMcpAuth(event);
@@ -44,28 +44,27 @@ export default defineEventHandler(async (event) => {
           {
             type: 'text',
             text: `Compression Calculator Results:
+              **Engine Configuration:**
+              - Bore: ${response.inputs.bore}cm (${response.context.pistonSize})
+              - Stroke: ${response.inputs.stroke}cm (${response.context.crankshaft})
+              - Head Gasket: ${response.context.headGasket}
+              - Decompression Plate: ${response.context.decompPlate}
 
-**Engine Configuration:**
-- Bore: ${response.inputs.bore}cm (${response.context.pistonSize})
-- Stroke: ${response.inputs.stroke}cm (${response.context.crankshaft})
-- Head Gasket: ${response.context.headGasket}
-- Decompression Plate: ${response.context.decompPlate}
+              **Measurements:**
+              - Piston Dish: ${response.inputs.pistonDish}cc
+              - Head Volume: ${response.inputs.headVolume}cc
+              - Deck Height: ${response.inputs.deckHeight} thou
 
-**Measurements:**
-- Piston Dish: ${response.inputs.pistonDish}cc
-- Head Volume: ${response.inputs.headVolume}cc
-- Deck Height: ${response.inputs.deckHeight} thou
+              **Results:**
+              - **Compression Ratio: ${response.results.compressionRatio}:1**
+              - **Engine Capacity: ${response.results.engineCapacity}cc**
+              - Combustion Chamber Volume: ${response.results.combustionChamberVolume}cc
 
-**Results:**
-- **Compression Ratio: ${response.results.compressionRatio}:1**
-- **Engine Capacity: ${response.results.engineCapacity}cc**
-- Combustion Chamber Volume: ${response.results.combustionChamberVolume}cc
-
-**Calculation Details:**
-- Bore Radius: ${response.calculations.boreRadius}cm
-- Deck Volume: ${response.calculations.deckVolume}cc
-- Ringland Volume: ${response.calculations.ringlandVolume}cc
-- Total Chamber Volume: ${response.calculations.totalCombustionChamberVolume}cc`,
+              **Calculation Details:**
+              - Bore Radius: ${response.calculations.boreRadius}cm
+              - Deck Volume: ${response.calculations.deckVolume}cc
+              - Ringland Volume: ${response.calculations.ringlandVolume}cc
+              - Total Chamber Volume: ${response.calculations.totalCombustionChamberVolume}cc`,
           },
         ],
       };
@@ -99,31 +98,30 @@ export default defineEventHandler(async (event) => {
           {
             type: 'text',
             text: `Gearbox Calculator Results:
+              **Configuration:**
+              - Tire: ${response.context.tireSize}
+              - Final Drive: ${response.context.finalDrive}
+              - Gear Ratios: ${response.context.gearRatios}
+              - Speedo Drive: ${response.context.speedoDrive}
+              - Max RPM: ${response.inputs.max_rpm}
+              - Units: ${response.inputs.metric ? 'Metric' : 'Imperial'}
 
-**Configuration:**
-- Tire: ${response.context.tireSize}
-- Final Drive: ${response.context.finalDrive}
-- Gear Ratios: ${response.context.gearRatios}
-- Speedo Drive: ${response.context.speedoDrive}
-- Max RPM: ${response.inputs.max_rpm}
-- Units: ${response.inputs.metric ? 'Metric' : 'Imperial'}
+              **Performance:**
+              - **Top Speed: ${response.results.topSpeed}${response.results.topSpeedUnit}**
+              - Engine Revs per ${response.results.distanceUnit}: ${response.results.engineRevsPerDistance}
+              - Gearbox Turns per ${response.results.distanceUnit}: ${response.results.gearboxTurnsPerDistance}
+              - Tire Turns per ${response.results.distanceUnit}: ${response.results.tireTurnsPerDistance}
 
-**Performance:**
-- **Top Speed: ${response.results.topSpeed}${response.results.topSpeedUnit}**
-- Engine Revs per ${response.results.distanceUnit}: ${response.results.engineRevsPerDistance}
-- Gearbox Turns per ${response.results.distanceUnit}: ${response.results.gearboxTurnsPerDistance}
-- Tire Turns per ${response.results.distanceUnit}: ${response.results.tireTurnsPerDistance}
+              **Gear Ratios:**
+              ${gearingTable}
 
-**Gear Ratios:**
-${gearingTable}
+              **Tire Information:**
+              - Diameter: ${response.tireInfo.diameter}mm
+              - Circumference: ${response.tireInfo.circumference}mm
+              - Turns per Mile: ${response.tireInfo.turnsPerMile}
 
-**Tire Information:**
-- Diameter: ${response.tireInfo.diameter}mm
-- Circumference: ${response.tireInfo.circumference}mm
-- Turns per Mile: ${response.tireInfo.turnsPerMile}
-
-**Compatible Speedometers:**
-${speedoMatches || 'No close matches found'}`,
+              **Compatible Speedometers:**
+              ${speedoMatches || 'No close matches found'}`,
           },
         ],
       };
