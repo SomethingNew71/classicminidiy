@@ -4,6 +4,8 @@
  */
 
 import { requireMcpAuth } from '../../utils/mcpAuth';
+import { formOptions } from '../../../data/models/compression';
+import { options } from '../../../data/models/gearing';
 
 export default defineEventHandler(async (event) => {
   const method = event.method;
@@ -85,6 +87,31 @@ export default defineEventHandler(async (event) => {
                 },
               },
             },
+            availableOptions: {
+              pistonOptions: formOptions.pistonOptions.map((p) => ({
+                value: p.value,
+                label: p.label,
+                subtitle: p.subtitle,
+                description: `${p.label} ${p.subtitle ? '(' + p.subtitle + ')' : ''}`,
+              })),
+              crankshaftOptions: formOptions.crankshaftOptions.map((c) => ({
+                value: c.value,
+                label: c.label,
+                subtitle: c.subtitle,
+                description: `${c.label} ${c.subtitle ? '(' + c.subtitle + ')' : ''}`,
+              })),
+              headGasketOptions: formOptions.headGasketOptions.map((g) => ({
+                value: g.value,
+                label: g.label,
+                description: g.label,
+              })),
+              decompPlateOptions: formOptions.decompPlateOptions.map((d) => ({
+                value: d.value,
+                label: d.label,
+                subtitle: d.subtitle,
+                description: `${d.label} ${d.subtitle ? '(' + d.subtitle + ')' : ''}`,
+              })),
+            },
           },
           {
             name: 'gearbox_calculator',
@@ -134,6 +161,55 @@ export default defineEventHandler(async (event) => {
                 },
               },
             },
+            availableOptions: {
+              tireOptions: options.tires.map((t) => ({
+                value: t.value,
+                label: t.label,
+                description: `${t.label} - Width: ${t.value.width}mm, Profile: ${t.value.profile}%, Size: ${t.value.size}"`,
+              })),
+              finalDriveOptions: options.diffs.map((d) => ({
+                value: d.value,
+                label: d.label,
+                subtitle: d.subtitle,
+                description: `${d.label} ${d.subtitle ? '- ' + d.subtitle : ''}`,
+              })),
+              speedometerDriveOptions: options.speedosRatios.map((s) => ({
+                value: s.value,
+                label: s.label,
+                subtitle: s.subtitle,
+                description: `${s.label} ${s.subtitle ? '- ' + s.subtitle : ''}`,
+              })),
+              dropGearOptions: options.dropGears.map((d) => ({
+                value: d.value,
+                label: d.label,
+                subtitle: d.subtitle,
+                description: `${d.label} ${d.subtitle ? '- ' + d.subtitle : ''}`,
+              })),
+              gearRatioOptions: options.gearRatios.map((g) => ({
+                value: g.value,
+                label: g.label,
+                description: `${g.label} - Ratios: [${g.value.join(', ')}]`,
+              })),
+              speedometerOptions: {
+                metric: options.speedos.metric.map((s) => ({
+                  turns: s.turns,
+                  speed: s.speed,
+                  name: s.name,
+                  description: `${s.name} - ${s.turns} turns, ${s.speed} km/h max`,
+                })),
+                imperial: options.speedos.imperial.map((s) => ({
+                  turns: s.turns,
+                  speed: s.speed,
+                  name: s.name,
+                  description: `${s.name} - ${s.turns} turns, ${s.speed} mph max`,
+                })),
+              },
+              rpmOptions: Object.entries(options.rpmTicks).map(([value, label]) => ({
+                value: parseInt(value),
+                label: label,
+                description: `${label} RPM maximum`,
+              })),
+            },
           },
         ],
         resources: [
@@ -174,28 +250,27 @@ export default defineEventHandler(async (event) => {
             {
               type: 'text',
               text: `Compression Calculator Results:
+                **Engine Configuration:**
+                - Bore: ${response.inputs.bore}cm (${response.context.pistonSize})
+                - Stroke: ${response.inputs.stroke}cm (${response.context.crankshaft})
+                - Head Gasket: ${response.context.headGasket}
+                - Decompression Plate: ${response.context.decompPlate}
 
-**Engine Configuration:**
-- Bore: ${response.inputs.bore}cm (${response.context.pistonSize})
-- Stroke: ${response.inputs.stroke}cm (${response.context.crankshaft})
-- Head Gasket: ${response.context.headGasket}
-- Decompression Plate: ${response.context.decompPlate}
+                **Measurements:**
+                - Piston Dish: ${response.inputs.pistonDish}cc
+                - Head Volume: ${response.inputs.headVolume}cc
+                - Deck Height: ${response.inputs.deckHeight} thou
 
-**Measurements:**
-- Piston Dish: ${response.inputs.pistonDish}cc
-- Head Volume: ${response.inputs.headVolume}cc
-- Deck Height: ${response.inputs.deckHeight} thou
+                **Results:**
+                - **Compression Ratio: ${response.results.compressionRatio}:1**
+                - **Engine Capacity: ${response.results.engineCapacity}cc**
+                - Combustion Chamber Volume: ${response.results.combustionChamberVolume}cc
 
-**Results:**
-- **Compression Ratio: ${response.results.compressionRatio}:1**
-- **Engine Capacity: ${response.results.engineCapacity}cc**
-- Combustion Chamber Volume: ${response.results.combustionChamberVolume}cc
-
-**Calculation Details:**
-- Bore Radius: ${response.calculations.boreRadius}cm
-- Deck Volume: ${response.calculations.deckVolume}cc
-- Ringland Volume: ${response.calculations.ringlandVolume}cc
-- Total Chamber Volume: ${response.calculations.totalCombustionChamberVolume}cc`,
+                **Calculation Details:**
+                - Bore Radius: ${response.calculations.boreRadius}cm
+                - Deck Volume: ${response.calculations.deckVolume}cc
+                - Ringland Volume: ${response.calculations.ringlandVolume}cc
+                - Total Chamber Volume: ${response.calculations.totalCombustionChamberVolume}cc`,
             },
           ],
         };
@@ -227,31 +302,30 @@ export default defineEventHandler(async (event) => {
             {
               type: 'text',
               text: `Gearbox Calculator Results:
+                **Configuration:**
+                - Tire: ${response.context.tireSize}
+                - Final Drive: ${response.context.finalDrive}
+                - Gear Ratios: ${response.context.gearRatios}
+                - Speedo Drive: ${response.context.speedoDrive}
+                - Max RPM: ${response.inputs.max_rpm}
+                - Units: ${response.inputs.metric ? 'Metric' : 'Imperial'}
 
-**Configuration:**
-- Tire: ${response.context.tireSize}
-- Final Drive: ${response.context.finalDrive}
-- Gear Ratios: ${response.context.gearRatios}
-- Speedo Drive: ${response.context.speedoDrive}
-- Max RPM: ${response.inputs.max_rpm}
-- Units: ${response.inputs.metric ? 'Metric' : 'Imperial'}
+                **Performance:**
+                - **Top Speed: ${response.results.topSpeed}${response.results.topSpeedUnit}**
+                - Engine Revs per ${response.results.distanceUnit}: ${response.results.engineRevsPerDistance}
+                - Gearbox Turns per ${response.results.distanceUnit}: ${response.results.gearboxTurnsPerDistance}
+                - Tire Turns per ${response.results.distanceUnit}: ${response.results.tireTurnsPerDistance}
 
-**Performance:**
-- **Top Speed: ${response.results.topSpeed}${response.results.topSpeedUnit}**
-- Engine Revs per ${response.results.distanceUnit}: ${response.results.engineRevsPerDistance}
-- Gearbox Turns per ${response.results.distanceUnit}: ${response.results.gearboxTurnsPerDistance}
-- Tire Turns per ${response.results.distanceUnit}: ${response.results.tireTurnsPerDistance}
+                **Gear Ratios:**
+                ${gearingTable}
 
-**Gear Ratios:**
-${gearingTable}
+                **Tire Information:**
+                - Diameter: ${response.tireInfo.diameter}mm
+                - Circumference: ${response.tireInfo.circumference}mm
+                - Turns per Mile: ${response.tireInfo.turnsPerMile}
 
-**Tire Information:**
-- Diameter: ${response.tireInfo.diameter}mm
-- Circumference: ${response.tireInfo.circumference}mm
-- Turns per Mile: ${response.tireInfo.turnsPerMile}
-
-**Compatible Speedometers:**
-${speedoMatches || 'No close matches found'}`,
+                **Compatible Speedometers:**
+                ${speedoMatches || 'No close matches found'}`,
             },
           ],
         };
