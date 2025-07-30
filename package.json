@@ -64,7 +64,7 @@
     "vue-cookie-law": "^1.13.3"
   },
   "devDependencies": {
-    "@nuxt/image": "^1.10.0",
+    "@nuxt/image": "^1.11.0",
     "@nuxtjs/fontaine": "^0.5.0",
     "@nuxtjs/sitemap": "^7.4.3",
     "@tailwindcss/typography": "^0.5.16",
