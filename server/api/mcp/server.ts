@@ -6,6 +6,7 @@
 import { requireMcpAuth } from '../../utils/mcpAuth';
 import { formOptions } from '../../../data/models/compression';
 import { options } from '../../../data/models/gearing';
+import { chassisRanges } from '../../../data/models/decoders';
 
 export default defineEventHandler(async (event) => {
   const method = event.method;
@@ -31,7 +32,7 @@ export default defineEventHandler(async (event) => {
       return {
         name: 'classic-mini-calculators',
         version: '1.0.0',
-        description: 'Classic Mini DIY Calculator Tools for LLMs',
+        description: 'Classic Mini DIY Calculator and Decoder Tools for LLMs',
         author: 'Classic Mini DIY',
         homepage: 'https://classicminidiy.com',
         capabilities: {
@@ -211,6 +212,56 @@ export default defineEventHandler(async (event) => {
               })),
             },
           },
+          {
+            name: 'chassis_decoder',
+            description: 'Decode and validate Classic Mini chassis numbers based on year range',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                yearRange: {
+                  type: 'string',
+                  description:
+                    'Year range for chassis number format (e.g., "1959-1969", "1969-1974", "1974-1980", "1980", "1980-1985", "1985-1990", "1990-on")',
+                  enum: ['1959-1969', '1969-1974', '1974-1980', '1980', '1980-1985', '1985-1990', '1990-on'],
+                },
+                chassisNumber: {
+                  type: 'string',
+                  description: 'Classic Mini chassis number to decode (e.g., "A-A2S7L-123A" for 1959-1969)',
+                },
+              },
+              required: ['yearRange', 'chassisNumber'],
+            },
+            availableOptions: {
+              yearRanges: chassisRanges.map((range) => ({
+                value: range.title,
+                label: range.title,
+                description: `Chassis format for ${range.title} Classic Minis`,
+                examplePattern: (() => {
+                  const example = range.value.PrimaryExample;
+                  let pattern = '';
+                  for (let i = 1; i <= 11; i++) {
+                    const key = i.toString() as keyof typeof example;
+                    pattern += example[key] || '';
+                  }
+                  pattern += example.numbers || '';
+                  pattern += example.last || '';
+                  return pattern;
+                })(),
+              })),
+              positionMeanings: {
+                '1959-1969': 'Manufacturer-Engine-BodyType-Series-Trim-ProductionNumber-AssemblyPlant',
+                '1969-1974': 'Prefix-Engine-BodyType-Series-Specification-ProductionNumber-AssemblyPlant',
+                '1974-1980':
+                  'Prefix-NonSignificant-Engine-BodyType-Series-Specification-ProductionNumber-AssemblyPlant',
+                '1980': 'Prefix-NonSignificant-Engine-BodyType-Series-Specification-ProductionNumber-AssemblyPlant',
+                '1980-1985':
+                  'Prefix-NonSignificant-Engine-BodyType-Series-Specification-ProductionNumber-AssemblyPlant',
+                '1985-1990':
+                  'Prefix-NonSignificant-Engine-BodyType-Series-Specification-Year-Steering-ProductionNumber-AssemblyPlant',
+                '1990-on': 'Prefix-Model-Trim-BodyType-Engine-Transmission-Compression-AssemblyPlant-ProductionNumber',
+              },
+            },
+          },
         ],
         resources: [
           {
@@ -223,6 +274,12 @@ export default defineEventHandler(async (event) => {
             uri: 'gearbox://calculator',
             name: 'Gearbox Calculator',
             description: 'Calculate gear ratios and speedometer compatibility',
+            mimeType: 'application/json',
+          },
+          {
+            uri: 'chassis://decoder',
+            name: 'Chassis Decoder',
+            description: 'Decode and validate Classic Mini chassis numbers',
             mimeType: 'application/json',
           },
         ],
@@ -331,6 +388,46 @@ export default defineEventHandler(async (event) => {
         };
       }
 
+      if (name === 'chassis_decoder') {
+        // Call the chassis decoder endpoint
+        const baseURL = getRequestURL(event).origin;
+        const response = await fetch(`${baseURL}/api/mcp/chassis`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(args),
+        }).then((res) => res.json());
+
+        const positionsBreakdown = response.results.decodedPositions
+          .map((pos: any) => `Position ${pos.position}: "${pos.value}" = ${pos.name} ${pos.matched ? '✓' : '✗'}`)
+          .join('\n');
+
+        const validationStatus = response.results.isValid ? '✅ VALID' : '❌ INVALID';
+        const errorText =
+          response.context.errors.length > 0 ? `\n\n**Validation Errors:**\n${response.context.errors.join('\n')}` : '';
+
+        return {
+          content: [
+            {
+              type: 'text',
+              text: `Chassis Decoder Results:
+                **Input:**
+                - Chassis Number: ${response.inputs.chassisNumber}
+                - Year Range: ${response.inputs.yearRange}
+                - Expected Pattern: ${response.results.pattern}
+
+                **Validation Status:** ${validationStatus}
+
+                **Position-by-Position Breakdown:**
+                ${positionsBreakdown}
+
+                **Summary:** ${response.humanReadable.summary}${errorText}`,
+            },
+          ],
+        };
+      }
+
       throw createError({
         statusCode: 400,
         statusMessage: `Unknown tool: ${name}`,
@@ -350,6 +447,11 @@ export default defineEventHandler(async (event) => {
             uri: 'gearbox://calculator',
             name: 'Gearbox Calculator',
             description: 'Calculate gear ratios and speedometer compatibility for Classic Mini gearboxes',
+          },
+          {
+            uri: 'chassis://decoder',
+            name: 'Chassis Decoder',
+            description: 'Decode and validate Classic Mini chassis numbers based on year range',
           },
         ],
       };
@@ -409,6 +511,46 @@ export default defineEventHandler(async (event) => {
                     tire_type: 'Tire specifications (width, profile, size)',
                     max_rpm: 'Maximum engine RPM',
                   },
+                },
+                null,
+                2
+              ),
+            },
+          ],
+        };
+      }
+
+      if (uri === 'chassis://decoder') {
+        return {
+          contents: [
+            {
+              uri: 'chassis://decoder',
+              mimeType: 'application/json',
+              text: JSON.stringify(
+                {
+                  name: 'Chassis Decoder',
+                  description: 'Decode and validate Classic Mini chassis numbers based on year range',
+                  endpoint: '/api/mcp/chassis',
+                  method: 'POST',
+                  parameters: {
+                    yearRange:
+                      'Year range for chassis format (1959-1969, 1969-1974, 1974-1980, 1980, 1980-1985, 1985-1990, 1990-on)',
+                    chassisNumber: 'Classic Mini chassis number to decode',
+                  },
+                  availableYearRanges: chassisRanges.map((range) => ({
+                    range: range.title,
+                    examplePattern: (() => {
+                      const example = range.value.PrimaryExample;
+                      let pattern = '';
+                      for (let i = 1; i <= 11; i++) {
+                        const key = i.toString() as keyof typeof example;
+                        pattern += example[key] || '';
+                      }
+                      pattern += example.numbers || '';
+                      pattern += example.last || '';
+                      return pattern;
+                    })(),
+                  })),
                 },
                 null,
                 2
