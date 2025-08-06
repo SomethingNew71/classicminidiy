@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { DateTime } from 'luxon';
   import { HERO_TYPES } from '../../data/models/generic';
   useHead({
     title: 'Classic Mini ECU Maps | Tuning Files for Multiple ECUs | Classic Mini DIY',
@@ -90,6 +91,61 @@
   });
   const { data: releases, status: releasesLoading, error: releaseError } = await useFetch('/api/github/releases');
   const { data: commits, status: commitsLoading, error: commitError } = await useFetch('/api/github/commits');
+
+  // Merge releases and commits chronologically
+  interface UpdateItem {
+    type: 'commit' | 'release';
+    date: string;
+    displayDate: string;
+    message: string;
+    sha?: string;
+    tagName?: string;
+    url: string;
+  }
+
+  const mergedUpdates = computed(() => {
+    const updates: UpdateItem[] = [];
+
+    // Add commits with type identifier
+    if (commits.value && Array.isArray(commits.value)) {
+      commits.value.forEach((commit) => {
+        updates.push({
+          type: 'commit',
+          date: commit.commit?.committer?.date || commit.date,
+          displayDate: commit.date,
+          message: commit.commit?.message || '',
+          sha: commit.sha,
+          url: `https://github.com/SomethingNew71/MiniECUMaps/commit/${commit.sha}`,
+        });
+      });
+    }
+
+    // Add releases with type identifier
+    if (releases.value?.releases && Array.isArray(releases.value.releases)) {
+      releases.value.releases.forEach((release) => {
+        updates.push({
+          type: 'release',
+          date: release.published_at || release.created_at || '',
+          displayDate: release.published_at
+            ? DateTime.fromISO(release.published_at).toFormat('LLL dd')
+            : 'Unknown',
+          message: release.name || release.tag_name || 'New Release',
+          tagName: release.tag_name || undefined,
+          url: release.html_url || `https://github.com/SomethingNew71/MiniECUMaps/releases/tag/${release.tag_name}`,
+        });
+      });
+    }
+
+    // Sort by date (newest first)
+    updates.sort((a, b) => {
+      const dateA = new Date(a.date || 0).getTime();
+      const dateB = new Date(b.date || 0).getTime();
+      return dateB - dateA;
+    });
+
+    // Limit to 15 most recent items
+    return updates.slice(0, 15);
+  });
 
   const legend = ref([
     {
@@ -259,8 +315,11 @@
         <div class="col-span-12 md:col-span-6 text-center">
           <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
-              <i class="fad fa-credit-card text-3xl pb-3"></i>
+              <div class="text-center">
+                <i class="fad fa-credit-card text-3xl pb-3"></i>
+              </div>
               <h3 class="fancy-font-bold text-2xl">Option 1 - Purchase</h3>
+              <h4 class="fancy-font-bold text-xl">Latest Release: {{ releases?.latestRelease }}</h4>
               <p class="py-3">
                 Purchase the ECU maps directly from the Classic Mini DIY store. This option is perfect for those who
                 want to support the channel and get the maps without having to use Github. This option also comes with
@@ -277,8 +336,11 @@
         <div class="col-span-12 md:col-span-6 text-center">
           <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
-              <i class="fad fa-download text-3xl pb-3"></i>
+              <div class="text-center">
+                <i class="fad fa-download text-3xl pb-3"></i>
+              </div>
               <h3 class="fancy-font-bold text-2xl">Option 2 - Download</h3>
+              <h4 class="fancy-font-bold text-xl">Latest Release: {{ releases?.latestRelease }}</h4>
               <p class="py-3">
                 Download the ECU maps directly from Github. This option is perfect for those who want to get the maps
                 for free. This option also comes with the ability to contribute to the project by submitting pull
@@ -367,35 +429,48 @@
                 <h5 class="font-bold text-lg">Latest Updates</h5>
               </div>
               <div class="p-2">
-                <div v-if="commitsLoading === 'pending'" class="flex justify-center p-4">
+                <div
+                  v-if="commitsLoading === 'pending' || releasesLoading === 'pending'"
+                  class="flex justify-center p-4"
+                >
                   <span class="loading loading-spinner loading-md"></span>
                 </div>
-                <div v-if="commits && commits.length > 0">
-                  <template v-for="(commitItem, index) in commits">
-                    <a
-                      v-if="index < 15"
-                      class="flex items-center p-3 hover:bg-base-200 border-b border-base-200"
-                      :href="`https://github.com/SomethingNew71/MiniECUMaps/commit/${commitItem.sha}`"
-                    >
-                      <span class="mr-2">
-                        <i class="fad fa-code-commit" aria-hidden="true"></i>
-                      </span>
-                      <span class="date pr-2 font-bold min-w-[15%]">
-                        {{ commitItem.date }}
-                      </span>
-                      <span>{{ commitItem.commit.message }}</span>
-                    </a>
-                  </template>
+                <div v-else-if="mergedUpdates && mergedUpdates.length > 0">
+                  <a
+                    v-for="(update, index) in mergedUpdates"
+                    :key="`update-${index}`"
+                    class="flex items-center p-3 hover:bg-base-200 border-b border-base-200"
+                    :href="update.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span class="mr-2">
+                      <i v-if="update.type === 'release'" class="fad fa-tag text-success" aria-hidden="true"></i>
+                      <i v-else class="fad fa-code-commit" aria-hidden="true"></i>
+                    </span>
+                    <span class="date pr-2 font-bold min-w-[15%]">
+                      {{ update.displayDate }}
+                    </span>
+                    <span class="flex-1">
+                      <span v-if="update.type === 'release'" class="badge badge-primary badge-sm mr-2">Release</span>
+                      <span
+                        v-if="update.type === 'release' && update.tagName"
+                        class="badge badge-secondary badge-sm mr-2"
+                        >{{ update.tagName }}</span
+                      >
+                      {{ update.message }}
+                    </span>
+                  </a>
                 </div>
-                <div v-else-if="commitError">
+                <div v-else-if="commitError || releaseError">
                   <div class="flex items-center p-3 border-b border-base-200">
                     <span class="mr-2">
-                      <i class="fad fa-code-commit" aria-hidden="true"></i>
+                      <i class="fad fa-exclamation-triangle text-warning" aria-hidden="true"></i>
                     </span>
                     <span class="date pr-2 font-bold min-w-[15%]"> --- </span>
                     <span>Error loading update history from Github</span>
                   </div>
-                  <div v-for="i in 10" class="flex items-center p-3 border-b border-base-200">
+                  <div v-for="i in 10" :key="`error-${i}`" class="flex items-center p-3 border-b border-base-200">
                     <span class="mr-2">
                       <i class="fad fa-code-commit" aria-hidden="true"></i>
                     </span>
@@ -406,12 +481,12 @@
                 <div v-else>
                   <div class="flex items-center p-3 border-b border-base-200">
                     <span class="mr-2">
-                      <i class="fad fa-code-commit" aria-hidden="true"></i>
+                      <i class="fad fa-info-circle" aria-hidden="true"></i>
                     </span>
                     <span class="date pr-2 font-bold min-w-[15%]"> --- </span>
-                    <span>Error loading update history from Github</span>
+                    <span>No updates available</span>
                   </div>
-                  <div v-for="i in 10" class="flex items-center p-3 border-b border-base-200">
+                  <div v-for="i in 10" :key="`empty-${i}`" class="flex items-center p-3 border-b border-base-200">
                     <span class="mr-2">
                       <i class="fad fa-code-commit" aria-hidden="true"></i>
                     </span>

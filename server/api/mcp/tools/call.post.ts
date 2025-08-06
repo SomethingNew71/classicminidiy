@@ -127,6 +127,48 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    if (name === 'chassis_decoder') {
+      // Call the chassis decoder endpoint
+      const baseURL = getRequestURL(event).origin;
+      // Get the API key from the current request's query parameters
+      const query = getQuery(event);
+      const apiKey = query.api_key || query.apiKey || query.key;
+      const response = await fetch(`${baseURL}/api/mcp/chassis?api_key=${apiKey}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(args),
+      }).then((res) => res.json());
+
+      const positionsBreakdown = response.results.decodedPositions
+        .map((pos: any) => `Position ${pos.position}: "${pos.value}" = ${pos.name} ${pos.matched ? '✓' : '✗'}`)
+        .join('\n');
+
+      const validationStatus = response.results.isValid ? '✅ VALID' : '❌ INVALID';
+      const errorText = response.context.errors.length > 0 ? `\n\n**Validation Errors:**\n${response.context.errors.join('\n')}` : '';
+
+      return {
+        content: [
+          {
+            type: 'text',
+            text: `Chassis Decoder Results:
+              **Input:**
+              - Chassis Number: ${response.inputs.chassisNumber}
+              - Year Range: ${response.inputs.yearRange}
+              - Expected Pattern: ${response.results.pattern}
+
+              **Validation Status:** ${validationStatus}
+
+              **Position-by-Position Breakdown:**
+              ${positionsBreakdown}
+
+              **Summary:** ${response.humanReadable.summary}${errorText}`,
+          },
+        ],
+      };
+    }
+
     throw createError({
       statusCode: 400,
       statusMessage: `Unknown tool: ${name}`,

@@ -4,9 +4,10 @@ Model Context Protocol (MCP) server providing Classic Mini calculator tools for 
 
 ## Overview
 
-This MCP server exposes two main calculator tools:
+This MCP server exposes three main tools:
 - **Compression Calculator**: Calculate compression ratio and engine capacity
 - **Gearbox Calculator**: Calculate gear ratios, top speed, and speedometer compatibility
+- **Chassis Decoder**: Decode and validate Classic Mini chassis numbers
 
 ## Authentication
 
@@ -151,12 +152,73 @@ Calculate gear ratios, top speed, and speedometer compatibility.
 }
 ```
 
+### 3. Chassis Decoder
+
+Decode and validate Classic Mini chassis numbers based on year range.
+
+**Endpoint:** `POST /api/mcp/chassis?api_key=your-key`
+
+**Parameters:**
+- `yearRange` (string, required): Year range for chassis format
+  - Valid values: "1959-1969", "1969-1974", "1974-1980", "1980", "1980-1985", "1985-1990", "1990-on"
+- `chassisNumber` (string, required): Classic Mini chassis number to decode
+
+**Example Request:**
+```bash
+curl -X POST "http://localhost:3000/api/mcp/chassis?api_key=dev-mcp-key-classic-mini-diy" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "yearRange": "1959-1969",
+    "chassisNumber": "A-A2S7L-123A"
+  }'
+```
+
+**Example Response:**
+```json
+{
+  "success": true,
+  "inputs": {
+    "yearRange": "1959-1969",
+    "chassisNumber": "A-A2S7L-123A"
+  },
+  "results": {
+    "isValid": true,
+    "pattern": "A-A2S7L-###A",
+    "decodedPositions": [
+      {
+        "position": 1,
+        "value": "A",
+        "name": "Austin (other than Cooper and S)",
+        "matched": true
+      },
+      {
+        "position": 2,
+        "value": "A",
+        "name": "A-series engine",
+        "matched": true
+      }
+    ]
+  },
+  "context": {
+    "yearRange": "1959-1969",
+    "expectedPattern": "A-A2S7L-###A",
+    "validationStatus": "Valid chassis number",
+    "errors": []
+  },
+  "humanReadable": {
+    "summary": "Chassis number A-A2S7L-123A for 1959-1969 range is VALID",
+    "breakdown": "Position 1: 'A' = Austin ✓\nPosition 2: 'A' = A-series engine ✓",
+    "errors": "No errors"
+  }
+}
+```
+
 ## Integration with Chat System
 
 To integrate these calculators with your LangGraph chat system, you can:
 
 1. **Add MCP Client to LangGraph Agent**: Configure your LangGraph agent to use this MCP server
-2. **Tool Registration**: Register the compression_calculator and gearbox_calculator tools
+2. **Tool Registration**: Register the compression_calculator, gearbox_calculator, and chassis_decoder tools
 3. **Resource Access**: Allow the agent to read calculator documentation via MCP resources
 
 ### Example LangGraph Integration
