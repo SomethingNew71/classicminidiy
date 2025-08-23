@@ -1,5 +1,8 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
+  // Track calculator loading state
+  const isCalculatorLoaded = ref(false);
+
   useHead({
     title: 'SU Needles Chart & Comparison Tool | Classic Mini DIY',
     meta: [
@@ -103,7 +106,15 @@
       </div>
       <div class="col-span-12 border-t border-base-300 mt-5"></div>
       <div class="col-span-12">
-        <CalculatorsNeedles />
+        <ClientOnly fallback-tag="div" fallback="Loading needle comparison tool...">
+          <div class="min-h-96 flex items-center justify-center" v-if="!isCalculatorLoaded">
+            <div class="flex flex-col items-center space-y-4">
+              <span class="loading loading-spinner loading-lg text-primary"></span>
+              <p class="text-base-content/70">Loading needle comparison tool...</p>
+            </div>
+          </div>
+          <LazyCalculatorsNeedles @vue:mounted="isCalculatorLoaded = true" />
+        </ClientOnly>
       </div>
       <div class="col-span-12">
         <div class="divider">Needle Charts</div>

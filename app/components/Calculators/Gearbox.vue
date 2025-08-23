@@ -31,36 +31,164 @@
   const gearRatios = ref(options.gearRatios);
   const speedos = ref(options.speedos);
 
-  // Component variables with proper typing
-  const typeCircInMiles = ref<number | null>(null);
-  const topSpeed = ref<string>('---');
-  const tireInfo = ref({
-    width: 0,
-    profile: 0,
-    size: 0,
-    diameter: 0,
-    circ: 0,
-    tireTurnsPerMile: 0,
-  });
-  const speedoDetails = ref({
-    engineRevsMile: 0,
-    turnsPerMile: 0,
-  });
+  // Debounced calculation trigger
+  const debouncedUpdate = ref(0);
+  let debounceTimer: NodeJS.Timeout | null = null;
 
-  // Section for Table Data
-  const tableDataGearing = ref<IGearingTableItem[]>([]);
-  const tableDataSpeedos = ref<ISpeedometerTableItem[]>([]);
+  const triggerDebouncedUpdate = () => {
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      debouncedUpdate.value++;
+    }, 150); // 150ms debounce
+  };
+
+  // Section for Table Data - these will be computed now
   // Use type assertion to fix TypeScript errors with Vuetify table headers
   const tableHeadersGearing = tableHeaders.tableHeadersGearing as any[];
   const tableHeadersSpeedos = tableHeaders.tableHeadersSpeedos as any[];
 
-  // Section for Chart Data with proper typing
-  const chartData = ref<Array<{ name: string; data: number[] }>>([]);
-  // Use type assertion to fix TypeScript errors
-  const mapOptions = ref(JSON.parse(JSON.stringify(chartOptions)) as typeof chartOptions);
+  // Memoized chart options - avoiding expensive deep clone
+  const mapOptions = computed(() => {
+    const options = {
+      ...chartOptions,
+      yAxis: {
+        ...chartOptions.yAxis,
+        title: {
+          ...chartOptions.yAxis.title,
+          text: metric.value ? 'Speed (km/h)' : 'Speed (mph)',
+        },
+      },
+      series: chartData.value,
+    };
+    return options;
+  });
 
   const YARDS_IN_MILE = 1760;
   const MM_IN_YARD = 914.4;
+
+  // Memoized calculations - only recalculate when inputs change
+  const tireCalculations = computed(() => {
+    // Watch for debounced updates
+    debouncedUpdate.value; // This makes the computed depend on debounced updates
+
+    let diameter: number;
+    if (tire_type.value.diameter) {
+      diameter = tire_type.value.diameter;
+    } else {
+      diameter = Math.round(tire_type.value.width * (tire_type.value.profile / 100) * 2 + tire_type.value.size * 25.4);
+    }
+
+    const circ = Math.round(3.14159 * diameter);
+    const typeCircInMiles = circ / (YARDS_IN_MILE * MM_IN_YARD);
+    const tireTurnsPerMile = Math.round(YARDS_IN_MILE / (circ / MM_IN_YARD));
+
+    return {
+      width: tire_type.value.width,
+      profile: tire_type.value.profile,
+      size: tire_type.value.size,
+      diameter,
+      circ,
+      tireTurnsPerMile,
+      typeCircInMiles,
+    };
+  });
+
+  const speedoCalculations = computed(() => {
+    const tireCalcs = tireCalculations.value;
+    return {
+      turnsPerMile: Math.round(tireCalcs.tireTurnsPerMile * final_drive.value * speedo_drive.value),
+      engineRevsMile: Math.round(tireCalcs.tireTurnsPerMile * final_drive.value * drop_gear.value),
+    };
+  });
+
+  const gearingTableData = computed(() => {
+    const tireCalcs = tireCalculations.value;
+    return gear_ratios.value.map((gear: number, index) => {
+      let maxSpeed = 0;
+      if (tireCalcs.typeCircInMiles !== null) {
+        maxSpeed = Math.round(
+          (max_rpm.value / drop_gear.value / gear / final_drive.value) * tireCalcs.typeCircInMiles * 60
+        );
+      }
+
+      const parsedMaxSpeed = metric.value ? `${Math.round(maxSpeed * kphFactor)}km/h` : `${maxSpeed}mph`;
+
+      return {
+        gear: index + 1,
+        ratio: gear,
+        maxSpeed: parsedMaxSpeed,
+      };
+    });
+  });
+
+  const speedometerTableData = computed(() => {
+    const speedometers = metric.value ? speedos.value.metric : speedos.value.imperial;
+    const factor = metric.value ? kphFactor : 1;
+    const speedoCalcs = speedoCalculations.value;
+
+    return speedometers.map((speedometer: ISpeedometer) => {
+      const turnsPer = speedoCalcs.turnsPerMile / factor;
+      const variation = Math.round((turnsPer / speedometer.turns) * 100 * drop_gear.value);
+      let result = '';
+      let status = '';
+
+      if (variation > 100) {
+        status = 'text-red';
+        result = `Over ${variation - 100}%`;
+      } else if (variation === 100) {
+        status = 'text-green';
+        result = 'Reads correctly!';
+      } else {
+        status = 'text-primary';
+        result = `Under ${100 - variation}%`;
+      }
+
+      return {
+        status,
+        speedometer: speedometer.name,
+        turns: speedometer.turns,
+        speed: speedometer.speed,
+        result,
+      };
+    });
+  });
+
+  const chartData = computed(() => {
+    const tireCalcs = tireCalculations.value;
+    const data: Array<{ name: string; data: number[] }> = [];
+    const gearNames = ['1st Gear', '2nd Gear', '3rd Gear', '4th Gear'];
+
+    gear_ratios.value.forEach((gear, index) => {
+      const speedData: number[] = [];
+      for (let rpm = 1000; rpm <= max_rpm.value; rpm += 500) {
+        let speed = 0;
+        if (tireCalcs.typeCircInMiles !== null) {
+          speed = Math.round((rpm / drop_gear.value / gear / final_drive.value) * tireCalcs.typeCircInMiles * 60);
+          if (metric.value) {
+            speed = Math.round(speed * kphFactor);
+          }
+        }
+        speedData.push(speed);
+      }
+      data.push({
+        name: gearNames[index] || '',
+        data: speedData,
+      });
+    });
+
+    return data;
+  });
+
+  // Template-compatible computed properties
+  const topSpeed = computed(() => {
+    const gearingData = gearingTableData.value;
+    return gearingData[3]?.maxSpeed || '---';
+  });
+
+  const tireInfo = computed(() => tireCalculations.value);
+  const speedoDetails = computed(() => speedoCalculations.value);
+  const tableDataGearing = computed(() => gearingTableData.value);
+  const tableDataSpeedos = computed(() => speedometerTableData.value);
 
   // Computed properties for metric conversion of "per Mile" values
   const displayEngineRevs = computed(() => {
@@ -89,129 +217,21 @@
 
   const distanceUnit = computed(() => (metric.value ? 'Km' : 'Mile'));
 
-  function calculateTireDetails() {
-    if (tire_type.value.diameter) {
-      tireInfo.value.diameter = tire_type.value.diameter;
-    } else {
-      tireInfo.value.width = tire_type.value.width;
-      tireInfo.value.profile = tire_type.value.profile;
-      tireInfo.value.size = tire_type.value.size;
-      tireInfo.value.diameter = Math.round(
-        tireInfo.value.width * (tireInfo.value.profile / 100) * 2 + tireInfo.value.size * 25.4
-      );
-    }
-    tireInfo.value.circ = Math.round(3.14159 * tireInfo.value.diameter); // in mm
-    typeCircInMiles.value = tireInfo.value.circ / (YARDS_IN_MILE * MM_IN_YARD); // in miles
-    tireInfo.value.tireTurnsPerMile = Math.round(YARDS_IN_MILE / (tireInfo.value.circ / MM_IN_YARD));
-  }
+  // Update table headers reactively
+  watch(
+    metric,
+    () => {
+      tableHeadersGearing[2].label = metric.value ? 'Max Speed (km/h)' : 'Max Speed (mph)';
+    },
+    { immediate: true }
+  );
 
-  function calculateSpeedoDetails() {
-    speedoDetails.value.turnsPerMile = Math.round(
-      tireInfo.value.tireTurnsPerMile * final_drive.value * speedo_drive.value
-    );
-    speedoDetails.value.engineRevsMile = Math.round(
-      tireInfo.value.tireTurnsPerMile * final_drive.value * drop_gear.value
-    );
-  }
-
-  function calculateSpeedometerData() {
-    const speedometers = metric.value ? speedos.value.metric : speedos.value.imperial;
-    const factor = metric.value ? kphFactor : 1;
-
-    tableDataSpeedos.value = speedometers.map((speedometer: ISpeedometer) => {
-      const turnsPer = speedoDetails.value.turnsPerMile / factor;
-      const variation = Math.round((turnsPer / speedometer.turns) * 100 * drop_gear.value);
-      let result = '';
-      let status = '';
-
-      if (variation > 100) {
-        status = 'text-red';
-        result = `Over ${variation - 100}%`;
-      } else if (variation === 100) {
-        status = 'text-green';
-        result = 'Reads correctly!';
-      } else {
-        status = 'text-primary';
-        result = `Under ${100 - variation}%`;
-      }
-      return {
-        status,
-        speedometer: speedometer.name,
-        turns: speedometer.turns,
-        speed: speedometer.speed,
-        result,
-      };
-    });
-  }
-
-  function calculateGearingData() {
-    tableDataGearing.value = gear_ratios.value.map((gear: number, index) => {
-      let parsedMaxSpeed: string;
-      let maxSpeed = 0;
-      if (typeCircInMiles.value !== null) {
-        maxSpeed = Math.round(
-          (max_rpm.value / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60
-        );
-      }
-      parsedMaxSpeed = metric.value ? `${Math.round(maxSpeed * kphFactor)}km/h` : `${maxSpeed}mph`;
-
-      if (index === 3) {
-        topSpeed.value = parsedMaxSpeed;
-      }
-
-      return {
-        gear: index + 1,
-        ratio: gear,
-        maxSpeed: parsedMaxSpeed,
-      };
-    });
-  }
-
-  function calculateRatio() {
-    tableHeadersGearing[2].label = metric.value ? 'Max Speed (km/h)' : 'Max Speed (mph)';
-    mapOptions.value.yAxis.title.text = metric.value ? 'Speed (km/h)' : 'Speed (mph)';
-
-    calculateTireDetails();
-    calculateSpeedoDetails();
-    calculateSpeedometerData();
-    calculateGearingData();
-    generateChartData();
-  }
-
-  // Make sure chart is properly rendered when component is mounted
+  // Initialize debounced update on mount
   onMounted(() => {
-    // Force chart redraw after component is mounted
     nextTick(() => {
-      calculateRatio();
+      triggerDebouncedUpdate();
     });
   });
-
-  function generateChartData() {
-    chartData.value = [];
-    const gearNames = ['1st Gear', '2nd Gear', '3rd Gear', '4th Gear'];
-
-    gear_ratios.value.forEach((gear, index) => {
-      const speedData: number[] = [];
-      for (let rpm = 1000; rpm <= max_rpm.value; rpm += 500) {
-        let speed = 0;
-        if (typeCircInMiles.value !== null) {
-          speed = Math.round((rpm / drop_gear.value / gear / final_drive.value) * typeCircInMiles.value * 60);
-          if (metric.value) {
-            speed = Math.round(speed * kphFactor);
-          }
-        }
-        speedData.push(speed);
-      }
-      chartData.value.push({
-        name: gearNames[index] || '',
-        data: speedData,
-      });
-    });
-    // Use type assertion to fix TypeScript error
-    mapOptions.value.series = chartData.value as any;
-  }
-
-  calculateRatio();
 </script>
 
 <template>
@@ -221,7 +241,7 @@
         <div class="form-control">
           <label class="label cursor-pointer">
             <span class="label-text">Imperial or Metric</span>
-            <input type="checkbox" class="toggle toggle-primary" v-model="metric" @change="calculateRatio()" />
+            <input type="checkbox" class="toggle toggle-primary" v-model="metric" @change="triggerDebouncedUpdate" />
           </label>
         </div>
       </div>
@@ -236,7 +256,7 @@
             ></span>
           </label>
           <div class="input-group">
-            <select class="select select-bordered w-full" v-model="tire_type" @change="calculateRatio()">
+            <select class="select select-bordered w-full" v-model="tire_type" @change="triggerDebouncedUpdate">
               <option v-for="item in tires" :key="item.label" :value="item.value">
                 {{ item.label }}
               </option>
@@ -251,7 +271,7 @@
           ></span>
         </label>
         <div class="input-group">
-          <select class="select select-bordered w-full" v-model="speedo_drive" @change="calculateRatio()">
+          <select class="select select-bordered w-full" v-model="speedo_drive" @change="triggerDebouncedUpdate">
             <option v-for="item in speedosRatios" :key="item.label" :value="item.value">
               {{ item.label }}
             </option>
@@ -265,7 +285,7 @@
           ></span>
         </label>
         <div class="input-group">
-          <select class="select select-bordered w-full" v-model="drop_gear" @change="calculateRatio()">
+          <select class="select select-bordered w-full" v-model="drop_gear" @change="triggerDebouncedUpdate">
             <option v-for="item in dropGears" :key="item.label" :value="item.value">
               {{ item.label }}
             </option>
@@ -279,7 +299,7 @@
           ></span>
         </label>
         <div class="input-group">
-          <select class="select select-bordered w-full" v-model="gear_ratios" @change="calculateRatio()">
+          <select class="select select-bordered w-full" v-model="gear_ratios" @change="triggerDebouncedUpdate">
             <option v-for="item in gearRatios" :key="item.label" :value="item.value">
               {{ item.label }}
             </option>
@@ -293,7 +313,7 @@
           ></span>
         </label>
         <div class="input-group">
-          <select class="select select-bordered w-full" v-model="final_drive" @change="calculateRatio()">
+          <select class="select select-bordered w-full" v-model="final_drive" @change="triggerDebouncedUpdate">
             <option v-for="item in diffs" :key="item.label" :value="item.value">
               {{ item.label }}
             </option>
@@ -307,7 +327,7 @@
           ></span>
         </label>
         <div class="w-full">
-          <select class="select select-bordered w-full" v-model.number="max_rpm" @change="calculateRatio()">
+          <select class="select select-bordered w-full" v-model.number="max_rpm" @change="triggerDebouncedUpdate">
             <option value="5000">5000 RPM</option>
             <option value="5500">5500 RPM</option>
             <option value="6000">6000 RPM</option>

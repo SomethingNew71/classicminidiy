@@ -1,5 +1,8 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
+  // Track calculator loading state
+  const isCalculatorLoaded = ref(false);
+
   useHead({
     title: 'Tech - Gearing Calculator',
     meta: [
@@ -74,7 +77,15 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <CalculatorsGearbox />
+        <ClientOnly fallback-tag="div" fallback="Loading gearbox calculator...">
+          <div class="min-h-96 flex items-center justify-center" v-if="!isCalculatorLoaded">
+            <div class="flex flex-col items-center space-y-4">
+              <span class="loading loading-spinner loading-lg text-primary"></span>
+              <p class="text-base-content/70">Loading gearbox calculator...</p>
+            </div>
+          </div>
+          <LazyCalculatorsGearbox @vue:mounted="isCalculatorLoaded = true" />
+        </ClientOnly>
       </div>
       <div class="col-span-12 md:col-span-4 md:col-start-5">
         <div class="divider">More</div>
