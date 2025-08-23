@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import type { RegistryItem } from '../../data/models/registry';
   import { RegistryItemStatus } from '../../data/models/registry';
+  import { useDebounce } from '../composables/useDebounce';
 
   interface Props {
     items: RegistryItem[] | null;
@@ -26,6 +27,14 @@
   const currentPage = ref(1);
   const pageSize = ref(props.defaultPageSize);
 
+  // Debounced search to avoid excessive filtering
+  const debouncedSearch = useDebounce(searchValue, 300);
+
+  // Reset to first page when search changes
+  watch(debouncedSearch, () => {
+    currentPage.value = 1;
+  });
+
   // Helper function to get status priority for sorting
   const getStatusPriority = (status: string | undefined) => {
     if (!status) return 4; // No status - lowest priority
@@ -41,14 +50,14 @@
     }
   };
 
-  // Filter items based on search and sort by status priority
+  // Filter items based on debounced search and sort by status priority
   const filteredItems = computed(() => {
     if (!props.items) return null;
 
     // First filter by search term if provided
     let result = props.items;
-    if (searchValue.value) {
-      const search = searchValue.value.toLowerCase();
+    if (debouncedSearch.value) {
+      const search = debouncedSearch.value.toLowerCase();
       result = result.filter((item) => {
         return Object.values(item).some((val) => val && typeof val === 'string' && val.toLowerCase().includes(search));
       });
