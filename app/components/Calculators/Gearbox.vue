@@ -7,6 +7,7 @@
     type ISpeedometerTableItem,
     type IGearingTableItem,
     type ISpeedometer,
+    type TireValue,
   } from '../../../data/models/gearing';
 
   // Default Values for form elements
@@ -16,7 +17,7 @@
   const drop_gear = ref(1);
   const speedo_drive = ref(0.3529);
   const max_rpm = ref(6500);
-  const tire_type = ref({
+  const tire_type = ref<TireValue>({
     width: 145,
     profile: 80,
     size: 10,
@@ -89,12 +90,16 @@
   const distanceUnit = computed(() => (metric.value ? 'Km' : 'Mile'));
 
   function calculateTireDetails() {
-    tireInfo.value.width = tire_type.value.width;
-    tireInfo.value.profile = tire_type.value.profile;
-    tireInfo.value.size = tire_type.value.size;
-    tireInfo.value.diameter = Math.round(
-      tireInfo.value.width * (tireInfo.value.profile / 100) * 2 + tireInfo.value.size * 25.4
-    );
+    if (tire_type.value.diameter) {
+      tireInfo.value.diameter = tire_type.value.diameter;
+    } else {
+      tireInfo.value.width = tire_type.value.width;
+      tireInfo.value.profile = tire_type.value.profile;
+      tireInfo.value.size = tire_type.value.size;
+      tireInfo.value.diameter = Math.round(
+        tireInfo.value.width * (tireInfo.value.profile / 100) * 2 + tireInfo.value.size * 25.4
+      );
+    }
     tireInfo.value.circ = Math.round(3.14159 * tireInfo.value.diameter); // in mm
     typeCircInMiles.value = tireInfo.value.circ / (YARDS_IN_MILE * MM_IN_YARD); // in miles
     tireInfo.value.tireTurnsPerMile = Math.round(YARDS_IN_MILE / (tireInfo.value.circ / MM_IN_YARD));
@@ -323,7 +328,9 @@
       <div class="card bg-stone-400 shadow-sm">
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin"></i> Revolutions per/{{ distanceUnit }}
+            <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin text-white"></i> Revolutions per/{{
+              distanceUnit
+            }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ displayEngineRevs }}</p>
         </div>

@@ -5,6 +5,15 @@
   const isActive = (path: string): boolean => {
     return route.path === path || route.path.startsWith(path + '/');
   };
+
+  // Function to close mobile dropdown
+  const closeMobileDropdown = () => {
+    // Remove focus from the dropdown trigger to close it
+    const activeElement = document.activeElement as HTMLElement;
+    if (activeElement) {
+      activeElement.blur();
+    }
+  };
 </script>
 
 <template>
@@ -62,32 +71,32 @@
         </div>
         <ul tabindex="0" class="menu dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li>
-            <a href="https://classicminidiy.substack.com/" target="_blank">
+            <a href="https://classicminidiy.substack.com/" target="_blank" @click="closeMobileDropdown">
               <span><i class="fad fa-pencil"></i></span> Blog</a
             >
           </li>
           <li>
-            <nuxt-link to="/maps" :class="{ active: isActive('/maps') }">
+            <nuxt-link to="/maps" :class="{ active: isActive('/maps') }" @click="closeMobileDropdown">
               <span><i class="fad fa-computer-classic"></i></span> Maps</nuxt-link
             >
           </li>
           <li>
-            <a href="https://store.classicminidiy.com/" target="_blank">
+            <a href="https://store.classicminidiy.com/" target="_blank" @click="closeMobileDropdown">
               <span><i class="fad fa-store"></i></span> Store</a
             >
           </li>
           <li>
-            <nuxt-link to="/archive" :class="{ active: isActive('/archive') }">
+            <nuxt-link to="/archive" :class="{ active: isActive('/archive') }" @click="closeMobileDropdown">
               <span><i class="fad fa-books"></i></span> Archive</nuxt-link
             >
           </li>
           <li>
-            <nuxt-link to="/technical" :class="{ active: isActive('/technical') }">
+            <nuxt-link to="/technical" :class="{ active: isActive('/technical') }" @click="closeMobileDropdown">
               <span><i class="fad fa-toolbox"></i></span> Toolbox</nuxt-link
             >
           </li>
           <li>
-            <nuxt-link to="/chat" :class="{ active: isActive('/chat') }">
+            <nuxt-link to="/chat" :class="{ active: isActive('/chat') }" @click="closeMobileDropdown">
               <span><i class="fad fa-comments"></i></span> Chat</nuxt-link
             >
           </li>

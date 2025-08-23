@@ -1,5 +1,74 @@
 export const kphFactor = 1.60934;
-export const options = {
+
+// Tire option types
+export interface TireValue {
+  width: number;
+  profile: number;
+  size: number;
+  diameter?: number; // For special tires like Hoosier
+}
+
+export interface TireOption {
+  label: string;
+  value: TireValue;
+}
+
+// Differential option types
+export interface DiffOption {
+  value: number;
+  label: string;
+  subtitle?: string;
+}
+
+// Speedometer ratio option types
+export interface SpeedoRatioOption {
+  value: number;
+  label: string;
+  subtitle?: string;
+}
+
+// Drop gear option types
+export interface DropGearOption {
+  value: number;
+  label: string;
+  subtitle?: string;
+}
+
+// Gear ratio option types
+export interface GearRatioOption {
+  value: [number, number, number, number]; // Array of 4 gear ratios
+  label: string;
+}
+
+// Speedometer types
+export interface SpeedometerOption {
+  turns: number;
+  speed: number;
+  name: string;
+}
+
+export interface SpeedometerOptions {
+  metric: SpeedometerOption[];
+  imperial: SpeedometerOption[];
+}
+
+// RPM ticks type
+export interface RpmTicks {
+  [key: number]: string;
+}
+
+// Main options export interface
+export interface GearingOptions {
+  tires: TireOption[];
+  diffs: DiffOption[];
+  speedosRatios: SpeedoRatioOption[];
+  dropGears: DropGearOption[];
+  gearRatios: GearRatioOption[];
+  speedos: SpeedometerOptions;
+  rpmTicks: RpmTicks;
+}
+
+export const options: GearingOptions = {
   tires: [
     {
       label: '145/80r10',
@@ -128,6 +197,15 @@ export const options = {
         width: 195,
         profile: 50,
         size: 13,
+      },
+    },
+    {
+      label: 'Hoosier 19.0 X 5.0 - 10',
+      value: {
+        diameter: 477.52,
+        width: 5.2,
+        profile: 0,
+        size: 10,
       },
     },
   ],
