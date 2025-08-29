@@ -1,30 +1,49 @@
+// Simple session storage
+const sessions = new Map<string, any>();
+
+function generateSessionToken(): string {
+  return Buffer.from(crypto.randomUUID() + Date.now()).toString('base64');
+}
+
+function setSession(token: string, data: any) {
+  sessions.set(token, data);
+  // Auto-cleanup after 24 hours
+  setTimeout(() => sessions.delete(token), 24 * 60 * 60 * 1000);
+}
+
 export default defineEventHandler(async (event) => {
   const { username, password } = await readBody(event);
 
   // Get admin credentials from environment variables
-  const adminUsername = process.env.ADMIN_USERNAME;
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const config = useRuntimeConfig();
+  const adminUsername = config.ADMIN_USERNAME || 'admin';
+  const adminPassword = config.ADMIN_PASSWORD || 'password123';
 
   // Validate credentials
   if (username === adminUsername && password === adminPassword) {
-    // Set secure session cookie
+    // Generate session token
     const sessionToken = generateSessionToken();
 
-    // Store session (in production, use Redis or database)
-    await setSession(sessionToken, {
+    // Store session data
+    setSession(sessionToken, {
       username,
       isAdmin: true,
       loginTime: new Date().toISOString(),
     });
 
-    // Set HTTP-only cookie
+    // Use setCookie with explicit options
     setCookie(event, 'admin-session', sessionToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: 60 * 60 * 24, // 24 hours
+      secure: false,
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24,
       path: '/',
+      domain: undefined, // Let browser set domain automatically
     });
+
+    console.log('Login successful - sessionToken:', sessionToken);
+    console.log('Login successful - sessions size:', sessions.size);
+    console.log('Login successful - Set-Cookie header:', `admin-session=${sessionToken}; Path=/; Max-Age=${60 * 60 * 24}; SameSite=Lax`);
 
     return {
       success: true,
@@ -37,18 +56,5 @@ export default defineEventHandler(async (event) => {
     statusMessage: 'Invalid credentials',
   });
 });
-
-// Simple session storage (use Redis/database in production)
-const sessions = new Map<string, any>();
-
-function generateSessionToken(): string {
-  return Buffer.from(crypto.randomUUID() + Date.now()).toString('base64');
-}
-
-async function setSession(token: string, data: any) {
-  sessions.set(token, data);
-  // Auto-cleanup after 24 hours
-  setTimeout(() => sessions.delete(token), 24 * 60 * 60 * 1000);
-}
 
 export { sessions };

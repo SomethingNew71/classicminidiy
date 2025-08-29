@@ -1,6 +1,7 @@
 import { createLangGraphClient, createThreadIfNeeded } from '../../../_utils';
 
 export default defineEventHandler(async (event) => {
+  const runtimeConfig = useRuntimeConfig();
   try {
     let threadId = getRouterParam(event, 'threadId');
 
@@ -52,7 +53,7 @@ export default defineEventHandler(async (event) => {
           // Add metadata if provided
           if (metadata) {
             streamOptions.metadata = {
-              environment: process.env.NODE_ENV || 'development',
+              environment: runtimeConfig.NODE_ENV || 'development',
               ...metadata,
             };
           }

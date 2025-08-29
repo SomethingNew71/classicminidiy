@@ -13,7 +13,8 @@ type ChassisDecoderRequest = {
  * This ensures we use the same validation logic as the main decoder endpoint
  */
 const callChassisDecoderAPI = async (yearRange: string, chassisNumber: string) => {
-  const apiUrl = process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const runtimeConfig = useRuntimeConfig();
+  const apiUrl = runtimeConfig.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000';
   const endpoint = `${apiUrl}/api/decoders/chassis`;
 
   const response = await fetch(endpoint, {

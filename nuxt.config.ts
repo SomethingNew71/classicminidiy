@@ -338,6 +338,7 @@ export default defineNuxtConfig({
     NUXT_LANGSMITH_API_KEY: process.env.NUXT_LANGSMITH_API_KEY,
     ADMIN_USERNAME: process.env.ADMIN_USERNAME,
     ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
+    SESSION_PASSWORD: process.env.SESSION_PASSWORD,
   },
 
   // Add custom reviver/replacer for functions that can't be serialized

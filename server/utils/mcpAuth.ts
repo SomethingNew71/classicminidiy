@@ -16,16 +16,18 @@ export function validateMcpAuth(event: any): boolean {
     return false;
   }
 
+  const config = useRuntimeConfig();
+  const apiKeyString = config.MCP_API_KEYS as string;
   // Get valid API keys from environment variables
-  const validKeys = process.env.MCP_API_KEYS?.split(',') || [];
+  const validKeys = apiKeyString.split(',') || [];
 
   // Also check for a single API key
-  if (process.env.MCP_API_KEY) {
-    validKeys.push(process.env.MCP_API_KEY);
+  if (config.MCP_API_KEY) {
+    validKeys.push(config.MCP_API_KEY as string);
   }
 
   // Default development key if no environment variables are set
-  if (validKeys.length === 0 && process.env.NODE_ENV === 'development') {
+  if (validKeys.length === 0 && config.NODE_ENV === 'development') {
     validKeys.push('dev-mcp-key-classic-mini-diy');
   }
 
