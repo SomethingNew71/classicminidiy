@@ -1,12 +1,7 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <Hero
-      title="Get in Touch"
-      subtitle="Have a question, suggestion, or want to contribute to the Classic Mini DIY community? We'd love to hear from you!"
-      :heroType="HERO_TYPES.CONTACT"
-      textSize="text-4xl"
-    />
+    <Hero title="Get in Touch" :heroType="HERO_TYPES.CONTACT" textSize="text-4xl" class="pb-7" />
 
     <!-- Breadcrumb Navigation -->
     <div class="container mx-auto px-4 pt-10">
