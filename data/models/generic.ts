@@ -11,6 +11,7 @@ export enum HERO_TYPES {
   ARCHIVE = 'archive',
   BLOG = 'blog',
   MAPS = 'maps',
+  CONTACT = 'contact',
 }
 export interface Post extends ParsedContent {
   image?: string;
@@ -88,7 +89,7 @@ export const ToolboxItems: ToolboxItem[] = [
     title: 'Torque Specs',
     path: '/technical/torque',
     iconHtml:
-      '<i class="fa-duotone fa-screwdriver-wrench" style="--fa-primary-color: #417bbe; --fa-secondary-color: #5f6166;"></i>',
+      '<i class="fa-duotone fa-screwdriver-wrench" style="--fa-primary-color: #ed7135; --fa-secondary-color: #ed7135;"></i>',
     to: '/technical/torque',
   },
   {
@@ -114,14 +115,14 @@ export const ToolboxItems: ToolboxItem[] = [
   {
     title: 'Gearbox Calculator',
     path: '/technical/gearing',
-    iconHtml: '<i class="fa-duotone fa-gears" style="--fa-primary-color: #343a40; --fa-secondary-color: #878d95;"></i>',
+    iconHtml: '<i class="fa-duotone fa-gears" style="--fa-primary-color: #c49031; --fa-secondary-color: #c49031;"></i>',
     to: '/technical/gearing',
   },
   {
     title: 'Compression Ratio Calculator',
     path: '/technical/compression',
     iconHtml:
-      '<i class="fa-duotone fa-calculator" style="--fa-primary-color: #343434; --fa-secondary-color: #992e1a; --fa-secondary-opacity: .8;"></i>',
+      '<i class="fa-duotone fa-calculator" style="--fa-primary-color: #859369; --fa-secondary-color: #859369;"></i>',
     to: '/technical/compression',
   },
   {
