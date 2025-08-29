@@ -54,12 +54,10 @@
               Mini's of all model years and styles.
             </p>
             <p class="font-bold mt-4 mb-5">Looking for the status of your submission?</p>
-            <btn class="btn btn-primary">
-              <NuxtLink to="/archive/registry/pending">
-                <i class="fa-duotone fa-clipboard-question mr-2"></i>
-                Track your Submission
-              </NuxtLink>
-            </btn>
+            <NuxtLink to="/archive/registry/pending" class="btn btn-primary">
+              <i class="fa-duotone fa-clipboard-question mr-2"></i>
+              Track your Submission
+            </NuxtLink>
           </div>
           <div class="col-span-12 md:col-span-4">
             <a href="#submitAnchor" class="block">

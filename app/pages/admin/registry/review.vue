@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { RegistryItem } from '../../../../data/models/registry';
+  import { RegistryItemStatus } from '../../../../data/models/registry';
 
   interface TableHeader {
     title: string;
@@ -32,11 +33,23 @@
     { title: 'Name', value: 'submittedBy' },
     { title: 'Email', value: 'submittedByEmail' },
     { title: 'Year', value: 'year', align: 'center' },
+    { title: 'Status', value: 'status', align: 'center' },
     { title: 'Actions', key: 'actions', align: 'center', width: '200px' },
   ];
 
   // Computed
   const isLoading = computed(() => fetchStatus.value === 'pending' || isProcessing.value);
+
+  // Helper function to check if item is pending
+  const isPending = (item: RegistryItem) => !item.status || item.status === RegistryItemStatus.PENDING;
+
+  // Helper function to get status display text
+  const getStatusDisplay = (item: RegistryItem) => {
+    if (!item.status || item.status === RegistryItemStatus.PENDING) return 'P - Pending';
+    if (item.status === RegistryItemStatus.APPROVED) return 'A - Approved';
+    if (item.status === RegistryItemStatus.REJECTED) return 'R - Rejected';
+    return item.status;
+  };
 
   // Methods
   async function refresh() {
@@ -56,7 +69,7 @@
     errorMessage.value = '';
 
     try {
-      const { error } = await useFetch('/api/registry/queue/reject', {
+      const { error } = await useFetch('/api/registry/queue/save', {
         method: 'POST',
         body: {
           uuid: item.uniqueId,
@@ -201,15 +214,33 @@
             <td>{{ item.submittedBy || '-' }}</td>
             <td>{{ item.submittedByEmail || '-' }}</td>
             <td class="text-center">{{ item.year || '-' }}</td>
+            <td class="text-center">
+              <span
+                :class="{
+                  'badge badge-warning': isPending(item),
+                  'badge badge-success': item.status === RegistryItemStatus.APPROVED,
+                  'badge badge-error': item.status === RegistryItemStatus.REJECTED,
+                }"
+              >
+                {{ getStatusDisplay(item) }}
+              </span>
+            </td>
             <td class="space-x-2">
-              <button class="btn btn-sm btn-success" @click="approveItem(item)" :disabled="isProcessing">
-                <span
-                  v-if="processingItemId === item.uniqueId && isProcessing"
-                  class="loading loading-spinner loading-xs"
-                ></span>
-                Approve
-              </button>
-              <button class="btn btn-sm btn-error" @click="confirmDelete(item)" :disabled="isProcessing">Reject</button>
+              <template v-if="isPending(item)">
+                <button class="btn btn-sm btn-success" @click="approveItem(item)" :disabled="isProcessing">
+                  <span
+                    v-if="processingItemId === item.uniqueId && isProcessing"
+                    class="loading loading-spinner loading-xs"
+                  ></span>
+                  Approve
+                </button>
+                <button class="btn btn-sm btn-error" @click="confirmDelete(item)" :disabled="isProcessing">
+                  Reject
+                </button>
+              </template>
+              <template v-else>
+                <span class="text-gray-500 text-sm">No actions available</span>
+              </template>
             </td>
           </tr>
         </tbody>
