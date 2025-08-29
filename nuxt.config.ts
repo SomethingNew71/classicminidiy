@@ -190,8 +190,7 @@ export default defineNuxtConfig({
       priority: 0.8,
       lastmod: new Date().toISOString(),
     },
-    // Exclude client-only routes
-    exclude: ['/technical/calculators/needles', '/technical/calculators/gearbox'],
+    exclude: ['/admin'],
   },
 
   /*
