@@ -106,19 +106,19 @@
       const response = await $fetch('/api/auth/login', {
         method: 'POST',
         body: credentials.value,
+        credentials: 'include', // Ensure cookies are handled properly
       });
 
       console.log('Login response:', response);
 
-      // Clear form
-      credentials.value = { username: '', password: '' };
-
-      // Redirect to admin dashboard
-      await navigateTo('/admin');
+      // Disable Vue reactivity and redirect immediately
+      isLoading.value = false;
+      
+      // Use location.href instead of replace to ensure proper navigation
+      window.location.href = '/admin';
     } catch (error: any) {
       console.error('Login error:', error);
       errorMessage.value = error.data?.message || error.message || 'Invalid username or password';
-    } finally {
       isLoading.value = false;
     }
   };

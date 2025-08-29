@@ -6,8 +6,9 @@ const StreamContextKey: InjectionKey<UseStreamContextProvider> = Symbol('StreamC
 
 // Vue composition function to replace React's context
 export function useStreamProvider() {
+  const runtimeConfig = useRuntimeConfig();
   // Configuration state
-  const assistantId = ref(process.env.NUXT_PUBLIC_LANGGRAPH_ASSISTANT_ID || 'agent');
+  const assistantId = ref(runtimeConfig.NUXT_PUBLIC_LANGGRAPH_ASSISTANT_ID || 'agent');
   const isConfigured = computed(() => !!assistantId.value);
 
   // Use persistent thread management

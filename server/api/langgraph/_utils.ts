@@ -1,17 +1,19 @@
 import { Client } from '@langchain/langgraph-sdk';
 
+const config = useRuntimeConfig();
+
 export function createLangGraphClient() {
-  const apiUrl = process.env.NUXT_LANGGRAPH_API_URL;
-  const apiKey = process.env.NUXT_LANGSMITH_API_KEY;
+  const apiUrl = config.NUXT_LANGGRAPH_API_URL;
+  const apiKey = config.NUXT_LANGSMITH_API_KEY;
   return new Client({ apiUrl, apiKey });
 }
 
 export function getApiKey(event: any) {
-  return process.env.NUXT_LANGSMITH_API_KEY || getHeader(event, 'x-api-key') || '';
+  return config.NUXT_LANGSMITH_API_KEY || getHeader(event, 'x-api-key') || '';
 }
 
 export function getApiUrl() {
-  return process.env.NUXT_LANGGRAPH_API_URL;
+  return config.NUXT_LANGGRAPH_API_URL;
 }
 
 export function forwardHeaders(event: any, headers: Record<string, string>) {
