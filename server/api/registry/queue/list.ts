@@ -2,6 +2,7 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { DateTime } from 'luxon';
 import type { RegistryItem } from '../../../../data/models/registry';
+import { requireAdminAuth } from '../../../utils/adminAuth';
 
 const createDynamoDBClient = (config: any) => {
   return DynamoDBDocumentClient.from(
@@ -16,6 +17,8 @@ const createDynamoDBClient = (config: any) => {
 };
 
 export default defineEventHandler(async (event): Promise<RegistryItem[]> => {
+  // Require admin authentication
+  await requireAdminAuth(event);
   // Set cache headers - cache for 5 minutes since queue data changes frequently
   setResponseHeaders(event, {
     'Cache-Control': 'public, max-age=300, s-maxage=300',

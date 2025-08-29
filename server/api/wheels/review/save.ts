@@ -1,17 +1,20 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import {
-  DeleteCommand,
   DynamoDBDocumentClient,
   PutCommand,
+  DeleteCommand,
   UpdateCommand,
   type PutCommandOutput,
-  type UpdateCommandOutput,
   type DeleteCommandOutput,
+  type UpdateCommandOutput,
 } from '@aws-sdk/lib-dynamodb';
-import _ from 'lodash';
 import type { IWheelsData } from '../../../../data/models/wheels';
+import { requireAdminAuth } from '../../../utils/adminAuth';
+import _ from 'lodash';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event: any) => {
+  // Require admin authentication
+  await requireAdminAuth(event);
   const config = useRuntimeConfig();
 
   try {
@@ -32,12 +35,7 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    if (body.auth !== config.validation_key) {
-      throw createError({
-        statusCode: 401,
-        statusMessage: 'User is not authorized',
-      });
-    }
+    // Admin authentication already handled by requireAdminAuth()
 
     const uuid = body.wheel.new.uuid;
     const newWheel: IWheelsData = body.wheel.new;
