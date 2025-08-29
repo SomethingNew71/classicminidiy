@@ -43,7 +43,10 @@ export default defineEventHandler(async (event) => {
 
     console.log('Login successful - sessionToken:', sessionToken);
     console.log('Login successful - sessions size:', sessions.size);
-    console.log('Login successful - Set-Cookie header:', `admin-session=${sessionToken}; Path=/; Max-Age=${60 * 60 * 24}; SameSite=Lax`);
+    console.log(
+      'Login successful - Set-Cookie header:',
+      `admin-session=${sessionToken}; Path=/; Max-Age=${60 * 60 * 24}; SameSite=Lax`
+    );
 
     return {
       success: true,

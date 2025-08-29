@@ -15,6 +15,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ## Architecture
 
 ### Frontend
+
 - **Framework**: Nuxt 3 with TypeScript
 - **Styling**: TailwindCSS + DaisyUI custom theme
 - **Charts**: Highcharts for data visualization
@@ -22,6 +23,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - **SEO**: Comprehensive meta tags, structured data, sitemap generation
 
 ### Backend & Infrastructure
+
 - **Hosting**: Vercel with serverless deployment
 - **Database**:
   - DynamoDB for primary data storage
@@ -31,6 +33,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - **Analytics**: Google Analytics, Vercel Analytics & Speed Insights
 
 ### AI Integration
+
 - **LangGraph SDK**: AI-powered chat functionality
 - **Nuxt-LLMs**: Content integration for AI responses
 - **MCP Server**: Model Context Protocol server for structured data access
@@ -38,6 +41,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ## Development Environment
 
 ### Package Management
+
 - **Primary**: npm (Node.js v22.12.0+)
 - **Scripts**:
   - `npm run dev` - Start development server
@@ -46,6 +50,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
   - `npm run format` - Format code with Prettier
 
 ### Key Technologies
+
 - **Vue 3** with Composition API
 - **TypeScript** for type safety
 - **TailwindCSS** for styling with custom DaisyUI theme
@@ -57,6 +62,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ## Project Structure
 
 ### Core Directories
+
 - `app/` - Main application code
   - `components/` - Vue components organized by feature
   - `pages/` - File-based routing structure
@@ -68,6 +74,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - `public/` - Static assets
 
 ### Key Features
+
 - **Archive Section**: Historical documents, manuals, advertisements
 - **Technical Toolbox**: Calculators, specifications, reference data `app/technical`
 - **Registry System**: User-submitted Classic Mini registrations `app/archive/registry`
@@ -80,6 +87,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ## API Structure
 
 ### Core APIs
+
 - `/api/decoders/` - Chassis and engine number decoding
 - `/api/wheels/` - Wheel fitment database
 - `/api/registry/` - User registration system
@@ -88,6 +96,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - `/api/mcp/` - Model Context Protocol server
 
 ### External Integrations
+
 - **GitHub API**: Repository statistics and releases
 - **YouTube API**: Channel video integration
 - **AWS Services**: S3 storage, DynamoDB queries
@@ -95,18 +104,21 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ## Development Guidelines
 
 ### Code Standards
+
 - **TypeScript**: Strict type checking enabled
 - **Vue 3**: Composition API preferred over Options API
 - **Prettier**: Code formatting with 2-space indentation
 - **ESLint**: Linting rules for code quality
 
 ### Component Patterns
+
 - **Single File Components**: .vue files with `<script setup>` syntax
 - **Composables**: Reusable logic in `/composables/` directory
 - **Type Safety**: All components properly typed with TypeScript interfaces
 - **CSS**: TailwindCSS classes preferred, custom DaisyUI theme
 
 ### Performance Optimizations
+
 - **SSR/ISR**: Strategic prerendering for static content
 - **Image Optimization**: Multiple formats (WebP, AVIF) with responsive sizes
 - **Code Splitting**: Manual chunks for better caching
@@ -115,6 +127,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ## Environment Variables
 
 ### Required Runtime Config
+
 ```env
 # AWS Credentials
 dynamo_id=
@@ -142,11 +155,13 @@ s3Base=
 ## Content Management
 
 ### Static Data
+
 - JSON files in `/data/` directory for reference information
 - TypeScript models for data structure validation
 - Automated data processing for consistency
 
 ### Dynamic Content
+
 - **Nuxt Content**: Markdown-based content with frontmatter
 - **DynamoDB**: User-generated content (registry, wheels)
 - **S3**: File storage for images and documents
@@ -154,12 +169,14 @@ s3Base=
 ## Deployment
 
 ### Vercel Configuration
+
 - **Build Command**: `nuxi build`
 - **Output Directory**: `.nuxt/dist`
 - **Node Version**: 22.x
 - **Environment**: Production optimizations enabled
 
 ### Performance Features
+
 - **Prerendering**: Static pages cached at build time
 - **Edge Functions**: API routes optimized for global distribution
 - **Asset Optimization**: Compression, minification, tree shaking
@@ -168,11 +185,13 @@ s3Base=
 ## Testing & Quality
 
 ### Code Quality
+
 - **TypeScript**: Compile-time type checking
 - **Prettier**: Consistent code formatting
 - **Build Validation**: Production build testing required
 
 ### Performance
+
 - **Lighthouse**: Regular performance auditing
 - **Core Web Vitals**: Monitoring via Vercel Speed Insights
 - **PWA**: Progressive web app functionality testing
@@ -180,6 +199,7 @@ s3Base=
 ## Common Tasks
 
 ### Adding New Features
+
 1. Create TypeScript interfaces in `/data/models/`
 2. Add API routes in `/server/api/`
 3. Create Vue components with proper typing
@@ -187,11 +207,13 @@ s3Base=
 5. Test build process: `npm run build`
 
 ### Content Updates
+
 - Static data: Update JSON files in `/data/`
 - Dynamic content: Use admin interfaces or direct API calls
 - Images: Upload to S3 bucket with appropriate paths
 
 ### Performance Optimization
+
 - Run `npm run build` to test production build
 - Check bundle analysis for large dependencies
 - Verify image optimization is working correctly

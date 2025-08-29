@@ -126,9 +126,7 @@
         updates.push({
           type: 'release',
           date: release.published_at || release.created_at || '',
-          displayDate: release.published_at
-            ? DateTime.fromISO(release.published_at).toFormat('LLL dd')
-            : 'Unknown',
+          displayDate: release.published_at ? DateTime.fromISO(release.published_at).toFormat('LLL dd') : 'Unknown',
           message: release.name || release.tag_name || 'New Release',
           tagName: release.tag_name || undefined,
           url: release.html_url || `https://github.com/SomethingNew71/MiniECUMaps/releases/tag/${release.tag_name}`,
