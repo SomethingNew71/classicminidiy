@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import type { RegistryItem } from '../../../../data/models/registry';
   import { RegistryItemStatus } from '../../../../data/models/registry';
+  import { BREADCRUMB_VERSIONS } from '../../../../data/models/generic';
 
   interface TableHeader {
     title: string;
@@ -17,6 +18,10 @@
   const processingItemId = ref<string | null>(null);
   const selectedItem = ref<RegistryItem | null>(null);
   const showDeleteDialog = ref(false);
+
+  // Editing state
+  const editingItems = ref<Set<string>>(new Set());
+  const editedData = ref<Map<string, RegistryItem>>(new Map());
 
   // API Data
   const {
@@ -51,6 +56,43 @@
     return item.status;
   };
 
+  // Editing functions
+  const startEditing = (item: RegistryItem) => {
+    editingItems.value.add(item.uniqueId);
+    editedData.value.set(item.uniqueId, { ...item });
+  };
+
+  const cancelEditing = (item: RegistryItem) => {
+    editingItems.value.delete(item.uniqueId);
+    editedData.value.delete(item.uniqueId);
+  };
+
+  const saveEditing = (item: RegistryItem) => {
+    const editedItem = editedData.value.get(item.uniqueId);
+    if (editedItem && registryItems.value) {
+      const index = registryItems.value.findIndex((i) => i.uniqueId === item.uniqueId);
+      if (index !== -1) {
+        registryItems.value[index] = { ...editedItem };
+      }
+    }
+    editingItems.value.delete(item.uniqueId);
+    editedData.value.delete(item.uniqueId);
+  };
+
+  const isEditing = (item: RegistryItem) => editingItems.value.has(item.uniqueId);
+
+  const getEditedValue = (item: RegistryItem, field: keyof RegistryItem) => {
+    const editedItem = editedData.value.get(item.uniqueId);
+    return editedItem ? editedItem[field] : item[field];
+  };
+
+  const updateEditedValue = (item: RegistryItem, field: keyof RegistryItem, value: any) => {
+    const editedItem = editedData.value.get(item.uniqueId);
+    if (editedItem) {
+      editedItem[field] = value;
+    }
+  };
+
   // Methods
   async function refresh() {
     if (isLoading.value) return;
@@ -69,11 +111,14 @@
     errorMessage.value = '';
 
     try {
+      // Use edited data if available, otherwise use original item
+      const dataToSave = editedData.value.get(item.uniqueId) || item;
+
       const { error } = await useFetch('/api/registry/queue/save', {
         method: 'POST',
         body: {
           uuid: item.uniqueId,
-          details: item,
+          details: dataToSave,
         },
       });
 
@@ -81,11 +126,15 @@
         throw new Error(error.value.data?.message || 'Failed to approve item');
       }
 
-      // Remove item from the list
+      // Clean up editing state
+      editingItems.value.delete(item.uniqueId);
+      editedData.value.delete(item.uniqueId);
+
+      // Update item status to approved
       if (registryItems.value) {
         const index = registryItems.value.findIndex((i) => i.uniqueId === item.uniqueId);
-        if (index !== -1) {
-          registryItems.value.splice(index, 1);
+        if (index !== -1 && registryItems.value[index]) {
+          registryItems.value[index].status = RegistryItemStatus.APPROVED;
         }
       }
     } catch (error) {
@@ -125,11 +174,11 @@
         throw new Error(error.value.data?.message || 'Failed to delete item');
       }
 
-      // Remove item from the list
-      if (registryItems.value) {
+      // Update item status to rejected
+      if (registryItems.value && selectedItem.value) {
         const index = registryItems.value.findIndex((i) => i.uniqueId === selectedItem.value?.uniqueId);
-        if (index !== -1) {
-          registryItems.value.splice(index, 1);
+        if (index !== -1 && registryItems.value[index]) {
+          registryItems.value[index].status = RegistryItemStatus.REJECTED;
         }
       }
     } catch (error) {
@@ -146,11 +195,17 @@
 
 <template>
   <div class="container mx-auto px-4 py-8">
+    <!-- Breadcrumb Navigation -->
+    <div class="mb-6">
+      <Breadcrumb page="Registry Review" :version="BREADCRUMB_VERSIONS.ADMIN" />
+    </div>
+
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-2xl font-bold">Registry Queue</h1>
       <button class="btn btn-primary" @click="refresh" :disabled="isLoading">
-        <span v-if="isLoading" class="loading loading-spinner"></span>
+        <span v-if="isLoading" class="fa-solid fa-refresh fa-spin"></span>
+        <i v-else class="fa-solid fa-refresh mr-2"></i>
         {{ isLoading ? 'Loading...' : 'Refresh' }}
       </button>
     </div>
@@ -208,12 +263,81 @@
         </thead>
         <tbody>
           <tr v-for="item in registryItems" :key="item.uniqueId">
-            <td>{{ item.model || '-' }}</td>
-            <td>{{ item.bodyNum || '-' }}</td>
-            <td>{{ item.trim || '-' }}</td>
-            <td>{{ item.submittedBy || '-' }}</td>
-            <td>{{ item.submittedByEmail || '-' }}</td>
-            <td class="text-center">{{ item.year || '-' }}</td>
+            <!-- Model -->
+            <td>
+              <input
+                v-if="isEditing(item)"
+                type="text"
+                class="input input-sm input-bordered w-full"
+                :value="getEditedValue(item, 'model')"
+                @input="updateEditedValue(item, 'model', ($event.target as HTMLInputElement).value)"
+              />
+              <span v-else>{{ item.model || '-' }}</span>
+            </td>
+
+            <!-- Body Number -->
+            <td>
+              <input
+                v-if="isEditing(item)"
+                type="text"
+                class="input input-sm input-bordered w-full"
+                :value="getEditedValue(item, 'bodyNum')"
+                @input="updateEditedValue(item, 'bodyNum', ($event.target as HTMLInputElement).value)"
+              />
+              <span v-else>{{ item.bodyNum || '-' }}</span>
+            </td>
+
+            <!-- Trim -->
+            <td>
+              <input
+                v-if="isEditing(item)"
+                type="text"
+                class="input input-sm input-bordered w-full"
+                :value="getEditedValue(item, 'trim')"
+                @input="updateEditedValue(item, 'trim', ($event.target as HTMLInputElement).value)"
+              />
+              <span v-else>{{ item.trim || '-' }}</span>
+            </td>
+
+            <!-- Name -->
+            <td>
+              <input
+                v-if="isEditing(item)"
+                type="text"
+                class="input input-sm input-bordered w-full"
+                :value="getEditedValue(item, 'submittedBy')"
+                @input="updateEditedValue(item, 'submittedBy', ($event.target as HTMLInputElement).value)"
+              />
+              <span v-else>{{ item.submittedBy || '-' }}</span>
+            </td>
+
+            <!-- Email -->
+            <td>
+              <input
+                v-if="isEditing(item)"
+                type="email"
+                class="input input-sm input-bordered w-full"
+                :value="getEditedValue(item, 'submittedByEmail')"
+                @input="updateEditedValue(item, 'submittedByEmail', ($event.target as HTMLInputElement).value)"
+              />
+              <span v-else>{{ item.submittedByEmail || '-' }}</span>
+            </td>
+
+            <!-- Year -->
+            <td class="text-center">
+              <input
+                v-if="isEditing(item)"
+                type="number"
+                class="input input-sm input-bordered w-20 text-center"
+                :value="getEditedValue(item, 'year')"
+                @input="updateEditedValue(item, 'year', parseInt(($event.target as HTMLInputElement).value) || 0)"
+                min="1959"
+                max="2024"
+              />
+              <span v-else>{{ item.year || '-' }}</span>
+            </td>
+
+            <!-- Status -->
             <td class="text-center">
               <span
                 :class="{
@@ -225,21 +349,45 @@
                 {{ getStatusDisplay(item) }}
               </span>
             </td>
-            <td class="space-x-2">
+
+            <!-- Actions -->
+            <td class="space-x-1">
               <template v-if="isPending(item)">
-                <button class="btn btn-sm btn-success" @click="approveItem(item)" :disabled="isProcessing">
-                  <span
-                    v-if="processingItemId === item.uniqueId && isProcessing"
-                    class="loading loading-spinner loading-xs"
-                  ></span>
-                  Approve
-                </button>
-                <button class="btn btn-sm btn-error" @click="confirmDelete(item)" :disabled="isProcessing">
-                  Reject
-                </button>
+                <template v-if="isEditing(item)">
+                  <!-- Edit mode buttons -->
+                  <button class="btn btn-xs btn-success" @click="saveEditing(item)" :disabled="isProcessing">
+                    <i class="fa-solid fa-check"></i>
+                  </button>
+                  <button class="btn btn-xs btn-ghost" @click="cancelEditing(item)" :disabled="isProcessing">
+                    <i class="fa-solid fa-times"></i>
+                  </button>
+                  <button class="btn btn-xs btn-primary" @click="approveItem(item)" :disabled="isProcessing">
+                    <span
+                      v-if="processingItemId === item.uniqueId && isProcessing"
+                      class="loading loading-spinner loading-xs"
+                    ></span>
+                    <i v-else class="fa-solid fa-check-double"></i>
+                  </button>
+                </template>
+                <template v-else>
+                  <!-- View mode buttons -->
+                  <button class="btn btn-xs btn-info" @click="startEditing(item)" :disabled="isProcessing">
+                    <i class="fa-solid fa-edit"></i>
+                  </button>
+                  <button class="btn btn-xs btn-success" @click="approveItem(item)" :disabled="isProcessing">
+                    <span
+                      v-if="processingItemId === item.uniqueId && isProcessing"
+                      class="loading loading-spinner loading-xs"
+                    ></span>
+                    <i v-else class="fa-solid fa-check"></i>
+                  </button>
+                  <button class="btn btn-xs btn-error" @click="confirmDelete(item)" :disabled="isProcessing">
+                    <i class="fa-solid fa-times"></i>
+                  </button>
+                </template>
               </template>
               <template v-else>
-                <span class="text-gray-500 text-sm">No actions available</span>
+                <span class="text-gray-500 text-xs">No actions available</span>
               </template>
             </td>
           </tr>

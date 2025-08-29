@@ -2,6 +2,7 @@ import type { IWheelsData } from '../../../../data/models/wheels';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, PutCommand } from '@aws-sdk/lib-dynamodb';
 import { v5 as uuidv5 } from 'uuid';
+import { WheelItemStatus } from '../../../../data/models/wheels';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
@@ -27,6 +28,8 @@ export default defineEventHandler(async (event) => {
     if (body.uuid === '' || body.newWheel) {
       body.uuid = uuidv5(`${body.userName}${body.name}${Math.random()}`, config.CMDIY_NAMEPSACE);
     }
+
+    body.status = WheelItemStatus.PENDING;
 
     const docClient = DynamoDBDocumentClient.from(
       new DynamoDBClient({

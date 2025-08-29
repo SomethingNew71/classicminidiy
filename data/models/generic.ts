@@ -4,6 +4,7 @@ import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
 export enum BREADCRUMB_VERSIONS {
   TECH = 'technical',
   ARCHIVE = 'archive',
+  ADMIN = 'admin',
 }
 export enum HERO_TYPES {
   HOME = 'home',
