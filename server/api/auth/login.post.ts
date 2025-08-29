@@ -16,8 +16,8 @@ export default defineEventHandler(async (event) => {
 
   // Get admin credentials from environment variables
   const config = useRuntimeConfig();
-  const adminUsername = config.ADMIN_USERNAME || 'admin';
-  const adminPassword = config.ADMIN_PASSWORD || 'password123';
+  const adminUsername = config.ADMIN_USERNAME;
+  const adminPassword = config.ADMIN_PASSWORD;
 
   // Validate credentials
   if (username === adminUsername && password === adminPassword) {
