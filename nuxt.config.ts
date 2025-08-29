@@ -336,6 +336,8 @@ export default defineNuxtConfig({
     POSTGRES_POSTGRES_URL: process.env.POSTGRES_URL || '',
     NUXT_LANGGRAPH_API_URL: process.env.NUXT_LANGGRAPH_API_URL,
     NUXT_LANGSMITH_API_KEY: process.env.NUXT_LANGSMITH_API_KEY,
+    ADMIN_USERNAME: process.env.ADMIN_USERNAME,
+    ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
   },
 
   // Add custom reviver/replacer for functions that can't be serialized
