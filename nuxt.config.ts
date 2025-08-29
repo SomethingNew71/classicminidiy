@@ -178,7 +178,6 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    sources: ['/api/__sitemap__/urls'],
     xslColumns: [
       { label: 'URL', width: '50%' },
       { label: 'Last Modified', width: '25%' },
@@ -190,7 +189,15 @@ export default defineNuxtConfig({
       priority: 0.8,
       lastmod: new Date().toISOString(),
     },
-    exclude: ['/admin', '/login'],
+    exclude: [
+      '/admin',
+      '/admin/registry/review',
+      '/admin/wheels/review',
+      '/login',
+      '/logout',
+      '/readme',
+      '/readme-tools',
+    ],
   },
 
   /*
