@@ -42,12 +42,12 @@
     ogDescription:
       'Detailed weights & measurements for the Classic Mini can be found online right here at Classic Mini DIY.',
     ogUrl: 'https://classicminidiy.com/archive/weights',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/weights.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Classic Mini Weights & Measurements',
     twitterDescription: 'Detailed weights & measurements for the Classic Mini.',
-    twitterImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/weights.png',
   });
 
   function convertKgToLbs(weightInKg: number | null) {

@@ -45,9 +45,13 @@
   useSeoMeta({
     ogTitle: 'Tech - Parts Equivalency',
     ogDescription: 'A complete list of parts which can be found at local parts sellers',
-    ogUrl: 'classicminidiy.com/technical/parts',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-support-100.png',
+    ogUrl: 'https://classicminidiy.com/technical/parts',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/parts.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Tech - Parts Equivalency',
+    twitterDescription: 'A complete list of parts which can be found at local parts sellers',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/parts.png',
   });
 </script>
 

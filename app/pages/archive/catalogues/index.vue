@@ -48,8 +48,12 @@
     ogTitle: 'Classic Mini Archive - Vendor Catalogues',
     ogDescription: 'Currated collection of Classic Mini original Vendor Catalogues',
     ogUrl: 'classicminidiy.com/archive/catalogues',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/archive/catalogues.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini Archive - Vendor Catalogues',
+    twitterDescription: 'Currated collection of Classic Mini original Vendor Catalogues',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/archive/catalogues.png',
   });
 </script>
 <template>

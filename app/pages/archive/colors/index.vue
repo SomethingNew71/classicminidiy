@@ -66,13 +66,27 @@
   });
 
   useHead({
-    title: 'Classic Mini Color Picker',
+    title: 'Color Picker',
     meta: [
       {
         name: 'description',
         content: 'Find the perfect color for your Classic Mini with our comprehensive color picker.',
       },
     ],
+  });
+
+  useSeoMeta({
+    ogTitle: 'Classic Mini Color Picker | Classic Mini DIY',
+    ogDescription:
+      'Find the perfect color for your Classic Mini with our comprehensive color picker and paint code reference.',
+    ogUrl: 'https://classicminidiy.com/archive/colors',
+    ogType: 'website',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini Color Picker | Classic Mini DIY',
+    twitterDescription:
+      'Find the perfect color for your Classic Mini with our comprehensive color picker and paint code reference.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
   });
 </script>
 

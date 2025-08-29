@@ -35,8 +35,12 @@
     ogTitle: 'Pending Registry Submissions - Classic Mini DIY',
     ogDescription: 'Track the status of your Classic Mini registry submission.',
     ogUrl: 'classicminidiy.com/archive/registry/pending',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/registry.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Pending Registry Submissions - Classic Mini DIY',
+    twitterDescription: 'Track the status of your Classic Mini registry submission.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/registry.png',
   });
 </script>
 

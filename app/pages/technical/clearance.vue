@@ -38,9 +38,14 @@
     ogTitle: 'Tech - Mini Clearances',
     ogDescription:
       'Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
-    ogUrl: 'classicminidiy.com/technical/clearance',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    ogUrl: 'https://classicminidiy.com/technical/clearance',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/clearance.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Tech - Mini Clearances',
+    twitterDescription:
+      'Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/clearance.png',
   });
 </script>
 

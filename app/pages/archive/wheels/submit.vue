@@ -4,6 +4,39 @@
   const route = useRoute();
   const uuid = ref(route.query.uuid?.toString());
   const newWheel = route.query.newWheel === 'true' ? true : false;
+
+  useHead({
+    title: 'Submit a Wheel',
+    meta: [
+      {
+        key: 'description',
+        name: 'description',
+        content: 'Submit a wheel to the Classic Mini DIY wheel dictionary.',
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive/wheels/submit',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
+    ],
+  });
+
+  useSeoMeta({
+    ogTitle: 'Submit a Wheel',
+    ogDescription: 'Submit a wheel to the Classic Mini DIY wheel dictionary.',
+    ogUrl: 'https://classicminidiy.com/archive/wheels/submit',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/wheels.png',
+    ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Submit a Wheel',
+    twitterDescription: 'Submit a wheel to the Classic Mini DIY wheel dictionary.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/wheels.png',
+  });
 </script>
 
 <template>

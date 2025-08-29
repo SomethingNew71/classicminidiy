@@ -53,6 +53,10 @@
     ogUrl: `classicminidiy.com/archive/colors/${color?.value?.raw.id}`,
     ogImage: shareImage.value,
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: `Mini Color - ${color.value?.pretty.Name} | ${color.value?.pretty.Code}`,
+    twitterDescription: 'Check out the Classic Mini color I am looking at right now.',
+    twitterImage: shareImage.value,
   });
 </script>
 

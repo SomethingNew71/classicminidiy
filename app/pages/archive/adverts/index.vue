@@ -31,8 +31,12 @@
     ogTitle: 'Classic Mini Archive - Advertisments',
     ogDescription: 'Currated collection of Classic Mini original Advertisments',
     ogUrl: 'classicminidiy.com/archive/adverts',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/archive/adverts.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini Archive - Advertisments',
+    twitterDescription: 'Currated collection of Classic Mini original Advertisments',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/archive/adverts.png',
   });
 </script>
 <template>

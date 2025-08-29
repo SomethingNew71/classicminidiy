@@ -33,12 +33,12 @@
     ogDescription:
       'Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.',
     ogUrl: 'https://classicminidiy.com/technical',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/technical-seo.jpg',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Classic Mini Technical Toolbox',
     twitterDescription: 'DIY technical tools and specifications for Classic Mini maintenance and upgrades.',
-    twitterImage: 'https://classicminidiy.s3.amazonaws.com/misc/technical-seo.jpg',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical.png',
   });
 
   // Add structured data for the technical toolbox collection

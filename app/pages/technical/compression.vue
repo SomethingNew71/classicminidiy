@@ -35,13 +35,13 @@
     ogDescription:
       'Calculate the compression ratio for your Classic Mini engine build with our interactive calculator. Plan your engine modifications with precision.',
     ogUrl: 'https://classicminidiy.com/technical/compression',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/compression.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Compression Ratio Calculator for Classic Mini Engines',
     twitterDescription:
       'Calculate the compression ratio for your Classic Mini engine build with our interactive calculator.',
-    twitterImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/compression.png',
   });
 
   // Add structured data for the calculator tool

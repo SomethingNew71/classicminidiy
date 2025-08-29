@@ -26,5 +26,11 @@
       'Chat with our AI assistant for Classic Mini technical help, chassis decoding, parts information, and restoration guidance.',
     ogTitle: 'CMDIY Assistant - Classic Mini DIY',
     ogDescription: 'Get instant help with your Classic Mini projects from our AI assistant.',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/chat.png',
+    ogUrl: 'https://classicminidiy.com/chat',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'CMDIY Assistant - Classic Mini DIY',
+    twitterDescription: 'Get instant help with your Classic Mini projects from our AI assistant.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/chat.png',
   });
 </script>

@@ -15,9 +15,14 @@
     ogTitle: 'Archive - Wheel Dictionary',
     ogDescription:
       'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini. Whether looking for something stock or race inspired learn about your options here.',
-    ogUrl: 'classicminidiy.com/archive/wheels',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogUrl: 'https://classicminidiy.com/archive/wheels',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/wheels.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Archive - Wheel Dictionary',
+    twitterDescription:
+      'The Classic Mini DIY wheel dictionary is here to help you compare all the different wheel options sold on the Classic Mini.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/wheels.png',
   });
 </script>
 
