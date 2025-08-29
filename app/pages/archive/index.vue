@@ -38,12 +38,12 @@
       'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources. Preserved digital collection for Mini enthusiasts and restorers.',
     ogUrl: 'https://classicminidiy.com/archive',
     ogType: 'website',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive.png',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Classic Mini Archives | Historical Documents & Resources',
     twitterDescription:
       'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources.',
-    twitterImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive.png',
   });
 
   // Add structured data for the archive collection

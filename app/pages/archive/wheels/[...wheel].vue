@@ -48,6 +48,21 @@
             name: 'description',
             content: description,
           },
+          {
+            key: 'keywords',
+            name: 'keywords',
+            content: 'Classic Mini wheels, Mini Cooper wheels, Classic Mini wheel dictionary',
+          },
+        ],
+        link: [
+          {
+            rel: 'canonical',
+            href: `https://classicminidiy.com/archive/wheels/${wheel.value.uuid}`,
+          },
+          {
+            rel: 'preconnect',
+            href: 'https://classicminidiy.s3.amazonaws.com',
+          },
         ],
       });
 
@@ -57,6 +72,10 @@
         ogUrl: `classicminidiy.com/archive/wheels/${wheel.value.uuid}`,
         ogImage: shareImage.value,
         ogType: 'website',
+        twitterCard: 'summary_large_image',
+        twitterTitle: title,
+        twitterDescription: description,
+        twitterImage: shareImage.value,
       });
     }
   });

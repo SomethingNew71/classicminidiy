@@ -270,11 +270,13 @@
     ogDescription:
       'Get help, submit content, or report issues. Multiple contact methods for all your Classic Mini DIY needs.',
     ogUrl: 'https://classicminidiy.com/contact',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/contact.png',
     ogType: 'website',
-    twitterCard: 'summary',
+    twitterCard: 'summary_large_image',
     twitterTitle: 'Contact Classic Mini DIY',
     twitterDescription:
       'Get help, submit content, or report issues. Multiple contact methods for all your Classic Mini DIY needs.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/contact.png',
   });
 
   // Breadcrumb navigation

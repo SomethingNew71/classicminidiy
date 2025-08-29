@@ -36,12 +36,12 @@
     ogDescription:
       'Compare SU carburettor needles for your Classic Mini with our interactive chart. Find the right needle profile for your engine build.',
     ogUrl: 'https://classicminidiy.com/technical/needles',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/needles.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
     twitterTitle: 'SU Needles Chart & Comparison Tool | Classic Mini DIY',
     twitterDescription: 'Compare SU carburettor needles for your Classic Mini with our interactive chart.',
-    twitterImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-increase-100.png',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/needles.png',
   });
 
   // Add structured data for the tool

@@ -25,9 +25,13 @@
   useSeoMeta({
     ogTitle: 'Archive - The Classic Mini Register',
     ogDescription: 'Complete compendium of all known minis, as submitted by their owners.',
-    ogUrl: 'classicminidiy.com/archive/register',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogUrl: 'https://classicminidiy.com/archive/registry',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/registry.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Archive - The Classic Mini Register',
+    twitterDescription: 'Complete compendium of all known minis, as submitted by their owners.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/registry.png',
   });
 </script>
 

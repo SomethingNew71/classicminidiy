@@ -49,12 +49,25 @@
 
   useHead({
     title: 'Contribute Color - Classic Mini DIY',
+
     meta: [
       {
         name: 'description',
         content: 'Contribute to the Classic Mini color database by submitting new or updated color information.',
       },
     ],
+  });
+
+  useSeoMeta({
+    ogTitle: 'Contribute Color - Classic Mini DIY',
+    ogDescription: 'Contribute to the Classic Mini color database by submitting new or updated color information.',
+    ogUrl: 'https://classicminidiy.com/archive/colors/contribute',
+    ogType: 'website',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Contribute Color - Classic Mini DIY',
+    twitterDescription: 'Contribute to the Classic Mini color database by submitting new or updated color information.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
   });
 
   interface GitHubIssueResponse {

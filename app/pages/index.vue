@@ -5,6 +5,27 @@
   const birthday = DateTime.local(1989, 5, 11);
   const today = DateTime.now();
   const age = ref<string | undefined>(today.diff(birthday, 'years').toObject().years?.toFixed(0));
+
+  useHead({
+    title: 'Classic Mini DIY | Your Friendly Neighborhood Classic Mini Resource',
+    meta: [
+      {
+        name: 'description',
+        content: 'Classic Mini DIY - Your complete resource for Classic Mini restoration, maintenance, and modification. DIY tutorials, technical guides, and community support.',
+      },
+    ],
+  });
+
+  useSeoMeta({
+    ogTitle: 'Classic Mini DIY | Your Friendly Neighborhood Classic Mini Resource',
+    ogDescription: 'Classic Mini DIY - Your complete resource for Classic Mini restoration, maintenance, and modification. DIY tutorials, technical guides, and community support.',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/root.jpg',
+    ogUrl: 'https://classicminidiy.com',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini DIY | Your Friendly Neighborhood Classic Mini Resource',
+    twitterDescription: 'Classic Mini DIY - Your complete resource for Classic Mini restoration, maintenance, and modification. DIY tutorials, technical guides, and community support.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/root.jpg',
+  });
 </script>
 
 <template>

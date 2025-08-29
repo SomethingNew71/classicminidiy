@@ -18,9 +18,14 @@
     ogTitle: 'Tech - Gearing Calculator',
     ogDescription:
       "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
-    ogUrl: 'classicminidiy.com/technical/gearing',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-level-tool-100.png',
+    ogUrl: 'https://classicminidiy.com/technical/gearing',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/gearing.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Tech - Gearing Calculator',
+    twitterDescription:
+      "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/gearing.png',
   });
 </script>
 

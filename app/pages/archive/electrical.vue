@@ -34,12 +34,12 @@
     ogTitle: 'Archive - Electrical Diagrams | Classic Mini DIY',
     ogDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
     ogUrl: 'https://classicminidiy.com/archive/electrical',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/electrical.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Classic Mini Electrical Diagrams',
     twitterDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
-    twitterImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/electrical.png',
   });
 
   // Add structured data for the electrical diagrams reference

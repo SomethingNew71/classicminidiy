@@ -34,6 +34,12 @@
       'Classic Mini DIY privacy policy regarding data collection, storage, and use of YouTube API Services.',
     ogUrl: 'https://classicminidiy.com/privacy',
     ogType: 'website',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/root.png',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Privacy Policy | Classic Mini DIY',
+    twitterDescription:
+      'Classic Mini DIY privacy policy regarding data collection, storage, and use of YouTube API Services.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/root.png',
   });
 
   // Add structured data for the privacy policy page

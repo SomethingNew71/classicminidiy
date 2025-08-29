@@ -48,8 +48,12 @@
     ogTitle: 'Classic Mini Archive - Tuning and Modifications',
     ogDescription: 'Currated collection of Classic Mini original Tuning and Modifications documents',
     ogUrl: 'classicminidiy.com/archive/tuning',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/archive/tuning.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini Archive - Tuning and Modifications',
+    twitterDescription: 'Currated collection of Classic Mini original Tuning and Modifications documents',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/archive/tuning.png',
   });
 </script>
 <template>

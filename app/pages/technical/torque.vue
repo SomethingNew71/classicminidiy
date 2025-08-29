@@ -44,12 +44,13 @@
     ogDescription:
       'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.',
     ogUrl: 'https://classicminidiy.com/technical/torque',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/torque.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Classic Mini Torque Specifications Chart',
-    twitterDescription: 'Complete torque specifications for Classic Mini fasteners with values in lb/ft and Nm.',
-    twitterImage: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
+    twitterDescription:
+      'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/torque.png',
   });
 
   // Add structured data for the torque specifications reference

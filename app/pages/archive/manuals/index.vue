@@ -48,8 +48,12 @@
     ogTitle: 'Classic Mini Archive - Workshop Manuals',
     ogDescription: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
     ogUrl: 'classicminidiy.com/archive/manuals',
-    ogImage: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
+    ogImage: 'https://classicminidiy.s3.amazonaws.com/archive/manuals.png',
     ogType: 'website',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Classic Mini Archive - Workshop Manuals',
+    twitterDescription: 'Currated collection of Classic Mini workshop manuals, parts lists and more.',
+    twitterImage: 'https://classicminidiy.s3.amazonaws.com/archive/manuals.png',
   });
 </script>
 <template>
