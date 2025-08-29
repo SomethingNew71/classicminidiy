@@ -41,13 +41,6 @@ export default defineEventHandler(async (event) => {
       domain: undefined, // Let browser set domain automatically
     });
 
-    console.log('Login successful - sessionToken:', sessionToken);
-    console.log('Login successful - sessions size:', sessions.size);
-    console.log(
-      'Login successful - Set-Cookie header:',
-      `admin-session=${sessionToken}; Path=/; Max-Age=${60 * 60 * 24}; SameSite=Lax`
-    );
-
     return {
       success: true,
       message: 'Login successful',

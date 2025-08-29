@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '../../../data/models/generic';
+  import type { RegistryItem } from '../../../data/models/registry';
+  import { RegistryItemStatus } from '../../../data/models/registry';
 
   // SEO and meta
   useHead({
@@ -33,12 +35,16 @@
   const user = computed(() => authData.value?.user);
 
   // Fetch stats data
-  const { data: registryStats } = await useFetch('/api/registry/queue/list');
+  const { data: registryStats } = await useFetch<RegistryItem[]>('/api/registry/queue/list');
   const { data: wheelsStats } = await useFetch('/api/wheels/review/list');
+
+  // Helper function to check if item is pending
+  const isPending = (item: RegistryItem) => !item.status || item.status === RegistryItemStatus.PENDING;
 
   // Computed stats
   const registryCount = computed(() => {
-    return Array.isArray(registryStats.value) ? registryStats.value.length : 0;
+    if (!Array.isArray(registryStats.value)) return 0;
+    return registryStats.value.filter(isPending).length;
   });
 
   const wheelsCount = computed(() => {
