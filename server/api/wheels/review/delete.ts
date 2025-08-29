@@ -1,6 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, DeleteCommand } from '@aws-sdk/lib-dynamodb';
-import { S3Client, ListObjectsV2Command, DeleteObjectsCommand } from '@aws-sdk/client-s3';
+import { DynamoDBDocumentClient, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import { WheelItemStatus } from '../../../../data/models/wheels';
 import { requireAdminAuth } from '../../../utils/adminAuth';
 
 export default defineEventHandler(async (event: any) => {
@@ -28,77 +28,40 @@ export default defineEventHandler(async (event: any) => {
 
     // Admin authentication already handled by requireAdminAuth()
 
-    const region = 'us-east-1';
-    const credentials = {
-      accessKeyId: config.s3_id,
-      secretAccessKey: config.s3_key,
-    };
-    const docClient = DynamoDBDocumentClient.from(new DynamoDBClient({ region, credentials }));
-    const s3Client = new S3Client({ region, credentials });
+    const docClient = DynamoDBDocumentClient.from(
+      new DynamoDBClient({
+        region: 'us-east-1',
+        credentials: {
+          accessKeyId: config.dynamo_id,
+          secretAccessKey: config.dynamo_key,
+        },
+      })
+    );
 
-    // Create timeout promises
-    const dynamoTimeoutPromise = new Promise<never>((_, reject) => {
+    // Create timeout promise
+    const timeoutPromise = new Promise<never>((_, reject) => {
       setTimeout(() => reject(new Error('DynamoDB request timed out')), 5000);
     });
 
-    const s3TimeoutPromise = new Promise<never>((_, reject) => {
-      setTimeout(() => reject(new Error('S3 request timed out')), 10000); // Longer timeout for S3 operations
-    });
-
-    const dynamoCommand = new DeleteCommand({
+    // Update status to rejected instead of deleting
+    const updateCommand = new UpdateCommand({
       TableName: 'wheelsQueue',
       Key: { uuid: body.uuid },
+      UpdateExpression: 'set #status = :status',
+      ExpressionAttributeNames: {
+        '#status': 'status',
+      },
+      ExpressionAttributeValues: {
+        ':status': WheelItemStatus.REJECTED,
+      },
+      ReturnValues: 'ALL_NEW',
     });
 
-    const deleteResults = await Promise.allSettled([
-      Promise.race([docClient.send(dynamoCommand), dynamoTimeoutPromise]),
-      Promise.race([deleteFolder(`wheels/uploads/${body.uuid}`), s3TimeoutPromise]),
-    ]);
+    await Promise.race([docClient.send(updateCommand), timeoutPromise]);
 
     return {
-      response: 'Wheel review item deleted successfully',
-      results: deleteResults,
+      response: 'Wheel review item rejected successfully',
     };
-
-    async function deleteFolder(location: string) {
-      const bucket = 'classicminidiy';
-      let count = 0;
-
-      async function recursiveDelete(token?: string): Promise<number> {
-        const listCommand = new ListObjectsV2Command({
-          Bucket: bucket,
-          Prefix: location,
-          ContinuationToken: token,
-        });
-
-        const list = await s3Client.send(listCommand);
-
-        if (list.KeyCount) {
-          const deleteCommand = new DeleteObjectsCommand({
-            Bucket: bucket,
-            Delete: {
-              Objects: list.Contents?.map((item) => ({ Key: item.Key })) || [],
-              Quiet: false,
-            },
-          });
-
-          const deleted = await s3Client.send(deleteCommand);
-          count += deleted.Deleted?.length || 0;
-
-          if (deleted.Errors) {
-            deleted.Errors.forEach((error) => console.error(`${error.Key} could not be deleted - ${error.Code}`));
-          }
-        }
-
-        if (list.NextContinuationToken) {
-          return recursiveDelete(list.NextContinuationToken);
-        }
-
-        return count;
-      }
-
-      return recursiveDelete();
-    }
   } catch (error: any) {
     console.error('Error deleting wheel review item:', error);
 

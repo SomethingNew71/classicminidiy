@@ -33,9 +33,19 @@
         href: '/',
       },
       {
-        title: props.version === BREADCRUMB_VERSIONS.TECH ? 'Technical Info' : 'Archive',
+        title:
+          props.version === BREADCRUMB_VERSIONS.TECH
+            ? 'Technical Info'
+            : props.version === BREADCRUMB_VERSIONS.ADMIN
+              ? 'Admin'
+              : 'Archive',
         disabled: true,
-        href: props.version === BREADCRUMB_VERSIONS.TECH ? '/technical' : '/archive',
+        href:
+          props.version === BREADCRUMB_VERSIONS.TECH
+            ? '/technical'
+            : props.version === BREADCRUMB_VERSIONS.ADMIN
+              ? '/admin'
+              : '/archive',
       }
     );
   } else if (props.subpage) {
@@ -46,9 +56,19 @@
         href: '/',
       },
       {
-        title: props.version === BREADCRUMB_VERSIONS.TECH ? 'Technical Info' : 'Archive',
+        title:
+          props.version === BREADCRUMB_VERSIONS.TECH
+            ? 'Technical Info'
+            : props.version === BREADCRUMB_VERSIONS.ADMIN
+              ? 'Admin'
+              : 'Archive',
         disabled: false,
-        href: props.version === BREADCRUMB_VERSIONS.TECH ? '/technical' : '/archive',
+        href:
+          props.version === BREADCRUMB_VERSIONS.TECH
+            ? '/technical'
+            : props.version === BREADCRUMB_VERSIONS.ADMIN
+              ? '/admin'
+              : '/archive',
       },
       {
         title: props.subpage,
@@ -68,9 +88,19 @@
         href: '/',
       },
       {
-        title: props.version === BREADCRUMB_VERSIONS.TECH ? 'Technical Info' : 'Archive',
+        title:
+          props.version === BREADCRUMB_VERSIONS.TECH
+            ? 'Technical Info'
+            : props.version === BREADCRUMB_VERSIONS.ADMIN
+              ? 'Admin'
+              : 'Archive',
         disabled: false,
-        href: props.version === BREADCRUMB_VERSIONS.TECH ? '/technical' : '/archive',
+        href:
+          props.version === BREADCRUMB_VERSIONS.TECH
+            ? '/technical'
+            : props.version === BREADCRUMB_VERSIONS.ADMIN
+              ? '/admin'
+              : '/archive',
       },
       {
         title: props.page,

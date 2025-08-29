@@ -1,14 +1,11 @@
 <script setup lang="ts">
   import type { IWheelsData, IWheelsDataReviewItem } from '../../../../data/models/wheels';
+  import { WheelItemStatus } from '../../../../data/models/wheels';
+  import { BREADCRUMB_VERSIONS } from '../../../../data/models/generic';
 
-  interface TableHeader {
-    title: string;
-    value?: string;
-    key?: string;
-    sortable?: boolean;
-    align?: 'start' | 'center' | 'end';
-    width?: string;
-  }
+  definePageMeta({
+    layout: 'admin',
+  });
 
   // State
   const errorMessage = ref('');
@@ -16,7 +13,8 @@
   const processingItemId = ref<string | null>(null);
   const selectedItem = ref<IWheelsDataReviewItem | null>(null);
   const showDeleteDialog = ref(false);
-  const expandedItems = ref<Record<string, boolean>>({});
+  const editingItems = ref(new Set<string>());
+  const editedData = ref(new Map<string, Partial<IWheelsDataReviewItem>>());
 
   // API Data
   const {
@@ -29,80 +27,40 @@
 
   // Load wheel data
   async function loadWheelData() {
+    console.log('Raw wheels from API:', rawWheels.value);
     if (!rawWheels.value) return;
 
     const wheels: IWheelsDataReviewItem[] = [];
 
     for (const wheel of rawWheels.value) {
-      if (wheel.newWheel) continue;
+      console.log('Processing wheel:', { uuid: wheel.uuid, name: wheel.name, newWheel: wheel.newWheel });
 
-      try {
-        const { data: oldWheel } = await useFetch<IWheelsData>('/api/wheels/wheel', {
-          query: {
-            uuid: wheel.uuid || 'noWheel',
-          },
-          server: !!wheel.uuid, // Only fetch on server if wheel UUID exists
-          default: () => ({}) as IWheelsData, // Provide default value when fetch is skipped
-        });
-
-        if (oldWheel.value) {
-          wheels.push({
-            ...wheel,
-            oldWheel: oldWheel.value,
-          });
-        }
-      } catch (error) {
-        console.error('Error loading wheel data:', error);
-      }
+      // For wheels review, we want to show all wheels regardless of newWheel status
+      // The newWheel check was preventing wheels from showing up
+      wheels.push({
+        ...wheel,
+        oldWheel: wheel, // Use the wheel data itself as oldWheel for display
+      });
     }
 
     wheelsToReview.value = wheels;
+    console.log('Final wheels to review:', wheels);
   }
 
-  // Table Configuration
-  const tableHeaders: TableHeader[] = [
-    { title: 'Wheel', value: 'oldWheel.name' },
-    { title: 'User', value: 'userName' },
-    { title: 'Email', value: 'emailAddress' },
-    { title: 'Referral', value: 'referral' },
-    { title: 'New Wheel', value: 'newWheel', align: 'center' },
-    { title: 'Actions', key: 'actions', align: 'center', width: '200px' },
-  ];
-
-  // Computed
-  const isLoading = computed(() => fetchStatus.value === 'pending' || isProcessing.value);
-
-  // Methods
-  async function refresh() {
-    if (isLoading.value) return;
-    try {
-      await refreshData();
-      await loadWheelData();
-      errorMessage.value = '';
-    } catch (error) {
-      errorMessage.value = 'Failed to refresh data. Please try again.';
-      console.error('Refresh error:', error);
-    }
-  }
-
-  function toggleExpand(uuid: string) {
-    expandedItems.value = {
-      ...expandedItems.value,
-      [uuid]: !expandedItems.value[uuid],
-    };
-  }
-
-  async function approveItem(item: IWheelsData) {
+  async function approveItem(item: IWheelsDataReviewItem) {
     isProcessing.value = true;
     processingItemId.value = item.uuid;
     errorMessage.value = '';
 
     try {
+      // Use edited data if available, otherwise use original item
+      const dataToSave = editedData.value.get(item.uuid) || item;
       const { error } = await useFetch('/api/wheels/review/save', {
         method: 'POST',
         body: {
-          uuid: item.uuid,
-          details: { ...item },
+          wheel: {
+            new: dataToSave,
+          },
         },
       });
 
@@ -110,8 +68,17 @@
         throw new Error(error.value.data?.message || 'Failed to approve item');
       }
 
-      // Remove item from the list
-      wheelsToReview.value = wheelsToReview.value.filter((i) => i.uuid !== item.uuid);
+      // Clean up editing state
+      editingItems.value.delete(item.uuid);
+      editedData.value.delete(item.uuid);
+
+      // Update status in place instead of removing
+      if (wheelsToReview.value) {
+        const index = wheelsToReview.value.findIndex((i) => i.uuid === item.uuid);
+        if (index !== -1 && wheelsToReview.value[index]) {
+          wheelsToReview.value[index].status = WheelItemStatus.APPROVED;
+        }
+      }
     } catch (error) {
       errorMessage.value = error instanceof Error ? error.message : 'Failed to approve item';
       console.error('Approve error:', error);
@@ -121,9 +88,68 @@
     }
   }
 
-  function confirmDelete(item: IWheelsData) {
+  function openDeleteDialog(item: IWheelsDataReviewItem) {
     selectedItem.value = item;
     showDeleteDialog.value = true;
+  }
+
+  // Inline editing functions
+  function startEditing(item: IWheelsDataReviewItem) {
+    editingItems.value.add(item.uuid);
+    editedData.value.set(item.uuid, { ...item });
+  }
+
+  function cancelEditing(item: IWheelsDataReviewItem) {
+    editingItems.value.delete(item.uuid);
+    editedData.value.delete(item.uuid);
+  }
+
+  function saveEditing(item: IWheelsDataReviewItem) {
+    const editedItem = editedData.value.get(item.uuid);
+    if (editedItem && wheelsToReview.value) {
+      const index = wheelsToReview.value.findIndex((i: IWheelsDataReviewItem) => i.uuid === item.uuid);
+      if (index !== -1 && wheelsToReview.value[index]) {
+        Object.assign(wheelsToReview.value[index], editedItem);
+      }
+    }
+    editingItems.value.delete(item.uuid);
+  }
+
+  function updateEditedField(itemUuid: string, field: keyof IWheelsDataReviewItem, value: any) {
+    const currentData = editedData.value.get(itemUuid) || {};
+    editedData.value.set(itemUuid, { ...currentData, [field]: value });
+  }
+
+  function getDisplayValue(item: IWheelsDataReviewItem, field: keyof IWheelsDataReviewItem) {
+    if (editingItems.value.has(item.uuid)) {
+      const editedItem = editedData.value.get(item.uuid);
+      return editedItem?.[field] ?? item[field];
+    }
+    return item[field];
+  }
+
+  function getStatusBadgeClass(status?: WheelItemStatus) {
+    switch (status) {
+      case WheelItemStatus.APPROVED:
+        return 'badge-success';
+      case WheelItemStatus.REJECTED:
+        return 'badge-error';
+      case WheelItemStatus.PENDING:
+      default:
+        return 'badge-warning';
+    }
+  }
+
+  function getStatusText(status?: WheelItemStatus) {
+    switch (status) {
+      case WheelItemStatus.APPROVED:
+        return 'Approved';
+      case WheelItemStatus.REJECTED:
+        return 'Rejected';
+      case WheelItemStatus.PENDING:
+      default:
+        return 'Pending';
+    }
   }
 
   async function deleteItem() {
@@ -141,7 +167,7 @@
         method: 'POST',
         body: {
           uuid: selectedItem.value.uuid,
-          details: { ...selectedItem.value },
+          details: selectedItem.value,
         },
       });
 
@@ -149,8 +175,13 @@
         throw new Error(error.value.data?.message || 'Failed to delete item');
       }
 
-      // Remove item from the list
-      wheelsToReview.value = wheelsToReview.value.filter((i) => i.uuid !== selectedItem.value?.uuid);
+      // Update status to rejected instead of removing
+      if (wheelsToReview.value && selectedItem.value) {
+        const index = wheelsToReview.value.findIndex((i: IWheelsDataReviewItem) => i.uuid === selectedItem.value!.uuid);
+        if (index !== -1 && wheelsToReview.value[index]) {
+          wheelsToReview.value[index].status = WheelItemStatus.REJECTED;
+        }
+      }
     } catch (error) {
       errorMessage.value = error instanceof Error ? error.message : 'Failed to delete item';
       console.error('Delete error:', error);
@@ -170,12 +201,15 @@
 
 <template>
   <div class="container mx-auto px-4 py-8">
+    <!-- Breadcrumb Navigation -->
+    <Breadcrumb page="Wheels Review" :version="BREADCRUMB_VERSIONS.ADMIN" />
+
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-2xl font-bold">Wheels Review Queue</h1>
-      <button class="btn btn-primary" @click="refresh" :disabled="isLoading">
-        <span v-if="isLoading" class="loading loading-spinner"></span>
-        {{ isLoading ? 'Loading...' : 'Refresh' }}
+      <button class="btn btn-primary" @click="() => refreshData()" :disabled="fetchStatus === 'pending'">
+        <i class="fas fa-sync-alt" :class="{ 'fa-spin': fetchStatus === 'pending' }"></i>
+        {{ fetchStatus === 'pending' ? 'Loading...' : 'Refresh' }}
       </button>
     </div>
 
@@ -217,96 +251,172 @@
       <table class="table table-zebra w-full">
         <thead>
           <tr>
-            <th
-              v-for="header in tableHeaders"
-              :key="header.title"
-              :class="{
-                'text-center': header.align === 'center',
-                'text-right': header.align === 'end',
-                'w-[200px]': header.width === '200px',
-              }"
-            >
-              {{ header.title }}
-            </th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Size</th>
+            <th>Width</th>
+            <th>Offset</th>
+            <th>Submitted By</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
           <template v-for="item in wheelsToReview" :key="item.uuid">
-            <tr @click="toggleExpand(item.uuid)" class="cursor-pointer hover:bg-base-200">
-              <td>{{ item.oldWheel?.name || '-' }}</td>
-              <td>{{ item.userName || '-' }}</td>
-              <td>{{ item.emailAddress || '-' }}</td>
-              <td>{{ item.referral || '-' }}</td>
-              <td class="text-center">
-                <span v-if="item.newWheel" class="badge badge-success">New</span>
-                <span v-else class="badge">Update</span>
+            <tr class="hover:bg-base-200">
+              <!-- Name -->
+              <td>
+                <div v-if="editingItems.has(item.uuid)">
+                  <input
+                    type="text"
+                    class="input input-sm input-bordered w-full"
+                    :value="getDisplayValue(item, 'name')"
+                    @input="updateEditedField(item.uuid, 'name', ($event.target as HTMLInputElement).value)"
+                  />
+                </div>
+                <div v-else>{{ item.name || '-' }}</div>
               </td>
-              <td class="space-x-2">
-                <button class="btn btn-sm btn-success" @click.stop="approveItem(item)" :disabled="isProcessing">
-                  <span
-                    v-if="isProcessing && processingItemId === item.uuid"
-                    class="loading loading-spinner loading-xs"
-                  ></span>
-                  Approve
-                </button>
-                <button class="btn btn-sm btn-error" @click.stop="confirmDelete(item)" :disabled="isProcessing">
-                  Reject
-                </button>
+
+              <!-- Type -->
+              <td>
+                <div v-if="editingItems.has(item.uuid)">
+                  <input
+                    type="text"
+                    class="input input-sm input-bordered w-full"
+                    :value="getDisplayValue(item, 'type')"
+                    @input="updateEditedField(item.uuid, 'type', ($event.target as HTMLInputElement).value)"
+                  />
+                </div>
+                <div v-else>{{ item.type || '-' }}</div>
+              </td>
+
+              <!-- Size -->
+              <td>
+                <div v-if="editingItems.has(item.uuid)">
+                  <input
+                    type="text"
+                    class="input input-sm input-bordered w-full"
+                    :value="getDisplayValue(item, 'size')"
+                    @input="updateEditedField(item.uuid, 'size', ($event.target as HTMLInputElement).value)"
+                  />
+                </div>
+                <div v-else>{{ item.size || '-' }}</div>
+              </td>
+
+              <!-- Width -->
+              <td>
+                <div v-if="editingItems.has(item.uuid)">
+                  <input
+                    type="text"
+                    class="input input-sm input-bordered w-full"
+                    :value="getDisplayValue(item, 'width')"
+                    @input="updateEditedField(item.uuid, 'width', ($event.target as HTMLInputElement).value)"
+                  />
+                </div>
+                <div v-else>{{ item.width || '-' }}</div>
+              </td>
+
+              <!-- Offset -->
+              <td>
+                <div v-if="editingItems.has(item.uuid)">
+                  <input
+                    type="text"
+                    class="input input-sm input-bordered w-full"
+                    :value="getDisplayValue(item, 'offset')"
+                    @input="updateEditedField(item.uuid, 'offset', ($event.target as HTMLInputElement).value)"
+                  />
+                </div>
+                <div v-else>{{ item.offset || '-' }}</div>
+              </td>
+
+              <!-- Submitted By -->
+              <td>
+                <div v-if="editingItems.has(item.uuid)">
+                  <input
+                    type="text"
+                    class="input input-sm input-bordered w-full"
+                    :value="getDisplayValue(item, 'userName')"
+                    @input="updateEditedField(item.uuid, 'userName', ($event.target as HTMLInputElement).value)"
+                  />
+                </div>
+                <div v-else>{{ item.userName || '-' }}</div>
+              </td>
+
+              <!-- Email -->
+              <td>
+                <div v-if="editingItems.has(item.uuid)">
+                  <input
+                    type="email"
+                    class="input input-sm input-bordered w-full"
+                    :value="getDisplayValue(item, 'emailAddress')"
+                    @input="updateEditedField(item.uuid, 'emailAddress', ($event.target as HTMLInputElement).value)"
+                  />
+                </div>
+                <div v-else>{{ item.emailAddress || '-' }}</div>
+              </td>
+
+              <!-- Status -->
+              <td>
+                <span class="badge" :class="getStatusBadgeClass(item.status)">
+                  {{ getStatusText(item.status) }}
+                </span>
+              </td>
+
+              <!-- Actions -->
+              <td class="text-center">
+                <div class="flex gap-1 justify-center">
+                  <!-- Edit Mode Actions -->
+                  <template v-if="editingItems.has(item.uuid)">
+                    <button class="btn btn-xs btn-success" @click="saveEditing(item)" title="Save changes">
+                      <i class="fas fa-save"></i>
+                    </button>
+                    <button class="btn btn-xs btn-ghost" @click="cancelEditing(item)" title="Cancel editing">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </template>
+
+                  <!-- View Mode Actions -->
+                  <template v-else>
+                    <button
+                      class="btn btn-xs btn-ghost"
+                      @click="startEditing(item)"
+                      title="Edit item"
+                      :disabled="isProcessing"
+                    >
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button
+                      class="btn btn-xs btn-success"
+                      @click="approveItem(item)"
+                      :disabled="isProcessing"
+                      title="Approve item"
+                    >
+                      <span
+                        v-if="isProcessing && processingItemId === item.uuid"
+                        class="loading loading-spinner loading-xs"
+                      ></span>
+                      <i v-else class="fas fa-check"></i>
+                    </button>
+                    <button
+                      class="btn btn-xs btn-error"
+                      @click="openDeleteDialog(item)"
+                      :disabled="isProcessing"
+                      title="Reject item"
+                    >
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </template>
+                </div>
               </td>
             </tr>
 
-            <!-- Expanded Row -->
-            <tr v-if="expandedItems[item.uuid]" class="bg-base-200">
-              <td :colspan="tableHeaders.length" class="p-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <h3 class="font-bold mb-2">Wheel Details</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                      <div><strong>UUID:</strong></div>
-                      <div class="truncate" :title="item.uuid">{{ item.uuid || '-' }}</div>
-
-                      <div v-if="item.oldWheel">
-                        <div class="grid grid-cols-2 gap-2">
-                          <div><strong>Name:</strong></div>
-                          <div>{{ item.oldWheel.name || '-' }}</div>
-
-                          <div><strong>Manufacturer:</strong></div>
-                          <div>{{ item.oldWheel.manufacturer || '-' }}</div>
-
-                          <div><strong>Size:</strong></div>
-                          <div>{{ item.oldWheel.size || '-' }}</div>
-
-                          <div><strong>Width:</strong></div>
-                          <div>{{ item.oldWheel.width || '-' }}</div>
-
-                          <div><strong>Offset:</strong></div>
-                          <div>{{ item.oldWheel.offset || '-' }}</div>
-
-                          <div><strong>Bolt Pattern:</strong></div>
-                          <div>{{ item.oldWheel.boltPattern || '-' }}</div>
-
-                          <div><strong>Center Bore:</strong></div>
-                          <div>{{ item.oldWheel.centerBore || '-' }}</div>
-
-                          <div><strong>Weight:</strong></div>
-                          <div>{{ item.oldWheel.weight || '-' }} lbs</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div v-if="item.images?.length">
-                    <h3 class="font-bold mb-2">Images</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                      <div v-for="(image, index) in item.images" :key="index" class="aspect-square">
-                        <img
-                          :src="image"
-                          :alt="`Wheel image ${index + 1}`"
-                          class="w-full h-full object-cover rounded"
-                        />
-                      </div>
-                    </div>
-                  </div>
+            <!-- Additional Details Row (expandable) -->
+            <tr v-if="item.notes || item.referral" class="bg-base-100">
+              <td colspan="9" class="py-2 px-4 border-t border-base-300">
+                <div class="text-sm text-base-content/70">
+                  <div v-if="item.notes" class="mb-1"><strong>Notes:</strong> {{ item.notes }}</div>
+                  <div v-if="item.referral"><strong>Referral:</strong> {{ item.referral }}</div>
                 </div>
               </td>
             </tr>

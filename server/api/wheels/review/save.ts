@@ -9,6 +9,7 @@ import {
   type UpdateCommandOutput,
 } from '@aws-sdk/lib-dynamodb';
 import type { IWheelsData } from '../../../../data/models/wheels';
+import { WheelItemStatus } from '../../../../data/models/wheels';
 import { requireAdminAuth } from '../../../utils/adminAuth';
 import _ from 'lodash';
 
@@ -62,7 +63,9 @@ export default defineEventHandler(async (event: any) => {
         }
       });
     }
-    await deleteQueueItem();
+    
+    // Update status to approved instead of deleting
+    await updateQueueItemStatus(uuid, WheelItemStatus.APPROVED);
 
     return { response: 'wheel has been updated' };
 
@@ -161,7 +164,7 @@ export default defineEventHandler(async (event: any) => {
       ]);
     }
 
-    async function deleteQueueItem(): Promise<DeleteCommandOutput> {
+    async function updateQueueItemStatus(uuid: string, status: WheelItemStatus): Promise<UpdateCommandOutput> {
       // Create a promise that will reject after timeout
       const timeoutPromise = new Promise<never>((_, reject) => {
         setTimeout(() => reject(new Error('DynamoDB request timed out')), 5000);
@@ -169,11 +172,17 @@ export default defineEventHandler(async (event: any) => {
 
       return await Promise.race([
         docClient.send(
-          new DeleteCommand({
+          new UpdateCommand({
             TableName: 'wheelsQueue',
-            Key: {
-              uuid: uuid,
+            Key: { uuid: uuid },
+            UpdateExpression: 'set #status = :status',
+            ExpressionAttributeNames: {
+              '#status': 'status',
             },
+            ExpressionAttributeValues: {
+              ':status': status,
+            },
+            ReturnValues: 'ALL_NEW',
           })
         ),
         timeoutPromise,

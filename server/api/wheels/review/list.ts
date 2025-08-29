@@ -1,6 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand, type ScanCommandOutput } from '@aws-sdk/lib-dynamodb';
 import type { IWheelsData } from '../../../../data/models/wheels';
+import { WheelItemStatus } from '../../../../data/models/wheels';
 import { requireAdminAuth } from '../../../utils/adminAuth';
 
 export default defineEventHandler(async (event): Promise<IWheelsData[]> => {
@@ -36,7 +37,11 @@ export default defineEventHandler(async (event): Promise<IWheelsData[]> => {
     // Race between the actual request and the timeout
     const response: ScanCommandOutput = await Promise.race([docClient.send(scanCommand), timeoutPromise]);
 
-    return (response.Items || []) as IWheelsData[];
+    // Filter to only show pending items (items without status or with PENDING status)
+    const allItems = (response.Items || []) as IWheelsData[];
+    const pendingItems = allItems.filter((item) => !item.status || item.status === WheelItemStatus.PENDING);
+
+    return pendingItems;
   } catch (error: any) {
     console.error('Error fetching wheels review queue:', error);
 

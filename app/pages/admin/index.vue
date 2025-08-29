@@ -2,6 +2,8 @@
   import { HERO_TYPES } from '../../../data/models/generic';
   import type { RegistryItem } from '../../../data/models/registry';
   import { RegistryItemStatus } from '../../../data/models/registry';
+  import type { IWheelsDataReviewItem } from '../../../data/models/wheels';
+  import { WheelItemStatus } from '../../../data/models/wheels';
 
   // SEO and meta
   useHead({
@@ -35,11 +37,30 @@
   const user = computed(() => authData.value?.user);
 
   // Fetch stats data
-  const { data: registryStats } = await useFetch<RegistryItem[]>('/api/registry/queue/list');
-  const { data: wheelsStats } = await useFetch('/api/wheels/review/list');
+  const { data: registryStats, refresh: refreshRegistryStats } = await useFetch<RegistryItem[]>('/api/registry/queue/list');
+  const { data: wheelsStats, refresh: refreshWheelsStats } = await useFetch<IWheelsDataReviewItem[]>('/api/wheels/review/list');
 
-  // Helper function to check if item is pending
+  // Refresh state
+  const isRefreshing = ref(false);
+
+  // Refresh function
+  const refreshStats = async () => {
+    isRefreshing.value = true;
+    try {
+      await Promise.all([
+        refreshRegistryStats(),
+        refreshWheelsStats()
+      ]);
+    } catch (error) {
+      console.error('Error refreshing stats:', error);
+    } finally {
+      isRefreshing.value = false;
+    }
+  };
+
+  // Helper functions to check if items are pending
   const isPending = (item: RegistryItem) => !item.status || item.status === RegistryItemStatus.PENDING;
+  const isWheelPending = (item: IWheelsDataReviewItem) => !item.status || item.status === WheelItemStatus.PENDING;
 
   // Computed stats
   const registryCount = computed(() => {
@@ -48,7 +69,8 @@
   });
 
   const wheelsCount = computed(() => {
-    return Array.isArray(wheelsStats.value) ? wheelsStats.value.length : 0;
+    if (!Array.isArray(wheelsStats.value)) return 0;
+    return wheelsStats.value.filter(isWheelPending).length;
   });
 
   const lastUpdated = computed(() => {
@@ -235,7 +257,18 @@
       <div class="mt-16 max-w-4xl mx-auto">
         <div class="card bg-base-200 shadow-lg">
           <div class="card-body">
-            <h3 class="text-2xl font-bold mb-6 text-center">Quick Stats</h3>
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-2xl font-bold">Quick Stats</h3>
+              <button 
+                @click="refreshStats" 
+                :disabled="isRefreshing"
+                class="btn btn-ghost btn-sm"
+                :class="{ 'loading': isRefreshing }"
+              >
+                <i v-if="!isRefreshing" class="fad fa-refresh mr-2"></i>
+                {{ isRefreshing ? 'Refreshing...' : 'Refresh' }}
+              </button>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div class="stat">
                 <div class="stat-figure text-primary">
