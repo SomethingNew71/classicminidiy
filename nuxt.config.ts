@@ -190,7 +190,7 @@ export default defineNuxtConfig({
       priority: 0.8,
       lastmod: new Date().toISOString(),
     },
-    exclude: ['/admin'],
+    exclude: ['/admin', '/login'],
   },
 
   /*
