@@ -1,7 +1,11 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand, type ScanCommandOutput } from '@aws-sdk/lib-dynamodb';
+import type { IWheelsData } from '../../../../data/models/wheels';
+import { requireAdminAuth } from '../../../utils/adminAuth';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<IWheelsData[]> => {
+  // Require admin authentication
+  await requireAdminAuth(event);
   // Set cache headers - cache for 5 minutes since review queue data changes frequently
   setResponseHeaders(event, {
     'Cache-Control': 'public, max-age=300, s-maxage=300',
@@ -32,7 +36,7 @@ export default defineEventHandler(async (event) => {
     // Race between the actual request and the timeout
     const response: ScanCommandOutput = await Promise.race([docClient.send(scanCommand), timeoutPromise]);
 
-    return response.Items || [];
+    return (response.Items || []) as IWheelsData[];
   } catch (error: any) {
     console.error('Error fetching wheels review queue:', error);
 

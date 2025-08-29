@@ -11,7 +11,6 @@
   }
 
   // State
-  const key = ref('');
   const errorMessage = ref('');
   const isProcessing = ref(false);
   const processingItemId = ref<string | null>(null);
@@ -71,7 +70,6 @@
   ];
 
   // Computed
-  const isKeyValid = computed(() => key.value.length > 0);
   const isLoading = computed(() => fetchStatus.value === 'pending' || isProcessing.value);
 
   // Methods
@@ -95,11 +93,6 @@
   }
 
   async function approveItem(item: IWheelsData) {
-    if (!isKeyValid.value) {
-      errorMessage.value = 'Please enter a valid auth key';
-      return;
-    }
-
     isProcessing.value = true;
     processingItemId.value = item.uuid;
     errorMessage.value = '';
@@ -110,7 +103,6 @@
         body: {
           uuid: item.uuid,
           details: { ...item },
-          auth: key.value,
         },
       });
 
@@ -135,7 +127,7 @@
   }
 
   async function deleteItem() {
-    if (!selectedItem.value || !isKeyValid.value) {
+    if (!selectedItem.value) {
       showDeleteDialog.value = false;
       return;
     }
@@ -150,7 +142,6 @@
         body: {
           uuid: selectedItem.value.uuid,
           details: { ...selectedItem.value },
-          auth: key.value,
         },
       });
 
@@ -188,21 +179,7 @@
       </button>
     </div>
 
-    <!-- Auth Key Input -->
-    <div class="mb-6">
-      <label class="form-control w-full max-w-xs">
-        <div class="label">
-          <span class="label-text">Auth Key</span>
-        </div>
-        <input
-          v-model="key"
-          type="password"
-          placeholder="Enter auth key"
-          class="input input-bordered w-full max-w-xs"
-          :disabled="isLoading"
-        />
-      </label>
-    </div>
+    <!-- Admin authentication handled by login system -->
 
     <!-- Error Message -->
     <div v-if="errorMessage" class="alert alert-error mb-6">
@@ -265,22 +242,14 @@
                 <span v-else class="badge">Update</span>
               </td>
               <td class="space-x-2">
-                <button
-                  class="btn btn-sm btn-success"
-                  @click.stop="approveItem(item)"
-                  :disabled="!isKeyValid || isProcessing"
-                >
+                <button class="btn btn-sm btn-success" @click.stop="approveItem(item)" :disabled="isProcessing">
                   <span
                     v-if="isProcessing && processingItemId === item.uuid"
                     class="loading loading-spinner loading-xs"
                   ></span>
                   Approve
                 </button>
-                <button
-                  class="btn btn-sm btn-error"
-                  @click.stop="confirmDelete(item)"
-                  :disabled="!isKeyValid || isProcessing"
-                >
+                <button class="btn btn-sm btn-error" @click.stop="confirmDelete(item)" :disabled="isProcessing">
                   Reject
                 </button>
               </td>

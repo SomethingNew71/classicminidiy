@@ -1,8 +1,13 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
-import { RegistryItemStatus, type RegistryItem } from '../../../../data/models/registry';
+import { DynamoDBDocumentClient, PutCommand, DeleteCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import type { RegistryItem } from '../../../../data/models/registry';
+import { RegistryItemStatus } from '../../../../data/models/registry';
+import { requireAdminAuth } from '../../../utils/adminAuth';
 
-export default defineEventHandler(async (event): Promise<void> => {
+export default defineEventHandler(async (event: any) => {
+  // Require admin authentication
+  await requireAdminAuth(event);
+
   const config = useRuntimeConfig();
   const docClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({
@@ -15,16 +20,11 @@ export default defineEventHandler(async (event): Promise<void> => {
   );
 
   try {
-    const { uuid, details, auth } = await readBody<{
+    const { uuid, details } = await readBody<{
       uuid: string;
       issueNumber: string | number;
       details: RegistryItem;
-      auth: string;
     }>(event);
-
-    if (auth !== config.validation_key) {
-      throw new Error('Unauthorized');
-    }
 
     await docClient.send(
       new PutCommand({

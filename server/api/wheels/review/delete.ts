@@ -1,8 +1,11 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { S3Client, ListObjectsV2Command, DeleteObjectsCommand } from '@aws-sdk/client-s3';
 import { DynamoDBDocumentClient, DeleteCommand } from '@aws-sdk/lib-dynamodb';
+import { S3Client, ListObjectsV2Command, DeleteObjectsCommand } from '@aws-sdk/client-s3';
+import { requireAdminAuth } from '../../../utils/adminAuth';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event: any) => {
+  // Require admin authentication
+  await requireAdminAuth(event);
   const config = useRuntimeConfig();
 
   try {
@@ -23,12 +26,7 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    if (body.auth !== config.validation_key) {
-      throw createError({
-        statusCode: 401,
-        statusMessage: 'User is not authorized',
-      });
-    }
+    // Admin authentication already handled by requireAdminAuth()
 
     const region = 'us-east-1';
     const credentials = {
