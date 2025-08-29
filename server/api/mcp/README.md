@@ -5,6 +5,7 @@ Model Context Protocol (MCP) server providing Classic Mini calculator tools for 
 ## Overview
 
 This MCP server exposes three main tools:
+
 - **Compression Calculator**: Calculate compression ratio and engine capacity
 - **Gearbox Calculator**: Calculate gear ratios, top speed, and speedometer compatibility
 - **Chassis Decoder**: Decode and validate Classic Mini chassis numbers
@@ -16,6 +17,7 @@ This MCP server exposes three main tools:
 ### API Key Setup
 
 1. **Environment Variables**: Set one of the following:
+
    ```bash
    # Single API key
    MCP_API_KEY=your-secure-api-key
@@ -32,6 +34,7 @@ This MCP server exposes three main tools:
 ### Usage
 
 Include the API key as a query parameter:
+
 ```bash
 ?api_key=your-api-key
 # or
@@ -50,16 +53,20 @@ Include the API key as a query parameter:
 ## Endpoints
 
 ### MCP Server Info
+
 - **GET** `/api/mcp/server` - Returns server capabilities, tools, and resources
 
 ### Tool Execution
+
 - **POST** `/api/mcp/tools/call` - Execute calculator tools
 
 ### Resources
+
 - **GET** `/api/mcp/resources` - List available resources
 - **GET** `/api/mcp/resources/read?uri=<resource_uri>` - Read resource content
 
 ### Direct Calculator APIs
+
 - **POST** `/api/mcp/compression` - Direct compression calculator API
 - **POST** `/api/mcp/gearbox` - Direct gearbox calculator API
 
@@ -70,20 +77,22 @@ Include the API key as a query parameter:
 Calculate compression ratio and engine capacity for Classic Mini engines.
 
 **Parameters:**
+
 ```json
 {
-  "bore": 7.06,           // Bore diameter in cm (e.g., 7.06 for 70.6mm)
-  "stroke": 8.128,        // Stroke length in cm (e.g., 8.128 for 81.28mm)
-  "pistonDish": 6.5,      // Piston dish volume in cc
-  "headVolume": 25.5,     // Cylinder head chamber volume in cc
-  "deckHeight": 20,       // Piston deck height in thousandths of an inch
-  "gasket": 3.4,          // Head gasket volume in cc (use 0 for custom)
-  "customGasket": 0.1,    // Custom gasket volume in cc (used when gasket is 0)
-  "decomp": 0             // Decompression plate volume in cc
+  "bore": 7.06, // Bore diameter in cm (e.g., 7.06 for 70.6mm)
+  "stroke": 8.128, // Stroke length in cm (e.g., 8.128 for 81.28mm)
+  "pistonDish": 6.5, // Piston dish volume in cc
+  "headVolume": 25.5, // Cylinder head chamber volume in cc
+  "deckHeight": 20, // Piston deck height in thousandths of an inch
+  "gasket": 3.4, // Head gasket volume in cc (use 0 for custom)
+  "customGasket": 0.1, // Custom gasket volume in cc (used when gasket is 0)
+  "decomp": 0 // Decompression plate volume in cc
 }
 ```
 
 **Example Response:**
+
 ```json
 {
   "success": true,
@@ -106,23 +115,26 @@ Calculate compression ratio and engine capacity for Classic Mini engines.
 Calculate gear ratios, top speed, and speedometer compatibility.
 
 **Parameters:**
+
 ```json
 {
-  "metric": false,                    // Use metric units (true) or imperial (false)
-  "final_drive": 3.444,              // Final drive ratio
+  "metric": false, // Use metric units (true) or imperial (false)
+  "final_drive": 3.444, // Final drive ratio
   "gear_ratios": [2.583, 1.644, 1.25, 1.0], // Array of 4 gear ratios
-  "drop_gear": 1,                    // Drop gear ratio
-  "speedo_drive": 0.3529,            // Speedometer drive ratio
-  "max_rpm": 6500,                   // Maximum engine RPM
-  "tire_type": {                     // Tire specifications
-    "width": 145,                    // Tire width in mm
-    "profile": 80,                   // Tire profile percentage
-    "size": 10                       // Wheel size in inches
+  "drop_gear": 1, // Drop gear ratio
+  "speedo_drive": 0.3529, // Speedometer drive ratio
+  "max_rpm": 6500, // Maximum engine RPM
+  "tire_type": {
+    // Tire specifications
+    "width": 145, // Tire width in mm
+    "profile": 80, // Tire profile percentage
+    "size": 10 // Wheel size in inches
   }
 }
 ```
 
 **Example Response:**
+
 ```json
 {
   "success": true,
@@ -159,11 +171,13 @@ Decode and validate Classic Mini chassis numbers based on year range.
 **Endpoint:** `POST /api/mcp/chassis?api_key=your-key`
 
 **Parameters:**
+
 - `yearRange` (string, required): Year range for chassis format
   - Valid values: "1959-1969", "1969-1974", "1974-1980", "1980", "1980-1985", "1985-1990", "1990-on"
 - `chassisNumber` (string, required): Classic Mini chassis number to decode
 
 **Example Request:**
+
 ```bash
 curl -X POST "http://localhost:3000/api/mcp/chassis?api_key=dev-mcp-key-classic-mini-diy" \
   -H "Content-Type: application/json" \
@@ -174,6 +188,7 @@ curl -X POST "http://localhost:3000/api/mcp/chassis?api_key=dev-mcp-key-classic-
 ```
 
 **Example Response:**
+
 ```json
 {
   "success": true,
@@ -227,21 +242,26 @@ To integrate these calculators with your LangGraph chat system, you can:
 import { MCPClient } from '@modelcontextprotocol/sdk/client/index.js';
 
 // Configure MCP client
-const mcpClient = new MCPClient({
-  name: 'classic-mini-calculators',
-  version: '1.0.0'
-}, {
-  capabilities: {
-    tools: {},
-    resources: {}
+const mcpClient = new MCPClient(
+  {
+    name: 'classic-mini-calculators',
+    version: '1.0.0',
+  },
+  {
+    capabilities: {
+      tools: {},
+      resources: {},
+    },
   }
-});
+);
 
 // Connect to your MCP server
-await mcpClient.connect(new StdioServerTransport({
-  command: 'node',
-  args: ['path/to/mcp/server.js']
-}));
+await mcpClient.connect(
+  new StdioServerTransport({
+    command: 'node',
+    args: ['path/to/mcp/server.js'],
+  })
+);
 
 // List available tools
 const tools = await mcpClient.listTools();
@@ -253,8 +273,8 @@ const result = await mcpClient.callTool({
     bore: 7.06,
     stroke: 8.128,
     pistonDish: 6.5,
-    headVolume: 25.5
-  }
+    headVolume: 25.5,
+  },
 });
 ```
 
@@ -270,6 +290,7 @@ All endpoints return standardized error responses:
 ```
 
 Common error codes:
+
 - `400` - Bad Request (invalid parameters)
 - `404` - Not Found (unknown tool or resource)
 - `405` - Method Not Allowed
@@ -328,12 +349,14 @@ curl -X POST "http://localhost:3000/api/mcp/tools/call?api_key=dev-mcp-key-class
 The calculators support all the same options as the Vue components:
 
 ### Compression Calculator Options
+
 - **Piston Sizes**: 62.9mm (850) to 74mm (1400cc)
 - **Crankshafts**: 850cc (68.26mm) to custom stroked options
 - **Head Gaskets**: 850 (2.4cc) to custom volumes
 - **Decompression Plates**: None to 12.4cc options
 
 ### Gearbox Calculator Options
+
 - **Tire Sizes**: 145/80r10 to 195/50r13
 - **Final Drives**: 2.76:1 to 4.571:1
 - **Gear Ratios**: Pre-64 Magic Wand to modern dog engagement kits

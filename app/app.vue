@@ -25,7 +25,6 @@
     <VitePwaManifest />
     <Analytics />
     <SpeedInsights />
-
   </div>
 </template>
 

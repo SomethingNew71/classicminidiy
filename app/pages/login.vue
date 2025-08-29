@@ -113,7 +113,7 @@
 
       // Disable Vue reactivity and redirect immediately
       isLoading.value = false;
-      
+
       // Use location.href instead of replace to ensure proper navigation
       window.location.href = '/admin';
     } catch (error: any) {

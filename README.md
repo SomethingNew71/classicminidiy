@@ -1,6 +1,5 @@
 <a id="readme-top"></a>
 
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -32,6 +31,7 @@
 </div>
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://classicminidiy.com)
@@ -44,18 +44,18 @@ The intention of this website is to be both a comprhensive toolkit of informatio
 
 [![Nuxt][Nuxt.js]][Nuxt-url]
 
-* **Repo:** <https://github.com/somethingnew71/classicminidiy>
-* **URL:** <https://classicminidiy.com>
-* **Description:** The main website is a Nuxt.js site, and the majority of the technical tooling lives in this repo.
-* The site is hosted on Vercel via Serverless deployment.
+- **Repo:** <https://github.com/somethingnew71/classicminidiy>
+- **URL:** <https://classicminidiy.com>
+- **Description:** The main website is a Nuxt.js site, and the majority of the technical tooling lives in this repo.
+- The site is hosted on Vercel via Serverless deployment.
 
 #### Archive
 
 [![NuxtContent][NuxtContent]][NuxtContent-url]
 
-* **Repo:** <https://github.com/somethingnew71/archive>
-* **URL:** <https://classicminidiy.com/archive>
-* **Description:** The primary routes and page structure are hosted within the main site, but the content is stored in a separate repo. This is to keep the main site repo clean and focused on the technical aspects of the site. The archive dynamically delivered via Nuxt Content, and the content is stored in a separate repo.
+- **Repo:** <https://github.com/somethingnew71/archive>
+- **URL:** <https://classicminidiy.com/archive>
+- **Description:** The primary routes and page structure are hosted within the main site, but the content is stored in a separate repo. This is to keep the main site repo clean and focused on the technical aspects of the site. The archive dynamically delivered via Nuxt Content, and the content is stored in a separate repo.
 
 #### Infrastructure
 
@@ -72,6 +72,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -95,18 +96,18 @@ Don't forget to give the project a star! Thanks again!
 
 This software uses the following sources for information:
 
-* [Seven Mini Parts](https://7ent.com) - Needle Chart and Parts
-* [MintyLamb](http://www.mintylamb.co.uk/suneedle/) - Needle Configurator
-* [Amazon.com](https://amazon.com) - Recommended Manuals
-* [MiniColours.co.uk](http://mini-colours.co.uk/) - Color Picker
-* miniweights.co.uk - Mini Weights (Offline)
-* mk1-performance.com - Original Mini Archive (Offline)
-* Multiple Mini Forums - Various Information
+- [Seven Mini Parts](https://7ent.com) - Needle Chart and Parts
+- [MintyLamb](http://www.mintylamb.co.uk/suneedle/) - Needle Configurator
+- [Amazon.com](https://amazon.com) - Recommended Manuals
+- [MiniColours.co.uk](http://mini-colours.co.uk/) - Color Picker
+- miniweights.co.uk - Mini Weights (Offline)
+- mk1-performance.com - Original Mini Archive (Offline)
+- Multiple Mini Forums - Various Information
 
 ## Related
 
-* [Classic Mini DIY YouTube](https://youtube.com/c/classicminidiy) - Check out the YouTube Channel that started it all
-* [Classic Mini DIY Store](https://store.classicminidiy.com) - Support the channel by purchasing some merch
+- [Classic Mini DIY YouTube](https://youtube.com/c/classicminidiy) - Check out the YouTube Channel that started it all
+- [Classic Mini DIY Store](https://store.classicminidiy.com) - Support the channel by purchasing some merch
 
 ## Support
 
@@ -122,6 +123,7 @@ Distributed under the GNU General Public License v2.0.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/classic-mini-diy/classicminidiy?style=for-the-badge
 [contributors-url]: https://github.com/somethingnew71/classicminidiy/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/classic-mini-diy/classicminidiy?style=for-the-badge
@@ -135,6 +137,7 @@ Distributed under the GNU General Public License v2.0.
 [product-screenshot]: https://classicminidiy.s3.us-east-1.amazonaws.com/misc/product-preview.png
 
 <!-- Badges for Icons -->
+
 [Nuxt.js]: https://img.shields.io/badge/nuxt.js-020421?style=for-the-badge&logo=nuxt&logoColor=00dc82
 [Nuxt-url]: https://nuxt.com/
 [NuxtContent]: https://img.shields.io/badge/Nuxt/Content-020617?style=for-the-badge&logo=nuxt&logoColor=00dc82

@@ -146,7 +146,8 @@ export default defineEventHandler(async (event) => {
         .join('\n');
 
       const validationStatus = response.results.isValid ? '✅ VALID' : '❌ INVALID';
-      const errorText = response.context.errors.length > 0 ? `\n\n**Validation Errors:**\n${response.context.errors.join('\n')}` : '';
+      const errorText =
+        response.context.errors.length > 0 ? `\n\n**Validation Errors:**\n${response.context.errors.join('\n')}` : '';
 
       return {
         content: [
