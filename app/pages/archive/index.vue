@@ -5,7 +5,7 @@
 
   // Enhanced SEO metadata
   useHead({
-    title: 'Classic Mini Archives | Historical Documents & Resources | Classic Mini DIY',
+    title: 'Classic Mini Archives: Explore Historical Documents & Resources',
     meta: [
       {
         key: 'description',
@@ -33,14 +33,14 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Classic Mini Archives | Historical Documents & Resources',
+    ogTitle: 'Classic Mini Archives: Explore Historical Documents & Resources',
     ogDescription:
       'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources. Preserved digital collection for Mini enthusiasts and restorers.',
     ogUrl: 'https://classicminidiy.com/archive',
     ogType: 'website',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive.png',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Archives | Historical Documents & Resources',
+    twitterTitle: 'Classic Mini Archives: Explore Historical Documents & Resources',
     twitterDescription:
       'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources.',
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive.png',
