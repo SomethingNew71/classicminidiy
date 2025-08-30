@@ -35,7 +35,7 @@
   ]);
 
   useHead({
-    title: 'Classic Mini Archive - Tuning and Modifications',
+    title: 'Classic Mini ECU Maps: Tuning Files for Various ECUs',
     meta: [
       {
         key: 'description',
@@ -45,13 +45,13 @@
     ],
   });
   useSeoMeta({
-    ogTitle: 'Classic Mini Archive - Tuning and Modifications',
+    ogTitle: 'Classic Mini ECU Maps: Tuning Files for Various ECUs',
     ogDescription: 'Currated collection of Classic Mini original Tuning and Modifications documents',
     ogUrl: 'classicminidiy.com/archive/tuning',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/archive/tuning.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Archive - Tuning and Modifications',
+    twitterTitle: 'Classic Mini ECU Maps: Tuning Files for Various ECUs',
     twitterDescription: 'Currated collection of Classic Mini original Tuning and Modifications documents',
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/archive/tuning.png',
   });
