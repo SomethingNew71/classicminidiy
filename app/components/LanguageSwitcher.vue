@@ -38,7 +38,10 @@
       <li v-for="locale in availableLocales" :key="locale.code">
         <a
           href="#"
-          @click.prevent.stop="handleLanguageChange(locale.code); closeDropdown()"
+          @click.prevent.stop="
+            handleLanguageChange(locale.code);
+            closeDropdown();
+          "
           class="text-sm"
         >
           {{ locale.name }}

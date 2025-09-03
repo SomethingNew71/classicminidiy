@@ -63,7 +63,7 @@ export default defineEventHandler(async (event: any) => {
         }
       });
     }
-    
+
     // Update status to approved instead of deleting
     await updateQueueItemStatus(uuid, WheelItemStatus.APPROVED);
 

@@ -1,10 +1,15 @@
 <script lang="ts" setup>
   import type { NuxtError } from '#app';
+
+  const { t } = useI18n();
+
   defineProps({
     error: Object as () => NuxtError,
   });
+
   const route = useRoute();
   const isHomepage = ref(route.path === '/');
+
   watch(
     () => route.path,
     () => {
@@ -20,15 +25,15 @@
     <div class="col-span-12 md:col-span-6 md:col-start-4">
       <div class="card mb-72 pt-10">
         <div class="card-body items-center text-center">
-          <h2 class="card-title text-6xl">Uh oh</h2>
-          <h3 class="text-5xl">Error - {{ error?.statusCode }}</h3>
-          <p>An error occured when loading this page</p>
-          <p>URL: {{ route.fullPath }}</p>
+          <h2 class="card-title text-6xl">{{ t('pages.home.error.title') }}</h2>
+          <h3 class="text-5xl">{{ t('pages.home.error.heading', { statusCode: error?.statusCode }) }}</h3>
+          <p>{{ t('pages.home.error.message') }}</p>
+          <p>{{ t('pages.home.error.url_label') }} {{ route.fullPath }}</p>
           <p>{{ error?.message }}</p>
           <div class="card-actions justify-end mt-10">
-            <nuxt-link class="btn btn-primary" to="/archive">Archives</nuxt-link>
-            <nuxt-link class="btn btn-secondary" to="/technical">Toolbox</nuxt-link>
-            <nuxt-link class="btn btn-secondary" to="/">Go back home</nuxt-link>
+            <nuxt-link class="btn btn-primary" to="/archive">{{ t('pages.home.error.actions.archives') }}</nuxt-link>
+            <nuxt-link class="btn btn-secondary" to="/technical">{{ t('pages.home.error.actions.toolbox') }}</nuxt-link>
+            <nuxt-link class="btn btn-secondary" to="/">{{ t('pages.home.error.actions.home') }}</nuxt-link>
           </div>
         </div>
       </div>

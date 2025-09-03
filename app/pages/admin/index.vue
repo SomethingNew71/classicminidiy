@@ -37,8 +37,10 @@
   const user = computed(() => authData.value?.user);
 
   // Fetch stats data
-  const { data: registryStats, refresh: refreshRegistryStats } = await useFetch<RegistryItem[]>('/api/registry/queue/list');
-  const { data: wheelsStats, refresh: refreshWheelsStats } = await useFetch<IWheelsDataReviewItem[]>('/api/wheels/review/list');
+  const { data: registryStats, refresh: refreshRegistryStats } =
+    await useFetch<RegistryItem[]>('/api/registry/queue/list');
+  const { data: wheelsStats, refresh: refreshWheelsStats } =
+    await useFetch<IWheelsDataReviewItem[]>('/api/wheels/review/list');
 
   // Refresh state
   const isRefreshing = ref(false);
@@ -47,10 +49,7 @@
   const refreshStats = async () => {
     isRefreshing.value = true;
     try {
-      await Promise.all([
-        refreshRegistryStats(),
-        refreshWheelsStats()
-      ]);
+      await Promise.all([refreshRegistryStats(), refreshWheelsStats()]);
     } catch (error) {
       console.error('Error refreshing stats:', error);
     } finally {
@@ -259,11 +258,11 @@
           <div class="card-body">
             <div class="flex justify-between items-center mb-6">
               <h3 class="text-2xl font-bold">Quick Stats</h3>
-              <button 
-                @click="refreshStats" 
+              <button
+                @click="refreshStats"
                 :disabled="isRefreshing"
                 class="btn btn-ghost btn-sm"
-                :class="{ 'loading': isRefreshing }"
+                :class="{ loading: isRefreshing }"
               >
                 <i v-if="!isRefreshing" class="fad fa-refresh mr-2"></i>
                 {{ isRefreshing ? 'Refreshing...' : 'Refresh' }}
