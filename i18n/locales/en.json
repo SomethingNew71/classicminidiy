@@ -143,6 +143,178 @@
           "loading": "Chart is loading"
         }
       }
+    },
+    "registry_table": {
+      "search_placeholder": "Search for any detail",
+      "total_minis": "Total Minis",
+      "per_page_options": {
+        "10": "10 per page",
+        "25": "25 per page",
+        "50": "50 per page",
+        "100": "100 per page"
+      },
+      "table_headers": {
+        "year": "Year",
+        "model": "Model",
+        "trim": "Trim",
+        "color": "Color"
+      },
+      "status": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "unknown": "Unknown"
+      },
+      "expanded_details": {
+        "build_date": "Build Date:",
+        "body_number": "Body #:",
+        "engine_number": "Engine #:",
+        "submitted_by": "Submitted by:",
+        "notes": "Notes:"
+      },
+      "no_items_found": "No items found",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "Submit Your Mini",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "Thank you!",
+        "submitted_message": "Your registry entry has been submitted. Please allow 1-2 days for it to appear in the list.",
+        "submission_details": "Your registry submission details is",
+        "track_submission": "Track your submission here:",
+        "submission_link": "Submission",
+        "submit_another": "Submit Another Mini"
+      },
+      "validation": {
+        "required": "This field is required to submit",
+        "invalid_email": "Invalid e-mail."
+      },
+      "sections": {
+        "personal_info": "Personal Info:",
+        "car_details": "Car Details:"
+      },
+      "form_labels": {
+        "your_name": "Your Name",
+        "your_email": "Your Email",
+        "model_year": "Model Year",
+        "model": "Model",
+        "trim": "Trim",
+        "body_type": "Body Type",
+        "original_engine_size": "Original Engine Size",
+        "factory_color": "Factory Color",
+        "body_shell_number": "Body Shell Number",
+        "engine_plate_number": "Engine Plate Number",
+        "special_notes": "Special or Additional Notes"
+      },
+      "placeholders": {
+        "name": "ex. John Smith",
+        "email": "ex. john{'@'}example.com",
+        "model": "ex. Morris Mini",
+        "trim": "ex. Mini 50",
+        "color": "ex. Clipper Blue",
+        "body_number": "ex. GB190fW",
+        "engine_number": "ex. 12H4102",
+        "notes": "ex. This car was only produced from 1959 to 1960"
+      },
+      "body_types": {
+        "saloon": "Saloon",
+        "pickup": "Pickup",
+        "estate": "Estate",
+        "cabriolet": "Cabriolet",
+        "clubman": "Clubman",
+        "van": "Van",
+        "hornet": "Hornet"
+      },
+      "error": {
+        "title": "I'm Sorry!",
+        "message": "There was a problem submitting your submission at this time, please try again later!",
+        "check_entries": "Please check your entries and try again",
+        "dismiss": "Dismiss",
+        "api_unavailable": "API is currently unavailable. Please try again later."
+      },
+      "submit_button": "Submit"
+    },
+    "patreon_card": {
+      "title": "SUPPORT THE SITE",
+      "description": "Classic Mini DIY is completely free resource supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon.",
+      "membership_benefits": "Membership comes with tons of free perks and benefits!",
+      "button_text": "Contribute Today",
+      "image_alt": "Image of my car on jack stands"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "Engine Size",
+        "needle_std": "Needle Std",
+        "needle_rich": "Needle Rich",
+        "needle_lean": "Needle Lean",
+        "spring_type": "Spring Type"
+      }
+    },
+    "main_nav": {
+      "logo_alt": "Classic Mini DIY Logo",
+      "navigation": {
+        "blog": "Blog",
+        "maps": "Maps",
+        "store": "Store",
+        "archive": "Archive",
+        "toolbox": "Toolbox",
+        "chat": "Chat"
+      },
+      "donate_button": "Join CMDIY",
+      "language_label": "Language"
+    },
+    "hero": {
+      "home_title": "Classic Mini DIY"
+    },
+    "footer": {
+      "brand_name": "Classic Mini DIY",
+      "author_name": "Cole Gentry",
+      "youtube_link_aria": "Link to my youtube channel",
+      "description": "Classic Mini DIY toolbox is a passion project aligned with the Classic Mini DIY youtube channel. This is a completely free resource built to keep the Classic Mini technical knowledgebase alive for years to come. Regularly updated and crowd sourced data made to help Classic Mini owners all over the world.",
+      "company_name": "Classic Mini DIY LLC",
+      "links_divider": "Links",
+      "privacy_links": {
+        "cmdiy_privacy": "CMDIY Website Privacy Policy",
+        "youtube_privacy": "Youtube Privacy Policy",
+        "google_privacy": "Google Privacy Policy"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Ask me anything about your Classic Mini...",
+      "helper_text": "Chat with CMDIY Assistant"
+    },
+    "engine_plate_modal": {
+      "question_text": "Unsure what your engine plate looks like?",
+      "button_text": "Where is my engine plate?",
+      "modal_title": "Engine Plates",
+      "slide_aria_label": "Go to slide {number}",
+      "location_title": "Location of Engine Plate",
+      "location_description": "Engine plates were found in the same place across all model year minis. However these plates are missing in some situations:",
+      "missing_reasons": {
+        "replaced": "If the engine has been replaced",
+        "removed": "If the plate was removed during a rebuild",
+        "corroded": "If the plate has corroded or fallen off over time"
+      },
+      "close_button": "Close",
+      "image_alts": {
+        "example1": "Engine plate example 1",
+        "example2": "Engine plate example 2",
+        "example3": "Engine plate example 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "Search for anything (ex. MPI, Cooper S, Carburettor HIF44)",
+      "empty_state": "No items meeting current filters exist",
+      "sort_key_label": "Sort Key:",
+      "actions": {
+        "share": "Share",
+        "contribute": "Contribute",
+        "download": "Download"
+      },
+      "pagination": {
+        "page_text": "Page {current} of {total}"
+      }
     }
   },
   "pages": {
@@ -1145,6 +1317,116 @@
           "title": "Useful Links",
           "showing_results": "Showing all {count} search results"
         }
+      },
+      "wheel_submit": {
+        "stepper": {
+          "wheel_details": "Wheel Details",
+          "images": "Images",
+          "contact_info": "Contact Info",
+          "review": "Review",
+          "submitted": "Submitted"
+        },
+        "step1": {
+          "title_new": "Submit New Wheel",
+          "title_update": "Suggest Updates",
+          "current_name": "Current Name:",
+          "current_type": "Current Type:",
+          "current_width": "Current Width:",
+          "current_size": "Current Size:",
+          "current_offset": "Current Offset:",
+          "current_notes": "Current Notes:",
+          "wheel_name": "Wheel Name",
+          "wheel_name_placeholder": "Enter wheel name",
+          "wheel_name_required": "Wheel name is required",
+          "wheel_material_type": "Wheel Material Type",
+          "wheel_material_placeholder": "e.g., Alloy, Steel, etc.",
+          "wheel_width": "Wheel Width",
+          "wheel_width_placeholder": "Enter width",
+          "width_required": "Width is required",
+          "wheel_size": "Wheel Size",
+          "wheel_size_placeholder": "Select wheel size",
+          "wheel_size_required": "Wheel size is required",
+          "diameter_inches": "Diameter in inches",
+          "offset_info": "Offset Information",
+          "offset_placeholder": "e.g., ET25",
+          "extra_notes": "Extra Notes",
+          "notes_placeholder": "Any additional information about these wheels...",
+          "characters_count": "{count}/250 characters",
+          "no_data": "No data"
+        },
+        "step2": {
+          "title": "Wheel Images",
+          "add_images": "Add your own images",
+          "new_wheel_notice": "To submit a new wheel, you must include at least one image for the registry",
+          "upload_label": "Upload up to 5 images",
+          "accepted_formats": "Accepted formats: JPG, PNG (Max 3MB each)",
+          "files_to_upload": "Files to upload ({count})",
+          "your_images": "Your Images",
+          "existing_images": "Existing Images",
+          "no_images": "No images uploaded yet"
+        },
+        "step3": {
+          "title": "Contact Information",
+          "your_name": "Your Name",
+          "name_placeholder": "Enter your name",
+          "name_required": "Your name is required",
+          "email_address": "Email Address",
+          "email_placeholder": "your{'@'}email.com",
+          "email_invalid": "Please enter a valid email address"
+        },
+        "step4": {
+          "title": "Review Your Submission",
+          "update_notice": "You are suggesting updates to an existing wheel. Your changes will be reviewed before being published.",
+          "wheel_details": "Wheel Details",
+          "images": "Images",
+          "contact_information": "Contact Information",
+          "not_provided": "Not provided",
+          "no_additional_notes": "No additional notes",
+          "no_images_added": "No images added",
+          "name": "Name",
+          "type": "Type",
+          "width": "Width",
+          "size": "Size",
+          "offset": "Offset",
+          "notes": "Notes",
+          "email": "Email"
+        },
+        "step5": {
+          "thank_you": "Thank You!",
+          "submission_received": "Your submission has been received.",
+          "new_wheel_message": "Your wheel has been submitted for review. We'll notify you at {email} once it's been approved and added to the registry.",
+          "update_message": "Your suggested updates have been submitted for review. We'll notify you at {email} once they've been processed.",
+          "submit_another": "Submit Another Wheel"
+        },
+        "navigation": {
+          "back": "Back",
+          "next": "Next",
+          "submit": "Submit"
+        },
+        "errors": {
+          "load_failed": "Failed to load wheel data. Please try again.",
+          "unable_to_load": "Unable to load wheel data",
+          "start_over": "Start Over"
+        }
+      },
+      "wheel_grid": {
+        "title": "Find Wheels",
+        "clear_filters": "Clear Filters",
+        "search_placeholder": "Search for anything (ex. Momos, 10in, ET20)",
+        "all_sizes": "All Sizes",
+        "ten_wheels": "10\" Wheels",
+        "twelve_wheels": "12\" Wheels",
+        "thirteen_wheels": "13\" Wheels",
+        "error_loading": "Error loading wheels",
+        "no_wheels_found": "No wheels found",
+        "try_adjusting": "Try adjusting your search or filters",
+        "size": "Size",
+        "width": "Width",
+        "offset": "Offset",
+        "material": "Material",
+        "view_details": "View Details",
+        "page_of": "Page {current} of {total}",
+        "na": "N/A"
       }
     },
     "contact": {

@@ -18,6 +18,8 @@
   import type { IWheelsData } from '../../data/models/wheels';
   import { humanFileSize } from '../../data/models/helper-utils';
 
+  const { t } = useI18n();
+
   // Reactive state
   const wheel = ref();
   const pageLoad = ref(true);
@@ -88,7 +90,7 @@
       })
       .catch((error) => {
         pageError.value = error;
-        errorMessage.value = 'Failed to load wheel data. Please try again.';
+        errorMessage.value = t('components.wheel_submit.errors.load_failed');
       })
       .finally(() => {
         pageLoad.value = false;
@@ -234,11 +236,15 @@
   <div class="container mx-auto px-4 py-6">
     <!-- Stepper -->
     <ul class="steps w-full mb-8">
-      <li :class="['step', step >= 1 ? 'step-primary' : '']">Wheel Details</li>
-      <li :class="['step', step >= 2 ? 'step-primary' : '']">Images</li>
-      <li :class="['step', step >= 3 ? 'step-primary' : '']">Contact Info</li>
-      <li :class="['step', step >= 4 ? 'step-primary' : '']">Review</li>
-      <li :class="['step', step >= 5 ? 'step-primary' : '']">Submitted</li>
+      <li :class="['step', step >= 1 ? 'step-primary' : '']">
+        {{ t('components.wheel_submit.stepper.wheel_details') }}
+      </li>
+      <li :class="['step', step >= 2 ? 'step-primary' : '']">{{ t('components.wheel_submit.stepper.images') }}</li>
+      <li :class="['step', step >= 3 ? 'step-primary' : '']">
+        {{ t('components.wheel_submit.stepper.contact_info') }}
+      </li>
+      <li :class="['step', step >= 4 ? 'step-primary' : '']">{{ t('components.wheel_submit.stepper.review') }}</li>
+      <li :class="['step', step >= 5 ? 'step-primary' : '']">{{ t('components.wheel_submit.stepper.submitted') }}</li>
     </ul>
 
     <!-- Step 1: Wheel Details -->
@@ -246,31 +252,40 @@
       <div v-if="pageLoad" class="skeleton w-full h-32"></div>
       <div v-else-if="pageError" class="alert alert-error">
         <div>
-          <span>{{ errorMessage || 'Unable to load wheel data' }}</span>
-          <button class="btn btn-sm btn-primary ml-4" @click="resetForm">Start Over</button>
+          <span>{{ errorMessage || t('components.wheel_submit.errors.unable_to_load') }}</span>
+          <button class="btn btn-sm btn-primary ml-4" @click="resetForm">
+            {{ t('components.wheel_submit.errors.start_over') }}
+          </button>
         </div>
       </div>
       <div v-else-if="wheel || newWheel" class="card bg-base-100 shadow-xl">
         <div class="card-body">
-          <h2 class="card-title">{{ newWheel ? 'Submit New Wheel' : 'Suggest Updates' }}</h2>
+          <h2 class="card-title">
+            {{
+              newWheel ? t('components.wheel_submit.step1.title_new') : t('components.wheel_submit.step1.title_update')
+            }}
+          </h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Wheel Name -->
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  Current Name:
-                  <span class="font-semibold">{{ wheel.name || 'No data' }}</span>
+                  {{ t('components.wheel_submit.step1.current_name') }}
+                  <span class="font-semibold">{{ wheel.name || t('components.wheel_submit.step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">Wheel Name <span v-if="newWheel" class="text-error">*</span></span>
+                <span class="label-text"
+                  >{{ t('components.wheel_submit.step1.wheel_name') }}
+                  <span v-if="newWheel" class="text-error">*</span></span
+                >
               </label>
               <div class="relative">
                 <input
                   type="text"
                   v-model="name"
-                  placeholder="Enter wheel name"
+                  :placeholder="t('components.wheel_submit.step1.wheel_name_placeholder')"
                   class="input input-bordered w-full pl-10"
                   :class="{ 'input-error': isFieldTouched('name') && newWheel && !name.trim() }"
                   @blur="markFieldAsTouched('name')"
@@ -280,7 +295,9 @@
                 </span>
               </div>
               <label class="label" v-if="isFieldTouched('name') && newWheel && !name.trim()">
-                <span class="label-text-alt text-error">Wheel name is required</span>
+                <span class="label-text-alt text-error">{{
+                  t('components.wheel_submit.step1.wheel_name_required')
+                }}</span>
               </label>
             </div>
 
@@ -288,18 +305,18 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  Current Type:
-                  <span class="font-semibold">{{ wheel.type || 'No data' }}</span>
+                  {{ t('components.wheel_submit.step1.current_type') }}
+                  <span class="font-semibold">{{ wheel.type || t('components.wheel_submit.step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">Wheel Material Type</span>
+                <span class="label-text">{{ t('components.wheel_submit.step1.wheel_material_type') }}</span>
               </label>
               <div class="relative">
                 <input
                   type="text"
                   v-model="type"
-                  placeholder="e.g., Alloy, Steel, etc."
+                  :placeholder="t('components.wheel_submit.step1.wheel_material_placeholder')"
                   class="input input-bordered w-full pl-10"
                 />
                 <span class="absolute left-3 top-1/2 -translate-y-1/2">
@@ -312,18 +329,21 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  Current Width:
-                  <span class="font-semibold">{{ wheel.width || 'No data' }}</span>
+                  {{ t('components.wheel_submit.step1.current_width') }}
+                  <span class="font-semibold">{{ wheel.width || t('components.wheel_submit.step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">Wheel Width <span v-if="newWheel" class="text-error">*</span></span>
+                <span class="label-text"
+                  >{{ t('components.wheel_submit.step1.wheel_width') }}
+                  <span v-if="newWheel" class="text-error">*</span></span
+                >
               </label>
               <div class="relative">
                 <input
                   type="number"
                   v-model="width"
-                  placeholder="Enter width"
+                  :placeholder="t('components.wheel_submit.step1.wheel_width_placeholder')"
                   class="input input-bordered w-full pl-10"
                   :class="{ 'input-error': isFieldTouched('width') && newWheel && !width }"
                   @blur="markFieldAsTouched('width')"
@@ -333,7 +353,7 @@
                 </span>
               </div>
               <label class="label" v-if="isFieldTouched('width') && newWheel && !width">
-                <span class="label-text-alt text-error">Width is required</span>
+                <span class="label-text-alt text-error">{{ t('components.wheel_submit.step1.width_required') }}</span>
               </label>
             </div>
 
@@ -341,12 +361,15 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  Current Size:
-                  <span class="font-semibold">{{ wheel.size || 'No data' }}</span>
+                  {{ t('components.wheel_submit.step1.current_size') }}
+                  <span class="font-semibold">{{ wheel.size || t('components.wheel_submit.step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">Wheel Size <span v-if="newWheel" class="text-error">*</span></span>
+                <span class="label-text"
+                  >{{ t('components.wheel_submit.step1.wheel_size') }}
+                  <span v-if="newWheel" class="text-error">*</span></span
+                >
               </label>
               <div class="relative">
                 <select
@@ -355,7 +378,7 @@
                   :class="{ 'select-error': isFieldTouched('size') && newWheel && !size }"
                   @blur="markFieldAsTouched('size')"
                 >
-                  <option disabled value="">Select wheel size</option>
+                  <option disabled value="">{{ t('components.wheel_submit.step1.wheel_size_placeholder') }}</option>
                   <option v-for="wheelSize in wheelSizes" :key="wheelSize" :value="wheelSize">{{ wheelSize }}"</option>
                 </select>
                 <span class="absolute left-3 top-1/2 -translate-y-1/2">
@@ -363,10 +386,12 @@
                 </span>
               </div>
               <label class="label">
-                <span class="label-text-alt">Diameter in inches</span>
+                <span class="label-text-alt">{{ t('components.wheel_submit.step1.diameter_inches') }}</span>
               </label>
               <label class="label" v-if="isFieldTouched('size') && newWheel && !size">
-                <span class="label-text-alt text-error">Wheel size is required</span>
+                <span class="label-text-alt text-error">{{
+                  t('components.wheel_submit.step1.wheel_size_required')
+                }}</span>
               </label>
             </div>
 
@@ -374,18 +399,18 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  Current Offset:
-                  <span class="font-semibold">{{ wheel.offset || 'No data' }}</span>
+                  {{ t('components.wheel_submit.step1.current_offset') }}
+                  <span class="font-semibold">{{ wheel.offset || t('components.wheel_submit.step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">Offset Information</span>
+                <span class="label-text">{{ t('components.wheel_submit.step1.offset_info') }}</span>
               </label>
               <div class="relative">
                 <input
                   type="text"
                   v-model="offset"
-                  placeholder="e.g., ET25"
+                  :placeholder="t('components.wheel_submit.step1.offset_placeholder')"
                   class="input input-bordered w-full pl-10"
                   maxlength="30"
                 />
@@ -399,18 +424,18 @@
             <div class="form-control col-span-1 md:col-span-2">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  Current Notes:
-                  <span class="font-semibold">{{ wheel.notes || 'No data' }}</span>
+                  {{ t('components.wheel_submit.step1.current_notes') }}
+                  <span class="font-semibold">{{ wheel.notes || t('components.wheel_submit.step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">Extra Notes</span>
+                <span class="label-text">{{ t('components.wheel_submit.step1.extra_notes') }}</span>
               </label>
               <div class="relative">
                 <textarea
                   v-model="notes"
                   class="textarea textarea-bordered w-full pl-10"
-                  placeholder="Any additional information about these wheels..."
+                  :placeholder="t('components.wheel_submit.step1.notes_placeholder')"
                   rows="3"
                   maxlength="250"
                 ></textarea>
@@ -419,7 +444,9 @@
                 </span>
               </div>
               <label class="label">
-                <span class="label-text-alt">{{ notes.length }}/250 characters</span>
+                <span class="label-text-alt">{{
+                  t('components.wheel_submit.step1.characters_count', { count: notes.length })
+                }}</span>
               </label>
             </div>
           </div>
@@ -430,20 +457,20 @@
     <!-- Step 2: Images -->
     <div v-else-if="step === 2" class="card bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title">Wheel Images</h2>
+        <h2 class="card-title">{{ t('components.wheel_submit.step2.title') }}</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Image Upload -->
           <div class="form-control">
-            <h3 class="text-xl font-semibold mb-2">Add your own images</h3>
+            <h3 class="text-xl font-semibold mb-2">{{ t('components.wheel_submit.step2.add_images') }}</h3>
             <p class="text-sm text-gray-500 mb-4" v-if="newWheel">
-              To submit a new wheel, you must include at least one image for the registry
+              {{ t('components.wheel_submit.step2.new_wheel_notice') }}
             </p>
 
             <div class="form-control w-full">
               <label class="label">
                 <span class="label-text">
-                  Upload up to 5 images
+                  {{ t('components.wheel_submit.step2.upload_label') }}
                   <span v-if="newWheel" class="text-error">*</span>
                 </span>
               </label>
@@ -456,7 +483,7 @@
                 @change="handleFileChange"
               />
               <label class="label">
-                <span class="label-text-alt"> Accepted formats: JPG, PNG (Max 3MB each) </span>
+                <span class="label-text-alt">{{ t('components.wheel_submit.step2.accepted_formats') }}</span>
               </label>
               <div v-if="fileError" class="text-error text-sm mt-1">
                 {{ fileError }}
@@ -465,7 +492,9 @@
 
             <!-- Files to upload -->
             <div v-if="dropFiles.length > 0" class="mt-4">
-              <h4 class="font-medium mb-2">Files to upload ({{ dropFiles.length }})</h4>
+              <h4 class="font-medium mb-2">
+                {{ t('components.wheel_submit.step2.files_to_upload', { count: dropFiles.length }) }}
+              </h4>
               <div class="overflow-x-auto">
                 <table class="table table-zebra table-compact w-full">
                   <tbody>
@@ -490,7 +519,11 @@
           <!-- Image Preview -->
           <div>
             <h3 class="text-xl font-semibold mb-4">
-              {{ newWheel ? 'Your Images' : 'Existing Images' }}
+              {{
+                newWheel
+                  ? t('components.wheel_submit.step2.your_images')
+                  : t('components.wheel_submit.step2.existing_images')
+              }}
             </h3>
 
             <div v-if="!newWheel && wheel?.images?.length" class="grid grid-cols-2 gap-4">
@@ -525,7 +558,7 @@
 
             <div v-else class="text-center p-8 border-2 border-dashed rounded-lg">
               <i class="fas fa-images text-4xl text-gray-300 mb-2"></i>
-              <p class="text-gray-500">No images uploaded yet</p>
+              <p class="text-gray-500">{{ t('components.wheel_submit.step2.no_images') }}</p>
             </div>
           </div>
         </div>
@@ -534,18 +567,20 @@
     <!-- Step 3: Contact Information -->
     <div v-else-if="step === 3" class="card bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title">Contact Information</h2>
+        <h2 class="card-title">{{ t('components.wheel_submit.step3.title') }}</h2>
 
         <div class="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Your Name <span class="text-error">*</span></span>
+              <span class="label-text"
+                >{{ t('components.wheel_submit.step3.your_name') }} <span class="text-error">*</span></span
+              >
             </label>
             <div class="relative">
               <input
                 type="text"
                 v-model="userName"
-                placeholder="Enter your name"
+                :placeholder="t('components.wheel_submit.step3.name_placeholder')"
                 class="input input-bordered w-full pl-10"
                 :class="{ 'input-error': isFieldTouched('userName') && !userName.trim() }"
                 @blur="markFieldAsTouched('userName')"
@@ -556,19 +591,21 @@
               </span>
             </div>
             <label class="label" v-if="isFieldTouched('userName') && !userName.trim()">
-              <span class="label-text-alt text-error">Your name is required</span>
+              <span class="label-text-alt text-error">{{ t('components.wheel_submit.step3.name_required') }}</span>
             </label>
           </div>
 
           <div class="form-control">
             <label class="label">
-              <span class="label-text">Email Address <span class="text-error">*</span></span>
+              <span class="label-text"
+                >{{ t('components.wheel_submit.step3.email_address') }} <span class="text-error">*</span></span
+              >
             </label>
             <div class="relative">
               <input
                 type="email"
                 v-model="emailAddress"
-                placeholder="your@email.com"
+                :placeholder="t('components.wheel_submit.step3.email_placeholder')"
                 class="input input-bordered w-full pl-10"
                 :class="{
                   'input-error': isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress),
@@ -581,7 +618,7 @@
               </span>
             </div>
             <label class="label" v-if="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress)">
-              <span class="label-text-alt text-error">Please enter a valid email address</span>
+              <span class="label-text-alt text-error">{{ t('components.wheel_submit.step3.email_invalid') }}</span>
             </label>
           </div>
         </div>
@@ -591,15 +628,12 @@
     <!-- Step 4: Review -->
     <div v-if="step === 4" class="card bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title">Review Your Submission</h2>
+        <h2 class="card-title">{{ t('components.wheel_submit.step4.title') }}</h2>
 
         <div v-if="!newWheel" class="alert alert-info mb-6">
           <div>
             <i class="fas fa-info-circle"></i>
-            <span
-              >You are suggesting updates to an existing wheel. Your changes will be reviewed before being
-              published.</span
-            >
+            <span>{{ t('components.wheel_submit.step4.update_notice') }}</span>
           </div>
         </div>
 
@@ -607,31 +641,33 @@
           <!-- Wheel Details -->
           <div class="card bg-base-200">
             <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">Wheel Details</h3>
+              <h3 class="card-title text-lg mb-4">{{ t('components.wheel_submit.step4.wheel_details') }}</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">Name</div>
-                  <div class="text-base">{{ name || 'Not provided' }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('components.wheel_submit.step4.name') }}</div>
+                  <div class="text-base">{{ name || t('components.wheel_submit.step4.not_provided') }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">Type</div>
-                  <div class="text-base">{{ type || 'Not provided' }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('components.wheel_submit.step4.type') }}</div>
+                  <div class="text-base">{{ type || t('components.wheel_submit.step4.not_provided') }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">Width</div>
-                  <div class="text-base">{{ width || 'Not provided' }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('components.wheel_submit.step4.width') }}</div>
+                  <div class="text-base">{{ width || t('components.wheel_submit.step4.not_provided') }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">Size</div>
-                  <div class="text-base">{{ size || 'Not provided' }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('components.wheel_submit.step4.size') }}</div>
+                  <div class="text-base">{{ size || t('components.wheel_submit.step4.not_provided') }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">Offset</div>
-                  <div class="text-base">{{ offset || 'Not provided' }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('components.wheel_submit.step4.offset') }}</div>
+                  <div class="text-base">{{ offset || t('components.wheel_submit.step4.not_provided') }}</div>
                 </div>
                 <div class="md:col-span-2">
-                  <div class="text-sm font-semibold text-gray-500">Notes</div>
-                  <div class="text-base whitespace-pre-line">{{ notes || 'No additional notes' }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('components.wheel_submit.step4.notes') }}</div>
+                  <div class="text-base whitespace-pre-line">
+                    {{ notes || t('components.wheel_submit.step4.no_additional_notes') }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -640,7 +676,7 @@
           <!-- Images -->
           <div class="card bg-base-200">
             <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">Images</h3>
+              <h3 class="card-title text-lg mb-4">{{ t('components.wheel_submit.step4.images') }}</h3>
               <div v-if="dropFiles.length > 0" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 <div v-for="(file, i) in dropFiles" :key="i" class="relative aspect-square">
                   <img
@@ -652,7 +688,7 @@
               </div>
               <div v-else class="text-center py-8 text-gray-500">
                 <i class="fas fa-images text-3xl mb-2"></i>
-                <p>No images added</p>
+                <p>{{ t('components.wheel_submit.step4.no_images_added') }}</p>
               </div>
             </div>
           </div>
@@ -660,14 +696,14 @@
           <!-- Contact Information -->
           <div class="card bg-base-200">
             <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">Contact Information</h3>
+              <h3 class="card-title text-lg mb-4">{{ t('components.wheel_submit.step4.contact_information') }}</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">Name</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('components.wheel_submit.step4.name') }}</div>
                   <div class="text-base">{{ userName }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">Email</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('components.wheel_submit.step4.email') }}</div>
                   <div class="text-base">{{ emailAddress }}</div>
                 </div>
               </div>
@@ -685,23 +721,21 @@
             <i class="fas fa-check text-3xl text-green-500"></i>
           </div>
         </div>
-        <h2 class="card-title justify-center text-3xl">Thank You!</h2>
-        <p class="text-lg mb-6">Your submission has been received.</p>
+        <h2 class="card-title justify-center text-3xl">{{ t('components.wheel_submit.step5.thank_you') }}</h2>
+        <p class="text-lg mb-6">{{ t('components.wheel_submit.step5.submission_received') }}</p>
 
         <div class="bg-base-200 rounded-lg p-4 mb-6 max-w-2xl mx-auto">
           <p v-if="newWheel" class="mb-2">
-            Your wheel has been submitted for review. We'll notify you at
-            <span class="font-semibold">{{ emailAddress }}</span> once it's been approved and added to the registry.
+            {{ t('components.wheel_submit.step5.new_wheel_message', { email: emailAddress }) }}
           </p>
           <p v-else>
-            Your suggested updates have been submitted for review. We'll notify you at
-            <span class="font-semibold">{{ emailAddress }}</span> once they've been processed.
+            {{ t('components.wheel_submit.step5.update_message', { email: emailAddress }) }}
           </p>
         </div>
 
         <button class="btn btn-primary" @click="resetForm">
           <i class="fas fa-plus-circle mr-2"></i>
-          Submit Another Wheel
+          {{ t('components.wheel_submit.step5.submit_another') }}
         </button>
       </div>
     </div>
@@ -710,11 +744,11 @@
     <div class="flex justify-end gap-4 mt-8">
       <button v-if="step > 1 && step < 5" @click="step--" class="btn btn-ghost">
         <i class="fas fa-arrow-left mr-2"></i>
-        Back
+        {{ t('components.wheel_submit.navigation.back') }}
       </button>
 
       <button v-if="step < 4" @click="handleNextStep" :disabled="!canProceedToNextStep" class="btn btn-primary">
-        Next
+        {{ t('components.wheel_submit.navigation.next') }}
         <i class="fas fa-arrow-right ml-2"></i>
       </button>
 
@@ -725,7 +759,7 @@
         :class="['btn', 'btn-primary', { loading: loading }]"
       >
         <i class="fas fa-paper-plane mr-2"></i>
-        Submit
+        {{ t('components.wheel_submit.navigation.submit') }}
       </button>
     </div>
   </div>

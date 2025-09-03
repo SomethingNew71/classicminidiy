@@ -1,18 +1,19 @@
 <script setup lang="ts">
+  const { t } = useI18n();
   const isOpen = ref(false);
   const currentSlide = ref(0);
   const slides = [
     {
       src: 'https://classicminidiy.s3.us-east-1.amazonaws.com/engine-decoder/example1.jpg',
-      alt: 'Engine plate example 1',
+      alt: t('components.engine_plate_modal.image_alts.example1'),
     },
     {
       src: 'https://classicminidiy.s3.us-east-1.amazonaws.com/engine-decoder/example2.jpg',
-      alt: 'Engine plate example 2',
+      alt: t('components.engine_plate_modal.image_alts.example2'),
     },
     {
       src: 'https://classicminidiy.s3.us-east-1.amazonaws.com/engine-decoder/example3.jpg',
-      alt: 'Engine plate example 3',
+      alt: t('components.engine_plate_modal.image_alts.example3'),
     },
   ];
 
@@ -32,16 +33,16 @@
 
 <template>
   <div>
-    <p class="font-bold pt-4 pb-2">Unsure what your engine plate looks like?</p>
+    <p class="font-bold pt-4 pb-2">{{ t('components.engine_plate_modal.question_text') }}</p>
     <button @click="openModal" class="btn btn-primary gap-2">
       <i class="fas fa-clipboard-question"></i>
-      Where is my engine plate?
+      {{ t('components.engine_plate_modal.button_text') }}
     </button>
 
     <!-- Modal -->
     <div v-if="isOpen" class="modal modal-open">
       <div class="modal-box max-w-4xl">
-        <h3 class="font-bold text-lg mb-4">Engine Plates</h3>
+        <h3 class="font-bold text-lg mb-4">{{ t('components.engine_plate_modal.modal_title') }}</h3>
 
         <!-- Carousel -->
         <div class="carousel w-full relative mb-4">
@@ -68,24 +69,23 @@
               @click="currentSlide = index"
               class="w-3 h-3 rounded-full"
               :class="currentSlide === index ? 'bg-primary' : 'bg-gray-300'"
-              :aria-label="`Go to slide ${index + 1}`"
+              :aria-label="t('components.engine_plate_modal.slide_aria_label', { number: index + 1 })"
             ></button>
           </div>
         </div>
 
-        <h4 class="text-lg font-semibold py-4">Location of Engine Plate</h4>
+        <h4 class="text-lg font-semibold py-4">{{ t('components.engine_plate_modal.location_title') }}</h4>
         <p class="mb-4">
-          Engine plates were found in the same place across all model year minis. However these plates are missing in
-          some situations:
+          {{ t('components.engine_plate_modal.location_description') }}
         </p>
         <ul class="list-disc pl-5 space-y-2 mb-4">
-          <li>If the engine has been replaced</li>
-          <li>If the plate was removed during a rebuild</li>
-          <li>If the plate has corroded or fallen off over time</li>
+          <li>{{ t('components.engine_plate_modal.missing_reasons.replaced') }}</li>
+          <li>{{ t('components.engine_plate_modal.missing_reasons.removed') }}</li>
+          <li>{{ t('components.engine_plate_modal.missing_reasons.corroded') }}</li>
         </ul>
 
         <div class="modal-action">
-          <button @click="isOpen = false" class="btn">Close</button>
+          <button @click="isOpen = false" class="btn">{{ t('components.engine_plate_modal.close_button') }}</button>
         </div>
       </div>
     </div>

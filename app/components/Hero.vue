@@ -118,8 +118,7 @@
           :class="{ 'special-title': special, 'has-text-centered': blog }"
         >
           <span v-if="heroType === HERO_TYPES.HOME">
-            Classic Mini <br />
-            DIY
+            {{ t('components.hero.home_title') }}
           </span>
           <span v-else>
             {{ displayTitle }}

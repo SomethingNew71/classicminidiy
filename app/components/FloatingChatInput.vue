@@ -8,7 +8,7 @@
             ref="inputRef"
             v-model="input"
             @keydown="handleInputKeyDown"
-            placeholder="Ask me anything about your Classic Mini..."
+            :placeholder="t('components.floating_chat_input.placeholder')"
             class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
             rows="1"
           ></textarea>
@@ -23,7 +23,7 @@
       <div class="flex justify-center mt-2">
         <span class="text-xs text-base-content/60">
           <i class="fa-solid fa-comments text-xs mr-1"></i>
-          Chat with CMDIY Assistant
+          {{ t('components.floating_chat_input.helper_text') }}
         </span>
       </div>
     </div>
@@ -31,6 +31,7 @@
 </template>
 
 <script setup lang="ts">
+  const { t } = useI18n();
   const input = ref('');
   const inputRef = ref<HTMLTextAreaElement>();
   const router = useRouter();
