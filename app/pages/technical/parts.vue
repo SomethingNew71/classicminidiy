@@ -25,42 +25,43 @@
     activePanels.value[panel] = !activePanels.value[panel];
   };
 
+  const { t } = useI18n();
   const tableHeaders = [
-    { title: 'Brand', key: 'brand' },
-    { title: 'Part Number', key: 'part' },
-    { title: 'Usage Info', key: 'info' },
+    { title: t('pages.technical.subPages.parts.table_headers.brand'), key: 'brand' },
+    { title: t('pages.technical.subPages.parts.table_headers.part_number'), key: 'part' },
+    { title: t('pages.technical.subPages.parts.table_headers.usage_info'), key: 'info' },
   ];
 
   useHead({
-    title: 'Tech - Parts Equivalency',
+    title: t('pages.technical.subPages.parts.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: 'A complete list of parts which can be found at local parts sellers',
+        content: t('pages.technical.subPages.parts.description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: 'Tech - Parts Equivalency',
-    ogDescription: 'A complete list of parts which can be found at local parts sellers',
+    ogTitle: t('pages.technical.subPages.parts.og_title'),
+    ogDescription: t('pages.technical.subPages.parts.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/parts',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/parts.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Tech - Parts Equivalency',
-    twitterDescription: 'A complete list of parts which can be found at local parts sellers',
+    twitterTitle: t('pages.technical.subPages.parts.twitter_title'),
+    twitterDescription: t('pages.technical.subPages.parts.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/parts.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Parts Equivalency'" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="$t('pages.technical.subPages.parts.hero_title')" :heroType="HERO_TYPES.TECH" />
 
   <div class="container mx-auto px-4 py-6">
     <div class="mb-6">
-      <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Parts Equivalency" />
+      <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('pages.technical.subPages.parts.breadcrumb_title')" />
     </div>
 
     <div class="space-y-4">
@@ -76,7 +77,7 @@
                 <input
                   type="text"
                   v-model="searchValue"
-                  placeholder="Search..."
+                  :placeholder="$t('pages.technical.subPages.parts.ui.search_placeholder')"
                   class="input input-bordered w-full pr-10"
                 />
                 <span class="absolute right-3 top-1/2 -translate-y-1/2">
@@ -106,7 +107,9 @@
                     <td>{{ item.info }}</td>
                   </tr>
                   <tr v-if="!table.items.length">
-                    <td :colspan="tableHeaders.length" class="text-center py-4">No items found</td>
+                    <td :colspan="tableHeaders.length" class="text-center py-4">
+                      {{ $t('pages.technical.subPages.parts.ui.no_items_found') }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -116,7 +119,7 @@
       </div>
     </div>
 
-    <div class="divider my-12">Support</div>
+    <div class="divider my-12">{{ $t('pages.technical.subPages.parts.ui.support_section') }}</div>
     <div class="mb-8">
       <patreon-card size="large" />
     </div>

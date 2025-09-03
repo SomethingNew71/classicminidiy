@@ -2,21 +2,20 @@
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   // Track calculator loading state
   const isCalculatorLoaded = ref(false);
+  const { t } = useI18n();
 
   useHead({
-    title: 'SU Needles Chart & Comparison Tool | Classic Mini DIY',
+    title: t('pages.technical.subPages.needles.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          'Compare SU carburettor needles for your Classic Mini with our interactive chart. Find the right needle profile for your engine build with this comprehensive comparison tool.',
+        content: t('pages.technical.subPages.needles.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content:
-          'SU needles, carburettor needles, Classic Mini, needle comparison, SU carburettor, needle profiles, Mini Cooper',
+        content: t('pages.technical.subPages.needles.keywords'),
       },
     ],
     link: [
@@ -32,15 +31,14 @@
   });
 
   useSeoMeta({
-    ogTitle: 'SU Needles Chart & Comparison Tool | Classic Mini DIY',
-    ogDescription:
-      'Compare SU carburettor needles for your Classic Mini with our interactive chart. Find the right needle profile for your engine build.',
+    ogTitle: t('pages.technical.subPages.needles.og_title'),
+    ogDescription: t('pages.technical.subPages.needles.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/needles',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/needles.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'SU Needles Chart & Comparison Tool | Classic Mini DIY',
-    twitterDescription: 'Compare SU carburettor needles for your Classic Mini with our interactive chart.',
+    twitterTitle: t('pages.technical.subPages.needles.twitter_title'),
+    twitterDescription: t('pages.technical.subPages.needles.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/needles.png',
   });
 
@@ -48,30 +46,29 @@
   const howToJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: 'How to Compare SU Carburettor Needles',
-    description:
-      'Compare different SU carburettor needles to find the right profile for your Classic Mini engine build.',
+    name: t('pages.technical.subPages.needles.structured_data.name'),
+    description: t('pages.technical.subPages.needles.structured_data.description'),
     step: [
       {
         '@type': 'HowToStep',
-        name: 'Select Needles',
-        text: 'Start typing the name of the needles you would like to compare in the dropdown menu.',
+        name: t('pages.technical.subPages.needles.structured_data.steps.select_needles.name'),
+        text: t('pages.technical.subPages.needles.structured_data.steps.select_needles.text'),
       },
       {
         '@type': 'HowToStep',
-        name: 'Add to Comparison',
-        text: 'Click the "Add Needle" button to add the selected needle to the comparison chart.',
+        name: t('pages.technical.subPages.needles.structured_data.steps.add_to_comparison.name'),
+        text: t('pages.technical.subPages.needles.structured_data.steps.add_to_comparison.text'),
       },
       {
         '@type': 'HowToStep',
-        name: 'View Comparison',
-        text: 'The chart will automatically update to show the profiles of all selected needles for comparison.',
+        name: t('pages.technical.subPages.needles.structured_data.steps.view_comparison.name'),
+        text: t('pages.technical.subPages.needles.structured_data.steps.view_comparison.text'),
       },
     ],
     tool: [
       {
         '@type': 'HowToTool',
-        name: 'Interactive Needle Comparison Chart',
+        name: t('pages.technical.subPages.needles.structured_data.tool_name'),
       },
     ],
   };
@@ -88,46 +85,42 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Needle Configurator'" text-size="text-3xl" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="$t('pages.technical.subPages.needles.hero_title')" text-size="text-3xl" :heroType="HERO_TYPES.TECH" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 pt-6">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Needle Comparison"></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('pages.technical.subPages.needles.breadcrumb_title')"></breadcrumb>
       </div>
       <div class="col-span-12">
-        <h1 class="fancy-font-bold text-2xl">SU Carburettor Needles Comparison Tool</h1>
+        <h1 class="fancy-font-bold text-2xl">{{ $t('pages.technical.subPages.needles.main_heading') }}</h1>
         <p class="text-lg pt-5">
-          One of the most confusing things about working on your Classic Mini often is the carburettor needle used on
-          your car. Below you will find a multi-needle comparison chart which will allow you to compare needle profiles
-          of multiple SU needles at the same time. Choose the needles you would like to compare and click Compare which
-          will redraw the chart with new profiles. A huge thank you to the mintylamb site for posting this information
-          publically.
+          {{ $t('pages.technical.subPages.needles.description_text') }}
         </p>
       </div>
       <div class="col-span-12 border-t border-base-300 mt-5"></div>
       <div class="col-span-12">
-        <ClientOnly fallback-tag="div" fallback="Loading needle comparison tool...">
+        <ClientOnly fallback-tag="div" :fallback="$t('pages.technical.subPages.needles.ui.loading_fallback')">
           <div class="min-h-96 flex items-center justify-center" v-if="!isCalculatorLoaded">
             <div class="flex flex-col items-center space-y-4">
               <span class="loading loading-spinner loading-lg text-primary"></span>
-              <p class="text-base-content/70">Loading needle comparison tool...</p>
+              <p class="text-base-content/70">{{ $t('pages.technical.subPages.needles.ui.loading_text') }}</p>
             </div>
           </div>
           <LazyCalculatorsNeedles @vue:mounted="isCalculatorLoaded = true" />
         </ClientOnly>
       </div>
       <div class="col-span-12">
-        <div class="divider">Needle Charts</div>
+        <div class="divider">{{ $t('pages.technical.subPages.needles.ui.needle_charts_section') }}</div>
       </div>
       <div class="col-span-12 text-center">
-        <h2 class="fancy-font-book text-2xl">Find the needle for your carb</h2>
+        <h2 class="fancy-font-book text-2xl">{{ $t('pages.technical.subPages.needles.ui.find_needle_heading') }}</h2>
         <h3 class="fancy-font-book text-lg">
-          Information provided by
+          {{ $t('pages.technical.subPages.needles.ui.information_provided_by') }}
           <a
             href="https://www.7ent.com/pages/articles-tech-tips/chart-carburetor-needle.html"
             target="_blank"
             class="link link-primary"
-            >Seven Mini Parts</a
+            >{{ $t('pages.technical.subPages.needles.ui.seven_mini_parts_link') }}</a
           >
         </h3>
       </div>
@@ -135,7 +128,7 @@
         <NeedleTable />
       </div>
       <div class="col-span-12">
-        <div class="divider">Support</div>
+        <div class="divider">{{ $t('pages.technical.subPages.needles.ui.support_section') }}</div>
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />

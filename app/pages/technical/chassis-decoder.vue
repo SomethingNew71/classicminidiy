@@ -2,6 +2,8 @@
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   import { chassisRanges } from '../../../data/models/decoders';
 
+  const { t } = useI18n();
+
   interface ChassisPosition {
     position: number;
     value: string;
@@ -60,7 +62,7 @@
 
   async function decodeChassisNumber() {
     if (!chassisNumber.value.trim()) {
-      errorMessage.value = 'Please enter a chassis number';
+      errorMessage.value = t('pages.technical.subPages.chassis_decoder.form.error_empty_chassis');
       return;
     }
 
@@ -89,7 +91,7 @@
       }
     } catch (error: any) {
       console.error('Error decoding chassis number:', error);
-      errorMessage.value = error?.data?.statusMessage || 'Failed to decode chassis number. Please try again.';
+      errorMessage.value = error?.data?.statusMessage || t('pages.technical.subPages.chassis_decoder.form.error_decode_failed');
     } finally {
       isLoading.value = false;
     }
@@ -109,50 +111,44 @@
   }
 
   useHead({
-    title: 'Tech - Mini Chassis Plate Decoder',
+    title: t('pages.technical.subPages.chassis_decoder.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
+        content: t('pages.technical.subPages.chassis_decoder.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Tech - Mini Chassis Plate Decoder',
-    ogDescription:
-      "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
+    ogTitle: t('pages.technical.subPages.chassis_decoder.og_title'),
+    ogDescription: t('pages.technical.subPages.chassis_decoder.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/chassis-decoder',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/chassis-decoder.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Tech - Mini Chassis Plate Decoder',
-    twitterDescription:
-      "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car.",
+    twitterTitle: t('pages.technical.subPages.chassis_decoder.twitter_title'),
+    twitterDescription: t('pages.technical.subPages.chassis_decoder.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/chassis-decoder.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Chassis Decoder'" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="t('pages.technical.subPages.chassis_decoder.hero_title')" :heroType="HERO_TYPES.TECH" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" :version="BREADCRUMB_VERSIONS.TECH" page="Chassis Decoder"></breadcrumb>
+        <breadcrumb class="my-6" :version="BREADCRUMB_VERSIONS.TECH" :page="t('pages.technical.subPages.chassis_decoder.breadcrumb_title')"></breadcrumb>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-7">
-            <h1 class="text-3xl font-bold mb-4">Chassis Plate Decoder</h1>
+            <h1 class="text-3xl font-bold mb-4">{{ t('pages.technical.subPages.chassis_decoder.main_heading') }}</h1>
             <p class="mb-4">
-              The chassis plate is a series of numbers and letters that are stamped on a metal plate that is riveted to
-              the body of the car. This plate is located in different places across all mini generations and is used to
-              identify the model year, assembly plant, and sequential build number of the car. The chassis plate is also
-              known as the VIN plate, VIN tag, or VIN plate depending on the generation.
+              {{ t('pages.technical.subPages.chassis_decoder.description_text') }}
             </p>
           </div>
           <div class="col-span-12 md:col-span-5">
-            <NuxtLink :to="'/technical/engine-decoder'" :title="'Link to Engine Plate decoder'" class="block">
+            <NuxtLink :to="'/technical/engine-decoder'" :title="t('pages.technical.subPages.chassis_decoder.engine_decoder_card.link_title')" class="block">
               <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
                 <div class="card-body">
                   <div class="flex items-start space-x-4">
@@ -165,15 +161,15 @@
                           />
                           <img
                             src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png"
-                            alt="Engine Decoder"
+                            :alt="t('pages.technical.subPages.chassis_decoder.engine_decoder_card.alt_text')"
                             class="w-full h-full object-cover rounded"
                           />
                         </picture>
                       </figure>
                     </div>
                     <div class="flex-1">
-                      <h3 class="text-lg font-semibold">Engine Decoder</h3>
-                      <p class="mt-1">Click here to identify your engine using our new engine number decoding table.</p>
+                      <h3 class="text-lg font-semibold">{{ t('pages.technical.subPages.chassis_decoder.engine_decoder_card.heading') }}</h3>
+                      <p class="mt-1">{{ t('pages.technical.subPages.chassis_decoder.engine_decoder_card.description') }}</p>
                     </div>
                   </div>
                 </div>
@@ -187,16 +183,16 @@
       <div class="col-span-12 md:col-span-8 md:col-start-3">
         <div class="card bg-base-100 shadow-lg">
           <div class="card-body text-center">
-            <h3 class="text-xl font-semibold mb-4">Decode Your Chassis Number</h3>
+            <h3 class="text-xl font-semibold mb-4">{{ t('pages.technical.subPages.chassis_decoder.form.card_title') }}</h3>
             <p class="mb-6">
-              Enter your chassis number and select the appropriate year range to decode all the details automatically.
+              {{ t('pages.technical.subPages.chassis_decoder.form.card_description') }}
             </p>
 
             <div class="space-y-4 max-w-md mx-auto">
               <!-- Year Range Selection -->
               <div class="form-control w-full">
                 <label class="label">
-                  <span class="label-text font-medium">Year Range</span>
+                  <span class="label-text font-medium">{{ t('pages.technical.subPages.chassis_decoder.form.year_range_label') }}</span>
                 </label>
                 <select v-model="yearRange" class="select select-bordered w-full">
                   <option v-for="option in yearRangeOptions" :key="option" :value="option">
@@ -208,18 +204,18 @@
               <!-- Chassis Number Input -->
               <div class="form-control w-full">
                 <label class="label">
-                  <span class="label-text font-medium">Chassis Number</span>
+                  <span class="label-text font-medium">{{ t('pages.technical.subPages.chassis_decoder.form.chassis_number_label') }}</span>
                 </label>
                 <input
                   v-model="chassisNumber"
                   type="text"
-                  placeholder="Enter your chassis number"
+                  :placeholder="t('pages.technical.subPages.chassis_decoder.form.chassis_number_placeholder')"
                   class="input input-bordered w-full"
                   @keyup.enter="decodeChassisNumber"
                 />
                 <!-- Example for selected year range -->
                 <div v-if="exampleChassisNumber" class="mt-2 text-sm text-gray-600">
-                  <span class="font-medium">Example for {{ yearRange }}:</span>
+                  <span class="font-medium">{{ t('pages.technical.subPages.chassis_decoder.form.example_text') }} {{ yearRange }}:</span>
                   <span class="font-mono ml-2 text-primary">{{ exampleChassisNumber }}</span>
                 </div>
               </div>
@@ -232,9 +228,9 @@
                   class="btn btn-primary"
                 >
                   <span v-if="isLoading" class="loading loading-spinner loading-sm"></span>
-                  {{ isLoading ? 'Decoding...' : 'Decode Chassis' }}
+                  {{ isLoading ? t('pages.technical.subPages.chassis_decoder.form.decoding_button') : t('pages.technical.subPages.chassis_decoder.form.decode_button') }}
                 </button>
-                <button @click="resetForm" class="btn btn-ghost">Reset</button>
+                <button @click="resetForm" class="btn btn-ghost">{{ t('pages.technical.subPages.chassis_decoder.form.reset_button') }}</button>
               </div>
 
               <!-- Error Message -->
@@ -251,27 +247,27 @@
         <div class="card bg-base-100 shadow-md">
           <div class="card-body">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="card-title text-xl font-semibold">Decoded Results</h3>
+              <h3 class="card-title text-xl font-semibold">{{ t('pages.technical.subPages.chassis_decoder.results.title') }}</h3>
               <div>
-                <span v-if="decodedResult.isValid" class="badge badge-success">Decoded</span>
-                <span v-else class="badge badge-error">Invalid</span>
+                <span v-if="decodedResult.isValid" class="badge badge-success">{{ t('pages.technical.subPages.chassis_decoder.results.status_decoded') }}</span>
+                <span v-else class="badge badge-error">{{ t('pages.technical.subPages.chassis_decoder.results.status_invalid') }}</span>
               </div>
             </div>
             <!-- Summary -->
             <div class="mb-6">
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                 <div class="stat">
-                  <div class="stat-title">Year Range</div>
+                  <div class="stat-title">{{ t('pages.technical.subPages.chassis_decoder.results.year_range_stat') }}</div>
                   <div class="stat-value text-lg">{{ decodedResult.yearRange }}</div>
                 </div>
                 <div class="stat">
-                  <div class="stat-title text-lg">Your Chassis Number</div>
+                  <div class="stat-title text-lg">{{ t('pages.technical.subPages.chassis_decoder.results.chassis_number_stat') }}</div>
                   <div class="stat-value text-xl font-mono">
                     <p class="badge badge-secondary badge-lg">{{ decodedResult.chassisNumber }}</p>
                   </div>
                 </div>
                 <div class="stat">
-                  <div class="stat-title">Expected Pattern</div>
+                  <div class="stat-title">{{ t('pages.technical.subPages.chassis_decoder.results.expected_pattern_stat') }}</div>
                   <div class="stat-value text-lg font-mono">{{ decodedResult.pattern }}</div>
                 </div>
               </div>
@@ -279,7 +275,7 @@
 
             <!-- Validation Errors -->
             <div v-if="decodedResult.errors.length > 0" class="mb-6">
-              <h4 class="text-lg font-semibold mb-3">Validation Issues</h4>
+              <h4 class="text-lg font-semibold mb-3">{{ t('pages.technical.subPages.chassis_decoder.results.validation_issues_title') }}</h4>
               <div class="space-y-2">
                 <div v-for="error in decodedResult.errors" :key="error" class="alert alert-warning">
                   <span>{{ error }}</span>
@@ -289,7 +285,7 @@
 
             <!-- Decoded Positions -->
             <div>
-              <h4 class="text-lg font-semibold mb-4">Decoded Positions</h4>
+              <h4 class="text-lg font-semibold mb-4">{{ t('pages.technical.subPages.chassis_decoder.results.decoded_positions_title') }}</h4>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div
                   v-for="position in decodedResult.decodedPositions"
@@ -301,7 +297,7 @@
                   <div class="flex-1">
                     <div class="flex items-center gap-2">
                       <span class="font-medium">
-                        Position {{ position.position }}: <strong>{{ position.value }}</strong>
+                        {{ t('pages.technical.subPages.chassis_decoder.results.position_label') }} {{ position.position }}: <strong>{{ position.value }}</strong>
                       </span>
                       <span v-if="position.matched" class="badge badge-success badge-sm">✓</span>
                       <span v-else class="badge badge-error badge-sm">✗</span>
@@ -319,26 +315,18 @@
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="card bg-base-100 shadow-md">
           <div class="card-body">
-            <h3 class="card-title text-2xl font-semibold mb-4">Special Notes</h3>
+            <h3 class="card-title text-2xl font-semibold mb-4">{{ t('pages.technical.subPages.chassis_decoder.special_notes.title') }}</h3>
             <div class="space-y-4">
               <div>
-                <h4 class="text-lg font-semibold mb-2">Note about Build Number</h4>
+                <h4 class="text-lg font-semibold mb-2">{{ t('pages.technical.subPages.chassis_decoder.special_notes.build_number_title') }}</h4>
                 <p>
-                  The first car at Longbridge was number 101, as was the first at Cowley. From then on, each factory
-                  continued with their own number sequence regardless of the model; e.g., Saloon, Van, etc. In other
-                  words, each model did not start at 101 and maintain its own sequence. Saloons and Vans, etc., are
-                  mixed in the number sequence along with the Cooper and Cooper S models
+                  {{ t('pages.technical.subPages.chassis_decoder.special_notes.build_number_text') }}
                 </p>
               </div>
               <div>
-                <h4 class="text-lg font-semibold mb-2">Note about Assembly Plant</h4>
+                <h4 class="text-lg font-semibold mb-2">{{ t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_title') }}</h4>
                 <p>
-                  This seems to be used inconsistently on English-built cars, and it is understood that the car was
-                  built at the "normal" factory if the letter is left off; e.g., an Austin, Riley or Wolseley at
-                  Longbridge may or may not have an "A" after the sequence number. Yes, there were Austin Minis built at
-                  the Morris plant in Cowley and Morris Minis built at the Austin plant in Longbridge. Note that all
-                  English-built Cooper and Cooper S models (Austin and Morris) as well as Riley Elf and Wolseley Hornet
-                  models were built at the Longbridge, Austin plant
+                  {{ t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_text') }}
                 </p>
               </div>
             </div>
@@ -349,22 +337,21 @@
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="text-center">
           <p>
-            Please note the above details were pulled from <strong>Mini Mania's</strong> technical articles. More
-            Details can be found here:
+            {{ t('pages.technical.subPages.chassis_decoder.attribution.text') }} <strong>{{ t('pages.technical.subPages.chassis_decoder.attribution.mini_mania') }}</strong> {{ t('pages.technical.subPages.chassis_decoder.attribution.technical_articles') }}
             <a
               href="https://www.minimania.com/Mini_Chassis_VIN_and_Commission_Numbers__Part_I__Revised_"
               target="_blank"
               rel="noopener noreferrer"
               class="link link-primary"
             >
-              Chassis Code Technical Articles</a
+              {{ t('pages.technical.subPages.chassis_decoder.attribution.link_text') }}</a
             >
           </p>
         </div>
       </div>
 
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">Support</div>
+        <div class="divider">{{ t('pages.technical.subPages.chassis_decoder.ui.support_section') }}</div>
       </div>
 
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">

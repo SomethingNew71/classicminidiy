@@ -1,21 +1,21 @@
 <script lang="js" setup>
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
 
+  const { t } = useI18n();
+
   // Enhanced SEO metadata
   useHead({
-    title: 'Compression Ratio Calculator for Classic Mini Engines | Classic Mini DIY',
+    title: t('pages.technical.subPages.compression.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          'Calculate the compression ratio for your Classic Mini engine build with our interactive calculator. Plan your engine modifications with precision using this easy-to-use tool.',
+        content: t('pages.technical.subPages.compression.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content:
-          'compression ratio, Classic Mini engine, engine build, compression calculator, Mini Cooper engine, piston dish, head volume',
+        content: t('pages.technical.subPages.compression.keywords'),
       },
     ],
     link: [
@@ -31,16 +31,14 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Compression Ratio Calculator for Classic Mini Engines | Classic Mini DIY',
-    ogDescription:
-      'Calculate the compression ratio for your Classic Mini engine build with our interactive calculator. Plan your engine modifications with precision.',
+    ogTitle: t('pages.technical.subPages.compression.og_title'),
+    ogDescription: t('pages.technical.subPages.compression.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/compression',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/compression.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Compression Ratio Calculator for Classic Mini Engines',
-    twitterDescription:
-      'Calculate the compression ratio for your Classic Mini engine build with our interactive calculator.',
+    twitterTitle: t('pages.technical.subPages.compression.twitter_title'),
+    twitterDescription: t('pages.technical.subPages.compression.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/compression.png',
   });
 
@@ -48,11 +46,10 @@
   const calculatorJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Classic Mini Compression Ratio Calculator',
+    name: t('pages.technical.subPages.compression.structured_data.calculator_name'),
     applicationCategory: 'AutomotiveApplication',
     operatingSystem: 'Web Browser',
-    description:
-      'An interactive calculator to determine the compression ratio for Classic Mini engine builds based on various parameters like piston dish, head volume, bore, and stroke.',
+    description: t('pages.technical.subPages.compression.structured_data.calculator_description'),
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -64,39 +61,38 @@
   const howToJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: 'How to Calculate Compression Ratio for a Classic Mini Engine',
-    description:
-      'Learn how to calculate the compression ratio for your Classic Mini engine build using our interactive calculator.',
+    name: t('pages.technical.subPages.compression.structured_data.how_to_name'),
+    description: t('pages.technical.subPages.compression.structured_data.how_to_description'),
     step: [
       {
         '@type': 'HowToStep',
-        name: 'Enter Piston Dish Value',
-        text: 'Enter the piston dish value in cc.',
+        name: t('pages.technical.subPages.compression.structured_data.steps.piston_dish.name'),
+        text: t('pages.technical.subPages.compression.structured_data.steps.piston_dish.text'),
       },
       {
         '@type': 'HowToStep',
-        name: 'Enter Head Volume',
-        text: 'Enter the head volume in cc.',
+        name: t('pages.technical.subPages.compression.structured_data.steps.head_volume.name'),
+        text: t('pages.technical.subPages.compression.structured_data.steps.head_volume.text'),
       },
       {
         '@type': 'HowToStep',
-        name: 'Enter Deck Height',
-        text: 'Enter the deck height in inches.',
+        name: t('pages.technical.subPages.compression.structured_data.steps.deck_height.name'),
+        text: t('pages.technical.subPages.compression.structured_data.steps.deck_height.text'),
       },
       {
         '@type': 'HowToStep',
-        name: 'Enter Bore and Stroke',
-        text: 'Enter the bore and stroke measurements in mm.',
+        name: t('pages.technical.subPages.compression.structured_data.steps.bore_stroke.name'),
+        text: t('pages.technical.subPages.compression.structured_data.steps.bore_stroke.text'),
       },
       {
         '@type': 'HowToStep',
-        name: 'Enter Gasket Thickness',
-        text: 'Select the gasket thickness or enter a custom value.',
+        name: t('pages.technical.subPages.compression.structured_data.steps.gasket_thickness.name'),
+        text: t('pages.technical.subPages.compression.structured_data.steps.gasket_thickness.text'),
       },
       {
         '@type': 'HowToStep',
-        name: 'View Results',
-        text: 'The calculator will automatically display the compression ratio and engine capacity.',
+        name: t('pages.technical.subPages.compression.structured_data.steps.view_results.name'),
+        text: t('pages.technical.subPages.compression.structured_data.steps.view_results.text'),
       },
     ],
   };
@@ -121,18 +117,24 @@
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" :version="BREADCRUMB_VERSIONS.TECH" page="Compression Ratio Calculator"></breadcrumb>
+        <breadcrumb
+          class="my-6"
+          :version="BREADCRUMB_VERSIONS.TECH"
+          :page="t('pages.technical.subPages.compression.breadcrumb_title')"
+        ></breadcrumb>
         <div class="grid grid-cols-11 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-3xl font-bold mb-4">Compression Ratio Calculator</h1>
+            <h1 class="text-3xl font-bold mb-4">{{ t('pages.technical.subPages.compression.main_heading') }}</h1>
             <p class="mb-4">
-              When building a performance Classic Mini engine one of the most important figures to determine is the
-              compression ratio. Using the Classic Mini DIY Compression Ratio Calculator below, you can determine the
-              ideal compression for your new engine build.
+              {{ t('pages.technical.subPages.compression.description_text') }}
             </p>
           </div>
           <div class="col-span-12 md:col-span-4">
-            <NuxtLink :to="'/archive/engines'" :title="'Link to Engine Sizes'" class="block">
+            <NuxtLink
+              :to="'/archive/engines'"
+              :title="t('pages.technical.subPages.compression.engine_sizes_card.link_title')"
+              class="block"
+            >
               <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
                 <div class="card-body">
                   <div class="flex items-start space-x-4">
@@ -150,15 +152,17 @@
                           <nuxt-img
                             loading="lazy"
                             src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
-                            alt="Engine size table image preview"
+                            :alt="t('pages.technical.subPages.compression.engine_sizes_card.alt_text')"
                             class="w-full h-full object-contain"
                           />
                         </picture>
                       </figure>
                     </div>
                     <div>
-                      <h2 class="text-xl font-semibold">What are standard engine sizes?</h2>
-                      <p class="mt-1">Click here to learn about common engine sizes in the classic mini.</p>
+                      <h2 class="text-xl font-semibold">
+                        {{ t('pages.technical.subPages.compression.engine_sizes_card.heading') }}
+                      </h2>
+                      <p class="mt-1">{{ t('pages.technical.subPages.compression.engine_sizes_card.description') }}</p>
                     </div>
                   </div>
                 </div>
@@ -171,7 +175,7 @@
         <CalculatorsCompression />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">More</div>
+        <div class="divider">{{ t('pages.technical.subPages.compression.ui.more_section') }}</div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <patreon-card size="large" />

@@ -2,6 +2,7 @@
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   const { data: engineCodes } = await useFetch('/api/decoders/engine');
   const search = ref('');
+  const { t } = useI18n();
 
   // Computed property for filtered engine codes
   const filteredEngineCodes = computed(() => {
@@ -21,50 +22,57 @@
   });
 
   useHead({
-    title: 'Tech - Mini Engine Plate Decoder',
+    title: t('pages.technical.subPages.engine_decoder.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          "Decode your Classic Mini's Engine plate to determine the engine size and features of your car. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+        content: t('pages.technical.subPages.engine_decoder.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Tech - Mini Engine Plate Decoder',
-    ogDescription:
-      "Decode your Classic Mini's Engine plate to determine the engine size and features of your car. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+    ogTitle: t('pages.technical.subPages.engine_decoder.og_title'),
+    ogDescription: t('pages.technical.subPages.engine_decoder.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/engine-decoder',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/engine-decoder.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Tech - Mini Engine Plate Decoder',
-    twitterDescription:
-      "Decode your Classic Mini's Engine plate to determine the engine size and features of your car.",
+    twitterTitle: t('pages.technical.subPages.engine_decoder.twitter_title'),
+    twitterDescription: t('pages.technical.subPages.engine_decoder.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/engine-decoder.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Engine Code Decoder'" :heroType="HERO_TYPES.TECH" />
+  <hero
+    :navigation="true"
+    :title="$t('pages.technical.subPages.engine_decoder.hero_title')"
+    :heroType="HERO_TYPES.TECH"
+  />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
       <div class="col-span-12">
-        <breadcrumb class="my-4" :version="BREADCRUMB_VERSIONS.TECH" page="Engine Sizes"></breadcrumb>
+        <breadcrumb
+          class="my-4"
+          :version="BREADCRUMB_VERSIONS.TECH"
+          :page="$t('pages.technical.subPages.engine_decoder.breadcrumb_title')"
+        ></breadcrumb>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div class="col-span-12 md:col-span-7">
-            <h1 class="text-3xl font-bold mb-4">Engine Plate Decoder</h1>
+            <h1 class="text-3xl font-bold mb-4">{{ $t('pages.technical.subPages.engine_decoder.main_heading') }}</h1>
             <p class="mb-4">
-              The engine plate is a series of numbers and letters that are stamped on a metal plate that is riveted to
-              the engine near the water pump. This plate is located in the same place across all mini generations and is
-              used to identify the engine size and features.
+              {{ $t('pages.technical.subPages.engine_decoder.description_text') }}
             </p>
             <EnginePlateModal></EnginePlateModal>
           </div>
           <div class="col-span-12 md:col-span-5">
-            <NuxtLink :to="'/technical/chassis-decoder'" :title="'Link to Chassis Decoder Tool'" class="block">
+            <NuxtLink
+              :to="'/technical/chassis-decoder'"
+              :title="$t('pages.technical.subPages.engine_decoder.chassis_decoder_card.link_title')"
+              class="block"
+            >
               <div class="card hover:shadow-lg transition-shadow">
                 <div class="flex items-center p-4">
                   <div class="flex-shrink-0">
@@ -80,15 +88,17 @@
                       <nuxt-img
                         loading="lazy"
                         src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png"
-                        alt="Image of magnifying glass"
+                        :alt="$t('pages.technical.subPages.engine_decoder.chassis_decoder_card.alt_text')"
                         class="w-16 h-16"
                       />
                     </picture>
                   </div>
                   <div class="ml-4">
-                    <h2 class="text-xl font-semibold mb-2">Need to decode your Chassis Number?</h2>
+                    <h2 class="text-xl font-semibold mb-2">
+                      {{ $t('pages.technical.subPages.engine_decoder.chassis_decoder_card.heading') }}
+                    </h2>
                     <p class="text-gray-600">
-                      Click here to identify your car using our new chassis number decoding tool.
+                      {{ $t('pages.technical.subPages.engine_decoder.chassis_decoder_card.description') }}
                     </p>
                   </div>
                 </div>
@@ -99,10 +109,20 @@
       </div>
       <div class="col-span-12">
         <div class="col-span-12 pb-5">
-          <i class="fas fa-circle pl-1 color-850"></i> 850cc <i class="fas fa-circle pl-1 color-970"></i> 970cc
-          <i class="fas fa-circle pl-1 color-997"></i> 997cc <i class="fas fa-circle pl-1 color-998"></i> 998cc
-          <i class="fas fa-circle pl-1 color-1070"></i> 1070cc <i class="fas fa-circle pl-1 color-1100"></i> 1100
-          <i class="fas fa-circle pl-1 color-1275"></i> 1275
+          <i class="fas fa-circle pl-1 color-850"></i>
+          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.850cc') }}
+          <i class="fas fa-circle pl-1 color-970"></i>
+          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.970cc') }}
+          <i class="fas fa-circle pl-1 color-997"></i>
+          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.997cc') }}
+          <i class="fas fa-circle pl-1 color-998"></i>
+          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.998cc') }}
+          <i class="fas fa-circle pl-1 color-1070"></i>
+          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.1070cc') }}
+          <i class="fas fa-circle pl-1 color-1100"></i>
+          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.1100cc') }}
+          <i class="fas fa-circle pl-1 color-1275"></i>
+          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.1275cc') }}
         </div>
         <div class="col-span-12 md:col-span-6">
           <div class="form-control pb-5">
@@ -111,7 +131,7 @@
                 <span class="label"><i class="fad fa-search"></i></span>
                 <input
                   v-model="search"
-                  placeholder="Search your engine code"
+                  :placeholder="$t('pages.technical.subPages.engine_decoder.search.placeholder')"
                   type="text"
                   class="input-bordered w-full"
                 />
@@ -126,7 +146,9 @@
                 <div>
                   <i class="fad fa-engine text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold ml-2">Engine Codes</h3>
+                <h3 class="text-xl font-semibold ml-2">
+                  {{ $t('pages.technical.subPages.engine_decoder.table.title') }}
+                </h3>
               </div>
             </div>
 
@@ -135,12 +157,12 @@
                 <table class="table table-compact w-full">
                   <thead>
                     <tr>
-                      <th></th>
-                      <th>Code</th>
-                      <th>Engine Size</th>
-                      <th>Engine Variant</th>
-                      <th>Gearbox Details</th>
-                      <th>Details</th>
+                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.color') }}</th>
+                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.code') }}</th>
+                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.engine_size') }}</th>
+                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.engine_variant') }}</th>
+                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.gearbox_details') }}</th>
+                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.details') }}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -162,7 +184,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider mb-4">Support</div>
+        <div class="divider mb-4">{{ $t('pages.technical.subPages.engine_decoder.ui.support_section') }}</div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
         <patreon-card size="large" />

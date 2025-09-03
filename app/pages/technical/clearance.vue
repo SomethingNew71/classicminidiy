@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
 
+  const { t } = useI18n();
+
   interface ClearanceItem {
     name: string;
     thou: string;
@@ -24,37 +26,38 @@
   };
 
   useHead({
-    title: 'Tech - Mini Clearances',
+    title: t('pages.technical.subPages.clearance.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: 'Detailed clearance specifications can be found online right here at Classic Mini DIY.',
+        content: t('pages.technical.subPages.clearance.description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: 'Tech - Mini Clearances',
-    ogDescription:
-      'Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
+    ogTitle: t('pages.technical.subPages.clearance.og_title'),
+    ogDescription: t('pages.technical.subPages.clearance.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/clearance',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/clearance.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Tech - Mini Clearances',
-    twitterDescription:
-      'Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.',
+    twitterTitle: t('pages.technical.subPages.clearance.twitter_title'),
+    twitterDescription: t('pages.technical.subPages.clearance.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/clearance.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Common Clearances'" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="t('pages.technical.subPages.clearance.hero_title')" :heroType="HERO_TYPES.TECH" />
 
   <div class="container mx-auto px-4 py-6">
     <div class="mb-6">
-      <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Common Clearances" />
+      <breadcrumb
+        :version="BREADCRUMB_VERSIONS.TECH"
+        :page="t('pages.technical.subPages.clearance.breadcrumb_title')"
+      />
     </div>
 
     <div class="space-y-4">
@@ -70,7 +73,7 @@
                 <input
                   type="text"
                   v-model="searchValue"
-                  placeholder="Search..."
+                  :placeholder="t('pages.technical.subPages.clearance.search.placeholder')"
                   class="input input-bordered w-full pr-10"
                 />
                 <span class="absolute right-3 top-1/2 -translate-y-1/2">
@@ -83,10 +86,10 @@
               <table class="table w-full">
                 <thead>
                   <tr>
-                    <th>Part</th>
-                    <th>Clearance/Endfloat (thou)</th>
-                    <th>Clearance/Endfloat (mm)</th>
-                    <th></th>
+                    <th>{{ t('pages.technical.subPages.clearance.table.headers.part') }}</th>
+                    <th>{{ t('pages.technical.subPages.clearance.table.headers.clearance_thou') }}</th>
+                    <th>{{ t('pages.technical.subPages.clearance.table.headers.clearance_mm') }}</th>
+                    <th>{{ t('pages.technical.subPages.clearance.table.headers.expand') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -98,8 +101,8 @@
                   >
                     <tr class="hover cursor-pointer" @click="toggleRow(`${name}-${itemIndex}`)">
                       <td>{{ item.name }}</td>
-                      <td>{{ item.thou || '---' }}</td>
-                      <td>{{ item.mm || '---' }}</td>
+                      <td>{{ item.thou || t('pages.technical.subPages.clearance.table.no_value') }}</td>
+                      <td>{{ item.mm || t('pages.technical.subPages.clearance.table.no_value') }}</td>
                       <td class="text-right">
                         <i
                           class="fas transition-transform duration-200"
@@ -109,13 +112,19 @@
                     </tr>
                     <tr v-if="expandedRows[`${name}-${itemIndex}`]" class="bg-base-200">
                       <td colspan="4" class="p-4">
-                        <div class="font-semibold mb-2">Extra Notes:</div>
-                        <div class="whitespace-pre-line">{{ item.notes || 'No additional notes available.' }}</div>
+                        <div class="font-semibold mb-2">
+                          {{ t('pages.technical.subPages.clearance.table.extra_notes_title') }}
+                        </div>
+                        <div class="whitespace-pre-line">
+                          {{ item.notes || t('pages.technical.subPages.clearance.table.no_notes_available') }}
+                        </div>
                       </td>
                     </tr>
                   </template>
                   <tr v-if="!table.items.length">
-                    <td colspan="4" class="text-center py-4">No items found</td>
+                    <td colspan="4" class="text-center py-4">
+                      {{ t('pages.technical.subPages.clearance.table.no_items_found') }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -125,7 +134,7 @@
       </div>
     </div>
 
-    <div class="divider my-12">Support</div>
+    <div class="divider my-12">{{ t('pages.technical.subPages.clearance.ui.support_section') }}</div>
     <div class="mb-8">
       <patreon-card size="large" />
     </div>
