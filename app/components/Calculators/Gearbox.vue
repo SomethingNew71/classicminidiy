@@ -9,6 +9,7 @@
     type ISpeedometer,
     type TireValue,
   } from '../../../data/models/gearing';
+  const { t } = useI18n();
 
   // Default Values for form elements
   const metric = ref(false);
@@ -240,7 +241,7 @@
       <div class="col-span-1 md:col-span-4">
         <div class="form-control">
           <label class="label cursor-pointer">
-            <span class="label-text">Imperial or Metric</span>
+            <span class="label-text">{{ t('components.calculators.gearbox.form_labels.imperial_or_metric') }}</span>
             <input type="checkbox" class="toggle toggle-primary" v-model="metric" @change="triggerDebouncedUpdate" />
           </label>
         </div>
@@ -252,7 +253,7 @@
         <div class="form-control">
           <label class="label">
             <span class="label-text"
-              >Tire Size <span><i class="fad fa-tire"></i></span
+              >{{ t('components.calculators.gearbox.form_labels.tire_size') }} <span><i class="fad fa-tire"></i></span
             ></span>
           </label>
           <div class="input-group">
@@ -267,7 +268,8 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >Speedo Drive Ratio <span><i class="fad fa-percent"></i></span
+            >{{ t('components.calculators.gearbox.form_labels.speedo_drive_ratio') }}
+            <span><i class="fad fa-percent"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -281,7 +283,8 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >Drop Gear Ratio <span><i class="fad fa-gears"></i></span
+            >{{ t('components.calculators.gearbox.form_labels.drop_gear_ratio') }}
+            <span><i class="fad fa-gears"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -295,7 +298,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >Gearset <span><i class="fad fa-gear"></i></span
+            >{{ t('components.calculators.gearbox.form_labels.gearset') }} <span><i class="fad fa-gear"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -309,7 +312,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >Final Drive <span><i class="fad fa-gears"></i></span
+            >{{ t('components.calculators.gearbox.form_labels.final_drive') }} <span><i class="fad fa-gears"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -323,34 +326,34 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >Max RPM <span><i class="fad fa-tachometer-alt"></i></span
+            >{{ t('components.calculators.gearbox.form_labels.max_rpm') }}
+            <span><i class="fad fa-tachometer-alt"></i></span
           ></span>
         </label>
         <div class="w-full">
           <select class="select select-bordered w-full" v-model.number="max_rpm" @change="triggerDebouncedUpdate">
-            <option value="5000">5000 RPM</option>
-            <option value="5500">5500 RPM</option>
-            <option value="6000">6000 RPM</option>
-            <option value="6500">6500 RPM</option>
-            <option value="7000">7000 RPM</option>
-            <option value="7500">7500 RPM</option>
-            <option value="8000">8000 RPM</option>
-            <option value="8500">8500 RPM</option>
-            <option value="9000">9000 RPM</option>
+            <option value="5000">{{ t('components.calculators.gearbox.rpm_options.5000') }}</option>
+            <option value="5500">{{ t('components.calculators.gearbox.rpm_options.5500') }}</option>
+            <option value="6000">{{ t('components.calculators.gearbox.rpm_options.6000') }}</option>
+            <option value="6500">{{ t('components.calculators.gearbox.rpm_options.6500') }}</option>
+            <option value="7000">{{ t('components.calculators.gearbox.rpm_options.7000') }}</option>
+            <option value="7500">{{ t('components.calculators.gearbox.rpm_options.7500') }}</option>
+            <option value="8000">{{ t('components.calculators.gearbox.rpm_options.8000') }}</option>
+            <option value="8500">{{ t('components.calculators.gearbox.rpm_options.8500') }}</option>
+            <option value="9000">{{ t('components.calculators.gearbox.rpm_options.9000') }}</option>
           </select>
         </div>
       </div>
     </div>
 
-    <div class="divider">Results</div>
+    <div class="divider">{{ t('components.calculators.gearbox.results_divider') }}</div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="card bg-stone-400 shadow-sm">
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin text-white"></i> Revolutions per/{{
-              distanceUnit
-            }}
+            <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin text-white"></i>
+            {{ t('components.calculators.gearbox.results.revolutions_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ displayEngineRevs }}</p>
         </div>
@@ -358,14 +361,17 @@
       <div class="card bg-secondary shadow-sm">
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-arrow-rotate-right fa-spin"></i> Gear Turns per/{{ distanceUnit }}
+            <i class="fa-jelly-duo fa-regular fa-arrow-rotate-right fa-spin"></i>
+            {{ t('components.calculators.gearbox.results.gear_turns_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ displayGearTurns }}</p>
         </div>
       </div>
       <div class="card bg-primary shadow-sm">
         <div class="card-body text-center">
-          <h3 class="text-lg text-white opacity-70"><i class="fa-jelly-duo fa-regular fa-gauge"></i> Top Speed</h3>
+          <h3 class="text-lg text-white opacity-70">
+            <i class="fa-jelly-duo fa-regular fa-gauge"></i> {{ t('components.calculators.gearbox.results.top_speed') }}
+          </h3>
           <p class="text-3xl text-white font-bold">{{ topSpeed || '---' }}</p>
         </div>
       </div>
@@ -374,40 +380,54 @@
     <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-4">
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70"><i class="fa-jelly-duo fa-regular fa-arrow-down-to-line"></i> Tire Width</h3>
+          <h3 class="text-sm opacity-70">
+            <i class="fa-jelly-duo fa-regular fa-arrow-down-to-line"></i>
+            {{ t('components.calculators.gearbox.tire_info.tire_width') }}
+          </h3>
           <p class="text-lg font-bold">{{ tireInfo.width || '---' }}mm</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70"><i class="fa-jelly fa-regular fa-circle"></i> Tire Profile</h3>
+          <h3 class="text-sm opacity-70">
+            <i class="fa-jelly fa-regular fa-circle"></i>
+            {{ t('components.calculators.gearbox.tire_info.tire_profile') }}
+          </h3>
           <p class="text-lg font-bold">{{ tireInfo.profile || '---' }}%</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70"><i class="fa-jelly-duo fa-regular fa-expand"></i> Tire Size</h3>
+          <h3 class="text-sm opacity-70">
+            <i class="fa-jelly-duo fa-regular fa-expand"></i>
+            {{ t('components.calculators.gearbox.tire_info.tire_size') }}
+          </h3>
           <p class="text-lg font-bold">{{ tireInfo.size || '---' }}"</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-arrow-right-to-bracket"></i> Tire Diameter
+            <i class="fa-jelly-duo fa-regular fa-arrow-right-to-bracket"></i>
+            {{ t('components.calculators.gearbox.tire_info.tire_diameter') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.diameter || '---' }}mm</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70"><i class="fa-jelly-duo fa-regular fa-circle"></i> Circumference</h3>
+          <h3 class="text-sm opacity-70">
+            <i class="fa-jelly-duo fa-regular fa-circle"></i>
+            {{ t('components.calculators.gearbox.tire_info.circumference') }}
+          </h3>
           <p class="text-lg font-bold">{{ tireInfo.circ || '---' }}mm</p>
         </div>
       </div>
       <div class="card bg-base-300 shadow-sm">
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
-            <i class="fa-duotone fa-solid fa-tire fa-spin"></i> Tire Turns per/{{ distanceUnit }}
+            <i class="fa-duotone fa-solid fa-tire fa-spin"></i>
+            {{ t('components.calculators.gearbox.tire_info.tire_turns_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-lg font-bold">{{ displayTireTurns }}</p>
         </div>
@@ -425,7 +445,7 @@
             ></highcharts>
             <template #fallback>
               <div class="skeleton h-96 w-full"></div>
-              <p class="py-10 text-center text-2xl">Chart is loading</p>
+              <p class="py-10 text-center text-2xl">{{ t('components.calculators.gearbox.chart.loading') }}</p>
             </template>
           </ClientOnly>
         </div>
@@ -437,7 +457,7 @@
           <div class="card-body">
             <h2 class="card-title">
               <i class="fa-duotone fa-gauge mr-2"></i>
-              Speedo Information
+              {{ t('components.calculators.gearbox.tables.speedo_information') }}
             </h2>
             <div class="overflow-x-auto">
               <table class="table table-zebra table-compact w-full">
@@ -465,7 +485,7 @@
           <div class="card-body">
             <h2 class="card-title">
               <i class="fa-duotone fa-gear fa-spin mr-2"></i>
-              Gearing Information
+              {{ t('components.calculators.gearbox.tables.gearing_information') }}
             </h2>
             <div class="overflow-x-auto">
               <table class="table table-zebra table-compact w-full">
@@ -486,7 +506,7 @@
           </div>
         </div>
         <div class="mt-6">
-          <div class="divider">Support</div>
+          <div class="divider">{{ t('components.calculators.gearbox.support_divider') }}</div>
           <patreon-card size="large" />
         </div>
       </div>
@@ -494,16 +514,14 @@
 
     <div class="mt-6 text-center max-w-3xl mx-auto">
       <p>
-        Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building your
-        engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one source.
-        The mathematical equations used in this tool can be found here:
+        {{ t('components.calculators.gearbox.disclaimer', { strong_start: '<strong>', strong_end: '</strong>' }) }}
         <a
           href="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
           target="_blank"
           rel="noopener noreferrer"
           class="link link-primary"
         >
-          Equation Source Code
+          {{ t('components.calculators.gearbox.equation_source') }}
         </a>
       </p>
     </div>

@@ -18,7 +18,7 @@
     <div class="flex items-center gap-2 mt-2 opacity-0 transition-opacity group-hover:opacity-100">
       <button @click="copyToClipboard(contentString)" class="btn btn-xs btn-ghost text-base-content/50">
         <i class="fa-solid fa-copy h-3 w-3" />
-        Copy
+        {{ t('components.chat.assistant_message.copy_button') }}
       </button>
       <time v-if="message?.created_at" class="text-xs text-base-content/50">{{ formatTime(message?.created_at) }}</time>
     </div>
@@ -28,6 +28,8 @@
 <script setup lang="ts">
   import type { AssistantMessageProps } from '../../../data/models/chat';
   import { useStreamContext } from '~/composables/useStreamProvider';
+  import { useI18n } from 'vue-i18n';
+  const { t } = useI18n();
   import MarkdownText from './MarkdownText.vue';
   const props = defineProps<AssistantMessageProps>();
 

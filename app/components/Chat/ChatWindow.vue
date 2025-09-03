@@ -6,9 +6,9 @@
       <div class="flex items-start gap-3">
         <i class="fa-solid fa-triangle-exclamation text-warning text-sm mt-0.5 flex-shrink-0"></i>
         <div class="text-sm text-base-content/80">
-          <strong class="text-warning">Experimental Feature:</strong> This AI assistant is in beta and should not be
-          used as your only source of technical information. Always verify critical information with official
-          documentation, qualified mechanics, or experienced Classic Mini enthusiasts.
+          <strong class="text-warning">{{ t('components.chat.chat_window.experimental_feature') }}</strong>
+          {{ t('components.chat.chat_window.experimental_disclaimer') }} Always verify critical information with
+          official documentation, qualified mechanics, or experienced Classic Mini enthusiasts.
         </div>
       </div>
     </div>
@@ -21,7 +21,9 @@
             <div class="flex flex-col items-center gap-4">
               <i class="fa-solid fa-comments text-primary text-4xl"></i>
               <div>
-                <h3 class="font-semibold text-xl mb-3 text-primary">Welcome to CMDIY Assistant!</h3>
+                <h3 class="font-semibold text-xl mb-3 text-primary">
+                  {{ t('components.chat.chat_window.welcome_title') }}
+                </h3>
                 <p class="text-base text-base-content/80 leading-relaxed">
                   I'm your Classic Mini DIY assistant, here to help you with technical questions, decode chassis
                   numbers, find parts information, navigate the archives, and provide guidance on Classic Mini
@@ -40,7 +42,7 @@
                 ref="inputRef"
                 v-model="input"
                 @keydown="handleInputKeyDown"
-                placeholder="Type your message..."
+                :placeholder="t('components.chat.chat_window.input_placeholder')"
                 class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
                 rows="1"
               ></textarea>
@@ -67,13 +69,10 @@
 
           <!-- Report Issue Link Below Centered Input -->
           <div class="flex justify-center mt-3">
-            <a
-              href="mailto:support@classicminidiy.com?subject=Chat Issue Report"
-              class="text-sm text-base-content/60 hover:text-base-content/80 flex items-center gap-2 transition-colors"
-            >
-              <i class="fa-solid fa-envelope text-xs"></i>
-              Report Issue
-            </a>
+            <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{
+              t('components.chat.chat_window.report_issue')
+            }}</a>
+            <i class="fa-solid fa-envelope text-xs"></i>
           </div>
         </div>
       </div>
@@ -125,7 +124,7 @@
           <!-- Placeholder when no links -->
           <div v-else class="text-center text-base-content/50 mt-8">
             <i class="fa-solid fa-link text-2xl mb-2 block"></i>
-            <p class="text-sm">Useful links will appear here when available</p>
+            <p class="text-sm">{{ t('components.chat.chat_window.useful_links_placeholder') }}</p>
           </div>
         </div>
       </div>
@@ -139,7 +138,7 @@
             ref="inputRef"
             v-model="input"
             @keydown="handleInputKeyDown"
-            placeholder="Type your message..."
+            :placeholder="t('components.chat.chat_window.input_placeholder')"
             class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
             rows="1"
           ></textarea>
@@ -166,24 +165,23 @@
 
       <!-- Report Issue Link Below Chat -->
       <div class="flex justify-center mt-3">
-        <a
-          href="mailto:support@classicminidiy.com?subject=Chat Issue Report"
-          class="text-sm text-base-content/60 hover:text-base-content/80 flex items-center gap-2 transition-colors"
-        >
-          <i class="fa-solid fa-envelope text-xs"></i>
-          Report Issue
-        </a>
+        <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{
+          t('components.chat.chat_window.report_issue')
+        }}</a>
+        <i class="fa-solid fa-envelope text-xs"></i>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { useStreamProvider, createStreamSession, provideStreamContext } from '~/composables/useStreamProvider';
-  import HumanMessage from './HumanMessage.vue';
+  import { useStreamProvider } from '~/composables/useStreamProvider';
+  import type { Message } from '../../../data/models/chat';
   import AssistantMessage from './AssistantMessage.vue';
-  import UsefulLinks from './UsefulLinks.vue';
+  import HumanMessage from './HumanMessage.vue';
   import UsefulLinksSidebar from './UsefulLinksSidebar.vue';
+
+  const { t } = useI18n();
 
   const { assistantId, threadId, isConfigured, isThreadLoaded, setThreadId, updateThreadUsage, getThreadData } =
     useStreamProvider();
@@ -270,10 +268,16 @@
   watch(
     [isConfigured, assistantId, isThreadLoaded],
     () => {
-      if (isConfigured.value && isThreadLoaded.value && !streamContext) {
+      if (
+        isConfigured.value &&
+        isThreadLoaded.value &&
+        !streamContext &&
+        assistantId.value &&
+        typeof assistantId.value === 'string'
+      ) {
         streamContext = createStreamSession(
           assistantId.value,
-          threadId.value,
+          threadId.value || '',
           // Callback when new thread is created
           (newThreadId: string) => {
             setThreadId(newThreadId);
