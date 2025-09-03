@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <Hero title="Get in Touch" :heroType="HERO_TYPES.CONTACT" textSize="text-4xl" class="pb-7" />
+    <Hero :titleKey="'pages.contact.hero_title'" :heroType="HERO_TYPES.CONTACT" textSize="text-4xl" class="pb-7" />
 
     <!-- Breadcrumb Navigation -->
     <div class="container mx-auto px-4 pt-10">
@@ -32,11 +32,11 @@
               <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                 <i class="fad fa-comments text-2xl text-primary"></i>
               </div>
-              <h2 class="card-title text-xl">General Inquiries</h2>
+              <h2 class="card-title text-xl">{{ t('pages.contact.general_inquiries_title') }}</h2>
             </div>
 
             <p class="text-base-content/70 mb-6">
-              Questions about the site, Classic Mini ownership, or general help? We'd love to hear from you.
+              {{ t('pages.contact.general_inquiries_description') }}
             </p>
 
             <div class="space-y-4">
@@ -53,16 +53,16 @@
               <div class="flex items-center gap-3">
                 <i class="fad fa-comment-dots text-primary"></i>
                 <div>
-                  <p class="font-medium">AI Chat Assistant</p>
-                  <p class="text-sm text-base-content/70">Use the chat widget for quick questions</p>
+                  <p class="font-medium">{{ t('pages.contact.ai_chat_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.ai_chat_description') }}</p>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <i class="fad fa-clock text-primary"></i>
                 <div>
-                  <p class="font-medium">Response Time</p>
-                  <p class="text-sm text-base-content/70">Usually within 24-48 hours</p>
+                  <p class="font-medium">{{ t('pages.contact.response_time_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.response_time_description') }}</p>
                 </div>
               </div>
             </div>
@@ -76,11 +76,11 @@
               <div class="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center">
                 <i class="fad fa-archive text-2xl text-success"></i>
               </div>
-              <h2 class="card-title text-xl">Archive Submissions</h2>
+              <h2 class="card-title text-xl">{{ t('pages.contact.archive_submissions_title') }}</h2>
             </div>
 
             <p class="text-base-content/70 mb-6">
-              Have historical documents, photos, or stories to share? Help preserve Classic Mini history.
+              {{ t('pages.contact.archive_submissions_description') }}
             </p>
 
             <div class="space-y-4">
@@ -97,16 +97,16 @@
               <div class="flex items-center gap-3">
                 <i class="fad fa-upload text-success"></i>
                 <div>
-                  <p class="font-medium">What to Include</p>
-                  <p class="text-sm text-base-content/70">Photos, documents, stories, or historical info</p>
+                  <p class="font-medium">{{ t('pages.contact.what_to_include_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.what_to_include_description') }}</p>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <i class="fad fa-shield-check text-success"></i>
                 <div>
-                  <p class="font-medium">Rights & Attribution</p>
-                  <p class="text-sm text-base-content/70">Please confirm you own or have permission to share</p>
+                  <p class="font-medium">{{ t('pages.contact.rights_attribution_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.rights_attribution_description') }}</p>
                 </div>
               </div>
             </div>
@@ -120,11 +120,11 @@
               <div class="w-12 h-12 bg-info/10 rounded-lg flex items-center justify-center">
                 <i class="fad fa-wrench text-2xl text-info"></i>
               </div>
-              <h2 class="card-title text-xl">Technical Submissions</h2>
+              <h2 class="card-title text-xl">{{ t('pages.contact.technical_submissions_title') }}</h2>
             </div>
 
             <p class="text-base-content/70 mb-6">
-              Share repair guides, technical specs, or maintenance tips with the community.
+              {{ t('pages.contact.technical_submissions_description') }}
             </p>
 
             <div class="space-y-4">
@@ -141,16 +141,16 @@
               <div class="flex items-center gap-3">
                 <i class="fad fa-list-check text-info"></i>
                 <div>
-                  <p class="font-medium">Content Types</p>
-                  <p class="text-sm text-base-content/70">Repair guides, specs, tips, part numbers</p>
+                  <p class="font-medium">{{ t('pages.contact.content_types_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.content_types_description') }}</p>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <i class="fad fa-user-check text-info"></i>
                 <div>
-                  <p class="font-medium">Credit</p>
-                  <p class="text-sm text-base-content/70">We'll credit you as the contributor</p>
+                  <p class="font-medium">{{ t('pages.contact.credit_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.credit_description') }}</p>
                 </div>
               </div>
             </div>
@@ -164,11 +164,11 @@
               <div class="w-12 h-12 bg-error/10 rounded-lg flex items-center justify-center">
                 <i class="fad fa-bug text-2xl text-error"></i>
               </div>
-              <h2 class="card-title text-xl">Bug Reports</h2>
+              <h2 class="card-title text-xl">{{ t('pages.contact.bug_reports_title') }}</h2>
             </div>
 
             <p class="text-base-content/70 mb-6">
-              Found a problem with the site? Help us fix it by reporting bugs and issues.
+              {{ t('pages.contact.bug_reports_description') }}
             </p>
 
             <div class="space-y-4">
@@ -185,16 +185,16 @@
               <div class="flex items-center gap-3">
                 <i class="fad fa-list-ul text-error"></i>
                 <div>
-                  <p class="font-medium">Include Details</p>
-                  <p class="text-sm text-base-content/70">Browser, device, steps to reproduce</p>
+                  <p class="font-medium">{{ t('pages.contact.include_details_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.include_details_description') }}</p>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <i class="fad fa-bolt text-error"></i>
                 <div>
-                  <p class="font-medium">Priority</p>
-                  <p class="text-sm text-base-content/70">Critical bugs fixed within 24 hours</p>
+                  <p class="font-medium">{{ t('pages.contact.priority_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.priority_description') }}</p>
                 </div>
               </div>
             </div>
@@ -208,20 +208,20 @@
       <div class="mt-16 text-center">
         <div class="card bg-base-200 shadow-lg max-w-2xl mx-auto">
           <div class="card-body">
-            <h3 class="text-2xl font-bold mb-4">Other Ways to Connect</h3>
+            <h3 class="text-2xl font-bold mb-4">{{ t('pages.contact.other_ways_connect') }}</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="flex flex-col items-center justify-center text-center">
                 <i class="fad fa-users text-primary text-4xl mb-3"></i>
                 <div>
-                  <p class="font-medium">Community Forum</p>
-                  <p class="text-sm text-base-content/70">Join discussions with other enthusiasts</p>
+                  <p class="font-medium">{{ t('pages.contact.community_forum_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.community_forum_description') }}</p>
                 </div>
               </div>
               <div class="flex flex-col items-center justify-center text-center">
                 <i class="fab fa-patreon text-error text-4xl mb-3"></i>
                 <div>
-                  <p class="font-medium">Support on Patreon</p>
-                  <p class="text-sm text-base-content/70">Help keep the site running</p>
+                  <p class="font-medium">{{ t('pages.contact.support_patreon_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ t('pages.contact.support_patreon_description') }}</p>
                 </div>
               </div>
             </div>
@@ -234,7 +234,7 @@
                 class="btn btn-primary btn-lg"
               >
                 <i class="fab fa-patreon mr-2"></i>
-                Support on Patreon
+                {{ t('pages.contact.support_patreon_button') }}
               </a>
             </div>
           </div>
@@ -247,14 +247,15 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '../../data/models/generic';
 
+  const { t } = useI18n();
+
   // SEO and meta using proper Nuxt patterns
   useHead({
-    title: 'Contact Classic Mini DIY - Get Help & Submit Content',
+    title: t('pages.contact.title'),
     meta: [
       {
         name: 'description',
-        content:
-          'Contact Classic Mini DIY for general inquiries, archive submissions, technical contributions, or bug reports. Multiple ways to get in touch with our community.',
+        content: t('pages.contact.description'),
       },
     ],
     link: [
@@ -266,22 +267,20 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Contact Classic Mini DIY - Get Help & Submit Content',
-    ogDescription:
-      'Get help, submit content, or report issues. Multiple contact methods for all your Classic Mini DIY needs.',
+    ogTitle: t('pages.contact.title'),
+    ogDescription: t('pages.contact.description'),
     ogUrl: 'https://classicminidiy.com/contact',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/contact.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Contact Classic Mini DIY',
-    twitterDescription:
-      'Get help, submit content, or report issues. Multiple contact methods for all your Classic Mini DIY needs.',
+    twitterTitle: t('pages.contact.title'),
+    twitterDescription: t('pages.contact.description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/contact.png',
   });
 
   // Breadcrumb navigation
-  const breadcrumbItems = [
-    { text: 'Home', href: '/' },
-    { text: 'Contact', href: '/contact' },
-  ];
+  const breadcrumbItems = computed(() => [
+    { text: t('pages.contact.breadcrumb_home'), href: '/' },
+    { text: t('pages.contact.breadcrumb_contact'), href: '/contact' },
+  ]);
 </script>

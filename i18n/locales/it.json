@@ -68,6 +68,85 @@
         "promise_title": "LA MIA PROMESSA",
         "promise": "Ti fornirò tutta la conoscenza che posso al meglio delle mie capacità. Accetterò anche feedback nel caso in cui sbagli qualcosa. Sono un appassionato e non un esperto completo, quindi di tanto in tanto farò errori."
       }
+    },
+    "maps": {
+      "seo": {
+        "title": "Mappe ECU Classic Mini | File di Tuning per ECU Multiple | Classic Mini DIY",
+        "description": "Scarica mappe ECU sintonizzate professionalmente per motori Classic Mini. Compatibile con Haltech, Speeduino, MegaSquirt, Emerald e altro. Paga quello che vuoi per aggiornamenti a vita.",
+        "keywords": "Mappe ECU Classic Mini, tuning Mini Cooper, mappe Haltech, mappe Speeduino, mappe MegaSquirt, ECU Emerald, tuning motore, mappe carburante, mappe accensione",
+        "ogTitle": "Mappe ECU Classic Mini | File di Tuning per ECU Multiple",
+        "twitterTitle": "Mappe ECU Classic Mini | Supporto ECU Multiple",
+        "twitterDescription": "Mappe ECU professionali per motori Classic Mini con aggiornamenti a vita."
+      },
+      "breadcrumb": "Mappe ECU",
+      "hero": {
+        "title": "Mappe ECU Classic Mini DIY",
+        "subtitle": "Paga quello che vuoi, sempre"
+      },
+      "mainTitle": "La Mappa ECU Classic Mini",
+      "description": "Dopo anni di tuning di motori Classic Mini, costruzione di cablaggi personalizzati e mappatura di ECU multiple, sono orgoglioso di rilasciare la mia collezione di mappe ECU con due opzioni di accesso. Offrendo supporto per molte ECU popolari utilizzate sui Classic Mini, con altre aggiunte in futuro.",
+      "features": {
+        "lifetimeUpdates": "Aggiornamenti a Vita",
+        "multipleEcus": "ECU Multiple",
+        "constantlyUpdated": "Costantemente Aggiornato",
+        "payWhatYouWant": "Paga quello che vuoi"
+      },
+      "options": {
+        "latestRelease": "Ultima Versione",
+        "purchase": {
+          "title": "Opzione 1 - Acquista",
+          "description": "Acquista le mappe ECU direttamente dal negozio Classic Mini DIY. Questa opzione è perfetta per coloro che vogliono supportare il canale e ottenere le mappe senza dover usare Github. Questa opzione include anche supporto prioritario via email.",
+          "button": "Scarica"
+        },
+        "download": {
+          "title": "Opzione 2 - Scarica",
+          "description": "Scarica le mappe ECU direttamente da Github. Questa opzione è perfetta per coloro che vogliono ottenere le mappe gratuitamente. Questa opzione include anche la possibilità di contribuire al progetto inviando pull request.",
+          "button": "Scarica",
+          "viewSource": "Visualizza Codice Sorgente"
+        }
+      },
+      "moreDetails": "Maggiori Dettagli",
+      "table": {
+        "features": "Caratteristiche",
+        "ignitionMap": "Mappa Accensione",
+        "fuelMap": "Mappa Carburante",
+        "veTable": "Tabella VE",
+        "targetAfr": "AFR Target",
+        "throttleEnrichment": "Arricchimento Acceleratore",
+        "driveByWire": "Drive by Wire Pronto",
+        "boostControl": "Mappa Controllo Boost",
+        "idleMap": "Mappa Minimo",
+        "sixteenVEngine": "Versione Motore 16V"
+      },
+      "legend": {
+        "included": {
+          "name": "Incluso",
+          "description": "Incluso nella Mappa"
+        },
+        "notIncluded": {
+          "name": "Non incluso",
+          "description": "Supportato ma non incluso"
+        },
+        "notAvailable": {
+          "name": "Non Disponibile",
+          "description": "Funzione non supportata dalla ECU"
+        },
+        "workInProgress": {
+          "name": "In corso",
+          "description": "Attualmente ancora in corso di porting su questa ECU"
+        }
+      },
+      "updates": {
+        "title": "Ultimi Aggiornamenti",
+        "error": "Errore nel caricamento della cronologia aggiornamenti da Github",
+        "noUpdates": "Nessun aggiornamento disponibile",
+        "viewAllCommits": "Visualizza Tutti i Commit"
+      },
+      "supportedEcus": {
+        "title": "ECU Supportate",
+        "subtitle": "Supporto per la ECU di cui hai bisogno"
+      },
+      "otherSupport": "Altri modi per supportare"
     }
   },
   "components": {

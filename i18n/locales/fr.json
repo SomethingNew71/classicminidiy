@@ -49,14 +49,13 @@
         "button": "Ouvrir la boîte à outils"
       },
       "patreon": {
-        "title": "SOUTENIR LA CHAÎNE",
-        "heading": "Devenir un Patreon",
-        "content": "Classic Mini DIY est une ressource complètement gratuite soutenue par nos spectateurs. Si vous êtes intéressé à aider à maintenir la chaîne en vie, considérez soutenir sur Patreon.",
-        "button": "Devenir Membre",
+        "title": "REJOIGNEZ NOTRE PATREON",
+        "description": "Soutenez Classic Mini DIY et obtenez un accès exclusif au contenu premium, aux guides avancés et au support communautaire.",
         "benefits": {
-          "title": "L'Adhésion Inclut",
-          "discord": "Accès au Chat DIY en Direct",
-          "early_access": "Accès Anticipé aux vidéos",
+          "exclusive": "Contenu exclusif et guides avancés",
+          "support": "Support communautaire prioritaire",
+          "early": "Accès anticipé aux nouvelles fonctionnalités",
+          "discord": "Accès au serveur Discord privé",
           "gifts": "Cadeaux gratuits et marchandises",
           "insider": "Informations privilégiées et bien plus..."
         }
@@ -68,6 +67,85 @@
         "promise_title": "MA PROMESSE",
         "promise": "Je vous fournirai toutes les connaissances que je peux au meilleur de mes capacités. J'accepterai également les commentaires dans le cas où je me trompe sur quelque chose. Je suis un passionné et non un expert complet, donc de temps en temps je ferai des erreurs."
       }
+    },
+    "maps": {
+      "seo": {
+        "title": "Cartes ECU Classic Mini | Fichiers de Réglage pour Multiples ECUs | Classic Mini DIY",
+        "description": "Téléchargez des cartes ECU réglées professionnellement pour moteurs Classic Mini. Compatible avec Haltech, Speeduino, MegaSquirt, Emerald et plus. Payez ce que vous voulez pour des mises à jour à vie.",
+        "keywords": "Cartes ECU Classic Mini, réglage Mini Cooper, cartes Haltech, cartes Speeduino, cartes MegaSquirt, ECU Emerald, réglage moteur, cartes carburant, cartes allumage",
+        "ogTitle": "Cartes ECU Classic Mini | Fichiers de Réglage pour Multiples ECUs",
+        "twitterTitle": "Cartes ECU Classic Mini | Support Multiples ECUs",
+        "twitterDescription": "Cartes ECU professionnelles pour moteurs Classic Mini avec mises à jour à vie."
+      },
+      "breadcrumb": "Cartes ECU",
+      "hero": {
+        "title": "Cartes ECU Classic Mini DIY",
+        "subtitle": "Payez ce que vous voulez, toujours"
+      },
+      "mainTitle": "La Carte ECU Classic Mini",
+      "description": "Après des années de réglage de moteurs Classic Mini, de construction de faisceaux personnalisés et de cartographie de multiples ECUs, je suis fier de publier ma collection de cartes ECU avec deux options d'accès. Offrant un support pour de nombreuses ECUs populaires utilisées sur les Classic Minis, avec plus ajoutées à l'avenir.",
+      "features": {
+        "lifetimeUpdates": "Mises à Jour à Vie",
+        "multipleEcus": "Multiples ECUs",
+        "constantlyUpdated": "Constamment Mis à Jour",
+        "payWhatYouWant": "Payez ce que vous voulez"
+      },
+      "options": {
+        "latestRelease": "Dernière Version",
+        "purchase": {
+          "title": "Option 1 - Acheter",
+          "description": "Achetez les cartes ECU directement depuis la boutique Classic Mini DIY. Cette option est parfaite pour ceux qui veulent soutenir la chaîne et obtenir les cartes sans avoir à utiliser Github. Cette option vient aussi avec un support prioritaire par email.",
+          "button": "Télécharger"
+        },
+        "download": {
+          "title": "Option 2 - Télécharger",
+          "description": "Téléchargez les cartes ECU directement depuis Github. Cette option est parfaite pour ceux qui veulent obtenir les cartes gratuitement. Cette option vient aussi avec la capacité de contribuer au projet en soumettant des pull requests.",
+          "button": "Télécharger",
+          "viewSource": "Voir le Code Source"
+        }
+      },
+      "moreDetails": "Plus de Détails",
+      "table": {
+        "features": "Caractéristiques",
+        "ignitionMap": "Carte d'Allumage",
+        "fuelMap": "Carte de Carburant",
+        "veTable": "Table VE",
+        "targetAfr": "AFR Cible",
+        "throttleEnrichment": "Enrichissement Papillon",
+        "driveByWire": "Prêt Drive by Wire",
+        "boostControl": "Carte Contrôle Boost",
+        "idleMap": "Carte Ralenti",
+        "sixteenVEngine": "Version Moteur 16V"
+      },
+      "legend": {
+        "included": {
+          "name": "Inclus",
+          "description": "Inclus dans la Carte"
+        },
+        "notIncluded": {
+          "name": "Non inclus",
+          "description": "Supporté mais non inclus"
+        },
+        "notAvailable": {
+          "name": "Non Disponible",
+          "description": "Fonctionnalité non supportée par l'ECU"
+        },
+        "workInProgress": {
+          "name": "En cours",
+          "description": "Actuellement encore en cours de portage vers cette ECU"
+        }
+      },
+      "updates": {
+        "title": "Dernières Mises à Jour",
+        "error": "Erreur lors du chargement de l'historique des mises à jour depuis Github",
+        "noUpdates": "Aucune mise à jour disponible",
+        "viewAllCommits": "Voir Tous les Commits"
+      },
+      "supportedEcus": {
+        "title": "ECUs Supportées",
+        "subtitle": "Support pour l'ECU dont vous avez besoin"
+      },
+      "otherSupport": "Autres façons de soutenir"
     }
   },
   "components": {

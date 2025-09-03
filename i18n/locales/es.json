@@ -68,6 +68,146 @@
         "promise_title": "MI PROMESA",
         "promise": "Te proporcionaré todo el conocimiento que pueda con la mejor de mis habilidades. También aceptaré comentarios en caso de que me equivoque en algo. Soy un entusiasta y no un experto completo, así que de vez en cuando cometeré errores."
       }
+    },
+    "privacy": {
+      "title": "Política de Privacidad | Classic Mini DIY",
+      "description": "Política de privacidad de Classic Mini DIY sobre recopilación, almacenamiento y uso de servicios de la API de YouTube. Aprende cómo protegemos tu información.",
+      "hero_title": "Política de Privacidad",
+      "hero_subtitle": "Classic Mini DIY",
+      "heading": "Política de Privacidad",
+      "acceptance_title": "Aceptación de Términos",
+      "acceptance_content": "Al usar nuestro cliente API, aceptas estar sujeto a la",
+      "youtube_privacy_link": "Política de Privacidad de YouTube",
+      "accessibility_title": "Accesibilidad",
+      "accessibility_content": "Esta Política de Privacidad es fácilmente accesible para todos los usuarios a través de",
+      "google_privacy_link": "Política de Privacidad de Google",
+      "youtube_api_title": "Uso de Servicios de la API de YouTube",
+      "youtube_api_content": "Nuestro cliente API utiliza los Servicios de la API de YouTube. Al usar nuestro cliente API, aceptas la recopilación, almacenamiento y uso de tus datos como se describe en esta política.",
+      "data_collection_title": "Recopilación, Almacenamiento y Uso de Datos",
+      "data_collection_content": "Recopilamos datos directamente de tu dispositivo para proporcionar y mejorar nuestros servicios. Esto incluye información sobre tu dispositivo, dirección IP e información de cookies públicas. No recopilamos ningún dato personal adicional para nuestro uso. Estos datos se almacenan de forma segura y se utilizan para mejorar la experiencia del usuario y garantizar el funcionamiento fluido de nuestro cliente API. Además, no se almacenan datos en nuestros servidores, por lo que se eliminan cada vez que cierras tu navegador.",
+      "data_processing_title": "Procesamiento y Compartición de Datos",
+      "data_processing_content": "Procesamos tus datos para proporcionar nuestros servicios. Tus datos pueden ser compartidos con partes internas y externas con el propósito de mejorar y mantener nuestro cliente API. Nos aseguramos de que todas las partes externas cumplan con nuestras estrictas pautas de protección de datos.",
+      "data_methods_title": "Métodos de Recopilación de Datos",
+      "data_methods_content": "Los datos se recopilan a través de varios medios como entrada directa, cookies y otras tecnologías de seguimiento. Esto nos ayuda a entender las preferencias del usuario y proporcionar un mejor servicio.",
+      "contact_title": "Información de Contacto",
+      "contact_content": "Información de Contacto Si tienes alguna pregunta o inquietud sobre esta política de privacidad, por favor contáctanos en"
+    },
+    "maps": {
+      "seo": {
+        "title": "Mapas ECU Classic Mini | Archivos de Sintonización para Múltiples ECUs | Classic Mini DIY",
+        "description": "Descarga mapas ECU sintonizados profesionalmente para motores Classic Mini. Compatible con Haltech, Speeduino, MegaSquirt, Emerald y más. Paga lo que quieras por actualizaciones de por vida.",
+        "keywords": "Mapas ECU Classic Mini, sintonización Mini Cooper, mapas Haltech, mapas Speeduino, mapas MegaSquirt, ECU Emerald, sintonización de motores, mapas de combustible, mapas de encendido",
+        "ogTitle": "Mapas ECU Classic Mini | Archivos de Sintonización para Múltiples ECUs",
+        "twitterTitle": "Mapas ECU Classic Mini | Soporte para Múltiples ECUs",
+        "twitterDescription": "Mapas ECU profesionales para motores Classic Mini con actualizaciones de por vida."
+      },
+      "breadcrumb": "Mapas ECU",
+      "hero": {
+        "title": "Mapas ECU Classic Mini DIY",
+        "subtitle": "Paga lo que quieras, siempre"
+      },
+      "mainTitle": "El Mapa ECU Classic Mini",
+      "description": "Después de años sintonizando motores Classic Mini, construyendo arneses personalizados y mapeando múltiples ECUs, me enorgullece lanzar mi colección de mapas ECU con dos opciones de acceso. Ofreciendo soporte para muchas ECUs populares utilizadas en Classic Minis, con más agregadas en el futuro.",
+      "features": {
+        "lifetimeUpdates": "Actualizaciones de por Vida",
+        "multipleEcus": "Múltiples ECUs",
+        "constantlyUpdated": "Constantemente Actualizado",
+        "payWhatYouWant": "Paga lo que quieras"
+      },
+      "options": {
+        "latestRelease": "Última Versión",
+        "purchase": {
+          "title": "Opción 1 - Comprar",
+          "description": "Compra los mapas ECU directamente desde la tienda Classic Mini DIY. Esta opción es perfecta para aquellos que quieren apoyar el canal y obtener los mapas sin tener que usar Github. Esta opción también viene con soporte prioritario por correo electrónico.",
+          "button": "Descargar"
+        },
+        "download": {
+          "title": "Opción 2 - Descargar",
+          "description": "Descarga los mapas ECU directamente desde Github. Esta opción es perfecta para aquellos que quieren obtener los mapas gratis. Esta opción también viene con la capacidad de contribuir al proyecto enviando pull requests.",
+          "button": "Descargar",
+          "viewSource": "Ver Código Fuente"
+        }
+      },
+      "moreDetails": "Más Detalles",
+      "table": {
+        "features": "Características",
+        "ignitionMap": "Mapa de Encendido",
+        "fuelMap": "Mapa de Combustible",
+        "veTable": "Tabla VE",
+        "targetAfr": "AFR Objetivo",
+        "throttleEnrichment": "Enriquecimiento del Acelerador",
+        "driveByWire": "Listo para Drive by Wire",
+        "boostControl": "Mapa de Control de Boost",
+        "idleMap": "Mapa de Ralentí",
+        "sixteenVEngine": "Versión Motor 16V"
+      },
+      "legend": {
+        "included": {
+          "name": "Incluido",
+          "description": "Incluido en el Mapa"
+        },
+        "notIncluded": {
+          "name": "No incluido",
+          "description": "Soportado pero no incluido"
+        },
+        "notAvailable": {
+          "name": "No Disponible",
+          "description": "Característica no soportada por la ECU"
+        },
+        "workInProgress": {
+          "name": "En progreso",
+          "description": "Actualmente aún en progreso siendo portado a esta ECU"
+        }
+      },
+      "updates": {
+        "title": "Últimas Actualizaciones",
+        "error": "Error cargando historial de actualizaciones desde Github",
+        "noUpdates": "No hay actualizaciones disponibles",
+        "viewAllCommits": "Ver Todos los Commits"
+      },
+      "supportedEcus": {
+        "title": "ECUs Soportadas",
+        "subtitle": "Soporte para la ECU que necesitas"
+      },
+      "otherSupport": "Otras formas de apoyar"
+    },
+    "contact": {
+      "title": "Contactar Classic Mini DIY - Obtener Ayuda y Enviar Contenido",
+      "description": "Contacta Classic Mini DIY para consultas generales, envíos de archivo, contribuciones técnicas o reportes de errores. Múltiples formas de ponerse en contacto con nuestra comunidad.",
+      "hero_title": "Ponte en Contacto",
+      "breadcrumb_home": "Inicio",
+      "breadcrumb_contact": "Contacto",
+      "general_inquiries_title": "Consultas Generales",
+      "general_inquiries_description": "¿Preguntas sobre el sitio, propiedad de Classic Mini o ayuda general? Nos encantaría saber de ti.",
+      "email_label": "Correo Electrónico",
+      "ai_chat_label": "Asistente de Chat IA",
+      "ai_chat_description": "Usa el widget de chat para preguntas rápidas",
+      "response_time_label": "Tiempo de Respuesta",
+      "response_time_description": "Usualmente dentro de 24-48 horas",
+      "archive_submissions_title": "Envíos de Archivo",
+      "archive_submissions_description": "¿Tienes documentos históricos, fotos o historias para compartir? Ayuda a preservar la historia del Classic Mini.",
+      "what_to_include_label": "Qué Incluir",
+      "what_to_include_description": "Fotos, documentos, historias o información histórica",
+      "rights_attribution_label": "Derechos y Atribución",
+      "rights_attribution_description": "Por favor confirma que posees o tienes permiso para compartir",
+      "technical_submissions_title": "Envíos Técnicos",
+      "technical_submissions_description": "Comparte guías de reparación, especificaciones técnicas o consejos de mantenimiento con la comunidad.",
+      "content_types_label": "Tipos de Contenido",
+      "content_types_description": "Guías de reparación, especificaciones, consejos, números de parte",
+      "credit_label": "Crédito",
+      "credit_description": "Te acreditaremos como el contribuidor",
+      "bug_reports_title": "Reportes de Errores",
+      "bug_reports_description": "¿Encontraste un problema con el sitio? Ayúdanos a solucionarlo reportando errores y problemas.",
+      "include_details_label": "Incluir Detalles",
+      "include_details_description": "Navegador, dispositivo, pasos para reproducir",
+      "priority_label": "Prioridad",
+      "priority_description": "Errores críticos solucionados dentro de 24 horas",
+      "other_ways_connect": "Otras Formas de Conectar",
+      "community_forum_label": "Foro de la Comunidad",
+      "community_forum_description": "Únete a discusiones con otros entusiastas",
+      "support_patreon_label": "Apoyar en Patreon",
+      "support_patreon_description": "Ayuda a mantener el sitio funcionando",
+      "support_patreon_button": "Apoyar en Patreon"
     }
   }
 }

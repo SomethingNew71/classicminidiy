@@ -1,20 +1,21 @@
 <script lang="ts" setup>
   import { DateTime } from 'luxon';
   import { HERO_TYPES } from '../../data/models/generic';
+  
+  const { t } = useI18n();
+  
   useHead({
-    title: 'Classic Mini ECU Maps | Tuning Files for Multiple ECUs | Classic Mini DIY',
+    title: t('pages.maps.seo.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          'Download professionally tuned ECU maps for Classic Mini engines. Compatible with Haltech, Speeduino, MegaSquirt, Emerald, and more. Pay what you want for lifetime updates.',
+        content: t('pages.maps.seo.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content:
-          'Classic Mini ECU maps, Mini Cooper tuning, Haltech maps, Speeduino maps, MegaSquirt maps, Emerald ECU, engine tuning, fuel maps, ignition maps',
+        content: t('pages.maps.seo.keywords'),
       },
     ],
     link: [
@@ -30,15 +31,14 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Classic Mini ECU Maps | Tuning Files for Multiple ECUs',
-    ogDescription:
-      'Download professionally tuned ECU maps for Classic Mini engines. Compatible with Haltech, Speeduino, MegaSquirt, Emerald, and more. Pay what you want for lifetime updates.',
+    ogTitle: t('pages.maps.seo.ogTitle'),
+    ogDescription: t('pages.maps.seo.description'),
     ogUrl: 'https://classicminidiy.com/maps',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/maps.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini ECU Maps | Multiple ECU Support',
-    twitterDescription: 'Professional ECU maps for Classic Mini engines with lifetime updates.',
+    twitterTitle: t('pages.maps.seo.twitterTitle'),
+    twitterDescription: t('pages.maps.seo.twitterDescription'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/maps.png',
   });
 
@@ -145,31 +145,31 @@
     return updates.slice(0, 15);
   });
 
-  const legend = ref([
+  const legend = computed(() => [
     {
-      name: 'Included',
+      name: t('pages.maps.legend.included.name'),
       id: 'yes',
-      description: 'Included in Map',
+      description: t('pages.maps.legend.included.description'),
     },
     {
-      name: 'Not included',
+      name: t('pages.maps.legend.notIncluded.name'),
       id: 'no',
-      description: 'Supported but not included',
+      description: t('pages.maps.legend.notIncluded.description'),
     },
     {
-      name: 'Not Available',
+      name: t('pages.maps.legend.notAvailable.name'),
       id: 'na',
-      description: 'Feature not supported by ECU',
+      description: t('pages.maps.legend.notAvailable.description'),
     },
     {
-      name: 'Work in progress',
+      name: t('pages.maps.legend.workInProgress.name'),
       id: 'wip',
-      description: 'Currently still in progress being ported to this ECU',
+      description: t('pages.maps.legend.workInProgress.description'),
     },
   ]);
-  const items = ref([
+  const items = computed(() => [
     {
-      features: 'Ignition Map',
+      features: t('pages.maps.table.ignitionMap'),
       haltech: 'yes',
       speeduino: 'yes',
       megasquirt: 'yes',
@@ -180,7 +180,7 @@
       megaJolt: 'yes',
     },
     {
-      features: 'Fuel Map',
+      features: t('pages.maps.table.fuelMap'),
       haltech: 'yes',
       speeduino: 'yes',
       megasquirt: 'yes',
@@ -191,7 +191,7 @@
       megaJolt: 'na',
     },
     {
-      features: 'VE Table',
+      features: t('pages.maps.table.veTable'),
       haltech: 'yes',
       speeduino: 'yes',
       megasquirt: 'yes',
@@ -202,7 +202,7 @@
       megaJolt: 'na',
     },
     {
-      features: 'Target AFR',
+      features: t('pages.maps.table.targetAfr'),
       haltech: 'yes',
       speeduino: 'yes',
       megasquirt: 'yes',
@@ -213,7 +213,7 @@
       megaJolt: 'yes',
     },
     {
-      features: 'Throttle Enrichment',
+      features: t('pages.maps.table.throttleEnrichment'),
       haltech: 'yes',
       speeduino: 'no',
       megasquirt: 'no',
@@ -224,7 +224,7 @@
       megaJolt: 'na',
     },
     {
-      features: 'Drive by Wire Ready',
+      features: t('pages.maps.table.driveByWire'),
       haltech: 'yes',
       speeduino: 'no',
       megasquirt: 'no',
@@ -235,7 +235,7 @@
       megaJolt: 'na',
     },
     {
-      features: 'Boost Control Map',
+      features: t('pages.maps.table.boostControl'),
       haltech: 'yes',
       speeduino: 'no',
       megasquirt: 'no',
@@ -246,7 +246,7 @@
       megaJolt: 'na',
     },
     {
-      features: 'Idle Map',
+      features: t('pages.maps.table.idleMap'),
       haltech: 'yes',
       speeduino: 'no',
       megasquirt: 'no',
@@ -257,7 +257,7 @@
       megaJolt: 'na',
     },
     {
-      features: '16V Engine Version',
+      features: t('pages.maps.table.sixteenVEngine'),
       haltech: 'yes',
       speeduino: 'yes',
       megasquirt: 'yes',
@@ -274,38 +274,36 @@
   <div>
     <hero
       :navigation="true"
-      :title="'Classic Mini DIY ECU Maps'"
-      :subtitle="'Pay what your want, always'"
+      :title="t('pages.maps.hero.title')"
+      :subtitle="t('pages.maps.hero.subtitle')"
       :heroType="HERO_TYPES.MAPS"
       :textSize="'3xl'"
     />
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12 md:col-span-6 md:col-start-4">
-          <h1 class="fancy-font-bold text-2xl text-center pt-10 pb-5">The Classic Mini ECU Map</h1>
+          <h1 class="fancy-font-bold text-2xl text-center pt-10 pb-5">{{ t('pages.maps.mainTitle') }}</h1>
           <h2 class="fancy-font-book-oblique text-center text-xl">
-            After years of tuning Classic Mini engines, building custom harnesses, and mapping multiple ECU's, I am
-            proud to release my collection of ECU maps with two options for access. Offering support for many popular
-            ECU's used on Classic Minis, with more added in the future.
+            {{ t('pages.maps.description') }}
           </h2>
         </div>
         <div class="col-span-12 md:col-span-10 md:col-start-2 py-10">
           <div class="flex flex-wrap justify-center gap-8">
             <div class="text-center">
               <i class="fad fa-flag-checkered text-3xl pb-3"></i>
-              <h3 class="text-lg">Lifetime Updates</h3>
+              <h3 class="text-lg">{{ t('pages.maps.features.lifetimeUpdates') }}</h3>
             </div>
             <div class="text-center">
               <i class="fad fa-microchip text-3xl pb-3"></i>
-              <h3 class="text-lg">Multiple ECU's</h3>
+              <h3 class="text-lg">{{ t('pages.maps.features.multipleEcus') }}</h3>
             </div>
             <div class="text-center">
               <i class="fad fa-arrows-rotate text-3xl pb-3"></i>
-              <h3 class="text-lg">Constantly Updated</h3>
+              <h3 class="text-lg">{{ t('pages.maps.features.constantlyUpdated') }}</h3>
             </div>
             <div class="text-center">
               <i class="fad fa-money-bill fa-beat text-3xl pb-3"></i>
-              <h3 class="text-lg">Pay what you want</h3>
+              <h3 class="text-lg">{{ t('pages.maps.features.payWhatYouWant') }}</h3>
             </div>
           </div>
         </div>
@@ -316,16 +314,14 @@
               <div class="text-center">
                 <i class="fad fa-credit-card text-3xl pb-3"></i>
               </div>
-              <h3 class="fancy-font-bold text-2xl">Option 1 - Purchase</h3>
-              <h4 class="fancy-font-bold text-xl">Latest Release: {{ releases?.latestRelease }}</h4>
+              <h3 class="fancy-font-bold text-2xl">{{ t('pages.maps.options.purchase.title') }}</h3>
+              <h4 class="fancy-font-bold text-xl">{{ t('pages.maps.options.latestRelease') }}: {{ releases?.latestRelease }}</h4>
               <p class="py-3">
-                Purchase the ECU maps directly from the Classic Mini DIY store. This option is perfect for those who
-                want to support the channel and get the maps without having to use Github. This option also comes with
-                priority support via email.
+                {{ t('pages.maps.options.purchase.description') }}
               </p>
               <div class="card-actions justify-center">
                 <a href="https://store.classicminidiy.com/collections/efi-base-maps" class="btn btn-primary">
-                  <i class="fad fa-credit-card mr-2"></i> Download
+                  <i class="fad fa-credit-card mr-2"></i> {{ t('pages.maps.options.purchase.button') }}
                 </a>
               </div>
             </div>
@@ -337,29 +333,27 @@
               <div class="text-center">
                 <i class="fad fa-download text-3xl pb-3"></i>
               </div>
-              <h3 class="fancy-font-bold text-2xl">Option 2 - Download</h3>
-              <h4 class="fancy-font-bold text-xl">Latest Release: {{ releases?.latestRelease }}</h4>
+              <h3 class="fancy-font-bold text-2xl">{{ t('pages.maps.options.download.title') }}</h3>
+              <h4 class="fancy-font-bold text-xl">{{ t('pages.maps.options.latestRelease') }}: {{ releases?.latestRelease }}</h4>
               <p class="py-3">
-                Download the ECU maps directly from Github. This option is perfect for those who want to get the maps
-                for free. This option also comes with the ability to contribute to the project by submitting pull
-                requests.
+                {{ t('pages.maps.options.download.description') }}
               </p>
               <div class="card-actions justify-center">
                 <a
                   href="https://github.com/SomethingNew71/MiniECUMaps/archive/refs/heads/master.zip"
                   class="btn btn-primary"
                 >
-                  <i class="fad fa-download mr-2"></i> Download
+                  <i class="fad fa-download mr-2"></i> {{ t('pages.maps.options.download.button') }}
                 </a>
                 <a href="https://github.com/SomethingNew71/MiniECUMaps" class="btn btn-neutral">
-                  <i class="fad fa-code-branch mr-2"></i> View Source
+                  <i class="fad fa-code-branch mr-2"></i> {{ t('pages.maps.options.download.viewSource') }}
                 </a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-span-12 md:col-span-10 md:col-start-2">
-          <div class="divider">More Details</div>
+          <div class="divider">{{ t('pages.maps.moreDetails') }}</div>
         </div>
         <div class="col-span-12">
           <div class="card bg-base-100 shadow-xl">
@@ -368,7 +362,7 @@
                 <table class="table table-zebra">
                   <thead>
                     <tr>
-                      <th>Features</th>
+                      <th>{{ t('pages.maps.table.features') }}</th>
                       <th class="text-center">Haltech</th>
                       <th class="text-center">Speeduino</th>
                       <th class="text-center">MegaSquirt</th>
@@ -424,7 +418,7 @@
             <div class="card-body p-0">
               <div class="bg-primary text-white p-4 flex items-center">
                 <i class="fad fa-code-branch mr-2"></i>
-                <h5 class="font-bold text-lg">Latest Updates</h5>
+                <h5 class="font-bold text-lg">{{ t('pages.maps.updates.title') }}</h5>
               </div>
               <div class="p-2">
                 <div
@@ -466,7 +460,7 @@
                       <i class="fad fa-exclamation-triangle text-warning" aria-hidden="true"></i>
                     </span>
                     <span class="date pr-2 font-bold min-w-[15%]"> --- </span>
-                    <span>Error loading update history from Github</span>
+                    <span>{{ t('pages.maps.updates.error') }}</span>
                   </div>
                   <div v-for="i in 10" :key="`error-${i}`" class="flex items-center p-3 border-b border-base-200">
                     <span class="mr-2">
@@ -482,7 +476,7 @@
                       <i class="fad fa-info-circle" aria-hidden="true"></i>
                     </span>
                     <span class="date pr-2 font-bold min-w-[15%]"> --- </span>
-                    <span>No updates available</span>
+                    <span>{{ t('pages.maps.updates.noUpdates') }}</span>
                   </div>
                   <div v-for="i in 10" :key="`empty-${i}`" class="flex items-center p-3 border-b border-base-200">
                     <span class="mr-2">
@@ -494,7 +488,7 @@
                 </div>
                 <div class="card-actions justify-center p-4">
                   <a href="https://github.com/SomethingNew71/MiniECUMaps" class="btn btn-neutral w-full">
-                    <i class="fad fa-code-branch mr-2"></i> View All Commits
+                    <i class="fad fa-code-branch mr-2"></i> {{ t('pages.maps.updates.viewAllCommits') }}
                   </a>
                 </div>
               </div>
@@ -502,10 +496,10 @@
           </div>
         </div>
         <div class="col-span-12 md:col-span-6">
-          <h3 class="fancy-font-bold text-3xl text-center pb-5">Supported ECU's</h3>
+          <h3 class="fancy-font-bold text-3xl text-center pb-5">{{ t('pages.maps.supportedEcus.title') }}</h3>
           <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
-              <div class="divider">Support for the ecu you need</div>
+              <div class="divider">{{ t('pages.maps.supportedEcus.subtitle') }}</div>
               <div class="grid grid-cols-1 gap-6">
                 <div class="image">
                   <img
@@ -554,7 +548,7 @@
           </div>
         </div>
         <div class="col-span-12 md:col-span-10 md:col-start-2">
-          <div class="divider">Other ways to support</div>
+          <div class="divider">{{ t('pages.maps.otherSupport') }}</div>
         </div>
         <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
           <patreon-card size="large" />
