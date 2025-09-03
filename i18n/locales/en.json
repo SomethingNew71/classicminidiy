@@ -245,7 +245,305 @@
       "support_section": "Support",
       "breadcrumb_subtitle": "KEEPING MINIS DRIVING",
       "main_heading": "The Technical Toolbox",
-      "description_text": "One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need is at your fingertips."
+      "description_text": "One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need is at your fingertips.",
+      "subPages": {
+        "torque": {
+          "title": "Classic Mini Torque Specifications Chart | Classic Mini DIY",
+          "description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
+          "keywords": "Classic Mini torque specs, Mini Cooper fasteners, torque specifications, engine torque values, suspension torque, Mini maintenance, classic car specifications",
+          "hero_title": "Torque Specs",
+          "breadcrumb_title": "Torque Specs",
+          "og_title": "Classic Mini Torque Specifications Chart | Classic Mini DIY",
+          "og_description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
+          "twitter_title": "Classic Mini Torque Specifications Chart",
+          "twitter_description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners.",
+          "structured_data": {
+            "headline": "Classic Mini Torque Specifications Chart",
+            "description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
+            "dataset_name": "Classic Mini Torque Specifications",
+            "dataset_description": "Comprehensive dataset of torque specifications for Classic Mini fasteners",
+            "variable_measured": ["Fastener Name", "Torque in lb/ft", "Torque in Nm", "Additional Notes"]
+          },
+          "table_headers": {
+            "fastener": "Fastener",
+            "torque_lbft": "Torque (lb/ft)",
+            "torque_nm": "Torque (Nm)",
+            "notes": "Notes"
+          },
+          "ui": {
+            "search_placeholder": "Search this table",
+            "no_notes": "---"
+          }
+        },
+        "parts": {
+          "title": "Tech - Parts Equivalency",
+          "description": "A complete list of parts which can be found at local parts sellers",
+          "hero_title": "Parts Equivalency",
+          "breadcrumb_title": "Parts Equivalency",
+          "og_title": "Tech - Parts Equivalency",
+          "og_description": "A complete list of parts which can be found at local parts sellers",
+          "twitter_title": "Tech - Parts Equivalency",
+          "twitter_description": "A complete list of parts which can be found at local parts sellers",
+          "table_headers": {
+            "brand": "Brand",
+            "part_number": "Part Number",
+            "usage_info": "Usage Info"
+          },
+          "ui": {
+            "search_placeholder": "Search...",
+            "no_items_found": "No items found",
+            "support_section": "Support"
+          }
+        },
+        "needles": {
+          "title": "SU Needles Chart & Comparison Tool | Classic Mini DIY",
+          "description": "Compare SU carburettor needles for your Classic Mini with our interactive chart. Find the right needle profile for your engine build with this comprehensive comparison tool.",
+          "keywords": "SU needles, carburettor needles, Classic Mini, needle comparison, SU carburettor, needle profiles, Mini Cooper",
+          "hero_title": "Needle Configurator",
+          "breadcrumb_title": "Needle Comparison",
+          "og_title": "SU Needles Chart & Comparison Tool | Classic Mini DIY",
+          "og_description": "Compare SU carburettor needles for your Classic Mini with our interactive chart. Find the right needle profile for your engine build.",
+          "twitter_title": "SU Needles Chart & Comparison Tool | Classic Mini DIY",
+          "twitter_description": "Compare SU carburettor needles for your Classic Mini with our interactive chart.",
+          "main_heading": "SU Carburettor Needles Comparison Tool",
+          "description_text": "One of the most confusing things about working on your Classic Mini often is the carburettor needle used on your car. Below you will find a multi-needle comparison chart which will allow you to compare needle profiles of multiple SU needles at the same time. Choose the needles you would like to compare and click Compare which will redraw the chart with new profiles. A huge thank you to the mintylamb site for posting this information publically.",
+          "structured_data": {
+            "name": "How to Compare SU Carburettor Needles",
+            "description": "Compare different SU carburettor needles to find the right profile for your Classic Mini engine build.",
+            "steps": {
+              "select_needles": {
+                "name": "Select Needles",
+                "text": "Start typing the name of the needles you would like to compare in the dropdown menu."
+              },
+              "add_to_comparison": {
+                "name": "Add to Comparison",
+                "text": "Click the \"Add Needle\" button to add the selected needle to the comparison chart."
+              },
+              "view_comparison": {
+                "name": "View Comparison",
+                "text": "The chart will automatically update to show the profiles of all selected needles for comparison."
+              }
+            },
+            "tool_name": "Interactive Needle Comparison Chart"
+          },
+          "ui": {
+            "loading_fallback": "Loading needle comparison tool...",
+            "loading_text": "Loading needle comparison tool...",
+            "needle_charts_section": "Needle Charts",
+            "find_needle_heading": "Find the needle for your carb",
+            "information_provided_by": "Information provided by",
+            "seven_mini_parts_link": "Seven Mini Parts",
+            "support_section": "Support"
+          }
+        },
+        "gearing": {
+          "title": "Tech - Gearing Calculator",
+          "description": "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+          "hero_title": "Gearbox Calculator",
+          "breadcrumb_title": "Gearbox Calculator",
+          "og_title": "Tech - Gearing Calculator",
+          "og_description": "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+          "twitter_title": "Tech - Gearing Calculator",
+          "twitter_description": "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+          "main_heading": "Gearbox Calculator",
+          "description_text": "When building or rebuilding a gearbox, updaing your gear ratios, or changing out your speedometer sometimes you need to update some things. Using the Classic Mini DIY Gear Calculator below, you can determine the correct gearing for your for your new engine build and find the right speedo gear to use as well.",
+          "engine_sizes_card": {
+            "link_title": "Link to Engine Sizes",
+            "heading": "What are standard engine sizes?",
+            "description": "Click here to learn about common engine sizes in the classic mini.",
+            "alt_text": "Engine size table image preview"
+          },
+          "ui": {
+            "loading_fallback": "Loading gearbox calculator...",
+            "loading_text": "Loading gearbox calculator...",
+            "more_section": "More"
+          }
+        },
+        "engine_decoder": {
+          "title": "Tech - Mini Engine Plate Decoder",
+          "description": "Decode your Classic Mini's Engine plate to determine the engine size and features of your car. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+          "hero_title": "Engine Code Decoder",
+          "breadcrumb_title": "Engine Sizes",
+          "og_title": "Tech - Mini Engine Plate Decoder",
+          "og_description": "Decode your Classic Mini's Engine plate to determine the engine size and features of your car. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+          "twitter_title": "Tech - Mini Engine Plate Decoder",
+          "twitter_description": "Decode your Classic Mini's Engine plate to determine the engine size and features of your car.",
+          "main_heading": "Engine Plate Decoder",
+          "description_text": "The engine plate is a series of numbers and letters that are stamped on a metal plate that is riveted to the engine near the water pump. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+          "chassis_decoder_card": {
+            "link_title": "Link to Chassis Decoder Tool",
+            "heading": "Need to decode your Chassis Number?",
+            "description": "Click here to identify your car using our new chassis number decoding tool.",
+            "alt_text": "Image of magnifying glass"
+          },
+          "engine_sizes_legend": {
+            "850cc": "850cc",
+            "970cc": "970cc",
+            "997cc": "997cc",
+            "998cc": "998cc",
+            "1070cc": "1070cc",
+            "1100cc": "1100",
+            "1275cc": "1275"
+          },
+          "search": {
+            "placeholder": "Search your engine code"
+          },
+          "table": {
+            "title": "Engine Codes",
+            "headers": {
+              "color": "",
+              "code": "Code",
+              "engine_size": "Engine Size",
+              "engine_variant": "Engine Variant",
+              "gearbox_details": "Gearbox Details",
+              "details": "Details"
+            }
+          },
+          "ui": {
+            "support_section": "Support"
+          }
+        },
+        "compression": {
+          "title": "Compression Ratio Calculator for Classic Mini Engines | Classic Mini DIY",
+          "description": "Calculate the compression ratio for your Classic Mini engine build with our interactive calculator. Plan your engine modifications with precision using this easy-to-use tool.",
+          "keywords": "compression ratio, Classic Mini engine, engine build, compression calculator, Mini Cooper engine, piston dish, head volume",
+          "hero_title": "Compression Ratio Calculator",
+          "breadcrumb_title": "Compression Ratio Calculator",
+          "og_title": "Compression Ratio Calculator for Classic Mini Engines | Classic Mini DIY",
+          "og_description": "Calculate the compression ratio for your Classic Mini engine build with our interactive calculator. Plan your engine modifications with precision.",
+          "twitter_title": "Compression Ratio Calculator for Classic Mini Engines",
+          "twitter_description": "Calculate the compression ratio for your Classic Mini engine build with our interactive calculator.",
+          "main_heading": "Compression Ratio Calculator",
+          "description_text": "When building a performance Classic Mini engine one of the most important figures to determine is the compression ratio. Using the Classic Mini DIY Compression Ratio Calculator below, you can determine the ideal compression for your new engine build.",
+          "engine_sizes_card": {
+            "link_title": "Link to Engine Sizes",
+            "heading": "What are standard engine sizes?",
+            "description": "Click here to learn about common engine sizes in the classic mini.",
+            "alt_text": "Engine size table image preview"
+          },
+          "structured_data": {
+            "calculator_name": "Classic Mini Compression Ratio Calculator",
+            "calculator_description": "An interactive calculator to determine the compression ratio for Classic Mini engine builds based on various parameters like piston dish, head volume, bore, and stroke.",
+            "how_to_name": "How to Calculate Compression Ratio for a Classic Mini Engine",
+            "how_to_description": "Learn how to calculate the compression ratio for your Classic Mini engine build using our interactive calculator.",
+            "steps": {
+              "piston_dish": {
+                "name": "Enter Piston Dish Value",
+                "text": "Enter the piston dish value in cc."
+              },
+              "head_volume": {
+                "name": "Enter Head Volume",
+                "text": "Enter the head volume in cc."
+              },
+              "deck_height": {
+                "name": "Enter Deck Height",
+                "text": "Enter the deck height in inches."
+              },
+              "bore_stroke": {
+                "name": "Enter Bore and Stroke",
+                "text": "Enter the bore and stroke measurements in mm."
+              },
+              "gasket_thickness": {
+                "name": "Enter Gasket Thickness",
+                "text": "Select the gasket thickness or enter a custom value."
+              },
+              "view_results": {
+                "name": "View Results",
+                "text": "The calculator will automatically display the compression ratio and engine capacity."
+              }
+            }
+          },
+          "ui": {
+            "more_section": "More"
+          }
+        },
+        "clearance": {
+          "title": "Tech - Mini Clearances",
+          "description": "Detailed clearance specifications can be found online right here at Classic Mini DIY.",
+          "hero_title": "Common Clearances",
+          "breadcrumb_title": "Common Clearances",
+          "og_title": "Tech - Mini Clearances",
+          "og_description": "Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.",
+          "twitter_title": "Tech - Mini Clearances",
+          "twitter_description": "Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.",
+          "table": {
+            "headers": {
+              "part": "Part",
+              "clearance_thou": "Clearance/Endfloat (thou)",
+              "clearance_mm": "Clearance/Endfloat (mm)",
+              "expand": ""
+            },
+            "no_value": "---",
+            "no_items_found": "No items found",
+            "extra_notes_title": "Extra Notes:",
+            "no_notes_available": "No additional notes available."
+          },
+          "search": {
+            "placeholder": "Search..."
+          },
+          "ui": {
+            "support_section": "Support"
+          }
+        },
+        "chassis_decoder": {
+          "title": "Tech - Mini Chassis Plate Decoder",
+          "description": "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
+          "hero_title": "Chassis Decoder",
+          "breadcrumb_title": "Chassis Decoder",
+          "og_title": "Tech - Mini Chassis Plate Decoder",
+          "og_description": "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
+          "twitter_title": "Tech - Mini Chassis Plate Decoder",
+          "twitter_description": "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car.",
+          "main_heading": "Chassis Plate Decoder",
+          "description_text": "The chassis plate is a series of numbers and letters that are stamped on a metal plate that is riveted to the body of the car. This plate is located in different places across all mini generations and is used to identify the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
+          "engine_decoder_card": {
+            "link_title": "Link to Engine Plate decoder",
+            "heading": "Engine Decoder",
+            "description": "Click here to identify your engine using our new engine number decoding table.",
+            "alt_text": "Engine Decoder"
+          },
+          "form": {
+            "card_title": "Decode Your Chassis Number",
+            "card_description": "Enter your chassis number and select the appropriate year range to decode all the details automatically.",
+            "year_range_label": "Year Range",
+            "chassis_number_label": "Chassis Number",
+            "chassis_number_placeholder": "Enter your chassis number",
+            "example_text": "Example for",
+            "decode_button": "Decode Chassis",
+            "decoding_button": "Decoding...",
+            "reset_button": "Reset",
+            "error_empty_chassis": "Please enter a chassis number",
+            "error_decode_failed": "Failed to decode chassis number. Please try again."
+          },
+          "results": {
+            "title": "Decoded Results",
+            "status_decoded": "Decoded",
+            "status_invalid": "Invalid",
+            "year_range_stat": "Year Range",
+            "chassis_number_stat": "Your Chassis Number",
+            "expected_pattern_stat": "Expected Pattern",
+            "validation_issues_title": "Validation Issues",
+            "decoded_positions_title": "Decoded Positions",
+            "position_label": "Position"
+          },
+          "special_notes": {
+            "title": "Special Notes",
+            "build_number_title": "Note about Build Number",
+            "build_number_text": "The first car at Longbridge was number 101, as was the first at Cowley. From then on, each factory continued with their own number sequence regardless of the model; e.g., Saloon, Van, etc. In other words, each model did not start at 101 and maintain its own sequence. Saloons and Vans, etc., are mixed in the number sequence along with the Cooper and Cooper S models",
+            "assembly_plant_title": "Note about Assembly Plant",
+            "assembly_plant_text": "This seems to be used inconsistently on English-built cars, and it is understood that the car was built at the \"normal\" factory if the letter is left off; e.g., an Austin, Riley or Wolseley at Longbridge may or may not have an \"A\" after the sequence number. Yes, there were Austin Minis built at the Morris plant in Cowley and Morris Minis built at the Austin plant in Longbridge. Note that all English-built Cooper and Cooper S models (Austin and Morris) as well as Riley Elf and Wolseley Hornet models were built at the Longbridge, Austin plant"
+          },
+          "attribution": {
+            "text": "Please note the above details were pulled from",
+            "mini_mania": "Mini Mania's",
+            "technical_articles": "technical articles. More Details can be found here:",
+            "link_text": "Chassis Code Technical Articles"
+          },
+          "ui": {
+            "support_section": "Support"
+          }
+        }
+      }
     },
     "contact": {
       "title": "Contact Classic Mini DIY - Get Help & Submit Content",

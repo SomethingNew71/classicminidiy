@@ -3,28 +3,27 @@
   const expanded = ref<string[]>([]);
   const { data: tables, status } = await useFetch('/api/torque');
   const tableSearchQueries = ref<Record<string, string>>({});
+  const { t } = useI18n();
   const tableHeaders = [
-    { title: 'Fastener', key: 'name' },
-    { title: 'Torque (lb/ft)', key: 'lbft' },
-    { title: 'Torque (Nm)', key: 'nm' },
-    { title: 'Notes', key: 'notes' },
+    { title: t('pages.technical.subPages.torque.table_headers.fastener'), key: 'name' },
+    { title: t('pages.technical.subPages.torque.table_headers.torque_lbft'), key: 'lbft' },
+    { title: t('pages.technical.subPages.torque.table_headers.torque_nm'), key: 'nm' },
+    { title: t('pages.technical.subPages.torque.table_headers.notes'), key: 'notes' },
   ];
   const activePanel = ref('Engine');
 
   useHead({
-    title: 'Classic Mini Torque Specifications Chart | Classic Mini DIY',
+    title: t('pages.technical.subPages.torque.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.',
+        content: t('pages.technical.subPages.torque.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content:
-          'Classic Mini torque specs, Mini Cooper fasteners, torque specifications, engine torque values, suspension torque, Mini maintenance, classic car specifications',
+        content: t('pages.technical.subPages.torque.keywords'),
       },
     ],
     link: [
@@ -40,16 +39,14 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Classic Mini Torque Specifications Chart | Classic Mini DIY',
-    ogDescription:
-      'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.',
+    ogTitle: t('pages.technical.subPages.torque.og_title'),
+    ogDescription: t('pages.technical.subPages.torque.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/torque',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/torque.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Torque Specifications Chart',
-    twitterDescription:
-      'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners.',
+    twitterTitle: t('pages.technical.subPages.torque.twitter_title'),
+    twitterDescription: t('pages.technical.subPages.torque.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/torque.png',
   });
 
@@ -57,9 +54,8 @@
   const torqueSpecsJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: 'Classic Mini Torque Specifications Chart',
-    description:
-      'Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.',
+    headline: t('pages.technical.subPages.torque.structured_data.headline'),
+    description: t('pages.technical.subPages.torque.structured_data.description'),
     image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
     author: {
       '@type': 'Person',
@@ -76,9 +72,9 @@
     url: 'https://classicminidiy.com/technical/torque',
     mainEntity: {
       '@type': 'Dataset',
-      name: 'Classic Mini Torque Specifications',
-      description: 'Comprehensive dataset of torque specifications for Classic Mini fasteners',
-      variableMeasured: ['Fastener Name', 'Torque in lb/ft', 'Torque in Nm', 'Additional Notes'],
+      name: t('pages.technical.subPages.torque.structured_data.dataset_name'),
+      description: t('pages.technical.subPages.torque.structured_data.dataset_description'),
+      variableMeasured: t('pages.technical.subPages.torque.structured_data.variable_measured'),
     },
   };
 
@@ -114,11 +110,19 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Torque Specs'" :textSize="'text-3xl'" :heroType="HERO_TYPES.TECH" />
+  <hero
+    :navigation="true"
+    :title="$t('pages.technical.subPages.torque.hero_title')"
+    :textSize="'text-3xl'"
+    :heroType="HERO_TYPES.TECH"
+  />
   <div class="container mx-auto px-4 pt-10">
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-12">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" page="Torque Specs"></breadcrumb>
+        <breadcrumb
+          :version="BREADCRUMB_VERSIONS.TECH"
+          :page="$t('pages.technical.subPages.torque.breadcrumb_title')"
+        ></breadcrumb>
       </div>
       <div class="col-span-12">
         <!-- Loading state -->
@@ -154,7 +158,7 @@
                   <div class="input-group">
                     <input
                       type="text"
-                      placeholder="Search this table"
+                      :placeholder="$t('pages.technical.subPages.torque.ui.search_placeholder')"
                       v-model="tableSearchQueries[name]"
                       class="input input-bordered w-full input-md"
                     />
@@ -182,7 +186,7 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.lbft }}</td>
                         <td>{{ item.nm }}</td>
-                        <td>{{ item.notes ? item.notes : '---' }}</td>
+                        <td>{{ item.notes ? item.notes : $t('pages.technical.subPages.torque.ui.no_notes') }}</td>
                       </tr>
                     </template>
                   </tbody>
