@@ -1,5 +1,24 @@
 <script lang="ts" setup>
   const route = useRoute();
+  const switchLocalePath = useSwitchLocalePath();
+  const { locale, locales, setLocale } = useI18n();
+
+  // Get current locale info
+  const currentLocale = computed(() => {
+    return locales.value.find((i) => i.code === locale.value);
+  });
+
+  // Get available locales (excluding current)
+  const availableLocales = computed(() => {
+    return locales.value.filter((i) => i.code !== locale.value);
+  });
+
+  // Function to handle language change in mobile menu
+  const handleMobileLanguageChange = async (localeCode: string) => {
+    await setLocale(localeCode as any);
+    await navigateTo(switchLocalePath(localeCode as any));
+    closeMobileDropdown();
+  };
 
   // Function to check if a route is active
   const isActive = (path: string): boolean => {
@@ -27,7 +46,7 @@
         />
       </NuxtLink>
     </div>
-    <div class="navbar-end hidden lg:flex">
+    <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1 text-base">
         <li>
           <a href="https://classicminidiy.substack.com/" target="_blank">
@@ -60,8 +79,10 @@
           >
         </li>
       </ul>
+    </div>
+    <div class="navbar-end hidden lg:flex">
       <LanguageSwitcher />
-      <a class="btn donate" href="https://patreon.com/classicminidiy"> <i class="fab fa-patreon"></i>Join CMDIY</a>
+      <a class="btn donate ml-2" href="https://patreon.com/classicminidiy"> <i class="fab fa-patreon"></i>Join CMDIY</a>
     </div>
     <div class="navbar-end lg:hidden">
       <div class="dropdown dropdown-end">
@@ -102,8 +123,25 @@
             >
           </li>
           <li class="border-t pt-2 mt-2">
-            <div class="px-4 py-2">
-              <LanguageSwitcher />
+            <div class="dropdown dropdown-end w-full">
+              <div tabindex="0" role="button" class="w-full flex items-center justify-between py-2">
+                <div class="flex items-center">
+                  <i class="fad fa-globe mr-2"></i>
+                  <span>{{ currentLocale?.name || 'Language' }}</span>
+                </div>
+                <i class="fad fa-chevron-down text-xs"></i>
+              </div>
+              <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] mt-1 w-52 p-2 shadow">
+                <li v-for="availableLocale in availableLocales" :key="availableLocale.code">
+                  <a
+                    href="#"
+                    @click.prevent.stop="handleMobileLanguageChange(availableLocale.code)"
+                    class="text-sm"
+                  >
+                    {{ availableLocale.name }}
+                  </a>
+                </li>
+              </ul>
             </div>
           </li>
         </ul>

@@ -27,6 +27,22 @@
     "home_title": "Classic Mini DIY",
     "home_subtitle": "TU VECINDARIO AMIGABLE"
   },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minutos Vistos",
+      "over_30_days": "en los últimos 30 días",
+      "subscribers": "Suscriptores",
+      "across_world": "en todo el mundo",
+      "videos": "Vídeos",
+      "since_2015": "desde 2015"
+    },
+    "recent_videos": {
+      "title": "Vídeos Recientes",
+      "error_message": "No se pueden cargar los datos de YouTube",
+      "published_on": "Publicado el",
+      "watch_button": "Ver"
+    }
+  },
   "pages": {
     "home": {
       "title": "Classic Mini DIY | Tu Recurso Amigable del Vecindario para Classic Mini",

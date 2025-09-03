@@ -27,6 +27,22 @@
     "home_title": "Classic Mini DIY",
     "home_subtitle": "SEU BAIRRO AMIGÁVEL"
   },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minutos Assistidos",
+      "over_30_days": "nos últimos 30 dias",
+      "subscribers": "Inscritos",
+      "across_world": "em todo o mundo",
+      "videos": "Vídeos",
+      "since_2015": "desde 2015"
+    },
+    "recent_videos": {
+      "title": "Vídeos Recentes",
+      "error_message": "Não é possível carregar dados do YouTube",
+      "published_on": "Publicado em",
+      "watch_button": "Assistir"
+    }
+  },
   "pages": {
     "home": {
       "title": "Classic Mini DIY | Seu Recurso Amigável de Bairro para Classic Mini",
@@ -158,22 +174,6 @@
         "subtitle": "Suporte para a ECU que você precisa"
       },
       "otherSupport": "Outras formas de apoiar"
-    }
-  },
-  "components": {
-    "stats": {
-      "minutes_watched": "Minutos Assistidos",
-      "over_30_days": "nos últimos 30 dias",
-      "subscribers": "Inscritos",
-      "across_world": "em todo o mundo",
-      "videos": "Vídeos",
-      "since_2015": "desde 2015"
-    },
-    "recent_videos": {
-      "title": "Vídeos Recentes",
-      "error_message": "Não é possível carregar dados do YouTube",
-      "published_on": "Publicado em",
-      "watch_button": "Assistir"
     }
   }
 }

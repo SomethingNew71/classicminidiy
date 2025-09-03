@@ -27,6 +27,22 @@
     "home_title": "Classic Mini DIY",
     "home_subtitle": "당신의 친근한 동네"
   },
+  "components": {
+    "stats": {
+      "minutes_watched": "시청 시간",
+      "over_30_days": "지난 30일간",
+      "subscribers": "구독자",
+      "across_world": "전 세계에서",
+      "videos": "비디오",
+      "since_2015": "2015년부터"
+    },
+    "recent_videos": {
+      "title": "최근 비디오",
+      "error_message": "YouTube 데이터를 로드할 수 없습니다",
+      "published_on": "게시일",
+      "watch_button": "시청"
+    }
+  },
   "pages": {
     "home": {
       "title": "Classic Mini DIY | Classic Mini를 위한 친근한 동네 리소스",
@@ -158,22 +174,6 @@
         "subtitle": "필요한 ECU 지원"
       },
       "otherSupport": "기타 지원 방법"
-    }
-  },
-  "components": {
-    "stats": {
-      "minutes_watched": "시청 시간",
-      "over_30_days": "지난 30일간",
-      "subscribers": "구독자",
-      "across_world": "전 세계에서",
-      "videos": "비디오",
-      "since_2015": "2015년부터"
-    },
-    "recent_videos": {
-      "title": "최근 비디오",
-      "error_message": "YouTube 데이터를 로드할 수 없습니다",
-      "published_on": "게시일",
-      "watch_button": "시청"
     }
   }
 }

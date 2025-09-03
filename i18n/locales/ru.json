@@ -27,6 +27,22 @@
     "home_title": "Classic Mini DIY",
     "home_subtitle": "ВАШ ДРУЖЕЛЮБНЫЙ РАЙОН"
   },
+  "components": {
+    "stats": {
+      "minutes_watched": "Минуты Просмотра",
+      "over_30_days": "за последние 30 дней",
+      "subscribers": "Подписчики",
+      "across_world": "по всему миру",
+      "videos": "Видео",
+      "since_2015": "с 2015 года"
+    },
+    "recent_videos": {
+      "title": "Последние Видео",
+      "error_message": "Не удается загрузить данные YouTube",
+      "published_on": "Опубликовано",
+      "watch_button": "Смотреть"
+    }
+  },
   "pages": {
     "home": {
       "title": "Classic Mini DIY | Ваш дружелюбный районный ресурс для Classic Mini",
@@ -158,22 +174,6 @@
         "subtitle": "Поддержка для нужного вам ЭБУ"
       },
       "otherSupport": "Другие способы поддержки"
-    }
-  },
-  "components": {
-    "stats": {
-      "minutes_watched": "Минуты Просмотра",
-      "over_30_days": "за последние 30 дней",
-      "subscribers": "Подписчики",
-      "across_world": "по всему миру",
-      "videos": "Видео",
-      "since_2015": "с 2015 года"
-    },
-    "recent_videos": {
-      "title": "Последние Видео",
-      "error_message": "Не удается загрузить данные YouTube",
-      "published_on": "Опубликовано",
-      "watch_button": "Смотреть"
     }
   }
 }
