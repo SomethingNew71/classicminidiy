@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import { DateTime } from 'luxon';
   import { HERO_TYPES } from '../../data/models/generic';
-  
+
   const { t } = useI18n();
-  
+
   useHead({
     title: t('pages.maps.seo.title'),
     meta: [
@@ -315,7 +315,9 @@
                 <i class="fad fa-credit-card text-3xl pb-3"></i>
               </div>
               <h3 class="fancy-font-bold text-2xl">{{ t('pages.maps.options.purchase.title') }}</h3>
-              <h4 class="fancy-font-bold text-xl">{{ t('pages.maps.options.latestRelease') }}: {{ releases?.latestRelease }}</h4>
+              <h4 class="fancy-font-bold text-xl">
+                {{ t('pages.maps.options.latestRelease') }}: {{ releases?.latestRelease }}
+              </h4>
               <p class="py-3">
                 {{ t('pages.maps.options.purchase.description') }}
               </p>
@@ -334,7 +336,9 @@
                 <i class="fad fa-download text-3xl pb-3"></i>
               </div>
               <h3 class="fancy-font-bold text-2xl">{{ t('pages.maps.options.download.title') }}</h3>
-              <h4 class="fancy-font-bold text-xl">{{ t('pages.maps.options.latestRelease') }}: {{ releases?.latestRelease }}</h4>
+              <h4 class="fancy-font-bold text-xl">
+                {{ t('pages.maps.options.latestRelease') }}: {{ releases?.latestRelease }}
+              </h4>
               <p class="py-3">
                 {{ t('pages.maps.options.download.description') }}
               </p>

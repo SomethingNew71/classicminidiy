@@ -67,6 +67,17 @@
         "bio": "Soy un Desarrollador Web de {age} años trabajando en la industria financiera. Mi experiencia en la industria automotriz viene de 2 años de entrenamiento en maquinaria diesel pesada y 8 años de propiedad de Classic Mini. Con esta experiencia, hago mi mejor esfuerzo para proporcionar la información más completa y técnicamente correcta que puedo.",
         "promise_title": "MI PROMESA",
         "promise": "Te proporcionaré todo el conocimiento que pueda con la mejor de mis habilidades. También aceptaré comentarios en caso de que me equivoque en algo. Soy un entusiasta y no un experto completo, así que de vez en cuando cometeré errores."
+      },
+      "error": {
+        "title": "¡Ups!",
+        "heading": "Error - {statusCode}",
+        "message": "Ocurrió un error al cargar esta página",
+        "url_label": "URL:",
+        "actions": {
+          "archives": "Archivos",
+          "toolbox": "Caja de herramientas",
+          "home": "Volver al inicio"
+        }
       }
     },
     "privacy": {

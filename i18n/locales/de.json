@@ -67,6 +67,17 @@
         "bio": "Ich bin ein {age}-jähriger Web-Entwickler, der in der Finanzbranche arbeitet. Meine Erfahrung in der Automobilindustrie stammt aus 2 Jahren Ausbildung an schweren Dieselmaschinen und 8 Jahren Classic Mini Besitz. Mit dieser Erfahrung gebe ich mein Bestes, um die umfassendsten und technisch korrektesten Informationen zu liefern, die ich kann.",
         "promise_title": "MEIN VERSPRECHEN",
         "promise": "Ich werde Ihnen alles Wissen zur Verfügung stellen, das ich nach besten Kräften kann. Ich werde auch Feedback akzeptieren, falls ich etwas falsch verstehe. Ich bin ein Enthusiast und kein vollständiger Experte, also werde ich von Zeit zu Zeit Fehler machen."
+      },
+      "error": {
+        "title": "Oh nein",
+        "heading": "Fehler - {statusCode}",
+        "message": "Beim Laden dieser Seite ist ein Fehler aufgetreten",
+        "url_label": "URL:",
+        "actions": {
+          "archives": "Archive",
+          "toolbox": "Werkzeugkasten",
+          "home": "Zurück zur Startseite"
+        }
       }
     },
     "maps": {
