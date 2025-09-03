@@ -27,6 +27,22 @@
     "home_title": "Classic Mini DIY",
     "home_subtitle": "あなたの親しみやすい近所"
   },
+  "components": {
+    "stats": {
+      "minutes_watched": "視聴時間",
+      "over_30_days": "過去30日間",
+      "subscribers": "登録者",
+      "across_world": "世界中で",
+      "videos": "動画",
+      "since_2015": "2015年から"
+    },
+    "recent_videos": {
+      "title": "最新動画",
+      "error_message": "YouTubeデータを読み込めません",
+      "published_on": "公開日",
+      "watch_button": "視聴"
+    }
+  },
   "pages": {
     "home": {
       "title": "Classic Mini DIY | Classic Miniのための親しみやすい近所のリソース",
@@ -158,22 +174,6 @@
         "subtitle": "必要なECUのサポート"
       },
       "otherSupport": "その他のサポート方法"
-    }
-  },
-  "components": {
-    "stats": {
-      "minutes_watched": "視聴時間",
-      "over_30_days": "過去30日間",
-      "subscribers": "登録者",
-      "across_world": "世界中で",
-      "videos": "動画",
-      "since_2015": "2015年から"
-    },
-    "recent_videos": {
-      "title": "最新動画",
-      "error_message": "YouTubeデータを読み込めません",
-      "published_on": "公開日",
-      "watch_button": "視聴"
     }
   }
 }

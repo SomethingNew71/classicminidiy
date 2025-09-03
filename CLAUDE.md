@@ -75,31 +75,86 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 
 ### Key Features
 
-- **Archive Section**: Historical documents, manuals, advertisements
-- **Technical Toolbox**: Calculators, specifications, reference data `app/technical`
-- **Registry System**: User-submitted Classic Mini registrations `app/archive/registry`
-- **Wheel Database**: Comprehensive wheel fitment information `app/archive/wheels`
-- **AI Chat**: LangGraph-powered technical assistance `app/chat`
-- **Color Database**: Historical Classic Mini paint colors `app/archive/colors`
-- **Parts Reference**: Technical specifications and torque values `app/archive/parts`
-- **Archive**: Historical documents, manuals, advertisements `app/archive`
+#### Technical Toolbox (`app/technical`)
+- **Compression Ratio Calculator** (`/technical/compression`) - Engine compression calculations with piston, crankshaft, head gasket configurations
+- **Gearbox Calculator** (`/technical/gearing`) - Gear ratio calculations and speed computations
+- **SU Carb Needle Configurator** (`/technical/needles`) - Interactive needle comparison with Highcharts visualization
+- **Chassis Number Decoder** (`/technical/chassis-decoder`) - Historical chassis number database and identification
+- **Engine Number Decoder** (`/technical/engine-decoder`) - Engine code interpretation and specifications
+- **Common Clearances Reference** (`/technical/clearance`) - Comprehensive clearance specifications by system
+- **Parts Equivalency Database** (`/technical/parts`) - Cross-reference part numbers between brands
+- **Torque Specifications Chart** (`/technical/torque`) - Complete torque specification database
+
+#### Archive System (`app/archive`)
+- **Workshop Manuals** (`/archive/manuals`) - Complete digitized workshop manuals with search
+- **Electrical Wiring Diagrams** (`/archive/electrical`) - Positive/negative ground systems by year and model
+- **Historical Advertisements** (`/archive/adverts`) - Period advertising materials and brochures
+- **Vendor Catalogues** (`/archive/catalogues`) - Historical parts catalogs and documentation
+- **Tuning & Modifications** (`/archive/tuning`) - Performance modification guides and specs
+- **Registry System** (`/archive/registry`) - User-submitted Classic Mini registrations with admin approval
+- **Wheel Fitment Library** (`/archive/wheels`) - Comprehensive wheel database with user photos
+- **Color Database** (`/archive/colors`) - Historical paint colors with hex values and user contributions
+- **Engine Specifications** (`/archive/engines`) - Complete engine database with performance specs
+- **Vehicle Weights Reference** (`/archive/weights`) - Weight specifications by model and year
+
+#### AI-Powered Features (`app/chat`)
+- **CMDIY Assistant** - LangGraph-powered conversational AI with context awareness
+- **Model Context Protocol (MCP) Server** - AI integration with calculators and tools
+- **Streaming Responses** - Real-time AI chat with persistent conversation threads
+
+#### Administrative Features (`app/admin`)
+- **Registry Review System** (`/admin/registry/review`) - Approve/reject user submissions
+- **Wheel Review System** (`/admin/wheels/review`) - Review user-submitted wheel data
+- **Authentication System** - Secure admin login and session management
+
+#### E-commerce Integration (`/maps`)
+- **ECU Maps Store** - Multi-ECU support (Haltech, Speeduino, MegaSquirt, etc.)
+- **GitHub Integration** - Real-time repository updates and release management
+- **Feature Matrix** - Ignition maps, fuel maps, VE tables, target AFR configurations
+
+#### Internationalization (i18n)
+- **Multi-Language Support** - 10 languages with comprehensive translations
+- **Browser Detection** - Automatic language detection and SEO optimization
+- **Nuxt i18n Module** - @nuxtjs/i18n for full internationalization support
+- **Language Switching** - Dynamic locale switching with persistent user preferences
 
 ## API Structure
 
-### Core APIs
+### Core APIs (51+ endpoints)
 
-- `/api/decoders/` - Chassis and engine number decoding
-- `/api/wheels/` - Wheel fitment database
-- `/api/registry/` - User registration system
-- `/api/colors/` - Paint color database
-- `/api/langgraph/` - AI chat integration
-- `/api/mcp/` - Model Context Protocol server
+#### Technical Tools APIs
+- `/api/decoders/chassis` - Chassis number decoding by year ranges
+- `/api/decoders/engine` - Engine code interpretation and identification
+- `/api/mcp/compression` - MCP integration for compression calculator
+- `/api/mcp/gearbox` - MCP integration for gearbox calculator
+- `/api/mcp/chassis-decoder` - MCP integration for chassis decoding
+
+#### Database APIs
+- `/api/wheels/` - Wheel fitment database with image handling
+- `/api/registry/` - User registration system with approval workflow
+- `/api/colors/` - Paint color database with user contributions
+- `/api/engines/` - Engine specifications and performance data
+- `/api/weights/` - Vehicle weight specifications
+
+#### AI & Chat APIs
+- `/api/langgraph/` - AI chat integration with streaming responses
+- `/api/mcp/` - Model Context Protocol server for tool integration
+
+#### Administrative APIs
+- `/api/admin/registry/review` - Registry submission review and approval
+- `/api/admin/wheels/review` - Wheel submission review and management
+- `/api/admin/auth` - Authentication and session management
+
+#### Content & Media APIs
+- `/api/github/` - Repository statistics, commits, and release data
+- `/api/youtube/` - Channel statistics and video integration
+- `/api/maps/` - ECU maps store with GitHub integration
 
 ### External Integrations
 
-- **GitHub API**: Repository statistics and releases
-- **YouTube API**: Channel video integration
-- **AWS Services**: S3 storage, DynamoDB queries
+- **GitHub API**: Repository statistics, commits, releases, and automated content updates
+- **YouTube API**: Channel statistics, video feeds, and content synchronization
+- **AWS Services**: S3 storage with intelligent tiering, DynamoDB queries and operations
 
 ## Development Guidelines
 
@@ -123,6 +178,8 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - **Image Optimization**: Multiple formats (WebP, AVIF) with responsive sizes
 - **Code Splitting**: Manual chunks for better caching
 - **Service Worker**: PWA caching strategies for offline functionality
+- **CDN Integration**: S3 static assets with intelligent tiering
+- **Bundle Optimization**: Tree shaking and dependency optimization
 
 ## Environment Variables
 
@@ -209,8 +266,21 @@ s3Base=
 ### Content Updates
 
 - Static data: Update JSON files in `/data/`
-- Dynamic content: Use admin interfaces or direct API calls
-- Images: Upload to S3 bucket with appropriate paths
+- Dynamic content: Use admin interfaces (`/admin`) or direct API calls
+- Images: Upload to S3 bucket with appropriate paths and WebP optimization
+- User submissions: Review via admin panel for registry and wheel database entries
+
+### Database Management
+
+#### User-Generated Content
+- **Registry System**: Admin approval workflow for Classic Mini registrations
+- **Wheel Database**: Image processing and fitment data review system
+- **Color Contributions**: User-submitted paint color database with validation
+
+#### Static Reference Data
+- **Technical Specifications**: JSON-based torque values, clearances, and part equivalencies
+- **Historical Data**: Chassis numbers, engine codes, and specifications by year
+- **Archive Content**: Digitized manuals, wiring diagrams, and historical documents
 
 ### Performance Optimization
 
@@ -219,9 +289,208 @@ s3Base=
 - Verify image optimization is working correctly
 - Test PWA functionality and caching strategies
 
+## Internationalization (i18n)
+
+### Nuxt i18n Configuration
+
+The project uses **@nuxtjs/i18n** module for comprehensive internationalization support with the following configuration:
+
+```typescript
+// nuxt.config.ts
+i18n: {
+  defaultLocale: 'en',
+  locales: [
+    { code: 'en', name: 'English', file: 'en.json' },
+    { code: 'es', name: 'Spanish', file: 'es.json' },
+    { code: 'fr', name: 'French', file: 'fr.json' },
+    { code: 'de', name: 'German', file: 'de.json' },
+    { code: 'it', name: 'Italian', file: 'it.json' },
+    { code: 'pt', name: 'Portuguese', file: 'pt.json' },
+    { code: 'ru', name: 'Russian', file: 'ru.json' },
+    { code: 'ja', name: 'Japanese', file: 'ja.json' },
+    { code: 'zh', name: 'Chinese', file: 'zh.json' },
+    { code: 'ko', name: 'Korean', file: 'ko.json' },
+  ],
+  detectBrowserLanguage: {
+    useCookie: true,
+    cookieKey: 'i18n_redirected',
+    redirectOn: 'root',
+    alwaysRedirect: false,
+    fallbackLocale: 'en',
+  },
+}
+```
+
+### Locale Files Structure
+
+All translation files are located in `/i18n/locales/` directory:
+
+```
+i18n/
+└── locales/
+    ├── en.json (240 lines - Master/Reference)
+    ├── de.json (348 lines - Most Complete)
+    ├── es.json (224 lines)
+    ├── fr.json (178 lines)
+    ├── it.json (179 lines)
+    ├── ja.json (179 lines)
+    ├── ko.json (179 lines)
+    ├── pt.json (179 lines)
+    ├── ru.json (179 lines)
+    └── zh.json (179 lines)
+```
+
+### Translation Structure
+
+Each locale file follows a hierarchical JSON structure:
+
+```json
+{
+  "common": {
+    "home": "Home",
+    "archive": "Archive",
+    "technical": "Technical",
+    // ... common UI elements
+  },
+  "navigation": {
+    "main_menu": "Main Menu",
+    "breadcrumb": "Breadcrumb"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "YOUR FRIENDLY NEIGHBORHOOD"
+  },
+  "components": {
+    "stats": { /* ... */ },
+    "recent_videos": { /* ... */ }
+  },
+  "pages": {
+    "home": { /* ... */ },
+    "about": { /* ... */ },
+    "error": { /* ... */ }
+    // ... page-specific translations
+  }
+}
+```
+
+### Usage in Components
+
+#### Composition API (Recommended)
+```vue
+<script setup>
+const { t, locale, locales } = useI18n();
+
+// Use translations
+const title = t('pages.home.title');
+const description = t('pages.home.description');
+</script>
+
+<template>
+  <h1>{{ $t('pages.home.title') }}</h1>
+  <p>{{ $t('pages.home.description') }}</p>
+</template>
+```
+
+#### Language Switcher Component
+The `LanguageSwitcher.vue` component (`/app/components/LanguageSwitcher.vue`) provides:
+- Dropdown interface for language selection
+- Persistent language preference via cookies
+- Automatic route switching with `switchLocalePath()`
+- Mobile-friendly design with responsive labels
+
+### Browser Language Detection
+
+**Automatic Detection Features:**
+- **Cookie Persistence**: User language preference stored in `i18n_redirected` cookie
+- **Fallback Logic**: Defaults to English (`en`) if browser language not supported
+- **Root Redirect**: Only redirects on root path to avoid breaking deep links
+- **Smart Redirect**: Avoids infinite redirect loops with `alwaysRedirect: false`
+
+### SEO & Multi-Language Support
+
+**SEO Optimization:**
+- Language-specific meta tags and content
+- Automatic `hreflang` attribute generation
+- Localized URLs and routing
+- Social media meta tags in appropriate languages
+
+### Implementation Guidelines
+
+#### Adding New Translations
+1. **Add new locale** to `nuxt.config.ts` locales array
+2. **Create new JSON file** in `/i18n/locales/` directory
+3. **Copy structure** from `en.json` as template
+4. **Translate all keys** maintaining JSON hierarchy
+5. **Test language switcher** functionality
+
+#### Translation Key Naming Convention
+- Use **nested structure** for organization (`pages.home.title`)
+- **Descriptive keys** rather than generic ones
+- **Consistent naming** across all locale files
+- **Group by feature/page** for better maintenance
+
+#### Components Using i18n
+Current implementation includes:
+- `LanguageSwitcher.vue` - Language selection dropdown
+- `Hero.vue` - Home page hero section
+- `Stats.vue` - YouTube statistics
+- `RecentVideos.vue` - Video listings
+- `error.vue` - Error pages
+- `index.vue` - Home page
+- `contact.vue` - Contact page
+- `privacy.vue` - Privacy policy
+- `maps.vue` - ECU maps page
+
+### Translation Status
+
+- **English (en)**: Complete reference (240 lines)
+- **German (de)**: Most comprehensive (348 lines)
+- **Spanish (es)**: Well-developed (224 lines)
+- **Other Languages**: Basic coverage (178-179 lines each)
+
+### Development Notes
+
+**Important Considerations:**
+- **German locale** appears to have the most complete translations
+- **English** serves as the master reference for new keys
+- **Consistent structure** maintained across all locale files
+- **Browser detection** configured for optimal UX without being intrusive
+- **No routing prefixes** - clean URLs maintained across all languages
+
+## Advanced Features
+
+### Progressive Web App (PWA)
+- **Offline Functionality**: Service worker caching for offline access
+- **App-like Experience**: Installable web application
+- **Mobile Optimization**: Responsive design with touch-friendly interfaces
+
+### SEO & Social Integration
+- **Comprehensive SEO**: Meta tags, structured data, XML sitemaps
+- **Social Sharing**: Open Graph and Twitter cards for all pages
+- **Multi-language SEO**: Language-specific meta tags and content optimization
+
+### Developer Tools Integration
+- **Recommended Tools Database**: Categorized tool lists with vendor integration
+- **Amazon Affiliate Links**: Integrated product recommendations
+- **Image Optimization**: WebP variants with fallback support
+
+### Performance Monitoring
+- **Analytics Integration**: Google Analytics, Vercel Analytics, Speed Insights
+- **Core Web Vitals**: Real-time performance monitoring
+- **Error Tracking**: Comprehensive error logging and monitoring
+
+## Notable Technical Achievements
+
+1. **Comprehensive Classic Mini Database**: One of the most complete digital archives for Classic Mini information worldwide
+2. **Advanced AI Integration**: Sophisticated LangGraph implementation with MCP server for technical assistance
+3. **Multi-language Support**: Full internationalization across 10 languages with browser detection
+4. **User-Generated Content System**: Advanced submission and administrative review workflows
+5. **Performance Excellence**: Extensive optimization strategies including PWA, CDN, and caching
+6. **Real-time Features**: Streaming AI responses and live data synchronization
+
 ## Support Resources
 
 - **Documentation**: Comprehensive README.md with setup instructions
 - **Community**: GitHub Issues for bug reports and feature requests
-- **Support**: Patreon for server costs and development
-- **Related Projects**: YouTube channel and merchandise store
+- **Support**: Patreon for server costs and development funding
+- **Related Projects**: YouTube channel and merchandise store integration

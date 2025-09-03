@@ -27,6 +27,22 @@
     "home_title": "Classic Mini DIY",
     "home_subtitle": "IHRE FREUNDLICHE NACHBARSCHAFT"
   },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minuten Angesehen",
+      "over_30_days": "in den letzten 30 Tagen",
+      "subscribers": "Abonnenten",
+      "across_world": "auf der ganzen Welt",
+      "videos": "Videos",
+      "since_2015": "seit 2015"
+    },
+    "recent_videos": {
+      "title": "Neueste Videos",
+      "error_message": "YouTube-Daten können nicht geladen werden",
+      "published_on": "Veröffentlicht am",
+      "watch_button": "Ansehen"
+    }
+  },
   "pages": {
     "home": {
       "title": "Classic Mini DIY | Ihre freundliche Nachbarschafts-Ressource für Classic Mini",
@@ -158,22 +174,175 @@
         "subtitle": "Unterstützung für die ECU, die Sie benötigen"
       },
       "otherSupport": "Andere Wege zu unterstützen"
-    }
-  },
-  "components": {
-    "stats": {
-      "minutes_watched": "Minuten Angesehen",
-      "over_30_days": "in den letzten 30 Tagen",
-      "subscribers": "Abonnenten",
-      "across_world": "auf der ganzen Welt",
-      "videos": "Videos",
-      "since_2015": "seit 2015"
     },
-    "recent_videos": {
-      "title": "Neueste Videos",
-      "error_message": "YouTube-Daten können nicht geladen werden",
-      "published_on": "Veröffentlicht am",
-      "watch_button": "Ansehen"
+    "chat": {
+      "seo": {
+        "title": "CMDIY Assistent - Classic Mini DIY",
+        "description": "Chatten Sie mit unserem KI-Assistenten für technische Hilfe bei Classic Mini, Fahrgestelldekodierung, Teileinformationen und Restaurierungsberatung.",
+        "ogTitle": "CMDIY Assistent - Classic Mini DIY",
+        "ogDescription": "Erhalten Sie sofortige Hilfe bei Ihren Classic Mini Projekten von unserem KI-Assistenten.",
+        "twitterTitle": "CMDIY Assistent - Classic Mini DIY",
+        "twitterDescription": "Erhalten Sie sofortige Hilfe bei Ihren Classic Mini Projekten von unserem KI-Assistenten."
+      },
+      "title": "CMDIY Assistent",
+      "description": "Ihr Classic Mini DIY Assistent - stellen Sie technische Fragen, finden Sie Teileinformationen und erhalten Sie Beratung zu Restaurierungsprojekten. Oder chatten Sie einfach mit mir über Ihren Classic Mini!"
+    },
+    "archive": {
+      "seo": {
+        "title": "Classic Mini Archive | Classic Mini DIY",
+        "description": "Erkunden Sie die Classic Mini DIY Archive mit Werkstatthandbüchern, Schaltplänen, Motorspezifikationen und historischen Dokumenten für die Classic Mini Restaurierung.",
+        "keywords": "Classic Mini Archiv, Werkstatthandbücher, Schaltpläne, Motorspezifikationen, Restaurierungsanleitungen, Mini Cooper Geschichte"
+      },
+      "breadcrumb": "Archiv",
+      "title": "Classic Mini Archive",
+      "description": "Erkunden Sie unsere umfassende Sammlung von Classic Mini Dokumentation, technischen Ressourcen und historischen Materialien. Von Werkstatthandbüchern bis zu Schaltplänen finden Sie alles, was Sie für Ihr Restaurierungsprojekt benötigen.",
+      "loading": {
+        "message": "Inhalt wird geladen..."
+      },
+      "error": {
+        "message": "Fehler beim Laden des Inhalts. Bitte versuchen Sie es später erneut."
+      },
+      "item": {
+        "noImage": "Kein Bild verfügbar",
+        "downloadAlt": "{title} herunterladen",
+        "imageAlt": "Vorschaubild von {title}",
+        "fallbackTitle": "Archiv-Element",
+        "noDescription": "Keine Beschreibung verfügbar.",
+        "fileType": "Typ: {type}",
+        "actions": {
+          "share": "Teilen",
+          "contribute": "Beitragen",
+          "missingFile": "Fehlende Datei",
+          "download": "Herunterladen"
+        }
+      },
+      "weights": {
+        "seo": {
+          "title": "Classic Mini Gewichte & Spezifikationen | Archiv | Classic Mini DIY",
+          "description": "Vollständige Gewichtsspezifikationen für Classic Mini Modelle von 1959-2000. Leergewicht, Gesamtgewicht und technische Daten für alle Mini Varianten.",
+          "keywords": "Classic Mini Gewicht, Mini Cooper Spezifikationen, Leergewicht, Gesamtgewicht, Mini Varianten"
+        },
+        "breadcrumb": "Gewichte",
+        "title": "Classic Mini Gewichte",
+        "description": "Vollständige Gewichtsspezifikationen für alle Classic Mini Modelle und Varianten von 1959 bis 2000.",
+        "table": {
+          "model": "Modell",
+          "year": "Jahr",
+          "kerbWeight": "Leergewicht",
+          "grossWeight": "Gesamtgewicht",
+          "notes": "Notizen"
+        },
+        "loading": "Gewichtsdaten werden geladen...",
+        "error": "Fehler beim Laden der Gewichtsdaten. Bitte versuchen Sie es später erneut.",
+        "noData": "Keine Gewichtsdaten verfügbar."
+      },
+      "engines": {
+        "seo": {
+          "title": "Classic Mini Motorspezifikationen | Archiv | Classic Mini DIY",
+          "description": "Umfassende Motorspezifikationen für alle Classic Mini Motoren. Hubraum, Leistung, Drehmoment und technische Daten von 1959-2000.",
+          "keywords": "Classic Mini Motor, Mini Cooper Motorspezifikationen, A-Serie Motor, Hubraum, PS"
+        },
+        "breadcrumb": "Motoren",
+        "title": "Classic Mini Motorspezifikationen",
+        "description": "Detaillierte Motorspezifikationen und technische Daten für alle Classic Mini Motoren von 1959 bis 2000.",
+        "table": {
+          "engine": "Motor",
+          "displacement": "Hubraum",
+          "power": "Leistung",
+          "torque": "Drehmoment",
+          "compression": "Verdichtung",
+          "years": "Jahre",
+          "notes": "Notizen"
+        },
+        "loading": "Motordaten werden geladen...",
+        "error": "Fehler beim Laden der Motordaten. Bitte versuchen Sie es später erneut.",
+        "noData": "Keine Motordaten verfügbar."
+      },
+      "electrical": {
+        "seo": {
+          "title": "Classic Mini Schaltpläne | Verkabelungsdiagramme | Classic Mini DIY",
+          "description": "Vollständige Sammlung von Classic Mini Schaltplänen und Verkabelungsdiagrammen. Laden Sie PDF-Diagramme für alle Mini Modelle von 1959-2000 herunter.",
+          "keywords": "Classic Mini Schaltplan, Schaltplan, Mini Cooper Verkabelung, elektrisches Schema"
+        },
+        "breadcrumb": "Schaltpläne",
+        "title": "Classic Mini Schaltpläne",
+        "description": "Vollständige Sammlung von Schaltplänen und Verkabelungsdiagrammen für Classic Mini Modelle. Laden Sie hochwertige PDF-Diagramme für Ihr Restaurierungsprojekt herunter.",
+        "accordion": {
+          "year": "Jahr: {year}",
+          "model": "Modell: {model}",
+          "type": "Typ: {type}",
+          "pages": "Seiten: {pages}",
+          "fileSize": "Dateigröße: {size}",
+          "lastModified": "Zuletzt geändert: {date}",
+          "download": "PDF herunterladen",
+          "preview": "Vorschau verfügbar"
+        },
+        "loading": "Schaltpläne werden geladen...",
+        "error": "Fehler beim Laden der Schaltpläne. Bitte versuchen Sie es später erneut.",
+        "noData": "Keine Schaltpläne verfügbar.",
+        "downloadError": "Fehler beim Herunterladen des Diagramms. Bitte versuchen Sie es erneut."
+      }
+    },
+    "privacy": {
+      "title": "Datenschutzrichtlinie | Classic Mini DIY",
+      "description": "Classic Mini DIY Datenschutzrichtlinie bezüglich Datensammlung, -speicherung und -nutzung von YouTube API Services. Erfahren Sie, wie wir Ihre Informationen schützen.",
+      "hero_title": "Datenschutzrichtlinie",
+      "hero_subtitle": "Classic Mini DIY",
+      "heading": "Datenschutzrichtlinie",
+      "acceptance_title": "Annahme der Bedingungen",
+      "acceptance_content": "Durch die Nutzung unseres API-Clients stimmen Sie zu, an die",
+      "youtube_privacy_link": "YouTube Datenschutzrichtlinie",
+      "accessibility_title": "Zugänglichkeit",
+      "accessibility_content": "Diese Datenschutzrichtlinie ist für alle Benutzer leicht zugänglich über",
+      "google_privacy_link": "Google Datenschutzrichtlinie",
+      "youtube_api_title": "Nutzung von YouTube API Services",
+      "youtube_api_content": "Unser API-Client nutzt YouTube API Services. Durch die Nutzung unseres API-Clients stimmen Sie der Sammlung, Speicherung und Nutzung Ihrer Daten wie in dieser Richtlinie beschrieben zu.",
+      "data_collection_title": "Datensammlung, -speicherung und -nutzung",
+      "data_collection_content": "Wir sammeln Daten direkt von Ihrem Gerät, um unsere Services bereitzustellen und zu verbessern. Dies umfasst Informationen über Ihr Gerät, IP-Adresse und öffentliche Cookie-Informationen. Wir sammeln keine zusätzlichen persönlichen Daten für unsere Nutzung. Diese Daten werden sicher gespeichert und verwendet, um die Benutzererfahrung zu verbessern und den reibungslosen Betrieb unseres API-Clients sicherzustellen. Außerdem werden keine Daten auf unseren Servern gespeichert und somit jedes Mal gelöscht, wenn Sie Ihren Browser schließen.",
+      "data_processing_title": "Datenverarbeitung und -weitergabe",
+      "data_processing_content": "Wir verarbeiten Ihre Daten, um unsere Services bereitzustellen. Ihre Daten können mit internen und externen Parteien zum Zweck der Verbesserung und Wartung unseres API-Clients geteilt werden. Wir stellen sicher, dass alle externen Parteien unseren strengen Datenschutzrichtlinien entsprechen.",
+      "data_methods_title": "Datensammlungsmethoden",
+      "data_methods_content": "Daten werden durch verschiedene Mittel wie direkte Eingabe, Cookies und andere Tracking-Technologien gesammelt. Dies hilft uns, Benutzerpräferenzen zu verstehen und besseren Service zu bieten.",
+      "contact_title": "Kontaktinformationen",
+      "contact_content": "Kontaktinformationen Wenn Sie Fragen oder Bedenken zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitte unter"
+    },
+    "contact": {
+      "title": "Classic Mini DIY kontaktieren - Hilfe erhalten & Inhalte einreichen",
+      "description": "Kontaktieren Sie Classic Mini DIY für allgemeine Anfragen, Archiv-Einreichungen, technische Beiträge oder Fehlerberichte. Mehrere Wege, um mit unserer Community in Kontakt zu treten.",
+      "hero_title": "Kontakt aufnehmen",
+      "breadcrumb_home": "Startseite",
+      "breadcrumb_contact": "Kontakt",
+      "general_inquiries_title": "Allgemeine Anfragen",
+      "general_inquiries_description": "Fragen zur Website, Classic Mini Besitz oder allgemeine Hilfe? Wir würden gerne von Ihnen hören.",
+      "email_label": "E-Mail",
+      "ai_chat_label": "KI-Chat-Assistent",
+      "ai_chat_description": "Nutzen Sie das Chat-Widget für schnelle Fragen",
+      "response_time_label": "Antwortzeit",
+      "response_time_description": "Normalerweise innerhalb von 24-48 Stunden",
+      "archive_submissions_title": "Archiv-Einreichungen",
+      "archive_submissions_description": "Haben Sie historische Dokumente, Fotos oder Geschichten zu teilen? Helfen Sie dabei, die Classic Mini Geschichte zu bewahren.",
+      "what_to_include_label": "Was einzuschließen ist",
+      "what_to_include_description": "Fotos, Dokumente, Geschichten oder historische Informationen",
+      "rights_attribution_label": "Rechte & Zuordnung",
+      "rights_attribution_description": "Bitte bestätigen Sie, dass Sie besitzen oder die Erlaubnis zum Teilen haben",
+      "technical_submissions_title": "Technische Einreichungen",
+      "technical_submissions_description": "Teilen Sie Reparaturanleitungen, technische Spezifikationen oder Wartungstipps mit der Community.",
+      "content_types_label": "Inhaltstypen",
+      "content_types_description": "Reparaturanleitungen, Spezifikationen, Tipps, Teilenummern",
+      "credit_label": "Anerkennung",
+      "credit_description": "Wir werden Sie als Beitragenden anerkennen",
+      "bug_reports_title": "Fehlerberichte",
+      "bug_reports_description": "Ein Problem mit der Website gefunden? Helfen Sie uns, es zu beheben, indem Sie Fehler und Probleme melden.",
+      "include_details_label": "Details einschließen",
+      "include_details_description": "Browser, Gerät, Schritte zur Reproduktion",
+      "priority_label": "Priorität",
+      "priority_description": "Kritische Fehler werden innerhalb von 24 Stunden behoben",
+      "other_ways_connect": "Andere Wege zu verbinden",
+      "community_forum_label": "Community-Forum",
+      "community_forum_description": "Treten Sie Diskussionen mit anderen Enthusiasten bei",
+      "support_patreon_label": "Auf Patreon unterstützen",
+      "support_patreon_description": "Helfen Sie dabei, die Website am Laufen zu halten",
+      "support_patreon_button": "Auf Patreon unterstützen"
     }
   }
 }

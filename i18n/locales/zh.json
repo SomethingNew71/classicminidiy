@@ -27,6 +27,22 @@
     "home_title": "Classic Mini DIY",
     "home_subtitle": "您友好的邻里"
   },
+  "components": {
+    "stats": {
+      "minutes_watched": "观看时长",
+      "over_30_days": "过去30天",
+      "subscribers": "订阅者",
+      "across_world": "全世界",
+      "videos": "视频",
+      "since_2015": "自2015年"
+    },
+    "recent_videos": {
+      "title": "最新视频",
+      "error_message": "无法加载YouTube数据",
+      "published_on": "发布于",
+      "watch_button": "观看"
+    }
+  },
   "pages": {
     "home": {
       "title": "Classic Mini DIY | 您友好的Classic Mini邻里资源",
@@ -158,22 +174,6 @@
         "subtitle": "支持您需要的ECU"
       },
       "otherSupport": "其他支持方式"
-    }
-  },
-  "components": {
-    "stats": {
-      "minutes_watched": "观看时长",
-      "over_30_days": "过去30天",
-      "subscribers": "订阅者",
-      "across_world": "全世界",
-      "videos": "视频",
-      "since_2015": "自2015年"
-    },
-    "recent_videos": {
-      "title": "最新视频",
-      "error_message": "无法加载YouTube数据",
-      "published_on": "发布于",
-      "watch_button": "观看"
     }
   }
 }
