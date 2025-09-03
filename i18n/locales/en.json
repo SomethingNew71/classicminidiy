@@ -198,6 +198,55 @@
       },
       "otherSupport": "Other ways to support"
     },
+    "archive": {
+      "title": "Classic Mini Archives: Explore Historical Documents & Resources",
+      "description": "Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources. Preserved digital collection for Mini enthusiasts and restorers.",
+      "keywords": "Classic Mini archives, Mini Cooper manuals, Mini registry, historical documents, Mini restoration, vintage Mini resources, classic car archives",
+      "hero_title": "Classic Mini Archives",
+      "hero_subtitle": "Preserving Classic Mini Heritage",
+      "ogTitle": "Classic Mini Archives: Explore Historical Documents & Resources",
+      "ogDescription": "Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources. Preserved digital collection for Mini enthusiasts and restorers.",
+      "twitterTitle": "Classic Mini Archives: Explore Historical Documents & Resources",
+      "twitterDescription": "Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources.",
+      "page_subtitle": "PRESERVING CLASSIC MINI HERITAGE",
+      "page_title": "The Classic Mini Archive",
+      "welcome_text": "Welcome to the Classic Mini Archives. Here you will find a collection of manuals, collections, guides, and other resources to help you with your classic mini projects. I will be expanding this archive over time to help fill the gaps left by sites slowly going offline.",
+      "maintenance_text": "Its taken many hours of backwards engineering and reworking these services to make sure they don't die out. If you see any issues, or any areas of improvement please let me know!",
+      "add_to_archive": "Add to Archive",
+      "cover_server_costs": "Cover Server Costs",
+      "coming_soon": "Coming Soon!",
+      "support_section": "Support",
+      "breadcrumb_subtitle": "PRESERVING CLASSIC MINI HERITAGE",
+      "main_heading": "The Classic Mini Archive",
+      "description_text": "Welcome to the Classic Mini Archives. Here you will find a collection of manuals, collections, guides, and other resources to help you with your classic mini projects. I will be expanding this archive over time to help fill the gaps left by sites slowly going offline.",
+      "maintenance_description": "Its taken many hours of backwards engineering and reworking these services to make sure they don't die out. If you see any issues, or any areas of improvement please let me know!",
+      "structured_data": {
+        "collection_name": "Classic Mini Archives",
+        "collection_description": "A comprehensive digital archive of Classic Mini documents, manuals, registries, and historical resources preserved for enthusiasts and restorers."
+      }
+    },
+    "technical": {
+      "title": "Classic Mini Technical Toolbox | DIY Calculators & Specifications",
+      "description": "Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.",
+      "keywords": "Classic Mini technical tools, Mini Cooper specifications, SU needle chart, compression calculator, torque specs, DIY Mini maintenance, technical reference",
+      "hero_title": "Classic Mini Technical Toolbox",
+      "hero_subtitle": "Keeping Minis Driving",
+      "ogTitle": "Classic Mini Technical Toolbox | DIY Calculators & Specifications",
+      "ogDescription": "Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.",
+      "twitterTitle": "Classic Mini Technical Toolbox",
+      "twitterDescription": "DIY technical tools and specifications for Classic Mini maintenance and upgrades.",
+      "structured_data": {
+        "name": "Classic Mini Technical Toolbox",
+        "description": "Collection of technical tools, calculators, and specifications for Classic Mini maintenance and upgrades."
+      },
+      "page_subtitle": "KEEPING MINIS DRIVING",
+      "page_title": "The Technical Toolbox",
+      "welcome_text": "One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need is at your fingertips.",
+      "support_section": "Support",
+      "breadcrumb_subtitle": "KEEPING MINIS DRIVING",
+      "main_heading": "The Technical Toolbox",
+      "description_text": "One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need is at your fingertips."
+    },
     "contact": {
       "title": "Contact Classic Mini DIY - Get Help & Submit Content",
       "description": "Contact Classic Mini DIY for general inquiries, archive submissions, technical contributions, or bug reports. Multiple ways to get in touch with our community.",
