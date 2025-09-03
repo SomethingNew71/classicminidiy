@@ -230,7 +230,31 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-llms',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'es', name: 'Spanish', file: 'es.json' },
+      { code: 'fr', name: 'French', file: 'fr.json' },
+      { code: 'de', name: 'German', file: 'de.json' },
+      { code: 'it', name: 'Italian', file: 'it.json' },
+      { code: 'pt', name: 'Portuguese', file: 'pt.json' },
+      { code: 'ru', name: 'Russian', file: 'ru.json' },
+      { code: 'ja', name: 'Japanese', file: 'ja.json' },
+      { code: 'zh', name: 'Chinese', file: 'zh.json' },
+      { code: 'ko', name: 'Korean', file: 'ko.json' },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+      alwaysRedirect: false,
+      fallbackLocale: 'en',
+    },
+  },
 
   content: {
     database: {

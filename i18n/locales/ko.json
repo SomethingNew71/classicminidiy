@@ -1,0 +1,89 @@
+{
+  "common": {
+    "home": "홈",
+    "archive": "아카이브",
+    "technical": "기술적",
+    "toolbox": "도구상자",
+    "calculators": "계산기",
+    "contact": "연락처",
+    "about": "소개",
+    "search": "검색",
+    "loading": "로딩 중...",
+    "error": "오류",
+    "submit": "제출",
+    "cancel": "취소",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "close": "닫기",
+    "donate": "기부",
+    "contribute": "기여"
+  },
+  "navigation": {
+    "main_menu": "메인 메뉴",
+    "breadcrumb": "브레드크럼"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "당신의 친근한 동네"
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | Classic Mini를 위한 친근한 동네 리소스",
+      "description": "Classic Mini DIY - Classic Mini 복원, 유지보수 및 개조를 위한 완전한 리소스. DIY 튜토리얼, 기술 가이드 및 커뮤니티 지원.",
+      "mission": {
+        "title": "미니 미션",
+        "heading": "클래식을 도로에서 유지하기",
+        "content": "Classic Mini DIY는 2015년 제 작은 차고 워크샵에서 시작되었습니다. 저는 항상 두 가지에 집중합니다: 당신의 Classic Mini를 도로에서 유지하는 것과 모든 기술 수준에서 DIY 자동차 작업을 접근 가능하게 만드는 것입니다. 저는 DIY 비디오와 튜토리얼을 만들어 당신의 Classic Mini에서 다양한 작업을 완료하는 방법을 정확히 보여줍니다. 또한 세계적 수준의 제조업체와 파트너십을 맺어 당신의 Classic Mini를 맞춤화하고 성능을 보장하는 최고급 제품을 제공합니다."
+      },
+      "support": {
+        "title": "미션 지원",
+        "heading": "지원",
+        "content": "Classic Mini DIY는 시청자들의 지원을 받습니다. 채널을 살려두는 데 도움을 주고 싶다면 Patreon에서 지원을 고려하거나, JS와 현대 웹 기술에 대한 기술이 있다면 github에서 오픈 소스 코드베이스 지원을 고려해 주세요."
+      },
+      "toolbox": {
+        "title": "완전 무료",
+        "heading": "Classic Mini 도구상자",
+        "subtitle": "DIY 정비사를 위한 툴킷",
+        "content": "이 채널을 시작한 가장 큰 이유 중 하나는 당신의 Mini Cooper 작업과 관련된 정보를 더 접근 가능하게 만드는 것이었습니다. 이 목표를 위해 Classic Mini 도구상자를 만들었습니다. 웹 전체의 정보를 결합하여 필요한 모든 것을 찾을 수 있는 한 곳을 제공합니다.",
+        "button": "도구상자 열기"
+      },
+      "patreon": {
+        "title": "채널 지원",
+        "heading": "Patreon 되기",
+        "content": "Classic Mini DIY는 시청자들의 지원을 받는 완전 무료 리소스입니다. 채널을 살려두는 데 도움을 주고 싶다면 Patreon에서 지원을 고려해 주세요.",
+        "button": "멤버 되기",
+        "benefits": {
+          "title": "멤버십 포함 사항",
+          "discord": "라이브 DIY 채팅 액세스",
+          "early_access": "비디오 조기 액세스",
+          "gifts": "무료 선물 및 상품",
+          "insider": "내부자 정보 등등..."
+        }
+      },
+      "about": {
+        "title": "저에 대해",
+        "name": "제 이름은 콜입니다",
+        "bio": "저는 금융 업계에서 일하는 {age}세 웹 개발자입니다. 자동차 업계에서의 제 경험은 2년간의 중장비 디젤 기계 훈련과 8년간의 Classic Mini 소유 경험에서 나옵니다. 이러한 경험으로 제가 할 수 있는 가장 포괄적이고 기술적으로 정확한 정보를 제공하기 위해 최선을 다합니다.",
+        "promise_title": "제 약속",
+        "promise": "저는 제 능력 범위 내에서 제가 할 수 있는 모든 지식을 제공할 것입니다. 또한 제가 뭔가 잘못했을 경우 피드백을 받아들일 것입니다. 저는 애호가이지 완전한 전문가가 아니므로 때때로 실수를 할 것입니다."
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "시청 시간",
+      "over_30_days": "지난 30일간",
+      "subscribers": "구독자",
+      "across_world": "전 세계에서",
+      "videos": "비디오",
+      "since_2015": "2015년부터"
+    },
+    "recent_videos": {
+      "title": "최근 비디오",
+      "error_message": "YouTube 데이터를 로드할 수 없습니다",
+      "published_on": "게시일",
+      "watch_button": "시청"
+    }
+  }
+}

@@ -60,6 +60,7 @@
           >
         </li>
       </ul>
+      <LanguageSwitcher />
       <a class="btn donate" href="https://patreon.com/classicminidiy"> <i class="fab fa-patreon"></i>Join CMDIY</a>
     </div>
     <div class="navbar-end lg:hidden">
@@ -99,6 +100,11 @@
             <nuxt-link to="/chat" :class="{ active: isActive('/chat') }" @click="closeMobileDropdown">
               <span><i class="fad fa-comments"></i></span> Chat</nuxt-link
             >
+          </li>
+          <li class="border-t pt-2 mt-2">
+            <div class="px-4 py-2">
+              <LanguageSwitcher />
+            </div>
           </li>
         </ul>
       </div>

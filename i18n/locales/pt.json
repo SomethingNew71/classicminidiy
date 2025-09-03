@@ -1,0 +1,89 @@
+{
+  "common": {
+    "home": "Início",
+    "archive": "Arquivo",
+    "technical": "Técnico",
+    "toolbox": "Caixa de ferramentas",
+    "calculators": "Calculadoras",
+    "contact": "Contato",
+    "about": "Sobre",
+    "search": "Pesquisar",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "close": "Fechar",
+    "donate": "Doar",
+    "contribute": "Contribuir"
+  },
+  "navigation": {
+    "main_menu": "Menu principal",
+    "breadcrumb": "Breadcrumb"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "SEU BAIRRO AMIGÁVEL"
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | Seu Recurso Amigável de Bairro para Classic Mini",
+      "description": "Classic Mini DIY - Seu recurso completo para restauração, manutenção e modificação de Classic Mini. Tutoriais DIY, guias técnicos e suporte da comunidade.",
+      "mission": {
+        "title": "A MISSÃO MINI",
+        "heading": "Mantendo os Clássicos na Estrada",
+        "content": "Classic Mini DIY começou na minha pequena oficina da garagem em 2015. Sempre me concentro em duas coisas: manter seu Classic Mini na estrada e tornar o trabalho DIY automotivo acessível para todos os níveis de habilidade. Faço vídeos DIY e tutoriais mostrando exatamente como completar uma ampla gama de trabalhos em seu Classic Mini. Também faço parceria com fabricantes de classe mundial para entregar produtos de primeira linha para personalizar e garantir o desempenho do seu Classic Mini."
+      },
+      "support": {
+        "title": "APOIE A MISSÃO",
+        "heading": "Apoio",
+        "content": "Classic Mini DIY é apoiado por nossos espectadores. Se você está interessado em ajudar a manter o canal vivo, considere apoiar no Patreon ou se você tem habilidades em JS e tecnologias web modernas, considere apoiar a base de código open source no github."
+      },
+      "toolbox": {
+        "title": "A COMPLETAMENTE GRATUITA",
+        "heading": "Caixa de Ferramentas Classic Mini",
+        "subtitle": "O TOOLKIT PARA O MECÂNICO DIY",
+        "content": "Uma das maiores razões para começar este canal foi tornar as informações relacionadas ao trabalho em seu Mini Cooper mais acessíveis. A serviço deste objetivo, criei a Caixa de Ferramentas Classic Mini. Combinando informações de toda a web para trazer a você um local para encontrar tudo que você precisa.",
+        "button": "Abrir a caixa de ferramentas"
+      },
+      "patreon": {
+        "title": "APOIE O CANAL",
+        "heading": "Torne-se um Patreon",
+        "content": "Classic Mini DIY é um recurso completamente gratuito apoiado por nossos espectadores. Se você está interessado em ajudar a manter o canal vivo, considere apoiar no Patreon.",
+        "button": "Torne-se Membro",
+        "benefits": {
+          "title": "A Associação Inclui",
+          "discord": "Acesso ao Chat DIY ao Vivo",
+          "early_access": "Acesso Antecipado a vídeos",
+          "gifts": "Presentes gratuitos e mercadorias",
+          "insider": "Informações privilegiadas e muito mais..."
+        }
+      },
+      "about": {
+        "title": "Sobre Mim",
+        "name": "MEU NOME É COLE",
+        "bio": "Sou um Desenvolvedor Web de {age} anos trabalhando na indústria financeira. Minha experiência na indústria automotiva vem de 2 anos de treinamento em maquinário diesel pesado e 8 anos de propriedade de Classic Mini. Com esta experiência, faço o meu melhor para fornecer as informações mais abrangentes e tecnicamente corretas que posso.",
+        "promise_title": "MINHA PROMESSA",
+        "promise": "Fornecerei todo o conhecimento que posso com o melhor de minha capacidade. Também aceitarei feedback no caso de eu errar algo. Sou um entusiasta e não um especialista completo, então de tempos em tempos cometerei erros."
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minutos Assistidos",
+      "over_30_days": "nos últimos 30 dias",
+      "subscribers": "Inscritos",
+      "across_world": "em todo o mundo",
+      "videos": "Vídeos",
+      "since_2015": "desde 2015"
+    },
+    "recent_videos": {
+      "title": "Vídeos Recentes",
+      "error_message": "Não é possível carregar dados do YouTube",
+      "published_on": "Publicado em",
+      "watch_button": "Assistir"
+    }
+  }
+}

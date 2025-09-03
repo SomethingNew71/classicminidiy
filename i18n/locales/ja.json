@@ -1,0 +1,89 @@
+{
+  "common": {
+    "home": "ホーム",
+    "archive": "アーカイブ",
+    "technical": "技術的",
+    "toolbox": "ツールボックス",
+    "calculators": "計算機",
+    "contact": "お問い合わせ",
+    "about": "について",
+    "search": "検索",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "submit": "送信",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "delete": "削除",
+    "edit": "編集",
+    "close": "閉じる",
+    "donate": "寄付",
+    "contribute": "貢献"
+  },
+  "navigation": {
+    "main_menu": "メインメニュー",
+    "breadcrumb": "パンくずリスト"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "あなたの親しみやすい近所"
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | Classic Miniのための親しみやすい近所のリソース",
+      "description": "Classic Mini DIY - Classic Miniの復元、メンテナンス、改造のための完全なリソース。DIYチュートリアル、技術ガイド、コミュニティサポート。",
+      "mission": {
+        "title": "ミニミッション",
+        "heading": "クラシックを道路で維持する",
+        "content": "Classic Mini DIYは2015年に私の小さなガレージワークショップで始まりました。私は常に2つのことに焦点を当てています：あなたのClassic Miniを道路で維持することと、すべてのスキルレベルでDIY自動車作業をアクセシブルにすることです。私はDIYビデオとチュートリアルを作成し、あなたのClassic Miniで幅広い作業を完了する方法を正確に示しています。また、世界クラスのメーカーと提携して、あなたのClassic Miniをカスタマイズし、パフォーマンスを確保するための一流の製品を提供しています。"
+      },
+      "support": {
+        "title": "ミッションをサポート",
+        "heading": "サポート",
+        "content": "Classic Mini DIYは視聴者によってサポートされています。チャンネルを生き続けるのを助けることに興味がある場合は、Patreonでのサポートを検討するか、JSと現代のWeb技術のスキルがある場合は、githubでオープンソースコードベースのサポートを検討してください。"
+      },
+      "toolbox": {
+        "title": "完全に無料",
+        "heading": "Classic Miniツールボックス",
+        "subtitle": "DIYメカニックのためのツールキット",
+        "content": "このチャンネルを始めた最大の理由の1つは、あなたのMini Cooperでの作業に関連する情報をよりアクセシブルにすることでした。この目標に奉仕するために、私はClassic Miniツールボックスを作成しました。Web全体からの情報を組み合わせて、必要なすべてを見つけるための1つの場所をお届けします。",
+        "button": "ツールボックスを開く"
+      },
+      "patreon": {
+        "title": "チャンネルをサポート",
+        "heading": "Patreonになる",
+        "content": "Classic Mini DIYは視聴者によってサポートされている完全に無料のリソースです。チャンネルを生き続けるのを助けることに興味がある場合は、Patreonでのサポートを検討してください。",
+        "button": "メンバーになる",
+        "benefits": {
+          "title": "メンバーシップに含まれるもの",
+          "discord": "ライブDIYチャットへのアクセス",
+          "early_access": "ビデオへの早期アクセス",
+          "gifts": "無料ギフトと商品",
+          "insider": "インサイダー情報など..."
+        }
+      },
+      "about": {
+        "title": "私について",
+        "name": "私の名前はコール",
+        "bio": "私は金融業界で働く{age}歳のWeb開発者です。自動車業界での私の経験は、2年間の重機ディーゼル機械のトレーニングと8年間のClassic Mini所有から来ています。この経験により、私ができる限り包括的で技術的に正確な情報を提供するよう最善を尽くしています。",
+        "promise_title": "私の約束",
+        "promise": "私は自分の能力の範囲内で、できる限りのすべての知識を提供します。また、何かを間違えた場合にはフィードバックを受け入れます。私は愛好家であり、完全な専門家ではないので、時々間違いを犯すことがあります。"
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "視聴時間",
+      "over_30_days": "過去30日間",
+      "subscribers": "登録者",
+      "across_world": "世界中で",
+      "videos": "動画",
+      "since_2015": "2015年から"
+    },
+    "recent_videos": {
+      "title": "最新動画",
+      "error_message": "YouTubeデータを読み込めません",
+      "published_on": "公開日",
+      "watch_button": "視聴"
+    }
+  }
+}

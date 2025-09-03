@@ -1,0 +1,89 @@
+{
+  "common": {
+    "home": "Home",
+    "archive": "Archive",
+    "technical": "Technical",
+    "toolbox": "Toolbox",
+    "calculators": "Calculators",
+    "contact": "Contact",
+    "about": "About",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "Error",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "donate": "Donate",
+    "contribute": "Contribute"
+  },
+  "navigation": {
+    "main_menu": "Main Menu",
+    "breadcrumb": "Breadcrumb"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "YOUR FRIENDLY NEIGHBORHOOD"
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | Your Friendly Neighborhood Classic Mini Resource",
+      "description": "Classic Mini DIY - Your complete resource for Classic Mini restoration, maintenance, and modification. DIY tutorials, technical guides, and community support.",
+      "mission": {
+        "title": "THE MINI MISSION",
+        "heading": "Keeping the Classics on the Road",
+        "content": "Classic Mini DIY started out of my small driveway workshop in 2015. I always focus on two things: keeping your Classic Mini on the road and making DIY car work accessible for all skill levels. I make DIY videos and tutorials showing exactly how to complete a wide range of jobs on your Classic Mini. I also partner with world-class manufacturers to deliver top-of-the-line products to personalize and ensure the performance of your Classic Mini."
+      },
+      "support": {
+        "title": "SUPPORT THE MISSION",
+        "heading": "Support",
+        "content": "Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon or if you have skills in JS and modern web technologies, please consider supporting the open source codebase on github."
+      },
+      "toolbox": {
+        "title": "THE COMPLETELY FREE",
+        "heading": "Classic Mini Toolbox",
+        "subtitle": "THE TOOLKIT FOR THE DIY MECHANIC",
+        "content": "One of the largest reasons for starting this channel, was about making infromation related to working your Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining information from all over the web to bring you one location to find anything you need.",
+        "button": "Open the toolbox"
+      },
+      "patreon": {
+        "title": "SUPPORT THE CHANNEL",
+        "heading": "Become a Patreon",
+        "content": "Classic Mini DIY is completely free resource supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon.",
+        "button": "Become a Member",
+        "benefits": {
+          "title": "Membership Includes",
+          "discord": "Access to Live DIY Chat",
+          "early_access": "Early Access to videos",
+          "gifts": "Free gifts and merch",
+          "insider": "Insider information and much more..."
+        }
+      },
+      "about": {
+        "title": "About Me",
+        "name": "MY NAME IS COLE",
+        "bio": "I am a {age}-year-old Web Developer working in the financial industry. My experience in the automotive industry comes from 2 years of training on heavy diesel machinery and 8 years of Classic Mini ownership. With this experience, I do my best to provide the most comprehensive and technically correct information I can.",
+        "promise_title": "MY PROMISE",
+        "promise": "I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to time I will make mistakes."
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minutes Watched",
+      "over_30_days": "over the last 30 days",
+      "subscribers": "Subscribers",
+      "across_world": "across the world",
+      "videos": "Videos",
+      "since_2015": "since 2015"
+    },
+    "recent_videos": {
+      "title": "Recent Videos",
+      "error_message": "Unable to load youtube data",
+      "published_on": "Published on",
+      "watch_button": "Watch"
+    }
+  }
+}
