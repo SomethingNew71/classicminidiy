@@ -1,19 +1,19 @@
 <script lang="ts" setup>
   import { ToolboxItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
+  const { t } = useI18n();
+
   useHead({
-    title: 'Classic Mini Technical Toolbox | DIY Calculators & Specifications',
+    title: t('pages.technical.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          'Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.',
+        content: t('pages.technical.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content:
-          'Classic Mini technical tools, Mini Cooper specifications, SU needle chart, compression calculator, torque specs, DIY Mini maintenance, technical reference',
+        content: t('pages.technical.keywords'),
       },
     ],
     link: [
@@ -29,15 +29,14 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Classic Mini Technical Toolbox | DIY Calculators & Specifications',
-    ogDescription:
-      'Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.',
+    ogTitle: t('pages.technical.ogTitle'),
+    ogDescription: t('pages.technical.ogDescription'),
     ogUrl: 'https://classicminidiy.com/technical',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Technical Toolbox',
-    twitterDescription: 'DIY technical tools and specifications for Classic Mini maintenance and upgrades.',
+    twitterTitle: t('pages.technical.twitterTitle'),
+    twitterDescription: t('pages.technical.twitterDescription'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical.png',
   });
 
@@ -45,9 +44,8 @@
   const toolboxJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Classic Mini Technical Toolbox',
-    description:
-      'Collection of technical tools, calculators, and specifications for Classic Mini maintenance and upgrades.',
+    name: t('pages.technical.structured_data.name'),
+    description: t('pages.technical.structured_data.description'),
     url: 'https://classicminidiy.com/technical',
     itemListElement: ToolboxItems.map((item, index) => ({
       '@type': 'ListItem',
@@ -71,25 +69,21 @@
 <template>
   <hero
     :navigation="true"
-    :title="'Technical Toolbox'"
+    :titleKey="'pages.technical.hero_title'"
     textSize="text-3xl"
-    subtitle="Keeping Minis Driving"
+    :subtitleKey="'pages.technical.hero_subtitle'"
     :heroType="HERO_TYPES.TECH"
   />
   <div class="container mx-auto px-4 pb-15 pt-6">
     <div class="grid grid-cols-1 gap-4">
       <div class="col-span-1 text-center">
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" root></breadcrumb>
-        <h2 class="fancy-font-book-oblique">KEEPING MINIS DRIVING</h2>
-        <h3 class="fancy-font-bold text-2xl">The Technical Toolbox</h3>
+        <h2 class="fancy-font-book-oblique">{{ t('pages.technical.breadcrumb_subtitle') }}</h2>
+        <h3 class="fancy-font-bold text-2xl">{{ t('pages.technical.main_heading') }}</h3>
       </div>
       <div class="col-span-1 text-center">
         <p class="text-lg py-5">
-          One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car.
-          So to make this easier for you, I have collected technical information from various sources and consolidated
-          it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and
-          troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need
-          is at your fingertips.
+          {{ t('pages.technical.description_text') }}
         </p>
       </div>
     </div>
@@ -105,7 +99,7 @@
     </div>
     <div class="grid grid-cols-12 gap-4 mt-6">
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">Support</div>
+        <div class="divider">{{ t('pages.technical.support_section') }}</div>
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />

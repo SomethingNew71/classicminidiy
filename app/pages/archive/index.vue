@@ -2,22 +2,21 @@
   import { ArchiveItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   import { ARCHIVE_TYPES, submitArchiveFile, TRACKING_EVENTS, trackStuff } from '../../../data/models/helper-utils';
   const { path } = useRoute();
+  const { t } = useI18n();
 
   // Enhanced SEO metadata
   useHead({
-    title: 'Classic Mini Archives: Explore Historical Documents & Resources',
+    title: t('pages.archive.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources. Preserved digital collection for Mini enthusiasts and restorers.',
+        content: t('pages.archive.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content:
-          'Classic Mini archives, Mini Cooper manuals, Mini registry, historical documents, Mini restoration, vintage Mini resources, classic car archives',
+        content: t('pages.archive.keywords'),
       },
     ],
     link: [
@@ -33,16 +32,14 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Classic Mini Archives: Explore Historical Documents & Resources',
-    ogDescription:
-      'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources. Preserved digital collection for Mini enthusiasts and restorers.',
+    ogTitle: t('pages.archive.ogTitle'),
+    ogDescription: t('pages.archive.ogDescription'),
     ogUrl: 'https://classicminidiy.com/archive',
     ogType: 'website',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive.png',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Archives: Explore Historical Documents & Resources',
-    twitterDescription:
-      'Access our comprehensive Classic Mini archives with historical documents, manuals, registries, and resources.',
+    twitterTitle: t('pages.archive.twitterTitle'),
+    twitterDescription: t('pages.archive.twitterDescription'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive.png',
   });
 
@@ -79,31 +76,28 @@
 <template>
   <hero
     :navigation="true"
-    :title="'Archives'"
+    :titleKey="'pages.archive.hero_title'"
     textSize="text-3xl"
-    subtitle="Preserving Classic Mini Heritage"
+    :subtitleKey="'pages.archive.hero_subtitle'"
     :heroType="HERO_TYPES.ARCHIVE"
   />
   <div class="container mx-auto px-4 pb-15 pt-6">
     <div class="grid grid-cols-1 gap-4">
       <div class="col-span-1 text-center">
         <breadcrumb :version="BREADCRUMB_VERSIONS.ARCHIVE" root></breadcrumb>
-        <h2 class="fancy-font-book-oblique">PRESERVING CLASSIC MINI HERITAGE</h2>
-        <h3 class="fancy-font-bold text-2xl">The Classic Mini Archive</h3>
+        <h2 class="fancy-font-book-oblique">{{ t('pages.archive.breadcrumb_subtitle') }}</h2>
+        <h3 class="fancy-font-bold text-2xl">{{ t('pages.archive.main_heading') }}</h3>
       </div>
       <div class="col-span-1 text-center">
         <p class="text-lg py-5">
-          Welcome to the Classic Mini Archives. Here you will find a collection of manuals, collections, guides, and
-          other resources to help you with your classic mini projects. I will be expanding this archive over time to
-          help fill the gaps left by sites slowly going offline.
+          {{ t('pages.archive.description_text') }}
         </p>
         <p class="text-lg pb-5">
-          Its taken many hours of backwards engineering and reworking these services to make sure they don't die out. If
-          you see any issues, or any areas of improvement please let me know!
+          {{ t('pages.archive.maintenance_description') }}
         </p>
         <button class="btn btn-primary mr-3 text-lg" target="_blank" @click="submitArchiveFile(ARCHIVE_TYPES.GENERIC)">
           <i class="fa-duotone fa-paper-plane mr-2"></i>
-          Add to Archive
+          {{ t('pages.archive.add_to_archive') }}
         </button>
         <a
           class="btn btn-secondary mr-3 text-lg"
@@ -112,7 +106,7 @@
           @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
         >
           <i class="fa-duotone fa-hand-holding-circle-dollar mr-2"></i>
-          Cover Server Costs
+          {{ t('pages.archive.cover_server_costs') }}
         </a>
       </div>
     </div>
@@ -120,7 +114,7 @@
       <div v-for="archive in ArchiveItems" class="col-span-1">
         <template v-if="archive.disabled">
           <div class="card bg-base-100 shadow-xl text-center p-5 h-full opacity-50 cursor-not-allowed">
-            <p class="text-xs text-right">Coming Soon!</p>
+            <p class="text-xs text-right">{{ t('pages.archive.coming_soon') }}</p>
             <span class="text-4xl block" v-html="archive.iconHtml"> </span>
             <div class="card-body p-2">
               <p class="text-lg">{{ archive.title }}</p>
@@ -138,7 +132,7 @@
     </div>
     <div class="grid grid-cols-12 gap-4 mt-6">
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">Support</div>
+        <div class="divider">{{ t('pages.archive.support_section') }}</div>
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />
