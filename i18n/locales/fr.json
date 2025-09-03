@@ -1,0 +1,89 @@
+{
+  "common": {
+    "home": "Accueil",
+    "archive": "Archive",
+    "technical": "Technique",
+    "toolbox": "Boîte à outils",
+    "calculators": "Calculatrices",
+    "contact": "Contact",
+    "about": "À propos",
+    "search": "Rechercher",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "donate": "Faire un don",
+    "contribute": "Contribuer"
+  },
+  "navigation": {
+    "main_menu": "Menu principal",
+    "breadcrumb": "Fil d'Ariane"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "VOTRE QUARTIER AMICAL"
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | Votre Ressource Amicale de Quartier pour Classic Mini",
+      "description": "Classic Mini DIY - Votre ressource complète pour la restauration, l'entretien et la modification de Classic Mini. Tutoriels DIY, guides techniques et support communautaire.",
+      "mission": {
+        "title": "LA MISSION MINI",
+        "heading": "Garder les Classiques sur la Route",
+        "content": "Classic Mini DIY a commencé dans mon petit atelier d'allée en 2015. Je me concentre toujours sur deux choses : garder votre Classic Mini sur la route et rendre le travail automobile DIY accessible à tous les niveaux de compétence. Je fais des vidéos DIY et des tutoriels montrant exactement comment accomplir une large gamme de travaux sur votre Classic Mini. Je m'associe également avec des fabricants de classe mondiale pour livrer des produits de première ligne pour personnaliser et assurer les performances de votre Classic Mini."
+      },
+      "support": {
+        "title": "SOUTENIR LA MISSION",
+        "heading": "Soutien",
+        "content": "Classic Mini DIY est soutenu par nos spectateurs. Si vous êtes intéressé à aider à maintenir la chaîne en vie, considérez soutenir sur Patreon ou si vous avez des compétences en JS et technologies web modernes, veuillez considérer soutenir la base de code open source sur github."
+      },
+      "toolbox": {
+        "title": "LA COMPLÈTEMENT GRATUITE",
+        "heading": "Boîte à Outils Classic Mini",
+        "subtitle": "LA BOÎTE À OUTILS POUR LE MÉCANICIEN DIY",
+        "content": "L'une des plus grandes raisons de commencer cette chaîne était de rendre l'information liée au travail sur votre Mini Cooper plus accessible. Au service de cet objectif, j'ai créé la Boîte à Outils Classic Mini. Combinant des informations de partout sur le web pour vous apporter un endroit où trouver tout ce dont vous avez besoin.",
+        "button": "Ouvrir la boîte à outils"
+      },
+      "patreon": {
+        "title": "SOUTENIR LA CHAÎNE",
+        "heading": "Devenir un Patreon",
+        "content": "Classic Mini DIY est une ressource complètement gratuite soutenue par nos spectateurs. Si vous êtes intéressé à aider à maintenir la chaîne en vie, considérez soutenir sur Patreon.",
+        "button": "Devenir Membre",
+        "benefits": {
+          "title": "L'Adhésion Inclut",
+          "discord": "Accès au Chat DIY en Direct",
+          "early_access": "Accès Anticipé aux vidéos",
+          "gifts": "Cadeaux gratuits et marchandises",
+          "insider": "Informations privilégiées et bien plus..."
+        }
+      },
+      "about": {
+        "title": "À Propos de Moi",
+        "name": "MON NOM EST COLE",
+        "bio": "Je suis un Développeur Web de {age} ans travaillant dans l'industrie financière. Mon expérience dans l'industrie automobile vient de 2 ans de formation sur la machinerie diesel lourde et 8 ans de propriété de Classic Mini. Avec cette expérience, je fais de mon mieux pour fournir l'information la plus complète et techniquement correcte que je peux.",
+        "promise_title": "MA PROMESSE",
+        "promise": "Je vous fournirai toutes les connaissances que je peux au meilleur de mes capacités. J'accepterai également les commentaires dans le cas où je me trompe sur quelque chose. Je suis un passionné et non un expert complet, donc de temps en temps je ferai des erreurs."
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minutes Regardées",
+      "over_30_days": "au cours des 30 derniers jours",
+      "subscribers": "Abonnés",
+      "across_world": "à travers le monde",
+      "videos": "Vidéos",
+      "since_2015": "depuis 2015"
+    },
+    "recent_videos": {
+      "title": "Vidéos Récentes",
+      "error_message": "Impossible de charger les données YouTube",
+      "published_on": "Publié le",
+      "watch_button": "Regarder"
+    }
+  }
+}

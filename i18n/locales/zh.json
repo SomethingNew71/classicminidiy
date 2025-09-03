@@ -1,0 +1,89 @@
+{
+  "common": {
+    "home": "首页",
+    "archive": "档案",
+    "technical": "技术",
+    "toolbox": "工具箱",
+    "calculators": "计算器",
+    "contact": "联系",
+    "about": "关于",
+    "search": "搜索",
+    "loading": "加载中...",
+    "error": "错误",
+    "submit": "提交",
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭",
+    "donate": "捐赠",
+    "contribute": "贡献"
+  },
+  "navigation": {
+    "main_menu": "主菜单",
+    "breadcrumb": "面包屑导航"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "您友好的邻里"
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | 您友好的Classic Mini邻里资源",
+      "description": "Classic Mini DIY - 您的Classic Mini修复、维护和改装完整资源。DIY教程、技术指南和社区支持。",
+      "mission": {
+        "title": "迷你使命",
+        "heading": "保持经典在路上",
+        "content": "Classic Mini DIY始于2015年我的小车库工作室。我始终专注于两件事：保持您的Classic Mini在路上行驶，并使DIY汽车工作对所有技能水平的人都可访问。我制作DIY视频和教程，准确展示如何在您的Classic Mini上完成各种工作。我还与世界级制造商合作，提供一流的产品来定制和确保您的Classic Mini的性能。"
+      },
+      "support": {
+        "title": "支持使命",
+        "heading": "支持",
+        "content": "Classic Mini DIY由我们的观众支持。如果您有兴趣帮助保持频道活跃，请考虑在Patreon上支持，或者如果您有JS和现代网络技术的技能，请考虑在github上支持开源代码库。"
+      },
+      "toolbox": {
+        "title": "完全免费",
+        "heading": "Classic Mini工具箱",
+        "subtitle": "DIY机械师的工具包",
+        "content": "启动这个频道的最大原因之一是使与您的Mini Cooper工作相关的信息更加可访问。为了服务于这个目标，我创建了Classic Mini工具箱。结合来自整个网络的信息，为您带来一个找到所需一切的地方。",
+        "button": "打开工具箱"
+      },
+      "patreon": {
+        "title": "支持频道",
+        "heading": "成为Patreon",
+        "content": "Classic Mini DIY是一个完全免费的资源，由我们的观众支持。如果您有兴趣帮助保持频道活跃，请考虑在Patreon上支持。",
+        "button": "成为会员",
+        "benefits": {
+          "title": "会员包括",
+          "discord": "访问实时DIY聊天",
+          "early_access": "视频早期访问",
+          "gifts": "免费礼品和商品",
+          "insider": "内幕信息等等..."
+        }
+      },
+      "about": {
+        "title": "关于我",
+        "name": "我的名字是科尔",
+        "bio": "我是一名在金融行业工作的{age}岁网络开发者。我在汽车行业的经验来自2年的重型柴油机械培训和8年的Classic Mini拥有经验。凭借这些经验，我尽我所能提供最全面和技术上正确的信息。",
+        "promise_title": "我的承诺",
+        "promise": "我将在我的能力范围内提供我所能提供的所有知识。如果我弄错了什么，我也会接受反馈。我是一个爱好者，不是完全的专家，所以我时不时会犯错误。"
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "观看时长",
+      "over_30_days": "过去30天",
+      "subscribers": "订阅者",
+      "across_world": "全世界",
+      "videos": "视频",
+      "since_2015": "自2015年"
+    },
+    "recent_videos": {
+      "title": "最新视频",
+      "error_message": "无法加载YouTube数据",
+      "published_on": "发布于",
+      "watch_button": "观看"
+    }
+  }
+}

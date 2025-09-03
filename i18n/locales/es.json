@@ -1,0 +1,73 @@
+{
+  "common": {
+    "home": "Inicio",
+    "archive": "Archivo",
+    "technical": "Técnico",
+    "toolbox": "Caja de herramientas",
+    "calculators": "Calculadoras",
+    "contact": "Contacto",
+    "about": "Acerca de",
+    "search": "Buscar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "donate": "Donar",
+    "contribute": "Contribuir"
+  },
+  "navigation": {
+    "main_menu": "Menú principal",
+    "breadcrumb": "Ruta de navegación"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "TU VECINDARIO AMIGABLE"
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | Tu Recurso Amigable del Vecindario para Classic Mini",
+      "description": "Classic Mini DIY - Tu recurso completo para restauración, mantenimiento y modificación de Classic Mini. Tutoriales DIY, guías técnicas y soporte comunitario.",
+      "mission": {
+        "title": "LA MISIÓN MINI",
+        "heading": "Manteniendo los Clásicos en la Carretera",
+        "content": "Classic Mini DIY comenzó en mi pequeño taller de entrada en 2015. Siempre me enfoco en dos cosas: mantener tu Classic Mini en la carretera y hacer que el trabajo DIY de automóviles sea accesible para todos los niveles de habilidad. Hago videos DIY y tutoriales que muestran exactamente cómo completar una amplia gama de trabajos en tu Classic Mini. También me asocio con fabricantes de clase mundial para entregar productos de primera línea para personalizar y asegurar el rendimiento de tu Classic Mini."
+      },
+      "support": {
+        "title": "APOYA LA MISIÓN",
+        "heading": "Apoyo",
+        "content": "Classic Mini DIY es apoyado por nuestros espectadores. Si estás interesado en ayudar a mantener el canal vivo, considera apoyar en Patreon o si tienes habilidades en JS y tecnologías web modernas, por favor considera apoyar el código base de código abierto en github."
+      },
+      "toolbox": {
+        "title": "LA COMPLETAMENTE GRATUITA",
+        "heading": "Caja de Herramientas Classic Mini",
+        "subtitle": "EL CONJUNTO DE HERRAMIENTAS PARA EL MECÁNICO DIY",
+        "content": "Una de las razones más grandes para comenzar este canal, fue hacer más accesible la información relacionada con trabajar en tu Mini Cooper. En servicio a este objetivo he creado la Caja de Herramientas Classic Mini. Combinando información de toda la web para traerte un lugar donde encontrar todo lo que necesitas.",
+        "button": "Abrir la caja de herramientas"
+      },
+      "patreon": {
+        "title": "APOYA EL CANAL",
+        "heading": "Conviértete en un Patreon",
+        "content": "Classic Mini DIY es un recurso completamente gratuito apoyado por nuestros espectadores. Si estás interesado en ayudar a mantener el canal vivo, considera apoyar en Patreon.",
+        "button": "Conviértete en Miembro",
+        "benefits": {
+          "title": "La Membresía Incluye",
+          "discord": "Acceso al Chat DIY en Vivo",
+          "early_access": "Acceso Temprano a videos",
+          "gifts": "Regalos gratuitos y mercancía",
+          "insider": "Información privilegiada y mucho más..."
+        }
+      },
+      "about": {
+        "title": "Acerca de Mí",
+        "name": "MI NOMBRE ES COLE",
+        "bio": "Soy un Desarrollador Web de {age} años trabajando en la industria financiera. Mi experiencia en la industria automotriz viene de 2 años de entrenamiento en maquinaria diesel pesada y 8 años de propiedad de Classic Mini. Con esta experiencia, hago mi mejor esfuerzo para proporcionar la información más completa y técnicamente correcta que puedo.",
+        "promise_title": "MI PROMESA",
+        "promise": "Te proporcionaré todo el conocimiento que pueda con la mejor de mis habilidades. También aceptaré comentarios en caso de que me equivoque en algo. Soy un entusiasta y no un experto completo, así que de vez en cuando cometeré errores."
+      }
+    }
+  }
+}

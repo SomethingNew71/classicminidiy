@@ -1,9 +1,15 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '../../data/models/generic';
+  
+  const { t } = useI18n()
   let styleObject: any;
 
   const props = defineProps({
     title: {
+      type: String,
+      default: '',
+    },
+    titleKey: {
       type: String,
       default: '',
     },
@@ -20,6 +26,10 @@
       default: false,
     },
     subtitle: {
+      type: String,
+      default: '',
+    },
+    subtitleKey: {
       type: String,
       default: '',
     },
@@ -45,6 +55,14 @@
       default: false,
     },
   });
+
+  const displayTitle = computed(() => {
+    return props.titleKey ? t(props.titleKey) : props.title
+  })
+
+  const displaySubtitle = computed(() => {
+    return props.subtitleKey ? t(props.subtitleKey) : props.subtitle
+  })
 
   switch (props.heroType) {
     case HERO_TYPES.HOME:
@@ -92,14 +110,20 @@
     <div class="hero-content flex-col" :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]">
       <div class="pl-20 prose lg:prose-xl" :class="{ 'has-text-centered': centered }">
         <p class="text-white" :class="{ 'has-text-centered': blog }">
-          {{ subtitle }}
+          {{ displaySubtitle }}
         </p>
         <h1
-          v-if="title"
+          v-if="displayTitle"
           class="fancy-font-bold text-white"
           :class="{ 'special-title': special, 'has-text-centered': blog }"
-          v-html="title"
-        />
+        >
+          <span v-if="heroType === HERO_TYPES.HOME">
+            Classic Mini <br> DIY
+          </span>
+          <span v-else>
+            {{ displayTitle }}
+          </span>
+        </h1>
       </div>
     </div>
   </section>

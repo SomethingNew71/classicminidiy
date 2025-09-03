@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   const { data: stats } = await useFetch('/api/youtube/stats');
+  const { t } = useI18n();
 </script>
 
 <template>
@@ -20,18 +21,18 @@
           ></path>
         </svg>
       </div>
-      <div class="stat-title">Minutes Watched</div>
+      <div class="stat-title">{{ t('components.stats.minutes_watched') }}</div>
       <div class="stat-value text-primary" v-if="stats && stats.views">{{ stats?.views }}</div>
-      <div class="stat-desc">over the last 30 days</div>
+      <div class="stat-desc">{{ t('components.stats.over_30_days') }}</div>
     </div>
 
     <div class="stat">
       <div class="stat-figure">
         <i class="fad fa-user text-secondary text-3xl"></i>
       </div>
-      <div class="stat-title">Subscribers</div>
+      <div class="stat-title">{{ t('components.stats.subscribers') }}</div>
       <div class="stat-value text-secondary" v-if="stats && stats.subscribers">{{ stats?.subscribers }}</div>
-      <div class="stat-desc">across the world</div>
+      <div class="stat-desc">{{ t('components.stats.across_world') }}</div>
     </div>
 
     <div class="stat">
@@ -39,8 +40,8 @@
         <i class="fad fa-video-camera text-info text-3xl"></i>
       </div>
       <div class="stat-value text-info" v-if="stats && stats.videos">{{ stats?.videos }}</div>
-      <div class="stat-title">Videos</div>
-      <div class="stat-desc">since 2015</div>
+      <div class="stat-title">{{ t('components.stats.videos') }}</div>
+      <div class="stat-desc">{{ t('components.stats.since_2015') }}</div>
     </div>
   </div>
 </template>

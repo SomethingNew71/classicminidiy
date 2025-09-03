@@ -1,0 +1,89 @@
+{
+  "common": {
+    "home": "Startseite",
+    "archive": "Archiv",
+    "technical": "Technisch",
+    "toolbox": "Werkzeugkasten",
+    "calculators": "Rechner",
+    "contact": "Kontakt",
+    "about": "Über uns",
+    "search": "Suchen",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "submit": "Senden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "donate": "Spenden",
+    "contribute": "Beitragen"
+  },
+  "navigation": {
+    "main_menu": "Hauptmenü",
+    "breadcrumb": "Brotkrümel"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "IHRE FREUNDLICHE NACHBARSCHAFT"
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | Ihre freundliche Nachbarschafts-Ressource für Classic Mini",
+      "description": "Classic Mini DIY - Ihre vollständige Ressource für Classic Mini Restaurierung, Wartung und Modifikation. DIY-Tutorials, technische Anleitungen und Community-Support.",
+      "mission": {
+        "title": "DIE MINI-MISSION",
+        "heading": "Die Klassiker auf der Straße halten",
+        "content": "Classic Mini DIY begann in meiner kleinen Einfahrt-Werkstatt im Jahr 2015. Ich konzentriere mich immer auf zwei Dinge: Ihren Classic Mini auf der Straße zu halten und DIY-Autoarbeit für alle Fähigkeitsstufen zugänglich zu machen. Ich mache DIY-Videos und Tutorials, die genau zeigen, wie man eine breite Palette von Arbeiten an Ihrem Classic Mini durchführt. Ich arbeite auch mit Weltklasse-Herstellern zusammen, um erstklassige Produkte zu liefern, um die Leistung Ihres Classic Mini zu personalisieren und sicherzustellen."
+      },
+      "support": {
+        "title": "UNTERSTÜTZEN SIE DIE MISSION",
+        "heading": "Unterstützung",
+        "content": "Classic Mini DIY wird von unseren Zuschauern unterstützt. Wenn Sie daran interessiert sind, den Kanal am Leben zu erhalten, erwägen Sie eine Unterstützung auf Patreon oder wenn Sie Fähigkeiten in JS und modernen Web-Technologien haben, erwägen Sie bitte eine Unterstützung der Open-Source-Codebasis auf GitHub."
+      },
+      "toolbox": {
+        "title": "DER VÖLLIG KOSTENLOSE",
+        "heading": "Classic Mini Werkzeugkasten",
+        "subtitle": "DAS TOOLKIT FÜR DEN DIY-MECHANIKER",
+        "content": "Einer der größten Gründe für den Start dieses Kanals war es, Informationen über die Arbeit an Ihrem Mini Cooper zugänglicher zu machen. Im Dienste dieses Ziels habe ich den Classic Mini Werkzeugkasten erstellt. Informationen aus dem gesamten Web kombinierend, um Ihnen einen Ort zu bringen, an dem Sie alles finden, was Sie brauchen.",
+        "button": "Werkzeugkasten öffnen"
+      },
+      "patreon": {
+        "title": "UNTERSTÜTZEN SIE DEN KANAL",
+        "heading": "Werden Sie ein Patreon",
+        "content": "Classic Mini DIY ist eine völlig kostenlose Ressource, die von unseren Zuschauern unterstützt wird. Wenn Sie daran interessiert sind, den Kanal am Leben zu erhalten, erwägen Sie eine Unterstützung auf Patreon.",
+        "button": "Mitglied werden",
+        "benefits": {
+          "title": "Mitgliedschaft beinhaltet",
+          "discord": "Zugang zum Live-DIY-Chat",
+          "early_access": "Früher Zugang zu Videos",
+          "gifts": "Kostenlose Geschenke und Merchandise",
+          "insider": "Insider-Informationen und vieles mehr..."
+        }
+      },
+      "about": {
+        "title": "Über mich",
+        "name": "MEIN NAME IST COLE",
+        "bio": "Ich bin ein {age}-jähriger Web-Entwickler, der in der Finanzbranche arbeitet. Meine Erfahrung in der Automobilindustrie stammt aus 2 Jahren Ausbildung an schweren Dieselmaschinen und 8 Jahren Classic Mini Besitz. Mit dieser Erfahrung gebe ich mein Bestes, um die umfassendsten und technisch korrektesten Informationen zu liefern, die ich kann.",
+        "promise_title": "MEIN VERSPRECHEN",
+        "promise": "Ich werde Ihnen alles Wissen zur Verfügung stellen, das ich nach besten Kräften kann. Ich werde auch Feedback akzeptieren, falls ich etwas falsch verstehe. Ich bin ein Enthusiast und kein vollständiger Experte, also werde ich von Zeit zu Zeit Fehler machen."
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minuten Angesehen",
+      "over_30_days": "in den letzten 30 Tagen",
+      "subscribers": "Abonnenten",
+      "across_world": "auf der ganzen Welt",
+      "videos": "Videos",
+      "since_2015": "seit 2015"
+    },
+    "recent_videos": {
+      "title": "Neueste Videos",
+      "error_message": "YouTube-Daten können nicht geladen werden",
+      "published_on": "Veröffentlicht am",
+      "watch_button": "Ansehen"
+    }
+  }
+}
