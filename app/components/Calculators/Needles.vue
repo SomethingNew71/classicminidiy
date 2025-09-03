@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { chartOptions, type Needle, type NeedleResponse } from '../../../data/models/needles';
+  const { t } = useI18n();
 
   // Fetch needles data
   const { data: needles, pending }: any = await useFetch(() => '/api/needles/list');
@@ -63,26 +64,29 @@
     <div class="col-span-12 md:col-span-4">
       <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
-          <h3 class="fancy-font-bold text-xl pb-3">Add a Needle To Compare</h3>
+          <h3 class="fancy-font-bold text-xl pb-3">{{ t('components.calculators.needles.title') }}</h3>
           <p class="pb-3">
-            Start typing the name of the needles you would like to compare. Unsure of what the graph values mean? Check
-            out the needle diagram below to learn more.
+            {{ t('components.calculators.needles.description') }}
           </p>
           <!-- Modal dialog for diagram -->
           <div>
-            <button class="btn btn-sm btn-neutral mb-5" onclick="diagram_modal.showModal()">Helpful diagram</button>
+            <button class="btn btn-sm btn-neutral mb-5" onclick="diagram_modal.showModal()">
+              {{ t('components.calculators.needles.diagram_button') }}
+            </button>
             <dialog id="diagram_modal" class="modal">
               <div class="modal-box w-11/12 max-w-5xl">
-                <h3 class="font-bold text-lg">Diagram of Needle Measurements</h3>
+                <h3 class="font-bold text-lg">{{ t('components.calculators.needles.diagram_modal.title') }}</h3>
                 <img
                   loading="lazy"
                   class="diagram mx-auto"
                   src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/diagram.jpg"
-                  alt="Diagram of Needle Measurements"
+                  :alt="t('components.calculators.needles.diagram_modal.alt_text')"
                 />
                 <div class="modal-action">
                   <form method="dialog">
-                    <button class="btn btn-primary">Close</button>
+                    <button class="btn btn-primary">
+                      {{ t('components.calculators.needles.diagram_modal.close_button') }}
+                    </button>
                   </form>
                 </div>
               </div>
@@ -97,7 +101,9 @@
             <!-- Needle selection dropdown -->
             <div class="form-control w-full">
               <select class="select select-bordered w-full" v-model="addNeedleValue">
-                <option :value="null" disabled selected>Select a needle</option>
+                <option :value="null" disabled selected>
+                  {{ t('components.calculators.needles.form.select_placeholder') }}
+                </option>
                 <option v-for="needle in allNeedles.all" :key="needle.name" :value="needle">
                   {{ needle.name }}
                 </option>
@@ -119,7 +125,7 @@
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 ></path>
               </svg>
-              <span>Needle already exists in your list</span>
+              <span>{{ t('components.calculators.needles.alerts.already_exists') }}</span>
             </div>
             <div v-if="emptyError" class="alert alert-info mb-4">
               <svg
@@ -135,7 +141,7 @@
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 ></path>
               </svg>
-              <span>You must select another needle to add before clicking add.</span>
+              <span>{{ t('components.calculators.needles.alerts.empty_selection') }}</span>
             </div>
 
             <!-- Add needle button -->
@@ -149,12 +155,12 @@
               >
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
-              Add Needle
+              {{ t('components.calculators.needles.form.add_button') }}
             </button>
 
             <div class="divider"></div>
 
-            <h3 class="text-lg font-medium">Currently selected Needles</h3>
+            <h3 class="text-lg font-medium">{{ t('components.calculators.needles.selected_needles_title') }}</h3>
             <div v-if="selectedNeedles" class="flex flex-wrap gap-2 mt-3">
               <div
                 v-for="(needle, index) in selectedNeedles"
@@ -190,7 +196,7 @@
           <ClientOnly fallback-tag="span">
             <highcharts ref="needlesChart" :options="reactiveChartOptions"></highcharts>
             <template #fallback>
-              <p class="p-10 text-center text-xl">Chart is loading</p>
+              <p class="p-10 text-center text-xl">{{ t('components.calculators.needles.chart.loading') }}</p>
             </template>
           </ClientOnly>
         </div>

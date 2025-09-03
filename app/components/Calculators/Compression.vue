@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { formOptions } from '../../../data/models/compression';
+  const { t } = useI18n();
   const reactiveFormOptions = ref(formOptions);
 
   // All Form Inputs
@@ -40,7 +41,7 @@
     <div class="col-span-1">
       <button class="btn btn-primary mb-5" @click="showHelpModal = true">
         <i class="fad fa-question-circle mr-2"></i>
-        How do I measure these values?
+        {{ t('components.calculators.compression.help_button') }}
       </button>
 
       <!-- Help Modal -->
@@ -48,7 +49,7 @@
         <div class="modal-box w-11/12 max-w-4xl">
           <div class="card bg-base-100">
             <div class="card-body">
-              <h2 class="card-title">Measuring your chambers and deck</h2>
+              <h2 class="card-title">{{ t('components.calculators.compression.help_modal.title') }}</h2>
               <div class="aspect-video w-full">
                 <iframe
                   class="w-full h-full"
@@ -60,19 +61,20 @@
                 ></iframe>
               </div>
               <div class="mt-4">
-                <h3 class="text-xl font-bold">Our Friend Paul Hickey</h3>
+                <h3 class="text-xl font-bold">{{ t('components.calculators.compression.help_modal.friend_title') }}</h3>
                 <p class="text-sm opacity-70">
                   <a href="https://www.youtube.com/watch?v=GxlgkbrfK2Y" class="link link-primary">@hreirl</a>
-                  on Youtube
+                  {{ t('components.calculators.compression.help_modal.friend_description') }}
                 </p>
                 <p class="mt-2">
-                  If you need any assistance measuring these values for the calculator, check out the video above by
-                  Paul Hickey at HRE IRL. Where he covers the entire measurement process on the Classic Mini.
+                  {{ t('components.calculators.compression.help_modal.friend_text') }}
                 </p>
               </div>
             </div>
             <div class="card-actions justify-end p-4">
-              <button class="btn btn-primary" @click="showHelpModal = false">Close</button>
+              <button class="btn btn-primary" @click="showHelpModal = false">
+                {{ t('components.calculators.compression.help_modal.close_button') }}
+              </button>
             </div>
           </div>
         </div>
@@ -87,7 +89,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">Piston Size</span>
+            <span class="label-text">{{ t('components.calculators.compression.form_labels.piston_size') }}</span>
           </label>
           <label class="select w-full">
             <span class="label"><i class="fad fa-engine"></i></span>
@@ -104,7 +106,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">Crankshaft</span>
+            <span class="label-text">{{ t('components.calculators.compression.form_labels.crankshaft') }}</span>
           </label>
           <label class="select w-full">
             <span class="label"><i class="fad fa-arrows-rotate fa-spin"></i></span>
@@ -123,7 +125,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">Head Gasket</span>
+            <span class="label-text">{{ t('components.calculators.compression.form_labels.head_gasket') }}</span>
           </label>
           <label class="select w-full">
             <span class="label"><i class="fad fa-head-side-gear"></i></span>
@@ -137,7 +139,9 @@
         <div v-if="gasket === 0" class="mt-2">
           <div class="input-group w-full">
             <label class="label pb-2">
-              <span class="label-text">Custom Gasket Size (cc)</span>
+              <span class="label-text">{{
+                t('components.calculators.compression.form_labels.custom_gasket_size')
+              }}</span>
             </label>
             <label class="input w-full">
               <span class="label"><i class="fad fa-ruler"></i></span>
@@ -158,7 +162,9 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">Decompression Plate</span>
+            <span class="label-text">{{
+              t('components.calculators.compression.form_labels.decompression_plate')
+            }}</span>
           </label>
           <label class="select w-full">
             <span class="label"><i class="fad fa-arrow-down-to-line"></i></span>
@@ -181,7 +187,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">Piston Dish Size (cc)</span>
+            <span class="label-text">{{ t('components.calculators.compression.form_labels.piston_dish_size') }}</span>
           </label>
           <label class="input w-full">
             <span class="label"><i class="fad fa-circle-half fa-rotate-270"></i></span>
@@ -201,7 +207,9 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">Cylinder Head Chamber Volume (cc)</span>
+            <span class="label-text">{{
+              t('components.calculators.compression.form_labels.cylinder_head_chamber_volume')
+            }}</span>
           </label>
           <label class="input w-full">
             <span class="label"><i class="fad fa-arrows-to-dot"></i></span>
@@ -221,7 +229,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">Piston Deck Height (thou)</span>
+            <span class="label-text">{{ t('components.calculators.compression.form_labels.piston_deck_height') }}</span>
           </label>
           <label class="input w-full">
             <span class="label"><i class="fad fa-arrow-up-to-line"></i></span>
@@ -233,19 +241,23 @@
 
     <!-- Results Section -->
     <div class="mt-8">
-      <h2 class="text-2xl font-bold mb-4">Results:</h2>
+      <h2 class="text-2xl font-bold mb-4">{{ t('components.calculators.compression.results.title') }}</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="card bg-secondary shadow-sm">
           <div class="card-body text-center text-white">
             <h3 class="text-lg opacity-70">
-              <i class="fa-jelly-duo fa-regular fa-compress fa-beat"></i> Compression Ratio
+              <i class="fa-jelly-duo fa-regular fa-compress fa-beat"></i>
+              {{ t('components.calculators.compression.results.compression_ratio') }}
             </h3>
             <p class="text-3xl font-bold">{{ ratio || '?' }}</p>
           </div>
         </div>
         <div class="card bg-primary shadow-sm">
           <div class="card-body text-center text-white">
-            <h3 class="text-lg opacity-70"><i class="fa-duotone fa-solid fa-fill"></i> Engine Capacity</h3>
+            <h3 class="text-lg opacity-70">
+              <i class="fa-duotone fa-solid fa-fill"></i>
+              {{ t('components.calculators.compression.results.engine_capacity') }}
+            </h3>
             <p class="text-3xl font-bold">{{ capacity || '?' }}</p>
           </div>
         </div>
@@ -256,27 +268,26 @@
     <div class="text-center mt-4">
       <div class="max-w-3xl mx-auto">
         <p class="mb-2">
-          Please note the above figures are <strong>approximate values</strong>. Before purchasing parts and building
-          your engine we recommend <strong>doublechecking</strong> your calculations multiple times using more than one
-          source. The mathematical equations used in this tool can be found here:
+          {{ t('components.calculators.compression.disclaimer.text', { strong_start: '<strong>', strong_end: '</strong>'
+          }) }}
           <a
             href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344"
             target="_blank"
             rel="noopener noreferrer"
             class="link link-primary"
           >
-            Equation Source Code
+            {{ t('components.calculators.compression.disclaimer.equation_source') }}
           </a>
         </p>
         <p>
-          Alternate Source:
+          {{ t('components.calculators.compression.disclaimer.alternate_source') }}
           <a
             href="https://www.calverst.com/technical-info/compression-ratio-%E2%80%93-working-it-out/"
             target="_blank"
             rel="noopener noreferrer"
             class="link link-primary"
           >
-            Calver Compression Ratio </a
+            {{ t('components.calculators.compression.disclaimer.calver_link') }}</a
           >,
           <a
             href="https://www.jepistons.com/blog/how-to-calculate-engine-compression-ratio-and-displacement"
@@ -284,7 +295,7 @@
             rel="noopener noreferrer"
             class="link link-primary"
           >
-            JE Pistons Compression Ratio
+            {{ t('components.calculators.compression.disclaimer.je_pistons_link') }}
           </a>
         </p>
       </div>
