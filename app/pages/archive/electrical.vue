@@ -1,21 +1,21 @@
 <script lang="ts" setup>
   import { HERO_TYPES } from '../../../data/models/generic';
+  const { t } = useI18n();
   const { data: diagrams, status } = await useFetch('/api/diagrams');
   const activePanel = ref('Negative Ground');
 
   useHead({
-    title: 'Archive - Electrical Diagrams | Classic Mini DIY',
+    title: t('pages.archive.subpages.electrical.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+        content: t('pages.archive.subpages.electrical.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content:
-          'Classic Mini electrical diagrams, Mini Cooper wiring, wiring diagrams, electrical schematics, classic car wiring',
+        content: t('pages.archive.subpages.electrical.keywords'),
       },
     ],
     link: [
@@ -31,14 +31,14 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Archive - Electrical Diagrams | Classic Mini DIY',
-    ogDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+    ogTitle: t('pages.archive.subpages.electrical.seo.og_title'),
+    ogDescription: t('pages.archive.subpages.electrical.seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/electrical',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/electrical.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Electrical Diagrams',
-    twitterDescription: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+    twitterTitle: t('pages.archive.subpages.electrical.seo.twitter_title'),
+    twitterDescription: t('pages.archive.subpages.electrical.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/electrical.png',
   });
 
@@ -46,16 +46,16 @@
   const electricalDiagramsJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: 'Classic Mini Electrical Diagrams',
-    description: 'Manually digitized and updated electrical diagrams for your Classic Mini Cooper.',
+    headline: t('pages.archive.subpages.electrical.structured_data.headline'),
+    description: t('pages.archive.subpages.electrical.structured_data.description'),
     image: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     author: {
       '@type': 'Person',
-      name: 'Classic Mini DIY',
+      name: t('pages.archive.subpages.electrical.structured_data.author_name'),
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Classic Mini DIY',
+      name: t('pages.archive.subpages.electrical.structured_data.publisher_name'),
       logo: {
         '@type': 'ImageObject',
         url: 'https://classicminidiy.s3.amazonaws.com/misc/logo.png',
@@ -64,8 +64,8 @@
     url: 'https://classicminidiy.com/archive/electrical',
     mainEntity: {
       '@type': 'Dataset',
-      name: 'Classic Mini Electrical Diagrams',
-      description: 'Collection of digitized electrical diagrams for Classic Mini vehicles',
+      name: t('pages.archive.subpages.electrical.structured_data.dataset_name'),
+      description: t('pages.archive.subpages.electrical.structured_data.dataset_description'),
     },
   };
 
@@ -81,17 +81,16 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Electrical Diagrams'" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="t('pages.archive.subpages.electrical.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" page="Electrical Diagrams"></breadcrumb>
+        <breadcrumb class="my-6" :page="t('pages.archive.subpages.electrical.breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-2xl font-bold mb-4">Electrical Diagrams</h1>
+            <h1 class="text-2xl font-bold mb-4">{{ t('pages.archive.subpages.electrical.main_heading') }}</h1>
             <p class="mb-6">
-              Find the wiring diagrams you need with our collection of fully digitized diagrams sourced directly from
-              The Mini Forum. Archived here for postarity and preservation.
+              {{ t('pages.archive.subpages.electrical.description_text') }}
             </p>
           </div>
         </div>
@@ -136,11 +135,18 @@
                       <div class="text-lg">{{ item.name }}</div>
                       <div class="text-lg opacity-70 flex items-center mt-1">
                         <i class="fa-solid fa-calendar mr-2"></i>
-                        <span v-if="item.from || item.to">{{ item.from || '?' }} - {{ item.to || '?' }}</span>
-                        <span v-else>Dates Unknown</span>
+                        <span v-if="item.from || item.to"
+                          >{{ item.from || t('pages.archive.subpages.electrical.date_range.unknown_placeholder')
+                          }}{{ t('pages.archive.subpages.electrical.date_range.separator')
+                          }}{{ item.to || t('pages.archive.subpages.electrical.date_range.unknown_placeholder') }}</span
+                        >
+                        <span v-else>{{ t('pages.archive.subpages.electrical.date_range.unknown') }}</span>
                       </div>
                     </div>
-                    <button class="btn btn-ghost btn-lg">
+                    <button
+                      class="btn btn-ghost btn-lg"
+                      :aria-label="t('pages.archive.subpages.electrical.download_button_aria')"
+                    >
                       <i class="fa-solid fa-download"></i>
                     </button>
                   </a>
@@ -153,7 +159,7 @@
 
       <!-- Support section -->
       <div class="col-span-12 mt-8 mb-10">
-        <div class="divider">Support</div>
+        <div class="divider">{{ t('pages.archive.subpages.electrical.support_divider') }}</div>
         <patreon-card size="large" />
       </div>
     </div>

@@ -1,28 +1,27 @@
 <script lang="ts" setup>
   import { HERO_TYPES } from '../../../data/models/generic';
+  const { t } = useI18n();
   const { data: tables, status } = await useFetch('/api/weights');
   const activePanel = ref('Brakes');
   const tableHeaders = [
-    { title: 'Item', key: 'item' },
-    { title: 'Kg', key: 'weight' },
-    { title: 'Lbs', key: 'lbs' },
+    { title: t('pages.archive.subpages.weights.table_headers.item'), key: 'item' },
+    { title: t('pages.archive.subpages.weights.table_headers.kg'), key: 'weight' },
+    { title: t('pages.archive.subpages.weights.table_headers.lbs'), key: 'lbs' },
   ];
   const tableSearchQueries = ref<Record<string, string>>({});
 
   useHead({
-    title: 'Classic Mini Weights & Measurements | Classic Mini DIY',
+    title: t('pages.archive.subpages.weights.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          'Detailed weights & measurements for the Classic Mini can be found online right here at Classic Mini DIY.',
+        content: t('pages.archive.subpages.weights.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content:
-          'Classic Mini weights, Mini Cooper measurements, part weights, Mini component weights, classic car specifications',
+        content: t('pages.archive.subpages.weights.keywords'),
       },
     ],
     link: [
@@ -38,20 +37,19 @@
   });
 
   useSeoMeta({
-    ogTitle: 'Classic Mini Weights & Measurements | Classic Mini DIY',
-    ogDescription:
-      'Detailed weights & measurements for the Classic Mini can be found online right here at Classic Mini DIY.',
+    ogTitle: t('pages.archive.subpages.weights.seo.og_title'),
+    ogDescription: t('pages.archive.subpages.weights.seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/weights',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/weights.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Weights & Measurements',
-    twitterDescription: 'Detailed weights & measurements for the Classic Mini.',
+    twitterTitle: t('pages.archive.subpages.weights.seo.twitter_title'),
+    twitterDescription: t('pages.archive.subpages.weights.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/weights.png',
   });
 
   function convertKgToLbs(weightInKg: number | null) {
-    if (!weightInKg) return '---';
+    if (!weightInKg) return t('pages.archive.subpages.weights.no_weight');
     return (weightInKg * 2.20462).toFixed(3);
   }
 
@@ -65,22 +63,20 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Weights & Measurements'" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="t('pages.archive.subpages.weights.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" page="Weights & Measurements"></breadcrumb>
+        <breadcrumb class="my-6" :page="t('pages.archive.subpages.weights.breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-2xl font-bold mb-4">Mini Weights</h1>
+            <h1 class="text-2xl font-bold mb-4">{{ t('pages.archive.subpages.weights.main_heading') }}</h1>
             <p class="mb-6">
-              Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These
-              weights were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you
-              would like to contribute please click the link below to email me.
+              {{ t('pages.archive.subpages.weights.description_text') }}
             </p>
             <a href="mailto:classicminidiy@gmail.com" class="btn btn-outline mb-6" target="_blank">
               <i class="fas fa-paper-plane mr-2"></i>
-              classicminidiy@gmail.com
+              {{ t('pages.archive.subpages.weights.email_button') }}
             </a>
           </div>
         </div>
@@ -123,7 +119,7 @@
                       <input
                         v-model="tableSearchQueries[name]"
                         type="text"
-                        placeholder="Search this table"
+                        :placeholder="t('pages.archive.subpages.weights.search_placeholder')"
                         class="input-bordered w-full"
                       />
                     </label>

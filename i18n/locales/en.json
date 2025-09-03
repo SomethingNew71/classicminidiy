@@ -223,6 +223,99 @@
       "structured_data": {
         "collection_name": "Classic Mini Archives",
         "collection_description": "A comprehensive digital archive of Classic Mini documents, manuals, registries, and historical resources preserved for enthusiasts and restorers."
+      },
+      "subpages": {
+        "weights": {
+          "title": "Classic Mini Weights & Measurements | Classic Mini DIY",
+          "description": "Detailed weights & measurements for the Classic Mini can be found online right here at Classic Mini DIY.",
+          "keywords": "Classic Mini weights, Mini Cooper measurements, part weights, Mini component weights, classic car specifications",
+          "hero_title": "Weights & Measurements",
+          "breadcrumb_title": "Weights & Measurements",
+          "main_heading": "Mini Weights",
+          "description_text": "Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These weights were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you would like to contribute please click the link below to email me.",
+          "email_button": "classicminidiy{'@'}gmail.com",
+          "search_placeholder": "Search this table",
+          "table_headers": {
+            "item": "Item",
+            "kg": "Kg",
+            "lbs": "Lbs"
+          },
+          "no_weight": "---",
+          "seo": {
+            "og_title": "Classic Mini Weights & Measurements | Classic Mini DIY",
+            "og_description": "Detailed weights & measurements for the Classic Mini can be found online right here at Classic Mini DIY.",
+            "twitter_title": "Classic Mini Weights & Measurements",
+            "twitter_description": "Detailed weights & measurements for the Classic Mini."
+          }
+        },
+        "engines": {
+          "title": "Tech - Engine Sizes and Displacements",
+          "description": "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+          "hero_title": "Engine Sizes",
+          "breadcrumb_title": "Engine Sizes",
+          "main_heading": "Engine Displacement and Sizes",
+          "description_text": "Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+          "compression_card": {
+            "title": "Trying to calculate your compression ratio?",
+            "description": "Click here to try out our compression ratio calculator.",
+            "alt_text": "Image of compression calculator",
+            "link_title": "Link to Compression Calculator"
+          },
+          "legend": {
+            "standard": "Standard",
+            "standard_overbore": "Standard Overbore",
+            "different_stroke": "Different Stroke"
+          },
+          "table_title": "Engine Variations",
+          "table_headers": {
+            "size": "Size",
+            "original_block": "Original Block",
+            "engine_size": "Engine Size",
+            "bore_size": "Bore Size",
+            "over_bore": "Over Bore",
+            "stroke": "Stroke",
+            "estimated_power": "Estimated Power",
+            "estimated_torque": "Estimated Torque"
+          },
+          "loading_text": "Loading...",
+          "more_divider": "More",
+          "seo": {
+            "og_title": "Tech - Engine Sizes and Displacements",
+            "og_description": "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+            "twitter_title": "Tech - Engine Sizes and Displacements",
+            "twitter_description": "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!"
+          }
+        },
+        "electrical": {
+          "title": "Archive - Electrical Diagrams | Classic Mini DIY",
+          "description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper.",
+          "keywords": "Classic Mini electrical diagrams, Mini Cooper wiring, wiring diagrams, electrical schematics, classic car wiring",
+          "hero_title": "Electrical Diagrams",
+          "breadcrumb_title": "Electrical Diagrams",
+          "main_heading": "Electrical Diagrams",
+          "description_text": "Find the wiring diagrams you need with our collection of fully digitized diagrams sourced directly from The Mini Forum. Archived here for postarity and preservation.",
+          "date_range": {
+            "unknown": "Dates Unknown",
+            "separator": " - ",
+            "unknown_placeholder": "?"
+          },
+          "download_button_aria": "Download diagram",
+          "support_divider": "Support",
+          "seo": {
+            "og_title": "Archive - Electrical Diagrams | Classic Mini DIY",
+            "og_description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper.",
+            "twitter_title": "Classic Mini Electrical Diagrams",
+            "twitter_description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper."
+          },
+          "structured_data": {
+            "headline": "Classic Mini Electrical Diagrams",
+            "description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper.",
+            "author_name": "Classic Mini DIY",
+            "publisher_name": "Classic Mini DIY",
+            "dataset_name": "Classic Mini Electrical Diagrams",
+            "dataset_description": "Collection of digitized electrical diagrams for Classic Mini vehicles"
+          }
+        }
       }
     },
     "technical": {
@@ -582,6 +675,44 @@
       "support_patreon_label": "Support on Patreon",
       "support_patreon_description": "Help keep the site running",
       "support_patreon_button": "Support on Patreon"
+    },
+    "chat": {
+      "title": "CMDIY Assistant - Classic Mini DIY",
+      "description": "Chat with our AI assistant for Classic Mini technical help, chassis decoding, parts information, and restoration guidance.",
+      "og_title": "CMDIY Assistant - Classic Mini DIY",
+      "og_description": "Get instant help with your Classic Mini projects from our AI assistant.",
+      "twitter_title": "CMDIY Assistant - Classic Mini DIY",
+      "twitter_description": "Get instant help with your Classic Mini projects from our AI assistant.",
+      "main_heading": "CMDIY Assistant",
+      "description_text": "Your Classic Mini DIY assistant - ask technical questions, find parts information, and get guidance on restoration projects. Or just chat with me about your Classic Mini!"
+    },
+    "archive_item": {
+      "breadcrumb_archive": "Archive",
+      "hero_title": "Classic Mini Archives",
+      "loading_error": "Error loading content. Please try again later.",
+      "no_image_alt": "No image available",
+      "download_aria_label": "Download {title}",
+      "preview_image_alt": "{title} preview image",
+      "archive_item_alt": "{title} image",
+      "fallback_title": "Archive Item",
+      "file_type_label": "Type:",
+      "no_description": "No description available.",
+      "share_button": "Share",
+      "contribute_button": "Contribute",
+      "missing_file_button": "Missing File",
+      "download_button": "Download",
+      "seo": {
+        "title_suffix": "- Classic Mini Archive - Classic Mini DIY",
+        "description_fallback": "Archive resource for {title} in the Classic Mini DIY collection.",
+        "keywords_template": "Classic Mini, {title}, archive, Mini Cooper, {fileType}, {archiveType}",
+        "og_title_suffix": "- Classic Mini Archive",
+        "twitter_title_suffix": "- Classic Mini Archive"
+      },
+      "structured_data": {
+        "author_fallback": "Classic Mini DIY",
+        "publisher_name": "Classic Mini DIY",
+        "collection_name": "Classic Mini Archives"
+      }
     }
   }
 }

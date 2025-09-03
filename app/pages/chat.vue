@@ -2,10 +2,9 @@
   <div class="container mx-auto px-4 py-8 max-w-6xl">
     <!-- Page Header -->
     <div class="mb-1">
-      <h1 class="text-3xl font-bold text-base-content mb-2">CMDIY Assistant</h1>
+      <h1 class="text-3xl font-bold text-base-content mb-2">{{ t('pages.chat.main_heading') }}</h1>
       <p class="text-base-content/70">
-        Your Classic Mini DIY assistant - ask technical questions, find parts information, and get guidance on
-        restoration projects. Or just chat with me about your Classic Mini!
+        {{ t('pages.chat.description_text') }}
       </p>
     </div>
 
@@ -19,18 +18,19 @@
 <script setup lang="ts">
   import ChatWindow from '~/components/Chat/ChatWindow.vue';
 
+  const { t } = useI18n();
+
   // SEO
   useSeoMeta({
-    title: 'CMDIY Assistant - Classic Mini DIY',
-    description:
-      'Chat with our AI assistant for Classic Mini technical help, chassis decoding, parts information, and restoration guidance.',
-    ogTitle: 'CMDIY Assistant - Classic Mini DIY',
-    ogDescription: 'Get instant help with your Classic Mini projects from our AI assistant.',
+    title: t('pages.chat.title'),
+    description: t('pages.chat.description'),
+    ogTitle: t('pages.chat.og_title'),
+    ogDescription: t('pages.chat.og_description'),
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/chat.png',
     ogUrl: 'https://classicminidiy.com/chat',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'CMDIY Assistant - Classic Mini DIY',
-    twitterDescription: 'Get instant help with your Classic Mini projects from our AI assistant.',
+    twitterTitle: t('pages.chat.twitter_title'),
+    twitterDescription: t('pages.chat.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/chat.png',
   });
 </script>

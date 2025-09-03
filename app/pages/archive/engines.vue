@@ -1,60 +1,59 @@
 <script lang="ts" setup>
   import { HERO_TYPES } from '../../../data/models/generic';
+  const { t } = useI18n();
   const { data, status } = await useFetch('/api/engines');
   const tableHeaders: any[] = [
-    { title: 'Size', key: 'color' },
-    { title: 'Original Block', key: 'group' },
-    { title: 'Engine Size', key: 'engineSize' },
-    { title: 'Bore Size', key: 'boreSize' },
-    { title: 'Over Bore', key: 'overBore' },
-    { title: 'Stroke', key: 'stroke' },
-    { title: 'Estimated Power', key: 'power' },
-    { title: 'Estimated Torque', key: 'torque' },
+    { title: t('pages.archive.subpages.engines.table_headers.size'), key: 'color' },
+    { title: t('pages.archive.subpages.engines.table_headers.original_block'), key: 'group' },
+    { title: t('pages.archive.subpages.engines.table_headers.engine_size'), key: 'engineSize' },
+    { title: t('pages.archive.subpages.engines.table_headers.bore_size'), key: 'boreSize' },
+    { title: t('pages.archive.subpages.engines.table_headers.over_bore'), key: 'overBore' },
+    { title: t('pages.archive.subpages.engines.table_headers.stroke'), key: 'stroke' },
+    { title: t('pages.archive.subpages.engines.table_headers.estimated_power'), key: 'power' },
+    { title: t('pages.archive.subpages.engines.table_headers.estimated_torque'), key: 'torque' },
   ];
 
   useHead({
-    title: 'Tech - Engine Sizes and Displacements',
+    title: t('pages.archive.subpages.engines.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content:
-          "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+        content: t('pages.archive.subpages.engines.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Tech - Engine Sizes and Displacements',
-    ogDescription:
-      "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+    ogTitle: t('pages.archive.subpages.engines.seo.og_title'),
+    ogDescription: t('pages.archive.subpages.engines.seo.og_description'),
     ogUrl: 'classicminidiy.com/archive/engines',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/engines.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Tech - Engine Sizes and Displacements',
-    twitterDescription:
-      "Determining your engine size can be quite difficult without a reference. Check out the CMDIY standard bore, engine size chart to figure out how big your current engine is, or how big you'd like your next build to be!",
+    twitterTitle: t('pages.archive.subpages.engines.seo.twitter_title'),
+    twitterDescription: t('pages.archive.subpages.engines.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/engines.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Engine Sizes'" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="t('pages.archive.subpages.engines.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" page="Engine Sizes"></breadcrumb>
+        <breadcrumb class="my-6" :page="t('pages.archive.subpages.engines.breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-2xl font-bold mb-4">Engine Displacement and Sizes</h1>
+            <h1 class="text-2xl font-bold mb-4">{{ t('pages.archive.subpages.engines.main_heading') }}</h1>
             <p class="mb-6">
-              Determining your next engine size can be quite difficult without a reference. Check out the CMDIY standard
-              bore, engine size chart to figure out how big your current engine is, or how big you'd like your next
-              build to be!
+              {{ t('pages.archive.subpages.engines.description_text') }}
             </p>
           </div>
           <div class="col-span-12 md:col-span-4">
-            <NuxtLink :to="'/technical/compression'" :title="'Link to Compression Calculator'">
+            <NuxtLink
+              :to="'/technical/compression'"
+              :title="t('pages.archive.subpages.engines.compression_card.link_title')"
+            >
               <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
                 <div class="card-body p-4">
                   <div class="flex items-start">
@@ -71,15 +70,17 @@
                           />
                           <nuxt-img
                             src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
-                            alt="Image of compression calculator"
+                            :alt="t('pages.archive.subpages.engines.compression_card.alt_text')"
                             class="w-full h-full object-contain"
                           />
                         </picture>
                       </figure>
                     </div>
                     <div>
-                      <h2 class="text-lg font-semibold">Trying to calculate your compression ratio?</h2>
-                      <p>Click here to try out our compression ratio calculator.</p>
+                      <h2 class="text-lg font-semibold">
+                        {{ t('pages.archive.subpages.engines.compression_card.title') }}
+                      </h2>
+                      <p>{{ t('pages.archive.subpages.engines.compression_card.description') }}</p>
                     </div>
                   </div>
                 </div>
@@ -90,13 +91,16 @@
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="mb-5">
-          <i class="fas fa-circle text-primary mr-2"></i> Standard <i class="fas fa-circle text-info mx-2"></i> Standard
-          Overbore <i class="fas fa-circle text-error mx-2"></i> Different Stroke
+          <i class="fas fa-circle text-primary mr-2"></i> {{ t('pages.archive.subpages.engines.legend.standard') }}
+          <i class="fas fa-circle text-info mx-2"></i>
+          {{ t('pages.archive.subpages.engines.legend.standard_overbore') }}
+          <i class="fas fa-circle text-error mx-2"></i>
+          {{ t('pages.archive.subpages.engines.legend.different_stroke') }}
         </div>
         <div class="card bg-base-100 shadow-xl">
           <div class="card-title p-4 bg-base-200 flex items-center">
             <i class="fad fa-engine mr-2"></i>
-            <span>Engine Variations</span>
+            <span>{{ t('pages.archive.subpages.engines.table_title') }}</span>
           </div>
           <div class="card-body p-4">
             <div class="overflow-x-auto" v-if="data?.engines">
@@ -123,14 +127,14 @@
               </table>
               <div v-if="status === 'pending'" class="flex justify-center items-center py-4">
                 <span class="loading loading-spinner loading-md"></span>
-                <span class="ml-2">Loading...</span>
+                <span class="ml-2">{{ t('pages.archive.subpages.engines.loading_text') }}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">More</div>
+        <div class="divider">{{ t('pages.archive.subpages.engines.more_divider') }}</div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
         <patreon-card size="large" />
