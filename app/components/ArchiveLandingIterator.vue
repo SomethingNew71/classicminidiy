@@ -2,6 +2,8 @@
   import type { AdvertsCollectionItem, ContentCollectionItem, ManualsCollectionItem } from '@nuxt/content';
   import { shareArchiveItem, submitArchiveFile, type ARCHIVE_TYPES } from '../../data/models/helper-utils';
 
+  const { t } = useI18n();
+
   const search = ref('');
   const currentPage = ref(1);
   const itemsPerPage = 12;
@@ -71,7 +73,7 @@
           <input
             type="text"
             v-model="search"
-            placeholder="Search for anything (ex. MPI, Cooper S, Carburettor HIF44)"
+            :placeholder="t('components.archive_landing_iterator.search_placeholder')"
             class="input input-bordered w-full"
           />
         </div>
@@ -101,7 +103,7 @@
       <div v-if="filteredItems.length === 0" class="text-center py-8">
         <div class="card card-bordered bg-base-100 shadow-sm">
           <div class="card-body">
-            <p class="text-base-content">No items meeting current filters exist</p>
+            <p class="text-base-content">{{ t('components.archive_landing_iterator.empty_state') }}</p>
           </div>
         </div>
       </div>
@@ -136,7 +138,9 @@
           <div class="card-body p-4">
             <!-- Title and Code -->
             <h2 class="card-title text-lg font-bold">{{ item.title }}</h2>
-            <p class="text-sm text-base-content/70">Sort Key: {{ item.code }}</p>
+            <p class="text-sm text-base-content/70">
+              {{ t('components.archive_landing_iterator.sort_key_label') }} {{ item.code }}
+            </p>
 
             <!-- Description -->
             <p class="text-sm my-2">{{ item.description }}</p>
@@ -144,18 +148,19 @@
             <!-- Actions -->
             <div class="card-actions justify-between mt-4">
               <button class="btn btn-sm btn-outline" @click="shareArchiveItem(item.title, item.path)">
-                <i class="fad fa-arrow-up-from-bracket mr-1"></i> Share
+                <i class="fad fa-arrow-up-from-bracket mr-1"></i>
+                {{ t('components.archive_landing_iterator.actions.share') }}
               </button>
 
               <button
                 class="btn btn-sm btn-outline btn-info"
                 @click="submitArchiveFile(archiveType, item.title, item.path, item.code, item.description)"
               >
-                <i class="fad fa-plus-large mr-1"></i> Contribute
+                <i class="fad fa-plus-large mr-1"></i> {{ t('components.archive_landing_iterator.actions.contribute') }}
               </button>
 
               <a v-if="item.download && item.download !== ''" class="btn btn-sm btn-primary" :href="item.download">
-                <i class="fad fa-download mr-1"></i> Download
+                <i class="fad fa-download mr-1"></i> {{ t('components.archive_landing_iterator.actions.download') }}
               </a>
             </div>
           </div>
@@ -168,7 +173,9 @@
           <i class="fad fa-arrow-left"></i>
         </button>
 
-        <span class="text-sm">Page {{ currentPage }} of {{ pageCount }}</span>
+        <span class="text-sm">{{
+          t('components.archive_landing_iterator.pagination.page_text', { current: currentPage, total: pageCount })
+        }}</span>
 
         <button class="btn btn-circle btn-sm" :disabled="currentPage >= pageCount" @click="nextPage">
           <i class="fad fa-arrow-right"></i>

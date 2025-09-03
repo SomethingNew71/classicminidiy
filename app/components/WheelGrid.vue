@@ -2,6 +2,8 @@
   import type { IWheelsData } from '../../data/models/wheels';
   import Fuse from 'fuse.js';
 
+  const { t } = useI18n();
+
   // State management with proper typing
   const search = ref('');
   const size = ref('list');
@@ -87,11 +89,11 @@
     <!-- Header section -->
     <div class="card-body pb-0">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="card-title"><i class="fad fa-tire fa-spin mr-2"></i> Find Wheels</h2>
-        <div v-if="filtersActive" class="tooltip tooltip-left" data-tip="Clear Filters">
+        <h2 class="card-title"><i class="fad fa-tire fa-spin mr-2"></i> {{ t('components.wheel_grid.title') }}</h2>
+        <div v-if="filtersActive" class="tooltip tooltip-left" :data-tip="t('components.wheel_grid.clear_filters')">
           <button class="btn btn-ghost btn-sm" @click="clearFilters">
             <i class="fas fa-filter-circle-xmark"></i>
-            Clear Filters
+            {{ t('components.wheel_grid.clear_filters') }}
           </button>
         </div>
       </div>
@@ -107,7 +109,7 @@
                 :class="{ 'btn-primary': size === 'list' }"
                 @change="size = 'list'"
                 :checked="size === 'list'"
-                aria-label="All Sizes"
+                :aria-label="t('components.wheel_grid.all_sizes')"
               />
               <input
                 type="radio"
@@ -116,7 +118,7 @@
                 :class="{ 'btn-primary': size === 'ten' }"
                 @change="size = 'ten'"
                 :checked="size === 'ten'"
-                aria-label='10" Wheels'
+                :aria-label="t('components.wheel_grid.ten_inch_wheels')"
               />
               <input
                 type="radio"
@@ -125,7 +127,7 @@
                 :class="{ 'btn-primary': size === 'twelve' }"
                 @change="size = 'twelve'"
                 :checked="size === 'twelve'"
-                aria-label='12" Wheels'
+                :aria-label="t('components.wheel_grid.twelve_inch_wheels')"
               />
               <input
                 type="radio"
@@ -134,7 +136,7 @@
                 :class="{ 'btn-primary': size === 'thirteen' }"
                 @change="size = 'thirteen'"
                 :checked="size === 'thirteen'"
-                aria-label='13" Wheels'
+                :aria-label="t('components.wheel_grid.thirteen_inch_wheels')"
               />
             </form>
           </div>
@@ -142,10 +144,10 @@
 
         <div class="form-control">
           <div class="input-group w-full">
-            <label class="input w-full">
-              <span class="label"><i class="fad fa-search"></i></span>
-              <input v-model="search" type="text" placeholder="Search for anything (ex. Momos, 10in, ET20)" />
+            <label class="label">
+              <span class="label-text">{{ t('components.wheel_grid.search_label') }}</span>
             </label>
+            <input v-model="search" type="text" :placeholder="t('components.wheel_grid.search_placeholder')" />
           </div>
         </div>
       </div>
@@ -156,7 +158,7 @@
       <!-- Error state -->
       <div v-if="error" class="alert alert-error">
         <i class="fas fa-exclamation-circle"></i>
-        <span>{{ error.message || 'Error loading wheels' }}</span>
+        <span>{{ error.message || t('components.wheel_grid.error_loading') }}</span>
       </div>
 
       <!-- Loading state -->
@@ -167,8 +169,8 @@
       <!-- No results -->
       <div v-else-if="filteredWheels.length === 0" class="text-center p-8">
         <i class="fas fa-tire text-6xl text-gray-400 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">No wheels found</h3>
-        <p class="text-gray-500">Try adjusting your search or filters</p>
+        <h3 class="text-xl font-semibold mb-2">{{ t('components.wheel_grid.no_results_title') }}</h3>
+        <p class="text-gray-500">{{ t('components.wheel_grid.no_results_message') }}</p>
       </div>
 
       <!-- Grid of wheels -->
@@ -190,24 +192,26 @@
             <h3 class="card-title text-lg">{{ wheel.name }}</h3>
             <div class="grid grid-cols-2 gap-2 text-sm">
               <div>
-                <div class="text-gray-500">Size</div>
-                <div class="font-medium">{{ wheel.size || 'N/A' }}</div>
+                <div class="text-gray-500">{{ t('components.wheel_grid.size_label') }}</div>
+                <div class="font-medium">{{ wheel.size || t('components.wheel_grid.not_available') }}</div>
               </div>
               <div>
-                <div class="text-gray-500">Width</div>
-                <div class="font-medium">{{ wheel.width || 'N/A' }}</div>
+                <div class="text-gray-500">{{ t('components.wheel_grid.width_label') }}</div>
+                <div class="font-medium">{{ wheel.width || t('components.wheel_grid.not_available') }}</div>
               </div>
               <div>
-                <div class="text-gray-500">Offset</div>
-                <div class="font-medium">{{ wheel.offset || 'N/A' }}</div>
+                <div class="text-gray-500">{{ t('components.wheel_grid.offset_label') }}</div>
+                <div class="font-medium">{{ wheel.offset || t('components.wheel_grid.not_available') }}</div>
               </div>
               <div>
-                <div class="text-gray-500">Material</div>
-                <div class="font-medium">{{ wheel.type || 'N/A' }}</div>
+                <div class="text-gray-500">{{ t('components.wheel_grid.material_label') }}</div>
+                <div class="font-medium">{{ wheel.type || t('components.wheel_grid.not_available') }}</div>
               </div>
             </div>
             <div class="card-actions justify-end mt-2">
-              <NuxtLink :to="`/archive/wheels/${wheel.uuid}`" class="btn btn-sm btn-secondary"> View Details </NuxtLink>
+              <NuxtLink :to="`/archive/wheels/${wheel.uuid}`" class="btn btn-sm btn-secondary">
+                {{ t('components.wheel_grid.view_details') }}
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -220,7 +224,9 @@
         <button class="join-item btn" :class="{ 'btn-disabled': page === 1 }" @click="page > 1 && page--">
           <i class="fad fa-arrow-left"></i>
         </button>
-        <button class="join-item btn btn-ghost">Page {{ page }} of {{ Math.ceil(filteredWheels.length / 12) }}</button>
+        <button class="join-item btn btn-ghost">
+          {{ t('components.wheel_grid.page_info', { current: page, total: Math.ceil(filteredWheels.length / 12) }) }}
+        </button>
         <button
           class="join-item btn"
           :class="{ 'btn-disabled': page >= Math.ceil(filteredWheels.length / 12) }"

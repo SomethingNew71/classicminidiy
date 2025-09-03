@@ -1,27 +1,28 @@
 <script lang="ts" setup>
   import type { SuggestedNeedles } from '../../data/models/needles';
 
+  const { t } = useI18n();
   const { data: needlesTables, status } = await useFetch<SuggestedNeedles[]>(() => '/api/needles/suggested');
   const tableHeaders: any[] = [
     {
-      title: 'Engine Size',
+      title: t('components.needle_table.table_headers.engine_size'),
       key: 'engineSize',
       align: 'start',
     },
     {
-      title: 'Needle Std',
+      title: t('components.needle_table.table_headers.needle_std'),
       key: 'needleStd',
     },
     {
-      title: 'Needle Rich',
+      title: t('components.needle_table.table_headers.needle_rich'),
       key: 'needleRich',
     },
     {
-      title: 'Needle Lean',
+      title: t('components.needle_table.table_headers.needle_lean'),
       key: 'needleLean',
     },
     {
-      title: 'Spring Type',
+      title: t('components.needle_table.table_headers.spring_type'),
       key: 'springType',
     },
   ];

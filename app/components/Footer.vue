@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { SocialItems } from '../../data/models/generic';
+  const { t } = useI18n();
   const socials = ref(SocialItems);
 </script>
 <template>
@@ -23,46 +24,44 @@
 
       <div class="pt-0 mx-auto">
         <h2 class="text-xl font-semibold">
-          <strong class="text-primary">Classic Mini DIY</strong> by
+          <strong class="text-primary">{{ t('components.footer.brand_name') }}</strong> by
           <a
             rel="noopener"
             target="_blank"
             href="https://youtube.com/c/classicminidiy?sub_confirmation=1"
-            aria-label="Link to my youtube channel"
+            :aria-label="t('components.footer.youtube_link_aria')"
             class="link link-hover"
           >
-            Cole Gentry</a
+            {{ t('components.footer.author_name') }}</a
           >.
         </h2>
         <p class="pb-3 max-w-3xl mx-auto mt-2">
-          Classic Mini DIY toolbox is a passion project aligned with the Classic Mini DIY youtube channel. This is a
-          completely free resource built to keep the Classic Mini technical knowledgebase alive for years to come.
-          Regularly updated and crowd sourced data made to help Classic Mini owners all over the world.
+          {{ t('components.footer.description') }}
         </p>
       </div>
 
       <div class="container mx-auto">
         <div class="flex justify-center">
           <div class="w-10/12">
-            <p>{{ new Date().getFullYear() }} — <strong>Classic Mini DIY LLC</strong></p>
-            <div class="divider">Links</div>
+            <p>{{ new Date().getFullYear() }} — <strong>{{ t('components.footer.company_name') }}</strong></p>
+            <div class="divider">{{ t('components.footer.links_divider') }}</div>
             <p>
               <nuxt-link class="link link-hover mr-3" to="/privacy" rel="noopener noreferrer"
-                >CMDIY Website Privacy Policy</nuxt-link
+                >{{ t('components.footer.privacy_links.cmdiy_privacy') }}</nuxt-link
               >
               <a
                 class="link link-hover mr-3"
                 href="https://www.youtube.com/t/terms"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Youtube Privacy Policy</a
+                >{{ t('components.footer.privacy_links.youtube_privacy') }}</a
               >
               <a
                 class="link link-hover"
                 href="http://www.google.com/policies/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Google Privacy Policy</a
+                >{{ t('components.footer.privacy_links.google_privacy') }}</a
               >
             </p>
           </div>

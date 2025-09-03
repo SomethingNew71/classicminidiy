@@ -105,16 +105,17 @@
   type PaginationItem = number | 'ellipsis-start' | 'ellipsis-end';
 
   // Helper function to convert status code to readable text
+  const { t } = useI18n();
   const getStatusText = (status: string) => {
     switch (status) {
       case RegistryItemStatus.PENDING:
-        return 'Pending';
+        return t('components.registry_table.status.pending');
       case RegistryItemStatus.APPROVED:
-        return 'Approved';
+        return t('components.registry_table.status.approved');
       case RegistryItemStatus.REJECTED:
-        return 'Rejected';
+        return t('components.registry_table.status.rejected');
       default:
-        return 'Unknown';
+        return t('components.registry_table.status.unknown');
     }
   };
 
@@ -170,19 +171,21 @@
             <input
               type="text"
               v-model="searchValue"
-              placeholder="Search for any detail"
+              :placeholder="t('components.registry_table.search_placeholder')"
               class="input input-bordered w-full"
             />
           </div>
         </div>
         <div class="flex items-center gap-2">
-          <div v-if="items?.length" class="badge badge-primary badge-lg">{{ items?.length }} Total Minis</div>
+          <div v-if="items?.length" class="badge badge-primary badge-lg">
+            {{ items?.length }} {{ t('components.registry_table.total_minis') }}
+          </div>
           <div class="form-control">
             <select v-model="pageSize" class="select select-bordered select-sm">
-              <option :value="10">10 per page</option>
-              <option :value="25">25 per page</option>
-              <option :value="50">50 per page</option>
-              <option :value="100">100 per page</option>
+              <option :value="10">{{ t('components.registry_table.per_page_options.10') }}</option>
+              <option :value="25">{{ t('components.registry_table.per_page_options.25') }}</option>
+              <option :value="50">{{ t('components.registry_table.per_page_options.50') }}</option>
+              <option :value="100">{{ t('components.registry_table.per_page_options.100') }}</option>
             </select>
           </div>
         </div>
@@ -230,7 +233,7 @@
                         {{ getStatusText(item.status) }}
                       </div>
                     </template>
-                    <template v-else>{{ item[header.key] || '-' }}</template>
+                    <template v-else>{{ item[header.key] || t('components.registry_table.no_data') }}</template>
                   </td>
                 </tr>
                 <tr v-if="expanded.includes(item.uniqueId)" class="bg-base-200">
@@ -238,28 +241,28 @@
                   <td colspan="2" class="p-4">
                     <div class="grid grid-cols-1 gap-2">
                       <div>
-                        <strong>Build Date:</strong>
-                        <div>{{ item.buildDate || '---' }}</div>
+                        <strong>{{ t('components.registry_table.expanded_details.build_date') }}</strong>
+                        <div>{{ item.buildDate || t('components.registry_table.no_data') }}</div>
                       </div>
                       <div>
-                        <strong>Body #:</strong>
-                        <div>{{ item.bodyNum || '---' }}</div>
+                        <strong>{{ t('components.registry_table.expanded_details.body_number') }}</strong>
+                        <div>{{ item.bodyNum || t('components.registry_table.no_data') }}</div>
                       </div>
                       <div>
-                        <strong>Engine #:</strong>
-                        <div>{{ item.engineNum || '---' }}</div>
+                        <strong>{{ t('components.registry_table.expanded_details.engine_number') }}</strong>
+                        <div>{{ item.engineNum || t('components.registry_table.no_data') }}</div>
                       </div>
                     </div>
                   </td>
                   <td colspan="2" class="p-4">
                     <div class="grid grid-cols-1 gap-2">
                       <div>
-                        <strong>Submitted by:</strong>
-                        <div>{{ item.submittedBy || '---' }}</div>
+                        <strong>{{ t('components.registry_table.expanded_details.submitted_by') }}</strong>
+                        <div>{{ item.submittedBy || t('components.registry_table.no_data') }}</div>
                       </div>
                       <div>
-                        <strong>Notes:</strong>
-                        <div>{{ item.notes || '---' }}</div>
+                        <strong>{{ t('components.registry_table.expanded_details.notes') }}</strong>
+                        <div>{{ item.notes || t('components.registry_table.no_data') }}</div>
                       </div>
                     </div>
                   </td>
@@ -267,7 +270,7 @@
               </template>
             </template>
             <tr v-else>
-              <td colspan="5" class="text-center py-8">No items found</td>
+              <td colspan="5" class="text-center py-8">{{ t('components.registry_table.no_items_found') }}</td>
             </tr>
           </tbody>
         </table>
