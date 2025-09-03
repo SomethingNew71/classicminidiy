@@ -49,14 +49,14 @@
     if (navigator.share) {
       navigator
         .share({
-          title: `Classic Mini Color: ${color.name || 'Unnamed Color'}`,
-          text: `Check out this Classic Mini color: ${color.name || 'Unnamed Color'}`,
+          title: `${t('pages.archive.subpages.colors.share.title')} ${color.name || t('pages.archive.subpages.colors.states.unnamed_color')}`,
+          text: `${t('pages.archive.subpages.colors.share.text')} ${color.name || t('pages.archive.subpages.colors.states.unnamed_color')}`,
           url,
         })
         .catch(console.error);
     } else {
       navigator.clipboard.writeText(url);
-      alert('Link copied to clipboard!');
+      alert(t('pages.archive.subpages.colors.states.link_copied'));
     }
   };
 
@@ -65,44 +65,46 @@
     currentPage.value = 1;
   });
 
+  const { t } = useI18n();
+
   useHead({
-    title: 'Color Picker',
+    title: t('pages.archive.subpages.colors.title'),
     meta: [
       {
         name: 'description',
-        content: 'Find the perfect color for your Classic Mini with our comprehensive color picker.',
+        content: t('pages.archive.subpages.colors.description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: 'Classic Mini Color Picker | Classic Mini DIY',
-    ogDescription:
-      'Find the perfect color for your Classic Mini with our comprehensive color picker and paint code reference.',
+    ogTitle: t('pages.archive.subpages.colors.seo.og_title'),
+    ogDescription: t('pages.archive.subpages.colors.seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/colors',
     ogType: 'website',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Color Picker | Classic Mini DIY',
-    twitterDescription:
-      'Find the perfect color for your Classic Mini with our comprehensive color picker and paint code reference.',
+    twitterTitle: t('pages.archive.subpages.colors.seo.twitter_title'),
+    twitterDescription: t('pages.archive.subpages.colors.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Color Picker'" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="$t('pages.archive.subpages.colors.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <!-- Breadcrumb -->
     <!-- Header -->
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <breadcrumb class="my-6" page="Color Swatches" />
-        <h1 class="text-3xl font-bold mb-4">Classic Mini Color Picker</h1>
+        <breadcrumb class="my-6" :page="$t('pages.archive.subpages.colors.breadcrumb_title')" />
+        <h1 class="text-3xl font-bold mb-4">{{ $t('pages.archive.subpages.colors.main_heading') }}</h1>
         <p class="mb-6 text-base">
-          In an effort to make more information available, Classic Mini DIY has partnered with
-          <a href="http://mini-colours.co.uk" class="link link-primary">mini-colours.co.uk</a> to provide you with a
-          comprehensive list of the colors used on the Classic Mini throughout the years.
+          {{ $t('pages.archive.subpages.colors.description_text') }}
+          <a href="http://mini-colours.co.uk" class="link link-primary">{{
+            $t('pages.archive.subpages.colors.partner_link')
+          }}</a>
+          to provide you with a comprehensive list of the colors used on the Classic Mini throughout the years.
         </p>
         <div class="divider"></div>
       </div>
@@ -115,13 +117,13 @@
             <div class="p-4 border-b border-base-300 flex flex-col md:flex-row justify-between items-center gap-4">
               <div class="flex items-center gap-2">
                 <i class="fas fa-tire fa-spin text-primary text-2xl"></i>
-                <h2 class="text-2xl font-semibold">Find your Color</h2>
+                <h2 class="text-2xl font-semibold">{{ $t('pages.archive.subpages.colors.search.card_title') }}</h2>
               </div>
               <div class="relative w-full md:w-96">
                 <input
                   v-model="search"
                   type="text"
-                  placeholder="Search colors..."
+                  :placeholder="$t('pages.archive.subpages.colors.search.placeholder')"
                   class="input input-bordered w-full pl-10"
                 />
                 <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -131,8 +133,7 @@
             <!-- Help Text -->
             <div class="p-4">
               <p class="text-base">
-                Use the search above to filter for any field in the table below instantly. Notice some data missing?
-                Click the edit button to contribute!
+                {{ $t('pages.archive.subpages.colors.search.help_text') }}
               </p>
             </div>
 
@@ -167,7 +168,7 @@
                       <td :colspan="tableHeaders.length" class="text-center p-8">
                         <div class="alert alert-info">
                           <i class="fas fa-info-circle mr-2"></i>
-                          No colors found matching your search.
+                          {{ $t('pages.archive.subpages.colors.states.no_colors') }}
                         </div>
                       </td>
                     </tr>
@@ -186,7 +187,7 @@
                       <!-- Color Name -->
                       <td>
                         <NuxtLink :to="'/archive/colors/' + color.id" class="link link-primary">
-                          {{ color.name || 'Unnamed Color' }}
+                          {{ color.name || $t('pages.archive.subpages.colors.states.unnamed_color') }}
                         </NuxtLink>
                       </td>
 
@@ -223,7 +224,9 @@
                         <span v-if="color.shortCode && color.shortCode !== 'Unknown'" class="font-medium">
                           {{ color.shortCode }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">Missing</span>
+                        <span v-else class="badge badge-error badge-soft">{{
+                          $t('pages.archive.subpages.colors.states.missing')
+                        }}</span>
                       </td>
 
                       <!-- BMC Code -->
@@ -231,7 +234,9 @@
                         <span v-if="color.code && color.code !== 'Unknown'" class="font-medium">
                           {{ color.code }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">Missing</span>
+                        <span v-else class="badge badge-error badge-soft">{{
+                          $t('pages.archive.subpages.colors.states.missing')
+                        }}</span>
                       </td>
 
                       <!-- Ditzler/PPG Code -->
@@ -239,7 +244,9 @@
                         <span v-if="color.ditzlerPpgCode && color.ditzlerPpgCode !== 'Unknown'" class="font-medium">
                           {{ color.ditzlerPpgCode }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">Missing</span>
+                        <span v-else class="badge badge-error badge-soft">{{
+                          $t('pages.archive.subpages.colors.states.missing')
+                        }}</span>
                       </td>
 
                       <!-- Dulux Code -->
@@ -247,7 +254,9 @@
                         <span v-if="color.duluxCode && color.duluxCode !== 'Unknown'" class="font-medium">
                           {{ color.duluxCode }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">Missing</span>
+                        <span v-else class="badge badge-error badge-soft">{{
+                          $t('pages.archive.subpages.colors.states.missing')
+                        }}</span>
                       </td>
 
                       <!-- Years Used -->
@@ -255,7 +264,9 @@
                         <span v-if="color.years && color.years !== 'Unknown'" class="font-medium">
                           {{ Array.isArray(color.years) ? color.years.join(', ') : color.years }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">Missing</span>
+                        <span v-else class="badge badge-error badge-soft">{{
+                          $t('pages.archive.subpages.colors.states.missing')
+                        }}</span>
                       </td>
 
                       <!-- Edit Button -->
@@ -280,7 +291,10 @@
                 >
                   «
                 </button>
-                <button class="join-item btn btn-md">Page {{ currentPage }} of {{ totalPages }}</button>
+                <button class="join-item btn btn-md">
+                  {{ $t('pages.archive.subpages.colors.pagination.page') }} {{ currentPage }}
+                  {{ $t('pages.archive.subpages.colors.pagination.of') }} {{ totalPages }}
+                </button>
                 <button
                   class="join-item btn btn-md"
                   :disabled="currentPage >= totalPages"
@@ -296,7 +310,7 @@
 
       <!-- Support Section -->
       <div class="col-span-12 md:col-span-10 md:col-start-2 text-center py-8">
-        <div class="divider">Support</div>
+        <div class="divider">{{ $t('pages.archive.subpages.colors.support_divider') }}</div>
         <patreon-card size="large" />
       </div>
     </div>

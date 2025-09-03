@@ -29,13 +29,18 @@
     }
   }
 
+  const { t } = useI18n();
+
   useHead({
-    title: `Mini Color - ${color.value?.pretty.Name} | ${color.value?.pretty.Code}`,
+    title: t('pages.archive.subpages.colors_detail.title_template', {
+      name: color.value?.pretty.Name,
+      code: color.value?.pretty.Code,
+    }),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: 'Check out the Classic Mini color I am looking at right now.',
+        content: t('pages.archive.subpages.colors_detail.description'),
       },
     ],
     link: [
@@ -48,14 +53,20 @@
   });
 
   useSeoMeta({
-    ogTitle: `Mini Color - ${color.value?.pretty.Name} | ${color.value?.pretty.Code}`,
-    ogDescription: 'Check out the Classic Mini color I am looking at right now.',
+    ogTitle: t('pages.archive.subpages.colors_detail.seo.og_title_template', {
+      name: color.value?.pretty.Name,
+      code: color.value?.pretty.Code,
+    }),
+    ogDescription: t('pages.archive.subpages.colors_detail.seo.og_description'),
     ogUrl: `classicminidiy.com/archive/colors/${color?.value?.raw.id}`,
     ogImage: shareImage.value,
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: `Mini Color - ${color.value?.pretty.Name} | ${color.value?.pretty.Code}`,
-    twitterDescription: 'Check out the Classic Mini color I am looking at right now.',
+    twitterTitle: t('pages.archive.subpages.colors_detail.seo.twitter_title_template', {
+      name: color.value?.pretty.Name,
+      code: color.value?.pretty.Code,
+    }),
+    twitterDescription: t('pages.archive.subpages.colors_detail.seo.twitter_description'),
     twitterImage: shareImage.value,
   });
 </script>
@@ -67,12 +78,18 @@
       <div class="container mx-auto px-4">
         <div class="flex items-center gap-2 mb-4">
           <i class="fas fa-palette text-3xl"></i>
-          <h1 class="text-3xl font-bold">Color Swatch</h1>
+          <h1 class="text-3xl font-bold">{{ t('pages.archive.subpages.colors_detail.hero_title') }}</h1>
         </div>
         <div class="text-sm breadcrumbs">
           <ul>
-            <li><NuxtLink to="/">Home</NuxtLink></li>
-            <li><NuxtLink to="/archive/colors">Colors</NuxtLink></li>
+            <li>
+              <NuxtLink to="/">{{ t('pages.archive.subpages.colors_detail.breadcrumb.home') }}</NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/archive/colors">{{
+                t('pages.archive.subpages.colors_detail.breadcrumb.colors')
+              }}</NuxtLink>
+            </li>
             <li v-if="color">{{ color.pretty.Name }}</li>
           </ul>
         </div>
@@ -94,7 +111,7 @@
               <h2 class="card-title text-3xl font-bold mb-2">{{ color.pretty.Name }}</h2>
               <div class="badge badge-lg badge-primary mb-4">
                 <i class="fas fa-palette mr-1"></i>
-                {{ color.pretty['Primary Color'] }}
+                {{ t('pages.archive.subpages.colors_detail.primary_color_badge') }}
               </div>
               <h3 class="text-5xl font-bold text-primary mb-6">{{ color.pretty.Code }}</h3>
             </div>
@@ -105,7 +122,7 @@
                 <img
                   v-if="color.raw.hasSwatch"
                   :src="`https://classicminidiy.s3.amazonaws.com/colors/${color.raw.code}.jpg`"
-                  :alt="`${color.pretty.Name} color swatch`"
+                  :alt="t('pages.archive.subpages.colors_detail.alt_text', { name: color.pretty.Name })"
                   class="w-full h-full object-cover"
                 />
                 <div
@@ -119,16 +136,16 @@
           </div>
 
           <!-- Color Details -->
-          <div class="divider">Details</div>
+          <div class="divider">{{ t('pages.archive.subpages.colors_detail.details_divider') }}</div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="stats bg-base-200">
               <div class="stat">
                 <div class="stat-figure text-primary">
                   <i class="fas fa-calendar-days text-2xl"></i>
                 </div>
-                <div class="stat-title">Years</div>
+                <div class="stat-title">{{ t('pages.archive.subpages.colors_detail.stats.years') }}</div>
                 <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty.Years }">
-                  {{ color.pretty.Years || 'Missing' }}
+                  {{ color.pretty.Years || t('pages.archive.subpages.colors_detail.stats.missing') }}
                 </div>
               </div>
             </div>
@@ -138,9 +155,9 @@
                 <div class="stat-figure text-primary">
                   <i class="fas fa-code text-2xl"></i>
                 </div>
-                <div class="stat-title">Short Code</div>
+                <div class="stat-title">{{ t('pages.archive.subpages.colors_detail.stats.short_code') }}</div>
                 <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Short Code'] }">
-                  {{ color.pretty['Short Code'] || 'Missing' }}
+                  {{ color.pretty['Short Code'] || t('pages.archive.subpages.colors_detail.stats.missing') }}
                 </div>
               </div>
             </div>
@@ -150,9 +167,9 @@
                 <div class="stat-figure text-primary">
                   <i class="fas fa-barcode text-2xl"></i>
                 </div>
-                <div class="stat-title">Ditzler PPG Code</div>
+                <div class="stat-title">{{ t('pages.archive.subpages.colors_detail.stats.ditzler_ppg_code') }}</div>
                 <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Ditzler PPG Code'] }">
-                  {{ color.pretty['Ditzler PPG Code'] || 'Missing' }}
+                  {{ color.pretty['Ditzler PPG Code'] || t('pages.archive.subpages.colors_detail.stats.missing') }}
                 </div>
               </div>
             </div>
@@ -162,20 +179,24 @@
                 <div class="stat-figure text-primary">
                   <i class="fas fa-barcode text-2xl"></i>
                 </div>
-                <div class="stat-title">Dulux Code</div>
+                <div class="stat-title">{{ t('pages.archive.subpages.colors_detail.stats.dulux_code') }}</div>
                 <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Dulux Code'] }">
-                  {{ color.pretty['Dulux Code'] || 'Missing' }}
+                  {{ color.pretty['Dulux Code'] || t('pages.archive.subpages.colors_detail.stats.missing') }}
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Action Buttons -->
-          <div class="divider">Share</div>
+          <div class="divider">{{ t('pages.archive.subpages.colors_detail.share_divider') }}</div>
           <div class="flex flex-wrap gap-4 justify-center">
             <button @click="copyUrl()" class="btn btn-primary" :class="{ 'btn-success': copied }">
               <i class="fas fa-link mr-2"></i>
-              {{ copied ? 'Copied!' : 'Copy Link' }}
+              {{
+                copied
+                  ? t('pages.archive.subpages.colors_detail.actions.copied')
+                  : t('pages.archive.subpages.colors_detail.actions.copy_link')
+              }}
             </button>
 
             <a
@@ -183,17 +204,17 @@
               class="btn btn-secondary"
             >
               <i class="fas fa-envelope mr-2"></i>
-              Email
+              {{ t('pages.archive.subpages.colors_detail.actions.email') }}
             </a>
 
             <button @click="shareColorItem(color.pretty.Name, color.pretty.ID)" class="btn btn-accent">
               <i class="fas fa-share-nodes mr-2"></i>
-              Share
+              {{ t('pages.archive.subpages.colors_detail.actions.share') }}
             </button>
 
             <NuxtLink :to="`/archive/colors/contribute?color=${color.raw.id}`" class="btn btn-outline">
               <i class="fas fa-edit mr-2"></i>
-              Contribute Updates
+              {{ t('pages.archive.subpages.colors_detail.actions.contribute') }}
             </NuxtLink>
           </div>
         </div>

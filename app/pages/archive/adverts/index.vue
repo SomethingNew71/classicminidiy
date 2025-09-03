@@ -7,6 +7,7 @@
     TRACKING_EVENTS,
     trackStuff,
   } from '../../../../data/models/helper-utils';
+  const { t } = useI18n();
   const { path } = useRoute();
   const archiveType = determineArchiveType(path);
   const { data: adverts, status } = await useAsyncData(() => queryCollection('adverts').all());
@@ -18,45 +19,43 @@
   });
 
   useHead({
-    title: 'Classic Mini Archive - Advertisments',
+    title: t('pages.archive.subpages.adverts.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: 'Currated collection of Classic Mini original Advertisments',
+        content: t('pages.archive.subpages.adverts.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Classic Mini Archive - Advertisments',
-    ogDescription: 'Currated collection of Classic Mini original Advertisments',
+    ogTitle: t('pages.archive.subpages.adverts.seo.og_title'),
+    ogDescription: t('pages.archive.subpages.adverts.seo.og_description'),
     ogUrl: 'classicminidiy.com/archive/adverts',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/archive/adverts.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini Archive - Advertisments',
-    twitterDescription: 'Currated collection of Classic Mini original Advertisments',
+    twitterTitle: t('pages.archive.subpages.adverts.seo.twitter_title'),
+    twitterDescription: t('pages.archive.subpages.adverts.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/archive/adverts.png',
   });
 </script>
 <template>
-  <hero :navigation="true" :title="'Classic Mini Archives'" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="t('pages.archive.subpages.adverts.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" page="Advertisments"></breadcrumb>
+        <breadcrumb class="my-6" :page="t('pages.archive.subpages.adverts.breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-2xl font-bold mb-4">Original Advertisments</h1>
+            <h1 class="text-2xl font-bold mb-4">{{ t('pages.archive.subpages.adverts.main_heading') }}</h1>
             <p class="mb-6">
-              Free copies of the unabridged Advertisments. This is an effort to archive and compile all the various
-              historical advertisements and documents made for the classic mini. If you have any missing Advertisments,
-              please consider contributing!
+              {{ t('pages.archive.subpages.adverts.description_text') }}
             </p>
             <div class="flex flex-wrap gap-3 mb-6">
               <button class="btn btn-primary" @click="submitArchiveFile(ARCHIVE_TYPES.ADVERT)" target="_blank">
                 <i class="fad fa-paper-plane mr-2"></i>
-                Add to Archive
+                {{ t('pages.archive.subpages.adverts.actions.add_to_archive') }}
               </button>
               <a
                 class="btn btn-secondary"
@@ -65,7 +64,7 @@
                 @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
               >
                 <i class="fad fa-hand-holding-circle-dollar mr-2"></i>
-                Cover Server Costs
+                {{ t('pages.archive.subpages.adverts.actions.cover_server_costs') }}
               </a>
             </div>
           </div>
@@ -82,7 +81,7 @@
 
       <!-- Support section -->
       <div class="col-span-12 mt-8 mb-10">
-        <div class="divider">Support</div>
+        <div class="divider">{{ t('pages.archive.subpages.adverts.support_divider') }}</div>
         <patreon-card size="large" />
       </div>
     </div>

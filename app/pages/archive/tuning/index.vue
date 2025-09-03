@@ -7,6 +7,7 @@
     TRACKING_EVENTS,
     trackStuff,
   } from '../../../../data/models/helper-utils';
+  const { t } = useI18n();
   const { path } = useRoute();
   const archiveType = determineArchiveType(path);
   const { data: tuning, status } = await useAsyncData(() => queryCollection('tuning').all());
@@ -19,57 +20,57 @@
 
   const crumbs = ref([
     {
-      title: 'Home',
+      title: t('pages.archive.subpages.tuning.breadcrumb.home'),
       disabled: false,
       href: '/',
     },
     {
-      title: 'Archive',
+      title: t('pages.archive.subpages.tuning.breadcrumb.archive'),
       disabled: false,
       href: '/archive',
     },
     {
-      title: 'Tuning and Modifications',
+      title: t('pages.archive.subpages.tuning.breadcrumb.tuning'),
       disabled: true,
     },
   ]);
 
   useHead({
-    title: 'Classic Mini ECU Maps: Tuning Files for Various ECUs',
+    title: t('pages.archive.subpages.tuning.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: 'Currated collection of Classic Mini original Tuning and Modifications documents',
+        content: t('pages.archive.subpages.tuning.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Classic Mini ECU Maps: Tuning Files for Various ECUs',
-    ogDescription: 'Currated collection of Classic Mini original Tuning and Modifications documents',
+    ogTitle: t('pages.archive.subpages.tuning.seo.og_title'),
+    ogDescription: t('pages.archive.subpages.tuning.seo.og_description'),
     ogUrl: 'classicminidiy.com/archive/tuning',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/archive/tuning.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Classic Mini ECU Maps: Tuning Files for Various ECUs',
-    twitterDescription: 'Currated collection of Classic Mini original Tuning and Modifications documents',
+    twitterTitle: t('pages.archive.subpages.tuning.seo.twitter_title'),
+    twitterDescription: t('pages.archive.subpages.tuning.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/archive/tuning.png',
   });
 </script>
 <template>
-  <hero :navigation="true" :title="'Classic Mini Archives'" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="t('pages.archive.subpages.tuning.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" page="Tuning and Modifications"></breadcrumb>
+        <breadcrumb class="my-6" :page="t('pages.archive.subpages.tuning.breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-2xl font-bold mb-4">Original Tuning and Modification Technical Documents</h1>
-            <p class="mb-6">Free copies of original technical material about Classic Mini Tuning and Modifications</p>
+            <h1 class="text-2xl font-bold mb-4">{{ t('pages.archive.subpages.tuning.main_heading') }}</h1>
+            <p class="mb-6">{{ t('pages.archive.subpages.tuning.description_text') }}</p>
             <div class="flex flex-wrap gap-3 mb-6">
               <button class="btn btn-primary" @click="submitArchiveFile(ARCHIVE_TYPES.TUNING)">
                 <i class="fad fa-paper-plane mr-2"></i>
-                Add to Archive
+                {{ t('pages.archive.subpages.tuning.actions.add_to_archive') }}
               </button>
               <a
                 class="btn btn-secondary"
@@ -78,7 +79,7 @@
                 @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
               >
                 <i class="fad fa-hand-holding-circle-dollar mr-2"></i>
-                Cover Server Costs
+                {{ t('pages.archive.subpages.tuning.actions.cover_server_costs') }}
               </a>
             </div>
           </div>
@@ -91,7 +92,7 @@
 
       <!-- Support section -->
       <div class="col-span-12 mt-8 mb-10">
-        <div class="divider">Support</div>
+        <div class="divider">{{ t('pages.archive.subpages.tuning.support_divider') }}</div>
         <patreon-card size="large" />
       </div>
     </div>
