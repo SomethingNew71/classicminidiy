@@ -68,6 +68,85 @@
         "promise_title": "제 약속",
         "promise": "저는 제 능력 범위 내에서 제가 할 수 있는 모든 지식을 제공할 것입니다. 또한 제가 뭔가 잘못했을 경우 피드백을 받아들일 것입니다. 저는 애호가이지 완전한 전문가가 아니므로 때때로 실수를 할 것입니다."
       }
+    },
+    "maps": {
+      "seo": {
+        "title": "클래식 미니 ECU 맵 | 다중 ECU 튜닝 파일 | Classic Mini DIY",
+        "description": "클래식 미니 엔진용 전문 튜닝 ECU 맵을 다운로드하세요. Haltech, Speeduino, MegaSquirt, Emerald 등과 호환됩니다. 원하는 만큼 지불하고 평생 업데이트를 받으세요.",
+        "keywords": "클래식 미니 ECU 맵, 미니 쿠퍼 튜닝, Haltech 맵, Speeduino 맵, MegaSquirt 맵, Emerald ECU, 엔진 튜닝, 연료 맵, 점화 맵",
+        "ogTitle": "클래식 미니 ECU 맵 | 다중 ECU 튜닝 파일",
+        "twitterTitle": "클래식 미니 ECU 맵 | 다중 ECU 지원",
+        "twitterDescription": "평생 업데이트가 포함된 클래식 미니 엔진용 전문 ECU 맵."
+      },
+      "breadcrumb": "ECU 맵",
+      "hero": {
+        "title": "클래식 미니 DIY ECU 맵",
+        "subtitle": "원하는 만큼 지불하세요, 언제나"
+      },
+      "mainTitle": "클래식 미니 ECU 맵",
+      "description": "수년간의 클래식 미니 엔진 튜닝, 맞춤형 하네스 제작, 다중 ECU 매핑을 거쳐, 두 가지 액세스 옵션을 제공하는 ECU 맵 컬렉션을 출시하게 되어 자랑스럽습니다. 클래식 미니에서 사용되는 많은 인기 ECU를 지원하며, 향후 더 많이 추가될 예정입니다.",
+      "features": {
+        "lifetimeUpdates": "평생 업데이트",
+        "multipleEcus": "다중 ECU",
+        "constantlyUpdated": "지속적 업데이트",
+        "payWhatYouWant": "원하는 만큼 지불"
+      },
+      "options": {
+        "latestRelease": "최신 릴리스",
+        "purchase": {
+          "title": "옵션 1 - 구매",
+          "description": "Classic Mini DIY 스토어에서 직접 ECU 맵을 구매하세요. 이 옵션은 채널을 지원하고 Github를 사용하지 않고 맵을 얻고자 하는 분들에게 완벽합니다. 이 옵션에는 이메일을 통한 우선 지원도 포함됩니다.",
+          "button": "다운로드"
+        },
+        "download": {
+          "title": "옵션 2 - 다운로드",
+          "description": "Github에서 직접 ECU 맵을 다운로드하세요. 이 옵션은 맵을 무료로 얻고자 하는 분들에게 완벽합니다. 이 옵션에는 풀 리퀘스트를 제출하여 프로젝트에 기여할 수 있는 기능도 포함됩니다.",
+          "button": "다운로드",
+          "viewSource": "소스 코드 보기"
+        }
+      },
+      "moreDetails": "자세한 내용",
+      "table": {
+        "features": "기능",
+        "ignitionMap": "점화 맵",
+        "fuelMap": "연료 맵",
+        "veTable": "VE 테이블",
+        "targetAfr": "목표 AFR",
+        "throttleEnrichment": "스로틀 농화",
+        "driveByWire": "드라이브 바이 와이어 준비",
+        "boostControl": "부스트 제어 맵",
+        "idleMap": "아이들 맵",
+        "sixteenVEngine": "16V 엔진 버전"
+      },
+      "legend": {
+        "included": {
+          "name": "포함됨",
+          "description": "맵에 포함됨"
+        },
+        "notIncluded": {
+          "name": "포함되지 않음",
+          "description": "지원되지만 포함되지 않음"
+        },
+        "notAvailable": {
+          "name": "사용 불가",
+          "description": "ECU에서 지원하지 않는 기능"
+        },
+        "workInProgress": {
+          "name": "작업 중",
+          "description": "현재 이 ECU로 포팅 작업 중"
+        }
+      },
+      "updates": {
+        "title": "최신 업데이트",
+        "error": "Github에서 업데이트 기록 로드 오류",
+        "noUpdates": "사용 가능한 업데이트 없음",
+        "viewAllCommits": "모든 커밋 보기"
+      },
+      "supportedEcus": {
+        "title": "지원되는 ECU",
+        "subtitle": "필요한 ECU 지원"
+      },
+      "otherSupport": "기타 지원 방법"
     }
   },
   "components": {

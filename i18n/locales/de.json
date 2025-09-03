@@ -49,7 +49,7 @@
         "button": "Werkzeugkasten öffnen"
       },
       "patreon": {
-        "title": "UNTERSTÜTZEN SIE DEN KANAL",
+        "title": "TRETEN SIE UNSEREM PATREON BEI",
         "heading": "Werden Sie ein Patreon",
         "content": "Classic Mini DIY ist eine völlig kostenlose Ressource, die von unseren Zuschauern unterstützt wird. Wenn Sie daran interessiert sind, den Kanal am Leben zu erhalten, erwägen Sie eine Unterstützung auf Patreon.",
         "button": "Mitglied werden",
@@ -68,6 +68,85 @@
         "promise_title": "MEIN VERSPRECHEN",
         "promise": "Ich werde Ihnen alles Wissen zur Verfügung stellen, das ich nach besten Kräften kann. Ich werde auch Feedback akzeptieren, falls ich etwas falsch verstehe. Ich bin ein Enthusiast und kein vollständiger Experte, also werde ich von Zeit zu Zeit Fehler machen."
       }
+    },
+    "maps": {
+      "seo": {
+        "title": "Classic Mini ECU-Karten | Tuning-Dateien für Mehrere ECUs | Classic Mini DIY",
+        "description": "Laden Sie professionell abgestimmte ECU-Karten für Classic Mini Motoren herunter. Kompatibel mit Haltech, Speeduino, MegaSquirt, Emerald und mehr. Zahlen Sie was Sie wollen für lebenslange Updates.",
+        "keywords": "Classic Mini ECU-Karten, Mini Cooper Tuning, Haltech Karten, Speeduino Karten, MegaSquirt Karten, Emerald ECU, Motor-Tuning, Kraftstoffkarten, Zündkarten",
+        "ogTitle": "Classic Mini ECU-Karten | Tuning-Dateien für Mehrere ECUs",
+        "twitterTitle": "Classic Mini ECU-Karten | Mehrere ECU-Unterstützung",
+        "twitterDescription": "Professionelle ECU-Karten für Classic Mini Motoren mit lebenslangen Updates."
+      },
+      "breadcrumb": "ECU-Karten",
+      "hero": {
+        "title": "Classic Mini DIY ECU-Karten",
+        "subtitle": "Zahlen Sie was Sie wollen, immer"
+      },
+      "mainTitle": "Die Classic Mini ECU-Karte",
+      "description": "Nach Jahren des Tunings von Classic Mini Motoren, dem Bau von benutzerdefinierten Kabelbäumen und der Kartierung mehrerer ECUs bin ich stolz darauf, meine Sammlung von ECU-Karten mit zwei Zugriffsoptionen zu veröffentlichen. Bietet Unterstützung für viele beliebte ECUs, die bei Classic Minis verwendet werden, mit mehr in der Zukunft hinzugefügten.",
+      "features": {
+        "lifetimeUpdates": "Lebenslange Updates",
+        "multipleEcus": "Mehrere ECUs",
+        "constantlyUpdated": "Ständig Aktualisiert",
+        "payWhatYouWant": "Zahlen Sie was Sie wollen"
+      },
+      "options": {
+        "latestRelease": "Neueste Version",
+        "purchase": {
+          "title": "Option 1 - Kaufen",
+          "description": "Kaufen Sie die ECU-Karten direkt im Classic Mini DIY Store. Diese Option ist perfekt für diejenigen, die den Kanal unterstützen und die Karten erhalten möchten, ohne Github verwenden zu müssen. Diese Option kommt auch mit prioritärem Support per E-Mail.",
+          "button": "Herunterladen"
+        },
+        "download": {
+          "title": "Option 2 - Herunterladen",
+          "description": "Laden Sie die ECU-Karten direkt von Github herunter. Diese Option ist perfekt für diejenigen, die die Karten kostenlos erhalten möchten. Diese Option kommt auch mit der Möglichkeit, zum Projekt beizutragen, indem Sie Pull-Requests einreichen.",
+          "button": "Herunterladen",
+          "viewSource": "Quellcode Anzeigen"
+        }
+      },
+      "moreDetails": "Weitere Details",
+      "table": {
+        "features": "Funktionen",
+        "ignitionMap": "Zündkarte",
+        "fuelMap": "Kraftstoffkarte",
+        "veTable": "VE-Tabelle",
+        "targetAfr": "Ziel-AFR",
+        "throttleEnrichment": "Drosselanreicherung",
+        "driveByWire": "Drive-by-Wire Bereit",
+        "boostControl": "Ladedruck-Steuerungskarte",
+        "idleMap": "Leerlaufkarte",
+        "sixteenVEngine": "16V Motor Version"
+      },
+      "legend": {
+        "included": {
+          "name": "Enthalten",
+          "description": "In der Karte enthalten"
+        },
+        "notIncluded": {
+          "name": "Nicht enthalten",
+          "description": "Unterstützt aber nicht enthalten"
+        },
+        "notAvailable": {
+          "name": "Nicht Verfügbar",
+          "description": "Funktion wird von der ECU nicht unterstützt"
+        },
+        "workInProgress": {
+          "name": "In Arbeit",
+          "description": "Derzeit noch in Arbeit, wird auf diese ECU portiert"
+        }
+      },
+      "updates": {
+        "title": "Neueste Updates",
+        "error": "Fehler beim Laden der Update-Historie von Github",
+        "noUpdates": "Keine Updates verfügbar",
+        "viewAllCommits": "Alle Commits Anzeigen"
+      },
+      "supportedEcus": {
+        "title": "Unterstützte ECUs",
+        "subtitle": "Unterstützung für die ECU, die Sie benötigen"
+      },
+      "otherSupport": "Andere Wege zu unterstützen"
     }
   },
   "components": {

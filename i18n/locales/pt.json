@@ -68,6 +68,85 @@
         "promise_title": "MINHA PROMESSA",
         "promise": "Fornecerei todo o conhecimento que posso com o melhor de minha capacidade. Também aceitarei feedback no caso de eu errar algo. Sou um entusiasta e não um especialista completo, então de tempos em tempos cometerei erros."
       }
+    },
+    "maps": {
+      "seo": {
+        "title": "Mapas ECU Classic Mini | Arquivos de Ajuste para Múltiplas ECUs | Classic Mini DIY",
+        "description": "Baixe mapas ECU ajustados profissionalmente para motores Classic Mini. Compatível com Haltech, Speeduino, MegaSquirt, Emerald e mais. Pague o que quiser por atualizações vitalícias.",
+        "keywords": "Mapas ECU Classic Mini, ajuste Mini Cooper, mapas Haltech, mapas Speeduino, mapas MegaSquirt, ECU Emerald, ajuste de motor, mapas de combustível, mapas de ignição",
+        "ogTitle": "Mapas ECU Classic Mini | Arquivos de Ajuste para Múltiplas ECUs",
+        "twitterTitle": "Mapas ECU Classic Mini | Suporte a Múltiplas ECUs",
+        "twitterDescription": "Mapas ECU profissionais para motores Classic Mini com atualizações vitalícias."
+      },
+      "breadcrumb": "Mapas ECU",
+      "hero": {
+        "title": "Mapas ECU Classic Mini DIY",
+        "subtitle": "Pague o que quiser, sempre"
+      },
+      "mainTitle": "O Mapa ECU Classic Mini",
+      "description": "Após anos ajustando motores Classic Mini, construindo chicotes personalizados e mapeando múltiplas ECUs, tenho orgulho de lançar minha coleção de mapas ECU com duas opções de acesso. Oferecendo suporte para muitas ECUs populares usadas em Classic Minis, com mais adicionadas no futuro.",
+      "features": {
+        "lifetimeUpdates": "Atualizações Vitalícias",
+        "multipleEcus": "Múltiplas ECUs",
+        "constantlyUpdated": "Constantemente Atualizado",
+        "payWhatYouWant": "Pague o que quiser"
+      },
+      "options": {
+        "latestRelease": "Última Versão",
+        "purchase": {
+          "title": "Opção 1 - Comprar",
+          "description": "Compre os mapas ECU diretamente da loja Classic Mini DIY. Esta opção é perfeita para aqueles que querem apoiar o canal e obter os mapas sem ter que usar o Github. Esta opção também vem com suporte prioritário por email.",
+          "button": "Baixar"
+        },
+        "download": {
+          "title": "Opção 2 - Baixar",
+          "description": "Baixe os mapas ECU diretamente do Github. Esta opção é perfeita para aqueles que querem obter os mapas gratuitamente. Esta opção também vem com a capacidade de contribuir para o projeto enviando pull requests.",
+          "button": "Baixar",
+          "viewSource": "Ver Código Fonte"
+        }
+      },
+      "moreDetails": "Mais Detalhes",
+      "table": {
+        "features": "Características",
+        "ignitionMap": "Mapa de Ignição",
+        "fuelMap": "Mapa de Combustível",
+        "veTable": "Tabela VE",
+        "targetAfr": "AFR Alvo",
+        "throttleEnrichment": "Enriquecimento do Acelerador",
+        "driveByWire": "Drive by Wire Pronto",
+        "boostControl": "Mapa de Controle de Boost",
+        "idleMap": "Mapa de Marcha Lenta",
+        "sixteenVEngine": "Versão Motor 16V"
+      },
+      "legend": {
+        "included": {
+          "name": "Incluído",
+          "description": "Incluído no Mapa"
+        },
+        "notIncluded": {
+          "name": "Não incluído",
+          "description": "Suportado mas não incluído"
+        },
+        "notAvailable": {
+          "name": "Não Disponível",
+          "description": "Recurso não suportado pela ECU"
+        },
+        "workInProgress": {
+          "name": "Em andamento",
+          "description": "Atualmente ainda em andamento sendo portado para esta ECU"
+        }
+      },
+      "updates": {
+        "title": "Últimas Atualizações",
+        "error": "Erro ao carregar histórico de atualizações do Github",
+        "noUpdates": "Nenhuma atualização disponível",
+        "viewAllCommits": "Ver Todos os Commits"
+      },
+      "supportedEcus": {
+        "title": "ECUs Suportadas",
+        "subtitle": "Suporte para a ECU que você precisa"
+      },
+      "otherSupport": "Outras formas de apoiar"
     }
   },
   "components": {

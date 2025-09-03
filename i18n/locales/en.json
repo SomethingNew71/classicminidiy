@@ -27,6 +27,22 @@
     "home_title": "Classic Mini DIY",
     "home_subtitle": "YOUR FRIENDLY NEIGHBORHOOD"
   },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minutes Watched",
+      "over_30_days": "over the last 30 days",
+      "subscribers": "Subscribers",
+      "across_world": "across the world",
+      "videos": "Videos",
+      "since_2015": "since 2015"
+    },
+    "recent_videos": {
+      "title": "Recent Videos",
+      "error_message": "Unable to load youtube data",
+      "published_on": "Published on",
+      "watch_button": "Watch"
+    }
+  },
   "pages": {
     "home": {
       "title": "Classic Mini DIY | Your Friendly Neighborhood Classic Mini Resource",
@@ -68,22 +84,146 @@
         "promise_title": "MY PROMISE",
         "promise": "I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to time I will make mistakes."
       }
-    }
-  },
-  "components": {
-    "stats": {
-      "minutes_watched": "Minutes Watched",
-      "over_30_days": "over the last 30 days",
-      "subscribers": "Subscribers",
-      "across_world": "across the world",
-      "videos": "Videos",
-      "since_2015": "since 2015"
     },
-    "recent_videos": {
-      "title": "Recent Videos",
-      "error_message": "Unable to load youtube data",
-      "published_on": "Published on",
-      "watch_button": "Watch"
+    "privacy": {
+      "title": "Privacy Policy | Classic Mini DIY",
+      "description": "Classic Mini DIY privacy policy regarding data collection, storage, and use of YouTube API Services. Learn how we protect your information.",
+      "hero_title": "Privacy Policy",
+      "hero_subtitle": "Classic Mini DIY",
+      "heading": "Privacy Policy",
+      "acceptance_title": "Acceptance of Terms",
+      "acceptance_content": "By using our API client, you agree to be bound by the",
+      "youtube_privacy_link": "Youtube Privacy Policy",
+      "accessibility_title": "Accessibility",
+      "accessibility_content": "This Privacy Policy is easily accessible to all users via",
+      "google_privacy_link": "Google Privacy Policy",
+      "youtube_api_title": "Use of YouTube API Services",
+      "youtube_api_content": "Our API client uses YouTube API Services. By using our API client, you agree to the collection, storage, and usage of your data as described in this policy.",
+      "data_collection_title": "Data Collection, Storage, and Use",
+      "data_collection_content": "We collect data directly from your device to provide and improve our services. This includes information about your device, IP address, and public cookie information. We do not collect any additional personal data for our use. This data is stored securely and used to enhance the user experience and ensure the smooth operation of our API client. In addition no data is stored on our servers, and thus is deleted each time you close your browser.",
+      "data_processing_title": "Data Processing and Sharing",
+      "data_processing_content": "We process your data to provide our services. Your data may be shared with internal and external parties for the purpose of improving and maintaining our API client. We ensure all external parties comply with our strict data protection guidelines.",
+      "data_methods_title": "Data Collection Methods",
+      "data_methods_content": "Data is collected through various means such as direct input, cookies, and other tracking technologies. This helps us to understand user preferences and provide better service.",
+      "contact_title": "Contact Information",
+      "contact_content": "Contact Information If you have any questions or concerns about this privacy policy, please contact us at"
+    },
+    "maps": {
+      "seo": {
+        "title": "Classic Mini ECU Maps | Tuning Files for Multiple ECUs | Classic Mini DIY",
+        "description": "Download professionally tuned ECU maps for Classic Mini engines. Compatible with Haltech, Speeduino, MegaSquirt, Emerald, and more. Pay what you want for lifetime updates.",
+        "keywords": "Classic Mini ECU maps, Mini Cooper tuning, Haltech maps, Speeduino maps, MegaSquirt maps, Emerald ECU, engine tuning, fuel maps, ignition maps",
+        "ogTitle": "Classic Mini ECU Maps | Tuning Files for Multiple ECUs",
+        "twitterTitle": "Classic Mini ECU Maps | Multiple ECU Support",
+        "twitterDescription": "Professional ECU maps for Classic Mini engines with lifetime updates."
+      },
+      "breadcrumb": "ECU Maps",
+      "hero": {
+        "title": "Classic Mini DIY ECU Maps",
+        "subtitle": "Pay what your want, always"
+      },
+      "mainTitle": "The Classic Mini ECU Map",
+      "description": "After years of tuning Classic Mini engines, building custom harnesses, and mapping multiple ECU's, I am proud to release my collection of ECU maps with two options for access. Offering support for many popular ECU's used on Classic Minis, with more added in the future.",
+      "features": {
+        "lifetimeUpdates": "Lifetime Updates",
+        "multipleEcus": "Multiple ECU's",
+        "constantlyUpdated": "Constantly Updated",
+        "payWhatYouWant": "Pay what you want"
+      },
+      "options": {
+        "latestRelease": "Latest Release",
+        "purchase": {
+          "title": "Option 1 - Purchase",
+          "description": "Purchase the ECU maps directly from the Classic Mini DIY store. This option is perfect for those who want to support the channel and get the maps without having to use Github. This option also comes with priority support via email.",
+          "button": "Download"
+        },
+        "download": {
+          "title": "Option 2 - Download",
+          "description": "Download the ECU maps directly from Github. This option is perfect for those who want to get the maps for free. This option also comes with the ability to contribute to the project by submitting pull requests.",
+          "button": "Download",
+          "viewSource": "View Source"
+        }
+      },
+      "moreDetails": "More Details",
+      "table": {
+        "features": "Features",
+        "ignitionMap": "Ignition Map",
+        "fuelMap": "Fuel Map",
+        "veTable": "VE Table",
+        "targetAfr": "Target AFR",
+        "throttleEnrichment": "Throttle Enrichment",
+        "driveByWire": "Drive by Wire Ready",
+        "boostControl": "Boost Control Map",
+        "idleMap": "Idle Map",
+        "sixteenVEngine": "16V Engine Version"
+      },
+      "legend": {
+        "included": {
+          "name": "Included",
+          "description": "Included in Map"
+        },
+        "notIncluded": {
+          "name": "Not included",
+          "description": "Supported but not included"
+        },
+        "notAvailable": {
+          "name": "Not Available",
+          "description": "Feature not supported by ECU"
+        },
+        "workInProgress": {
+          "name": "Work in progress",
+          "description": "Currently still in progress being ported to this ECU"
+        }
+      },
+      "updates": {
+        "title": "Latest Updates",
+        "error": "Error loading update history from Github",
+        "noUpdates": "No updates available",
+        "viewAllCommits": "View All Commits"
+      },
+      "supportedEcus": {
+        "title": "Supported ECU's",
+        "subtitle": "Support for the ecu you need"
+      },
+      "otherSupport": "Other ways to support"
+    },
+    "contact": {
+      "title": "Contact Classic Mini DIY - Get Help & Submit Content",
+      "description": "Contact Classic Mini DIY for general inquiries, archive submissions, technical contributions, or bug reports. Multiple ways to get in touch with our community.",
+      "hero_title": "Get in Touch",
+      "breadcrumb_home": "Home",
+      "breadcrumb_contact": "Contact",
+      "general_inquiries_title": "General Inquiries",
+      "general_inquiries_description": "Questions about the site, Classic Mini ownership, or general help? We'd love to hear from you.",
+      "email_label": "Email",
+      "ai_chat_label": "AI Chat Assistant",
+      "ai_chat_description": "Use the chat widget for quick questions",
+      "response_time_label": "Response Time",
+      "response_time_description": "Usually within 24-48 hours",
+      "archive_submissions_title": "Archive Submissions",
+      "archive_submissions_description": "Have historical documents, photos, or stories to share? Help preserve Classic Mini history.",
+      "what_to_include_label": "What to Include",
+      "what_to_include_description": "Photos, documents, stories, or historical info",
+      "rights_attribution_label": "Rights & Attribution",
+      "rights_attribution_description": "Please confirm you own or have permission to share",
+      "technical_submissions_title": "Technical Submissions",
+      "technical_submissions_description": "Share repair guides, technical specs, or maintenance tips with the community.",
+      "content_types_label": "Content Types",
+      "content_types_description": "Repair guides, specs, tips, part numbers",
+      "credit_label": "Credit",
+      "credit_description": "We'll credit you as the contributor",
+      "bug_reports_title": "Bug Reports",
+      "bug_reports_description": "Found a problem with the site? Help us fix it by reporting bugs and issues.",
+      "include_details_label": "Include Details",
+      "include_details_description": "Browser, device, steps to reproduce",
+      "priority_label": "Priority",
+      "priority_description": "Critical bugs fixed within 24 hours",
+      "other_ways_connect": "Other Ways to Connect",
+      "community_forum_label": "Community Forum",
+      "community_forum_description": "Join discussions with other enthusiasts",
+      "support_patreon_label": "Support on Patreon",
+      "support_patreon_description": "Help keep the site running",
+      "support_patreon_button": "Support on Patreon"
     }
   }
 }
