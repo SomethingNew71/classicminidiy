@@ -2,14 +2,15 @@
   import { HERO_TYPES } from '../../../../data/models/generic';
   import type { RegistryItem } from '../../../../data/models/registry';
   import { RegistryItemStatus } from '../../../../data/models/registry';
+  const { t } = useI18n();
 
   // Define table columns
   const tableHeaders = [
-    { title: 'Year', key: 'year' },
-    { title: 'Model', key: 'model' },
-    { title: 'Body Number', key: 'bodyNum' },
-    { title: 'Submitted By', key: 'submittedBy' },
-    { title: 'Status', key: 'status', width: '100px' },
+    { title: t('pages.archive.subpages.registry_pending.table_headers.year'), key: 'year' },
+    { title: t('pages.archive.subpages.registry_pending.table_headers.model'), key: 'model' },
+    { title: t('pages.archive.subpages.registry_pending.table_headers.body_number'), key: 'bodyNum' },
+    { title: t('pages.archive.subpages.registry_pending.table_headers.submitted_by'), key: 'submittedBy' },
+    { title: t('pages.archive.subpages.registry_pending.table_headers.status'), key: 'status', width: '100px' },
   ];
 
   // Fetch pending registry items
@@ -22,69 +23,83 @@
   });
 
   useHead({
-    title: 'Pending Registry Submissions - Classic Mini DIY',
+    title: t('pages.archive.subpages.registry_pending.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: 'Track the status of your Classic Mini registry submission.',
+        content: t('pages.archive.subpages.registry_pending.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: 'Pending Registry Submissions - Classic Mini DIY',
-    ogDescription: 'Track the status of your Classic Mini registry submission.',
+    ogTitle: t('pages.archive.subpages.registry_pending.seo.og_title'),
+    ogDescription: t('pages.archive.subpages.registry_pending.seo.og_description'),
     ogUrl: 'classicminidiy.com/archive/registry/pending',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/registry.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Pending Registry Submissions - Classic Mini DIY',
-    twitterDescription: 'Track the status of your Classic Mini registry submission.',
+    twitterTitle: t('pages.archive.subpages.registry_pending.seo.twitter_title'),
+    twitterDescription: t('pages.archive.subpages.registry_pending.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/registry.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="'Pending Registry Submissions'" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero
+    :navigation="true"
+    :title="t('pages.archive.subpages.registry_pending.hero_title')"
+    :heroType="HERO_TYPES.ARCHIVE"
+  />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" page="Registry Submissions">
+        <breadcrumb class="my-6" :page="t('pages.archive.subpages.registry_pending.breadcrumb_title')">
           <template #parent>
-            <nuxt-link to="/archive/registry">Registry</nuxt-link>
+            <nuxt-link to="/archive/registry">{{
+              t('pages.archive.subpages.registry_pending.breadcrumb_parent')
+            }}</nuxt-link>
           </template>
         </breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-3xl font-bold">Pending Registry Submissions</h1>
+            <h1 class="text-3xl font-bold">{{ t('pages.archive.subpages.registry_pending.main_heading') }}</h1>
             <h2 class="text-xl mt-4">
-              <strong>{{ pendingItems?.length || '0' }}</strong> Minis awaiting approval
+              <strong>{{ pendingItems?.length || '0' }}</strong>
+              {{ t('pages.archive.subpages.registry_pending.subtitle') }}
             </h2>
             <p class="my-4">
-              This page shows all the Mini registry submissions that are currently pending approval. Once your
-              submission is approved, it will appear in the main registry. If you don't see your submission here, it may
-              have already been approved or rejected.
+              {{ t('pages.archive.subpages.registry_pending.description_text') }}
             </p>
             <p class="my-4">
-              If you have any questions about your submission, please
-              <a href="/contact" class="link link-primary">contact us</a>.
+              {{ t('pages.archive.subpages.registry_pending.contact_text') }}
+              <a href="/contact" class="link link-primary">{{
+                t('pages.archive.subpages.registry_pending.contact_link')
+              }}</a
+              >.
             </p>
           </div>
           <div class="col-span-12 md:col-span-4">
             <div class="card bg-base-100 shadow-xl">
               <div class="card-body">
-                <h2 class="card-title">Submission Status</h2>
+                <h2 class="card-title">{{ t('pages.archive.subpages.registry_pending.status_card.title') }}</h2>
                 <div class="flex items-center gap-2 mb-2">
-                  <div class="badge badge-primary">Pending</div>
-                  <span>Your submission is being reviewed</span>
+                  <div class="badge badge-primary">
+                    {{ t('pages.archive.subpages.registry_pending.status_card.pending') }}
+                  </div>
+                  <span>{{ t('pages.archive.subpages.registry_pending.status_card.pending_description') }}</span>
                 </div>
                 <div class="flex items-center gap-2 mb-2">
-                  <div class="badge badge-success">Approved</div>
-                  <span>Added to the main registry</span>
+                  <div class="badge badge-success">
+                    {{ t('pages.archive.subpages.registry_pending.status_card.approved') }}
+                  </div>
+                  <span>{{ t('pages.archive.subpages.registry_pending.status_card.approved_description') }}</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <div class="badge badge-error">Rejected</div>
-                  <span>Not added to the registry</span>
+                  <div class="badge badge-error">
+                    {{ t('pages.archive.subpages.registry_pending.status_card.rejected') }}
+                  </div>
+                  <span>{{ t('pages.archive.subpages.registry_pending.status_card.rejected_description') }}</span>
                 </div>
               </div>
             </div>
@@ -100,7 +115,7 @@
         />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">Submit a New Mini</div>
+        <div class="divider">{{ t('pages.archive.subpages.registry_pending.submit_divider') }}</div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-15">
         <RegistrySubmission />
