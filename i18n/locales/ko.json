@@ -327,6 +327,16 @@
       },
       "useful_links_sidebar": {
         "title": "유용한 링크"
+      },
+      "toolbox": {
+        "torque_specs": "토크 사양",
+        "chassis_decoder": "섀시 번호 디코더",
+        "engine_decoder": "엔진 번호 디코더",
+        "needle_configurator": "카브레터 니들 구성기",
+        "gearbox_calculator": "기어박스 계산기",
+        "compression_calculator": "압축비 계산기",
+        "parts_equivalency": "부품 호환성",
+        "common_clearances": "일반적인 클리어런스"
       }
     }
   },
@@ -1327,11 +1337,23 @@
           "title": "유용한 링크"
         },
         "useful_links_sidebar": {
-          "title": "유용한 링크",
-          "showing_results": "전체 {count}개 검색 결과 표시"
-        }
+        "title": "유용한 링크",
+        "showing_results": "총 {count}개의 검색 결과 표시"
       },
-      "wheel_submit": {
+        "toolbox": {
+          "torque_specs": "토크 사양",
+          "chassis_decoder": "섀시 번호 디코더",
+          "engine_decoder": "엔진 번호 디코더",
+          "needle_configurator": "카뷰레터 니들 구성기",
+          "gearbox_calculator": "기어박스 계산기",
+          "compression_calculator": "압축비 계산기",
+          "parts_equivalency": "부품 등가성",
+          "common_clearances": "일반적인 클리어런스"
+        }
+      }
+    },
+  "pages": {
+    "wheel_submit": {
         "stepper": {
           "wheel_details": "휠 세부사항",
           "images": "이미지",

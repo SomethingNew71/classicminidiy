@@ -327,6 +327,16 @@
       },
       "useful_links_sidebar": {
         "title": "有用なリンク"
+      },
+      "toolbox": {
+        "torque_specs": "トルク仕様",
+        "chassis_decoder": "シャシー番号デコーダー",
+        "engine_decoder": "エンジン番号デコーダー",
+        "needle_configurator": "キャブレターニードル設定ツール",
+        "gearbox_calculator": "ギアボックス計算機",
+        "compression_calculator": "圧縮比計算機",
+        "parts_equivalency": "部品互換性",
+        "common_clearances": "一般的なクリアランス"
       }
     }
   },
@@ -1327,11 +1337,23 @@
           "title": "有用なリンク"
         },
         "useful_links_sidebar": {
-          "title": "有用なリンク",
-          "showing_results": "すべての{count}検索結果を表示"
-        }
+        "title": "便利なリンク",
+        "showing_results": "すべての{count}件の検索結果を表示"
       },
-      "wheel_submit": {
+        "toolbox": {
+          "torque_specs": "トルク仕様",
+          "chassis_decoder": "シャシー番号デコーダー",
+          "engine_decoder": "エンジン番号デコーダー",
+          "needle_configurator": "キャブレターニードル設定",
+          "gearbox_calculator": "ギアボックス計算機",
+          "compression_calculator": "圧縮比計算機",
+          "parts_equivalency": "部品等価性",
+          "common_clearances": "一般的なクリアランス"
+        }
+      }
+    },
+  "pages": {
+    "wheel_submit": {
         "stepper": {
           "wheel_details": "ホイール詳細",
           "images": "画像",

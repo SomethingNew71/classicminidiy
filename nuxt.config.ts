@@ -5,7 +5,7 @@ const parsedArchive = ArchiveItems.map((item) => {
   return { title: item.title, description: item.description, href: `https://classicminidiy.com${item.to}` };
 });
 const parsedToolbox = ToolboxItems.map((item) => {
-  return { title: item.title, description: item.title, href: `https://classicminidiy.com${item.to}` };
+  return { title: item.titleKey, description: item.titleKey, href: `https://classicminidiy.com${item.to}` };
 });
 
 export default defineNuxtConfig({

@@ -51,7 +51,7 @@
       '@type': 'ListItem',
       position: index + 1,
       url: `https://classicminidiy.com${item.to}`,
-      name: item.title,
+      name: t(item.titleKey),
     })),
   };
 
@@ -92,7 +92,7 @@
         <NuxtLink :to="tool.to" class="card bg-base-100 shadow-xl text-center p-5 h-full">
           <span class="text-4xl block" v-html="tool.iconHtml"> </span>
           <div class="card-body p-2">
-            <p class="text-lg">{{ tool.title }}</p>
+            <p class="text-lg">{{ t(tool.titleKey) }}</p>
           </div>
         </NuxtLink>
       </div>

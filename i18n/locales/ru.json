@@ -327,6 +327,16 @@
       },
       "useful_links_sidebar": {
         "title": "Полезные ссылки"
+      },
+      "toolbox": {
+        "torque_specs": "Спецификации крутящего момента",
+        "chassis_decoder": "Декодер номера шасси",
+        "engine_decoder": "Декодер номера двигателя",
+        "needle_configurator": "Конфигуратор игл карбюратора",
+        "gearbox_calculator": "Калькулятор коробки передач",
+        "compression_calculator": "Калькулятор степени сжатия",
+        "parts_equivalency": "Эквивалентность деталей",
+        "common_clearances": "Общие зазоры"
       }
     }
   },
@@ -1333,9 +1343,21 @@
         },
         "useful_links_sidebar": {
           "title": "Полезные ссылки",
-          "showing_results": "Показано всего {count} результатов поиска"
+          "showing_results": "Показано все {count} результатов поиска"
+        },
+        "toolbox": {
+          "torque_specs": "Характеристики крутящего момента",
+          "chassis_decoder": "Декодер номера шасси",
+          "engine_decoder": "Декодер номера двигателя",
+          "needle_configurator": "Конфигуратор иглы карбюратора",
+          "gearbox_calculator": "Калькулятор коробки передач",
+          "compression_calculator": "Калькулятор степени сжатия",
+          "parts_equivalency": "Эквивалентность деталей",
+          "common_clearances": "Общие зазоры"
         }
-      },
+      }
+    },
+    "pages": {
       "wheel_submit": {
         "stepper": {
           "wheel_details": "Детали колеса",
