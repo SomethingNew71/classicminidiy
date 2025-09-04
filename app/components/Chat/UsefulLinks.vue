@@ -2,7 +2,7 @@
   <div v-if="links && links.length > 0" class="mt-4 rounded-lg bg-base-100 border border-base-300 p-4">
     <div class="flex items-center gap-2 mb-3">
       <i class="fa-solid fa-link text-primary"></i>
-      <h3 class="text-sm font-semibold text-base-content">{{ t('components.chat.useful_links.title') }}</h3>
+      <h3 class="text-sm font-semibold text-base-content">{{ t('title') }}</h3>
     </div>
     <div class="space-y-2">
       <a
@@ -47,8 +47,10 @@
   }
 
   defineProps<Props>();
-  
-  const { t } = useI18n();
+
+  const { t } = useI18n({
+    useScope: 'local',
+  });
 
   // Add UTM parameters to URLs for tracking
   const addUtmParams = (url: string): string => {
@@ -70,6 +72,41 @@
     }
   };
 </script>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Useful Links"
+  },
+  "es": {
+    "title": "Enlaces Útiles"
+  },
+  "fr": {
+    "title": "Liens Utiles"
+  },
+  "de": {
+    "title": "Nützliche Links"
+  },
+  "it": {
+    "title": "Collegamenti utili"
+  },
+  "ja": {
+    "title": "有用なリンク"
+  },
+  "ko": {
+    "title": "유용한 링크"
+  },
+  "pt": {
+    "title": "Links Úteis"
+  },
+  "ru": {
+    "title": "Полезные ссылки"
+  },
+  "zh": {
+    "title": "有用链接"
+  }
+}
+</i18n>
 
 <style scoped>
   .line-clamp-2 {

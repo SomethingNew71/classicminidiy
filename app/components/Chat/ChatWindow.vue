@@ -6,9 +6,9 @@
       <div class="flex items-start gap-3">
         <i class="fa-solid fa-triangle-exclamation text-warning text-sm mt-0.5 flex-shrink-0"></i>
         <div class="text-sm text-base-content/80">
-          <strong class="text-warning">{{ t('components.chat.chat_window.experimental_feature') }}</strong>
-          {{ t('components.chat.chat_window.experimental_disclaimer') }} Always verify critical information with
-          official documentation, qualified mechanics, or experienced Classic Mini enthusiasts.
+          <strong class="text-warning">{{ t('experimental_feature') }}</strong>
+          {{ t('experimental_disclaimer') }} Always verify critical information with official documentation, qualified
+          mechanics, or experienced Classic Mini enthusiasts.
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
               <i class="fa-solid fa-comments text-primary text-4xl"></i>
               <div>
                 <h3 class="font-semibold text-xl mb-3 text-primary">
-                  {{ t('components.chat.chat_window.welcome_title') }}
+                  {{ t('welcome_title') }}
                 </h3>
                 <p class="text-base text-base-content/80 leading-relaxed">
                   I'm your Classic Mini DIY assistant, here to help you with technical questions, decode chassis
@@ -42,7 +42,7 @@
                 ref="inputRef"
                 v-model="input"
                 @keydown="handleInputKeyDown"
-                :placeholder="t('components.chat.chat_window.input_placeholder')"
+                :placeholder="t('input_placeholder')"
                 class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
                 rows="1"
               ></textarea>
@@ -69,9 +69,7 @@
 
           <!-- Report Issue Link Below Centered Input -->
           <div class="flex justify-center mt-3">
-            <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{
-              t('components.chat.chat_window.report_issue')
-            }}</a>
+            <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{ t('report_issue') }}</a>
             <i class="fa-solid fa-envelope text-xs"></i>
           </div>
         </div>
@@ -124,7 +122,7 @@
           <!-- Placeholder when no links -->
           <div v-else class="text-center text-base-content/50 mt-8">
             <i class="fa-solid fa-link text-2xl mb-2 block"></i>
-            <p class="text-sm">{{ t('components.chat.chat_window.useful_links_placeholder') }}</p>
+            <p class="text-sm">{{ t('useful_links_placeholder') }}</p>
           </div>
         </div>
       </div>
@@ -138,7 +136,7 @@
             ref="inputRef"
             v-model="input"
             @keydown="handleInputKeyDown"
-            :placeholder="t('components.chat.chat_window.input_placeholder')"
+            :placeholder="t('input_placeholder')"
             class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
             rows="1"
           ></textarea>
@@ -165,9 +163,7 @@
 
       <!-- Report Issue Link Below Chat -->
       <div class="flex justify-center mt-3">
-        <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{
-          t('components.chat.chat_window.report_issue')
-        }}</a>
+        <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{ t('report_issue') }}</a>
         <i class="fa-solid fa-envelope text-xs"></i>
       </div>
     </div>
@@ -182,7 +178,9 @@
   import UsefulLinks from './UsefulLinks.vue';
   import UsefulLinksSidebar from './UsefulLinksSidebar.vue';
 
-  const { t } = useI18n();
+  const { t } = useI18n({
+    useScope: 'local',
+  });
 
   const { assistantId, threadId, isConfigured, isThreadLoaded, setThreadId, updateThreadUsage, getThreadData } =
     useStreamProvider();
@@ -427,6 +425,91 @@
     });
   });
 </script>
+
+<i18n lang="json">
+{
+  "en": {
+    "experimental_feature": "Experimental Feature:",
+    "experimental_disclaimer": "This AI assistant is in beta and should not be used as your only source of technical information.",
+    "welcome_title": "Welcome to Classic Mini DIY Assistant",
+    "input_placeholder": "Ask me anything about your Classic Mini...",
+    "report_issue": "Report an issue with the chat",
+    "useful_links_placeholder": "Useful links will appear here after I search for information"
+  },
+  "es": {
+    "experimental_feature": "Función Experimental:",
+    "experimental_disclaimer": "Este asistente de IA está en beta y no debe usarse como su única fuente de información técnica.",
+    "welcome_title": "Bienvenido al Asistente de Classic Mini DIY",
+    "input_placeholder": "Pregúntame cualquier cosa sobre tu Classic Mini...",
+    "report_issue": "Reportar un problema con el chat",
+    "useful_links_placeholder": "Los enlaces útiles aparecerán aquí después de que busque información"
+  },
+  "fr": {
+    "experimental_feature": "Fonctionnalité Expérimentale:",
+    "experimental_disclaimer": "Cet assistant IA est en version bêta et ne doit pas être utilisé comme votre seule source d'informations techniques.",
+    "welcome_title": "Bienvenue dans l'Assistant Classic Mini DIY",
+    "input_placeholder": "Demandez-moi n'importe quoi sur votre Classic Mini...",
+    "report_issue": "Signaler un problème avec le chat",
+    "useful_links_placeholder": "Les liens utiles apparaîtront ici après que j'aie recherché des informations"
+  },
+  "de": {
+    "experimental_feature": "Experimentelle Funktion:",
+    "experimental_disclaimer": "Dieser KI-Assistent befindet sich in der Beta-Phase und sollte nicht als einzige Quelle für technische Informationen verwendet werden.",
+    "welcome_title": "Willkommen beim Classic Mini DIY Assistenten",
+    "input_placeholder": "Fragen Sie mich alles über Ihren Classic Mini...",
+    "report_issue": "Ein Problem mit dem Chat melden",
+    "useful_links_placeholder": "Nützliche Links erscheinen hier, nachdem ich nach Informationen gesucht habe"
+  },
+  "it": {
+    "experimental_feature": "Funzione Sperimentale:",
+    "experimental_disclaimer": "Questo assistente IA è in beta e non dovrebbe essere usato come unica fonte di informazioni tecniche.",
+    "welcome_title": "Benvenuto nell'Assistente Classic Mini DIY",
+    "input_placeholder": "Chiedimi qualsiasi cosa sul tuo Classic Mini...",
+    "report_issue": "Segnala un problema con la chat",
+    "useful_links_placeholder": "I link utili appariranno qui dopo che avrò cercato informazioni"
+  },
+  "ja": {
+    "experimental_feature": "実験的機能:",
+    "experimental_disclaimer": "このAIアシスタントはベータ版であり、技術情報の唯一の情報源として使用すべきではありません。",
+    "welcome_title": "Classic Mini DIY アシスタントへようこそ",
+    "input_placeholder": "あなたのClassic Miniについて何でもお聞きください...",
+    "report_issue": "チャットの問題を報告する",
+    "useful_links_placeholder": "情報を検索した後、有用なリンクがここに表示されます"
+  },
+  "ko": {
+    "experimental_feature": "실험적 기능:",
+    "experimental_disclaimer": "이 AI 어시스턴트는 베타 버전이며 기술 정보의 유일한 소스로 사용해서는 안 됩니다.",
+    "welcome_title": "Classic Mini DIY 어시스턴트에 오신 것을 환영합니다",
+    "input_placeholder": "당신의 Classic Mini에 대해 무엇이든 물어보세요...",
+    "report_issue": "채팅 문제 신고",
+    "useful_links_placeholder": "정보를 검색한 후 유용한 링크가 여기에 나타납니다"
+  },
+  "pt": {
+    "experimental_feature": "Recurso Experimental:",
+    "experimental_disclaimer": "Este assistente de IA está em beta e não deve ser usado como sua única fonte de informações técnicas.",
+    "welcome_title": "Bem-vindo ao Assistente Classic Mini DIY",
+    "input_placeholder": "Pergunte-me qualquer coisa sobre seu Classic Mini...",
+    "report_issue": "Relatar um problema com o chat",
+    "useful_links_placeholder": "Links úteis aparecerão aqui depois que eu pesquisar informações"
+  },
+  "ru": {
+    "experimental_feature": "Экспериментальная функция:",
+    "experimental_disclaimer": "Этот ИИ-помощник находится в бета-версии и не должен использоваться как единственный источник технической информации.",
+    "welcome_title": "Добро пожаловать в помощник Classic Mini DIY",
+    "input_placeholder": "Спросите меня что-нибудь о вашем Classic Mini...",
+    "report_issue": "Сообщить о проблеме с чатом",
+    "useful_links_placeholder": "Полезные ссылки появятся здесь после того, как я найду информацию"
+  },
+  "zh": {
+    "experimental_feature": "实验性功能：",
+    "experimental_disclaimer": "这个AI助手处于测试阶段，不应作为技术信息的唯一来源。",
+    "welcome_title": "欢迎使用Classic Mini DIY助手",
+    "input_placeholder": "询问我关于您的Classic Mini的任何问题...",
+    "report_issue": "报告聊天问题",
+    "useful_links_placeholder": "在我搜索信息后，有用的链接将出现在这里"
+  }
+}
+</i18n>
 
 <style scoped>
   /* Ensure text wrapping in chat messages */

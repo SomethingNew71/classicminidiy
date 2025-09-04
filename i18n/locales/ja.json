@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "実験的機能:",
-        "experimental_disclaimer": "このAIアシスタントはベータ版であり、唯一の技術情報源として使用すべきではありません。",
-        "welcome_title": "Classic Mini DIYアシスタントへようこそ",
-        "input_placeholder": "あなたのClassic Miniについて何でも聞いてください...",
-        "report_issue": "チャットの問題を報告",
-        "useful_links_placeholder": "情報を検索した後、有用なリンクがここに表示されます"
-      },
-      "useful_links_sidebar": {
-        "title": "有用なリンク"
-      },
       "toolbox": {
         "torque_specs": "トルク仕様",
         "chassis_decoder": "シャシー番号デコーダー",
@@ -1210,43 +1199,7 @@
             "mini_mania": "Mini Maniaの",
             "technical_articles": "技術記事。詳細については以下で確認できます:",
             "link_text": "シャシーコード技術記事"
-          },
-          "ui": {
-            "support_section": "サポート"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "コピー"
-        },
-        "chat_window": {
-          "experimental_feature": "実験的機能:",
-          "experimental_disclaimer": "このAIアシスタントはベータ版であり、唯一の技術情報源として使用すべきではありません。",
-          "welcome_title": "CMDIYアシスタントへようこそ！",
-          "input_placeholder": "メッセージを入力...",
-          "report_issue": "問題を報告",
-          "useful_links_placeholder": "有用なリンクが利用可能な時にここに表示されます"
-        },
-        "human_message": {
-          "copy_button": "コピー"
-        },
-        "useful_links": {
-          "title": "有用なリンク"
-        },
-        "useful_links_sidebar": {
-        "title": "便利なリンク",
-        "showing_results": "すべての{count}件の検索結果を表示"
-      },
-        "toolbox": {
-          "torque_specs": "トルク仕様",
-          "chassis_decoder": "シャシー番号デコーダー",
-          "engine_decoder": "エンジン番号デコーダー",
-          "needle_configurator": "キャブレターニードル設定",
-          "gearbox_calculator": "ギアボックス計算機",
-          "compression_calculator": "圧縮比計算機",
-          "parts_equivalency": "部品等価性",
-          "common_clearances": "一般的なクリアランス"
         }
       }
     },

@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "Experimental Feature:",
-        "experimental_disclaimer": "This AI assistant is in beta and should not be used as your only source of technical information.",
-        "welcome_title": "Welcome to Classic Mini DIY Assistant",
-        "input_placeholder": "Ask me anything about your Classic Mini...",
-        "report_issue": "Report an issue with the chat",
-        "useful_links_placeholder": "Useful links will appear here after I search for information"
-      },
-      "useful_links_sidebar": {
-        "title": "Useful Links"
-      },
       "toolbox": {
         "torque_specs": "Torque Specs",
         "chassis_decoder": "Chassis Number Decoder",
@@ -1224,29 +1213,6 @@
           "ui": {
             "support_section": "Support"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "Copy"
-        },
-        "chat_window": {
-          "experimental_feature": "Experimental Feature:",
-          "experimental_disclaimer": "This AI assistant is in beta and should not be used as your only source of technical information.",
-          "welcome_title": "Welcome to CMDIY Assistant!",
-          "input_placeholder": "Type your message...",
-          "report_issue": "Report Issue",
-          "useful_links_placeholder": "Useful links will appear here when available"
-        },
-        "human_message": {
-          "copy_button": "Copy"
-        },
-        "useful_links": {
-          "title": "Useful Links"
-        },
-        "useful_links_sidebar": {
-          "title": "Useful Links",
-          "showing_results": "Showing all {count} search results"
         }
       },
       "wheel_submit": {

@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "실험적 기능:",
-        "experimental_disclaimer": "이 AI 어시스턴트는 베타 버전이며 유일한 기술 정보 소스로 사용되어서는 안 됩니다.",
-        "welcome_title": "Classic Mini DIY 어시스턴트에 오신 것을 환영합니다",
-        "input_placeholder": "Classic Mini에 대해 무엇이든 물어보세요...",
-        "report_issue": "채팅 문제 신고",
-        "useful_links_placeholder": "정보를 검색한 후 유용한 링크가 여기에 표시됩니다"
-      },
-      "useful_links_sidebar": {
-        "title": "유용한 링크"
-      },
       "toolbox": {
         "torque_specs": "토크 사양",
         "chassis_decoder": "섀시 번호 디코더",
@@ -1214,39 +1203,6 @@
           "ui": {
             "support_section": "지원"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "복사"
-        },
-        "chat_window": {
-          "experimental_feature": "실험적 기능:",
-          "experimental_disclaimer": "이 AI 어시스턴트는 베타 버전이며 유일한 기술 정보 소스로 사용되어서는 안 됩니다.",
-          "welcome_title": "CMDIY 어시스턴트에 오신 것을 환영합니다!",
-          "input_placeholder": "메시지를 입력하세요...",
-          "report_issue": "문제 신고",
-          "useful_links_placeholder": "사용 가능한 유용한 링크가 여기에 표시됩니다"
-        },
-        "human_message": {
-          "copy_button": "복사"
-        },
-        "useful_links": {
-          "title": "유용한 링크"
-        },
-        "useful_links_sidebar": {
-        "title": "유용한 링크",
-        "showing_results": "총 {count}개의 검색 결과 표시"
-      },
-        "toolbox": {
-          "torque_specs": "토크 사양",
-          "chassis_decoder": "섀시 번호 디코더",
-          "engine_decoder": "엔진 번호 디코더",
-          "needle_configurator": "카뷰레터 니들 구성기",
-          "gearbox_calculator": "기어박스 계산기",
-          "compression_calculator": "압축비 계산기",
-          "parts_equivalency": "부품 등가성",
-          "common_clearances": "일반적인 클리어런스"
         }
       }
     },

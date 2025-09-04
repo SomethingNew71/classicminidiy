@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "Característica Experimental:",
-        "experimental_disclaimer": "Este asistente de IA está en beta y no debe ser usado como tu única fuente de información técnica.",
-        "welcome_title": "Bienvenido al Asistente Classic Mini DIY",
-        "input_placeholder": "Pregúntame cualquier cosa sobre tu Classic Mini...",
-        "report_issue": "Reportar un problema con el chat",
-        "useful_links_placeholder": "Los enlaces útiles aparecerán aquí después de que busque información"
-      },
-      "useful_links_sidebar": {
-        "title": "Enlaces Útiles"
-      },
       "toolbox": {
         "torque_specs": "Especificaciones de Torque",
         "chassis_decoder": "Decodificador de Chasis",
@@ -1214,38 +1203,6 @@
           "ui": {
             "support_section": "Apoyo"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "Copiar"
-        },
-        "chat_window": {
-          "experimental_feature": "Característica Experimental:",
-          "experimental_disclaimer": "Este asistente de IA está en beta y no debe ser usado como tu única fuente de información técnica.",
-          "welcome_title": "¡Bienvenido al Asistente CMDIY!",
-          "input_placeholder": "Escribe tu mensaje...",
-          "report_issue": "Reportar Problema",
-          "useful_links_placeholder": "Enlaces útiles aparecerán aquí cuando estén disponibles"
-        },
-        "human_message": {
-          "copy_button": "Copiar"
-        },
-        "useful_links": {
-          "title": "Enlaces Útiles"
-        },
-        "useful_links_sidebar": {
-          "title": "Enlaces útiles"
-        },
-        "toolbox": {
-          "torque_specs": "Especificaciones de torque",
-          "chassis_decoder": "Decodificador de número de chasis",
-          "engine_decoder": "Decodificador de número de motor",
-          "needle_configurator": "Configurador de aguja de carburador",
-          "gearbox_calculator": "Calculadora de caja de cambios",
-          "compression_calculator": "Calculadora de relación de compresión",
-          "parts_equivalency": "Equivalencia de piezas",
-          "common_clearances": "Holguras comunes"
         }
       }
     },

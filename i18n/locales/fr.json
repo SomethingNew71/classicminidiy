@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "Fonctionnalité expérimentale :",
-        "experimental_disclaimer": "Cet assistant IA est en version bêta et ne devrait pas être utilisé comme votre seule source d'information technique.",
-        "welcome_title": "Bienvenue à l'assistant CMDIY !",
-        "input_placeholder": "Tapez votre message...",
-        "report_issue": "Signaler un problème",
-        "useful_links_placeholder": "Les liens utiles apparaîtront ici lorsque disponibles"
-      },
-      "useful_links_sidebar": {
-        "title": "Liens utiles"
-      },
       "toolbox": {
         "torque_specs": "Spécifications de Couple",
         "chassis_decoder": "Décodeur de Numéro de Châssis",
