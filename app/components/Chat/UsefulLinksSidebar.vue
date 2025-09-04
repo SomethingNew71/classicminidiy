@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="flex items-center gap-2 pb-2 border-b border-base-300">
       <i class="fa-solid fa-link text-primary"></i>
-      <h3 class="text-sm font-semibold text-base-content">{{ t('components.chat.useful_links_sidebar.title') }}</h3>
+      <h3 class="text-sm font-semibold text-base-content">{{ t('title') }}</h3>
       <span class="text-xs text-base-content/50 ml-auto">{{ links.length }}</span>
     </div>
 
@@ -46,7 +46,7 @@
 
     <!-- Show More Indicator if many links -->
     <div v-if="links.length > 5" class="text-center pt-2 border-t border-base-300">
-      <p class="text-xs text-base-content/50">{{ t('components.chat.useful_links_sidebar.showing_results', { count: links.length }) }}</p>
+      <p class="text-xs text-base-content/50">{{ t('showing_results', { count: links.length }) }}</p>
     </div>
   </div>
 </template>
@@ -64,8 +64,10 @@
   }
 
   defineProps<Props>();
-  
-  const { t } = useI18n();
+
+  const { t } = useI18n({
+    useScope: 'local',
+  });
 
   // Add UTM parameters to URLs for tracking
   const addUtmParams = (url: string): string => {
@@ -87,6 +89,51 @@
     }
   };
 </script>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Useful Links",
+    "showing_results": "Showing {count} results"
+  },
+  "es": {
+    "title": "Enlaces Útiles",
+    "showing_results": "Mostrando {count} resultados"
+  },
+  "fr": {
+    "title": "Liens Utiles",
+    "showing_results": "Affichage de {count} résultats"
+  },
+  "de": {
+    "title": "Nützliche Links",
+    "showing_results": "Zeige {count} Ergebnisse"
+  },
+  "it": {
+    "title": "Link Utili",
+    "showing_results": "Mostrando {count} risultati"
+  },
+  "ja": {
+    "title": "有用なリンク",
+    "showing_results": "{count}件の結果を表示"
+  },
+  "ko": {
+    "title": "유용한 링크",
+    "showing_results": "{count}개 결과 표시"
+  },
+  "pt": {
+    "title": "Links Úteis",
+    "showing_results": "Mostrando {count} resultados"
+  },
+  "ru": {
+    "title": "Полезные ссылки",
+    "showing_results": "Показано {count} результатов"
+  },
+  "zh": {
+    "title": "有用链接",
+    "showing_results": "显示 {count} 个结果"
+  }
+}
+</i18n>
 
 <style scoped>
   .line-clamp-2 {

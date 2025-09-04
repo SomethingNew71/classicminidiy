@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "Experimentelle Funktion:",
-        "experimental_disclaimer": "Dieser KI-Assistent befindet sich in der Beta und sollte nicht als einzige Quelle für technische Informationen verwendet werden.",
-        "welcome_title": "Willkommen beim Classic Mini DIY Assistenten",
-        "input_placeholder": "Fragen Sie mich alles über Ihren Classic Mini...",
-        "report_issue": "Ein Problem mit dem Chat melden",
-        "useful_links_placeholder": "Nützliche Links erscheinen hier, nachdem ich nach Informationen gesucht habe"
-      },
-      "useful_links_sidebar": {
-        "title": "Nützliche Links"
-      },
       "toolbox": {
         "torque_specs": "Drehmoment-Spezifikationen",
         "chassis_decoder": "Fahrgestell-Nummern-Decoder",
@@ -1224,29 +1213,6 @@
           "ui": {
             "support_section": "Unterstützung"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "Kopieren"
-        },
-        "chat_window": {
-          "experimental_feature": "Experimentelle Funktion:",
-          "experimental_disclaimer": "Dieser KI-Assistent befindet sich in der Beta und sollte nicht als einzige Quelle für technische Informationen verwendet werden.",
-          "welcome_title": "Willkommen beim CMDIY Assistenten!",
-          "input_placeholder": "Geben Sie Ihre Nachricht ein...",
-          "report_issue": "Problem melden",
-          "useful_links_placeholder": "Nützliche Links erscheinen hier, wenn verfügbar"
-        },
-        "human_message": {
-          "copy_button": "Kopieren"
-        },
-        "useful_links": {
-          "title": "Nützliche Links"
-        },
-        "useful_links_sidebar": {
-          "title": "Nützliche Links",
-          "showing_results": "Zeige alle {count} Suchergebnisse"
         }
       },
       "wheel_submit": {

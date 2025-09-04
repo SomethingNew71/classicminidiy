@@ -215,17 +215,6 @@
 			}
 		},
 		"chat": {
-			"chat_window": {
-				"experimental_feature": "Recurso Experimental:",
-				"experimental_disclaimer": "Este assistente de IA está em beta e não deve ser usado como sua única fonte de informações técnicas.",
-				"welcome_title": "Bem-vindo ao Assistente Classic Mini DIY",
-				"input_placeholder": "Pergunte-me qualquer coisa sobre seu Classic Mini...",
-				"report_issue": "Relatar um problema com o chat",
-				"useful_links_placeholder": "Links úteis aparecerão aqui depois que eu procurar por informações"
-			},
-			"useful_links_sidebar": {
-				"title": "Links Úteis"
-			},
 			"toolbox": {
 				"torque_specs": "Especificações de Torque",
 				"chassis_decoder": "Decodificador de Chassi",
@@ -1219,39 +1208,6 @@
 					"ui": {
 						"support_section": "Suporte"
 					}
-				}
-			},
-			"chat": {
-				"assistant_message": {
-					"copy_button": "Copiar"
-				},
-				"chat_window": {
-					"experimental_feature": "Recurso Experimental:",
-					"experimental_disclaimer": "Este assistente de IA está em beta e não deve ser usado como sua única fonte de informações técnicas.",
-					"welcome_title": "Bem-vindo ao Assistente CMDIY!",
-					"input_placeholder": "Digite sua mensagem...",
-					"report_issue": "Relatar Problema",
-					"useful_links_placeholder": "Links úteis aparecerão aqui quando disponíveis"
-				},
-				"human_message": {
-					"copy_button": "Copiar"
-				},
-				"useful_links": {
-					"title": "Links Úteis"
-				},
-				"useful_links_sidebar": {
-					"title": "Links úteis",
-					"showing_results": "Mostrando todos os {count} resultados de pesquisa"
-				},
-				"toolbox": {
-					"torque_specs": "Especificações de torque",
-					"chassis_decoder": "Decodificador de número de chassi",
-					"engine_decoder": "Decodificador de número de motor",
-					"needle_configurator": "Configurador de agulha de carburador",
-					"gearbox_calculator": "Calculadora de caixa de câmbio",
-					"compression_calculator": "Calculadora de taxa de compressão",
-					"parts_equivalency": "Equivalência de peças",
-					"common_clearances": "Folgas comuns"
 				}
 			}
 		},

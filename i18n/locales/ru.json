@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "Экспериментальная функция:",
-        "experimental_disclaimer": "Этот помощник ИИ находится в бета-версии и не должен использоваться в качестве единственного источника технической информации.",
-        "welcome_title": "Добро пожаловать в помощника Classic Mini DIY",
-        "input_placeholder": "Спросите меня что-нибудь о вашем Classic Mini...",
-        "report_issue": "Сообщить о проблеме с чатом",
-        "useful_links_placeholder": "Полезные ссылки появятся здесь после того, как я найду информацию"
-      },
-      "useful_links_sidebar": {
-        "title": "Полезные ссылки"
-      },
       "toolbox": {
         "torque_specs": "Спецификации крутящего момента",
         "chassis_decoder": "Декодер номера шасси",
@@ -1219,39 +1208,6 @@
           "ui": {
             "support_section": "Поддержка"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "Копировать"
-        },
-        "chat_window": {
-          "experimental_feature": "Экспериментальная функция:",
-          "experimental_disclaimer": "Этот помощник ИИ находится в бета-версии и не должен использоваться в качестве единственного источника технической информации.",
-          "welcome_title": "Добро пожаловать в помощника CMDIY!",
-          "input_placeholder": "Введите ваше сообщение...",
-          "report_issue": "Сообщить о проблеме",
-          "useful_links_placeholder": "Полезные ссылки появятся здесь, когда они будут доступны"
-        },
-        "human_message": {
-          "copy_button": "Копировать"
-        },
-        "useful_links": {
-          "title": "Полезные ссылки"
-        },
-        "useful_links_sidebar": {
-          "title": "Полезные ссылки",
-          "showing_results": "Показано все {count} результатов поиска"
-        },
-        "toolbox": {
-          "torque_specs": "Характеристики крутящего момента",
-          "chassis_decoder": "Декодер номера шасси",
-          "engine_decoder": "Декодер номера двигателя",
-          "needle_configurator": "Конфигуратор иглы карбюратора",
-          "gearbox_calculator": "Калькулятор коробки передач",
-          "compression_calculator": "Калькулятор степени сжатия",
-          "parts_equivalency": "Эквивалентность деталей",
-          "common_clearances": "Общие зазоры"
         }
       }
     },

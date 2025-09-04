@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "实验性功能：",
-        "experimental_disclaimer": "此AI助手处于测试阶段，不应作为您唯一的技术信息来源。",
-        "welcome_title": "欢迎使用Classic Mini DIY助手",
-        "input_placeholder": "询问任何关于您的Classic Mini的问题...",
-        "report_issue": "报告聊天问题",
-        "useful_links_placeholder": "当我搜索信息后，有用的链接会出现在这里"
-      },
-      "useful_links_sidebar": {
-        "title": "有用链接"
-      },
       "toolbox": {
         "torque_specs": "扭矩规格",
         "chassis_decoder": "底盘号解码器",
@@ -1214,39 +1203,6 @@
           "ui": {
             "support_section": "支持"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "复制"
-        },
-        "chat_window": {
-          "experimental_feature": "实验性功能：",
-          "experimental_disclaimer": "此AI助手处于测试阶段，不应作为您唯一的技术信息来源。",
-          "welcome_title": "欢迎使用CMDIY助手！",
-          "input_placeholder": "输入您的消息...",
-          "report_issue": "报告问题",
-          "useful_links_placeholder": "有用链接将在可用时显示在这里"
-        },
-        "human_message": {
-          "copy_button": "复制"
-        },
-        "useful_links": {
-          "title": "有用链接"
-        },
-        "useful_links_sidebar": {
-          "title": "有用链接",
-          "showing_results": "显示所有 {count} 个搜索结果"
-        },
-        "toolbox": {
-          "torque_specs": "扭矩规格",
-          "chassis_decoder": "底盘号解码器",
-          "engine_decoder": "发动机号解码器",
-          "needle_configurator": "化油器针阀配置器",
-          "gearbox_calculator": "变速箱计算器",
-          "compression_calculator": "压缩比计算器",
-          "parts_equivalency": "零件等效性",
-          "common_clearances": "常见间隙"
         }
       }
     },

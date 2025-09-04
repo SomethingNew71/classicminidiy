@@ -215,17 +215,6 @@
       }
     },
     "chat": {
-      "chat_window": {
-        "experimental_feature": "Funzionalità sperimentale:",
-        "experimental_disclaimer": "Questo assistente AI è in beta e non dovrebbe essere utilizzato come unica fonte di informazioni tecniche.",
-        "welcome_title": "Benvenuto nell'assistente Classic Mini DIY",
-        "input_placeholder": "Chiedimi qualsiasi cosa sulla tua Classic Mini...",
-        "report_issue": "Segnala un problema con la chat",
-        "useful_links_placeholder": "I collegamenti utili appariranno qui dopo che avrò cercato informazioni"
-      },
-      "useful_links_sidebar": {
-        "title": "Collegamenti utili"
-      },
       "toolbox": {
         "torque_specs": "Specifiche di Coppia",
         "chassis_decoder": "Decodificatore Numero di Telaio",
@@ -1210,43 +1199,7 @@
             "mini_mania": "Mini Mania's",
             "technical_articles": "articoli tecnici. Più dettagli possono essere trovati qui:",
             "link_text": "Articoli tecnici codici telaio"
-          },
-          "ui": {
-            "support_section": "Supporto"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "Copia"
-        },
-        "chat_window": {
-          "experimental_feature": "Funzionalità sperimentale:",
-          "experimental_disclaimer": "Questo assistente AI è in beta e non dovrebbe essere utilizzato come unica fonte di informazioni tecniche.",
-          "welcome_title": "Benvenuto nell'assistente CMDIY!",
-          "input_placeholder": "Digita il tuo messaggio...",
-          "report_issue": "Segnala problema",
-          "useful_links_placeholder": "I collegamenti utili appariranno qui quando disponibili"
-        },
-        "human_message": {
-          "copy_button": "Copia"
-        },
-        "useful_links": {
-          "title": "Collegamenti utili"
-        },
-        "useful_links_sidebar": {
-          "title": "Link utili",
-          "showing_results": "Mostrando tutti i {count} risultati di ricerca"
-        },
-        "toolbox": {
-          "torque_specs": "Specifiche di coppia",
-          "chassis_decoder": "Decodificatore numero telaio",
-          "engine_decoder": "Decodificatore numero motore",
-          "needle_configurator": "Configuratore ago carburatore",
-          "gearbox_calculator": "Calcolatore cambio",
-          "compression_calculator": "Calcolatore rapporto di compressione",
-          "parts_equivalency": "Equivalenza parti",
-          "common_clearances": "Giochi comuni"
         }
       }
     },

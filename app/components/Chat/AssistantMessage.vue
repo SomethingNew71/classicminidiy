@@ -18,7 +18,7 @@
     <div class="flex items-center gap-2 mt-2 opacity-0 transition-opacity group-hover:opacity-100">
       <button @click="copyToClipboard(contentString)" class="btn btn-xs btn-ghost text-base-content/50">
         <i class="fa-solid fa-copy h-3 w-3" />
-        {{ t('components.chat.assistant_message.copy_button') }}
+        {{ t('copy_button') }}
       </button>
       <time v-if="message?.created_at" class="text-xs text-base-content/50">{{ formatTime(message?.created_at) }}</time>
     </div>
@@ -29,7 +29,9 @@
   import type { AssistantMessageProps } from '../../../data/models/chat';
   import { useStreamContext } from '~/composables/useStreamProvider';
   import { useI18n } from 'vue-i18n';
-  const { t } = useI18n();
+  const { t } = useI18n({
+    useScope: 'local',
+  });
   import MarkdownText from './MarkdownText.vue';
   const props = defineProps<AssistantMessageProps>();
 
@@ -87,6 +89,41 @@
     }
   };
 </script>
+
+<i18n lang="json">
+{
+  "en": {
+    "copy_button": "Copy"
+  },
+  "es": {
+    "copy_button": "Copiar"
+  },
+  "fr": {
+    "copy_button": "Copier"
+  },
+  "de": {
+    "copy_button": "Kopieren"
+  },
+  "it": {
+    "copy_button": "Copia"
+  },
+  "ja": {
+    "copy_button": "コピー"
+  },
+  "ko": {
+    "copy_button": "복사"
+  },
+  "pt": {
+    "copy_button": "Copiar"
+  },
+  "ru": {
+    "copy_button": "Копировать"
+  },
+  "zh": {
+    "copy_button": "复制"
+  }
+}
+</i18n>
 
 <style scoped>
   .animation-delay-500 {
