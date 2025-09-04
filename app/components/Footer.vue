@@ -43,12 +43,14 @@
       <div class="container mx-auto">
         <div class="flex justify-center">
           <div class="w-10/12">
-            <p>{{ new Date().getFullYear() }} — <strong>{{ t('components.footer.company_name') }}</strong></p>
+            <p>
+              {{ new Date().getFullYear() }} — <strong>{{ t('components.footer.company_name') }}</strong>
+            </p>
             <div class="divider">{{ t('components.footer.links_divider') }}</div>
             <p>
-              <nuxt-link class="link link-hover mr-3" to="/privacy" rel="noopener noreferrer"
-                >{{ t('components.footer.privacy_links.cmdiy_privacy') }}</nuxt-link
-              >
+              <nuxt-link class="link link-hover mr-3" to="/privacy" rel="noopener noreferrer">{{
+                t('components.footer.privacy_links.cmdiy_privacy')
+              }}</nuxt-link>
               <a
                 class="link link-hover mr-3"
                 href="https://www.youtube.com/t/terms"

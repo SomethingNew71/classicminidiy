@@ -20,7 +20,7 @@
 <script setup lang="ts">
   import type { HumanMessageProps } from '../../../data/models/chat';
   import { useStreamContext } from '~/composables/useStreamProvider';
-  
+
   const { t } = useI18n({
     useScope: 'local',
   });

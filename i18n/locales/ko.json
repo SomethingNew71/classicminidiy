@@ -1206,8 +1206,8 @@
         }
       }
     },
-  "pages": {
-    "wheel_submit": {
+    "pages": {
+      "wheel_submit": {
         "stepper": {
           "wheel_details": "휠 세부사항",
           "images": "이미지",
