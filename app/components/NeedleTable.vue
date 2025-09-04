@@ -1,28 +1,28 @@
 <script lang="ts" setup>
   import type { SuggestedNeedles } from '../../data/models/needles';
 
-  const { t } = useI18n();
+  const { t } = useI18n({ useScope: 'local' });
   const { data: needlesTables, status } = await useFetch<SuggestedNeedles[]>(() => '/api/needles/suggested');
   const tableHeaders: any[] = [
     {
-      title: t('components.needle_table.table_headers.engine_size'),
+      title: t('table_headers.engine_size'),
       key: 'engineSize',
       align: 'start',
     },
     {
-      title: t('components.needle_table.table_headers.needle_std'),
+      title: t('table_headers.needle_std'),
       key: 'needleStd',
     },
     {
-      title: t('components.needle_table.table_headers.needle_rich'),
+      title: t('table_headers.needle_rich'),
       key: 'needleRich',
     },
     {
-      title: t('components.needle_table.table_headers.needle_lean'),
+      title: t('table_headers.needle_lean'),
       key: 'needleLean',
     },
     {
-      title: t('components.needle_table.table_headers.spring_type'),
+      title: t('table_headers.spring_type'),
       key: 'springType',
     },
   ];
@@ -79,3 +79,98 @@
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "table_headers": {
+      "engine_size": "Engine Size",
+      "needle_std": "Needle Std",
+      "needle_rich": "Needle Rich",
+      "needle_lean": "Needle Lean",
+      "spring_type": "Spring Type"
+    }
+  },
+  "de": {
+    "table_headers": {
+      "engine_size": "Motorgröße",
+      "needle_std": "Düse Standard",
+      "needle_rich": "Düse Fett",
+      "needle_lean": "Düse Mager",
+      "spring_type": "Federtyp"
+    }
+  },
+  "es": {
+    "table_headers": {
+      "engine_size": "Tamaño del Motor",
+      "needle_std": "Aguja Estándar",
+      "needle_rich": "Aguja Rica",
+      "needle_lean": "Aguja Pobre",
+      "spring_type": "Tipo de Resorte"
+    }
+  },
+  "fr": {
+    "table_headers": {
+      "engine_size": "Taille de moteur",
+      "needle_std": "Aiguille standard",
+      "needle_rich": "Aiguille riche",
+      "needle_lean": "Aiguille pauvre",
+      "spring_type": "Type de ressort"
+    }
+  },
+  "it": {
+    "table_headers": {
+      "engine_size": "Cilindrata",
+      "needle_std": "Ago standard",
+      "needle_rich": "Ago ricco",
+      "needle_lean": "Ago magro",
+      "spring_type": "Tipo molla"
+    }
+  },
+  "pt": {
+    "table_headers": {
+      "engine_size": "Tamanho do Motor",
+      "needle_std": "Agulha Padrão",
+      "needle_rich": "Agulha Rica",
+      "needle_lean": "Agulha Pobre",
+      "spring_type": "Tipo de Mola"
+    }
+  },
+  "ru": {
+    "table_headers": {
+      "engine_size": "Объем двигателя",
+      "needle_std": "Стандартная игла",
+      "needle_rich": "Богатая игла",
+      "needle_lean": "Бедная игла",
+      "spring_type": "Тип пружины"
+    }
+  },
+  "ja": {
+    "table_headers": {
+      "engine_size": "エンジンサイズ",
+      "needle_std": "ニードル標準",
+      "needle_rich": "ニードルリッチ",
+      "needle_lean": "ニードルリーン",
+      "spring_type": "スプリングタイプ"
+    }
+  },
+  "zh": {
+    "table_headers": {
+      "engine_size": "发动机排量",
+      "needle_std": "标准针阀",
+      "needle_rich": "浓混合气针阀",
+      "needle_lean": "稀混合气针阀",
+      "spring_type": "弹簧类型"
+    }
+  },
+  "ko": {
+    "table_headers": {
+      "engine_size": "엔진 크기",
+      "needle_std": "니들 표준",
+      "needle_rich": "니들 리치",
+      "needle_lean": "니들 린",
+      "spring_type": "스프링 타입"
+    }
+  }
+}
+</i18n>

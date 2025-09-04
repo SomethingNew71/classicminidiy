@@ -28,13 +28,110 @@
     "home_subtitle": "あなたの親しみやすい近所の"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "視聴時間（分）",
+      "over_30_days": "過去30日間で",
+      "subscribers": "登録者数",
+      "across_world": "世界中から",
+      "videos": "動画",
+      "since_2015": "2015年から"
+    },
+    "recent_videos": {
+      "title": "最新動画",
+      "error_message": "YouTubeデータを読み込めませんでした",
+      "published_on": "公開日",
+      "watch_button": "視聴"
+    },
     "registry_table": {
+      "search_placeholder": "詳細を検索",
+      "total_minis": "Total Minis",
+      "per_page_options": {
+        "10": "10件ずつ表示",
+        "25": "25件ずつ表示",
+        "50": "50件ずつ表示",
+        "100": "100件ずつ表示"
+      },
       "table_headers": {
         "year": "年式",
         "model": "モデル",
         "trim": "トリム",
         "color": "色"
-      }
+      },
+      "status": {
+        "pending": "保留中",
+        "approved": "承認済み",
+        "rejected": "拒否",
+        "unknown": "不明"
+      },
+      "expanded_details": {
+        "build_date": "製造日:",
+        "body_number": "ボディ番号:",
+        "engine_number": "エンジン番号:",
+        "submitted_by": "投稿者:",
+        "notes": "備考:"
+      },
+      "no_items_found": "項目が見つかりません",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "あなたのMiniを登録",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "ありがとうございます！",
+        "submitted_message": "レジストリエントリが送信されました。リストに表示されるまで1～2日お待ちください。",
+        "submission_details": "レジストリ送信の詳細は",
+        "track_submission": "送信状況をここで確認:",
+        "submission_link": "送信",
+        "submit_another": "別のMiniを登録"
+      },
+      "validation": {
+        "required": "このフィールドは送信に必要です",
+        "invalid_email": "無効なメールアドレスです。"
+      },
+      "sections": {
+        "personal_info": "個人情報:",
+        "car_details": "車両詳細:"
+      },
+      "form_labels": {
+        "your_name": "お名前",
+        "your_email": "メールアドレス",
+        "model_year": "年式",
+        "model": "モデル",
+        "trim": "トリム",
+        "body_type": "ボディタイプ",
+        "original_engine_size": "オリジナルエンジンサイズ",
+        "factory_color": "工場色",
+        "body_shell_number": "ボディシェル番号",
+        "engine_plate_number": "エンジンプレート番号",
+        "special_notes": "特別または追加の備考"
+      },
+      "placeholders": {
+        "name": "例: 田中太郎",
+        "email": "例: john{'@'}example.com",
+        "model": "例: Morris Mini",
+        "trim": "例: Mini 50",
+        "color": "例: Clipper Blue",
+        "body_number": "例: GB190fW",
+        "engine_number": "例: 12H4102",
+        "notes": "例: この車は1959年から1960年まで生産されました"
+      },
+      "body_types": {
+        "saloon": "サルーン",
+        "pickup": "ピックアップ",
+        "estate": "エステート",
+        "cabriolet": "カブリオレ",
+        "clubman": "クラブマン",
+        "van": "バン",
+        "hornet": "ホーネット"
+      },
+      "error": {
+        "title": "申し訳ございません！",
+        "message": "現在、送信に問題が発生しています。後でもう一度お試しください！",
+        "check_entries": "入力内容を確認して再度お試しください",
+        "dismiss": "閉じる",
+        "api_unavailable": "APIは現在利用できません。後でもう一度お試しください。"
+      },
+      "submit_button": "送信"
     },
     "patreon_card": {
       "title": "サイトをサポート",
@@ -42,6 +139,15 @@
       "membership_benefits": "メンバーシップには多くの無料特典と利点があります！",
       "button_text": "今日貢献する",
       "image_alt": "ジャッキスタンドの上の私の車の画像"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "エンジンサイズ",
+        "needle_std": "ニードル標準",
+        "needle_rich": "ニードルリッチ",
+        "needle_lean": "ニードルリーン",
+        "spring_type": "スプリングタイプ"
+      }
     },
     "main_nav": {
       "logo_alt": "Classic Mini DIYロゴ",
@@ -70,6 +176,42 @@
         "cmdiy_privacy": "CMDIYウェブサイトプライバシーポリシー",
         "youtube_privacy": "YouTubeプライバシーポリシー",
         "google_privacy": "Googleプライバシーポリシー"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "あなたのClassic Miniについて何でも聞いてください...",
+      "helper_text": "CMDIYアシスタントとチャット"
+    },
+    "engine_plate_modal": {
+      "question_text": "エンジンプレートがどのようなものかわからない場合は？",
+      "button_text": "私のエンジンプレートはどこにありますか？",
+      "modal_title": "エンジンプレート",
+      "slide_aria_label": "スライド{number}に移動",
+      "location_title": "エンジンプレートの位置",
+      "location_description": "エンジンプレートは、すべての年式のミニで同じ場所にありました。ただし、次の状況でこれらのプレートが欠落している場合があります：",
+      "missing_reasons": {
+        "replaced": "エンジンが交換された場合",
+        "removed": "リビルド中にプレートが取り外された場合",
+        "corroded": "時間の経過とともにプレートが腐食または脱落した場合"
+      },
+      "close_button": "閉じる",
+      "image_alts": {
+        "example1": "エンジンプレートの例1",
+        "example2": "エンジンプレートの例2",
+        "example3": "エンジンプレートの例3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "何でも検索 (例: MPI、Cooper S、Carburettor HIF44)",
+      "empty_state": "現在のフィルターに一致する項目がありません",
+      "sort_key_label": "ソートキー:",
+      "actions": {
+        "share": "共有",
+        "contribute": "貢献",
+        "download": "ダウンロード"
+      },
+      "pagination": {
+        "page_text": "ページ{current}/{total}"
       }
     },
     "chat": {
@@ -781,12 +923,7 @@
             "description": "Classic Miniファスナーの完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディファスナーのlb/ftとNm値の参考チャート。",
             "dataset_name": "Classic Miniトルク仕様",
             "dataset_description": "Classic Miniファスナーのトルク仕様の包括的データセット",
-            "variable_measured": [
-              "ファスナー名",
-              "lb/ftでのトルク",
-              "Nmでのトルク",
-              "追加備考"
-            ]
+            "variable_measured": ["ファスナー名", "lb/ftでのトルク", "Nmでのトルク", "追加備考"]
           },
           "table_headers": {
             "fastener": "ファスナー",

@@ -28,12 +28,154 @@
     "home_subtitle": "YOUR FRIENDLY NEIGHBORHOOD"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "Minutes Watched",
+      "over_30_days": "over the last 30 days",
+      "subscribers": "Subscribers",
+      "across_world": "across the world",
+      "videos": "Videos",
+      "since_2015": "since 2015"
+    },
+    "recent_videos": {
+      "title": "Recent Videos",
+      "error_message": "Unable to load youtube data",
+      "published_on": "Published on",
+      "watch_button": "Watch"
+    },
     "registry_table": {
+      "search_placeholder": "Search for any detail",
+      "total_minis": "Total Minis",
+      "per_page_options": {
+        "10": "10 per page",
+        "25": "25 per page",
+        "50": "50 per page",
+        "100": "100 per page"
+      },
       "table_headers": {
         "year": "Year",
         "model": "Model",
         "trim": "Trim",
         "color": "Color"
+      },
+      "status": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "unknown": "Unknown"
+      },
+      "expanded_details": {
+        "build_date": "Build Date:",
+        "body_number": "Body #:",
+        "engine_number": "Engine #:",
+        "submitted_by": "Submitted by:",
+        "notes": "Notes:"
+      },
+      "no_items_found": "No items found",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "Submit Your Mini",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "Thank you!",
+        "submitted_message": "Your registry entry has been submitted. Please allow 1-2 days for it to appear in the list.",
+        "submission_details": "Your registry submission details is",
+        "track_submission": "Track your submission here:",
+        "submission_link": "Submission",
+        "submit_another": "Submit Another Mini"
+      },
+      "validation": {
+        "required": "This field is required to submit",
+        "invalid_email": "Invalid e-mail."
+      },
+      "sections": {
+        "personal_info": "Personal Info:",
+        "car_details": "Car Details:"
+      },
+      "form_labels": {
+        "your_name": "Your Name",
+        "your_email": "Your Email",
+        "model_year": "Model Year",
+        "model": "Model",
+        "trim": "Trim",
+        "body_type": "Body Type",
+        "original_engine_size": "Original Engine Size",
+        "factory_color": "Factory Color",
+        "body_shell_number": "Body Shell Number",
+        "engine_plate_number": "Engine Plate Number",
+        "special_notes": "Special or Additional Notes"
+      },
+      "placeholders": {
+        "name": "ex. John Smith",
+        "email": "ex. john{'@'}example.com",
+        "model": "ex. Morris Mini",
+        "trim": "ex. Mini 50",
+        "color": "ex. Clipper Blue",
+        "body_number": "ex. GB190fW",
+        "engine_number": "ex. 12H4102",
+        "notes": "ex. This car was only produced from 1959 to 1960"
+      },
+      "body_types": {
+        "saloon": "Saloon",
+        "pickup": "Pickup",
+        "estate": "Estate",
+        "cabriolet": "Cabriolet",
+        "clubman": "Clubman",
+        "van": "Van",
+        "hornet": "Hornet"
+      },
+      "error": {
+        "title": "I'm Sorry!",
+        "message": "There was a problem submitting your submission at this time, please try again later!",
+        "check_entries": "Please check your entries and try again",
+        "dismiss": "Dismiss",
+        "api_unavailable": "API is currently unavailable. Please try again later."
+      },
+      "submit_button": "Submit"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "Engine Size",
+        "needle_std": "Needle Std",
+        "needle_rich": "Needle Rich",
+        "needle_lean": "Needle Lean",
+        "spring_type": "Spring Type"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Ask me anything about your Classic Mini...",
+      "helper_text": "Chat with CMDIY Assistant"
+    },
+    "engine_plate_modal": {
+      "question_text": "Unsure what your engine plate looks like?",
+      "button_text": "Where is my engine plate?",
+      "modal_title": "Engine Plates",
+      "slide_aria_label": "Go to slide {number}",
+      "location_title": "Location of Engine Plate",
+      "location_description": "Engine plates were found in the same place across all model year minis. However these plates are missing in some situations:",
+      "missing_reasons": {
+        "replaced": "If the engine has been replaced",
+        "removed": "If the plate was removed during a rebuild",
+        "corroded": "If the plate has corroded or fallen off over time"
+      },
+      "close_button": "Close",
+      "image_alts": {
+        "example1": "Engine plate example 1",
+        "example2": "Engine plate example 2",
+        "example3": "Engine plate example 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "Search for anything (ex. MPI, Cooper S, Carburettor HIF44)",
+      "empty_state": "No items meeting current filters exist",
+      "sort_key_label": "Sort Key:",
+      "actions": {
+        "share": "Share",
+        "contribute": "Contribute",
+        "download": "Download"
+      },
+      "pagination": {
+        "page_text": "Page {current} of {total}"
       }
     },
     "chat": {
@@ -755,12 +897,7 @@
             "description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
             "dataset_name": "Classic Mini Torque Specifications",
             "dataset_description": "Comprehensive dataset of torque specifications for Classic Mini fasteners",
-            "variable_measured": [
-              "Fastener Name",
-              "Torque in lb/ft",
-              "Torque in Nm",
-              "Additional Notes"
-            ]
+            "variable_measured": ["Fastener Name", "Torque in lb/ft", "Torque in Nm", "Additional Notes"]
           },
           "table_headers": {
             "fastener": "Fastener",

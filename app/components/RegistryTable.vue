@@ -105,17 +105,17 @@
   type PaginationItem = number | 'ellipsis-start' | 'ellipsis-end';
 
   // Helper function to convert status code to readable text
-  const { t } = useI18n();
+  const { t } = useI18n({ useScope: 'local' });
   const getStatusText = (status: string) => {
     switch (status) {
       case RegistryItemStatus.PENDING:
-        return t('components.registry_table.status.pending');
+        return t('status.pending');
       case RegistryItemStatus.APPROVED:
-        return t('components.registry_table.status.approved');
+        return t('status.approved');
       case RegistryItemStatus.REJECTED:
-        return t('components.registry_table.status.rejected');
+        return t('status.rejected');
       default:
-        return t('components.registry_table.status.unknown');
+        return t('status.unknown');
     }
   };
 
@@ -171,21 +171,21 @@
             <input
               type="text"
               v-model="searchValue"
-              :placeholder="t('components.registry_table.search_placeholder')"
+              :placeholder="t('search_placeholder')"
               class="input input-bordered w-full"
             />
           </div>
         </div>
         <div class="flex items-center gap-2">
           <div v-if="items?.length" class="badge badge-primary badge-lg">
-            {{ items?.length }} {{ t('components.registry_table.total_minis') }}
+            {{ items?.length }} {{ t('total_minis') }}
           </div>
           <div class="form-control">
             <select v-model="pageSize" class="select select-bordered select-sm">
-              <option :value="10">{{ t('components.registry_table.per_page_options.10') }}</option>
-              <option :value="25">{{ t('components.registry_table.per_page_options.25') }}</option>
-              <option :value="50">{{ t('components.registry_table.per_page_options.50') }}</option>
-              <option :value="100">{{ t('components.registry_table.per_page_options.100') }}</option>
+              <option :value="10">{{ t('per_page_options.10') }}</option>
+              <option :value="25">{{ t('per_page_options.25') }}</option>
+              <option :value="50">{{ t('per_page_options.50') }}</option>
+              <option :value="100">{{ t('per_page_options.100') }}</option>
             </select>
           </div>
         </div>
@@ -233,7 +233,7 @@
                         {{ getStatusText(item.status) }}
                       </div>
                     </template>
-                    <template v-else>{{ item[header.key] || t('components.registry_table.no_data') }}</template>
+                    <template v-else>{{ item[header.key] || t('no_data') }}</template>
                   </td>
                 </tr>
                 <tr v-if="expanded.includes(item.uniqueId)" class="bg-base-200">
@@ -241,28 +241,28 @@
                   <td colspan="2" class="p-4">
                     <div class="grid grid-cols-1 gap-2">
                       <div>
-                        <strong>{{ t('components.registry_table.expanded_details.build_date') }}</strong>
-                        <div>{{ item.buildDate || t('components.registry_table.no_data') }}</div>
+                        <strong>{{ t('expanded_details.build_date') }}</strong>
+                        <div>{{ item.buildDate || t('no_data') }}</div>
                       </div>
                       <div>
-                        <strong>{{ t('components.registry_table.expanded_details.body_number') }}</strong>
-                        <div>{{ item.bodyNum || t('components.registry_table.no_data') }}</div>
+                        <strong>{{ t('expanded_details.body_number') }}</strong>
+                        <div>{{ item.bodyNum || t('no_data') }}</div>
                       </div>
                       <div>
-                        <strong>{{ t('components.registry_table.expanded_details.engine_number') }}</strong>
-                        <div>{{ item.engineNum || t('components.registry_table.no_data') }}</div>
+                        <strong>{{ t('expanded_details.engine_number') }}</strong>
+                        <div>{{ item.engineNum || t('no_data') }}</div>
                       </div>
                     </div>
                   </td>
                   <td colspan="2" class="p-4">
                     <div class="grid grid-cols-1 gap-2">
                       <div>
-                        <strong>{{ t('components.registry_table.expanded_details.submitted_by') }}</strong>
-                        <div>{{ item.submittedBy || t('components.registry_table.no_data') }}</div>
+                        <strong>{{ t('expanded_details.submitted_by') }}</strong>
+                        <div>{{ item.submittedBy || t('no_data') }}</div>
                       </div>
                       <div>
-                        <strong>{{ t('components.registry_table.expanded_details.notes') }}</strong>
-                        <div>{{ item.notes || t('components.registry_table.no_data') }}</div>
+                        <strong>{{ t('expanded_details.notes') }}</strong>
+                        <div>{{ item.notes || t('no_data') }}</div>
                       </div>
                     </div>
                   </td>
@@ -270,7 +270,7 @@
               </template>
             </template>
             <tr v-else>
-              <td colspan="5" class="text-center py-8">{{ t('components.registry_table.no_items_found') }}</td>
+              <td colspan="5" class="text-center py-8">{{ t('no_items_found') }}</td>
             </tr>
           </tbody>
         </table>
@@ -330,3 +330,258 @@
     background-color: hsl(var(--b2));
   }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "search_placeholder": "Search for any detail",
+    "total_minis": "Total Minis",
+    "per_page_options": {
+      "10": "10 per page",
+      "25": "25 per page",
+      "50": "50 per page",
+      "100": "100 per page"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "unknown": "Unknown"
+    },
+    "expanded_details": {
+      "build_date": "Build Date:",
+      "body_number": "Body #:",
+      "engine_number": "Engine #:",
+      "submitted_by": "Submitted by:",
+      "notes": "Notes:"
+    },
+    "no_items_found": "No items found",
+    "no_data": "---"
+  },
+  "de": {
+    "search_placeholder": "Suche nach beliebigen Details",
+    "total_minis": "Minis insgesamt",
+    "per_page_options": {
+      "10": "10 pro Seite",
+      "25": "25 pro Seite",
+      "50": "50 pro Seite",
+      "100": "100 pro Seite"
+    },
+    "status": {
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "rejected": "Abgelehnt",
+      "unknown": "Unbekannt"
+    },
+    "expanded_details": {
+      "build_date": "Baudatum:",
+      "body_number": "Karosserie-Nr.:",
+      "engine_number": "Motor-Nr.:",
+      "submitted_by": "Eingereicht von:",
+      "notes": "Notizen:"
+    },
+    "no_items_found": "Keine Elemente gefunden",
+    "no_data": "---"
+  },
+  "es": {
+    "search_placeholder": "Buscar cualquier detalle",
+    "total_minis": "Total de Minis",
+    "per_page_options": {
+      "10": "10 por página",
+      "25": "25 por página",
+      "50": "50 por página",
+      "100": "100 por página"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "approved": "Aprobado",
+      "rejected": "Rechazado",
+      "unknown": "Desconocido"
+    },
+    "expanded_details": {
+      "build_date": "Fecha de Fabricación:",
+      "body_number": "Número de Carrocería:",
+      "engine_number": "Número de Motor:",
+      "submitted_by": "Enviado por:",
+      "notes": "Notas:"
+    },
+    "no_items_found": "No se encontraron elementos",
+    "no_data": "---"
+  },
+  "fr": {
+    "search_placeholder": "Rechercher n'importe quel détail",
+    "total_minis": "Total de Minis",
+    "per_page_options": {
+      "10": "10 par page",
+      "25": "25 par page",
+      "50": "50 par page",
+      "100": "100 par page"
+    },
+    "status": {
+      "pending": "En attente",
+      "approved": "Approuvé",
+      "rejected": "Rejeté",
+      "unknown": "Inconnu"
+    },
+    "expanded_details": {
+      "build_date": "Date de construction :",
+      "body_number": "N° de carrosserie :",
+      "engine_number": "N° de moteur :",
+      "submitted_by": "Soumis par :",
+      "notes": "Notes :"
+    },
+    "no_items_found": "Aucun élément trouvé",
+    "no_data": "---"
+  },
+  "it": {
+    "search_placeholder": "Cerca qualsiasi dettaglio",
+    "total_minis": "Mini totali",
+    "per_page_options": {
+      "10": "10 per pagina",
+      "25": "25 per pagina",
+      "50": "50 per pagina",
+      "100": "100 per pagina"
+    },
+    "status": {
+      "pending": "In attesa",
+      "approved": "Approvato",
+      "rejected": "Rifiutato",
+      "unknown": "Sconosciuto"
+    },
+    "expanded_details": {
+      "build_date": "Data di costruzione:",
+      "body_number": "N. scocca:",
+      "engine_number": "N. motore:",
+      "submitted_by": "Inviato da:",
+      "notes": "Note:"
+    },
+    "no_items_found": "Nessun elemento trovato",
+    "no_data": "---"
+  },
+  "pt": {
+    "search_placeholder": "Pesquisar por qualquer detalhe",
+    "total_minis": "Total de Minis",
+    "per_page_options": {
+      "10": "10 por página",
+      "25": "25 por página",
+      "50": "50 por página",
+      "100": "100 por página"
+    },
+    "status": {
+      "pending": "Pendente",
+      "approved": "Aprovado",
+      "rejected": "Rejeitado",
+      "unknown": "Desconhecido"
+    },
+    "expanded_details": {
+      "build_date": "Data de Fabricação:",
+      "body_number": "Nº da Carroceria:",
+      "engine_number": "Nº do Motor:",
+      "submitted_by": "Enviado por:",
+      "notes": "Observações:"
+    },
+    "no_items_found": "Nenhum item encontrado",
+    "no_data": "---"
+  },
+  "ru": {
+    "search_placeholder": "Поиск по любым деталям",
+    "total_minis": "Всего Мини",
+    "per_page_options": {
+      "10": "10 на странице",
+      "25": "25 на странице",
+      "50": "50 на странице",
+      "100": "100 на странице"
+    },
+    "status": {
+      "pending": "Ожидает",
+      "approved": "Одобрено",
+      "rejected": "Отклонено",
+      "unknown": "Неизвестно"
+    },
+    "expanded_details": {
+      "build_date": "Дата сборки:",
+      "body_number": "Номер кузова:",
+      "engine_number": "Номер двигателя:",
+      "submitted_by": "Отправлено:",
+      "notes": "Примечания:"
+    },
+    "no_items_found": "Элементы не найдены",
+    "no_data": "---"
+  },
+  "ja": {
+    "search_placeholder": "詳細を検索",
+    "total_minis": "Total Minis",
+    "per_page_options": {
+      "10": "10件ずつ表示",
+      "25": "25件ずつ表示",
+      "50": "50件ずつ表示",
+      "100": "100件ずつ表示"
+    },
+    "status": {
+      "pending": "保留中",
+      "approved": "承認済み",
+      "rejected": "拒否",
+      "unknown": "不明"
+    },
+    "expanded_details": {
+      "build_date": "製造日:",
+      "body_number": "ボディ番号:",
+      "engine_number": "エンジン番号:",
+      "submitted_by": "投稿者:",
+      "notes": "備考:"
+    },
+    "no_items_found": "項目が見つかりません",
+    "no_data": "---"
+  },
+  "zh": {
+    "search_placeholder": "搜索任何详细信息",
+    "total_minis": "Mini总数",
+    "per_page_options": {
+      "10": "每页10项",
+      "25": "每页25项",
+      "50": "每页50项",
+      "100": "每页100项"
+    },
+    "status": {
+      "pending": "待审核",
+      "approved": "已批准",
+      "rejected": "已拒绝",
+      "unknown": "未知"
+    },
+    "expanded_details": {
+      "build_date": "制造日期：",
+      "body_number": "车身编号：",
+      "engine_number": "发动机编号：",
+      "submitted_by": "提交者：",
+      "notes": "备注："
+    },
+    "no_items_found": "未找到项目",
+    "no_data": "---"
+  },
+  "ko": {
+    "search_placeholder": "모든 세부사항 검색",
+    "total_minis": "총 미니 대수",
+    "per_page_options": {
+      "10": "페이지당 10개",
+      "25": "페이지당 25개",
+      "50": "페이지당 50개",
+      "100": "페이지당 100개"
+    },
+    "status": {
+      "pending": "대기 중",
+      "approved": "승인됨",
+      "rejected": "거부됨",
+      "unknown": "알 수 없음"
+    },
+    "expanded_details": {
+      "build_date": "제조 날짜:",
+      "body_number": "바디 번호:",
+      "engine_number": "엔진 번호:",
+      "submitted_by": "제출자:",
+      "notes": "참고사항:"
+    },
+    "no_items_found": "항목을 찾을 수 없습니다",
+    "no_data": "---"
+  }
+}
+</i18n>

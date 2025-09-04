@@ -28,13 +28,110 @@
     "home_subtitle": "TU AMIGABLE VECINO"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "Minutos Vistos",
+      "over_30_days": "en los últimos 30 días",
+      "subscribers": "Suscriptores",
+      "across_world": "en todo el mundo",
+      "videos": "Videos",
+      "since_2015": "desde 2015"
+    },
+    "recent_videos": {
+      "title": "Videos Recientes",
+      "error_message": "No se pudieron cargar los datos de youtube",
+      "published_on": "Publicado el",
+      "watch_button": "Ver"
+    },
     "registry_table": {
+      "search_placeholder": "Buscar cualquier detalle",
+      "total_minis": "Total de Minis",
+      "per_page_options": {
+        "10": "10 por página",
+        "25": "25 por página",
+        "50": "50 por página",
+        "100": "100 por página"
+      },
       "table_headers": {
         "year": "Año",
         "model": "Modelo",
         "trim": "Acabado",
         "color": "Color"
-      }
+      },
+      "status": {
+        "pending": "Pendiente",
+        "approved": "Aprobado",
+        "rejected": "Rechazado",
+        "unknown": "Desconocido"
+      },
+      "expanded_details": {
+        "build_date": "Fecha de Fabricación:",
+        "body_number": "Número de Carrocería:",
+        "engine_number": "Número de Motor:",
+        "submitted_by": "Enviado por:",
+        "notes": "Notas:"
+      },
+      "no_items_found": "No se encontraron elementos",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "Envía tu Mini",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "¡Gracias!",
+        "submitted_message": "Tu entrada del registro ha sido enviada. Por favor permite 1-2 días para que aparezca en la lista.",
+        "submission_details": "Los detalles de tu envío del registro son",
+        "track_submission": "Rastrea tu envío aquí:",
+        "submission_link": "Envío",
+        "submit_another": "Enviar Otro Mini"
+      },
+      "validation": {
+        "required": "Este campo es requerido para enviar",
+        "invalid_email": "Correo electrónico inválido."
+      },
+      "sections": {
+        "personal_info": "Información Personal:",
+        "car_details": "Detalles del Coche:"
+      },
+      "form_labels": {
+        "your_name": "Tu Nombre",
+        "your_email": "Tu Correo Electrónico",
+        "model_year": "Año del Modelo",
+        "model": "Modelo",
+        "trim": "Acabado",
+        "body_type": "Tipo de Carrocería",
+        "original_engine_size": "Tamaño Original del Motor",
+        "factory_color": "Color de Fábrica",
+        "body_shell_number": "Número del Chasis",
+        "engine_plate_number": "Número de la Placa del Motor",
+        "special_notes": "Notas Especiales o Adicionales"
+      },
+      "placeholders": {
+        "name": "ej. Juan Pérez",
+        "email": "ej. juan{'@'}ejemplo.com",
+        "model": "ej. Morris Mini",
+        "trim": "ej. Mini 50",
+        "color": "ej. Azul Clipper",
+        "body_number": "ej. GB190fW",
+        "engine_number": "ej. 12H4102",
+        "notes": "ej. Este coche solo se produjo de 1959 a 1960"
+      },
+      "body_types": {
+        "saloon": "Sedán",
+        "pickup": "Pickup",
+        "estate": "Familiar",
+        "cabriolet": "Cabriolet",
+        "clubman": "Clubman",
+        "van": "Furgoneta",
+        "hornet": "Hornet"
+      },
+      "error": {
+        "title": "¡Lo Siento!",
+        "message": "Hubo un problema enviando tu envío en este momento, ¡por favor inténtalo de nuevo más tarde!",
+        "check_entries": "Por favor verifica tus entradas e inténtalo de nuevo",
+        "dismiss": "Descartar",
+        "api_unavailable": "La API no está disponible actualmente. Por favor inténtalo de nuevo más tarde."
+      },
+      "submit_button": "Enviar"
     },
     "patreon_card": {
       "title": "APOYA EL SITIO",
@@ -42,6 +139,51 @@
       "membership_benefits": "¡La membresía viene con toneladas de beneficios y ventajas gratis!",
       "button_text": "Contribuye Hoy",
       "image_alt": "Imagen de mi coche en gatos hidráulicos"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "Tamaño del Motor",
+        "needle_std": "Aguja Estándar",
+        "needle_rich": "Aguja Rica",
+        "needle_lean": "Aguja Pobre",
+        "spring_type": "Tipo de Resorte"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Pregúntame cualquier cosa sobre tu Classic Mini...",
+      "helper_text": "Chatea con el Asistente CMDIY"
+    },
+    "engine_plate_modal": {
+      "question_text": "¿No estás seguro de cómo se ve tu placa del motor?",
+      "button_text": "¿Dónde está mi placa del motor?",
+      "modal_title": "Placas del Motor",
+      "slide_aria_label": "Ir a la diapositiva {number}",
+      "location_title": "Ubicación de la Placa del Motor",
+      "location_description": "Las placas del motor se encontraban en el mismo lugar en todos los años de modelos mini. Sin embargo, estas placas faltan en algunas situaciones:",
+      "missing_reasons": {
+        "replaced": "Si el motor ha sido reemplazado",
+        "removed": "Si la placa fue removida durante una reconstrucción",
+        "corroded": "Si la placa se ha corroído o caído con el tiempo"
+      },
+      "close_button": "Cerrar",
+      "image_alts": {
+        "example1": "Ejemplo de placa del motor 1",
+        "example2": "Ejemplo de placa del motor 2",
+        "example3": "Ejemplo de placa del motor 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "Buscar cualquier cosa (ej. MPI, Cooper S, Carburador HIF44)",
+      "empty_state": "No existen elementos que cumplan los filtros actuales",
+      "sort_key_label": "Clave de Ordenamiento:",
+      "actions": {
+        "share": "Compartir",
+        "contribute": "Contribuir",
+        "download": "Descargar"
+      },
+      "pagination": {
+        "page_text": "Página {current} de {total}"
+      }
     },
     "chat": {
       "toolbox": {
@@ -752,12 +894,7 @@
             "description": "Especificaciones completas de torque para pernos Classic Mini. Tabla de referencia para pernos de motor, suspensión, transmisión y carrocería con valores en lb/ft y Nm.",
             "dataset_name": "Especificaciones de Torque Classic Mini",
             "dataset_description": "Conjunto de datos integral de especificaciones de torque para pernos Classic Mini",
-            "variable_measured": [
-              "Nombre del Perno",
-              "Torque en lb/ft",
-              "Torque en Nm",
-              "Notas Adicionales"
-            ]
+            "variable_measured": ["Nombre del Perno", "Torque en lb/ft", "Torque en Nm", "Notas Adicionales"]
           },
           "table_headers": {
             "fastener": "Perno",

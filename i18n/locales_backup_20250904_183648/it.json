@@ -28,13 +28,110 @@
     "home_subtitle": "LA TUA RISORSA DI QUARTIERE AMICHEVOLE"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "Minuti guardati",
+      "over_30_days": "negli ultimi 30 giorni",
+      "subscribers": "Iscritti",
+      "across_world": "in tutto il mondo",
+      "videos": "Video",
+      "since_2015": "dal 2015"
+    },
+    "recent_videos": {
+      "title": "Video recenti",
+      "error_message": "Impossibile caricare i dati di YouTube",
+      "published_on": "Pubblicato il",
+      "watch_button": "Guarda"
+    },
     "registry_table": {
+      "search_placeholder": "Cerca qualsiasi dettaglio",
+      "total_minis": "Mini totali",
+      "per_page_options": {
+        "10": "10 per pagina",
+        "25": "25 per pagina",
+        "50": "50 per pagina",
+        "100": "100 per pagina"
+      },
       "table_headers": {
         "year": "Anno",
         "model": "Modello",
         "trim": "Allestimento",
         "color": "Colore"
-      }
+      },
+      "status": {
+        "pending": "In attesa",
+        "approved": "Approvato",
+        "rejected": "Rifiutato",
+        "unknown": "Sconosciuto"
+      },
+      "expanded_details": {
+        "build_date": "Data di costruzione:",
+        "body_number": "N. scocca:",
+        "engine_number": "N. motore:",
+        "submitted_by": "Inviato da:",
+        "notes": "Note:"
+      },
+      "no_items_found": "Nessun elemento trovato",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "Invia la tua Mini",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "Grazie!",
+        "submitted_message": "La tua iscrizione al registro è stata inviata. Permettici 1-2 giorni perché appaia nell'elenco.",
+        "submission_details": "I dettagli della tua iscrizione al registro sono",
+        "track_submission": "Tieni traccia della tua iscrizione qui:",
+        "submission_link": "Iscrizione",
+        "submit_another": "Invia un'altra Mini"
+      },
+      "validation": {
+        "required": "Questo campo è obbligatorio per l'invio",
+        "invalid_email": "Email non valida."
+      },
+      "sections": {
+        "personal_info": "Informazioni personali:",
+        "car_details": "Dettagli auto:"
+      },
+      "form_labels": {
+        "your_name": "Il tuo nome",
+        "your_email": "La tua email",
+        "model_year": "Anno del modello",
+        "model": "Modello",
+        "trim": "Allestimento",
+        "body_type": "Tipo di carrozzeria",
+        "original_engine_size": "Cilindrata motore originale",
+        "factory_color": "Colore di fabbrica",
+        "body_shell_number": "Numero scocca",
+        "engine_plate_number": "Numero targhetta motore",
+        "special_notes": "Note speciali o aggiuntive"
+      },
+      "placeholders": {
+        "name": "es. Mario Rossi",
+        "email": "es. mario{'@'}esempio.com",
+        "model": "es. Morris Mini",
+        "trim": "es. Mini 50",
+        "color": "es. Clipper Blue",
+        "body_number": "es. GB190fW",
+        "engine_number": "es. 12H4102",
+        "notes": "es. Quest'auto è stata prodotta solo dal 1959 al 1960"
+      },
+      "body_types": {
+        "saloon": "Berlina",
+        "pickup": "Pickup",
+        "estate": "Familiare",
+        "cabriolet": "Cabriolet",
+        "clubman": "Clubman",
+        "van": "Furgone",
+        "hornet": "Hornet"
+      },
+      "error": {
+        "title": "Mi dispiace!",
+        "message": "C'è stato un problema nell'inviare la tua iscrizione in questo momento, riprova più tardi!",
+        "check_entries": "Controlla le tue voci e riprova",
+        "dismiss": "Chiudi",
+        "api_unavailable": "API attualmente non disponibile. Riprova più tardi."
+      },
+      "submit_button": "Invia"
     },
     "patreon_card": {
       "title": "SUPPORTA IL SITO",
@@ -42,6 +139,15 @@
       "membership_benefits": "L'iscrizione include tanti vantaggi e benefici gratuiti!",
       "button_text": "Contribuisci oggi",
       "image_alt": "Immagine della mia auto sui cavalletti"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "Cilindrata",
+        "needle_std": "Ago standard",
+        "needle_rich": "Ago ricco",
+        "needle_lean": "Ago magro",
+        "spring_type": "Tipo molla"
+      }
     },
     "main_nav": {
       "logo_alt": "Logo Classic Mini DIY",
@@ -70,6 +176,42 @@
         "cmdiy_privacy": "Politica sulla privacy del sito web CMDIY",
         "youtube_privacy": "Politica sulla privacy di YouTube",
         "google_privacy": "Politica sulla privacy di Google"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Chiedimi qualsiasi cosa sulla tua Classic Mini...",
+      "helper_text": "Chatta con l'assistente CMDIY"
+    },
+    "engine_plate_modal": {
+      "question_text": "Non sei sicuro di come sia la tua targhetta motore?",
+      "button_text": "Dove si trova la mia targhetta motore?",
+      "modal_title": "Targhette motore",
+      "slide_aria_label": "Vai alla diapositiva {number}",
+      "location_title": "Posizione della targhetta motore",
+      "location_description": "Le targhette motore si trovavano nello stesso posto su tutti gli anni di modello delle Mini. Tuttavia queste targhette mancano in alcune situazioni:",
+      "missing_reasons": {
+        "replaced": "Se il motore è stato sostituito",
+        "removed": "Se la targhetta è stata rimossa durante una ricostruzione",
+        "corroded": "Se la targhetta si è corrosa o è caduta nel tempo"
+      },
+      "close_button": "Chiudi",
+      "image_alts": {
+        "example1": "Esempio targhetta motore 1",
+        "example2": "Esempio targhetta motore 2",
+        "example3": "Esempio targhetta motore 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "Cerca qualsiasi cosa (es. MPI, Cooper S, Carburatore HIF44)",
+      "empty_state": "Non esistono elementi che soddisfano i filtri attuali",
+      "sort_key_label": "Chiave di ordinamento:",
+      "actions": {
+        "share": "Condividi",
+        "contribute": "Contribuisci",
+        "download": "Scarica"
+      },
+      "pagination": {
+        "page_text": "Pagina {current} di {total}"
       }
     },
     "chat": {
@@ -781,12 +923,7 @@
             "description": "Specifiche coppia complete per bulloni Classic Mini. Grafico di riferimento per bulloni motore, sospensioni, trasmissione e carrozzeria con valori in lb/ft e Nm.",
             "dataset_name": "Specifiche coppia Classic Mini",
             "dataset_description": "Dataset completo di specifiche coppia per bulloni Classic Mini",
-            "variable_measured": [
-              "Nome bullone",
-              "Coppia in lb/ft",
-              "Coppia in Nm",
-              "Note aggiuntive"
-            ]
+            "variable_measured": ["Nome bullone", "Coppia in lb/ft", "Coppia in Nm", "Note aggiuntive"]
           },
           "table_headers": {
             "fastener": "Bullone",

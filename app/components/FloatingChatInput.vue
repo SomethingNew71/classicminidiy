@@ -8,7 +8,7 @@
             ref="inputRef"
             v-model="input"
             @keydown="handleInputKeyDown"
-            :placeholder="t('components.floating_chat_input.placeholder')"
+            :placeholder="t('placeholder')"
             class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
             rows="1"
           ></textarea>
@@ -23,7 +23,7 @@
       <div class="flex justify-center mt-2">
         <span class="text-xs text-base-content/60">
           <i class="fa-solid fa-comments text-xs mr-1"></i>
-          {{ t('components.floating_chat_input.helper_text') }}
+          {{ t('helper_text') }}
         </span>
       </div>
     </div>
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-  const { t } = useI18n();
+  const { t } = useI18n({ useScope: 'local' });
   const input = ref('');
   const inputRef = ref<HTMLTextAreaElement>();
   const router = useRouter();
@@ -95,3 +95,48 @@
     }
   }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "placeholder": "Ask me anything about your Classic Mini...",
+    "helper_text": "Chat with CMDIY Assistant"
+  },
+  "de": {
+    "placeholder": "Fragen Sie mich alles über Ihren Classic Mini...",
+    "helper_text": "Chatten Sie mit dem CMDIY Assistenten"
+  },
+  "es": {
+    "placeholder": "Pregúntame cualquier cosa sobre tu Classic Mini...",
+    "helper_text": "Chatea con el Asistente CMDIY"
+  },
+  "fr": {
+    "placeholder": "Demandez-moi n'importe quoi sur votre Classic Mini...",
+    "helper_text": "Chattez avec l'assistant CMDIY"
+  },
+  "it": {
+    "placeholder": "Chiedimi qualsiasi cosa sulla tua Classic Mini...",
+    "helper_text": "Chatta con l'assistente CMDIY"
+  },
+  "pt": {
+    "placeholder": "Pergunte-me qualquer coisa sobre seu Classic Mini...",
+    "helper_text": "Converse com o Assistente CMDIY"
+  },
+  "ru": {
+    "placeholder": "Спросите меня что-нибудь о вашем Classic Mini...",
+    "helper_text": "Чат с помощником CMDIY"
+  },
+  "ja": {
+    "placeholder": "あなたのClassic Miniについて何でも聞いてください...",
+    "helper_text": "CMDIYアシスタントとチャット"
+  },
+  "zh": {
+    "placeholder": "询问任何关于您的Classic Mini的问题...",
+    "helper_text": "与CMDIY助手聊天"
+  },
+  "ko": {
+    "placeholder": "Classic Mini에 대해 무엇이든 물어보세요...",
+    "helper_text": "CMDIY 어시스턴트와 채팅"
+  }
+}
+</i18n>

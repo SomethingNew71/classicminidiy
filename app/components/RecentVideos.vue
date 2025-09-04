@@ -1,16 +1,16 @@
 <script setup lang="ts">
   const { data: videos, status, error } = await useFetch('/api/youtube/videos');
-  const { t } = useI18n();
+  const { t } = useI18n({ useScope: 'local' });
 </script>
 
 <template>
   <div class="col-span-12">
-    <h3 class="font-bold text-3xl text-center pb-5">{{ t('components.recent_videos.title') }}</h3>
+    <h3 class="font-bold text-3xl text-center pb-5">{{ t('title') }}</h3>
   </div>
 
   <div v-if="status === 'pending'" class="col-span-12 md:col-span-3" v-for="item in 3"></div>
   <div v-else-if="error" class="col-span-12">
-    <p>{{ t('components.recent_videos.error_message') }}</p>
+    <p>{{ t('error_message') }}</p>
   </div>
 
   <template v-else-if="videos">
@@ -20,14 +20,79 @@
       </figure>
       <div class="card-body">
         <h2 class="card-title">{{ video.title }}</h2>
-        <p>{{ t('components.recent_videos.published_on') }} {{ video.publishedOn }}</p>
+        <p>{{ t('published_on') }} {{ video.publishedOn }}</p>
         <div class="card-actions justify-end">
-          <a :href="video.videoUrl" class="btn btn-primary">{{ t('components.recent_videos.watch_button') }}</a>
+          <a :href="video.videoUrl" class="btn btn-primary">{{ t('watch_button') }}</a>
         </div>
       </div>
     </div>
   </template>
 </template>
+
+<i18n>
+{
+  "de": {
+    "title": "Neueste Videos",
+    "error_message": "YouTube-Daten konnten nicht geladen werden",
+    "published_on": "Veröffentlicht am",
+    "watch_button": "Ansehen"
+  },
+  "en": {
+    "title": "Recent Videos",
+    "error_message": "Unable to load youtube data",
+    "published_on": "Published on",
+    "watch_button": "Watch"
+  },
+  "es": {
+    "title": "Videos Recientes",
+    "error_message": "No se pudieron cargar los datos de youtube",
+    "published_on": "Publicado el",
+    "watch_button": "Ver"
+  },
+  "fr": {
+    "title": "Vidéos récentes",
+    "error_message": "Impossible de charger les données youtube",
+    "published_on": "Publié le",
+    "watch_button": "Regarder"
+  },
+  "it": {
+    "title": "Video recenti",
+    "error_message": "Impossibile caricare i dati di YouTube",
+    "published_on": "Pubblicato il",
+    "watch_button": "Guarda"
+  },
+  "ja": {
+    "title": "最新動画",
+    "error_message": "YouTubeデータを読み込めませんでした",
+    "published_on": "公開日",
+    "watch_button": "視聴"
+  },
+  "ko": {
+    "title": "최신 동영상",
+    "error_message": "YouTube 데이터를 불러올 수 없습니다",
+    "published_on": "게시일",
+    "watch_button": "시청하기"
+  },
+  "pt": {
+    "title": "Vídeos Recentes",
+    "error_message": "Não foi possível carregar dados do youtube",
+    "published_on": "Publicado em",
+    "watch_button": "Assistir"
+  },
+  "ru": {
+    "title": "Последние видео",
+    "error_message": "Не удается загрузить данные YouTube",
+    "published_on": "Опубликовано",
+    "watch_button": "Смотреть"
+  },
+  "zh": {
+    "title": "最新视频",
+    "error_message": "无法加载YouTube数据",
+    "published_on": "发布于",
+    "watch_button": "观看"
+  }
+}
+</i18n>
 
 <style lang="scss">
   .test {
