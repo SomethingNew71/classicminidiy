@@ -482,7 +482,7 @@
     },
     "placeholders": {
       "name": "ex. John Smith",
-      "email": "ex. john@example.com",
+      "email": "ex. john{'@'}example.com",
       "model": "ex. Morris Mini",
       "trim": "ex. Mini 50",
       "color": "ex. Clipper Blue",
@@ -542,7 +542,7 @@
     },
     "placeholders": {
       "name": "z.B. Max Mustermann",
-      "email": "z.B. max@beispiel.de",
+      "email": "z.B. max{'@'}beispiel.de",
       "model": "z.B. Morris Mini",
       "trim": "z.B. Mini 50",
       "color": "z.B. Clipper Blau",
@@ -602,7 +602,7 @@
     },
     "placeholders": {
       "name": "ej. Juan Pérez",
-      "email": "ej. juan@ejemplo.com",
+      "email": "ej. juan{'@'}ejemplo.com",
       "model": "ej. Morris Mini",
       "trim": "ej. Mini 50",
       "color": "ej. Azul Clipper",
@@ -662,7 +662,7 @@
     },
     "placeholders": {
       "name": "ex. Jean Dupont",
-      "email": "ex. jean@exemple.com",
+      "email": "ex. jean{'@'}exemple.com",
       "model": "ex. Morris Mini",
       "trim": "ex. Mini 50",
       "color": "ex. Bleu Clipper",
@@ -722,7 +722,7 @@
     },
     "placeholders": {
       "name": "es. Mario Rossi",
-      "email": "es. mario@esempio.com",
+      "email": "es. mario{'@'}esempio.com",
       "model": "es. Morris Mini",
       "trim": "es. Mini 50",
       "color": "es. Clipper Blue",
@@ -782,7 +782,7 @@
     },
     "placeholders": {
       "name": "例: 田中太郎",
-      "email": "例: john@example.com",
+      "email": "例: john{'@'}example.com",
       "model": "例: Morris Mini",
       "trim": "例: Mini 50",
       "color": "例: Clipper Blue",
@@ -842,7 +842,7 @@
     },
     "placeholders": {
       "name": "예) 김철수",
-      "email": "예) john@example.com",
+      "email": "예) john{'@'}example.com",
       "model": "예) Morris Mini",
       "trim": "예) Mini 50",
       "color": "예) Clipper Blue",
@@ -902,7 +902,7 @@
     },
     "placeholders": {
       "name": "ex. João Silva",
-      "email": "ex. joao@exemplo.com",
+      "email": "ex. joao{'@'}exemplo.com",
       "model": "ex. Morris Mini",
       "trim": "ex. Mini 50",
       "color": "ex. Azul Clipper",
@@ -962,7 +962,7 @@
     },
     "placeholders": {
       "name": "например, Иван Иванов",
-      "email": "например, ivan@example.com",
+      "email": "например, ivan{'@'}example.com",
       "model": "например, Morris Mini",
       "trim": "например, Mini 50",
       "color": "например, Clipper Blue",
@@ -1022,7 +1022,7 @@
     },
     "placeholders": {
       "name": "例：张三",
-      "email": "例：john@example.com",
+      "email": "例：john{'@'}example.com",
       "model": "例：Morris Mini",
       "trim": "例：Mini 50",
       "color": "例：蓝色",
