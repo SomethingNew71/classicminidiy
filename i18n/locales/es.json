@@ -149,35 +149,6 @@
         "spring_type": "Tipo de Resorte"
       }
     },
-    "main_nav": {
-      "logo_alt": "Logo de Classic Mini DIY",
-      "navigation": {
-        "blog": "Blog",
-        "maps": "Mapas",
-        "store": "Tienda",
-        "archive": "Archivo",
-        "toolbox": "Caja de Herramientas",
-        "chat": "Chat"
-      },
-      "donate_button": "Únete a CMDIY",
-      "language_label": "Idioma"
-    },
-    "hero": {
-      "home_title": "Classic Mini DIY"
-    },
-    "footer": {
-      "brand_name": "Classic Mini DIY",
-      "author_name": "Cole Gentry",
-      "youtube_link_aria": "Enlace a mi canal de youtube",
-      "description": "La caja de herramientas Classic Mini DIY es un proyecto de pasión alineado con el canal de youtube Classic Mini DIY. Este es un recurso completamente gratuito construido para mantener viva la base de conocimiento técnico del Classic Mini por años venideros. Datos actualizados regularmente y obtenidos de la comunidad hechos para ayudar a propietarios de Classic Mini en todo el mundo.",
-      "company_name": "Classic Mini DIY LLC",
-      "links_divider": "Enlaces",
-      "privacy_links": {
-        "cmdiy_privacy": "Política de Privacidad del Sitio Web CMDIY",
-        "youtube_privacy": "Política de Privacidad de Youtube",
-        "google_privacy": "Política de Privacidad de Google"
-      }
-    },
     "floating_chat_input": {
       "placeholder": "Pregúntame cualquier cosa sobre tu Classic Mini...",
       "helper_text": "Chatea con el Asistente CMDIY"

@@ -128,17 +128,10 @@
         "title": "Je suis désolé !",
         "message": "Il y a eu un problème lors de la soumission de votre soumission pour le moment, veuillez réessayer plus tard !",
         "check_entries": "Veuillez vérifier vos entrées et réessayer",
-        "dismiss": "Ignorer",
+        "dismiss": "Annuler",
         "api_unavailable": "L'API est actuellement indisponible. Veuillez réessayer plus tard."
       },
       "submit_button": "Soumettre"
-    },
-    "patreon_card": {
-      "title": "SOUTENEZ LE SITE",
-      "description": "Classic Mini DIY est une ressource complètement gratuite soutenue par nos spectateurs. Si vous êtes intéressé à aider à maintenir la chaîne en vie, envisagez de soutenir sur Patreon.",
-      "membership_benefits": "L'adhésion vient avec des tonnes d'avantages et de bénéfices gratuits !",
-      "button_text": "Contribuer aujourd'hui",
-      "image_alt": "Image de ma voiture sur chandelles"
     },
     "needle_table": {
       "table_headers": {
@@ -147,35 +140,6 @@
         "needle_rich": "Aiguille riche",
         "needle_lean": "Aiguille pauvre",
         "spring_type": "Type de ressort"
-      }
-    },
-    "main_nav": {
-      "logo_alt": "Logo Classic Mini DIY",
-      "navigation": {
-        "blog": "Blog",
-        "maps": "Cartes",
-        "store": "Boutique",
-        "archive": "Archive",
-        "toolbox": "Boîte à outils",
-        "chat": "Chat"
-      },
-      "donate_button": "Rejoindre CMDIY",
-      "language_label": "Langue"
-    },
-    "hero": {
-      "home_title": "Classic Mini DIY"
-    },
-    "footer": {
-      "brand_name": "Classic Mini DIY",
-      "author_name": "Cole Gentry",
-      "youtube_link_aria": "Lien vers ma chaîne youtube",
-      "description": "La boîte à outils Classic Mini DIY est un projet de passion aligné avec la chaîne youtube Classic Mini DIY. C'est une ressource complètement gratuite construite pour maintenir vivante la base de connaissances techniques Classic Mini pour les années à venir. Régulièrement mise à jour et données collaboratives faites pour aider les propriétaires de Classic Mini partout dans le monde.",
-      "company_name": "Classic Mini DIY LLC",
-      "links_divider": "Liens",
-      "privacy_links": {
-        "cmdiy_privacy": "Politique de confidentialité du site web CMDIY",
-        "youtube_privacy": "Politique de confidentialité Youtube",
-        "google_privacy": "Politique de confidentialité Google"
       }
     },
     "floating_chat_input": {

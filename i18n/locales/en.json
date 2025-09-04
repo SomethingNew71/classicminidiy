@@ -133,13 +133,6 @@
       },
       "submit_button": "Submit"
     },
-    "patreon_card": {
-      "title": "SUPPORT THE SITE",
-      "description": "Classic Mini DIY is completely free resource supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon.",
-      "membership_benefits": "Membership comes with tons of free perks and benefits!",
-      "button_text": "Contribute Today",
-      "image_alt": "Image of my car on jack stands"
-    },
     "needle_table": {
       "table_headers": {
         "engine_size": "Engine Size",
@@ -147,35 +140,6 @@
         "needle_rich": "Needle Rich",
         "needle_lean": "Needle Lean",
         "spring_type": "Spring Type"
-      }
-    },
-    "main_nav": {
-      "logo_alt": "Classic Mini DIY Logo",
-      "navigation": {
-        "blog": "Blog",
-        "maps": "Maps",
-        "store": "Store",
-        "archive": "Archive",
-        "toolbox": "Toolbox",
-        "chat": "Chat"
-      },
-      "donate_button": "Join CMDIY",
-      "language_label": "Language"
-    },
-    "hero": {
-      "home_title": "Classic Mini DIY"
-    },
-    "footer": {
-      "brand_name": "Classic Mini DIY",
-      "author_name": "Cole Gentry",
-      "youtube_link_aria": "Link to my youtube channel",
-      "description": "Classic Mini DIY toolbox is a passion project aligned with the Classic Mini DIY youtube channel. This is a completely free resource built to keep the Classic Mini technical knowledgebase alive for years to come. Regularly updated and crowd sourced data made to help Classic Mini owners all over the world.",
-      "company_name": "Classic Mini DIY LLC",
-      "links_divider": "Links",
-      "privacy_links": {
-        "cmdiy_privacy": "CMDIY Website Privacy Policy",
-        "youtube_privacy": "Youtube Privacy Policy",
-        "google_privacy": "Google Privacy Policy"
       }
     },
     "floating_chat_input": {
