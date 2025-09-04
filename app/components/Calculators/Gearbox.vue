@@ -4,12 +4,12 @@
     tableHeaders,
     chartOptions,
     kphFactor,
-    type ISpeedometerTableItem,
-    type IGearingTableItem,
     type ISpeedometer,
     type TireValue,
   } from '../../../data/models/gearing';
-  const { t } = useI18n();
+  const { t } = useI18n({
+    useScope: 'local',
+  });
 
   // Default Values for form elements
   const metric = ref(false);
@@ -241,7 +241,7 @@
       <div class="col-span-1 md:col-span-4">
         <div class="form-control">
           <label class="label cursor-pointer">
-            <span class="label-text">{{ t('components.calculators.gearbox.form_labels.imperial_or_metric') }}</span>
+            <span class="label-text">{{ t('form_labels.imperial_or_metric') }}</span>
             <input type="checkbox" class="toggle toggle-primary" v-model="metric" @change="triggerDebouncedUpdate" />
           </label>
         </div>
@@ -253,7 +253,7 @@
         <div class="form-control">
           <label class="label">
             <span class="label-text"
-              >{{ t('components.calculators.gearbox.form_labels.tire_size') }} <span><i class="fad fa-tire"></i></span
+              >{{ t('form_labels.tire_size') }} <span><i class="fad fa-tire"></i></span
             ></span>
           </label>
           <div class="input-group">
@@ -268,8 +268,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('components.calculators.gearbox.form_labels.speedo_drive_ratio') }}
-            <span><i class="fad fa-percent"></i></span
+            >{{ t('form_labels.speedo_drive_ratio') }} <span><i class="fad fa-percent"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -283,8 +282,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('components.calculators.gearbox.form_labels.drop_gear_ratio') }}
-            <span><i class="fad fa-gears"></i></span
+            >{{ t('form_labels.drop_gear_ratio') }} <span><i class="fad fa-gears"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -298,7 +296,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('components.calculators.gearbox.form_labels.gearset') }} <span><i class="fad fa-gear"></i></span
+            >{{ t('form_labels.gearset') }} <span><i class="fad fa-gear"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -312,7 +310,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('components.calculators.gearbox.form_labels.final_drive') }} <span><i class="fad fa-gears"></i></span
+            >{{ t('form_labels.final_drive') }} <span><i class="fad fa-gears"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -326,34 +324,33 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('components.calculators.gearbox.form_labels.max_rpm') }}
-            <span><i class="fad fa-tachometer-alt"></i></span
+            >{{ t('form_labels.max_rpm') }} <span><i class="fad fa-tachometer-alt"></i></span
           ></span>
         </label>
         <div class="w-full">
           <select class="select select-bordered w-full" v-model.number="max_rpm" @change="triggerDebouncedUpdate">
-            <option value="5000">{{ t('components.calculators.gearbox.rpm_options.5000') }}</option>
-            <option value="5500">{{ t('components.calculators.gearbox.rpm_options.5500') }}</option>
-            <option value="6000">{{ t('components.calculators.gearbox.rpm_options.6000') }}</option>
-            <option value="6500">{{ t('components.calculators.gearbox.rpm_options.6500') }}</option>
-            <option value="7000">{{ t('components.calculators.gearbox.rpm_options.7000') }}</option>
-            <option value="7500">{{ t('components.calculators.gearbox.rpm_options.7500') }}</option>
-            <option value="8000">{{ t('components.calculators.gearbox.rpm_options.8000') }}</option>
-            <option value="8500">{{ t('components.calculators.gearbox.rpm_options.8500') }}</option>
-            <option value="9000">{{ t('components.calculators.gearbox.rpm_options.9000') }}</option>
+            <option value="5000">{{ t('rpm_options.5000') }}</option>
+            <option value="5500">{{ t('rpm_options.5500') }}</option>
+            <option value="6000">{{ t('rpm_options.6000') }}</option>
+            <option value="6500">{{ t('rpm_options.6500') }}</option>
+            <option value="7000">{{ t('rpm_options.7000') }}</option>
+            <option value="7500">{{ t('rpm_options.7500') }}</option>
+            <option value="8000">{{ t('rpm_options.8000') }}</option>
+            <option value="8500">{{ t('rpm_options.8500') }}</option>
+            <option value="9000">{{ t('rpm_options.9000') }}</option>
           </select>
         </div>
       </div>
     </div>
 
-    <div class="divider">{{ t('components.calculators.gearbox.results_divider') }}</div>
+    <div class="divider">{{ t('results_divider') }}</div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="card bg-stone-400 shadow-sm">
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
             <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin text-white"></i>
-            {{ t('components.calculators.gearbox.results.revolutions_per', { unit: distanceUnit }) }}
+            {{ t('results.revolutions_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ displayEngineRevs }}</p>
         </div>
@@ -362,7 +359,7 @@
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
             <i class="fa-jelly-duo fa-regular fa-arrow-rotate-right fa-spin"></i>
-            {{ t('components.calculators.gearbox.results.gear_turns_per', { unit: distanceUnit }) }}
+            {{ t('results.gear_turns_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ displayGearTurns }}</p>
         </div>
@@ -370,7 +367,7 @@
       <div class="card bg-primary shadow-sm">
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-gauge"></i> {{ t('components.calculators.gearbox.results.top_speed') }}
+            <i class="fa-jelly-duo fa-regular fa-gauge"></i> {{ t('results.top_speed') }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ topSpeed || '---' }}</p>
         </div>
@@ -382,7 +379,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly-duo fa-regular fa-arrow-down-to-line"></i>
-            {{ t('components.calculators.gearbox.tire_info.tire_width') }}
+            {{ t('tire_info.tire_width') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.width || '---' }}mm</p>
         </div>
@@ -391,7 +388,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly fa-regular fa-circle"></i>
-            {{ t('components.calculators.gearbox.tire_info.tire_profile') }}
+            {{ t('tire_info.tire_profile') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.profile || '---' }}%</p>
         </div>
@@ -400,7 +397,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly-duo fa-regular fa-expand"></i>
-            {{ t('components.calculators.gearbox.tire_info.tire_size') }}
+            {{ t('tire_info.tire_size') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.size || '---' }}"</p>
         </div>
@@ -409,7 +406,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly-duo fa-regular fa-arrow-right-to-bracket"></i>
-            {{ t('components.calculators.gearbox.tire_info.tire_diameter') }}
+            {{ t('tire_info.tire_diameter') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.diameter || '---' }}mm</p>
         </div>
@@ -418,7 +415,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly-duo fa-regular fa-circle"></i>
-            {{ t('components.calculators.gearbox.tire_info.circumference') }}
+            {{ t('tire_info.circumference') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.circ || '---' }}mm</p>
         </div>
@@ -427,7 +424,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-duotone fa-solid fa-tire fa-spin"></i>
-            {{ t('components.calculators.gearbox.tire_info.tire_turns_per', { unit: distanceUnit }) }}
+            {{ t('tire_info.tire_turns_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-lg font-bold">{{ displayTireTurns }}</p>
         </div>
@@ -445,7 +442,7 @@
             ></highcharts>
             <template #fallback>
               <div class="skeleton h-96 w-full"></div>
-              <p class="py-10 text-center text-2xl">{{ t('components.calculators.gearbox.chart.loading') }}</p>
+              <p class="py-10 text-center text-2xl">{{ t('chart.loading') }}</p>
             </template>
           </ClientOnly>
         </div>
@@ -457,7 +454,7 @@
           <div class="card-body">
             <h2 class="card-title">
               <i class="fa-duotone fa-gauge mr-2"></i>
-              {{ t('components.calculators.gearbox.tables.speedo_information') }}
+              {{ t('tables.speedo_information') }}
             </h2>
             <div class="overflow-x-auto">
               <table class="table table-zebra table-compact w-full">
@@ -485,7 +482,7 @@
           <div class="card-body">
             <h2 class="card-title">
               <i class="fa-duotone fa-gear fa-spin mr-2"></i>
-              {{ t('components.calculators.gearbox.tables.gearing_information') }}
+              {{ t('tables.gearing_information') }}
             </h2>
             <div class="overflow-x-auto">
               <table class="table table-zebra table-compact w-full">
@@ -506,7 +503,7 @@
           </div>
         </div>
         <div class="mt-6">
-          <div class="divider">{{ t('components.calculators.gearbox.support_divider') }}</div>
+          <div class="divider">{{ t('support_divider') }}</div>
           <patreon-card size="large" />
         </div>
       </div>
@@ -514,19 +511,484 @@
 
     <div class="mt-6 text-center max-w-3xl mx-auto">
       <p>
-        {{ t('components.calculators.gearbox.disclaimer', { strong_start: '<strong>', strong_end: '</strong>' }) }}
+        {{ t('disclaimer', { strong_start: '<strong>', strong_end: '</strong>' }) }}
         <a
           href="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
           target="_blank"
           rel="noopener noreferrer"
           class="link link-primary"
         >
-          {{ t('components.calculators.gearbox.equation_source') }}
+          {{ t('equation_source') }}
         </a>
       </p>
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "form_labels": {
+      "imperial_or_metric": "Imperial or Metric",
+      "tire_size": "Tire Size",
+      "speedo_drive_ratio": "Speedo Drive Ratio",
+      "drop_gear_ratio": "Drop Gear Ratio",
+      "gearset": "Gearset",
+      "final_drive": "Final Drive",
+      "max_rpm": "Max RPM"
+    },
+    "rpm_options": {
+      "5000": "5000 RPM",
+      "5500": "5500 RPM",
+      "6000": "6000 RPM",
+      "6500": "6500 RPM",
+      "7000": "7000 RPM",
+      "7500": "7500 RPM",
+      "8000": "8000 RPM",
+      "8500": "8500 RPM",
+      "9000": "9000 RPM"
+    },
+    "results_divider": "Results",
+    "results": {
+      "revolutions_per": "Revolutions per/{unit}",
+      "gear_turns_per": "Gear Turns per/{unit}",
+      "top_speed": "Top Speed"
+    },
+    "tire_info": {
+      "tire_width": "Tire Width",
+      "tire_profile": "Tire Profile",
+      "tire_size": "Tire Size",
+      "tire_diameter": "Tire Diameter",
+      "circumference": "Circumference",
+      "tire_turns_per": "Tire Turns per/{unit}"
+    },
+    "tables": {
+      "speedo_information": "Speedo Information",
+      "gearing_information": "Gearing Information"
+    },
+    "chart": {
+      "loading": "Chart is loading"
+    },
+    "support_divider": "Support",
+    "disclaimer": "Please note the above figures are {strong_start}approximate values{strong_end}. Before purchasing parts and building your engine we recommend {strong_start}doublechecking{strong_end} your calculations multiple times using more than one source. The mathematical equations used in this tool can be found here:",
+    "equation_source": "Equation Source Code"
+  },
+  "es": {
+    "form_labels": {
+      "imperial_or_metric": "Imperial o Métrico",
+      "tire_size": "Tamaño de Neumático",
+      "speedo_drive_ratio": "Relación de Transmisión del Velocímetro",
+      "drop_gear_ratio": "Relación de Engranaje de Caída",
+      "gearset": "Conjunto de Engranajes",
+      "final_drive": "Transmisión Final",
+      "max_rpm": "RPM Máximo"
+    },
+    "rpm_options": {
+      "5000": "5000 RPM",
+      "5500": "5500 RPM",
+      "6000": "6000 RPM",
+      "6500": "6500 RPM",
+      "7000": "7000 RPM",
+      "7500": "7500 RPM",
+      "8000": "8000 RPM",
+      "8500": "8500 RPM",
+      "9000": "9000 RPM"
+    },
+    "results_divider": "Resultados",
+    "results": {
+      "revolutions_per": "Revoluciones por/{unit}",
+      "gear_turns_per": "Vueltas de Engranaje por/{unit}",
+      "top_speed": "Velocidad Máxima"
+    },
+    "tire_info": {
+      "tire_width": "Ancho del Neumático",
+      "tire_profile": "Perfil del Neumático",
+      "tire_size": "Tamaño del Neumático",
+      "tire_diameter": "Diámetro del Neumático",
+      "circumference": "Circunferencia",
+      "tire_turns_per": "Vueltas del Neumático por/{unit}"
+    },
+    "tables": {
+      "speedo_information": "Información del Velocímetro",
+      "gearing_information": "Información de Engranajes"
+    },
+    "chart": {
+      "loading": "El gráfico está cargando"
+    },
+    "support_divider": "Apoyo",
+    "disclaimer": "Ten en cuenta que las cifras anteriores son {strong_start}valores aproximados{strong_end}. Antes de comprar piezas y construir tu motor, recomendamos {strong_start}verificar{strong_end} tus cálculos múltiples veces usando más de una fuente. Las ecuaciones matemáticas usadas en esta herramienta se pueden encontrar aquí:",
+    "equation_source": "Código Fuente de las Ecuaciones"
+  },
+  "fr": {
+    "form_labels": {
+      "imperial_or_metric": "Impérial ou métrique",
+      "tire_size": "Taille de pneu",
+      "speedo_drive_ratio": "Rapport d'entraînement compteur",
+      "drop_gear_ratio": "Rapport d'engrenage de chute",
+      "gearset": "Jeu d'engrenages",
+      "final_drive": "Transmission finale",
+      "max_rpm": "RPM maximum"
+    },
+    "rpm_options": {
+      "5000": "5000 RPM",
+      "5500": "5500 RPM",
+      "6000": "6000 RPM",
+      "6500": "6500 RPM",
+      "7000": "7000 RPM",
+      "7500": "7500 RPM",
+      "8000": "8000 RPM",
+      "8500": "8500 RPM",
+      "9000": "9000 RPM"
+    },
+    "results_divider": "Résultats",
+    "results": {
+      "revolutions_per": "Révolutions par/{unit}",
+      "gear_turns_per": "Tours d'engrenage par/{unit}",
+      "top_speed": "Vitesse maximale"
+    },
+    "tire_info": {
+      "tire_width": "Largeur de pneu",
+      "tire_profile": "Profil de pneu",
+      "tire_size": "Taille de pneu",
+      "tire_diameter": "Diamètre de pneu",
+      "circumference": "Circonférence",
+      "tire_turns_per": "Tours de pneu par/{unit}"
+    },
+    "tables": {
+      "speedo_information": "Informations compteur",
+      "gearing_information": "Informations d'engrenage"
+    },
+    "chart": {
+      "loading": "Le graphique se charge"
+    },
+    "support_divider": "Support",
+    "disclaimer": "Veuillez noter que les chiffres ci-dessus sont des {strong_start}valeurs approximatives{strong_end}. Avant d'acheter des pièces et de construire votre moteur, nous recommandons de {strong_start}revérifier{strong_end} vos calculs plusieurs fois en utilisant plus d'une source. Les équations mathématiques utilisées dans cet outil peuvent être trouvées ici :",
+    "equation_source": "Code source des équations"
+  },
+  "de": {
+    "form_labels": {
+      "imperial_or_metric": "Imperial oder Metrisch",
+      "tire_size": "Reifengröße",
+      "speedo_drive_ratio": "Tacho-Antriebsverhältnis",
+      "drop_gear_ratio": "Drop-Gear-Verhältnis",
+      "gearset": "Getriebesatz",
+      "final_drive": "Achsantrieb",
+      "max_rpm": "Max. Drehzahl"
+    },
+    "rpm_options": {
+      "5000": "5000 U/min",
+      "5500": "5500 U/min",
+      "6000": "6000 U/min",
+      "6500": "6500 U/min",
+      "7000": "7000 U/min",
+      "7500": "7500 U/min",
+      "8000": "8000 U/min",
+      "8500": "8500 U/min",
+      "9000": "9000 U/min"
+    },
+    "results_divider": "Ergebnisse",
+    "results": {
+      "revolutions_per": "Umdrehungen pro/{unit}",
+      "gear_turns_per": "Gang-Umdrehungen pro/{unit}",
+      "top_speed": "Höchstgeschwindigkeit"
+    },
+    "tire_info": {
+      "tire_width": "Reifenbreite",
+      "tire_profile": "Reifenprofil",
+      "tire_size": "Reifengröße",
+      "tire_diameter": "Reifendurchmesser",
+      "circumference": "Umfang",
+      "tire_turns_per": "Reifen-Umdrehungen pro/{unit}"
+    },
+    "tables": {
+      "speedo_information": "Tacho-Informationen",
+      "gearing_information": "Getriebe-Informationen"
+    },
+    "chart": {
+      "loading": "Diagramm lädt"
+    },
+    "support_divider": "Unterstützung",
+    "disclaimer": "Bitte beachten Sie, dass die obigen Zahlen {strong_start}Näherungswerte{strong_end} sind. Vor dem Kauf von Teilen und dem Bau Ihres Motors empfehlen wir, Ihre Berechnungen mehrmals mit mehr als einer Quelle zu {strong_start}überprüfen{strong_end}. Die in diesem Tool verwendeten mathematischen Gleichungen finden Sie hier:",
+    "equation_source": "Gleichungs-Quellcode"
+  },
+  "it": {
+    "form_labels": {
+      "imperial_or_metric": "Imperiale o Metrico",
+      "tire_size": "Dimensione pneumatici",
+      "speedo_drive_ratio": "Rapporto trasmissione tachimetro",
+      "drop_gear_ratio": "Rapporto ingranaggio di caduta",
+      "gearset": "Set ingranaggi",
+      "final_drive": "Trasmissione finale",
+      "max_rpm": "RPM massimi"
+    },
+    "rpm_options": {
+      "5000": "5000 RPM",
+      "5500": "5500 RPM",
+      "6000": "6000 RPM",
+      "6500": "6500 RPM",
+      "7000": "7000 RPM",
+      "7500": "7500 RPM",
+      "8000": "8000 RPM",
+      "8500": "8500 RPM",
+      "9000": "9000 RPM"
+    },
+    "results_divider": "Risultati",
+    "results": {
+      "revolutions_per": "Giri per/{unit}",
+      "gear_turns_per": "Giri ingranaggio per/{unit}",
+      "top_speed": "Velocità massima"
+    },
+    "tire_info": {
+      "tire_width": "Larghezza pneumatico",
+      "tire_profile": "Profilo pneumatico",
+      "tire_size": "Dimensione pneumatico",
+      "tire_diameter": "Diametro pneumatico",
+      "circumference": "Circonferenza",
+      "tire_turns_per": "Giri pneumatico per/{unit}"
+    },
+    "tables": {
+      "speedo_information": "Informazioni tachimetro",
+      "gearing_information": "Informazioni ingranaggi"
+    },
+    "chart": {
+      "loading": "Il grafico si sta caricando"
+    },
+    "support_divider": "Supporto",
+    "disclaimer": "Si prega di notare che le cifre sopra sono {strong_start}valori approssimativi{strong_end}. Prima di acquistare parti e costruire il vostro motore raccomandiamo di {strong_start}ricontrollare{strong_end} i vostri calcoli più volte utilizzando più di una fonte. Le equazioni matematiche utilizzate in questo strumento possono essere trovate qui:",
+    "equation_source": "Codice sorgente equazioni"
+  },
+  "ja": {
+    "form_labels": {
+      "imperial_or_metric": "ヤード・ポンド法またはメートル法",
+      "tire_size": "タイヤサイズ",
+      "speedo_drive_ratio": "スピードメーター駆動比",
+      "drop_gear_ratio": "ドロップギア比",
+      "gearset": "ギアセット",
+      "final_drive": "ファイナルドライブ",
+      "max_rpm": "最大回転数"
+    },
+    "rpm_options": {
+      "5000": "5000 RPM",
+      "5500": "5500 RPM",
+      "6000": "6000 RPM",
+      "6500": "6500 RPM",
+      "7000": "7000 RPM",
+      "7500": "7500 RPM",
+      "8000": "8000 RPM",
+      "8500": "8500 RPM",
+      "9000": "9000 RPM"
+    },
+    "results_divider": "結果",
+    "results": {
+      "revolutions_per": "{unit}あたりの回転数",
+      "gear_turns_per": "{unit}あたりのギア回転数",
+      "top_speed": "最高速度"
+    },
+    "tire_info": {
+      "tire_width": "タイヤ幅",
+      "tire_profile": "タイヤプロファイル",
+      "tire_size": "タイヤサイズ",
+      "tire_diameter": "タイヤ直径",
+      "circumference": "円周",
+      "tire_turns_per": "{unit}あたりのタイヤ回転数"
+    },
+    "tables": {
+      "speedo_information": "スピードメーター情報",
+      "gearing_information": "ギア情報"
+    },
+    "chart": {
+      "loading": "チャートを読み込み中"
+    },
+    "support_divider": "サポート",
+    "disclaimer": "上記の数値は{strong_start}概算値{strong_end}であることにご注意ください。部品を購入してエンジンを構築する前に、複数のソースを使用して計算を{strong_start}何度も再確認{strong_end}することをお勧めします。このツールで使用されている数学的方程式はこちらで見つけることができます：",
+    "equation_source": "方程式ソースコード"
+  },
+  "ko": {
+    "form_labels": {
+      "imperial_or_metric": "야드파운드법 또는 미터법",
+      "tire_size": "타이어 크기",
+      "speedo_drive_ratio": "속도계 구동 비율",
+      "drop_gear_ratio": "드롭 기어 비율",
+      "gearset": "기어세트",
+      "final_drive": "파이널 드라이브",
+      "max_rpm": "최대 RPM"
+    },
+    "rpm_options": {
+      "5000": "5000 RPM",
+      "5500": "5500 RPM",
+      "6000": "6000 RPM",
+      "6500": "6500 RPM",
+      "7000": "7000 RPM",
+      "7500": "7500 RPM",
+      "8000": "8000 RPM",
+      "8500": "8500 RPM",
+      "9000": "9000 RPM"
+    },
+    "results_divider": "결과",
+    "results": {
+      "revolutions_per": "{unit}당 회전수",
+      "gear_turns_per": "{unit}당 기어 회전수",
+      "top_speed": "최고 속도"
+    },
+    "tire_info": {
+      "tire_width": "타이어 폭",
+      "tire_profile": "타이어 프로파일",
+      "tire_size": "타이어 크기",
+      "tire_diameter": "타이어 직경",
+      "circumference": "둘레",
+      "tire_turns_per": "{unit}당 타이어 회전수"
+    },
+    "tables": {
+      "speedo_information": "속도계 정보",
+      "gearing_information": "기어링 정보"
+    },
+    "chart": {
+      "loading": "차트 로딩 중"
+    },
+    "support_divider": "지원",
+    "disclaimer": "위 수치들은 {strong_start}근사값{strong_end}임을 알려드립니다. 부품을 구매하고 엔진을 제작하기 전에 여러 소스를 사용하여 계산을 {strong_start}여러 번 재확인{strong_end}할 것을 권장합니다. 이 도구에 사용된 수학 공식은 여기에서 찾을 수 있습니다:",
+    "equation_source": "공식 소스 코드"
+  },
+  "pt": {
+    "form_labels": {
+      "imperial_or_metric": "Imperial ou Métrico",
+      "tire_size": "Tamanho do Pneu",
+      "speedo_drive_ratio": "Relação de Transmissão do Velocímetro",
+      "drop_gear_ratio": "Relação de Engrenagem de Queda",
+      "gearset": "Conjunto de Engrenagens",
+      "final_drive": "Transmissão Final",
+      "max_rpm": "RPM Máximo"
+    },
+    "rpm_options": {
+      "5000": "5000 RPM",
+      "5500": "5500 RPM",
+      "6000": "6000 RPM",
+      "6500": "6500 RPM",
+      "7000": "7000 RPM",
+      "7500": "7500 RPM",
+      "8000": "8000 RPM",
+      "8500": "8500 RPM",
+      "9000": "9000 RPM"
+    },
+    "results_divider": "Resultados",
+    "results": {
+      "revolutions_per": "Revoluções por/{unit}",
+      "gear_turns_per": "Voltas da Engrenagem por/{unit}",
+      "top_speed": "Velocidade Máxima"
+    },
+    "tire_info": {
+      "tire_width": "Largura do Pneu",
+      "tire_profile": "Perfil do Pneu",
+      "tire_size": "Tamanho do Pneu",
+      "tire_diameter": "Diâmetro do Pneu",
+      "circumference": "Circunferência",
+      "tire_turns_per": "Voltas do Pneu por/{unit}"
+    },
+    "tables": {
+      "speedo_information": "Informações do Velocímetro",
+      "gearing_information": "Informações de Engrenagem"
+    },
+    "chart": {
+      "loading": "O gráfico está carregando"
+    },
+    "support_divider": "Suporte",
+    "disclaimer": "Por favor, note que os números acima são {strong_start}valores aproximados{strong_end}. Antes de comprar peças e construir seu motor, recomendamos {strong_start}verificar novamente{strong_end} seus cálculos várias vezes usando mais de uma fonte. As equações matemáticas usadas nesta ferramenta podem ser encontradas aqui:",
+    "equation_source": "Código Fonte da Equação"
+  },
+  "ru": {
+    "form_labels": {
+      "imperial_or_metric": "Имперская или метрическая",
+      "tire_size": "Размер шины",
+      "speedo_drive_ratio": "Передаточное число спидометра",
+      "drop_gear_ratio": "Передаточное число понижающей передачи",
+      "gearset": "Набор шестерен",
+      "final_drive": "Главная передача",
+      "max_rpm": "Макс. об/мин"
+    },
+    "rpm_options": {
+      "5000": "5000 об/мин",
+      "5500": "5500 об/мин",
+      "6000": "6000 об/мин",
+      "6500": "6500 об/мин",
+      "7000": "7000 об/мин",
+      "7500": "7500 об/мин",
+      "8000": "8000 об/мин",
+      "8500": "8500 об/мин",
+      "9000": "9000 об/мин"
+    },
+    "results_divider": "Результаты",
+    "results": {
+      "revolutions_per": "Оборотов на/{unit}",
+      "gear_turns_per": "Оборотов шестерни на/{unit}",
+      "top_speed": "Максимальная скорость"
+    },
+    "tire_info": {
+      "tire_width": "Ширина шины",
+      "tire_profile": "Профиль шины",
+      "tire_size": "Размер шины",
+      "tire_diameter": "Диаметр шины",
+      "circumference": "Окружность",
+      "tire_turns_per": "Оборотов шины на/{unit}"
+    },
+    "tables": {
+      "speedo_information": "Информация о спидометре",
+      "gearing_information": "Информация о передачах"
+    },
+    "chart": {
+      "loading": "График загружается"
+    },
+    "support_divider": "Поддержка",
+    "disclaimer": "Обратите внимание, что приведенные выше цифры являются {strong_start}приблизительными значениями{strong_end}. Перед покупкой деталей и сборкой двигателя мы рекомендуем {strong_start}перепроверить{strong_end} ваши расчеты несколько раз, используя более одного источника. Математические уравнения, используемые в этом инструменте, можно найти здесь:",
+    "equation_source": "Исходный код уравнения"
+  },
+  "zh": {
+    "form_labels": {
+      "imperial_or_metric": "英制或公制",
+      "tire_size": "轮胎尺寸",
+      "speedo_drive_ratio": "速度表传动比",
+      "drop_gear_ratio": "降档比",
+      "gearset": "齿轮组",
+      "final_drive": "主减速器",
+      "max_rpm": "最大转速"
+    },
+    "rpm_options": {
+      "5000": "5000 转/分",
+      "5500": "5500 转/分",
+      "6000": "6000 转/分",
+      "6500": "6500 转/分",
+      "7000": "7000 转/分",
+      "7500": "7500 转/分",
+      "8000": "8000 转/分",
+      "8500": "8500 转/分",
+      "9000": "9000 转/分"
+    },
+    "results_divider": "结果",
+    "results": {
+      "revolutions_per": "每{unit}转数",
+      "gear_turns_per": "每{unit}齿轮转数",
+      "top_speed": "最高速度"
+    },
+    "tire_info": {
+      "tire_width": "轮胎宽度",
+      "tire_profile": "轮胎轮廓",
+      "tire_size": "轮胎尺寸",
+      "tire_diameter": "轮胎直径",
+      "circumference": "周长",
+      "tire_turns_per": "每{unit}轮胎转数"
+    },
+    "tables": {
+      "speedo_information": "速度表信息",
+      "gearing_information": "齿轮信息"
+    },
+    "chart": {
+      "loading": "图表加载中"
+    },
+    "support_divider": "支持",
+    "disclaimer": "请注意上述数字是{strong_start}近似值{strong_end}。在购买零件和制造发动机之前，我们建议使用多个来源{strong_start}多次检查{strong_end}您的计算。此工具中使用的数学方程可以在这里找到：",
+    "equation_source": "方程源代码"
+  }
+}
+</i18n>
 
 <style lang="scss">
   .text-red {
