@@ -23,7 +23,7 @@ export interface Post extends ParsedContent {
 }
 
 export interface ToolboxItem {
-  title: string;
+  titleKey: string;
   path: string;
   iconHtml: string;
   to: string;
@@ -87,54 +87,54 @@ export const MobileMenuItems: MobileMenuItem[] = [
 ];
 export const ToolboxItems: ToolboxItem[] = [
   {
-    title: 'Torque Specs',
+    titleKey: 'components.chat.toolbox.torque_specs',
     path: '/technical/torque',
     iconHtml:
       '<i class="fa-duotone fa-screwdriver-wrench" style="--fa-primary-color: #ed7135; --fa-secondary-color: #ed7135;"></i>',
     to: '/technical/torque',
   },
   {
-    title: 'Chassis Number Decoder',
+    titleKey: 'components.chat.toolbox.chassis_decoder',
     path: '/technical/chassis-decoder',
     iconHtml: '<i class="fa-duotone fa-hashtag" ></i>',
     to: '/technical/chassis-decoder',
   },
   {
-    title: 'Engine Number Decoder',
+    titleKey: 'components.chat.toolbox.engine_decoder',
     path: '/technical/engine-decoder',
     iconHtml:
       '<i class="fa-duotone fa-engine" style="--fa-primary-color: #A49966; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
     to: '/technical/engine-decoder',
   },
   {
-    title: 'Carb Needle Configurator',
+    titleKey: 'components.chat.toolbox.needle_configurator',
     path: '/technical/needles',
     iconHtml:
       '<i class="fa-duotone fa-chart-line" style="--fa-primary-color: #b74d36; --fa-secondary-color: #417bbd; --fa-secondary-opacity: 0.8;"></i>',
     to: '/technical/needles',
   },
   {
-    title: 'Gearbox Calculator',
+    titleKey: 'components.chat.toolbox.gearbox_calculator',
     path: '/technical/gearing',
     iconHtml: '<i class="fa-duotone fa-gears" style="--fa-primary-color: #c49031; --fa-secondary-color: #c49031;"></i>',
     to: '/technical/gearing',
   },
   {
-    title: 'Compression Ratio Calculator',
+    titleKey: 'components.chat.toolbox.compression_calculator',
     path: '/technical/compression',
     iconHtml:
       '<i class="fa-duotone fa-calculator" style="--fa-primary-color: #859369; --fa-secondary-color: #859369;"></i>',
     to: '/technical/compression',
   },
   {
-    title: 'Parts Equivalency',
+    titleKey: 'components.chat.toolbox.parts_equivalency',
     path: '/technical/parts',
     iconHtml:
       '<i class="fa-duotone fa-magnifying-glass" style="--fa-primary-color: #080808; --fa-secondary-color: #f3b140; --fa-secondary-opacity: .9;"></i>',
     to: '/technical/parts',
   },
   {
-    title: 'Common Clearances',
+    titleKey: 'components.chat.toolbox.common_clearances',
     path: '/technical/clearance',
     iconHtml:
       '<i class="fa-duotone fa-ruler-triangle" style="--fa-primary-color: #433016; --fa-secondary-color: #ddbd8d; --fa-secondary-opacity: 1;"></i>',

@@ -327,6 +327,16 @@
       },
       "useful_links_sidebar": {
         "title": "Collegamenti utili"
+      },
+      "toolbox": {
+        "torque_specs": "Specifiche di Coppia",
+        "chassis_decoder": "Decodificatore Numero di Telaio",
+        "engine_decoder": "Decodificatore Numero Motore",
+        "needle_configurator": "Configuratore Spilli Carburatore",
+        "gearbox_calculator": "Calcolatore Cambio",
+        "compression_calculator": "Calcolatore Rapporto di Compressione",
+        "parts_equivalency": "Equivalenza Parti",
+        "common_clearances": "Giochi Comuni"
       }
     }
   },
@@ -1327,11 +1337,23 @@
           "title": "Collegamenti utili"
         },
         "useful_links_sidebar": {
-          "title": "Collegamenti utili",
+          "title": "Link utili",
           "showing_results": "Mostrando tutti i {count} risultati di ricerca"
+        },
+        "toolbox": {
+          "torque_specs": "Specifiche di coppia",
+          "chassis_decoder": "Decodificatore numero telaio",
+          "engine_decoder": "Decodificatore numero motore",
+          "needle_configurator": "Configuratore ago carburatore",
+          "gearbox_calculator": "Calcolatore cambio",
+          "compression_calculator": "Calcolatore rapporto di compressione",
+          "parts_equivalency": "Equivalenza parti",
+          "common_clearances": "Giochi comuni"
         }
-      },
-      "wheel_submit": {
+      }
+    },
+  "pages": {
+    "wheel_submit": {
         "stepper": {
           "wheel_details": "Dettagli ruota",
           "images": "Immagini",

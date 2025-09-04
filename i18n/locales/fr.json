@@ -327,7 +327,27 @@
       },
       "useful_links_sidebar": {
         "title": "Liens utiles"
+      },
+      "toolbox": {
+        "torque_specs": "Spécifications de Couple",
+        "chassis_decoder": "Décodeur de Numéro de Châssis",
+        "engine_decoder": "Décodeur de Numéro de Moteur",
+        "needle_configurator": "Configurateur d'Aiguilles de Carburateur",
+        "gearbox_calculator": "Calculateur de Boîte de Vitesses",
+        "compression_calculator": "Calculateur de Taux de Compression",
+        "parts_equivalency": "Équivalence de Pièces",
+        "common_clearances": "Jeux Communs"
       }
+    },
+    "toolbox": {
+      "torque_specs": "Spécifications de couple",
+      "chassis_decoder": "Décodeur de numéro de châssis",
+      "engine_decoder": "Décodeur de numéro de moteur",
+      "needle_configurator": "Configurateur d'aiguille de carburateur",
+      "gearbox_calculator": "Calculateur de boîte de vitesses",
+      "compression_calculator": "Calculateur de taux de compression",
+      "parts_equivalency": "Équivalence des pièces",
+      "common_clearances": "Jeux communs"
     }
   },
   "pages": {

@@ -327,7 +327,27 @@
       },
       "useful_links_sidebar": {
         "title": "Nützliche Links"
+      },
+      "toolbox": {
+        "torque_specs": "Drehmoment-Spezifikationen",
+        "chassis_decoder": "Fahrgestell-Nummern-Decoder",
+        "engine_decoder": "Motor-Nummern-Decoder",
+        "needle_configurator": "Vergaser-Nadel-Konfigurator",
+        "gearbox_calculator": "Getriebe-Rechner",
+        "compression_calculator": "Kompressionsverhältnis-Rechner",
+        "parts_equivalency": "Teile-Äquivalenz",
+        "common_clearances": "Übliche Spiele"
       }
+    },
+    "toolbox": {
+      "torque_specs": "Drehmoment-Spezifikationen",
+      "chassis_decoder": "Fahrgestell-Nummern-Decoder",
+      "engine_decoder": "Motor-Nummern-Decoder",
+      "needle_configurator": "Vergaser-Nadel-Konfigurator",
+      "gearbox_calculator": "Getriebe-Rechner",
+      "compression_calculator": "Kompressionsverhältnis-Rechner",
+      "parts_equivalency": "Teile-Äquivalenz",
+      "common_clearances": "Übliche Spiele"
     }
   },
   "pages": {
