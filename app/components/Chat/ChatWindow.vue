@@ -179,6 +179,7 @@
   import type { Message } from '../../../data/models/chat';
   import AssistantMessage from './AssistantMessage.vue';
   import HumanMessage from './HumanMessage.vue';
+  import UsefulLinks from './UsefulLinks.vue';
   import UsefulLinksSidebar from './UsefulLinksSidebar.vue';
 
   const { t } = useI18n();

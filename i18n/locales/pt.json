@@ -1,0 +1,1522 @@
+{
+  "common": {
+    "home": "Início",
+    "archive": "Arquivo",
+    "technical": "Técnico",
+    "toolbox": "Caixa de Ferramentas",
+    "calculators": "Calculadoras",
+    "contact": "Contato",
+    "about": "Sobre",
+    "search": "Pesquisar",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "close": "Fechar",
+    "donate": "Doar",
+    "contribute": "Contribuir"
+  },
+  "navigation": {
+    "main_menu": "Menu Principal",
+    "breadcrumb": "Navegação Estrutural"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "SEU RECURSO AMIGÁVEL DO BAIRRO"
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "Minutos Assistidos",
+      "over_30_days": "nos últimos 30 dias",
+      "subscribers": "Inscritos",
+      "across_world": "ao redor do mundo",
+      "videos": "Vídeos",
+      "since_2015": "desde 2015"
+    },
+    "recent_videos": {
+      "title": "Vídeos Recentes",
+      "error_message": "Não foi possível carregar dados do youtube",
+      "published_on": "Publicado em",
+      "watch_button": "Assistir"
+    },
+    "calculators": {
+      "compression": {
+        "help_button": "Como meço esses valores?",
+        "help_modal": {
+          "title": "Medindo suas câmaras e altura do pistão",
+          "friend_title": "Nosso Amigo Paul Hickey",
+          "friend_description": "no Youtube",
+          "friend_text": "Se precisar de assistência para medir esses valores para a calculadora, confira o vídeo acima do Paul Hickey no HRE IRL. Onde ele cobre todo o processo de medição no Classic Mini.",
+          "close_button": "Fechar"
+        },
+        "form_labels": {
+          "piston_size": "Tamanho do Pistão",
+          "crankshaft": "Virabrequim",
+          "head_gasket": "Junta do Cabeçote",
+          "custom_gasket_size": "Tamanho Personalizado da Junta (cc)",
+          "decompression_plate": "Placa de Descompressão",
+          "piston_dish_size": "Tamanho do Prato do Pistão (cc)",
+          "cylinder_head_chamber_volume": "Volume da Câmara do Cabeçote (cc)",
+          "piston_deck_height": "Altura do Pistão (milésimos)"
+        },
+        "results": {
+          "title": "Resultados:",
+          "compression_ratio": "Taxa de Compressão",
+          "engine_capacity": "Capacidade do Motor"
+        },
+        "disclaimer": {
+          "text": "Note que os valores acima são {strong_start}valores aproximados{strong_end}. Antes de comprar peças e construir seu motor, recomendamos {strong_start}verificar novamente{strong_end} seus cálculos múltiplas vezes usando mais de uma fonte. As equações matemáticas usadas nesta ferramenta podem ser encontradas aqui:",
+          "equation_source": "Código Fonte da Equação",
+          "alternate_source": "Fonte Alternativa:",
+          "calver_link": "Taxa de Compressão Calver",
+          "je_pistons_link": "Taxa de Compressão JE Pistons"
+        }
+      },
+      "gearbox": {
+        "form_labels": {
+          "imperial_or_metric": "Imperial ou Métrico",
+          "tire_size": "Tamanho do Pneu",
+          "speedo_drive_ratio": "Relação do Velocímetro",
+          "drop_gear_ratio": "Relação da Redução",
+          "gearset": "Conjunto de Marchas",
+          "final_drive": "Relação Final",
+          "max_rpm": "RPM Máximo"
+        },
+        "rpm_options": {
+          "5000": "5000 RPM",
+          "5500": "5500 RPM",
+          "6000": "6000 RPM",
+          "6500": "6500 RPM",
+          "7000": "7000 RPM",
+          "7500": "7500 RPM",
+          "8000": "8000 RPM",
+          "8500": "8500 RPM",
+          "9000": "9000 RPM"
+        },
+        "results_divider": "Resultados",
+        "results": {
+          "revolutions_per": "Revoluções por/{unit}",
+          "gear_turns_per": "Voltas da Marcha por/{unit}",
+          "top_speed": "Velocidade Máxima"
+        },
+        "tire_info": {
+          "tire_width": "Largura do Pneu",
+          "tire_profile": "Perfil do Pneu",
+          "tire_size": "Tamanho do Pneu",
+          "tire_diameter": "Diâmetro do Pneu",
+          "circumference": "Circunferência",
+          "tire_turns_per": "Voltas do Pneu por/{unit}"
+        },
+        "tables": {
+          "speedo_information": "Informações do Velocímetro",
+          "gearing_information": "Informações das Marchas"
+        },
+        "chart": {
+          "loading": "Gráfico carregando"
+        },
+        "support_divider": "Suporte",
+        "disclaimer": "Note que os valores acima são {strong_start}valores aproximados{strong_end}. Antes de comprar peças e construir seu motor, recomendamos {strong_start}verificar novamente{strong_end} seus cálculos múltiplas vezes usando mais de uma fonte. As equações matemáticas usadas nesta ferramenta podem ser encontradas aqui:",
+        "equation_source": "Código Fonte da Equação"
+      },
+      "needles": {
+        "title": "Adicione uma Agulha para Comparar",
+        "description": "Comece digitando o nome das agulhas que gostaria de comparar. Não tem certeza do que os valores do gráfico significam? Confira o diagrama de agulha abaixo para saber mais.",
+        "diagram_button": "Diagrama útil",
+        "diagram_modal": {
+          "title": "Diagrama de Medidas da Agulha",
+          "alt_text": "Diagrama de Medidas da Agulha",
+          "close_button": "Fechar"
+        },
+        "form": {
+          "select_placeholder": "Selecione uma agulha",
+          "add_button": "Adicionar Agulha"
+        },
+        "alerts": {
+          "already_exists": "Agulha já existe na sua lista",
+          "empty_selection": "Você deve selecionar outra agulha para adicionar antes de clicar em adicionar."
+        },
+        "selected_needles_title": "Agulhas Atualmente Selecionadas",
+        "chart": {
+          "loading": "Gráfico carregando"
+        }
+      }
+    },
+    "registry_table": {
+      "search_placeholder": "Pesquisar por qualquer detalhe",
+      "total_minis": "Total de Minis",
+      "per_page_options": {
+        "10": "10 por página",
+        "25": "25 por página",
+        "50": "50 por página",
+        "100": "100 por página"
+      },
+      "table_headers": {
+        "year": "Ano",
+        "model": "Modelo",
+        "trim": "Versão",
+        "color": "Cor"
+      },
+      "status": {
+        "pending": "Pendente",
+        "approved": "Aprovado",
+        "rejected": "Rejeitado",
+        "unknown": "Desconhecido"
+      },
+      "expanded_details": {
+        "build_date": "Data de Fabricação:",
+        "body_number": "Nº da Carroceria:",
+        "engine_number": "Nº do Motor:",
+        "submitted_by": "Enviado por:",
+        "notes": "Observações:"
+      },
+      "no_items_found": "Nenhum item encontrado",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "Envie Seu Mini",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "Obrigado!",
+        "submitted_message": "Sua entrada no registro foi enviada. Por favor, aguarde 1-2 dias para aparecer na lista.",
+        "submission_details": "Os detalhes da sua submissão do registro são",
+        "track_submission": "Acompanhe sua submissão aqui:",
+        "submission_link": "Submissão",
+        "submit_another": "Enviar Outro Mini"
+      },
+      "validation": {
+        "required": "Este campo é obrigatório para enviar",
+        "invalid_email": "E-mail inválido."
+      },
+      "sections": {
+        "personal_info": "Informações Pessoais:",
+        "car_details": "Detalhes do Carro:"
+      },
+      "form_labels": {
+        "your_name": "Seu Nome",
+        "your_email": "Seu E-mail",
+        "model_year": "Ano do Modelo",
+        "model": "Modelo",
+        "trim": "Versão",
+        "body_type": "Tipo de Carroceria",
+        "original_engine_size": "Tamanho Original do Motor",
+        "factory_color": "Cor de Fábrica",
+        "body_shell_number": "Número da Carroceria",
+        "engine_plate_number": "Número da Placa do Motor",
+        "special_notes": "Observações Especiais ou Adicionais"
+      },
+      "placeholders": {
+        "name": "ex. João Silva",
+        "email": "ex. joao{'@'}exemplo.com",
+        "model": "ex. Morris Mini",
+        "trim": "ex. Mini 50",
+        "color": "ex. Azul Clipper",
+        "body_number": "ex. GB190fW",
+        "engine_number": "ex. 12H4102",
+        "notes": "ex. Este carro foi produzido apenas de 1959 a 1960"
+      },
+      "body_types": {
+        "saloon": "Sedan",
+        "pickup": "Pickup",
+        "estate": "Perua",
+        "cabriolet": "Conversível",
+        "clubman": "Clubman",
+        "van": "Van",
+        "hornet": "Hornet"
+      },
+      "error": {
+        "title": "Desculpe!",
+        "message": "Houve um problema ao enviar sua submissão no momento, tente novamente mais tarde!",
+        "check_entries": "Verifique suas entradas e tente novamente",
+        "dismiss": "Dispensar",
+        "api_unavailable": "API está indisponível no momento. Tente novamente mais tarde."
+      },
+      "submit_button": "Enviar"
+    },
+    "patreon_card": {
+      "title": "APOIE O SITE",
+      "description": "Classic Mini DIY é um recurso completamente gratuito apoiado por nossos espectadores. Se você está interessado em ajudar a manter o canal vivo, considere apoiar no Patreon.",
+      "membership_benefits": "A associação vem com toneladas de vantagens e benefícios gratuitos!",
+      "button_text": "Contribua Hoje",
+      "image_alt": "Imagem do meu carro nos cavaletes"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "Tamanho do Motor",
+        "needle_std": "Agulha Padrão",
+        "needle_rich": "Agulha Rica",
+        "needle_lean": "Agulha Pobre",
+        "spring_type": "Tipo de Mola"
+      }
+    },
+    "main_nav": {
+      "logo_alt": "Logo Classic Mini DIY",
+      "navigation": {
+        "blog": "Blog",
+        "maps": "Mapas",
+        "store": "Loja",
+        "archive": "Arquivo",
+        "toolbox": "Ferramentas",
+        "chat": "Chat"
+      },
+      "donate_button": "Junte-se ao CMDIY",
+      "language_label": "Idioma"
+    },
+    "hero": {
+      "home_title": "Classic Mini DIY"
+    },
+    "footer": {
+      "brand_name": "Classic Mini DIY",
+      "author_name": "Cole Gentry",
+      "youtube_link_aria": "Link para meu canal do youtube",
+      "description": "A caixa de ferramentas Classic Mini DIY é um projeto de paixão alinhado com o canal do youtube Classic Mini DIY. Este é um recurso completamente gratuito construído para manter viva a base de conhecimento técnico do Classic Mini por anos vindouros. Regularmente atualizado e dados alimentados pela comunidade feitos para ajudar proprietários de Classic Mini em todo o mundo.",
+      "company_name": "Classic Mini DIY LLC",
+      "links_divider": "Links",
+      "privacy_links": {
+        "cmdiy_privacy": "Política de Privacidade do Site CMDIY",
+        "youtube_privacy": "Política de Privacidade do Youtube",
+        "google_privacy": "Política de Privacidade do Google"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Pergunte-me qualquer coisa sobre seu Classic Mini...",
+      "helper_text": "Converse com o Assistente CMDIY"
+    },
+    "engine_plate_modal": {
+      "question_text": "Não tem certeza de como é sua placa do motor?",
+      "button_text": "Onde está minha placa do motor?",
+      "modal_title": "Placas do Motor",
+      "slide_aria_label": "Ir para slide {number}",
+      "location_title": "Localização da Placa do Motor",
+      "location_description": "As placas do motor foram encontradas no mesmo local em todos os anos de modelo dos minis. No entanto, essas placas estão faltando em algumas situações:",
+      "missing_reasons": {
+        "replaced": "Se o motor foi substituído",
+        "removed": "Se a placa foi removida durante uma reconstrução",
+        "corroded": "Se a placa corroeu ou caiu com o tempo"
+      },
+      "close_button": "Fechar",
+      "image_alts": {
+        "example1": "Exemplo de placa do motor 1",
+        "example2": "Exemplo de placa do motor 2",
+        "example3": "Exemplo de placa do motor 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "Pesquisar por qualquer coisa (ex. MPI, Cooper S, Carburador HIF44)",
+      "empty_state": "Não existem itens que atendam aos filtros atuais",
+      "sort_key_label": "Chave de Ordenação:",
+      "actions": {
+        "share": "Compartilhar",
+        "contribute": "Contribuir",
+        "download": "Baixar"
+      },
+      "pagination": {
+        "page_text": "Página {current} de {total}"
+      }
+    },
+    "chat": {
+      "chat_window": {
+        "experimental_feature": "Recurso Experimental:",
+        "experimental_disclaimer": "Este assistente de IA está em beta e não deve ser usado como sua única fonte de informações técnicas.",
+        "welcome_title": "Bem-vindo ao Assistente Classic Mini DIY",
+        "input_placeholder": "Pergunte-me qualquer coisa sobre seu Classic Mini...",
+        "report_issue": "Relatar um problema com o chat",
+        "useful_links_placeholder": "Links úteis aparecerão aqui depois que eu procurar por informações"
+      },
+      "useful_links_sidebar": {
+        "title": "Links Úteis"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | Seu Recurso Amigável do Bairro para Classic Mini",
+      "description": "Classic Mini DIY - Seu recurso completo para restauração, manutenção e modificação do Classic Mini. Tutoriais DIY, guias técnicos e suporte da comunidade.",
+      "mission": {
+        "title": "A MISSÃO MINI",
+        "heading": "Mantendo os Clássicos na Estrada",
+        "content": "O Classic Mini DIY começou da minha pequena oficina na garagem em 2015. Sempre foco em duas coisas: manter seu Classic Mini na estrada e tornar o trabalho DIY em carros acessível para todos os níveis de habilidade. Faço vídeos e tutoriais DIY mostrando exatamente como completar uma ampla gama de trabalhos no seu Classic Mini. Também faço parceria com fabricantes de classe mundial para entregar produtos de primeira linha para personalizar e garantir o desempenho do seu Classic Mini."
+      },
+      "support": {
+        "title": "APOIE A MISSÃO",
+        "heading": "Apoio",
+        "content": "Classic Mini DIY é apoiado por nossos espectadores. Se você está interessado em ajudar a manter o canal vivo, considere apoiar no Patreon ou se você tem habilidades em JS e tecnologias web modernas, por favor considere apoiar o código aberto no github."
+      },
+      "toolbox": {
+        "title": "A COMPLETAMENTE GRATUITA",
+        "heading": "Caixa de Ferramentas Classic Mini",
+        "subtitle": "O CONJUNTO DE FERRAMENTAS PARA O MECÂNICO DIY",
+        "content": "Uma das maiores razões para iniciar este canal, foi sobre tornar informações relacionadas ao trabalho no seu Mini Cooper mais acessíveis. A serviço deste objetivo, criei a Caixa de Ferramentas Classic Mini. Combinando informações de toda a web para trazer um local para encontrar qualquer coisa que você precise.",
+        "button": "Abrir a caixa de ferramentas"
+      },
+      "patreon": {
+        "title": "APOIE O CANAL",
+        "heading": "Torne-se um Patreon",
+        "content": "Classic Mini DIY é um recurso completamente gratuito apoiado por nossos espectadores. Se você está interessado em ajudar a manter o canal vivo, considere apoiar no Patreon.",
+        "button": "Torne-se um Membro",
+        "benefits": {
+          "title": "Associação Inclui",
+          "discord": "Acesso ao Chat DIY Ao Vivo",
+          "early_access": "Acesso Antecipado aos vídeos",
+          "gifts": "Presentes e mercadorias gratuitas",
+          "insider": "Informações privilegiadas e muito mais..."
+        }
+      },
+      "about": {
+        "title": "Sobre Mim",
+        "name": "MEU NOME É COLE",
+        "bio": "Sou um Desenvolvedor Web de {age} anos trabalhando na indústria financeira. Minha experiência na indústria automotiva vem de 2 anos de treinamento em maquinário diesel pesado e 8 anos de propriedade de Classic Mini. Com esta experiência, faço o meu melhor para fornecer as informações mais abrangentes e tecnicamente corretas que posso.",
+        "promise_title": "MINHA PROMESSA",
+        "promise": "Fornecerei todo o conhecimento que puder com o melhor da minha capacidade. Também aceitarei feedback no caso de errar algo. Sou um entusiasta e não um especialista completo, então de vez em quando cometo erros."
+      },
+      "error": {
+        "title": "Ops",
+        "heading": "Erro - {statusCode}",
+        "message": "Ocorreu um erro ao carregar esta página",
+        "url_label": "URL:",
+        "actions": {
+          "archives": "Arquivos",
+          "toolbox": "Caixa de Ferramentas",
+          "home": "Voltar ao início"
+        }
+      }
+    },
+    "privacy": {
+      "title": "Política de Privacidade | Classic Mini DIY",
+      "description": "Política de privacidade do Classic Mini DIY sobre coleta, armazenamento e uso de dados dos Serviços de API do YouTube. Saiba como protegemos suas informações.",
+      "hero_title": "Política de Privacidade",
+      "hero_subtitle": "Classic Mini DIY",
+      "heading": "Política de Privacidade",
+      "acceptance_title": "Aceitação dos Termos",
+      "acceptance_content": "Ao usar nosso cliente API, você concorda em estar vinculado pela",
+      "youtube_privacy_link": "Política de Privacidade do Youtube",
+      "accessibility_title": "Acessibilidade",
+      "accessibility_content": "Esta Política de Privacidade é facilmente acessível a todos os usuários via",
+      "google_privacy_link": "Política de Privacidade do Google",
+      "youtube_api_title": "Uso dos Serviços de API do YouTube",
+      "youtube_api_content": "Nosso cliente API usa os Serviços de API do YouTube. Ao usar nosso cliente API, você concorda com a coleta, armazenamento e uso de seus dados conforme descrito nesta política.",
+      "data_collection_title": "Coleta, Armazenamento e Uso de Dados",
+      "data_collection_content": "Coletamos dados diretamente do seu dispositivo para fornecer e melhorar nossos serviços. Isso inclui informações sobre seu dispositivo, endereço IP e informações públicas de cookies. Não coletamos nenhum dado pessoal adicional para nosso uso. Estes dados são armazenados com segurança e usados para aprimorar a experiência do usuário e garantir o funcionamento suave do nosso cliente API. Além disso, nenhum dado é armazenado em nossos servidores, e assim é excluído cada vez que você fecha seu navegador.",
+      "data_processing_title": "Processamento e Compartilhamento de Dados",
+      "data_processing_content": "Processamos seus dados para fornecer nossos serviços. Seus dados podem ser compartilhados com partes internas e externas para o propósito de melhorar e manter nosso cliente API. Garantimos que todas as partes externas cumpram com nossas diretrizes rigorosas de proteção de dados.",
+      "data_methods_title": "Métodos de Coleta de Dados",
+      "data_methods_content": "Os dados são coletados por vários meios, como entrada direta, cookies e outras tecnologias de rastreamento. Isso nos ajuda a entender as preferências do usuário e fornecer melhor serviço.",
+      "contact_title": "Informações de Contato",
+      "contact_content": "Informações de Contato Se você tiver alguma dúvida ou preocupação sobre esta política de privacidade, entre em contato conosco em"
+    },
+    "maps": {
+      "seo": {
+        "title": "Mapas ECU Classic Mini | Arquivos de Sintonia para Múltiplas ECUs | Classic Mini DIY",
+        "description": "Baixe mapas ECU profissionalmente sintonizados para motores Classic Mini. Compatível com Haltech, Speeduino, MegaSquirt, Emerald e mais. Pague o que quiser por atualizações vitalícias.",
+        "keywords": "Mapas ECU Classic Mini, sintonia Mini Cooper, mapas Haltech, mapas Speeduino, mapas MegaSquirt, ECU Emerald, sintonia de motor, mapas de combustível, mapas de ignição",
+        "ogTitle": "Mapas ECU Classic Mini | Arquivos de Sintonia para Múltiplas ECUs",
+        "twitterTitle": "Mapas ECU Classic Mini | Suporte a Múltiplas ECUs",
+        "twitterDescription": "Mapas ECU profissionais para motores Classic Mini com atualizações vitalícias."
+      },
+      "breadcrumb": "Mapas ECU",
+      "hero": {
+        "title": "Mapas ECU Classic Mini DIY",
+        "subtitle": "Pague o que quiser, sempre"
+      },
+      "mainTitle": "O Mapa ECU Classic Mini",
+      "description": "Após anos sintonizando motores Classic Mini, construindo chicotes personalizados e mapeando múltiplas ECUs, tenho o orgulho de lançar minha coleção de mapas ECU com duas opções de acesso. Oferecendo suporte para muitas ECUs populares usadas em Classic Minis, com mais a serem adicionadas no futuro.",
+      "features": {
+        "lifetimeUpdates": "Atualizações Vitalícias",
+        "multipleEcus": "Múltiplas ECUs",
+        "constantlyUpdated": "Constantemente Atualizado",
+        "payWhatYouWant": "Pague o que quiser"
+      },
+      "options": {
+        "latestRelease": "Último Lançamento",
+        "purchase": {
+          "title": "Opção 1 - Comprar",
+          "description": "Compre os mapas ECU diretamente da loja Classic Mini DIY. Esta opção é perfeita para quem quer apoiar o canal e obter os mapas sem ter que usar o Github. Esta opção também vem com suporte prioritário via email.",
+          "button": "Baixar"
+        },
+        "download": {
+          "title": "Opção 2 - Baixar",
+          "description": "Baixe os mapas ECU diretamente do Github. Esta opção é perfeita para quem quer obter os mapas gratuitamente. Esta opção também vem com a capacidade de contribuir para o projeto enviando pull requests.",
+          "button": "Baixar",
+          "viewSource": "Ver Código Fonte"
+        }
+      },
+      "moreDetails": "Mais Detalhes",
+      "table": {
+        "features": "Recursos",
+        "ignitionMap": "Mapa de Ignição",
+        "fuelMap": "Mapa de Combustível",
+        "veTable": "Tabela VE",
+        "targetAfr": "AFR Alvo",
+        "throttleEnrichment": "Enriquecimento do Acelerador",
+        "driveByWire": "Pronto para Drive by Wire",
+        "boostControl": "Mapa de Controle de Boost",
+        "idleMap": "Mapa de Marcha Lenta",
+        "sixteenVEngine": "Versão Motor 16V"
+      },
+      "legend": {
+        "included": {
+          "name": "Incluído",
+          "description": "Incluído no Mapa"
+        },
+        "notIncluded": {
+          "name": "Não incluído",
+          "description": "Suportado mas não incluído"
+        },
+        "notAvailable": {
+          "name": "Não Disponível",
+          "description": "Recurso não suportado pela ECU"
+        },
+        "workInProgress": {
+          "name": "Trabalho em andamento",
+          "description": "Atualmente ainda em progresso sendo portado para esta ECU"
+        }
+      },
+      "updates": {
+        "title": "Últimas Atualizações",
+        "error": "Erro ao carregar histórico de atualizações do Github",
+        "noUpdates": "Nenhuma atualização disponível",
+        "viewAllCommits": "Ver Todos os Commits"
+      },
+      "supportedEcus": {
+        "title": "ECUs Suportadas",
+        "subtitle": "Suporte para a ECU que você precisa"
+      },
+      "otherSupport": "Outras maneiras de apoiar"
+    },
+    "archive": {
+      "title": "Arquivos Classic Mini: Explore Documentos Históricos e Recursos",
+      "description": "Acesse nossos arquivos abrangentes do Classic Mini com documentos históricos, manuais, registros e recursos. Coleção digital preservada para entusiastas e restauradores Mini.",
+      "keywords": "Arquivos Classic Mini, manuais Mini Cooper, registro Mini, documentos históricos, restauração Mini, recursos Mini vintage, arquivos carros clássicos",
+      "hero_title": "Arquivos Classic Mini",
+      "hero_subtitle": "Preservando o Patrimônio Classic Mini",
+      "ogTitle": "Arquivos Classic Mini: Explore Documentos Históricos e Recursos",
+      "ogDescription": "Acesse nossos arquivos abrangentes do Classic Mini com documentos históricos, manuais, registros e recursos. Coleção digital preservada para entusiastas e restauradores Mini.",
+      "twitterTitle": "Arquivos Classic Mini: Explore Documentos Históricos e Recursos",
+      "twitterDescription": "Acesse nossos arquivos abrangentes do Classic Mini com documentos históricos, manuais, registros e recursos.",
+      "page_subtitle": "PRESERVANDO O PATRIMÔNIO CLASSIC MINI",
+      "page_title": "O Arquivo Classic Mini",
+      "welcome_text": "Bem-vindos aos Arquivos Classic Mini. Aqui você encontrará uma coleção de manuais, coleções, guias e outros recursos para ajudá-lo com seus projetos classic mini. Estarei expandindo este arquivo ao longo do tempo para ajudar a preencher as lacunas deixadas por sites que estão saindo do ar lentamente.",
+      "maintenance_text": "Levou muitas horas de engenharia reversa e retrabalho desses serviços para garantir que não morram. Se você ver algum problema, ou alguma área de melhoria, por favor me avise!",
+      "add_to_archive": "Adicionar ao Arquivo",
+      "cover_server_costs": "Cobrir Custos do Servidor",
+      "coming_soon": "Em Breve!",
+      "support_section": "Suporte",
+      "breadcrumb_subtitle": "PRESERVANDO O PATRIMÔNIO CLASSIC MINI",
+      "main_heading": "O Arquivo Classic Mini",
+      "description_text": "Bem-vindos aos Arquivos Classic Mini. Aqui você encontrará uma coleção de manuais, coleções, guias e outros recursos para ajudá-lo com seus projetos classic mini. Estarei expandindo este arquivo ao longo do tempo para ajudar a preencher as lacunas deixadas por sites que estão saindo do ar lentamente.",
+      "maintenance_description": "Levou muitas horas de engenharia reversa e retrabalho desses serviços para garantir que não morram. Se você ver algum problema, ou alguma área de melhoria, por favor me avise!",
+      "structured_data": {
+        "collection_name": "Arquivos Classic Mini",
+        "collection_description": "Um arquivo digital abrangente de documentos, manuais, registros e recursos históricos do Classic Mini preservados para entusiastas e restauradores."
+      },
+      "subpages": {
+        "weights": {
+          "title": "Pesos e Medidas Classic Mini | Classic Mini DIY",
+          "description": "Pesos e medidas detalhados para o Classic Mini podem ser encontrados online aqui no Classic Mini DIY.",
+          "keywords": "Pesos Classic Mini, medidas Mini Cooper, pesos de peças, pesos componentes Mini, especificações carros clássicos",
+          "hero_title": "Pesos e Medidas",
+          "breadcrumb_title": "Pesos e Medidas",
+          "main_heading": "Pesos Mini",
+          "description_text": "Abaixo você encontrará múltiplas tabelas pesquisáveis de pesos para várias peças do Classic Mini. Esses pesos foram fornecidos por um arquivo do agora offline miniweights.co.uk. Se você ver valores faltando ou gostaria de contribuir, clique no link abaixo para me enviar um email.",
+          "email_button": "classicminidiy{'@'}gmail.com",
+          "search_placeholder": "Pesquisar esta tabela",
+          "table_headers": {
+            "item": "Item",
+            "kg": "Kg",
+            "lbs": "Lbs"
+          },
+          "no_weight": "---",
+          "seo": {
+            "og_title": "Pesos e Medidas Classic Mini | Classic Mini DIY",
+            "og_description": "Pesos e medidas detalhados para o Classic Mini podem ser encontrados online aqui no Classic Mini DIY.",
+            "twitter_title": "Pesos e Medidas Classic Mini",
+            "twitter_description": "Pesos e medidas detalhados para o Classic Mini."
+          }
+        },
+        "engines": {
+          "title": "Técnico - Tamanhos e Deslocamentos de Motor",
+          "description": "Determinar o tamanho do seu motor pode ser bastante difícil sem uma referência. Confira o gráfico de tamanho de motor, curso padrão CMDIY para descobrir quão grande é seu motor atual, ou quão grande você gostaria que sua próxima construção seja!",
+          "hero_title": "Tamanhos de Motor",
+          "breadcrumb_title": "Tamanhos de Motor",
+          "main_heading": "Deslocamento e Tamanhos de Motor",
+          "description_text": "Determinar o tamanho do seu próximo motor pode ser bastante difícil sem uma referência. Confira o gráfico de tamanho de motor, curso padrão CMDIY para descobrir quão grande é seu motor atual, ou quão grande você gostaria que sua próxima construção seja!",
+          "compression_card": {
+            "title": "Tentando calcular sua taxa de compressão?",
+            "description": "Clique aqui para experimentar nossa calculadora de taxa de compressão.",
+            "alt_text": "Imagem da calculadora de compressão",
+            "link_title": "Link para Calculadora de Compressão"
+          },
+          "legend": {
+            "standard": "Padrão",
+            "standard_overbore": "Sobrecurso Padrão",
+            "different_stroke": "Curso Diferente"
+          },
+          "table_title": "Variações de Motor",
+          "table_headers": {
+            "size": "Tamanho",
+            "original_block": "Bloco Original",
+            "engine_size": "Tamanho do Motor",
+            "bore_size": "Tamanho do Cilindro",
+            "over_bore": "Sobrecurso",
+            "stroke": "Curso",
+            "estimated_power": "Potência Estimada",
+            "estimated_torque": "Torque Estimado"
+          },
+          "loading_text": "Carregando...",
+          "more_divider": "Mais",
+          "seo": {
+            "og_title": "Técnico - Tamanhos e Deslocamentos de Motor",
+            "og_description": "Determinar o tamanho do seu motor pode ser bastante difícil sem uma referência. Confira o gráfico de tamanho de motor, curso padrão CMDIY para descobrir quão grande é seu motor atual, ou quão grande você gostaria que sua próxima construção seja!",
+            "twitter_title": "Técnico - Tamanhos e Deslocamentos de Motor",
+            "twitter_description": "Determinar o tamanho do seu motor pode ser bastante difícil sem uma referência. Confira o gráfico de tamanho de motor, curso padrão CMDIY para descobrir quão grande é seu motor atual, ou quão grande você gostaria que sua próxima construção seja!"
+          }
+        },
+        "electrical": {
+          "title": "Arquivo - Diagramas Elétricos | Classic Mini DIY",
+          "description": "Diagramas elétricos digitalizados e atualizados manualmente para seu Classic Mini Cooper.",
+          "keywords": "Diagramas elétricos Classic Mini, fiação Mini Cooper, diagramas de fiação, esquemas elétricos, fiação carros clássicos",
+          "hero_title": "Diagramas Elétricos",
+          "breadcrumb_title": "Diagramas Elétricos",
+          "main_heading": "Diagramas Elétricos",
+          "description_text": "Encontre os diagramas de fiação que você precisa com nossa coleção de diagramas totalmente digitalizados obtidos diretamente do The Mini Forum. Arquivados aqui para posteridade e preservação.",
+          "date_range": {
+            "unknown": "Datas Desconhecidas",
+            "separator": " - ",
+            "unknown_placeholder": "?"
+          },
+          "download_button_aria": "Baixar diagrama",
+          "support_divider": "Suporte",
+          "seo": {
+            "og_title": "Arquivo - Diagramas Elétricos | Classic Mini DIY",
+            "og_description": "Diagramas elétricos digitalizados e atualizados manualmente para seu Classic Mini Cooper.",
+            "twitter_title": "Diagramas Elétricos Classic Mini",
+            "twitter_description": "Diagramas elétricos digitalizados e atualizados manualmente para seu Classic Mini Cooper."
+          },
+          "structured_data": {
+            "headline": "Diagramas Elétricos Classic Mini",
+            "description": "Diagramas elétricos digitalizados e atualizados manualmente para seu Classic Mini Cooper.",
+            "author_name": "Classic Mini DIY",
+            "publisher_name": "Classic Mini DIY",
+            "dataset_name": "Diagramas Elétricos Classic Mini",
+            "dataset_description": "Coleção de diagramas elétricos digitalizados para veículos Classic Mini"
+          }
+        },
+        "wheels": {
+          "index": {
+            "title": "Arquivo - Dicionário de Rodas",
+            "description": "O dicionário de rodas Classic Mini DIY está aqui para ajudá-lo a comparar todas as diferentes opções de rodas vendidas no Classic Mini. Se procurando algo original ou inspirado em corrida, aprenda sobre suas opções aqui.",
+            "hero_title": "Dicionário de Rodas",
+            "breadcrumb_title": "Dicionário de Rodas",
+            "main_heading": "O Dicionário de Rodas Classic Mini DIY",
+            "description_text": "Procurando por aquela roda que você viu outro dia online mas simplesmente não consegue encontrar? É aí que entra o Dicionário de Rodas. Agora você pode pesquisar pela roda certa para seu Classic Mini Cooper. Com cerca de 1.000 rodas e crescendo, esperamos que você seja capaz de encontrar exatamente a roda que está procurando.",
+            "add_wheel_card": {
+              "title": "Quer adicionar uma roda?",
+              "description": "Clique aqui para completar nosso formulário de submissão de roda para adicioná-la à nossa lista.",
+              "link_title": "Link para formulário de nova roda"
+            },
+            "footer": {
+              "title": "Todos os dados coletados e curados por Jan W. do Mini-Forum.de.",
+              "description": "Procurando por aquela roda que você viu outro dia online mas simplesmente não consegue encontrar? É aí que entra a Biblioteca de Rodas. Usando os mesmos dados do site agora retirado, www.wheeldictionary.net você pode pesquisar pela roda certa para seu Classic Mini Cooper. Com muitas rodas na biblioteca e crescendo, esperamos que você seja capaz de encontrar exatamente a roda que está procurando."
+            },
+            "seo": {
+              "og_title": "Arquivo - Dicionário de Rodas",
+              "og_description": "O dicionário de rodas Classic Mini DIY está aqui para ajudá-lo a comparar todas as diferentes opções de rodas vendidas no Classic Mini. Se procurando algo original ou inspirado em corrida, aprenda sobre suas opções aqui.",
+              "twitter_title": "Arquivo - Dicionário de Rodas",
+              "twitter_description": "O dicionário de rodas Classic Mini DIY está aqui para ajudá-lo a comparar todas as diferentes opções de rodas vendidas no Classic Mini."
+            }
+          },
+          "submit": {
+            "title": "Enviar uma Roda",
+            "description": "Envie uma roda para o dicionário de rodas Classic Mini DIY.",
+            "hero_title": "Enviar uma Roda",
+            "breadcrumb": {
+              "home": "Início",
+              "wheels": "Rodas",
+              "submission": "Envio de Roda"
+            },
+            "seo": {
+              "og_title": "Enviar uma Roda",
+              "og_description": "Envie uma roda para o dicionário de rodas Classic Mini DIY.",
+              "twitter_title": "Enviar uma Roda",
+              "twitter_description": "Envie uma roda para o dicionário de rodas Classic Mini DIY."
+            }
+          },
+          "detail": {
+            "hero_title": "Detalhes da Roda",
+            "loading_text": "Carregando detalhes da roda...",
+            "error_message": "Falha ao carregar detalhes da roda. Tente novamente mais tarde.",
+            "back_to_wheels": "Voltar às Rodas",
+            "breadcrumb_fallback": "Detalhes da Roda",
+            "breadcrumb_subpage": "Rodas",
+            "image_alt": "Imagem das rodas {name}",
+            "no_image_placeholder": "Nenhuma imagem disponível",
+            "specifications": {
+              "offset": "Offset",
+              "diameter": "Diâmetro",
+              "width": "Largura",
+              "not_specified": "Não especificado"
+            },
+            "actions": {
+              "copied": "Copiado!",
+              "copy_link": "Copiar Link",
+              "share": "Compartilhar",
+              "contribute": "Contribuir"
+            },
+            "seo": {
+              "title_template": "Rodas Mini - {name} | {size} x {width}",
+              "description": "Confira a roda Classic Mini que estou olhando agora.",
+              "keywords": "Rodas Classic Mini, rodas Mini Cooper, dicionário rodas Classic Mini"
+            }
+          }
+        },
+        "tuning": {
+          "title": "Mapas ECU Classic Mini: Arquivos de Sintonia para Várias ECUs",
+          "description": "Coleção curada de documentos originais de Sintonia e Modificações do Classic Mini",
+          "hero_title": "Arquivos Classic Mini",
+          "breadcrumb_title": "Sintonia e Modificações",
+          "breadcrumb": {
+            "home": "Início",
+            "archive": "Arquivo",
+            "tuning": "Sintonia e Modificações"
+          },
+          "main_heading": "Documentos Técnicos Originais de Sintonia e Modificação",
+          "description_text": "Cópias gratuitas de material técnico original sobre Sintonia e Modificações do Classic Mini",
+          "actions": {
+            "add_to_archive": "Adicionar ao Arquivo",
+            "cover_server_costs": "Cobrir Custos do Servidor"
+          },
+          "support_divider": "Suporte",
+          "seo": {
+            "og_title": "Mapas ECU Classic Mini: Arquivos de Sintonia para Várias ECUs",
+            "og_description": "Coleção curada de documentos originais de Sintonia e Modificações do Classic Mini",
+            "twitter_title": "Mapas ECU Classic Mini: Arquivos de Sintonia para Várias ECUs",
+            "twitter_description": "Coleção curada de documentos originais de Sintonia e Modificações do Classic Mini"
+          }
+        },
+        "registry": {
+          "title": "Arquivo - O Registro Classic Mini",
+          "description": "Compêndio completo de todos os minis conhecidos, conforme enviado por seus proprietários.",
+          "hero_title": "Registro Mini",
+          "breadcrumb_title": "Registro Mini",
+          "main_heading": "O Registro Classic Mini",
+          "subtitle": "Minis adicionados, e crescendo todo dia!",
+          "subtitle_count": "Toneladas de",
+          "description_text": "Depois de assistir muitos dos Registros Classic Mini de longa data começarem a sair do ar, ou não serem mais mantidos. Decidi que era hora de estabelecer algo que sei que estará aqui e será mantido por muitos anos. Classic Mini DIY tem o orgulho de agora fornecer um registro online gratuito para todos os Classic Minis de todos os anos de modelo e estilos.",
+          "submission_status_text": "Procurando pelo status da sua submissão?",
+          "track_submission_button": "Rastrear sua Submissão",
+          "submit_card": {
+            "title": "Envie Seu Mini Hoje",
+            "description": "Clique aqui para preencher nosso formulário curto para enviar seu mini ao nosso registro de todos os classic minis",
+            "alt_text": "Imagem da calculadora de compressão"
+          },
+          "table_headers": {
+            "year": "Ano",
+            "model": "Modelo",
+            "trim": "Versão",
+            "color": "Cor"
+          },
+          "submit_divider": "Adicione seu Mini ao Registro - É grátis!",
+          "support_divider": "Outras maneiras de apoiar",
+          "seo": {
+            "og_title": "Arquivo - O Registro Classic Mini",
+            "og_description": "Compêndio completo de todos os minis conhecidos, conforme enviado por seus proprietários.",
+            "twitter_title": "Arquivo - O Registro Classic Mini",
+            "twitter_description": "Compêndio completo de todos os minis conhecidos, conforme enviado por seus proprietários."
+          }
+        },
+        "registry_pending": {
+          "title": "Submissões de Registro Pendentes - Classic Mini DIY",
+          "description": "Acompanhe o status da sua submissão do registro Classic Mini.",
+          "hero_title": "Submissões de Registro Pendentes",
+          "breadcrumb_title": "Submissões de Registro",
+          "breadcrumb_parent": "Registro",
+          "main_heading": "Submissões de Registro Pendentes",
+          "subtitle": "Minis aguardando aprovação",
+          "description_text": "Esta página mostra todas as submissões de registro Mini que estão atualmente pendentes de aprovação. Uma vez que sua submissão for aprovada, aparecerá no registro principal. Se você não vir sua submissão aqui, pode já ter sido aprovada ou rejeitada.",
+          "contact_text": "Se tiver alguma dúvida sobre sua submissão, por favor",
+          "contact_link": "entre em contato conosco",
+          "status_card": {
+            "title": "Status da Submissão",
+            "pending": "Pendente",
+            "pending_description": "Sua submissão está sendo revisada",
+            "approved": "Aprovado",
+            "approved_description": "Adicionado ao registro principal",
+            "rejected": "Rejeitado",
+            "rejected_description": "Não adicionado ao registro"
+          },
+          "table_headers": {
+            "year": "Ano",
+            "model": "Modelo",
+            "body_number": "Número da Carroceria",
+            "submitted_by": "Enviado Por",
+            "status": "Status"
+          },
+          "submit_divider": "Enviar um Novo Mini",
+          "seo": {
+            "og_title": "Submissões de Registro Pendentes - Classic Mini DIY",
+            "og_description": "Acompanhe o status da sua submissão do registro Classic Mini.",
+            "twitter_title": "Submissões de Registro Pendentes - Classic Mini DIY",
+            "twitter_description": "Acompanhe o status da sua submissão do registro Classic Mini."
+          }
+        },
+        "manuals": {
+          "title": "Arquivo Classic Mini - Manuais de Oficina",
+          "description": "Coleção curada de manuais de oficina Classic Mini, listas de peças e mais.",
+          "hero_title": "Arquivos Classic Mini",
+          "breadcrumb_title": "Manuais de Oficina",
+          "breadcrumb": {
+            "home": "Início",
+            "archive": "Arquivo",
+            "manuals": "Manuais de Oficina"
+          },
+          "main_heading": "Listas de Peças e Manuais de Oficina",
+          "description_text": "Cópias gratuitas dos manuais de oficina completos. Incluindo manuais iniciais assim como manuais de oficina posteriores usados nos carros de produção final.",
+          "actions": {
+            "add_to_archive": "Adicionar ao Arquivo",
+            "cover_server_costs": "Cobrir Custos do Servidor"
+          },
+          "support_divider": "Suporte",
+          "seo": {
+            "og_title": "Arquivo Classic Mini - Manuais de Oficina",
+            "og_description": "Coleção curada de manuais de oficina Classic Mini, listas de peças e mais.",
+            "twitter_title": "Arquivo Classic Mini - Manuais de Oficina",
+            "twitter_description": "Coleção curada de manuais de oficina Classic Mini, listas de peças e mais."
+          }
+        },
+        "adverts": {
+          "title": "Arquivo Classic Mini - Anúncios",
+          "description": "Coleção curada de Anúncios originais do Classic Mini",
+          "hero_title": "Arquivos Classic Mini",
+          "breadcrumb_title": "Anúncios",
+          "main_heading": "Anúncios Originais",
+          "description_text": "Cópias gratuitas dos Anúncios completos. Este é um esforço para arquivar e compilar todos os vários anúncios históricos e documentos feitos para o classic mini. Se você tiver algum Anúncio faltando, por favor considere contribuir!",
+          "actions": {
+            "add_to_archive": "Adicionar ao Arquivo",
+            "cover_server_costs": "Cobrir Custos do Servidor"
+          },
+          "support_divider": "Suporte",
+          "seo": {
+            "og_title": "Arquivo Classic Mini - Anúncios",
+            "og_description": "Coleção curada de Anúncios originais do Classic Mini",
+            "twitter_title": "Arquivo Classic Mini - Anúncios",
+            "twitter_description": "Coleção curada de Anúncios originais do Classic Mini"
+          }
+        },
+        "catalogues": {
+          "title": "Arquivo Classic Mini - Catálogos de Fornecedores",
+          "description": "Coleção curada de Catálogos de Fornecedores originais do Classic Mini",
+          "hero_title": "Arquivos Classic Mini",
+          "breadcrumb_title": "Catálogos de Fornecedores",
+          "breadcrumb": {
+            "home": "Início",
+            "archive": "Arquivo",
+            "catalogues": "Catálogos de Fornecedores"
+          },
+          "main_heading": "Catálogos de Fornecedores Originais",
+          "description_text": "Cópias gratuitas de catálogos de fornecedores originais para Classic Mini",
+          "actions": {
+            "add_to_archive": "Adicionar ao Arquivo",
+            "cover_server_costs": "Cobrir Custos do Servidor"
+          },
+          "support_divider": "Suporte",
+          "seo": {
+            "og_title": "Arquivo Classic Mini - Catálogos de Fornecedores",
+            "og_description": "Coleção curada de Catálogos de Fornecedores originais do Classic Mini",
+            "twitter_title": "Arquivo Classic Mini - Catálogos de Fornecedores",
+            "twitter_description": "Coleção curada de Catálogos de Fornecedores originais do Classic Mini"
+          }
+        },
+        "colors": {
+          "title": "Seletor de Cores",
+          "description": "Encontre a cor perfeita para seu Classic Mini com nosso seletor de cores abrangente.",
+          "hero_title": "Seletor de Cores",
+          "breadcrumb_title": "Amostras de Cores",
+          "main_heading": "Seletor de Cores Classic Mini",
+          "description_text": "Em um esforço para disponibilizar mais informações, Classic Mini DIY fez parceria com mini-colours.co.uk para fornecer a você uma lista abrangente das cores usadas no Classic Mini ao longo dos anos.",
+          "partner_link": "mini-colours.co.uk",
+          "search": {
+            "card_title": "Encontre sua Cor",
+            "placeholder": "Pesquisar cores...",
+            "help_text": "Use a pesquisa acima para filtrar qualquer campo na tabela abaixo instantaneamente. Percebeu alguns dados faltando? Clique no botão editar para contribuir!"
+          },
+          "table_headers": {
+            "share": "Compartilhar",
+            "color_name": "Nome da Cor",
+            "swatch": "Amostra",
+            "short_code": "Código Abreviado",
+            "bmc_code": "Código BMC",
+            "ditzler_ppg_code": "Código Ditzler/PPG",
+            "dulux_code": "Código Dulux",
+            "years_used": "Anos Usados",
+            "edit": "Editar"
+          },
+          "states": {
+            "no_colors": "Nenhuma cor encontrada correspondendo à sua pesquisa.",
+            "unnamed_color": "Cor Sem Nome",
+            "missing": "Faltando",
+            "link_copied": "Link copiado para a área de transferência!"
+          },
+          "pagination": {
+            "page": "Página",
+            "of": "de"
+          },
+          "share": {
+            "title": "Cor Classic Mini:",
+            "text": "Confira esta cor Classic Mini:"
+          },
+          "support_divider": "Suporte",
+          "seo": {
+            "og_title": "Seletor de Cores Classic Mini | Classic Mini DIY",
+            "og_description": "Encontre a cor perfeita para seu Classic Mini com nosso seletor de cores abrangente e referência de código de tinta.",
+            "twitter_title": "Seletor de Cores Classic Mini | Classic Mini DIY",
+            "twitter_description": "Encontre a cor perfeita para seu Classic Mini com nosso seletor de cores abrangente e referência de código de tinta."
+          }
+        },
+        "colors_contribute": {
+          "title": "Contribuir Cor - Classic Mini DIY",
+          "description": "Contribua para o banco de dados de cores Classic Mini enviando informações de cores novas ou atualizadas.",
+          "hero_title": "Contribuir para Cores",
+          "breadcrumb_title": "Contribuição de Cor",
+          "main_heading": "Seletor de Cores Classic Mini",
+          "description_text": "Procurando fazer algumas sugestões ao banco de dados de cores? Preencha o formulário abaixo para enviar quaisquer mudanças que gostaria. Estas serão revisadas e publicadas dentro de ~7 dias.",
+          "current_data": {
+            "title": "Dados Atuais",
+            "loading": "Carregando dados da cor...",
+            "labels": {
+              "primary_color": "Cor Primária",
+              "code": "Código",
+              "ditzler_ppg_code": "Código Ditzler PPG",
+              "dulux_code": "Código Dulux",
+              "name": "Nome",
+              "short_code": "Código Abreviado",
+              "years_used": "Anos Usados"
+            },
+            "na": "N/A"
+          },
+          "form": {
+            "title": "Novos Dados",
+            "success": {
+              "title": "Obrigado!",
+              "subtitle": "Sua sugestão foi enviada",
+              "suggestion_number": "Sugestão #",
+              "track_text": "Acompanhe sua sugestão:",
+              "view_github": "Ver no GitHub",
+              "make_another": "Fazer Outra Sugestão"
+            },
+            "error": {
+              "title": "Erro ao Enviar Solicitação",
+              "default_message": "Tente novamente mais tarde",
+              "color_not_loaded": "Dados da cor não carregados. Atualize a página e tente novamente.",
+              "github_unavailable": "API do GitHub está indisponível no momento. Tente novamente mais tarde."
+            },
+            "fields": {
+              "color_name": {
+                "label": "Nome da Cor",
+                "placeholder": "Digite o nome da cor"
+              },
+              "primary_code": {
+                "label": "Código Primário",
+                "placeholder": "ex., ANA 101"
+              },
+              "short_code": {
+                "label": "Código Abreviado",
+                "placeholder": "ex., BRG"
+              },
+              "ditzler_ppg_code": {
+                "label": "Código Ditzler/PPG",
+                "placeholder": "ex., 12345"
+              },
+              "dulux_code": {
+                "label": "Código Dulux",
+                "placeholder": "ex., ABC123"
+              },
+              "years_used": {
+                "label": "Anos Usados",
+                "placeholder": "ex., 1959-1967"
+              },
+              "image_swatch": {
+                "label": "URL da Amostra de Imagem (opcional)",
+                "placeholder": "ex., https://exemplo.com/cor.jpg",
+                "help": "Forneça uma URL direta para uma imagem de amostra de cor de alta qualidade"
+              }
+            },
+            "submit": {
+              "button": "Enviar Sugestão",
+              "submitting": "Enviando..."
+            }
+          },
+          "seo": {
+            "og_title": "Contribuir Cor - Classic Mini DIY",
+            "og_description": "Contribua para o banco de dados de cores Classic Mini enviando informações de cores novas ou atualizadas.",
+            "twitter_title": "Contribuir Cor - Classic Mini DIY",
+            "twitter_description": "Contribua para o banco de dados de cores Classic Mini enviando informações de cores novas ou atualizadas."
+          }
+        },
+        "colors_detail": {
+          "title_template": "Cor Mini - {name} | {code}",
+          "description": "Confira a cor Classic Mini que estou olhando agora.",
+          "hero_title": "Amostra de Cor",
+          "breadcrumb": {
+            "home": "Início",
+            "colors": "Cores"
+          },
+          "primary_color_badge": "Cor Primária",
+          "details_divider": "Detalhes",
+          "stats": {
+            "years": "Anos",
+            "short_code": "Código Abreviado",
+            "ditzler_ppg_code": "Código Ditzler PPG",
+            "dulux_code": "Código Dulux",
+            "missing": "Faltando"
+          },
+          "share_divider": "Compartilhar",
+          "actions": {
+            "copy_link": "Copiar Link",
+            "copied": "Copiado!",
+            "email": "Email",
+            "share": "Compartilhar",
+            "contribute": "Contribuir Atualizações"
+          },
+          "alt_text": "Amostra de cor {name}",
+          "seo": {
+            "og_title_template": "Cor Mini - {name} | {code}",
+            "og_description": "Confira a cor Classic Mini que estou olhando agora.",
+            "twitter_title_template": "Cor Mini - {name} | {code}",
+            "twitter_description": "Confira a cor Classic Mini que estou olhando agora."
+          }
+        }
+      }
+    },
+    "technical": {
+      "title": "Caixa de Ferramentas Técnica Classic Mini | Calculadoras DIY e Especificações",
+      "description": "Ferramentas técnicas e especificações Classic Mini para mecânicos DIY. Acesse calculadoras, especificações de torque, gráficos de agulhas e mais para manter e atualizar seu Mini.",
+      "keywords": "Ferramentas técnicas Classic Mini, especificações Mini Cooper, gráfico agulha SU, calculadora compressão, especificações torque, manutenção DIY Mini, referência técnica",
+      "hero_title": "Caixa de Ferramentas Técnica Classic Mini",
+      "hero_subtitle": "Mantendo Minis Rodando",
+      "ogTitle": "Caixa de Ferramentas Técnica Classic Mini | Calculadoras DIY e Especificações",
+      "ogDescription": "Ferramentas técnicas e especificações Classic Mini para mecânicos DIY. Acesse calculadoras, especificações de torque, gráficos de agulhas e mais para manter e atualizar seu Mini.",
+      "twitterTitle": "Caixa de Ferramentas Técnica Classic Mini",
+      "twitterDescription": "Ferramentas técnicas DIY e especificações para manutenção e atualizações do Classic Mini.",
+      "structured_data": {
+        "name": "Caixa de Ferramentas Técnica Classic Mini",
+        "description": "Coleção de ferramentas técnicas, calculadoras e especificações para manutenção e atualizações do Classic Mini."
+      },
+      "page_subtitle": "MANTENDO MINIS RODANDO",
+      "page_title": "A Caixa de Ferramentas Técnica",
+      "welcome_text": "Uma das partes mais importantes do Classic Mini DIY é o foco em sair e trabalhar no seu próprio carro. Então para tornar isso mais fácil para você, coletei informações técnicas de várias fontes e consolidei bem aqui no classicminidiy.com. Essas ferramentas e calculadoras ajudarão você a manter, atualizar e solucionar problemas do seu Classic Mini com confiança. De taxas de compressão a gráficos de agulhas, tudo que você precisa está na ponta dos seus dedos.",
+      "support_section": "Suporte",
+      "breadcrumb_subtitle": "MANTENDO MINIS RODANDO",
+      "main_heading": "A Caixa de Ferramentas Técnica",
+      "description_text": "Uma das partes mais importantes do Classic Mini DIY é o foco em sair e trabalhar no seu próprio carro. Então para tornar isso mais fácil para você, coletei informações técnicas de várias fontes e consolidei bem aqui no classicminidiy.com. Essas ferramentas e calculadoras ajudarão você a manter, atualizar e solucionar problemas do seu Classic Mini com confiança. De taxas de compressão a gráficos de agulhas, tudo que você precisa está na ponta dos seus dedos.",
+      "subPages": {
+        "torque": {
+          "title": "Gráfico de Especificações de Torque Classic Mini | Classic Mini DIY",
+          "description": "Especificações completas de torque para fixadores Classic Mini. Gráfico de referência para motor, suspensão, drivetrain e fixadores de carroceria com valores em lb/ft e Nm.",
+          "keywords": "Especificações torque Classic Mini, fixadores Mini Cooper, especificações torque, valores torque motor, torque suspensão, manutenção Mini, especificações carros clássicos",
+          "hero_title": "Especificações de Torque",
+          "breadcrumb_title": "Especificações de Torque",
+          "og_title": "Gráfico de Especificações de Torque Classic Mini | Classic Mini DIY",
+          "og_description": "Especificações completas de torque para fixadores Classic Mini. Gráfico de referência para motor, suspensão, drivetrain e fixadores de carroceria com valores em lb/ft e Nm.",
+          "twitter_title": "Gráfico de Especificações de Torque Classic Mini",
+          "twitter_description": "Especificações completas de torque para fixadores Classic Mini. Gráfico de referência para motor, suspensão, drivetrain e fixadores de carroceria.",
+          "structured_data": {
+            "headline": "Gráfico de Especificações de Torque Classic Mini",
+            "description": "Especificações completas de torque para fixadores Classic Mini. Gráfico de referência para motor, suspensão, drivetrain e fixadores de carroceria com valores em lb/ft e Nm.",
+            "dataset_name": "Especificações de Torque Classic Mini",
+            "dataset_description": "Dataset abrangente de especificações de torque para fixadores Classic Mini",
+            "variable_measured": ["Nome do Fixador", "Torque em lb/ft", "Torque em Nm", "Observações Adicionais"]
+          },
+          "table_headers": {
+            "fastener": "Fixador",
+            "torque_lbft": "Torque (lb/ft)",
+            "torque_nm": "Torque (Nm)",
+            "notes": "Observações"
+          },
+          "ui": {
+            "search_placeholder": "Pesquisar esta tabela",
+            "no_notes": "---"
+          }
+        },
+        "parts": {
+          "title": "Técnico - Equivalência de Peças",
+          "description": "Uma lista completa de peças que podem ser encontradas em vendedores locais de peças",
+          "hero_title": "Equivalência de Peças",
+          "breadcrumb_title": "Equivalência de Peças",
+          "og_title": "Técnico - Equivalência de Peças",
+          "og_description": "Uma lista completa de peças que podem ser encontradas em vendedores locais de peças",
+          "twitter_title": "Técnico - Equivalência de Peças",
+          "twitter_description": "Uma lista completa de peças que podem ser encontradas em vendedores locais de peças",
+          "table_headers": {
+            "brand": "Marca",
+            "part_number": "Número da Peça",
+            "usage_info": "Informações de Uso"
+          },
+          "ui": {
+            "search_placeholder": "Pesquisar...",
+            "no_items_found": "Nenhum item encontrado",
+            "support_section": "Suporte"
+          }
+        },
+        "needles": {
+          "title": "Gráfico de Agulhas SU & Ferramenta de Comparação | Classic Mini DIY",
+          "description": "Compare agulhas de carburador SU para seu Classic Mini com nosso gráfico interativo. Encontre o perfil de agulha certo para sua construção de motor com esta ferramenta de comparação abrangente.",
+          "keywords": "Agulhas SU, agulhas carburador, Classic Mini, comparação agulhas, carburador SU, perfis agulhas, Mini Cooper",
+          "hero_title": "Configurador de Agulhas",
+          "breadcrumb_title": "Comparação de Agulhas",
+          "og_title": "Gráfico de Agulhas SU & Ferramenta de Comparação | Classic Mini DIY",
+          "og_description": "Compare agulhas de carburador SU para seu Classic Mini com nosso gráfico interativo. Encontre o perfil de agulha certo para sua construção de motor.",
+          "twitter_title": "Gráfico de Agulhas SU & Ferramenta de Comparação | Classic Mini DIY",
+          "twitter_description": "Compare agulhas de carburador SU para seu Classic Mini com nosso gráfico interativo.",
+          "main_heading": "Ferramenta de Comparação de Agulhas de Carburador SU",
+          "description_text": "Uma das coisas mais confusas sobre trabalhar no seu Classic Mini frequentemente é a agulha do carburador usada no seu carro. Abaixo você encontrará um gráfico de comparação multi-agulhas que permitirá comparar perfis de agulhas de múltiplas agulhas SU ao mesmo tempo. Escolha as agulhas que gostaria de comparar e clique em Comparar que redesenhará o gráfico com novos perfis. Um grande obrigado ao site mintylamb por postar essas informações publicamente.",
+          "structured_data": {
+            "name": "Como Comparar Agulhas de Carburador SU",
+            "description": "Compare diferentes agulhas de carburador SU para encontrar o perfil certo para sua construção de motor Classic Mini.",
+            "steps": {
+              "select_needles": {
+                "name": "Selecionar Agulhas",
+                "text": "Comece digitando o nome das agulhas que gostaria de comparar no menu dropdown."
+              },
+              "add_to_comparison": {
+                "name": "Adicionar à Comparação",
+                "text": "Clique no botão \"Adicionar Agulha\" para adicionar a agulha selecionada ao gráfico de comparação."
+              },
+              "view_comparison": {
+                "name": "Ver Comparação",
+                "text": "O gráfico será atualizado automaticamente para mostrar os perfis de todas as agulhas selecionadas para comparação."
+              }
+            },
+            "tool_name": "Gráfico Interativo de Comparação de Agulhas"
+          },
+          "ui": {
+            "loading_fallback": "Carregando ferramenta de comparação de agulhas...",
+            "loading_text": "Carregando ferramenta de comparação de agulhas...",
+            "needle_charts_section": "Gráficos de Agulhas",
+            "find_needle_heading": "Encontre a agulha para seu carburador",
+            "information_provided_by": "Informações fornecidas por",
+            "seven_mini_parts_link": "Seven Mini Parts",
+            "support_section": "Suporte"
+          }
+        },
+        "gearing": {
+          "title": "Técnico - Calculadora de Marchas",
+          "description": "Planejando sua próxima construção de caixa de câmbio? Use nossa nova calculadora de marchas de caixa de câmbio para gerar informações para o reparo ou atualização da caixa de câmbio do seu Classic Mini.",
+          "hero_title": "Calculadora de Caixa de Câmbio",
+          "breadcrumb_title": "Calculadora de Caixa de Câmbio",
+          "og_title": "Técnico - Calculadora de Marchas",
+          "og_description": "Planejando sua próxima construção de caixa de câmbio? Use nossa nova calculadora de marchas de caixa de câmbio para gerar informações para o reparo ou atualização da caixa de câmbio do seu Classic Mini.",
+          "twitter_title": "Técnico - Calculadora de Marchas",
+          "twitter_description": "Planejando sua próxima construção de caixa de câmbio? Use nossa nova calculadora de marchas de caixa de câmbio para gerar informações para o reparo ou atualização da caixa de câmbio do seu Classic Mini.",
+          "main_heading": "Calculadora de Caixa de Câmbio",
+          "description_text": "Ao construir ou reconstruir uma caixa de câmbio, atualizando suas relações de marcha, ou trocando seu velocímetro, às vezes você precisa atualizar algumas coisas. Usando a Calculadora de Marchas Classic Mini DIY abaixo, você pode determinar a marcha correta para sua construção de motor nova e encontrar a engrenagem de velocímetro certa para usar também.",
+          "engine_sizes_card": {
+            "link_title": "Link para Tamanhos de Motor",
+            "heading": "Quais são os tamanhos padrão de motor?",
+            "description": "Clique aqui para aprender sobre tamanhos comuns de motor no classic mini.",
+            "alt_text": "Imagem de prévia da tabela de tamanho de motor"
+          },
+          "ui": {
+            "loading_fallback": "Carregando calculadora de caixa de câmbio...",
+            "loading_text": "Carregando calculadora de caixa de câmbio...",
+            "more_section": "Mais"
+          }
+        },
+        "engine_decoder": {
+          "title": "Técnico - Decodificador de Placa do Motor Mini",
+          "description": "Decodifique a placa do Motor do seu Classic Mini para determinar o tamanho do motor e recursos do seu carro. Esta placa está localizada no mesmo lugar em todas as gerações de mini e é usada para identificar o tamanho do motor e recursos.",
+          "hero_title": "Decodificador de Código do Motor",
+          "breadcrumb_title": "Tamanhos de Motor",
+          "og_title": "Técnico - Decodificador de Placa do Motor Mini",
+          "og_description": "Decodifique a placa do Motor do seu Classic Mini para determinar o tamanho do motor e recursos do seu carro. Esta placa está localizada no mesmo lugar em todas as gerações de mini e é usada para identificar o tamanho do motor e recursos.",
+          "twitter_title": "Técnico - Decodificador de Placa do Motor Mini",
+          "twitter_description": "Decodifique a placa do Motor do seu Classic Mini para determinar o tamanho do motor e recursos do seu carro.",
+          "main_heading": "Decodificador de Placa do Motor",
+          "description_text": "A placa do motor é uma série de números e letras que são estampados em uma placa de metal que é rebitada ao motor perto da bomba d'água. Esta placa está localizada no mesmo lugar em todas as gerações de mini e é usada para identificar o tamanho do motor e recursos.",
+          "chassis_decoder_card": {
+            "link_title": "Link para Ferramenta do Decodificador de Chassi",
+            "heading": "Precisa decodificar o Número do seu Chassi?",
+            "description": "Clique aqui para identificar seu carro usando nossa nova ferramenta de decodificação de número de chassi.",
+            "alt_text": "Imagem de lupa"
+          },
+          "engine_sizes_legend": {
+            "850cc": "850cc",
+            "970cc": "970cc",
+            "997cc": "997cc",
+            "998cc": "998cc",
+            "1070cc": "1070cc",
+            "1100cc": "1100",
+            "1275cc": "1275"
+          },
+          "search": {
+            "placeholder": "Pesquise seu código de motor"
+          },
+          "table": {
+            "title": "Códigos de Motor",
+            "headers": {
+              "color": "",
+              "code": "Código",
+              "engine_size": "Tamanho do Motor",
+              "engine_variant": "Variante do Motor",
+              "gearbox_details": "Detalhes da Caixa de Câmbio",
+              "details": "Detalhes"
+            }
+          },
+          "ui": {
+            "support_section": "Suporte"
+          }
+        },
+        "compression": {
+          "title": "Calculadora de Taxa de Compressão para Motores Classic Mini | Classic Mini DIY",
+          "description": "Calcule a taxa de compressão para sua construção de motor Classic Mini com nossa calculadora interativa. Planeje suas modificações de motor com precisão usando esta ferramenta fácil de usar.",
+          "keywords": "taxa de compressão, motor Classic Mini, construção de motor, calculadora compressão, motor Mini Cooper, prato pistão, volume cabeçote",
+          "hero_title": "Calculadora de Taxa de Compressão",
+          "breadcrumb_title": "Calculadora de Taxa de Compressão",
+          "og_title": "Calculadora de Taxa de Compressão para Motores Classic Mini | Classic Mini DIY",
+          "og_description": "Calcule a taxa de compressão para sua construção de motor Classic Mini com nossa calculadora interativa. Planeje suas modificações de motor com precisão.",
+          "twitter_title": "Calculadora de Taxa de Compressão para Motores Classic Mini",
+          "twitter_description": "Calcule a taxa de compressão para sua construção de motor Classic Mini com nossa calculadora interativa.",
+          "main_heading": "Calculadora de Taxa de Compressão",
+          "description_text": "Ao construir um motor Classic Mini de performance, uma das figuras mais importantes a determinar é a taxa de compressão. Usando a Calculadora de Taxa de Compressão Classic Mini DIY abaixo, você pode determinar a compressão ideal para sua nova construção de motor.",
+          "engine_sizes_card": {
+            "link_title": "Link para Tamanhos de Motor",
+            "heading": "Quais são os tamanhos padrão de motor?",
+            "description": "Clique aqui para aprender sobre tamanhos comuns de motor no classic mini.",
+            "alt_text": "Imagem de prévia da tabela de tamanho de motor"
+          },
+          "structured_data": {
+            "calculator_name": "Calculadora de Taxa de Compressão Classic Mini",
+            "calculator_description": "Uma calculadora interativa para determinar a taxa de compressão para construções de motor Classic Mini baseada em vários parâmetros como prato do pistão, volume do cabeçote, cilindrada e curso.",
+            "how_to_name": "Como Calcular a Taxa de Compressão para um Motor Classic Mini",
+            "how_to_description": "Aprenda como calcular a taxa de compressão para sua construção de motor Classic Mini usando nossa calculadora interativa.",
+            "steps": {
+              "piston_dish": {
+                "name": "Digite o Valor do Prato do Pistão",
+                "text": "Digite o valor do prato do pistão em cc."
+              },
+              "head_volume": {
+                "name": "Digite o Volume do Cabeçote",
+                "text": "Digite o volume do cabeçote em cc."
+              },
+              "deck_height": {
+                "name": "Digite a Altura do Deck",
+                "text": "Digite a altura do deck em polegadas."
+              },
+              "bore_stroke": {
+                "name": "Digite Cilindrada e Curso",
+                "text": "Digite as medidas de cilindrada e curso em mm."
+              },
+              "gasket_thickness": {
+                "name": "Digite a Espessura da Junta",
+                "text": "Selecione a espessura da junta ou digite um valor personalizado."
+              },
+              "view_results": {
+                "name": "Ver Resultados",
+                "text": "A calculadora exibirá automaticamente a taxa de compressão e a capacidade do motor."
+              }
+            }
+          },
+          "ui": {
+            "more_section": "Mais"
+          }
+        },
+        "clearance": {
+          "title": "Técnico - Folgas Mini",
+          "description": "Especificações detalhadas de folga podem ser encontradas online aqui no Classic Mini DIY.",
+          "hero_title": "Folgas Comuns",
+          "breadcrumb_title": "Folgas Comuns",
+          "og_title": "Técnico - Folgas Mini",
+          "og_description": "Especificações detalhadas de folga para o Classic Mini podem ser encontradas online aqui no Classic Mini DIY.",
+          "twitter_title": "Técnico - Folgas Mini",
+          "twitter_description": "Especificações detalhadas de folga para o Classic Mini podem ser encontradas online aqui no Classic Mini DIY.",
+          "table": {
+            "headers": {
+              "part": "Peça",
+              "clearance_thou": "Folga/Jogo Axial (milésimos)",
+              "clearance_mm": "Folga/Jogo Axial (mm)",
+              "expand": ""
+            },
+            "no_value": "---",
+            "no_items_found": "Nenhum item encontrado",
+            "extra_notes_title": "Observações Extras:",
+            "no_notes_available": "Nenhuma observação adicional disponível."
+          },
+          "search": {
+            "placeholder": "Pesquisar..."
+          },
+          "ui": {
+            "support_section": "Suporte"
+          }
+        },
+        "chassis_decoder": {
+          "title": "Técnico - Decodificador de Placa do Chassi Mini",
+          "description": "Decodifique a placa do chassi do seu Classic Mini para determinar o ano do modelo, planta de montagem e número sequencial de construção do carro. A placa do chassi também é conhecida como placa VIN, etiqueta VIN ou placa VIN dependendo da geração.",
+          "hero_title": "Decodificador de Chassi",
+          "breadcrumb_title": "Decodificador de Chassi",
+          "og_title": "Técnico - Decodificador de Placa do Chassi Mini",
+          "og_description": "Decodifique a placa do chassi do seu Classic Mini para determinar o ano do modelo, planta de montagem e número sequencial de construção do carro. A placa do chassi também é conhecida como placa VIN, etiqueta VIN ou placa VIN dependendo da geração.",
+          "twitter_title": "Técnico - Decodificador de Placa do Chassi Mini",
+          "twitter_description": "Decodifique a placa do chassi do seu Classic Mini para determinar o ano do modelo, planta de montagem e número sequencial de construção do carro.",
+          "main_heading": "Decodificador de Placa do Chassi",
+          "description_text": "A placa do chassi é uma série de números e letras que são estampados em uma placa de metal que é rebitada ao corpo do carro. Esta placa está localizada em lugares diferentes em todas as gerações de mini e é usada para identificar o ano do modelo, planta de montagem e número sequencial de construção do carro. A placa do chassi também é conhecida como placa VIN, etiqueta VIN ou placa VIN dependendo da geração.",
+          "engine_decoder_card": {
+            "link_title": "Link para decodificador de Placa do Motor",
+            "heading": "Decodificador de Motor",
+            "description": "Clique aqui para identificar seu motor usando nossa nova tabela de decodificação de número de motor.",
+            "alt_text": "Decodificador de Motor"
+          },
+          "form": {
+            "card_title": "Decodifique Seu Número de Chassi",
+            "card_description": "Digite seu número de chassi e selecione a faixa de ano apropriada para decodificar todos os detalhes automaticamente.",
+            "year_range_label": "Faixa de Ano",
+            "chassis_number_label": "Número do Chassi",
+            "chassis_number_placeholder": "Digite seu número de chassi",
+            "example_text": "Exemplo para",
+            "decode_button": "Decodificar Chassi",
+            "decoding_button": "Decodificando...",
+            "reset_button": "Resetar",
+            "error_empty_chassis": "Digite um número de chassi",
+            "error_decode_failed": "Falha ao decodificar número de chassi. Tente novamente."
+          },
+          "results": {
+            "title": "Resultados Decodificados",
+            "status_decoded": "Decodificado",
+            "status_invalid": "Inválido",
+            "year_range_stat": "Faixa de Ano",
+            "chassis_number_stat": "Seu Número de Chassi",
+            "expected_pattern_stat": "Padrão Esperado",
+            "validation_issues_title": "Problemas de Validação",
+            "decoded_positions_title": "Posições Decodificadas",
+            "position_label": "Posição"
+          },
+          "special_notes": {
+            "title": "Observações Especiais",
+            "build_number_title": "Observação sobre Número de Construção",
+            "build_number_text": "O primeiro carro em Longbridge foi número 101, assim como o primeiro em Cowley. A partir daí, cada fábrica continuou com sua própria sequência de números independentemente do modelo; ex., Sedan, Van, etc. Em outras palavras, cada modelo não começou em 101 e manteve sua própria sequência. Sedans e Vans, etc., estão misturados na sequência de números junto com os modelos Cooper e Cooper S",
+            "assembly_plant_title": "Observação sobre Planta de Montagem",
+            "assembly_plant_text": "Isso parece ser usado inconsistentemente em carros construídos na Inglaterra, e é entendido que o carro foi construído na fábrica \"normal\" se a letra for deixada de fora; ex., um Austin, Riley ou Wolseley em Longbridge pode ou não ter um \"A\" após o número de sequência. Sim, havia Austin Minis construídos na planta Morris em Cowley e Morris Minis construídos na planta Austin em Longbridge. Note que todos os modelos Cooper e Cooper S construídos na Inglaterra (Austin e Morris) assim como os modelos Riley Elf e Wolseley Hornet foram construídos na planta Longbridge, Austin"
+          },
+          "attribution": {
+            "text": "Por favor note que os detalhes acima foram obtidos dos",
+            "mini_mania": "artigos técnicos da Mini Mania",
+            "technical_articles": ". Mais Detalhes podem ser encontrados aqui:",
+            "link_text": "Artigos Técnicos de Código de Chassi"
+          },
+          "ui": {
+            "support_section": "Suporte"
+          }
+        }
+      },
+      "chat": {
+        "assistant_message": {
+          "copy_button": "Copiar"
+        },
+        "chat_window": {
+          "experimental_feature": "Recurso Experimental:",
+          "experimental_disclaimer": "Este assistente de IA está em beta e não deve ser usado como sua única fonte de informações técnicas.",
+          "welcome_title": "Bem-vindo ao Assistente CMDIY!",
+          "input_placeholder": "Digite sua mensagem...",
+          "report_issue": "Relatar Problema",
+          "useful_links_placeholder": "Links úteis aparecerão aqui quando disponíveis"
+        },
+        "human_message": {
+          "copy_button": "Copiar"
+        },
+        "useful_links": {
+          "title": "Links Úteis"
+        },
+        "useful_links_sidebar": {
+          "title": "Links Úteis",
+          "showing_results": "Mostrando todos os {count} resultados de pesquisa"
+        }
+      },
+      "wheel_submit": {
+        "stepper": {
+          "wheel_details": "Detalhes da Roda",
+          "images": "Imagens",
+          "contact_info": "Informações de Contato",
+          "review": "Revisão",
+          "submitted": "Enviado"
+        },
+        "step1": {
+          "title_new": "Enviar Nova Roda",
+          "title_update": "Sugerir Atualizações",
+          "current_name": "Nome Atual:",
+          "current_type": "Tipo Atual:",
+          "current_width": "Largura Atual:",
+          "current_size": "Tamanho Atual:",
+          "current_offset": "Offset Atual:",
+          "current_notes": "Observações Atuais:",
+          "wheel_name": "Nome da Roda",
+          "wheel_name_placeholder": "Digite o nome da roda",
+          "wheel_name_required": "Nome da roda é obrigatório",
+          "wheel_material_type": "Tipo de Material da Roda",
+          "wheel_material_placeholder": "ex., Liga, Aço, etc.",
+          "wheel_width": "Largura da Roda",
+          "wheel_width_placeholder": "Digite a largura",
+          "width_required": "Largura é obrigatória",
+          "wheel_size": "Tamanho da Roda",
+          "wheel_size_placeholder": "Selecione o tamanho da roda",
+          "wheel_size_required": "Tamanho da roda é obrigatório",
+          "diameter_inches": "Diâmetro em polegadas",
+          "offset_info": "Informações de Offset",
+          "offset_placeholder": "ex., ET25",
+          "extra_notes": "Observações Extras",
+          "notes_placeholder": "Qualquer informação adicional sobre essas rodas...",
+          "characters_count": "{count}/250 caracteres",
+          "no_data": "Sem dados"
+        },
+        "step2": {
+          "title": "Imagens da Roda",
+          "add_images": "Adicione suas próprias imagens",
+          "new_wheel_notice": "Para enviar uma nova roda, você deve incluir pelo menos uma imagem para o registro",
+          "upload_label": "Envie até 5 imagens",
+          "accepted_formats": "Formatos aceitos: JPG, PNG (Máx 3MB cada)",
+          "files_to_upload": "Arquivos para enviar ({count})",
+          "your_images": "Suas Imagens",
+          "existing_images": "Imagens Existentes",
+          "no_images": "Nenhuma imagem enviada ainda"
+        },
+        "step3": {
+          "title": "Informações de Contato",
+          "your_name": "Seu Nome",
+          "name_placeholder": "Digite seu nome",
+          "name_required": "Seu nome é obrigatório",
+          "email_address": "Endereço de Email",
+          "email_placeholder": "seu{'@'}email.com",
+          "email_invalid": "Digite um endereço de email válido"
+        },
+        "step4": {
+          "title": "Revise Sua Submissão",
+          "update_notice": "Você está sugerindo atualizações para uma roda existente. Suas mudanças serão revisadas antes de serem publicadas.",
+          "wheel_details": "Detalhes da Roda",
+          "images": "Imagens",
+          "contact_information": "Informações de Contato",
+          "not_provided": "Não fornecido",
+          "no_additional_notes": "Nenhuma observação adicional",
+          "no_images_added": "Nenhuma imagem adicionada",
+          "name": "Nome",
+          "type": "Tipo",
+          "width": "Largura",
+          "size": "Tamanho",
+          "offset": "Offset",
+          "notes": "Observações",
+          "email": "Email"
+        },
+        "step5": {
+          "thank_you": "Obrigado!",
+          "submission_received": "Sua submissão foi recebida.",
+          "new_wheel_message": "Sua roda foi enviada para revisão. Notificaremos você em {email} uma vez que tenha sido aprovada e adicionada ao registro.",
+          "update_message": "Suas atualizações sugeridas foram enviadas para revisão. Notificaremos você em {email} uma vez que tenham sido processadas.",
+          "submit_another": "Enviar Outra Roda"
+        },
+        "navigation": {
+          "back": "Voltar",
+          "next": "Próximo",
+          "submit": "Enviar"
+        },
+        "errors": {
+          "load_failed": "Falha ao carregar dados da roda. Tente novamente.",
+          "unable_to_load": "Não foi possível carregar dados da roda",
+          "start_over": "Começar Novamente"
+        }
+      },
+      "wheel_grid": {
+        "title": "Encontrar Rodas",
+        "clear_filters": "Limpar Filtros",
+        "search_placeholder": "Pesquisar por qualquer coisa (ex. Momos, 10in, ET20)",
+        "all_sizes": "Todos os Tamanhos",
+        "ten_wheels": "Rodas 10\"",
+        "twelve_wheels": "Rodas 12\"",
+        "thirteen_wheels": "Rodas 13\"",
+        "error_loading": "Erro ao carregar rodas",
+        "no_wheels_found": "Nenhuma roda encontrada",
+        "try_adjusting": "Tente ajustar sua pesquisa ou filtros",
+        "size": "Tamanho",
+        "width": "Largura",
+        "offset": "Offset",
+        "material": "Material",
+        "view_details": "Ver Detalhes",
+        "page_of": "Página {current} de {total}",
+        "na": "N/A"
+      }
+    },
+    "contact": {
+      "title": "Contato Classic Mini DIY - Obtenha Ajuda e Envie Conteúdo",
+      "description": "Entre em contato com Classic Mini DIY para consultas gerais, submissões de arquivo, contribuições técnicas ou relatórios de bug. Múltiplas maneiras de entrar em contato com nossa comunidade.",
+      "hero_title": "Entre em Contato",
+      "breadcrumb_home": "Início",
+      "breadcrumb_contact": "Contato",
+      "general_inquiries_title": "Consultas Gerais",
+      "general_inquiries_description": "Perguntas sobre o site, propriedade de Classic Mini ou ajuda geral? Adoraríamos ouvir de você.",
+      "email_label": "Email",
+      "ai_chat_label": "Assistente de Chat IA",
+      "ai_chat_description": "Use o widget de chat para perguntas rápidas",
+      "response_time_label": "Tempo de Resposta",
+      "response_time_description": "Geralmente dentro de 24-48 horas",
+      "archive_submissions_title": "Submissões de Arquivo",
+      "archive_submissions_description": "Tem documentos históricos, fotos ou histórias para compartilhar? Ajude a preservar a história do Classic Mini.",
+      "what_to_include_label": "O que Incluir",
+      "what_to_include_description": "Fotos, documentos, histórias ou informações históricas",
+      "rights_attribution_label": "Direitos e Atribuição",
+      "rights_attribution_description": "Confirme que você possui ou tem permissão para compartilhar",
+      "technical_submissions_title": "Submissões Técnicas",
+      "technical_submissions_description": "Compartilhe guias de reparo, especificações técnicas ou dicas de manutenção com a comunidade.",
+      "content_types_label": "Tipos de Conteúdo",
+      "content_types_description": "Guias de reparo, especificações, dicas, números de peças",
+      "credit_label": "Crédito",
+      "credit_description": "Creditaremos você como o contribuinte",
+      "bug_reports_title": "Relatórios de Bug",
+      "bug_reports_description": "Encontrou um problema com o site? Ajude-nos a corrigi-lo relatando bugs e problemas.",
+      "include_details_label": "Incluir Detalhes",
+      "include_details_description": "Navegador, dispositivo, passos para reproduzir",
+      "priority_label": "Prioridade",
+      "priority_description": "Bugs críticos corrigidos dentro de 24 horas",
+      "other_ways_connect": "Outras Maneiras de Se Conectar",
+      "community_forum_label": "Fórum da Comunidade",
+      "community_forum_description": "Participe de discussões com outros entusiastas",
+      "support_patreon_label": "Apoie no Patreon",
+      "support_patreon_description": "Ajude a manter o site funcionando",
+      "support_patreon_button": "Apoiar no Patreon"
+    },
+    "chat": {
+      "title": "Assistente CMDIY - Classic Mini DIY",
+      "description": "Converse com nosso assistente de IA para ajuda técnica com Classic Mini, decodificação de chassi, informações de peças e orientação de restauração.",
+      "og_title": "Assistente CMDIY - Classic Mini DIY",
+      "og_description": "Obtenha ajuda instantânea com seus projetos Classic Mini do nosso assistente de IA.",
+      "twitter_title": "Assistente CMDIY - Classic Mini DIY",
+      "twitter_description": "Obtenha ajuda instantânea com seus projetos Classic Mini do nosso assistente de IA.",
+      "main_heading": "Assistente CMDIY",
+      "description_text": "Seu assistente Classic Mini DIY - faça perguntas técnicas, encontre informações de peças e obtenha orientação sobre projetos de restauração. Ou apenas converse comigo sobre seu Classic Mini!"
+    },
+    "archive_item": {
+      "breadcrumb_archive": "Arquivo",
+      "hero_title": "Arquivos Classic Mini",
+      "loading_error": "Erro ao carregar conteúdo. Tente novamente mais tarde.",
+      "no_image_alt": "Nenhuma imagem disponível",
+      "download_aria_label": "Baixar {title}",
+      "preview_image_alt": "Imagem de prévia {title}",
+      "archive_item_alt": "Imagem {title}",
+      "fallback_title": "Item do Arquivo",
+      "file_type_label": "Tipo:",
+      "no_description": "Nenhuma descrição disponível.",
+      "share_button": "Compartilhar",
+      "contribute_button": "Contribuir",
+      "missing_file_button": "Arquivo Faltando",
+      "download_button": "Baixar",
+      "seo": {
+        "title_suffix": "- Arquivo Classic Mini - Classic Mini DIY",
+        "description_fallback": "Recurso de arquivo para {title} na coleção Classic Mini DIY.",
+        "keywords_template": "Classic Mini, {title}, arquivo, Mini Cooper, {fileType}, {archiveType}",
+        "og_title_suffix": "- Arquivo Classic Mini",
+        "twitter_title_suffix": "- Arquivo Classic Mini"
+      },
+      "structured_data": {
+        "author_fallback": "Classic Mini DIY",
+        "publisher_name": "Classic Mini DIY",
+        "collection_name": "Arquivos Classic Mini"
+      }
+    }
+  }
+}
