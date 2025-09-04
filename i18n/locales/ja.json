@@ -43,38 +43,6 @@
       "watch_button": "視聴"
     },
     "calculators": {
-      "compression": {
-        "help_button": "これらの値はどのように測定しますか？",
-        "help_modal": {
-          "title": "チャンバーとデッキの測定方法",
-          "friend_title": "私たちの友人Paul Hickey",
-          "friend_description": "YouTube上で",
-          "friend_text": "計算機用のこれらの値の測定にサポートが必要な場合は、HRE IRLのPaul Hickeyによる上記の動画をご覧ください。彼はClassic Miniでの全測定プロセスをカバーしています。",
-          "close_button": "閉じる"
-        },
-        "form_labels": {
-          "piston_size": "ピストンサイズ",
-          "crankshaft": "クランクシャフト",
-          "head_gasket": "ヘッドガスケット",
-          "custom_gasket_size": "カスタムガスケットサイズ (cc)",
-          "decompression_plate": "デコンプレッションプレート",
-          "piston_dish_size": "ピストンディッシュサイズ (cc)",
-          "cylinder_head_chamber_volume": "シリンダーヘッドチャンバー容積 (cc)",
-          "piston_deck_height": "ピストンデッキハイト (thou)"
-        },
-        "results": {
-          "title": "結果:",
-          "compression_ratio": "圧縮比",
-          "engine_capacity": "エンジン排気量"
-        },
-        "disclaimer": {
-          "text": "上記の数値は{strong_start}概算値{strong_end}であることにご注意ください。パーツを購入してエンジンを構築する前に、複数のソースを使用して計算を{strong_start}再確認{strong_end}することをお勧めします。このツールで使用される数学的方程式は以下で確認できます:",
-          "equation_source": "方程式ソースコード",
-          "alternate_source": "代替ソース:",
-          "calver_link": "Calver圧縮比",
-          "je_pistons_link": "JEピストン圧縮比"
-        }
-      },
       "gearbox": {
         "form_labels": {
           "imperial_or_metric": "インチまたはメートル法",

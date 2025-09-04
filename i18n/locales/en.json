@@ -43,38 +43,6 @@
       "watch_button": "Watch"
     },
     "calculators": {
-      "compression": {
-        "help_button": "How do I measure these values?",
-        "help_modal": {
-          "title": "Measuring your chambers and deck",
-          "friend_title": "Our Friend Paul Hickey",
-          "friend_description": "on Youtube",
-          "friend_text": "If you need any assistance measuring these values for the calculator, check out the video above by Paul Hickey at HRE IRL. Where he covers the entire measurement process on the Classic Mini.",
-          "close_button": "Close"
-        },
-        "form_labels": {
-          "piston_size": "Piston Size",
-          "crankshaft": "Crankshaft",
-          "head_gasket": "Head Gasket",
-          "custom_gasket_size": "Custom Gasket Size (cc)",
-          "decompression_plate": "Decompression Plate",
-          "piston_dish_size": "Piston Dish Size (cc)",
-          "cylinder_head_chamber_volume": "Cylinder Head Chamber Volume (cc)",
-          "piston_deck_height": "Piston Deck Height (thou)"
-        },
-        "results": {
-          "title": "Results:",
-          "compression_ratio": "Compression Ratio",
-          "engine_capacity": "Engine Capacity"
-        },
-        "disclaimer": {
-          "text": "Please note the above figures are {strong_start}approximate values{strong_end}. Before purchasing parts and building your engine we recommend {strong_start}doublechecking{strong_end} your calculations multiple times using more than one source. The mathematical equations used in this tool can be found here:",
-          "equation_source": "Equation Source Code",
-          "alternate_source": "Alternate Source:",
-          "calver_link": "Calver Compression Ratio",
-          "je_pistons_link": "JE Pistons Compression Ratio"
-        }
-      },
       "gearbox": {
         "form_labels": {
           "imperial_or_metric": "Imperial or Metric",

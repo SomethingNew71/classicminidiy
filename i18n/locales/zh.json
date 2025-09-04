@@ -43,38 +43,6 @@
       "watch_button": "观看"
     },
     "calculators": {
-      "compression": {
-        "help_button": "如何测量这些数值？",
-        "help_modal": {
-          "title": "测量燃烧室和活塞平台",
-          "friend_title": "我们的朋友Paul Hickey",
-          "friend_description": "在YouTube上",
-          "friend_text": "如果您需要帮助测量计算器的这些数值，请观看Paul Hickey在HRE IRL制作的上方视频。他详细介绍了Classic Mini的整个测量过程。",
-          "close_button": "关闭"
-        },
-        "form_labels": {
-          "piston_size": "活塞尺寸",
-          "crankshaft": "曲轴",
-          "head_gasket": "缸垫",
-          "custom_gasket_size": "自定义缸垫尺寸 (cc)",
-          "decompression_plate": "减压板",
-          "piston_dish_size": "活塞凹面尺寸 (cc)",
-          "cylinder_head_chamber_volume": "缸盖燃烧室容积 (cc)",
-          "piston_deck_height": "活塞平台高度 (thou)"
-        },
-        "results": {
-          "title": "结果：",
-          "compression_ratio": "压缩比",
-          "engine_capacity": "发动机排量"
-        },
-        "disclaimer": {
-          "text": "请注意上述数值为{strong_start}近似值{strong_end}。在购买零件和组装发动机之前，我们建议您{strong_start}反复核对{strong_end}计算结果并使用多个来源验证。此工具使用的数学公式可在此处找到：",
-          "equation_source": "公式源代码",
-          "alternate_source": "备选来源：",
-          "calver_link": "Calver压缩比",
-          "je_pistons_link": "JE活塞压缩比"
-        }
-      },
       "gearbox": {
         "form_labels": {
           "imperial_or_metric": "英制或公制",
@@ -1337,9 +1305,9 @@
           "title": "有用链接"
         },
         "useful_links_sidebar": {
-        "title": "有用链接",
-        "showing_results": "显示所有 {count} 个搜索结果"
-      },
+          "title": "有用链接",
+          "showing_results": "显示所有 {count} 个搜索结果"
+        },
         "toolbox": {
           "torque_specs": "扭矩规格",
           "chassis_decoder": "底盘号解码器",
@@ -1352,8 +1320,8 @@
         }
       }
     },
-  "pages": {
-    "wheel_submit": {
+    "pages": {
+      "wheel_submit": {
         "stepper": {
           "wheel_details": "轮毂详情",
           "images": "图片",

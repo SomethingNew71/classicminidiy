@@ -43,38 +43,6 @@
 			"watch_button": "Assistir"
 		},
 		"calculators": {
-			"compression": {
-				"help_button": "Como meço esses valores?",
-				"help_modal": {
-					"title": "Medindo suas câmaras e altura do pistão",
-					"friend_title": "Nosso Amigo Paul Hickey",
-					"friend_description": "no Youtube",
-					"friend_text": "Se precisar de assistência para medir esses valores para a calculadora, confira o vídeo acima do Paul Hickey no HRE IRL. Onde ele cobre todo o processo de medição no Classic Mini.",
-					"close_button": "Fechar"
-				},
-				"form_labels": {
-					"piston_size": "Tamanho do Pistão",
-					"crankshaft": "Virabrequim",
-					"head_gasket": "Junta do Cabeçote",
-					"custom_gasket_size": "Tamanho Personalizado da Junta (cc)",
-					"decompression_plate": "Placa de Descompressão",
-					"piston_dish_size": "Tamanho do Prato do Pistão (cc)",
-					"cylinder_head_chamber_volume": "Volume da Câmara do Cabeçote (cc)",
-					"piston_deck_height": "Altura do Pistão (milésimos)"
-				},
-				"results": {
-					"title": "Resultados:",
-					"compression_ratio": "Taxa de Compressão",
-					"engine_capacity": "Capacidade do Motor"
-				},
-				"disclaimer": {
-					"text": "Note que os valores acima são {strong_start}valores aproximados{strong_end}. Antes de comprar peças e construir seu motor, recomendamos {strong_start}verificar novamente{strong_end} seus cálculos múltiplas vezes usando mais de uma fonte. As equações matemáticas usadas nesta ferramenta podem ser encontradas aqui:",
-					"equation_source": "Código Fonte da Equação",
-					"alternate_source": "Fonte Alternativa:",
-					"calver_link": "Taxa de Compressão Calver",
-					"je_pistons_link": "Taxa de Compressão JE Pistons"
-				}
-			},
 			"gearbox": {
 				"form_labels": {
 					"imperial_or_metric": "Imperial ou Métrico",

@@ -43,38 +43,6 @@
       "watch_button": "Regarder"
     },
     "calculators": {
-      "compression": {
-        "help_button": "Comment mesurer ces valeurs ?",
-        "help_modal": {
-          "title": "Mesurer vos chambres et votre pont",
-          "friend_title": "Notre ami Paul Hickey",
-          "friend_description": "sur Youtube",
-          "friend_text": "Si vous avez besoin d'aide pour mesurer ces valeurs pour la calculatrice, consultez la vidéo ci-dessus de Paul Hickey chez HRE IRL. Il y couvre tout le processus de mesure sur la Classic Mini.",
-          "close_button": "Fermer"
-        },
-        "form_labels": {
-          "piston_size": "Taille du piston",
-          "crankshaft": "Vilebrequin",
-          "head_gasket": "Joint de culasse",
-          "custom_gasket_size": "Taille de joint personnalisé (cc)",
-          "decompression_plate": "Plaque de décompression",
-          "piston_dish_size": "Taille de cuvette du piston (cc)",
-          "cylinder_head_chamber_volume": "Volume de chambre de culasse (cc)",
-          "piston_deck_height": "Hauteur de pont du piston (millièmes)"
-        },
-        "results": {
-          "title": "Résultats :",
-          "compression_ratio": "Taux de compression",
-          "engine_capacity": "Cylindrée du moteur"
-        },
-        "disclaimer": {
-          "text": "Veuillez noter que les chiffres ci-dessus sont des {strong_start}valeurs approximatives{strong_end}. Avant d'acheter des pièces et de construire votre moteur, nous recommandons de {strong_start}revérifier{strong_end} vos calculs plusieurs fois en utilisant plus d'une source. Les équations mathématiques utilisées dans cet outil peuvent être trouvées ici :",
-          "equation_source": "Code source des équations",
-          "alternate_source": "Source alternative :",
-          "calver_link": "Taux de compression Calver",
-          "je_pistons_link": "Taux de compression JE Pistons"
-        }
-      },
       "gearbox": {
         "form_labels": {
           "imperial_or_metric": "Impérial ou métrique",

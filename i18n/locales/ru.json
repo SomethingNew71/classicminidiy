@@ -43,38 +43,6 @@
       "watch_button": "Смотреть"
     },
     "calculators": {
-      "compression": {
-        "help_button": "Как измерить эти значения?",
-        "help_modal": {
-          "title": "Измерение камер сгорания и высоты поршня",
-          "friend_title": "Наш друг Paul Hickey",
-          "friend_description": "на YouTube",
-          "friend_text": "Если вам нужна помощь с измерением этих значений для калькулятора, посмотрите видео выше от Paul Hickey на HRE IRL. Где он рассматривает весь процесс измерения на Classic Mini.",
-          "close_button": "Закрыть"
-        },
-        "form_labels": {
-          "piston_size": "Размер поршня",
-          "crankshaft": "Коленчатый вал",
-          "head_gasket": "Прокладка головки",
-          "custom_gasket_size": "Размер пользовательской прокладки (куб. см)",
-          "decompression_plate": "Декомпрессионная пластина",
-          "piston_dish_size": "Размер выемки поршня (куб. см)",
-          "cylinder_head_chamber_volume": "Объем камеры головки цилиндра (куб. см)",
-          "piston_deck_height": "Высота поршня (тысячные)"
-        },
-        "results": {
-          "title": "Результаты:",
-          "compression_ratio": "Степень сжатия",
-          "engine_capacity": "Объем двигателя"
-        },
-        "disclaimer": {
-          "text": "Обратите внимание, что вышеуказанные цифры являются {strong_start}приблизительными значениями{strong_end}. Перед покупкой деталей и сборкой двигателя мы рекомендуем {strong_start}перепроверить{strong_end} ваши расчеты несколько раз, используя более одного источника. Математические уравнения, используемые в этом инструменте, можно найти здесь:",
-          "equation_source": "Исходный код уравнений",
-          "alternate_source": "Альтернативный источник:",
-          "calver_link": "Calver степень сжатия",
-          "je_pistons_link": "JE Pistons степень сжатия"
-        }
-      },
       "gearbox": {
         "form_labels": {
           "imperial_or_metric": "Имперская или метрическая",
