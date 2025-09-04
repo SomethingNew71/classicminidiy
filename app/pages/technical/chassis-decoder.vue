@@ -91,7 +91,8 @@
       }
     } catch (error: any) {
       console.error('Error decoding chassis number:', error);
-      errorMessage.value = error?.data?.statusMessage || t('pages.technical.subPages.chassis_decoder.form.error_decode_failed');
+      errorMessage.value =
+        error?.data?.statusMessage || t('pages.technical.subPages.chassis_decoder.form.error_decode_failed');
     } finally {
       isLoading.value = false;
     }
@@ -134,11 +135,19 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="t('pages.technical.subPages.chassis_decoder.hero_title')" :heroType="HERO_TYPES.TECH" />
+  <hero
+    :navigation="true"
+    :title="t('pages.technical.subPages.chassis_decoder.hero_title')"
+    :heroType="HERO_TYPES.TECH"
+  />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" :version="BREADCRUMB_VERSIONS.TECH" :page="t('pages.technical.subPages.chassis_decoder.breadcrumb_title')"></breadcrumb>
+        <breadcrumb
+          class="my-6"
+          :version="BREADCRUMB_VERSIONS.TECH"
+          :page="t('pages.technical.subPages.chassis_decoder.breadcrumb_title')"
+        ></breadcrumb>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-7">
@@ -148,7 +157,11 @@
             </p>
           </div>
           <div class="col-span-12 md:col-span-5">
-            <NuxtLink :to="'/technical/engine-decoder'" :title="t('pages.technical.subPages.chassis_decoder.engine_decoder_card.link_title')" class="block">
+            <NuxtLink
+              :to="'/technical/engine-decoder'"
+              :title="t('pages.technical.subPages.chassis_decoder.engine_decoder_card.link_title')"
+              class="block"
+            >
               <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
                 <div class="card-body">
                   <div class="flex items-start space-x-4">
@@ -168,8 +181,12 @@
                       </figure>
                     </div>
                     <div class="flex-1">
-                      <h3 class="text-lg font-semibold">{{ t('pages.technical.subPages.chassis_decoder.engine_decoder_card.heading') }}</h3>
-                      <p class="mt-1">{{ t('pages.technical.subPages.chassis_decoder.engine_decoder_card.description') }}</p>
+                      <h3 class="text-lg font-semibold">
+                        {{ t('pages.technical.subPages.chassis_decoder.engine_decoder_card.heading') }}
+                      </h3>
+                      <p class="mt-1">
+                        {{ t('pages.technical.subPages.chassis_decoder.engine_decoder_card.description') }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -183,7 +200,9 @@
       <div class="col-span-12 md:col-span-8 md:col-start-3">
         <div class="card bg-base-100 shadow-lg">
           <div class="card-body text-center">
-            <h3 class="text-xl font-semibold mb-4">{{ t('pages.technical.subPages.chassis_decoder.form.card_title') }}</h3>
+            <h3 class="text-xl font-semibold mb-4">
+              {{ t('pages.technical.subPages.chassis_decoder.form.card_title') }}
+            </h3>
             <p class="mb-6">
               {{ t('pages.technical.subPages.chassis_decoder.form.card_description') }}
             </p>
@@ -192,7 +211,9 @@
               <!-- Year Range Selection -->
               <div class="form-control w-full">
                 <label class="label">
-                  <span class="label-text font-medium">{{ t('pages.technical.subPages.chassis_decoder.form.year_range_label') }}</span>
+                  <span class="label-text font-medium">{{
+                    t('pages.technical.subPages.chassis_decoder.form.year_range_label')
+                  }}</span>
                 </label>
                 <select v-model="yearRange" class="select select-bordered w-full">
                   <option v-for="option in yearRangeOptions" :key="option" :value="option">
@@ -204,7 +225,9 @@
               <!-- Chassis Number Input -->
               <div class="form-control w-full">
                 <label class="label">
-                  <span class="label-text font-medium">{{ t('pages.technical.subPages.chassis_decoder.form.chassis_number_label') }}</span>
+                  <span class="label-text font-medium">{{
+                    t('pages.technical.subPages.chassis_decoder.form.chassis_number_label')
+                  }}</span>
                 </label>
                 <input
                   v-model="chassisNumber"
@@ -215,7 +238,9 @@
                 />
                 <!-- Example for selected year range -->
                 <div v-if="exampleChassisNumber" class="mt-2 text-sm text-gray-600">
-                  <span class="font-medium">{{ t('pages.technical.subPages.chassis_decoder.form.example_text') }} {{ yearRange }}:</span>
+                  <span class="font-medium"
+                    >{{ t('pages.technical.subPages.chassis_decoder.form.example_text') }} {{ yearRange }}:</span
+                  >
                   <span class="font-mono ml-2 text-primary">{{ exampleChassisNumber }}</span>
                 </div>
               </div>
@@ -228,9 +253,15 @@
                   class="btn btn-primary"
                 >
                   <span v-if="isLoading" class="loading loading-spinner loading-sm"></span>
-                  {{ isLoading ? t('pages.technical.subPages.chassis_decoder.form.decoding_button') : t('pages.technical.subPages.chassis_decoder.form.decode_button') }}
+                  {{
+                    isLoading
+                      ? t('pages.technical.subPages.chassis_decoder.form.decoding_button')
+                      : t('pages.technical.subPages.chassis_decoder.form.decode_button')
+                  }}
                 </button>
-                <button @click="resetForm" class="btn btn-ghost">{{ t('pages.technical.subPages.chassis_decoder.form.reset_button') }}</button>
+                <button @click="resetForm" class="btn btn-ghost">
+                  {{ t('pages.technical.subPages.chassis_decoder.form.reset_button') }}
+                </button>
               </div>
 
               <!-- Error Message -->
@@ -247,27 +278,39 @@
         <div class="card bg-base-100 shadow-md">
           <div class="card-body">
             <div class="flex justify-between items-center mb-6">
-              <h3 class="card-title text-xl font-semibold">{{ t('pages.technical.subPages.chassis_decoder.results.title') }}</h3>
+              <h3 class="card-title text-xl font-semibold">
+                {{ t('pages.technical.subPages.chassis_decoder.results.title') }}
+              </h3>
               <div>
-                <span v-if="decodedResult.isValid" class="badge badge-success">{{ t('pages.technical.subPages.chassis_decoder.results.status_decoded') }}</span>
-                <span v-else class="badge badge-error">{{ t('pages.technical.subPages.chassis_decoder.results.status_invalid') }}</span>
+                <span v-if="decodedResult.isValid" class="badge badge-success">{{
+                  t('pages.technical.subPages.chassis_decoder.results.status_decoded')
+                }}</span>
+                <span v-else class="badge badge-error">{{
+                  t('pages.technical.subPages.chassis_decoder.results.status_invalid')
+                }}</span>
               </div>
             </div>
             <!-- Summary -->
             <div class="mb-6">
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                 <div class="stat">
-                  <div class="stat-title">{{ t('pages.technical.subPages.chassis_decoder.results.year_range_stat') }}</div>
+                  <div class="stat-title">
+                    {{ t('pages.technical.subPages.chassis_decoder.results.year_range_stat') }}
+                  </div>
                   <div class="stat-value text-lg">{{ decodedResult.yearRange }}</div>
                 </div>
                 <div class="stat">
-                  <div class="stat-title text-lg">{{ t('pages.technical.subPages.chassis_decoder.results.chassis_number_stat') }}</div>
+                  <div class="stat-title text-lg">
+                    {{ t('pages.technical.subPages.chassis_decoder.results.chassis_number_stat') }}
+                  </div>
                   <div class="stat-value text-xl font-mono">
                     <p class="badge badge-secondary badge-lg">{{ decodedResult.chassisNumber }}</p>
                   </div>
                 </div>
                 <div class="stat">
-                  <div class="stat-title">{{ t('pages.technical.subPages.chassis_decoder.results.expected_pattern_stat') }}</div>
+                  <div class="stat-title">
+                    {{ t('pages.technical.subPages.chassis_decoder.results.expected_pattern_stat') }}
+                  </div>
                   <div class="stat-value text-lg font-mono">{{ decodedResult.pattern }}</div>
                 </div>
               </div>
@@ -275,7 +318,9 @@
 
             <!-- Validation Errors -->
             <div v-if="decodedResult.errors.length > 0" class="mb-6">
-              <h4 class="text-lg font-semibold mb-3">{{ t('pages.technical.subPages.chassis_decoder.results.validation_issues_title') }}</h4>
+              <h4 class="text-lg font-semibold mb-3">
+                {{ t('pages.technical.subPages.chassis_decoder.results.validation_issues_title') }}
+              </h4>
               <div class="space-y-2">
                 <div v-for="error in decodedResult.errors" :key="error" class="alert alert-warning">
                   <span>{{ error }}</span>
@@ -285,7 +330,9 @@
 
             <!-- Decoded Positions -->
             <div>
-              <h4 class="text-lg font-semibold mb-4">{{ t('pages.technical.subPages.chassis_decoder.results.decoded_positions_title') }}</h4>
+              <h4 class="text-lg font-semibold mb-4">
+                {{ t('pages.technical.subPages.chassis_decoder.results.decoded_positions_title') }}
+              </h4>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div
                   v-for="position in decodedResult.decodedPositions"
@@ -297,7 +344,8 @@
                   <div class="flex-1">
                     <div class="flex items-center gap-2">
                       <span class="font-medium">
-                        {{ t('pages.technical.subPages.chassis_decoder.results.position_label') }} {{ position.position }}: <strong>{{ position.value }}</strong>
+                        {{ t('pages.technical.subPages.chassis_decoder.results.position_label') }}
+                        {{ position.position }}: <strong>{{ position.value }}</strong>
                       </span>
                       <span v-if="position.matched" class="badge badge-success badge-sm">✓</span>
                       <span v-else class="badge badge-error badge-sm">✗</span>
@@ -315,16 +363,22 @@
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="card bg-base-100 shadow-md">
           <div class="card-body">
-            <h3 class="card-title text-2xl font-semibold mb-4">{{ t('pages.technical.subPages.chassis_decoder.special_notes.title') }}</h3>
+            <h3 class="card-title text-2xl font-semibold mb-4">
+              {{ t('pages.technical.subPages.chassis_decoder.special_notes.title') }}
+            </h3>
             <div class="space-y-4">
               <div>
-                <h4 class="text-lg font-semibold mb-2">{{ t('pages.technical.subPages.chassis_decoder.special_notes.build_number_title') }}</h4>
+                <h4 class="text-lg font-semibold mb-2">
+                  {{ t('pages.technical.subPages.chassis_decoder.special_notes.build_number_title') }}
+                </h4>
                 <p>
                   {{ t('pages.technical.subPages.chassis_decoder.special_notes.build_number_text') }}
                 </p>
               </div>
               <div>
-                <h4 class="text-lg font-semibold mb-2">{{ t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_title') }}</h4>
+                <h4 class="text-lg font-semibold mb-2">
+                  {{ t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_title') }}
+                </h4>
                 <p>
                   {{ t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_text') }}
                 </p>
@@ -337,7 +391,9 @@
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="text-center">
           <p>
-            {{ t('pages.technical.subPages.chassis_decoder.attribution.text') }} <strong>{{ t('pages.technical.subPages.chassis_decoder.attribution.mini_mania') }}</strong> {{ t('pages.technical.subPages.chassis_decoder.attribution.technical_articles') }}
+            {{ t('pages.technical.subPages.chassis_decoder.attribution.text') }}
+            <strong>{{ t('pages.technical.subPages.chassis_decoder.attribution.mini_mania') }}</strong>
+            {{ t('pages.technical.subPages.chassis_decoder.attribution.technical_articles') }}
             <a
               href="https://www.minimania.com/Mini_Chassis_VIN_and_Commission_Numbers__Part_I__Revised_"
               target="_blank"

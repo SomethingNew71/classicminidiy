@@ -76,6 +76,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ### Key Features
 
 #### Technical Toolbox (`app/technical`)
+
 - **Compression Ratio Calculator** (`/technical/compression`) - Engine compression calculations with piston, crankshaft, head gasket configurations
 - **Gearbox Calculator** (`/technical/gearing`) - Gear ratio calculations and speed computations
 - **SU Carb Needle Configurator** (`/technical/needles`) - Interactive needle comparison with Highcharts visualization
@@ -86,6 +87,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - **Torque Specifications Chart** (`/technical/torque`) - Complete torque specification database
 
 #### Archive System (`app/archive`)
+
 - **Workshop Manuals** (`/archive/manuals`) - Complete digitized workshop manuals with search
 - **Electrical Wiring Diagrams** (`/archive/electrical`) - Positive/negative ground systems by year and model
 - **Historical Advertisements** (`/archive/adverts`) - Period advertising materials and brochures
@@ -98,21 +100,25 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - **Vehicle Weights Reference** (`/archive/weights`) - Weight specifications by model and year
 
 #### AI-Powered Features (`app/chat`)
+
 - **CMDIY Assistant** - LangGraph-powered conversational AI with context awareness
 - **Model Context Protocol (MCP) Server** - AI integration with calculators and tools
 - **Streaming Responses** - Real-time AI chat with persistent conversation threads
 
 #### Administrative Features (`app/admin`)
+
 - **Registry Review System** (`/admin/registry/review`) - Approve/reject user submissions
 - **Wheel Review System** (`/admin/wheels/review`) - Review user-submitted wheel data
 - **Authentication System** - Secure admin login and session management
 
 #### E-commerce Integration (`/maps`)
+
 - **ECU Maps Store** - Multi-ECU support (Haltech, Speeduino, MegaSquirt, etc.)
 - **GitHub Integration** - Real-time repository updates and release management
 - **Feature Matrix** - Ignition maps, fuel maps, VE tables, target AFR configurations
 
 #### Internationalization (i18n)
+
 - **Multi-Language Support** - 10 languages with comprehensive translations
 - **Browser Detection** - Automatic language detection and SEO optimization
 - **Nuxt i18n Module** - @nuxtjs/i18n for full internationalization support
@@ -123,6 +129,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ### Core APIs (51+ endpoints)
 
 #### Technical Tools APIs
+
 - `/api/decoders/chassis` - Chassis number decoding by year ranges
 - `/api/decoders/engine` - Engine code interpretation and identification
 - `/api/mcp/compression` - MCP integration for compression calculator
@@ -130,6 +137,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - `/api/mcp/chassis-decoder` - MCP integration for chassis decoding
 
 #### Database APIs
+
 - `/api/wheels/` - Wheel fitment database with image handling
 - `/api/registry/` - User registration system with approval workflow
 - `/api/colors/` - Paint color database with user contributions
@@ -137,15 +145,18 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - `/api/weights/` - Vehicle weight specifications
 
 #### AI & Chat APIs
+
 - `/api/langgraph/` - AI chat integration with streaming responses
 - `/api/mcp/` - Model Context Protocol server for tool integration
 
 #### Administrative APIs
+
 - `/api/admin/registry/review` - Registry submission review and approval
 - `/api/admin/wheels/review` - Wheel submission review and management
 - `/api/admin/auth` - Authentication and session management
 
 #### Content & Media APIs
+
 - `/api/github/` - Repository statistics, commits, and release data
 - `/api/youtube/` - Channel statistics and video integration
 - `/api/maps/` - ECU maps store with GitHub integration
@@ -273,11 +284,13 @@ s3Base=
 ### Database Management
 
 #### User-Generated Content
+
 - **Registry System**: Admin approval workflow for Classic Mini registrations
 - **Wheel Database**: Image processing and fitment data review system
 - **Color Contributions**: User-submitted paint color database with validation
 
 #### Static Reference Data
+
 - **Technical Specifications**: JSON-based torque values, clearances, and part equivalencies
 - **Historical Data**: Chassis numbers, engine codes, and specifications by year
 - **Archive Content**: Digitized manuals, wiring diagrams, and historical documents
@@ -349,7 +362,7 @@ Each locale file follows a hierarchical JSON structure:
   "common": {
     "home": "Home",
     "archive": "Archive",
-    "technical": "Technical",
+    "technical": "Technical"
     // ... common UI elements
   },
   "navigation": {
@@ -361,13 +374,23 @@ Each locale file follows a hierarchical JSON structure:
     "home_subtitle": "YOUR FRIENDLY NEIGHBORHOOD"
   },
   "components": {
-    "stats": { /* ... */ },
-    "recent_videos": { /* ... */ }
+    "stats": {
+      /* ... */
+    },
+    "recent_videos": {
+      /* ... */
+    }
   },
   "pages": {
-    "home": { /* ... */ },
-    "about": { /* ... */ },
-    "error": { /* ... */ }
+    "home": {
+      /* ... */
+    },
+    "about": {
+      /* ... */
+    },
+    "error": {
+      /* ... */
+    }
     // ... page-specific translations
   }
 }
@@ -376,13 +399,14 @@ Each locale file follows a hierarchical JSON structure:
 ### Usage in Components
 
 #### Composition API (Recommended)
+
 ```vue
 <script setup>
-const { t, locale, locales } = useI18n();
+  const { t, locale, locales } = useI18n();
 
-// Use translations
-const title = t('pages.home.title');
-const description = t('pages.home.description');
+  // Use translations
+  const title = t('pages.home.title');
+  const description = t('pages.home.description');
 </script>
 
 <template>
@@ -392,7 +416,9 @@ const description = t('pages.home.description');
 ```
 
 #### Language Switcher Component
+
 The `LanguageSwitcher.vue` component (`/app/components/LanguageSwitcher.vue`) provides:
+
 - Dropdown interface for language selection
 - Persistent language preference via cookies
 - Automatic route switching with `switchLocalePath()`
@@ -401,6 +427,7 @@ The `LanguageSwitcher.vue` component (`/app/components/LanguageSwitcher.vue`) pr
 ### Browser Language Detection
 
 **Automatic Detection Features:**
+
 - **Cookie Persistence**: User language preference stored in `i18n_redirected` cookie
 - **Fallback Logic**: Defaults to English (`en`) if browser language not supported
 - **Root Redirect**: Only redirects on root path to avoid breaking deep links
@@ -409,6 +436,7 @@ The `LanguageSwitcher.vue` component (`/app/components/LanguageSwitcher.vue`) pr
 ### SEO & Multi-Language Support
 
 **SEO Optimization:**
+
 - Language-specific meta tags and content
 - Automatic `hreflang` attribute generation
 - Localized URLs and routing
@@ -417,6 +445,7 @@ The `LanguageSwitcher.vue` component (`/app/components/LanguageSwitcher.vue`) pr
 ### Implementation Guidelines
 
 #### Adding New Translations
+
 1. **Add new locale** to `nuxt.config.ts` locales array
 2. **Create new JSON file** in `/i18n/locales/` directory
 3. **Copy structure** from `en.json` as template
@@ -424,13 +453,16 @@ The `LanguageSwitcher.vue` component (`/app/components/LanguageSwitcher.vue`) pr
 5. **Test language switcher** functionality
 
 #### Translation Key Naming Convention
+
 - Use **nested structure** for organization (`pages.home.title`)
 - **Descriptive keys** rather than generic ones
 - **Consistent naming** across all locale files
 - **Group by feature/page** for better maintenance
 
 #### Components Using i18n
+
 Current implementation includes:
+
 - `LanguageSwitcher.vue` - Language selection dropdown
 - `Hero.vue` - Home page hero section
 - `Stats.vue` - YouTube statistics
@@ -451,6 +483,7 @@ Current implementation includes:
 ### Development Notes
 
 **Important Considerations:**
+
 - **German locale** appears to have the most complete translations
 - **English** serves as the master reference for new keys
 - **Consistent structure** maintained across all locale files
@@ -460,21 +493,25 @@ Current implementation includes:
 ## Advanced Features
 
 ### Progressive Web App (PWA)
+
 - **Offline Functionality**: Service worker caching for offline access
 - **App-like Experience**: Installable web application
 - **Mobile Optimization**: Responsive design with touch-friendly interfaces
 
 ### SEO & Social Integration
+
 - **Comprehensive SEO**: Meta tags, structured data, XML sitemaps
 - **Social Sharing**: Open Graph and Twitter cards for all pages
 - **Multi-language SEO**: Language-specific meta tags and content optimization
 
 ### Developer Tools Integration
+
 - **Recommended Tools Database**: Categorized tool lists with vendor integration
 - **Amazon Affiliate Links**: Integrated product recommendations
 - **Image Optimization**: WebP variants with fallback support
 
 ### Performance Monitoring
+
 - **Analytics Integration**: Google Analytics, Vercel Analytics, Speed Insights
 - **Core Web Vitals**: Real-time performance monitoring
 - **Error Tracking**: Comprehensive error logging and monitoring

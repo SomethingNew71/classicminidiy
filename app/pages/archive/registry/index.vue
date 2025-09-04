@@ -46,7 +46,8 @@
           <div class="col-span-12 md:col-span-8">
             <h1 class="text-3xl font-bold">{{ t('pages.archive.subpages.registry.main_heading') }}</h1>
             <h2 class="text-xl mt-4">
-              <strong>{{ registryItems?.length || t('pages.archive.subpages.registry.subtitle_count') }}</strong> {{ t('pages.archive.subpages.registry.subtitle') }}
+              <strong>{{ registryItems?.length || t('pages.archive.subpages.registry.subtitle_count') }}</strong>
+              {{ t('pages.archive.subpages.registry.subtitle') }}
             </h2>
             <p class="my-4">
               {{ t('pages.archive.subpages.registry.description_text') }}

@@ -1203,8 +1203,8 @@
         }
       }
     },
-  "pages": {
-    "wheel_submit": {
+    "pages": {
+      "wheel_submit": {
         "stepper": {
           "wheel_details": "Dettagli ruota",
           "images": "Immagini",
