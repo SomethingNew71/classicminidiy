@@ -2,7 +2,7 @@
   import type { IWheelsData } from '../../data/models/wheels';
   import Fuse from 'fuse.js';
 
-  const { t } = useI18n();
+  const { t } = useI18n({ useScope: 'local' });
 
   // State management with proper typing
   const search = ref('');
@@ -89,11 +89,11 @@
     <!-- Header section -->
     <div class="card-body pb-0">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="card-title"><i class="fad fa-tire fa-spin mr-2"></i> {{ t('components.wheel_grid.title') }}</h2>
-        <div v-if="filtersActive" class="tooltip tooltip-left" :data-tip="t('components.wheel_grid.clear_filters')">
+        <h2 class="card-title"><i class="fad fa-tire fa-spin mr-2"></i> {{ t('title') }}</h2>
+        <div v-if="filtersActive" class="tooltip tooltip-left" :data-tip="t('clear_filters')">
           <button class="btn btn-ghost btn-sm" @click="clearFilters">
             <i class="fas fa-filter-circle-xmark"></i>
-            {{ t('components.wheel_grid.clear_filters') }}
+            {{ t('clear_filters') }}
           </button>
         </div>
       </div>
@@ -109,7 +109,7 @@
                 :class="{ 'btn-primary': size === 'list' }"
                 @change="size = 'list'"
                 :checked="size === 'list'"
-                :aria-label="t('components.wheel_grid.all_sizes')"
+                :aria-label="t('all_sizes')"
               />
               <input
                 type="radio"
@@ -118,7 +118,7 @@
                 :class="{ 'btn-primary': size === 'ten' }"
                 @change="size = 'ten'"
                 :checked="size === 'ten'"
-                :aria-label="t('components.wheel_grid.ten_inch_wheels')"
+                :aria-label="t('ten_inch_wheels')"
               />
               <input
                 type="radio"
@@ -127,7 +127,7 @@
                 :class="{ 'btn-primary': size === 'twelve' }"
                 @change="size = 'twelve'"
                 :checked="size === 'twelve'"
-                :aria-label="t('components.wheel_grid.twelve_inch_wheels')"
+                :aria-label="t('twelve_inch_wheels')"
               />
               <input
                 type="radio"
@@ -136,7 +136,7 @@
                 :class="{ 'btn-primary': size === 'thirteen' }"
                 @change="size = 'thirteen'"
                 :checked="size === 'thirteen'"
-                :aria-label="t('components.wheel_grid.thirteen_inch_wheels')"
+                :aria-label="t('thirteen_inch_wheels')"
               />
             </form>
           </div>
@@ -145,9 +145,9 @@
         <div class="form-control">
           <div class="input-group w-full">
             <label class="label">
-              <span class="label-text">{{ t('components.wheel_grid.search_label') }}</span>
+              <span class="label-text">{{ t('search_label') }}</span>
             </label>
-            <input v-model="search" type="text" :placeholder="t('components.wheel_grid.search_placeholder')" />
+            <input v-model="search" type="text" :placeholder="t('search_placeholder')" />
           </div>
         </div>
       </div>
@@ -158,7 +158,7 @@
       <!-- Error state -->
       <div v-if="error" class="alert alert-error">
         <i class="fas fa-exclamation-circle"></i>
-        <span>{{ error.message || t('components.wheel_grid.error_loading') }}</span>
+        <span>{{ error.message || t('error_loading') }}</span>
       </div>
 
       <!-- Loading state -->
@@ -169,8 +169,8 @@
       <!-- No results -->
       <div v-else-if="filteredWheels.length === 0" class="text-center p-8">
         <i class="fas fa-tire text-6xl text-gray-400 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">{{ t('components.wheel_grid.no_results_title') }}</h3>
-        <p class="text-gray-500">{{ t('components.wheel_grid.no_results_message') }}</p>
+        <h3 class="text-xl font-semibold mb-2">{{ t('no_results_title') }}</h3>
+        <p class="text-gray-500">{{ t('no_results_message') }}</p>
       </div>
 
       <!-- Grid of wheels -->
@@ -192,25 +192,25 @@
             <h3 class="card-title text-lg">{{ wheel.name }}</h3>
             <div class="grid grid-cols-2 gap-2 text-sm">
               <div>
-                <div class="text-gray-500">{{ t('components.wheel_grid.size_label') }}</div>
-                <div class="font-medium">{{ wheel.size || t('components.wheel_grid.not_available') }}</div>
+                <div class="text-gray-500">{{ t('size_label') }}</div>
+                <div class="font-medium">{{ wheel.size || t('not_available') }}</div>
               </div>
               <div>
-                <div class="text-gray-500">{{ t('components.wheel_grid.width_label') }}</div>
-                <div class="font-medium">{{ wheel.width || t('components.wheel_grid.not_available') }}</div>
+                <div class="text-gray-500">{{ t('width_label') }}</div>
+                <div class="font-medium">{{ wheel.width || t('not_available') }}</div>
               </div>
               <div>
-                <div class="text-gray-500">{{ t('components.wheel_grid.offset_label') }}</div>
-                <div class="font-medium">{{ wheel.offset || t('components.wheel_grid.not_available') }}</div>
+                <div class="text-gray-500">{{ t('offset_label') }}</div>
+                <div class="font-medium">{{ wheel.offset || t('not_available') }}</div>
               </div>
               <div>
-                <div class="text-gray-500">{{ t('components.wheel_grid.material_label') }}</div>
-                <div class="font-medium">{{ wheel.type || t('components.wheel_grid.not_available') }}</div>
+                <div class="text-gray-500">{{ t('material_label') }}</div>
+                <div class="font-medium">{{ wheel.type || t('not_available') }}</div>
               </div>
             </div>
             <div class="card-actions justify-end mt-2">
               <NuxtLink :to="`/archive/wheels/${wheel.uuid}`" class="btn btn-sm btn-secondary">
-                {{ t('components.wheel_grid.view_details') }}
+                {{ t('view_details') }}
               </NuxtLink>
             </div>
           </div>
@@ -225,7 +225,7 @@
           <i class="fad fa-arrow-left"></i>
         </button>
         <button class="join-item btn btn-ghost">
-          {{ t('components.wheel_grid.page_info', { current: page, total: Math.ceil(filteredWheels.length / 12) }) }}
+          {{ t('page_info', { current: page, total: Math.ceil(filteredWheels.length / 12) }) }}
         </button>
         <button
           class="join-item btn"
@@ -238,6 +238,211 @@
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Wheel Registry",
+    "clear_filters": "Clear Filters",
+    "all_sizes": "All Sizes",
+    "ten_inch_wheels": "10\" Wheels",
+    "twelve_inch_wheels": "12\" Wheels",
+    "thirteen_inch_wheels": "13\" Wheels",
+    "search_label": "Search wheels",
+    "search_placeholder": "Search by name, size, width, offset, or material...",
+    "error_loading": "Error loading wheels",
+    "no_results_title": "No wheels found",
+    "no_results_message": "Try adjusting your search or filters",
+    "size_label": "Size",
+    "width_label": "Width",
+    "offset_label": "Offset",
+    "material_label": "Material",
+    "not_available": "N/A",
+    "view_details": "View Details",
+    "page_info": "Page {current} of {total}"
+  },
+  "de": {
+    "title": "Felgen-Register",
+    "clear_filters": "Filter löschen",
+    "all_sizes": "Alle Größen",
+    "ten_inch_wheels": "10\" Felgen",
+    "twelve_inch_wheels": "12\" Felgen",
+    "thirteen_inch_wheels": "13\" Felgen",
+    "search_label": "Felgen suchen",
+    "search_placeholder": "Suche nach Name, Größe, Breite, Offset oder Material...",
+    "error_loading": "Fehler beim Laden der Felgen",
+    "no_results_title": "Keine Felgen gefunden",
+    "no_results_message": "Versuchen Sie, Ihre Suche oder Filter anzupassen",
+    "size_label": "Größe",
+    "width_label": "Breite",
+    "offset_label": "Offset",
+    "material_label": "Material",
+    "not_available": "N/V",
+    "view_details": "Details anzeigen",
+    "page_info": "Seite {current} von {total}"
+  },
+  "es": {
+    "title": "Registro de Llantas",
+    "clear_filters": "Limpiar Filtros",
+    "all_sizes": "Todos los Tamaños",
+    "ten_inch_wheels": "Llantas 10\"",
+    "twelve_inch_wheels": "Llantas 12\"",
+    "thirteen_inch_wheels": "Llantas 13\"",
+    "search_label": "Buscar llantas",
+    "search_placeholder": "Buscar por nombre, tamaño, ancho, offset o material...",
+    "error_loading": "Error al cargar las llantas",
+    "no_results_title": "No se encontraron llantas",
+    "no_results_message": "Intenta ajustar tu búsqueda o filtros",
+    "size_label": "Tamaño",
+    "width_label": "Ancho",
+    "offset_label": "Offset",
+    "material_label": "Material",
+    "not_available": "N/D",
+    "view_details": "Ver Detalles",
+    "page_info": "Página {current} de {total}"
+  },
+  "fr": {
+    "title": "Registre des Jantes",
+    "clear_filters": "Effacer les Filtres",
+    "all_sizes": "Toutes les Tailles",
+    "ten_inch_wheels": "Jantes 10\"",
+    "twelve_inch_wheels": "Jantes 12\"",
+    "thirteen_inch_wheels": "Jantes 13\"",
+    "search_label": "Rechercher des jantes",
+    "search_placeholder": "Rechercher par nom, taille, largeur, offset ou matériau...",
+    "error_loading": "Erreur lors du chargement des jantes",
+    "no_results_title": "Aucune jante trouvée",
+    "no_results_message": "Essayez d'ajuster votre recherche ou vos filtres",
+    "size_label": "Taille",
+    "width_label": "Largeur",
+    "offset_label": "Offset",
+    "material_label": "Matériau",
+    "not_available": "N/D",
+    "view_details": "Voir les Détails",
+    "page_info": "Page {current} sur {total}"
+  },
+  "it": {
+    "title": "Registro Cerchi",
+    "clear_filters": "Cancella Filtri",
+    "all_sizes": "Tutte le Dimensioni",
+    "ten_inch_wheels": "Cerchi 10\"",
+    "twelve_inch_wheels": "Cerchi 12\"",
+    "thirteen_inch_wheels": "Cerchi 13\"",
+    "search_label": "Cerca cerchi",
+    "search_placeholder": "Cerca per nome, dimensione, larghezza, offset o materiale...",
+    "error_loading": "Errore nel caricamento dei cerchi",
+    "no_results_title": "Nessun cerchio trovato",
+    "no_results_message": "Prova ad aggiustare la tua ricerca o i filtri",
+    "size_label": "Dimensione",
+    "width_label": "Larghezza",
+    "offset_label": "Offset",
+    "material_label": "Materiale",
+    "not_available": "N/D",
+    "view_details": "Vedi Dettagli",
+    "page_info": "Pagina {current} di {total}"
+  },
+  "ja": {
+    "title": "ホイール登録",
+    "clear_filters": "フィルターをクリア",
+    "all_sizes": "すべてのサイズ",
+    "ten_inch_wheels": "10\"ホイール",
+    "twelve_inch_wheels": "12\"ホイール",
+    "thirteen_inch_wheels": "13\"ホイール",
+    "search_label": "ホイールを検索",
+    "search_placeholder": "名前、サイズ、幅、オフセット、または材質で検索...",
+    "error_loading": "ホイールの読み込みエラー",
+    "no_results_title": "ホイールが見つかりません",
+    "no_results_message": "検索またはフィルターを調整してください",
+    "size_label": "サイズ",
+    "width_label": "幅",
+    "offset_label": "オフセット",
+    "material_label": "材質",
+    "not_available": "N/A",
+    "view_details": "詳細を見る",
+    "page_info": "ページ {current} / {total}"
+  },
+  "ko": {
+    "title": "휠 등록부",
+    "clear_filters": "필터 지우기",
+    "all_sizes": "모든 크기",
+    "ten_inch_wheels": "10\" 휠",
+    "twelve_inch_wheels": "12\" 휠",
+    "thirteen_inch_wheels": "13\" 휠",
+    "search_label": "휠 검색",
+    "search_placeholder": "이름, 크기, 너비, 오프셋 또는 재질로 검색...",
+    "error_loading": "휠 로딩 오류",
+    "no_results_title": "휠을 찾을 수 없습니다",
+    "no_results_message": "검색 또는 필터를 조정해 보세요",
+    "size_label": "크기",
+    "width_label": "너비",
+    "offset_label": "오프셋",
+    "material_label": "재질",
+    "not_available": "N/A",
+    "view_details": "세부 정보 보기",
+    "page_info": "페이지 {current} / {total}"
+  },
+  "pt": {
+    "title": "Registro de Rodas",
+    "clear_filters": "Limpar Filtros",
+    "all_sizes": "Todos os Tamanhos",
+    "ten_inch_wheels": "Rodas 10\"",
+    "twelve_inch_wheels": "Rodas 12\"",
+    "thirteen_inch_wheels": "Rodas 13\"",
+    "search_label": "Pesquisar rodas",
+    "search_placeholder": "Pesquisar por nome, tamanho, largura, offset ou material...",
+    "error_loading": "Erro ao carregar rodas",
+    "no_results_title": "Nenhuma roda encontrada",
+    "no_results_message": "Tente ajustar sua pesquisa ou filtros",
+    "size_label": "Tamanho",
+    "width_label": "Largura",
+    "offset_label": "Offset",
+    "material_label": "Material",
+    "not_available": "N/D",
+    "view_details": "Ver Detalhes",
+    "page_info": "Página {current} de {total}"
+  },
+  "ru": {
+    "title": "Реестр Дисков",
+    "clear_filters": "Очистить Фильтры",
+    "all_sizes": "Все Размеры",
+    "ten_inch_wheels": "Диски 10\"",
+    "twelve_inch_wheels": "Диски 12\"",
+    "thirteen_inch_wheels": "Диски 13\"",
+    "search_label": "Поиск дисков",
+    "search_placeholder": "Поиск по названию, размеру, ширине, вылету или материалу...",
+    "error_loading": "Ошибка загрузки дисков",
+    "no_results_title": "Диски не найдены",
+    "no_results_message": "Попробуйте изменить поиск или фильтры",
+    "size_label": "Размер",
+    "width_label": "Ширина",
+    "offset_label": "Вылет",
+    "material_label": "Материал",
+    "not_available": "Н/Д",
+    "view_details": "Подробности",
+    "page_info": "Страница {current} из {total}"
+  },
+  "zh": {
+    "title": "轮毂注册表",
+    "clear_filters": "清除过滤器",
+    "all_sizes": "所有尺寸",
+    "ten_inch_wheels": "10\"轮毂",
+    "twelve_inch_wheels": "12\"轮毂",
+    "thirteen_inch_wheels": "13\"轮毂",
+    "search_label": "搜索轮毂",
+    "search_placeholder": "按名称、尺寸、宽度、偏移量或材质搜索...",
+    "error_loading": "加载轮毂时出错",
+    "no_results_title": "未找到轮毂",
+    "no_results_message": "尝试调整您的搜索或过滤器",
+    "size_label": "尺寸",
+    "width_label": "宽度",
+    "offset_label": "偏移量",
+    "material_label": "材质",
+    "not_available": "不适用",
+    "view_details": "查看详情",
+    "page_info": "第 {current} 页，共 {total} 页"
+  }
+}
+</i18n>
 
 <style scoped>
   .wheel-chip {
