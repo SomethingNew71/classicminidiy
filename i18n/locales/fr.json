@@ -315,6 +315,19 @@
       "pagination": {
         "page_text": "Page {current} sur {total}"
       }
+    },
+    "chat": {
+      "chat_window": {
+        "experimental_feature": "Fonctionnalité expérimentale :",
+        "experimental_disclaimer": "Cet assistant IA est en version bêta et ne devrait pas être utilisé comme votre seule source d'information technique.",
+        "welcome_title": "Bienvenue à l'assistant CMDIY !",
+        "input_placeholder": "Tapez votre message...",
+        "report_issue": "Signaler un problème",
+        "useful_links_placeholder": "Les liens utiles apparaîtront ici lorsque disponibles"
+      },
+      "useful_links_sidebar": {
+        "title": "Liens utiles"
+      }
     }
   },
   "pages": {
@@ -1293,29 +1306,6 @@
           "ui": {
             "support_section": "Support"
           }
-        }
-      },
-      "chat": {
-        "assistant_message": {
-          "copy_button": "Copier"
-        },
-        "chat_window": {
-          "experimental_feature": "Fonctionnalité expérimentale :",
-          "experimental_disclaimer": "Cet assistant IA est en version bêta et ne devrait pas être utilisé comme votre seule source d'information technique.",
-          "welcome_title": "Bienvenue à l'assistant CMDIY !",
-          "input_placeholder": "Tapez votre message...",
-          "report_issue": "Signaler un problème",
-          "useful_links_placeholder": "Les liens utiles apparaîtront ici lorsque disponibles"
-        },
-        "human_message": {
-          "copy_button": "Copier"
-        },
-        "useful_links": {
-          "title": "Liens utiles"
-        },
-        "useful_links_sidebar": {
-          "title": "Liens utiles",
-          "showing_results": "Affichage de tous les {count} résultats de recherche"
         }
       },
       "wheel_submit": {

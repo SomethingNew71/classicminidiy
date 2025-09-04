@@ -315,6 +315,19 @@
       "pagination": {
         "page_text": "Page {current} of {total}"
       }
+    },
+    "chat": {
+      "chat_window": {
+        "experimental_feature": "Experimental Feature:",
+        "experimental_disclaimer": "This AI assistant is in beta and should not be used as your only source of technical information.",
+        "welcome_title": "Welcome to Classic Mini DIY Assistant",
+        "input_placeholder": "Ask me anything about your Classic Mini...",
+        "report_issue": "Report an issue with the chat",
+        "useful_links_placeholder": "Useful links will appear here after I search for information"
+      },
+      "useful_links_sidebar": {
+        "title": "Useful Links"
+      }
     }
   },
   "pages": {

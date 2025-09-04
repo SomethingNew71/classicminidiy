@@ -1,0 +1,1522 @@
+{
+  "common": {
+    "home": "홈",
+    "archive": "아카이브",
+    "technical": "기술 정보",
+    "toolbox": "도구함",
+    "calculators": "계산기",
+    "contact": "문의",
+    "about": "소개",
+    "search": "검색",
+    "loading": "로딩 중...",
+    "error": "오류",
+    "submit": "제출",
+    "cancel": "취소",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "close": "닫기",
+    "donate": "후원",
+    "contribute": "기여하기"
+  },
+  "navigation": {
+    "main_menu": "메인 메뉴",
+    "breadcrumb": "위치 표시"
+  },
+  "hero": {
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "여러분의 친근한 이웃"
+  },
+  "components": {
+    "stats": {
+      "minutes_watched": "시청 시간(분)",
+      "over_30_days": "지난 30일 동안",
+      "subscribers": "구독자",
+      "across_world": "전 세계",
+      "videos": "동영상",
+      "since_2015": "2015년부터"
+    },
+    "recent_videos": {
+      "title": "최신 동영상",
+      "error_message": "YouTube 데이터를 불러올 수 없습니다",
+      "published_on": "게시일",
+      "watch_button": "시청하기"
+    },
+    "calculators": {
+      "compression": {
+        "help_button": "이 값들을 어떻게 측정하나요?",
+        "help_modal": {
+          "title": "연소실과 데크 측정하기",
+          "friend_title": "우리 친구 Paul Hickey",
+          "friend_description": "YouTube에서",
+          "friend_text": "계산기에 필요한 이런 값들을 측정하는데 도움이 필요하다면, HRE IRL의 Paul Hickey가 만든 위 동영상을 확인해보세요. 그는 Classic Mini의 전체 측정 과정을 다룹니다.",
+          "close_button": "닫기"
+        },
+        "form_labels": {
+          "piston_size": "피스톤 크기",
+          "crankshaft": "크랭크샤프트",
+          "head_gasket": "헤드 가스켓",
+          "custom_gasket_size": "사용자 정의 가스켓 크기 (cc)",
+          "decompression_plate": "압축 저감 플레이트",
+          "piston_dish_size": "피스톤 딤플 크기 (cc)",
+          "cylinder_head_chamber_volume": "실린더 헤드 연소실 용적 (cc)",
+          "piston_deck_height": "피스톤 데크 높이 (thou)"
+        },
+        "results": {
+          "title": "결과:",
+          "compression_ratio": "압축비",
+          "engine_capacity": "엔진 배기량"
+        },
+        "disclaimer": {
+          "text": "위 수치들은 {strong_start}근사값{strong_end}임을 알려드립니다. 부품을 구매하고 엔진을 제작하기 전에 여러 소스를 사용하여 계산을 {strong_start}여러 번 재확인{strong_end}할 것을 권장합니다. 이 도구에 사용된 수학 공식은 여기에서 찾을 수 있습니다:",
+          "equation_source": "공식 소스 코드",
+          "alternate_source": "대안 소스:",
+          "calver_link": "Calver 압축비",
+          "je_pistons_link": "JE Pistons 압축비"
+        }
+      },
+      "gearbox": {
+        "form_labels": {
+          "imperial_or_metric": "야드파운드법 또는 미터법",
+          "tire_size": "타이어 크기",
+          "speedo_drive_ratio": "속도계 드라이브 기어비",
+          "drop_gear_ratio": "드롭 기어 비율",
+          "gearset": "기어세트",
+          "final_drive": "최종 드라이브",
+          "max_rpm": "최대 RPM"
+        },
+        "rpm_options": {
+          "5000": "5000 RPM",
+          "5500": "5500 RPM",
+          "6000": "6000 RPM",
+          "6500": "6500 RPM",
+          "7000": "7000 RPM",
+          "7500": "7500 RPM",
+          "8000": "8000 RPM",
+          "8500": "8500 RPM",
+          "9000": "9000 RPM"
+        },
+        "results_divider": "결과",
+        "results": {
+          "revolutions_per": "{unit}당 회전수",
+          "gear_turns_per": "{unit}당 기어 회전수",
+          "top_speed": "최고 속도"
+        },
+        "tire_info": {
+          "tire_width": "타이어 폭",
+          "tire_profile": "타이어 프로필",
+          "tire_size": "타이어 크기",
+          "tire_diameter": "타이어 지름",
+          "circumference": "둘레",
+          "tire_turns_per": "{unit}당 타이어 회전수"
+        },
+        "tables": {
+          "speedo_information": "속도계 정보",
+          "gearing_information": "기어링 정보"
+        },
+        "chart": {
+          "loading": "차트 로딩 중"
+        },
+        "support_divider": "지원",
+        "disclaimer": "위 수치들은 {strong_start}근사값{strong_end}임을 알려드립니다. 부품을 구매하고 엔진을 제작하기 전에 여러 소스를 사용하여 계산을 {strong_start}여러 번 재확인{strong_end}할 것을 권장합니다. 이 도구에 사용된 수학 공식은 여기에서 찾을 수 있습니다:",
+        "equation_source": "공식 소스 코드"
+      },
+      "needles": {
+        "title": "비교할 니들 추가",
+        "description": "비교하고 싶은 니들의 이름을 입력하기 시작하세요. 그래프 값이 무엇을 의미하는지 확실하지 않다면? 아래 니들 다이어그램을 확인하여 자세히 알아보세요.",
+        "diagram_button": "도움이 되는 다이어그램",
+        "diagram_modal": {
+          "title": "니들 측정 다이어그램",
+          "alt_text": "니들 측정 다이어그램",
+          "close_button": "닫기"
+        },
+        "form": {
+          "select_placeholder": "니들 선택",
+          "add_button": "니들 추가"
+        },
+        "alerts": {
+          "already_exists": "니들이 이미 목록에 있습니다",
+          "empty_selection": "추가를 클릭하기 전에 다른 니들을 선택해야 합니다."
+        },
+        "selected_needles_title": "현재 선택된 니들",
+        "chart": {
+          "loading": "차트 로딩 중"
+        }
+      }
+    },
+    "registry_table": {
+      "search_placeholder": "모든 세부사항 검색",
+      "total_minis": "총 미니 대수",
+      "per_page_options": {
+        "10": "페이지당 10개",
+        "25": "페이지당 25개",
+        "50": "페이지당 50개",
+        "100": "페이지당 100개"
+      },
+      "table_headers": {
+        "year": "연도",
+        "model": "모델",
+        "trim": "트림",
+        "color": "색상"
+      },
+      "status": {
+        "pending": "대기 중",
+        "approved": "승인됨",
+        "rejected": "거부됨",
+        "unknown": "알 수 없음"
+      },
+      "expanded_details": {
+        "build_date": "제조 날짜:",
+        "body_number": "바디 번호:",
+        "engine_number": "엔진 번호:",
+        "submitted_by": "제출자:",
+        "notes": "참고사항:"
+      },
+      "no_items_found": "항목을 찾을 수 없습니다",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "미니 제출하기",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "감사합니다!",
+        "submitted_message": "귀하의 레지스트리 항목이 제출되었습니다. 목록에 나타나기까지 1-2일 정도 소요됩니다.",
+        "submission_details": "귀하의 레지스트리 제출 세부사항은",
+        "track_submission": "여기에서 제출 상태를 추적하세요:",
+        "submission_link": "제출",
+        "submit_another": "다른 미니 제출하기"
+      },
+      "validation": {
+        "required": "이 필드는 제출하기 위해 필수입니다",
+        "invalid_email": "유효하지 않은 이메일입니다."
+      },
+      "sections": {
+        "personal_info": "개인 정보:",
+        "car_details": "차량 세부사항:"
+      },
+      "form_labels": {
+        "your_name": "이름",
+        "your_email": "이메일",
+        "model_year": "모델 연도",
+        "model": "모델",
+        "trim": "트림",
+        "body_type": "바디 타입",
+        "original_engine_size": "원래 엔진 크기",
+        "factory_color": "공장 색상",
+        "body_shell_number": "바디 셸 번호",
+        "engine_plate_number": "엔진 플레이트 번호",
+        "special_notes": "특별하거나 추가 참고사항"
+      },
+      "placeholders": {
+        "name": "예) 김철수",
+        "email": "예) john{'@'}example.com",
+        "model": "예) Morris Mini",
+        "trim": "예) Mini 50",
+        "color": "예) Clipper Blue",
+        "body_number": "예) GB190fW",
+        "engine_number": "예) 12H4102",
+        "notes": "예) 이 차량은 1959년부터 1960년까지만 생산되었습니다"
+      },
+      "body_types": {
+        "saloon": "세단",
+        "pickup": "픽업",
+        "estate": "에스테이트",
+        "cabriolet": "카브리올레",
+        "clubman": "클럽맨",
+        "van": "밴",
+        "hornet": "호넷"
+      },
+      "error": {
+        "title": "죄송합니다!",
+        "message": "현재 귀하의 제출을 처리하는 데 문제가 있습니다. 나중에 다시 시도해 주세요!",
+        "check_entries": "입력 내용을 확인하고 다시 시도해 주세요",
+        "dismiss": "닫기",
+        "api_unavailable": "API를 현재 사용할 수 없습니다. 나중에 다시 시도해 주세요."
+      },
+      "submit_button": "제출"
+    },
+    "patreon_card": {
+      "title": "사이트 지원하기",
+      "description": "Classic Mini DIY는 시청자들의 지원으로 운영되는 완전 무료 리소스입니다. 채널을 유지하는데 도움을 주고 싶으시다면 Patreon에서 후원을 고려해 보세요.",
+      "membership_benefits": "멤버십에는 수많은 무료 혜택과 이익이 포함됩니다!",
+      "button_text": "오늘 기여하기",
+      "image_alt": "잭 스탠드 위에 올려진 제 차량 이미지"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "엔진 크기",
+        "needle_std": "니들 표준",
+        "needle_rich": "니들 리치",
+        "needle_lean": "니들 린",
+        "spring_type": "스프링 타입"
+      }
+    },
+    "main_nav": {
+      "logo_alt": "Classic Mini DIY 로고",
+      "navigation": {
+        "blog": "블로그",
+        "maps": "맵",
+        "store": "상점",
+        "archive": "아카이브",
+        "toolbox": "도구함",
+        "chat": "채팅"
+      },
+      "donate_button": "CMDIY 가입",
+      "language_label": "언어"
+    },
+    "hero": {
+      "home_title": "Classic Mini DIY"
+    },
+    "footer": {
+      "brand_name": "Classic Mini DIY",
+      "author_name": "Cole Gentry",
+      "youtube_link_aria": "제 YouTube 채널 링크",
+      "description": "Classic Mini DIY 도구함은 Classic Mini DIY YouTube 채널과 함께하는 열정 프로젝트입니다. 이는 앞으로 몇 년 동안 Classic Mini 기술 지식 베이스를 유지하기 위해 구축된 완전 무료 리소스입니다. 정기적으로 업데이트되고 크라우드 소싱된 데이터로 전 세계 Classic Mini 소유자들을 돕기 위해 만들어졌습니다.",
+      "company_name": "Classic Mini DIY LLC",
+      "links_divider": "링크",
+      "privacy_links": {
+        "cmdiy_privacy": "CMDIY 웹사이트 개인정보 보호정책",
+        "youtube_privacy": "YouTube 개인정보 보호정책",
+        "google_privacy": "Google 개인정보 보호정책"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Classic Mini에 대해 무엇이든 물어보세요...",
+      "helper_text": "CMDIY 어시스턴트와 채팅"
+    },
+    "engine_plate_modal": {
+      "question_text": "엔진 플레이트가 어떻게 생겼는지 확실하지 않으신가요?",
+      "button_text": "엔진 플레이트는 어디에 있나요?",
+      "modal_title": "엔진 플레이트",
+      "slide_aria_label": "슬라이드 {number}로 이동",
+      "location_title": "엔진 플레이트 위치",
+      "location_description": "엔진 플레이트는 모든 모델 연도 미니에서 같은 위치에 있었습니다. 하지만 다음과 같은 상황에서는 이 플레이트가 없을 수 있습니다:",
+      "missing_reasons": {
+        "replaced": "엔진이 교체된 경우",
+        "removed": "재빌드 중에 플레이트가 제거된 경우",
+        "corroded": "시간이 지나면서 플레이트가 부식되거나 떨어진 경우"
+      },
+      "close_button": "닫기",
+      "image_alts": {
+        "example1": "엔진 플레이트 예시 1",
+        "example2": "엔진 플레이트 예시 2",
+        "example3": "엔진 플레이트 예시 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "무엇이든 검색하세요 (예: MPI, Cooper S, Carburettor HIF44)",
+      "empty_state": "현재 필터에 맞는 항목이 없습니다",
+      "sort_key_label": "정렬 키:",
+      "actions": {
+        "share": "공유",
+        "contribute": "기여하기",
+        "download": "다운로드"
+      },
+      "pagination": {
+        "page_text": "{total} 페이지 중 {current} 페이지"
+      }
+    },
+    "chat": {
+      "chat_window": {
+        "experimental_feature": "실험적 기능:",
+        "experimental_disclaimer": "이 AI 어시스턴트는 베타 버전이며 유일한 기술 정보 소스로 사용되어서는 안 됩니다.",
+        "welcome_title": "Classic Mini DIY 어시스턴트에 오신 것을 환영합니다",
+        "input_placeholder": "Classic Mini에 대해 무엇이든 물어보세요...",
+        "report_issue": "채팅 문제 신고",
+        "useful_links_placeholder": "정보를 검색한 후 유용한 링크가 여기에 표시됩니다"
+      },
+      "useful_links_sidebar": {
+        "title": "유용한 링크"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "Classic Mini DIY | 여러분의 친근한 이웃 Classic Mini 리소스",
+      "description": "Classic Mini DIY - Classic Mini 복원, 유지보수 및 개조를 위한 완전한 리소스. DIY 튜토리얼, 기술 가이드 및 커뮤니티 지원.",
+      "mission": {
+        "title": "미니 미션",
+        "heading": "클래식을 도로에서 계속 굴리기",
+        "content": "Classic Mini DIY는 2015년 제 작은 차고 작업장에서 시작되었습니다. 저는 항상 두 가지에 집중합니다: Classic Mini를 도로에서 계속 굴릴 수 있게 하고 모든 기술 수준에서 DIY 자동차 작업을 접근 가능하게 만드는 것입니다. 저는 Classic Mini에서 광범위한 작업을 정확히 완료하는 방법을 보여주는 DIY 비디오와 튜토리얼을 만듭니다. 또한 세계적 수준의 제조업체와 파트너십을 맺어 Classic Mini를 개인화하고 성능을 보장하는 최고급 제품을 제공합니다."
+      },
+      "support": {
+        "title": "미션 지원하기",
+        "heading": "지원",
+        "content": "Classic Mini DIY는 시청자들의 지원을 받습니다. 채널을 유지하는데 도움을 주고 싶으시다면 Patreon에서 후원을 고려하시거나, JS 및 최신 웹 기술 기술이 있으시다면 GitHub의 오픈 소스 코드베이스를 지원하는 것을 고려해 주세요."
+      },
+      "toolbox": {
+        "title": "완전 무료",
+        "heading": "Classic Mini 도구함",
+        "subtitle": "DIY 정비사를 위한 도구 키트",
+        "content": "이 채널을 시작한 가장 큰 이유 중 하나는 Mini Cooper 작업과 관련된 정보를 더 접근 가능하게 만드는 것이었습니다. 이 목표에 봉사하기 위해 Classic Mini 도구함을 만들었습니다. 웹 전체의 정보를 결합하여 필요한 모든 것을 찾을 수 있는 한 곳을 제공합니다.",
+        "button": "도구함 열기"
+      },
+      "patreon": {
+        "title": "채널 지원하기",
+        "heading": "Patreon 후원자 되기",
+        "content": "Classic Mini DIY는 시청자들의 지원으로 운영되는 완전 무료 리소스입니다. 채널을 유지하는데 도움을 주고 싶으시다면 Patreon에서 후원을 고려해 보세요.",
+        "button": "멤버 되기",
+        "benefits": {
+          "title": "멤버십 혜택",
+          "discord": "실시간 DIY 채팅 접근",
+          "early_access": "동영상 조기 액세스",
+          "gifts": "무료 선물 및 굿즈",
+          "insider": "내부 정보 및 더 많은 혜택..."
+        }
+      },
+      "about": {
+        "title": "소개",
+        "name": "제 이름은 COLE입니다",
+        "bio": "저는 금융업계에서 일하는 {age}세 웹 개발자입니다. 자동차 업계에서의 제 경험은 대형 디젤 기계류에 대한 2년간의 교육과 8년간의 Classic Mini 소유 경험에서 나옵니다. 이러한 경험으로 제가 할 수 있는 가장 포괄적이고 기술적으로 정확한 정보를 제공하기 위해 최선을 다합니다.",
+        "promise_title": "제 약속",
+        "promise": "제 능력의 최선을 다해 여러분께 모든 지식을 제공할 것입니다. 또한 제가 무언가를 잘못 알려드렸을 경우 피드백을 받아들일 것입니다. 저는 애호가이지 완전한 전문가는 아니므로 때때로 실수를 할 수 있습니다."
+      },
+      "error": {
+        "title": "어어",
+        "heading": "오류 - {statusCode}",
+        "message": "이 페이지를 로드하는 중 오류가 발생했습니다",
+        "url_label": "URL:",
+        "actions": {
+          "archives": "아카이브",
+          "toolbox": "도구함",
+          "home": "홈으로 돌아가기"
+        }
+      }
+    },
+    "privacy": {
+      "title": "개인정보 보호정책 | Classic Mini DIY",
+      "description": "데이터 수집, 저장 및 YouTube API 서비스 사용에 관한 Classic Mini DIY 개인정보 보호정책. 귀하의 정보를 어떻게 보호하는지 알아보세요.",
+      "hero_title": "개인정보 보호정책",
+      "hero_subtitle": "Classic Mini DIY",
+      "heading": "개인정보 보호정책",
+      "acceptance_title": "약관 동의",
+      "acceptance_content": "저희 API 클라이언트를 사용함으로써, 귀하는 다음에 구속되는데 동의합니다",
+      "youtube_privacy_link": "YouTube 개인정보 보호정책",
+      "accessibility_title": "접근성",
+      "accessibility_content": "이 개인정보 보호정책은 다음을 통해 모든 사용자가 쉽게 접근할 수 있습니다",
+      "google_privacy_link": "Google 개인정보 보호정책",
+      "youtube_api_title": "YouTube API 서비스 사용",
+      "youtube_api_content": "저희 API 클라이언트는 YouTube API 서비스를 사용합니다. 저희 API 클라이언트를 사용함으로써, 귀하는 이 정책에 설명된 대로 귀하의 데이터의 수집, 저장 및 사용에 동의합니다.",
+      "data_collection_title": "데이터 수집, 저장 및 사용",
+      "data_collection_content": "저희는 서비스를 제공하고 개선하기 위해 귀하의 기기에서 직접 데이터를 수집합니다. 여기에는 귀하의 기기, IP 주소 및 공개 쿠키 정보에 대한 정보가 포함됩니다. 저희는 저희 사용을 위한 추가 개인 데이터를 수집하지 않습니다. 이 데이터는 안전하게 저장되며 사용자 경험을 향상시키고 API 클라이언트의 원활한 작동을 보장하는 데 사용됩니다. 또한 데이터는 저희 서버에 저장되지 않으므로 브라우저를 닫을 때마다 삭제됩니다.",
+      "data_processing_title": "데이터 처리 및 공유",
+      "data_processing_content": "저희는 서비스를 제공하기 위해 귀하의 데이터를 처리합니다. 귀하의 데이터는 API 클라이언트를 개선하고 유지하기 위한 목적으로 내부 및 외부 당사자와 공유될 수 있습니다. 모든 외부 당사자가 저희의 엄격한 데이터 보호 가이드라인을 준수하도록 보장합니다.",
+      "data_methods_title": "데이터 수집 방법",
+      "data_methods_content": "데이터는 직접 입력, 쿠키 및 기타 추적 기술과 같은 다양한 수단을 통해 수집됩니다. 이를 통해 사용자 선호도를 이해하고 더 나은 서비스를 제공할 수 있습니다.",
+      "contact_title": "연락처 정보",
+      "contact_content": "이 개인정보 보호정책에 대해 질문이나 우려사항이 있으시면 다음으로 연락해 주세요"
+    },
+    "maps": {
+      "seo": {
+        "title": "Classic Mini ECU 맵 | 다중 ECU용 튜닝 파일 | Classic Mini DIY",
+        "description": "Classic Mini 엔진용 전문적으로 튜닝된 ECU 맵을 다운로드하세요. Haltech, Speeduino, MegaSquirt, Emerald 등과 호환됩니다. 평생 업데이트를 원하는 만큼 지불하세요.",
+        "keywords": "Classic Mini ECU 맵, Mini Cooper 튜닝, Haltech 맵, Speeduino 맵, MegaSquirt 맵, Emerald ECU, 엔진 튜닝, 연료 맵, 점화 맵",
+        "ogTitle": "Classic Mini ECU 맵 | 다중 ECU용 튜닝 파일",
+        "twitterTitle": "Classic Mini ECU 맵 | 다중 ECU 지원",
+        "twitterDescription": "평생 업데이트가 포함된 Classic Mini 엔진용 전문 ECU 맵."
+      },
+      "breadcrumb": "ECU 맵",
+      "hero": {
+        "title": "Classic Mini DIY ECU 맵",
+        "subtitle": "원하는 만큼 지불하세요, 항상"
+      },
+      "mainTitle": "Classic Mini ECU 맵",
+      "description": "수년간 Classic Mini 엔진을 튜닝하고, 맞춤 하네스를 제작하며, 여러 ECU를 매핑한 후, 저는 두 가지 액세스 옵션으로 ECU 맵 컬렉션을 자랑스럽게 출시합니다. Classic Mini에서 사용되는 많은 인기 ECU를 지원하며, 앞으로 더 많이 추가될 예정입니다.",
+      "features": {
+        "lifetimeUpdates": "평생 업데이트",
+        "multipleEcus": "다중 ECU",
+        "constantlyUpdated": "지속적 업데이트",
+        "payWhatYouWant": "원하는 만큼 지불"
+      },
+      "options": {
+        "latestRelease": "최신 릴리스",
+        "purchase": {
+          "title": "옵션 1 - 구매",
+          "description": "Classic Mini DIY 스토어에서 ECU 맵을 직접 구매하세요. 이 옵션은 채널을 지원하고 GitHub를 사용하지 않고도 맵을 얻고 싶은 분들에게 완벽합니다. 이 옵션에는 이메일을 통한 우선 지원도 포함됩니다.",
+          "button": "다운로드"
+        },
+        "download": {
+          "title": "옵션 2 - 다운로드",
+          "description": "GitHub에서 ECU 맵을 직접 다운로드하세요. 이 옵션은 맵을 무료로 받고 싶은 분들에게 완벽합니다. 이 옵션에는 풀 리퀘스트를 제출하여 프로젝트에 기여할 수 있는 능력도 포함됩니다.",
+          "button": "다운로드",
+          "viewSource": "소스 보기"
+        }
+      },
+      "moreDetails": "자세한 정보",
+      "table": {
+        "features": "기능",
+        "ignitionMap": "점화 맵",
+        "fuelMap": "연료 맵",
+        "veTable": "VE 테이블",
+        "targetAfr": "목표 AFR",
+        "throttleEnrichment": "스로틀 농후화",
+        "driveByWire": "드라이브 바이 와이어 준비",
+        "boostControl": "부스트 컨트롤 맵",
+        "idleMap": "공회전 맵",
+        "sixteenVEngine": "16V 엔진 버전"
+      },
+      "legend": {
+        "included": {
+          "name": "포함됨",
+          "description": "맵에 포함됨"
+        },
+        "notIncluded": {
+          "name": "포함되지 않음",
+          "description": "지원되지만 포함되지 않음"
+        },
+        "notAvailable": {
+          "name": "사용 불가",
+          "description": "ECU에서 지원되지 않는 기능"
+        },
+        "workInProgress": {
+          "name": "작업 진행 중",
+          "description": "현재 이 ECU로 포팅 중"
+        }
+      },
+      "updates": {
+        "title": "최신 업데이트",
+        "error": "GitHub에서 업데이트 기록을 로드하는 중 오류",
+        "noUpdates": "사용 가능한 업데이트 없음",
+        "viewAllCommits": "모든 커밋 보기"
+      },
+      "supportedEcus": {
+        "title": "지원되는 ECU",
+        "subtitle": "필요한 ECU 지원"
+      },
+      "otherSupport": "다른 지원 방법"
+    },
+    "archive": {
+      "title": "Classic Mini 아카이브: 역사적 문서 및 리소스 탐색",
+      "description": "역사적 문서, 매뉴얼, 레지스트리 및 리소스가 포함된 포괄적인 Classic Mini 아카이브에 접근하세요. Mini 애호가와 복원업자를 위한 보존된 디지털 컬렉션.",
+      "keywords": "Classic Mini 아카이브, Mini Cooper 매뉴얼, Mini 레지스트리, 역사적 문서, Mini 복원, 빈티지 Mini 리소스, 클래식 자동차 아카이브",
+      "hero_title": "Classic Mini 아카이브",
+      "hero_subtitle": "Classic Mini 유산 보존",
+      "ogTitle": "Classic Mini 아카이브: 역사적 문서 및 리소스 탐색",
+      "ogDescription": "역사적 문서, 매뉴얼, 레지스트리 및 리소스가 포함된 포괄적인 Classic Mini 아카이브에 접근하세요. Mini 애호가와 복원업자를 위한 보존된 디지털 컬렉션.",
+      "twitterTitle": "Classic Mini 아카이브: 역사적 문서 및 리소스 탐색",
+      "twitterDescription": "역사적 문서, 매뉴얼, 레지스트리 및 리소스가 포함된 포괄적인 Classic Mini 아카이브에 접근하세요.",
+      "page_subtitle": "CLASSIC MINI 유산 보존",
+      "page_title": "Classic Mini 아카이브",
+      "welcome_text": "Classic Mini 아카이브에 오신 것을 환영합니다. 여기에서 Classic Mini 프로젝트에 도움이 되는 매뉴얼, 컬렉션, 가이드 및 기타 리소스 모음을 찾을 수 있습니다. 시간이 지나면서 서서히 오프라인 상태가 되는 사이트들이 남긴 공백을 메우기 위해 이 아카이브를 계속 확장할 예정입니다.",
+      "maintenance_text": "이러한 서비스들이 사라지지 않도록 하기 위해 역공학과 재작업에 많은 시간이 소요되었습니다. 문제가 있거나 개선할 부분이 있다면 알려주세요!",
+      "add_to_archive": "아카이브에 추가",
+      "cover_server_costs": "서버 비용 지원",
+      "coming_soon": "곧 출시됩니다!",
+      "support_section": "지원",
+      "breadcrumb_subtitle": "CLASSIC MINI 유산 보존",
+      "main_heading": "Classic Mini 아카이브",
+      "description_text": "Classic Mini 아카이브에 오신 것을 환영합니다. 여기에서 Classic Mini 프로젝트에 도움이 되는 매뉴얼, 컬렉션, 가이드 및 기타 리소스 모음을 찾을 수 있습니다. 시간이 지나면서 서서히 오프라인 상태가 되는 사이트들이 남긴 공백을 메우기 위해 이 아카이브를 계속 확장할 예정입니다.",
+      "maintenance_description": "이러한 서비스들이 사라지지 않도록 하기 위해 역공학과 재작업에 많은 시간이 소요되었습니다. 문제가 있거나 개선할 부분이 있다면 알려주세요!",
+      "structured_data": {
+        "collection_name": "Classic Mini 아카이브",
+        "collection_description": "애호가와 복원업자를 위해 보존된 Classic Mini 문서, 매뉴얼, 레지스트리 및 역사적 리소스의 포괄적인 디지털 아카이브."
+      },
+      "subpages": {
+        "weights": {
+          "title": "Classic Mini 중량 및 측정 | Classic Mini DIY",
+          "description": "Classic Mini의 상세한 중량 및 측정값을 Classic Mini DIY에서 온라인으로 찾을 수 있습니다.",
+          "keywords": "Classic Mini 중량, Mini Cooper 측정, 부품 중량, Mini 구성요소 중량, 클래식 자동차 사양",
+          "hero_title": "중량 및 측정",
+          "breadcrumb_title": "중량 및 측정",
+          "main_heading": "Mini 중량",
+          "description_text": "아래에서 Classic Mini의 다양한 부품에 대한 여러 검색 가능한 중량 테이블을 찾을 수 있습니다. 이 중량들은 현재 오프라인 상태인 miniweights.co.uk의 아카이브에서 제공되었습니다. 누락된 값이 있거나 기여하고 싶으시면 아래 링크를 클릭하여 이메일을 보내주세요.",
+          "email_button": "classicminidiy{'@'}gmail.com",
+          "search_placeholder": "이 테이블 검색",
+          "table_headers": {
+            "item": "항목",
+            "kg": "Kg",
+            "lbs": "Lbs"
+          },
+          "no_weight": "---",
+          "seo": {
+            "og_title": "Classic Mini 중량 및 측정 | Classic Mini DIY",
+            "og_description": "Classic Mini의 상세한 중량 및 측정값을 Classic Mini DIY에서 온라인으로 찾을 수 있습니다.",
+            "twitter_title": "Classic Mini 중량 및 측정",
+            "twitter_description": "Classic Mini의 상세한 중량 및 측정값."
+          }
+        },
+        "engines": {
+          "title": "기술 - 엔진 크기 및 배기량",
+          "description": "참고 자료 없이는 엔진 크기를 결정하기가 매우 어려울 수 있습니다. CMDIY 표준 보어, 엔진 크기 차트를 확인하여 현재 엔진의 크기나 다음 빌드에서 원하는 크기를 알아보세요!",
+          "hero_title": "엔진 크기",
+          "breadcrumb_title": "엔진 크기",
+          "main_heading": "엔진 배기량 및 크기",
+          "description_text": "다음 엔진 크기를 결정하는 것은 참고 자료 없이는 매우 어려울 수 있습니다. CMDIY 표준 보어, 엔진 크기 차트를 확인하여 현재 엔진의 크기나 다음 빌드에서 원하는 크기를 알아보세요!",
+          "compression_card": {
+            "title": "압축비를 계산해보고 싶으신가요?",
+            "description": "여기를 클릭하여 압축비 계산기를 사용해보세요.",
+            "alt_text": "압축 계산기 이미지",
+            "link_title": "압축비 계산기 링크"
+          },
+          "legend": {
+            "standard": "표준",
+            "standard_overbore": "표준 오버보어",
+            "different_stroke": "다른 스트로크"
+          },
+          "table_title": "엔진 변형",
+          "table_headers": {
+            "size": "크기",
+            "original_block": "원본 블록",
+            "engine_size": "엔진 크기",
+            "bore_size": "보어 크기",
+            "over_bore": "오버 보어",
+            "stroke": "스트로크",
+            "estimated_power": "예상 출력",
+            "estimated_torque": "예상 토크"
+          },
+          "loading_text": "로딩 중...",
+          "more_divider": "더 보기",
+          "seo": {
+            "og_title": "기술 - 엔진 크기 및 배기량",
+            "og_description": "참고 자료 없이는 엔진 크기를 결정하기가 매우 어려울 수 있습니다. CMDIY 표준 보어, 엔진 크기 차트를 확인하여 현재 엔진의 크기나 다음 빌드에서 원하는 크기를 알아보세요!",
+            "twitter_title": "기술 - 엔진 크기 및 배기량",
+            "twitter_description": "참고 자료 없이는 엔진 크기를 결정하기가 매우 어려울 수 있습니다. CMDIY 표준 보어, 엔진 크기 차트를 확인하여 현재 엔진의 크기나 다음 빌드에서 원하는 크기를 알아보세요!"
+          }
+        },
+        "electrical": {
+          "title": "아카이브 - 전기 회로도 | Classic Mini DIY",
+          "description": "Classic Mini Cooper용으로 수동으로 디지털화되고 업데이트된 전기 회로도.",
+          "keywords": "Classic Mini 전기 회로도, Mini Cooper 배선, 배선도, 전기 회로도, 클래식 자동차 배선",
+          "hero_title": "전기 회로도",
+          "breadcrumb_title": "전기 회로도",
+          "main_heading": "전기 회로도",
+          "description_text": "The Mini Forum에서 직접 소싱된 완전히 디지털화된 다이어그램 컬렉션으로 필요한 배선도를 찾으세요. 후손과 보존을 위해 여기에 아카이브되었습니다.",
+          "date_range": {
+            "unknown": "날짜 알 수 없음",
+            "separator": " - ",
+            "unknown_placeholder": "?"
+          },
+          "download_button_aria": "다이어그램 다운로드",
+          "support_divider": "지원",
+          "seo": {
+            "og_title": "아카이브 - 전기 회로도 | Classic Mini DIY",
+            "og_description": "Classic Mini Cooper용으로 수동으로 디지털화되고 업데이트된 전기 회로도.",
+            "twitter_title": "Classic Mini 전기 회로도",
+            "twitter_description": "Classic Mini Cooper용으로 수동으로 디지털화되고 업데이트된 전기 회로도."
+          },
+          "structured_data": {
+            "headline": "Classic Mini 전기 회로도",
+            "description": "Classic Mini Cooper용으로 수동으로 디지털화되고 업데이트된 전기 회로도.",
+            "author_name": "Classic Mini DIY",
+            "publisher_name": "Classic Mini DIY",
+            "dataset_name": "Classic Mini 전기 회로도",
+            "dataset_description": "Classic Mini 차량용 디지털화된 전기 회로도 컬렉션"
+          }
+        },
+        "wheels": {
+          "index": {
+            "title": "아카이브 - 휠 사전",
+            "description": "Classic Mini DIY 휠 사전은 Classic Mini에 판매된 모든 다른 휠 옵션을 비교하는데 도움을 주기 위해 있습니다. 순정이든 레이스에서 영감을 받은 것이든 여기서 옵션에 대해 알아보세요.",
+            "hero_title": "휠 사전",
+            "breadcrumb_title": "휠 사전",
+            "main_heading": "Classic Mini DIY 휠 사전",
+            "description_text": "온라인에서 봤던 그 휠을 찾고 있는데 찾을 수 없으신가요? 바로 휠 사전이 필요한 때입니다. 이제 Classic Mini Cooper에 맞는 휠을 검색할 수 있습니다. 약 1,000개의 휠이 있고 계속 늘어나고 있어서, 정확히 찾고 있는 휠을 찾을 수 있기를 바랍니다.",
+            "add_wheel_card": {
+              "title": "휠을 추가하고 싶으신가요?",
+              "description": "여기를 클릭하여 휠 제출 양식을 작성하고 목록에 추가하세요.",
+              "link_title": "새 휠 양식 링크"
+            },
+            "footer": {
+              "title": "모든 데이터는 Mini-Forum.de의 Jan W.가 수집하고 큐레이션했습니다.",
+              "description": "온라인에서 봤던 그 휠을 찾고 있는데 찾을 수 없으신가요? 바로 휠 라이브러리가 필요한 때입니다. 현재 은퇴한 사이트 www.wheeldictionary.net의 같은 데이터를 사용하여 Classic Mini Cooper에 맞는 휠을 검색할 수 있습니다. 라이브러리에 많은 휠이 있고 계속 늘어나고 있어서, 정확히 찾고 있는 휠을 찾을 수 있기를 바랍니다."
+            },
+            "seo": {
+              "og_title": "아카이브 - 휠 사전",
+              "og_description": "Classic Mini DIY 휠 사전은 Classic Mini에 판매된 모든 다른 휠 옵션을 비교하는데 도움을 주기 위해 있습니다. 순정이든 레이스에서 영감을 받은 것이든 여기서 옵션에 대해 알아보세요.",
+              "twitter_title": "아카이브 - 휠 사전",
+              "twitter_description": "Classic Mini DIY 휠 사전은 Classic Mini에 판매된 모든 다른 휠 옵션을 비교하는데 도움을 주기 위해 있습니다."
+            }
+          },
+          "submit": {
+            "title": "휠 제출",
+            "description": "Classic Mini DIY 휠 사전에 휠을 제출하세요.",
+            "hero_title": "휠 제출",
+            "breadcrumb": {
+              "home": "홈",
+              "wheels": "휠",
+              "submission": "휠 제출"
+            },
+            "seo": {
+              "og_title": "휠 제출",
+              "og_description": "Classic Mini DIY 휠 사전에 휠을 제출하세요.",
+              "twitter_title": "휠 제출",
+              "twitter_description": "Classic Mini DIY 휠 사전에 휠을 제출하세요."
+            }
+          },
+          "detail": {
+            "hero_title": "휠 세부사항",
+            "loading_text": "휠 세부사항 로딩 중...",
+            "error_message": "휠 세부사항을 로드하지 못했습니다. 나중에 다시 시도해 주세요.",
+            "back_to_wheels": "휠로 돌아가기",
+            "breadcrumb_fallback": "휠 세부사항",
+            "breadcrumb_subpage": "휠",
+            "image_alt": "{name} 휠 이미지",
+            "no_image_placeholder": "이미지 없음",
+            "specifications": {
+              "offset": "오프셋",
+              "diameter": "지름",
+              "width": "폭",
+              "not_specified": "명시되지 않음"
+            },
+            "actions": {
+              "copied": "복사됨!",
+              "copy_link": "링크 복사",
+              "share": "공유",
+              "contribute": "기여하기"
+            },
+            "seo": {
+              "title_template": "Mini 휠 - {name} | {size} x {width}",
+              "description": "지금 제가 보고 있는 Classic Mini 휠을 확인해보세요.",
+              "keywords": "Classic Mini 휠, Mini Cooper 휠, Classic Mini 휠 사전"
+            }
+          }
+        },
+        "tuning": {
+          "title": "Classic Mini ECU 맵: 다양한 ECU용 튜닝 파일",
+          "description": "Classic Mini 원본 튜닝 및 개조 문서의 큐레이션된 컬렉션",
+          "hero_title": "Classic Mini 아카이브",
+          "breadcrumb_title": "튜닝 및 개조",
+          "breadcrumb": {
+            "home": "홈",
+            "archive": "아카이브",
+            "tuning": "튜닝 및 개조"
+          },
+          "main_heading": "원본 튜닝 및 개조 기술 문서",
+          "description_text": "Classic Mini 튜닝 및 개조에 관한 원본 기술 자료의 무료 사본",
+          "actions": {
+            "add_to_archive": "아카이브에 추가",
+            "cover_server_costs": "서버 비용 지원"
+          },
+          "support_divider": "지원",
+          "seo": {
+            "og_title": "Classic Mini ECU 맵: 다양한 ECU용 튜닝 파일",
+            "og_description": "Classic Mini 원본 튜닝 및 개조 문서의 큐레이션된 컬렉션",
+            "twitter_title": "Classic Mini ECU 맵: 다양한 ECU용 튜닝 파일",
+            "twitter_description": "Classic Mini 원본 튜닝 및 개조 문서의 큐레이션된 컬렉션"
+          }
+        },
+        "registry": {
+          "title": "아카이브 - Classic Mini 등록부",
+          "description": "소유자들이 제출한 모든 알려진 미니의 완전한 개요.",
+          "hero_title": "Mini 등록부",
+          "breadcrumb_title": "Mini 등록부",
+          "main_heading": "Classic Mini 등록부",
+          "subtitle": "매일 추가되고 증가하는 미니!",
+          "subtitle_count": "수많은",
+          "description_text": "오랫동안 지속되던 많은 Classic Mini 등록부들이 오프라인 상태가 되거나 더 이상 관리되지 않는 것을 지켜본 후, 앞으로 수년간 여기에 있고 관리될 것이라고 확신할 수 있는 것을 구축할 때가 되었다고 결정했습니다. Classic Mini DIY는 이제 모든 모델 연도와 스타일의 모든 Classic Mini를 위한 무료 온라인 등록부를 자랑스럽게 제공합니다.",
+          "submission_status_text": "제출 상태를 찾고 계신가요?",
+          "track_submission_button": "제출 추적하기",
+          "submit_card": {
+            "title": "오늘 미니 제출하기",
+            "description": "여기를 클릭하여 짧은 양식을 작성하고 모든 클래식 미니 등록부에 미니를 제출하세요",
+            "alt_text": "압축 계산기 이미지"
+          },
+          "table_headers": {
+            "year": "연도",
+            "model": "모델",
+            "trim": "트림",
+            "color": "색상"
+          },
+          "submit_divider": "등록부에 미니 추가하기 - 무료입니다!",
+          "support_divider": "다른 지원 방법",
+          "seo": {
+            "og_title": "아카이브 - Classic Mini 등록부",
+            "og_description": "소유자들이 제출한 모든 알려진 미니의 완전한 개요.",
+            "twitter_title": "아카이브 - Classic Mini 등록부",
+            "twitter_description": "소유자들이 제출한 모든 알려진 미니의 완전한 개요."
+          }
+        },
+        "registry_pending": {
+          "title": "대기 중인 등록부 제출 - Classic Mini DIY",
+          "description": "Classic Mini 등록부 제출 상태를 추적하세요.",
+          "hero_title": "대기 중인 등록부 제출",
+          "breadcrumb_title": "등록부 제출",
+          "breadcrumb_parent": "등록부",
+          "main_heading": "대기 중인 등록부 제출",
+          "subtitle": "승인을 기다리는 미니",
+          "description_text": "이 페이지는 현재 승인 대기 중인 모든 Mini 등록부 제출을 보여줍니다. 제출이 승인되면 메인 등록부에 나타납니다. 여기서 제출을 볼 수 없다면 이미 승인되었거나 거부되었을 수 있습니다.",
+          "contact_text": "제출에 대해 질문이 있으시면",
+          "contact_link": "연락해 주세요",
+          "status_card": {
+            "title": "제출 상태",
+            "pending": "대기 중",
+            "pending_description": "제출이 검토 중입니다",
+            "approved": "승인됨",
+            "approved_description": "메인 등록부에 추가됨",
+            "rejected": "거부됨",
+            "rejected_description": "등록부에 추가되지 않음"
+          },
+          "table_headers": {
+            "year": "연도",
+            "model": "모델",
+            "body_number": "바디 번호",
+            "submitted_by": "제출자",
+            "status": "상태"
+          },
+          "submit_divider": "새 미니 제출",
+          "seo": {
+            "og_title": "대기 중인 등록부 제출 - Classic Mini DIY",
+            "og_description": "Classic Mini 등록부 제출 상태를 추적하세요.",
+            "twitter_title": "대기 중인 등록부 제출 - Classic Mini DIY",
+            "twitter_description": "Classic Mini 등록부 제출 상태를 추적하세요."
+          }
+        },
+        "manuals": {
+          "title": "Classic Mini 아카이브 - 워크샵 매뉴얼",
+          "description": "Classic Mini 워크샵 매뉴얼, 부품 리스트 등의 큐레이션된 컬렉션.",
+          "hero_title": "Classic Mini 아카이브",
+          "breadcrumb_title": "워크샵 매뉴얼",
+          "breadcrumb": {
+            "home": "홈",
+            "archive": "아카이브",
+            "manuals": "워크샵 매뉴얼"
+          },
+          "main_heading": "부품 리스트 및 워크샵 매뉴얼",
+          "description_text": "완전판 워크샵 매뉴얼의 무료 사본. 초기 매뉴얼뿐만 아니라 최종 생산 차량에 사용된 후기 워크샵 매뉴얼도 포함됩니다.",
+          "actions": {
+            "add_to_archive": "아카이브에 추가",
+            "cover_server_costs": "서버 비용 지원"
+          },
+          "support_divider": "지원",
+          "seo": {
+            "og_title": "Classic Mini 아카이브 - 워크샵 매뉴얼",
+            "og_description": "Classic Mini 워크샵 매뉴얼, 부품 리스트 등의 큐레이션된 컬렉션.",
+            "twitter_title": "Classic Mini 아카이브 - 워크샵 매뉴얼",
+            "twitter_description": "Classic Mini 워크샵 매뉴얼, 부품 리스트 등의 큐레이션된 컬렉션."
+          }
+        },
+        "adverts": {
+          "title": "Classic Mini 아카이브 - 광고",
+          "description": "Classic Mini 원본 광고의 큐레이션된 컬렉션",
+          "hero_title": "Classic Mini 아카이브",
+          "breadcrumb_title": "광고",
+          "main_heading": "원본 광고",
+          "description_text": "완전판 광고의 무료 사본. 이는 클래식 미니를 위해 제작된 모든 다양한 역사적 광고와 문서들을 아카이브하고 편집하려는 노력입니다. 누락된 광고가 있으시면 기여를 고려해 주세요!",
+          "actions": {
+            "add_to_archive": "아카이브에 추가",
+            "cover_server_costs": "서버 비용 지원"
+          },
+          "support_divider": "지원",
+          "seo": {
+            "og_title": "Classic Mini 아카이브 - 광고",
+            "og_description": "Classic Mini 원본 광고의 큐레이션된 컬렉션",
+            "twitter_title": "Classic Mini 아카이브 - 광고",
+            "twitter_description": "Classic Mini 원본 광고의 큐레이션된 컬렉션"
+          }
+        },
+        "catalogues": {
+          "title": "Classic Mini 아카이브 - 벤더 카탈로그",
+          "description": "Classic Mini 원본 벤더 카탈로그의 큐레이션된 컬렉션",
+          "hero_title": "Classic Mini 아카이브",
+          "breadcrumb_title": "벤더 카탈로그",
+          "breadcrumb": {
+            "home": "홈",
+            "archive": "아카이브",
+            "catalogues": "벤더 카탈로그"
+          },
+          "main_heading": "원본 벤더 카탈로그",
+          "description_text": "Classic Mini용 원본 벤더 카탈로그의 무료 사본",
+          "actions": {
+            "add_to_archive": "아카이브에 추가",
+            "cover_server_costs": "서버 비용 지원"
+          },
+          "support_divider": "지원",
+          "seo": {
+            "og_title": "Classic Mini 아카이브 - 벤더 카탈로그",
+            "og_description": "Classic Mini 원본 벤더 카탈로그의 큐레이션된 컬렉션",
+            "twitter_title": "Classic Mini 아카이브 - 벤더 카탈로그",
+            "twitter_description": "Classic Mini 원본 벤더 카탈로그의 큐레이션된 컬렉션"
+          }
+        },
+        "colors": {
+          "title": "색상 선택기",
+          "description": "포괄적인 색상 선택기로 Classic Mini를 위한 완벽한 색상을 찾으세요.",
+          "hero_title": "색상 선택기",
+          "breadcrumb_title": "색상 견본",
+          "main_heading": "Classic Mini 색상 선택기",
+          "description_text": "더 많은 정보를 제공하기 위한 노력으로, Classic Mini DIY는 mini-colours.co.uk와 파트너십을 맺어 수년간 Classic Mini에 사용된 색상의 포괄적인 목록을 제공합니다.",
+          "partner_link": "mini-colours.co.uk",
+          "search": {
+            "card_title": "색상 찾기",
+            "placeholder": "색상 검색...",
+            "help_text": "위의 검색을 사용하여 아래 테이블의 모든 필드를 즉시 필터링하세요. 일부 데이터가 누락된 것을 발견하셨나요? 편집 버튼을 클릭하여 기여하세요!"
+          },
+          "table_headers": {
+            "share": "공유",
+            "color_name": "색상 이름",
+            "swatch": "견본",
+            "short_code": "단축 코드",
+            "bmc_code": "BMC 코드",
+            "ditzler_ppg_code": "Ditzler/PPG 코드",
+            "dulux_code": "Dulux 코드",
+            "years_used": "사용 연도",
+            "edit": "편집"
+          },
+          "states": {
+            "no_colors": "검색에 맞는 색상을 찾을 수 없습니다.",
+            "unnamed_color": "이름 없는 색상",
+            "missing": "누락",
+            "link_copied": "링크가 클립보드에 복사되었습니다!"
+          },
+          "pagination": {
+            "page": "페이지",
+            "of": "/"
+          },
+          "share": {
+            "title": "Classic Mini 색상:",
+            "text": "이 Classic Mini 색상을 확인해보세요:"
+          },
+          "support_divider": "지원",
+          "seo": {
+            "og_title": "Classic Mini 색상 선택기 | Classic Mini DIY",
+            "og_description": "포괄적인 색상 선택기와 페인트 코드 참조로 Classic Mini를 위한 완벽한 색상을 찾으세요.",
+            "twitter_title": "Classic Mini 색상 선택기 | Classic Mini DIY",
+            "twitter_description": "포괄적인 색상 선택기와 페인트 코드 참조로 Classic Mini를 위한 완벽한 색상을 찾으세요."
+          }
+        },
+        "colors_contribute": {
+          "title": "색상 기여 - Classic Mini DIY",
+          "description": "새로운 또는 업데이트된 색상 정보를 제출하여 Classic Mini 색상 데이터베이스에 기여하세요.",
+          "hero_title": "색상에 기여하기",
+          "breadcrumb_title": "색상 기여",
+          "main_heading": "Classic Mini 색상 선택기",
+          "description_text": "색상 데이터베이스에 제안을 하고 싶으신가요? 아래 양식을 작성하여 원하는 변경 사항을 제출하세요. 이것들은 검토되어 ~7일 이내에 게시됩니다.",
+          "current_data": {
+            "title": "현재 데이터",
+            "loading": "색상 데이터 로딩 중...",
+            "labels": {
+              "primary_color": "주 색상",
+              "code": "코드",
+              "ditzler_ppg_code": "Ditzler PPG 코드",
+              "dulux_code": "Dulux 코드",
+              "name": "이름",
+              "short_code": "단축 코드",
+              "years_used": "사용 연도"
+            },
+            "na": "N/A"
+          },
+          "form": {
+            "title": "새 데이터",
+            "success": {
+              "title": "감사합니다!",
+              "subtitle": "귀하의 제안이 제출되었습니다",
+              "suggestion_number": "제안 #",
+              "track_text": "귀하의 제안을 추적하세요:",
+              "view_github": "GitHub에서 보기",
+              "make_another": "다른 제안하기"
+            },
+            "error": {
+              "title": "요청 제출 오류",
+              "default_message": "나중에 다시 시도해 주세요",
+              "color_not_loaded": "색상 데이터가 로드되지 않았습니다. 페이지를 새로고침하고 다시 시도해 주세요.",
+              "github_unavailable": "GitHub API를 현재 사용할 수 없습니다. 나중에 다시 시도해 주세요."
+            },
+            "fields": {
+              "color_name": {
+                "label": "색상 이름",
+                "placeholder": "색상 이름 입력"
+              },
+              "primary_code": {
+                "label": "주 코드",
+                "placeholder": "예) ANA 101"
+              },
+              "short_code": {
+                "label": "단축 코드",
+                "placeholder": "예) BRG"
+              },
+              "ditzler_ppg_code": {
+                "label": "Ditzler/PPG 코드",
+                "placeholder": "예) 12345"
+              },
+              "dulux_code": {
+                "label": "Dulux 코드",
+                "placeholder": "예) ABC123"
+              },
+              "years_used": {
+                "label": "사용 연도",
+                "placeholder": "예) 1959-1967"
+              },
+              "image_swatch": {
+                "label": "이미지 견본 URL (선택사항)",
+                "placeholder": "예) https://example.com/color.jpg",
+                "help": "고품질 색상 견본 이미지에 대한 직접 URL 제공"
+              }
+            },
+            "submit": {
+              "button": "제안 제출",
+              "submitting": "제출 중..."
+            }
+          },
+          "seo": {
+            "og_title": "색상 기여 - Classic Mini DIY",
+            "og_description": "새로운 또는 업데이트된 색상 정보를 제출하여 Classic Mini 색상 데이터베이스에 기여하세요.",
+            "twitter_title": "색상 기여 - Classic Mini DIY",
+            "twitter_description": "새로운 또는 업데이트된 색상 정보를 제출하여 Classic Mini 색상 데이터베이스에 기여하세요."
+          }
+        },
+        "colors_detail": {
+          "title_template": "Mini 색상 - {name} | {code}",
+          "description": "지금 제가 보고 있는 Classic Mini 색상을 확인해보세요.",
+          "hero_title": "색상 견본",
+          "breadcrumb": {
+            "home": "홈",
+            "colors": "색상"
+          },
+          "primary_color_badge": "주 색상",
+          "details_divider": "세부사항",
+          "stats": {
+            "years": "연도",
+            "short_code": "단축 코드",
+            "ditzler_ppg_code": "Ditzler PPG 코드",
+            "dulux_code": "Dulux 코드",
+            "missing": "누락"
+          },
+          "share_divider": "공유",
+          "actions": {
+            "copy_link": "링크 복사",
+            "copied": "복사됨!",
+            "email": "이메일",
+            "share": "공유",
+            "contribute": "업데이트 기여"
+          },
+          "alt_text": "{name} 색상 견본",
+          "seo": {
+            "og_title_template": "Mini 색상 - {name} | {code}",
+            "og_description": "지금 제가 보고 있는 Classic Mini 색상을 확인해보세요.",
+            "twitter_title_template": "Mini 색상 - {name} | {code}",
+            "twitter_description": "지금 제가 보고 있는 Classic Mini 색상을 확인해보세요."
+          }
+        }
+      }
+    },
+    "technical": {
+      "title": "Classic Mini 기술 도구함 | DIY 계산기 및 사양",
+      "description": "DIY 정비사를 위한 Classic Mini 기술 도구와 사양. 계산기, 토크 사양, 니들 차트 등에 접근하여 미니를 유지보수하고 업그레이드하세요.",
+      "keywords": "Classic Mini 기술 도구, Mini Cooper 사양, SU 니들 차트, 압축 계산기, 토크 사양, DIY Mini 유지보수, 기술 참조",
+      "hero_title": "Classic Mini 기술 도구함",
+      "hero_subtitle": "미니를 계속 굴리기",
+      "ogTitle": "Classic Mini 기술 도구함 | DIY 계산기 및 사양",
+      "ogDescription": "DIY 정비사를 위한 Classic Mini 기술 도구와 사양. 계산기, 토크 사양, 니들 차트 등에 접근하여 미니를 유지보수하고 업그레이드하세요.",
+      "twitterTitle": "Classic Mini 기술 도구함",
+      "twitterDescription": "Classic Mini 유지보수 및 업그레이드를 위한 DIY 기술 도구와 사양.",
+      "structured_data": {
+        "name": "Classic Mini 기술 도구함",
+        "description": "Classic Mini 유지보수 및 업그레이드를 위한 기술 도구, 계산기 및 사양 모음."
+      },
+      "page_subtitle": "미니를 계속 굴리기",
+      "page_title": "기술 도구함",
+      "welcome_text": "Classic Mini DIY의 가장 중요한 부분 중 하나는 직접 나가서 자신의 차를 작업하는 것에 집중하는 것입니다. 이를 더 쉽게 만들기 위해, 저는 다양한 소스에서 기술 정보를 수집하여 여기 classicminidiy.com에 통합했습니다. 이러한 도구와 계산기는 자신감을 가지고 Classic Mini를 유지보수, 업그레이드 및 문제 해결하는데 도움이 될 것입니다. 압축비부터 니들 차트까지, 필요한 모든 것이 손끝에 있습니다.",
+      "support_section": "지원",
+      "breadcrumb_subtitle": "미니를 계속 굴리기",
+      "main_heading": "기술 도구함",
+      "description_text": "Classic Mini DIY의 가장 중요한 부분 중 하나는 직접 나가서 자신의 차를 작업하는 것에 집중하는 것입니다. 이를 더 쉽게 만들기 위해, 저는 다양한 소스에서 기술 정보를 수집하여 여기 classicminidiy.com에 통합했습니다. 이러한 도구와 계산기는 자신감을 가지고 Classic Mini를 유지보수, 업그레이드 및 문제 해결하는데 도움이 될 것입니다. 압축비부터 니들 차트까지, 필요한 모든 것이 손끝에 있습니다.",
+      "subPages": {
+        "torque": {
+          "title": "Classic Mini 토크 사양 차트 | Classic Mini DIY",
+          "description": "Classic Mini 패스너의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 바디 패스너에 대한 lb/ft 및 Nm 값이 포함된 참조 차트.",
+          "keywords": "Classic Mini 토크 사양, Mini Cooper 패스너, 토크 사양, 엔진 토크 값, 서스펜션 토크, Mini 유지보수, 클래식 자동차 사양",
+          "hero_title": "토크 사양",
+          "breadcrumb_title": "토크 사양",
+          "og_title": "Classic Mini 토크 사양 차트 | Classic Mini DIY",
+          "og_description": "Classic Mini 패스너의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 바디 패스너에 대한 lb/ft 및 Nm 값이 포함된 참조 차트.",
+          "twitter_title": "Classic Mini 토크 사양 차트",
+          "twitter_description": "Classic Mini 패스너의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 바디 패스너에 대한 참조 차트.",
+          "structured_data": {
+            "headline": "Classic Mini 토크 사양 차트",
+            "description": "Classic Mini 패스너의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 바디 패스너에 대한 lb/ft 및 Nm 값이 포함된 참조 차트.",
+            "dataset_name": "Classic Mini 토크 사양",
+            "dataset_description": "Classic Mini 패스너에 대한 토크 사양의 포괄적인 데이터셋",
+            "variable_measured": ["패스너 이름", "lb/ft 토크", "Nm 토크", "추가 참고사항"]
+          },
+          "table_headers": {
+            "fastener": "패스너",
+            "torque_lbft": "토크 (lb/ft)",
+            "torque_nm": "토크 (Nm)",
+            "notes": "참고사항"
+          },
+          "ui": {
+            "search_placeholder": "이 테이블 검색",
+            "no_notes": "---"
+          }
+        },
+        "parts": {
+          "title": "기술 - 부품 호환성",
+          "description": "지역 부품 판매업체에서 찾을 수 있는 부품의 완전한 목록",
+          "hero_title": "부품 호환성",
+          "breadcrumb_title": "부품 호환성",
+          "og_title": "기술 - 부품 호환성",
+          "og_description": "지역 부품 판매업체에서 찾을 수 있는 부품의 완전한 목록",
+          "twitter_title": "기술 - 부품 호환성",
+          "twitter_description": "지역 부품 판매업체에서 찾을 수 있는 부품의 완전한 목록",
+          "table_headers": {
+            "brand": "브랜드",
+            "part_number": "부품 번호",
+            "usage_info": "사용 정보"
+          },
+          "ui": {
+            "search_placeholder": "검색...",
+            "no_items_found": "항목을 찾을 수 없습니다",
+            "support_section": "지원"
+          }
+        },
+        "needles": {
+          "title": "SU 니들 차트 및 비교 도구 | Classic Mini DIY",
+          "description": "인터랙티브 차트로 Classic Mini용 SU 카뷰레터 니들을 비교하세요. 이 포괄적인 비교 도구로 엔진 빌드에 맞는 올바른 니들 프로필을 찾으세요.",
+          "keywords": "SU 니들, 카뷰레터 니들, Classic Mini, 니들 비교, SU 카뷰레터, 니들 프로필, Mini Cooper",
+          "hero_title": "니들 구성기",
+          "breadcrumb_title": "니들 비교",
+          "og_title": "SU 니들 차트 및 비교 도구 | Classic Mini DIY",
+          "og_description": "인터랙티브 차트로 Classic Mini용 SU 카뷰레터 니들을 비교하세요. 엔진 빌드에 맞는 올바른 니들 프로필을 찾으세요.",
+          "twitter_title": "SU 니들 차트 및 비교 도구 | Classic Mini DIY",
+          "twitter_description": "인터랙티브 차트로 Classic Mini용 SU 카뷰레터 니들을 비교하세요.",
+          "main_heading": "SU 카뷰레터 니들 비교 도구",
+          "description_text": "Classic Mini 작업에서 가장 혼란스러운 것 중 하나는 종종 차량에 사용된 카뷰레터 니들입니다. 아래에서 여러 SU 니들의 니들 프로필을 동시에 비교할 수 있는 다중 니들 비교 차트를 찾을 수 있습니다. 비교하고 싶은 니들을 선택하고 비교를 클릭하면 새로운 프로필로 차트가 다시 그려집니다. 이 정보를 공개적으로 게시한 mintylamb 사이트에 큰 감사를 드립니다.",
+          "structured_data": {
+            "name": "SU 카뷰레터 니들 비교 방법",
+            "description": "다양한 SU 카뷰레터 니들을 비교하여 Classic Mini 엔진 빌드에 맞는 올바른 프로필을 찾으세요.",
+            "steps": {
+              "select_needles": {
+                "name": "니들 선택",
+                "text": "드롭다운 메뉴에서 비교하고 싶은 니들의 이름을 입력하기 시작하세요."
+              },
+              "add_to_comparison": {
+                "name": "비교에 추가",
+                "text": "\"니들 추가\" 버튼을 클릭하여 선택된 니들을 비교 차트에 추가하세요."
+              },
+              "view_comparison": {
+                "name": "비교 보기",
+                "text": "차트는 비교를 위해 선택된 모든 니들의 프로필을 보여주도록 자동으로 업데이트됩니다."
+              }
+            },
+            "tool_name": "인터랙티브 니들 비교 차트"
+          },
+          "ui": {
+            "loading_fallback": "니들 비교 도구 로딩 중...",
+            "loading_text": "니들 비교 도구 로딩 중...",
+            "needle_charts_section": "니들 차트",
+            "find_needle_heading": "카뷰레터용 니들 찾기",
+            "information_provided_by": "정보 제공:",
+            "seven_mini_parts_link": "Seven Mini Parts",
+            "support_section": "지원"
+          }
+        },
+        "gearing": {
+          "title": "기술 - 기어링 계산기",
+          "description": "다음 기어박스 빌드를 계획하고 계신가요? 새로운 기어박스 기어링 계산기를 사용하여 Classic Mini 기어박스 정비 또는 업그레이드에 대한 정보를 생성하세요.",
+          "hero_title": "기어박스 계산기",
+          "breadcrumb_title": "기어박스 계산기",
+          "og_title": "기술 - 기어링 계산기",
+          "og_description": "다음 기어박스 빌드를 계획하고 계신가요? 새로운 기어박스 기어링 계산기를 사용하여 Classic Mini 기어박스 정비 또는 업그레이드에 대한 정보를 생성하세요.",
+          "twitter_title": "기술 - 기어링 계산기",
+          "twitter_description": "다음 기어박스 빌드를 계획하고 계신가요? 새로운 기어박스 기어링 계산기를 사용하여 Classic Mini 기어박스 정비 또는 업그레이드에 대한 정보를 생성하세요.",
+          "main_heading": "기어박스 계산기",
+          "description_text": "기어박스를 제작하거나 재빌드할 때, 기어비를 업데이트하거나 속도계를 교체할 때 때로는 몇 가지를 업데이트해야 합니다. 아래 Classic Mini DIY 기어 계산기를 사용하여 새로운 엔진 빌드에 적합한 기어링을 결정하고 사용할 올바른 속도계 기어도 찾을 수 있습니다.",
+          "engine_sizes_card": {
+            "link_title": "엔진 크기 링크",
+            "heading": "표준 엔진 크기는 무엇인가요?",
+            "description": "여기를 클릭하여 클래식 미니의 일반적인 엔진 크기에 대해 알아보세요.",
+            "alt_text": "엔진 크기 테이블 이미지 미리보기"
+          },
+          "ui": {
+            "loading_fallback": "기어박스 계산기 로딩 중...",
+            "loading_text": "기어박스 계산기 로딩 중...",
+            "more_section": "더 보기"
+          }
+        },
+        "engine_decoder": {
+          "title": "기술 - Mini 엔진 플레이트 디코더",
+          "description": "Classic Mini의 엔진 플레이트를 디코딩하여 차량의 엔진 크기와 특징을 결정하세요. 이 플레이트는 모든 미니 세대에서 같은 위치에 있으며 엔진 크기와 특징을 식별하는데 사용됩니다.",
+          "hero_title": "엔진 코드 디코더",
+          "breadcrumb_title": "엔진 크기",
+          "og_title": "기술 - Mini 엔진 플레이트 디코더",
+          "og_description": "Classic Mini의 엔진 플레이트를 디코딩하여 차량의 엔진 크기와 특징을 결정하세요. 이 플레이트는 모든 미니 세대에서 같은 위치에 있으며 엔진 크기와 특징을 식별하는데 사용됩니다.",
+          "twitter_title": "기술 - Mini 엔진 플레이트 디코더",
+          "twitter_description": "Classic Mini의 엔진 플레이트를 디코딩하여 차량의 엔진 크기와 특징을 결정하세요.",
+          "main_heading": "엔진 플레이트 디코더",
+          "description_text": "엔진 플레이트는 워터 펌프 근처 엔진에 리벳으로 고정된 금속 플레이트에 각인된 일련의 숫자와 문자입니다. 이 플레이트는 모든 미니 세대에서 같은 위치에 있으며 엔진 크기와 특징을 식별하는데 사용됩니다.",
+          "chassis_decoder_card": {
+            "link_title": "섀시 디코더 도구 링크",
+            "heading": "섀시 번호를 디코딩해야 하나요?",
+            "description": "새로운 섀시 번호 디코딩 도구를 사용하여 차량을 식별하려면 여기를 클릭하세요.",
+            "alt_text": "돋보기 이미지"
+          },
+          "engine_sizes_legend": {
+            "850cc": "850cc",
+            "970cc": "970cc",
+            "997cc": "997cc",
+            "998cc": "998cc",
+            "1070cc": "1070cc",
+            "1100cc": "1100",
+            "1275cc": "1275"
+          },
+          "search": {
+            "placeholder": "엔진 코드 검색"
+          },
+          "table": {
+            "title": "엔진 코드",
+            "headers": {
+              "color": "",
+              "code": "코드",
+              "engine_size": "엔진 크기",
+              "engine_variant": "엔진 변형",
+              "gearbox_details": "기어박스 세부사항",
+              "details": "세부사항"
+            }
+          },
+          "ui": {
+            "support_section": "지원"
+          }
+        },
+        "compression": {
+          "title": "Classic Mini 엔진용 압축비 계산기 | Classic Mini DIY",
+          "description": "인터랙티브 계산기로 Classic Mini 엔진 빌드의 압축비를 계산하세요. 이 사용하기 쉬운 도구로 정밀하게 엔진 개조를 계획하세요.",
+          "keywords": "압축비, Classic Mini 엔진, 엔진 빌드, 압축 계산기, Mini Cooper 엔진, 피스톤 딤플, 헤드 용적",
+          "hero_title": "압축비 계산기",
+          "breadcrumb_title": "압축비 계산기",
+          "og_title": "Classic Mini 엔진용 압축비 계산기 | Classic Mini DIY",
+          "og_description": "인터랙티브 계산기로 Classic Mini 엔진 빌드의 압축비를 계산하세요. 정밀하게 엔진 개조를 계획하세요.",
+          "twitter_title": "Classic Mini 엔진용 압축비 계산기",
+          "twitter_description": "인터랙티브 계산기로 Classic Mini 엔진 빌드의 압축비를 계산하세요.",
+          "main_heading": "압축비 계산기",
+          "description_text": "성능 Classic Mini 엔진을 빌드할 때 결정해야 할 가장 중요한 수치 중 하나는 압축비입니다. 아래 Classic Mini DIY 압축비 계산기를 사용하여 새로운 엔진 빌드의 이상적인 압축비를 결정할 수 있습니다.",
+          "engine_sizes_card": {
+            "link_title": "엔진 크기 링크",
+            "heading": "표준 엔진 크기는 무엇인가요?",
+            "description": "여기를 클릭하여 클래식 미니의 일반적인 엔진 크기에 대해 알아보세요.",
+            "alt_text": "엔진 크기 테이블 이미지 미리보기"
+          },
+          "structured_data": {
+            "calculator_name": "Classic Mini 압축비 계산기",
+            "calculator_description": "피스톤 딤플, 헤드 용적, 보어 및 스트로크와 같은 다양한 매개변수를 기반으로 Classic Mini 엔진 빌드의 압축비를 결정하는 인터랙티브 계산기.",
+            "how_to_name": "Classic Mini 엔진 압축비 계산 방법",
+            "how_to_description": "인터랙티브 계산기를 사용하여 Classic Mini 엔진 빌드의 압축비를 계산하는 방법을 알아보세요.",
+            "steps": {
+              "piston_dish": {
+                "name": "피스톤 딤플 값 입력",
+                "text": "피스톤 딤플 값을 cc로 입력하세요."
+              },
+              "head_volume": {
+                "name": "헤드 용적 입력",
+                "text": "헤드 용적을 cc로 입력하세요."
+              },
+              "deck_height": {
+                "name": "데크 높이 입력",
+                "text": "데크 높이를 인치로 입력하세요."
+              },
+              "bore_stroke": {
+                "name": "보어 및 스트로크 입력",
+                "text": "보어 및 스트로크 측정값을 mm로 입력하세요."
+              },
+              "gasket_thickness": {
+                "name": "가스켓 두께 입력",
+                "text": "가스켓 두께를 선택하거나 사용자 정의 값을 입력하세요."
+              },
+              "view_results": {
+                "name": "결과 보기",
+                "text": "계산기가 자동으로 압축비와 엔진 용량을 표시합니다."
+              }
+            }
+          },
+          "ui": {
+            "more_section": "더 보기"
+          }
+        },
+        "clearance": {
+          "title": "기술 - Mini 클리어런스",
+          "description": "상세한 클리어런스 사양을 Classic Mini DIY에서 온라인으로 찾을 수 있습니다.",
+          "hero_title": "일반 클리어런스",
+          "breadcrumb_title": "일반 클리어런스",
+          "og_title": "기술 - Mini 클리어런스",
+          "og_description": "Classic Mini의 상세한 클리어런스 사양을 Classic Mini DIY에서 온라인으로 찾을 수 있습니다.",
+          "twitter_title": "기술 - Mini 클리어런스",
+          "twitter_description": "Classic Mini의 상세한 클리어런스 사양을 Classic Mini DIY에서 온라인으로 찾을 수 있습니다.",
+          "table": {
+            "headers": {
+              "part": "부품",
+              "clearance_thou": "클리어런스/엔드플로트 (thou)",
+              "clearance_mm": "클리어런스/엔드플로트 (mm)",
+              "expand": ""
+            },
+            "no_value": "---",
+            "no_items_found": "항목을 찾을 수 없습니다",
+            "extra_notes_title": "추가 참고사항:",
+            "no_notes_available": "추가 참고사항이 없습니다."
+          },
+          "search": {
+            "placeholder": "검색..."
+          },
+          "ui": {
+            "support_section": "지원"
+          }
+        },
+        "chassis_decoder": {
+          "title": "기술 - Mini 섀시 플레이트 디코더",
+          "description": "Classic Mini의 섀시 플레이트를 디코딩하여 차량의 모델 연도, 조립 공장 및 순차적 빌드 번호를 결정하세요. 섀시 플레이트는 세대에 따라 VIN 플레이트, VIN 태그 또는 VIN 플레이트로도 알려져 있습니다.",
+          "hero_title": "섀시 디코더",
+          "breadcrumb_title": "섀시 디코더",
+          "og_title": "기술 - Mini 섀시 플레이트 디코더",
+          "og_description": "Classic Mini의 섀시 플레이트를 디코딩하여 차량의 모델 연도, 조립 공장 및 순차적 빌드 번호를 결정하세요. 섀시 플레이트는 세대에 따라 VIN 플레이트, VIN 태그 또는 VIN 플레이트로도 알려져 있습니다.",
+          "twitter_title": "기술 - Mini 섀시 플레이트 디코더",
+          "twitter_description": "Classic Mini의 섀시 플레이트를 디코딩하여 차량의 모델 연도, 조립 공장 및 순차적 빌드 번호를 결정하세요.",
+          "main_heading": "섀시 플레이트 디코더",
+          "description_text": "섀시 플레이트는 차량 바디에 리벳으로 고정된 금속 플레이트에 각인된 일련의 숫자와 문자입니다. 이 플레이트는 모든 미니 세대에서 다른 위치에 있으며 차량의 모델 연도, 조립 공장 및 순차적 빌드 번호를 식별하는데 사용됩니다. 섀시 플레이트는 세대에 따라 VIN 플레이트, VIN 태그 또는 VIN 플레이트로도 알려져 있습니다.",
+          "engine_decoder_card": {
+            "link_title": "엔진 플레이트 디코더 링크",
+            "heading": "엔진 디코더",
+            "description": "새로운 엔진 번호 디코딩 테이블을 사용하여 엔진을 식별하려면 여기를 클릭하세요.",
+            "alt_text": "엔진 디코더"
+          },
+          "form": {
+            "card_title": "섀시 번호 디코딩",
+            "card_description": "섀시 번호를 입력하고 적절한 연도 범위를 선택하여 모든 세부사항을 자동으로 디코딩하세요.",
+            "year_range_label": "연도 범위",
+            "chassis_number_label": "섀시 번호",
+            "chassis_number_placeholder": "섀시 번호 입력",
+            "example_text": "예시:",
+            "decode_button": "섀시 디코딩",
+            "decoding_button": "디코딩 중...",
+            "reset_button": "재설정",
+            "error_empty_chassis": "섀시 번호를 입력해 주세요",
+            "error_decode_failed": "섀시 번호 디코딩에 실패했습니다. 다시 시도해 주세요."
+          },
+          "results": {
+            "title": "디코딩 결과",
+            "status_decoded": "디코딩됨",
+            "status_invalid": "유효하지 않음",
+            "year_range_stat": "연도 범위",
+            "chassis_number_stat": "귀하의 섀시 번호",
+            "expected_pattern_stat": "예상 패턴",
+            "validation_issues_title": "유효성 검사 문제",
+            "decoded_positions_title": "디코딩된 위치",
+            "position_label": "위치"
+          },
+          "special_notes": {
+            "title": "특별 참고사항",
+            "build_number_title": "빌드 번호에 대한 참고사항",
+            "build_number_text": "Longbridge의 첫 번째 차량은 번호 101이었고, Cowley의 첫 번째 차량도 마찬가지였습니다. 그 이후부터 각 공장은 모델에 관계없이 자체 번호 순서를 계속했습니다. 예를 들어, 세단, 밴 등. 다시 말해서, 각 모델이 101에서 시작하여 자체 순서를 유지하지 않았습니다. 세단과 밴 등은 Cooper 및 Cooper S 모델과 함께 번호 순서에 혼재되어 있습니다",
+            "assembly_plant_title": "조립 공장에 대한 참고사항",
+            "assembly_plant_text": "이것은 영국에서 제작된 차량에서 일관되지 않게 사용되는 것으로 보이며, 문자가 생략된 경우 차량이 \"일반적인\" 공장에서 제작된 것으로 이해됩니다. 예를 들어, Longbridge의 Austin, Riley 또는 Wolseley는 순서 번호 뒤에 \"A\"가 있을 수도 있고 없을 수도 있습니다. 예, Cowley의 Morris 공장에서 제작된 Austin Mini와 Longbridge의 Austin 공장에서 제작된 Morris Mini가 있었습니다. 모든 영국에서 제작된 Cooper 및 Cooper S 모델(Austin 및 Morris)과 Riley Elf 및 Wolseley Hornet 모델은 Longbridge의 Austin 공장에서 제작되었습니다"
+          },
+          "attribution": {
+            "text": "위의 세부사항은",
+            "mini_mania": "Mini Mania의",
+            "technical_articles": "기술 기사에서 가져온 것입니다. 자세한 내용은 여기에서 찾을 수 있습니다:",
+            "link_text": "섀시 코드 기술 기사"
+          },
+          "ui": {
+            "support_section": "지원"
+          }
+        }
+      },
+      "chat": {
+        "assistant_message": {
+          "copy_button": "복사"
+        },
+        "chat_window": {
+          "experimental_feature": "실험적 기능:",
+          "experimental_disclaimer": "이 AI 어시스턴트는 베타 버전이며 유일한 기술 정보 소스로 사용되어서는 안 됩니다.",
+          "welcome_title": "CMDIY 어시스턴트에 오신 것을 환영합니다!",
+          "input_placeholder": "메시지를 입력하세요...",
+          "report_issue": "문제 신고",
+          "useful_links_placeholder": "사용 가능한 유용한 링크가 여기에 표시됩니다"
+        },
+        "human_message": {
+          "copy_button": "복사"
+        },
+        "useful_links": {
+          "title": "유용한 링크"
+        },
+        "useful_links_sidebar": {
+          "title": "유용한 링크",
+          "showing_results": "전체 {count}개 검색 결과 표시"
+        }
+      },
+      "wheel_submit": {
+        "stepper": {
+          "wheel_details": "휠 세부사항",
+          "images": "이미지",
+          "contact_info": "연락처 정보",
+          "review": "검토",
+          "submitted": "제출됨"
+        },
+        "step1": {
+          "title_new": "새 휠 제출",
+          "title_update": "업데이트 제안",
+          "current_name": "현재 이름:",
+          "current_type": "현재 타입:",
+          "current_width": "현재 폭:",
+          "current_size": "현재 크기:",
+          "current_offset": "현재 오프셋:",
+          "current_notes": "현재 참고사항:",
+          "wheel_name": "휠 이름",
+          "wheel_name_placeholder": "휠 이름 입력",
+          "wheel_name_required": "휠 이름이 필요합니다",
+          "wheel_material_type": "휠 소재 타입",
+          "wheel_material_placeholder": "예) 알로이, 스틸 등",
+          "wheel_width": "휠 폭",
+          "wheel_width_placeholder": "폭 입력",
+          "width_required": "폭이 필요합니다",
+          "wheel_size": "휠 크기",
+          "wheel_size_placeholder": "휠 크기 선택",
+          "wheel_size_required": "휠 크기가 필요합니다",
+          "diameter_inches": "지름(인치)",
+          "offset_info": "오프셋 정보",
+          "offset_placeholder": "예) ET25",
+          "extra_notes": "추가 참고사항",
+          "notes_placeholder": "이 휠에 대한 추가 정보...",
+          "characters_count": "{count}/250자",
+          "no_data": "데이터 없음"
+        },
+        "step2": {
+          "title": "휠 이미지",
+          "add_images": "자신의 이미지 추가",
+          "new_wheel_notice": "새 휠을 제출하려면 등록부를 위해 적어도 하나의 이미지를 포함해야 합니다",
+          "upload_label": "최대 5개 이미지 업로드",
+          "accepted_formats": "허용 형식: JPG, PNG (각각 최대 3MB)",
+          "files_to_upload": "업로드할 파일 ({count})",
+          "your_images": "귀하의 이미지",
+          "existing_images": "기존 이미지",
+          "no_images": "아직 업로드된 이미지가 없습니다"
+        },
+        "step3": {
+          "title": "연락처 정보",
+          "your_name": "이름",
+          "name_placeholder": "이름 입력",
+          "name_required": "이름이 필요합니다",
+          "email_address": "이메일 주소",
+          "email_placeholder": "your{'@'}email.com",
+          "email_invalid": "유효한 이메일 주소를 입력해 주세요"
+        },
+        "step4": {
+          "title": "제출 검토",
+          "update_notice": "기존 휠에 대한 업데이트를 제안하고 있습니다. 변경 사항은 게시 전에 검토됩니다.",
+          "wheel_details": "휠 세부사항",
+          "images": "이미지",
+          "contact_information": "연락처 정보",
+          "not_provided": "제공되지 않음",
+          "no_additional_notes": "추가 참고사항 없음",
+          "no_images_added": "추가된 이미지 없음",
+          "name": "이름",
+          "type": "타입",
+          "width": "폭",
+          "size": "크기",
+          "offset": "오프셋",
+          "notes": "참고사항",
+          "email": "이메일"
+        },
+        "step5": {
+          "thank_you": "감사합니다!",
+          "submission_received": "귀하의 제출이 접수되었습니다.",
+          "new_wheel_message": "휠이 검토를 위해 제출되었습니다. 승인되어 등록부에 추가되면 {email}로 알려드리겠습니다.",
+          "update_message": "제안된 업데이트가 검토를 위해 제출되었습니다. 처리되면 {email}로 알려드리겠습니다.",
+          "submit_another": "다른 휠 제출"
+        },
+        "navigation": {
+          "back": "뒤로",
+          "next": "다음",
+          "submit": "제출"
+        },
+        "errors": {
+          "load_failed": "휠 데이터를 로드하지 못했습니다. 다시 시도해 주세요.",
+          "unable_to_load": "휠 데이터를 로드할 수 없습니다",
+          "start_over": "다시 시작"
+        }
+      },
+      "wheel_grid": {
+        "title": "휠 찾기",
+        "clear_filters": "필터 지우기",
+        "search_placeholder": "무엇이든 검색하세요 (예: Momos, 10in, ET20)",
+        "all_sizes": "모든 크기",
+        "ten_wheels": "10\" 휠",
+        "twelve_wheels": "12\" 휠",
+        "thirteen_wheels": "13\" 휠",
+        "error_loading": "휠 로딩 오류",
+        "no_wheels_found": "휠을 찾을 수 없습니다",
+        "try_adjusting": "검색이나 필터를 조정해 보세요",
+        "size": "크기",
+        "width": "폭",
+        "offset": "오프셋",
+        "material": "소재",
+        "view_details": "세부사항 보기",
+        "page_of": "{total} 페이지 중 {current} 페이지",
+        "na": "N/A"
+      }
+    },
+    "contact": {
+      "title": "Classic Mini DIY 문의 - 도움받기 및 콘텐츠 제출",
+      "description": "일반 문의, 아카이브 제출, 기술 기여 또는 버그 신고에 대해 Classic Mini DIY에 문의하세요. 커뮤니티와 연락할 수 있는 여러 방법.",
+      "hero_title": "연락하기",
+      "breadcrumb_home": "홈",
+      "breadcrumb_contact": "문의",
+      "general_inquiries_title": "일반 문의",
+      "general_inquiries_description": "사이트, Classic Mini 소유, 또는 일반적인 도움에 대한 질문? 연락 주시면 기쁘겠습니다.",
+      "email_label": "이메일",
+      "ai_chat_label": "AI 채팅 어시스턴트",
+      "ai_chat_description": "빠른 질문은 채팅 위젯 사용",
+      "response_time_label": "응답 시간",
+      "response_time_description": "보통 24-48시간 이내",
+      "archive_submissions_title": "아카이브 제출",
+      "archive_submissions_description": "공유할 역사적 문서, 사진 또는 이야기가 있으신가요? Classic Mini 역사 보존에 도움을 주세요.",
+      "what_to_include_label": "포함할 내용",
+      "what_to_include_description": "사진, 문서, 이야기 또는 역사적 정보",
+      "rights_attribution_label": "권리 및 저작권 표시",
+      "rights_attribution_description": "소유하고 있거나 공유 권한이 있음을 확인해 주세요",
+      "technical_submissions_title": "기술 제출",
+      "technical_submissions_description": "수리 가이드, 기술 사양 또는 유지보수 팁을 커뮤니티와 공유하세요.",
+      "content_types_label": "콘텐츠 유형",
+      "content_types_description": "수리 가이드, 사양, 팁, 부품 번호",
+      "credit_label": "크레딧",
+      "credit_description": "기여자로 크레딧을 드립니다",
+      "bug_reports_title": "버그 신고",
+      "bug_reports_description": "사이트에서 문제를 발견하셨나요? 버그와 문제를 신고하여 수정에 도움을 주세요.",
+      "include_details_label": "세부사항 포함",
+      "include_details_description": "브라우저, 기기, 재현 단계",
+      "priority_label": "우선순위",
+      "priority_description": "치명적 버그는 24시간 이내 수정",
+      "other_ways_connect": "다른 연결 방법",
+      "community_forum_label": "커뮤니티 포럼",
+      "community_forum_description": "다른 애호가들과 토론 참여",
+      "support_patreon_label": "Patreon 지원",
+      "support_patreon_description": "사이트 운영 유지 도움",
+      "support_patreon_button": "Patreon에서 지원"
+    },
+    "chat": {
+      "title": "CMDIY 어시스턴트 - Classic Mini DIY",
+      "description": "Classic Mini 기술 도움, 섀시 디코딩, 부품 정보 및 복원 가이드를 위해 AI 어시스턴트와 채팅하세요.",
+      "og_title": "CMDIY 어시스턴트 - Classic Mini DIY",
+      "og_description": "AI 어시스턴트로부터 Classic Mini 프로젝트에 대한 즉시 도움을 받으세요.",
+      "twitter_title": "CMDIY 어시스턴트 - Classic Mini DIY",
+      "twitter_description": "AI 어시스턴트로부터 Classic Mini 프로젝트에 대한 즉시 도움을 받으세요.",
+      "main_heading": "CMDIY 어시스턴트",
+      "description_text": "귀하의 Classic Mini DIY 어시스턴트 - 기술적 질문을 하고, 부품 정보를 찾고, 복원 프로젝트에 대한 가이드를 받으세요. 또는 단순히 Classic Mini에 대해 저와 채팅하세요!"
+    },
+    "archive_item": {
+      "breadcrumb_archive": "아카이브",
+      "hero_title": "Classic Mini 아카이브",
+      "loading_error": "콘텐츠 로딩 오류. 나중에 다시 시도해 주세요.",
+      "no_image_alt": "이미지 없음",
+      "download_aria_label": "{title} 다운로드",
+      "preview_image_alt": "{title} 미리보기 이미지",
+      "archive_item_alt": "{title} 이미지",
+      "fallback_title": "아카이브 항목",
+      "file_type_label": "유형:",
+      "no_description": "설명이 없습니다.",
+      "share_button": "공유",
+      "contribute_button": "기여하기",
+      "missing_file_button": "누락된 파일",
+      "download_button": "다운로드",
+      "seo": {
+        "title_suffix": "- Classic Mini 아카이브 - Classic Mini DIY",
+        "description_fallback": "Classic Mini DIY 컬렉션의 {title}에 대한 아카이브 리소스.",
+        "keywords_template": "Classic Mini, {title}, 아카이브, Mini Cooper, {fileType}, {archiveType}",
+        "og_title_suffix": "- Classic Mini 아카이브",
+        "twitter_title_suffix": "- Classic Mini 아카이브"
+      },
+      "structured_data": {
+        "author_fallback": "Classic Mini DIY",
+        "publisher_name": "Classic Mini DIY",
+        "collection_name": "Classic Mini 아카이브"
+      }
+    }
+  }
+}

@@ -235,17 +235,18 @@ export default defineNuxtConfig({
 
   i18n: {
     defaultLocale: 'en',
+    strategy: 'no_prefix',
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
-      // { code: 'es', name: 'Spanish', file: 'es.json' },
-      // { code: 'it', name: 'Italian', file: 'it.json' },
-      // { code: 'fr', name: 'French', file: 'fr.json' },
-      // { code: 'de', name: 'German', file: 'de.json' },
-      // { code: 'pt', name: 'Portuguese', file: 'pt.json' },
-      // { code: 'ru', name: 'Russian', file: 'ru.json' },
-      // { code: 'ja', name: 'Japanese', file: 'ja.json' },
-      // { code: 'zh', name: 'Chinese', file: 'zh.json' },
-      // { code: 'ko', name: 'Korean', file: 'ko.json' },
+      { code: 'es', name: 'Spanish', file: 'es.json' },
+      { code: 'fr', name: 'French', file: 'fr.json' },
+      { code: 'it', name: 'Italian', file: 'it.json' },
+      { code: 'de', name: 'German', file: 'de.json' },
+      { code: 'pt', name: 'Portuguese', file: 'pt.json' },
+      { code: 'ru', name: 'Russian', file: 'ru.json' },
+      { code: 'ja', name: 'Japanese', file: 'ja.json' },
+      { code: 'zh', name: 'Chinese', file: 'zh.json' },
+      { code: 'ko', name: 'Korean', file: 'ko.json' },
     ],
     detectBrowserLanguage: {
       useCookie: true,
