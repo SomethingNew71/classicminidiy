@@ -803,7 +803,7 @@
       "name_placeholder": "Enter your name",
       "name_required": "Your name is required",
       "email_address": "Email Address",
-      "email_placeholder": "your@email.com",
+      "email_placeholder": "your{'@'}email.com",
       "email_invalid": "Please enter a valid email address"
     },
     "step4": {
@@ -894,7 +894,7 @@
       "name_placeholder": "Namen eingeben",
       "name_required": "Ihr Name ist erforderlich",
       "email_address": "E-Mail-Adresse",
-      "email_placeholder": "ihre@email.com",
+      "email_placeholder": "ihre{'@'}email.com",
       "email_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
     },
     "step4": {
@@ -985,7 +985,7 @@
       "name_placeholder": "Ingresa tu nombre",
       "name_required": "Tu nombre es requerido",
       "email_address": "Dirección de Correo Electrónico",
-      "email_placeholder": "tu@correo.com",
+      "email_placeholder": "tu{'@'}correo.com",
       "email_invalid": "Por favor ingresa una dirección de correo electrónico válida"
     },
     "step4": {
@@ -1076,7 +1076,7 @@
       "name_placeholder": "Entrer votre nom",
       "name_required": "Votre nom est requis",
       "email_address": "Adresse e-mail",
-      "email_placeholder": "votre@email.com",
+      "email_placeholder": "votre{'@'}email.com",
       "email_invalid": "Veuillez entrer adresse e-mail valide"
     },
     "step4": {
@@ -1167,7 +1167,7 @@
       "name_placeholder": "Inserisci tuo nome",
       "name_required": "Tuo nome richiesto",
       "email_address": "Indirizzo email",
-      "email_placeholder": "tua@email.com",
+      "email_placeholder": "tua{'@'}email.com",
       "email_invalid": "Inserisci indirizzo email valido"
     },
     "step4": {
@@ -1254,7 +1254,7 @@
       "name_placeholder": "名前を入力",
       "name_required": "名前が必要です",
       "email_address": "メールアドレス",
-      "email_placeholder": "your@email.com",
+      "email_placeholder": "your{'@'}email.com",
       "email_invalid": "有効なメールアドレスを入力してください"
     },
     "step4": {
@@ -1341,7 +1341,7 @@
       "name_placeholder": "이름 입력",
       "name_required": "이름이 필요합니다",
       "email_address": "이메일 주소",
-      "email_placeholder": "your@email.com",
+      "email_placeholder": "your{'@'}email.com",
       "email_invalid": "유효한 이메일 주소를 입력하세요"
     },
     "step4": {
@@ -1428,7 +1428,7 @@
       "name_placeholder": "Digite seu nome",
       "name_required": "Seu nome obrigatório",
       "email_address": "Endereço email",
-      "email_placeholder": "seu@email.com",
+      "email_placeholder": "seu{'@'}email.com",
       "email_invalid": "Digite endereço email válido"
     },
     "step4": {
@@ -1515,7 +1515,7 @@
       "name_placeholder": "Введите ваше имя",
       "name_required": "Ваше имя обязательно",
       "email_address": "Адрес электронной почты",
-      "email_placeholder": "ваш@email.com",
+      "email_placeholder": "ваш{'@'}email.com",
       "email_invalid": "Введите действительный адрес электронной почты"
     },
     "step4": {
@@ -1602,7 +1602,7 @@
       "name_placeholder": "输入您的姓名",
       "name_required": "您的姓名必填",
       "email_address": "电子邮件地址",
-      "email_placeholder": "your@email.com",
+      "email_placeholder": "your{'@'}email.com",
       "email_invalid": "请输入有效的电子邮件地址"
     },
     "step4": {
