@@ -1,7 +1,9 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '../../data/models/generic';
 
-  const { t } = useI18n();
+  const { t } = useI18n({
+    useScope: 'local',
+  });
   let styleObject: any;
 
   const props = defineProps({
@@ -118,7 +120,7 @@
           :class="{ 'special-title': special, 'has-text-centered': blog }"
         >
           <span v-if="heroType === HERO_TYPES.HOME">
-            {{ t('components.hero.home_title') }}
+            {{ t('home_title') }}
           </span>
           <span v-else>
             {{ displayTitle }}
@@ -146,3 +148,38 @@
     }
   }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "home_title": "Classic Mini DIY"
+  },
+  "es": {
+    "home_title": "Classic Mini DIY"
+  },
+  "fr": {
+    "home_title": "Classic Mini DIY"
+  },
+  "de": {
+    "home_title": "Classic Mini DIY"
+  },
+  "it": {
+    "home_title": "Classic Mini DIY"
+  },
+  "ja": {
+    "home_title": "Classic Mini DIY"
+  },
+  "ko": {
+    "home_title": "Classic Mini DIY"
+  },
+  "pt": {
+    "home_title": "Classic Mini DIY"
+  },
+  "ru": {
+    "home_title": "Classic Mini DIY"
+  },
+  "zh": {
+    "home_title": "Classic Mini DIY"
+  }
+}
+</i18n>
