@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS } from '../../data/models/generic';
 
+  const { t } = useI18n({ useScope: 'local' });
   const crumbs: any = ref([]);
   const props = defineProps({
     page: {
@@ -28,17 +29,17 @@
   if (props.root) {
     crumbs.value.push(
       {
-        title: 'Home',
+        title: t('home'),
         disabled: false,
         href: '/',
       },
       {
         title:
           props.version === BREADCRUMB_VERSIONS.TECH
-            ? 'Technical Info'
+            ? t('technical')
             : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? 'Admin'
-              : 'Archive',
+              ? t('admin')
+              : t('archive'),
         disabled: true,
         href:
           props.version === BREADCRUMB_VERSIONS.TECH
@@ -51,17 +52,17 @@
   } else if (props.subpage) {
     crumbs.value.push(
       {
-        title: 'Home',
+        title: t('home'),
         disabled: false,
         href: '/',
       },
       {
         title:
           props.version === BREADCRUMB_VERSIONS.TECH
-            ? 'Technical Info'
+            ? t('technical')
             : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? 'Admin'
-              : 'Archive',
+              ? t('admin')
+              : t('archive'),
         disabled: false,
         href:
           props.version === BREADCRUMB_VERSIONS.TECH
@@ -83,17 +84,17 @@
   } else {
     crumbs.value.push(
       {
-        title: 'Home',
+        title: t('home'),
         disabled: false,
         href: '/',
       },
       {
         title:
           props.version === BREADCRUMB_VERSIONS.TECH
-            ? 'Technical Info'
+            ? t('technical')
             : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? 'Admin'
-              : 'Archive',
+              ? t('admin')
+              : t('archive'),
         disabled: false,
         href:
           props.version === BREADCRUMB_VERSIONS.TECH
@@ -126,3 +127,68 @@
     </ul>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "home": "Home",
+    "archive": "Archive",
+    "technical": "Technical",
+    "admin": "Admin"
+  },
+  "de": {
+    "home": "Startseite",
+    "archive": "Archiv",
+    "technical": "Technisch",
+    "admin": "Verwaltung"
+  },
+  "es": {
+    "home": "Inicio",
+    "archive": "Archivo",
+    "technical": "Técnico",
+    "admin": "Administración"
+  },
+  "fr": {
+    "home": "Accueil",
+    "archive": "Archive",
+    "technical": "Technique",
+    "admin": "Administration"
+  },
+  "it": {
+    "home": "Casa",
+    "archive": "Archivio",
+    "technical": "Tecnico",
+    "admin": "Amministrazione"
+  },
+  "ja": {
+    "home": "ホーム",
+    "archive": "アーカイブ",
+    "technical": "技術",
+    "admin": "管理"
+  },
+  "ko": {
+    "home": "홈",
+    "archive": "아카이브",
+    "technical": "기술 정보",
+    "admin": "관리"
+  },
+  "pt": {
+    "home": "Início",
+    "archive": "Arquivo",
+    "technical": "Técnico",
+    "admin": "Administração"
+  },
+  "ru": {
+    "home": "Главная",
+    "archive": "Архив",
+    "technical": "Техническая",
+    "admin": "Администрирование"
+  },
+  "zh": {
+    "home": "主页",
+    "archive": "档案库",
+    "technical": "技术",
+    "admin": "管理"
+  }
+}
+</i18n>

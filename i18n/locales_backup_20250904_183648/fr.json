@@ -28,12 +28,154 @@
     "home_subtitle": "VOTRE VOISIN AMICAL"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "Minutes regardées",
+      "over_30_days": "au cours des 30 derniers jours",
+      "subscribers": "Abonnés",
+      "across_world": "à travers le monde",
+      "videos": "Vidéos",
+      "since_2015": "depuis 2015"
+    },
+    "recent_videos": {
+      "title": "Vidéos récentes",
+      "error_message": "Impossible de charger les données youtube",
+      "published_on": "Publié le",
+      "watch_button": "Regarder"
+    },
     "registry_table": {
+      "search_placeholder": "Rechercher n'importe quel détail",
+      "total_minis": "Total de Minis",
+      "per_page_options": {
+        "10": "10 par page",
+        "25": "25 par page",
+        "50": "50 par page",
+        "100": "100 par page"
+      },
       "table_headers": {
         "year": "Année",
         "model": "Modèle",
         "trim": "Finition",
         "color": "Couleur"
+      },
+      "status": {
+        "pending": "En attente",
+        "approved": "Approuvé",
+        "rejected": "Rejeté",
+        "unknown": "Inconnu"
+      },
+      "expanded_details": {
+        "build_date": "Date de construction :",
+        "body_number": "N° de carrosserie :",
+        "engine_number": "N° de moteur :",
+        "submitted_by": "Soumis par :",
+        "notes": "Notes :"
+      },
+      "no_items_found": "Aucun élément trouvé",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "Soumettre votre Mini",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "Merci !",
+        "submitted_message": "Votre entrée de registre a été soumise. Veuillez compter 1-2 jours pour qu'elle apparaisse dans la liste.",
+        "submission_details": "Les détails de votre soumission de registre sont",
+        "track_submission": "Suivez votre soumission ici :",
+        "submission_link": "Soumission",
+        "submit_another": "Soumettre une autre Mini"
+      },
+      "validation": {
+        "required": "Ce champ est requis pour soumettre",
+        "invalid_email": "E-mail invalide."
+      },
+      "sections": {
+        "personal_info": "Informations personnelles :",
+        "car_details": "Détails de la voiture :"
+      },
+      "form_labels": {
+        "your_name": "Votre nom",
+        "your_email": "Votre e-mail",
+        "model_year": "Année du modèle",
+        "model": "Modèle",
+        "trim": "Finition",
+        "body_type": "Type de carrosserie",
+        "original_engine_size": "Taille de moteur d'origine",
+        "factory_color": "Couleur d'usine",
+        "body_shell_number": "Numéro de coque de carrosserie",
+        "engine_plate_number": "Numéro de plaque moteur",
+        "special_notes": "Notes spéciales ou supplémentaires"
+      },
+      "placeholders": {
+        "name": "ex. Jean Dupont",
+        "email": "ex. jean{'@'}exemple.com",
+        "model": "ex. Morris Mini",
+        "trim": "ex. Mini 50",
+        "color": "ex. Bleu Clipper",
+        "body_number": "ex. GB190fW",
+        "engine_number": "ex. 12H4102",
+        "notes": "ex. Cette voiture n'a été produite que de 1959 à 1960"
+      },
+      "body_types": {
+        "saloon": "Berline",
+        "pickup": "Pick-up",
+        "estate": "Break",
+        "cabriolet": "Cabriolet",
+        "clubman": "Clubman",
+        "van": "Fourgon",
+        "hornet": "Hornet"
+      },
+      "error": {
+        "title": "Je suis désolé !",
+        "message": "Il y a eu un problème lors de la soumission de votre soumission pour le moment, veuillez réessayer plus tard !",
+        "check_entries": "Veuillez vérifier vos entrées et réessayer",
+        "dismiss": "Annuler",
+        "api_unavailable": "L'API est actuellement indisponible. Veuillez réessayer plus tard."
+      },
+      "submit_button": "Soumettre"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "Taille de moteur",
+        "needle_std": "Aiguille standard",
+        "needle_rich": "Aiguille riche",
+        "needle_lean": "Aiguille pauvre",
+        "spring_type": "Type de ressort"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Demandez-moi n'importe quoi sur votre Classic Mini...",
+      "helper_text": "Chattez avec l'assistant CMDIY"
+    },
+    "engine_plate_modal": {
+      "question_text": "Vous n'êtes pas sûr de ce à quoi ressemble votre plaque moteur ?",
+      "button_text": "Où est ma plaque moteur ?",
+      "modal_title": "Plaques moteur",
+      "slide_aria_label": "Aller à la diapositive {number}",
+      "location_title": "Emplacement de la plaque moteur",
+      "location_description": "Les plaques moteur se trouvaient au même endroit sur toutes les années de modèles mini. Cependant ces plaques sont manquantes dans certaines situations :",
+      "missing_reasons": {
+        "replaced": "Si le moteur a été remplacé",
+        "removed": "Si la plaque a été enlevée lors d'une reconstruction",
+        "corroded": "Si la plaque s'est corrodée ou est tombée avec le temps"
+      },
+      "close_button": "Fermer",
+      "image_alts": {
+        "example1": "Exemple de plaque moteur 1",
+        "example2": "Exemple de plaque moteur 2",
+        "example3": "Exemple de plaque moteur 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "Rechercher n'importe quoi (ex. MPI, Cooper S, Carburateur HIF44)",
+      "empty_state": "Aucun élément répondant aux filtres actuels n'existe",
+      "sort_key_label": "Clé de tri :",
+      "actions": {
+        "share": "Partager",
+        "contribute": "Contribuer",
+        "download": "Télécharger"
+      },
+      "pagination": {
+        "page_text": "Page {current} sur {total}"
       }
     },
     "chat": {
@@ -755,12 +897,7 @@
             "description": "Spécifications de couple complètes pour fixations Classic Mini. Tableau de référence pour fixations moteur, suspension, groupe motopropulseur et carrosserie avec valeurs en lb/pi et Nm.",
             "dataset_name": "Spécifications couple Classic Mini",
             "dataset_description": "Ensemble de données complet des spécifications de couple pour fixations Classic Mini",
-            "variable_measured": [
-              "Nom fixation",
-              "Couple en lb/pi",
-              "Couple en Nm",
-              "Notes supplémentaires"
-            ]
+            "variable_measured": ["Nom fixation", "Couple en lb/pi", "Couple en Nm", "Notes supplémentaires"]
           },
           "table_headers": {
             "fastener": "Fixation",

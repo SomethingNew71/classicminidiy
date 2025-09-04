@@ -28,13 +28,110 @@
     "home_subtitle": "您身边的友好社区"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "观看分钟数",
+      "over_30_days": "过去30天",
+      "subscribers": "订阅者",
+      "across_world": "全球范围",
+      "videos": "视频",
+      "since_2015": "自2015年起"
+    },
+    "recent_videos": {
+      "title": "最新视频",
+      "error_message": "无法加载YouTube数据",
+      "published_on": "发布于",
+      "watch_button": "观看"
+    },
     "registry_table": {
+      "search_placeholder": "搜索任何详细信息",
+      "total_minis": "Mini总数",
+      "per_page_options": {
+        "10": "每页10项",
+        "25": "每页25项",
+        "50": "每页50项",
+        "100": "每页100项"
+      },
       "table_headers": {
         "year": "年份",
         "model": "型号",
         "trim": "配置",
         "color": "颜色"
-      }
+      },
+      "status": {
+        "pending": "待审核",
+        "approved": "已批准",
+        "rejected": "已拒绝",
+        "unknown": "未知"
+      },
+      "expanded_details": {
+        "build_date": "制造日期：",
+        "body_number": "车身编号：",
+        "engine_number": "发动机编号：",
+        "submitted_by": "提交者：",
+        "notes": "备注："
+      },
+      "no_items_found": "未找到项目",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "提交您的Mini",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "谢谢！",
+        "submitted_message": "您的注册条目已提交。请等待1-2天以使其出现在列表中。",
+        "submission_details": "您的注册提交详情为",
+        "track_submission": "在此处跟踪您的提交：",
+        "submission_link": "提交记录",
+        "submit_another": "提交另一辆Mini"
+      },
+      "validation": {
+        "required": "此字段为必填项",
+        "invalid_email": "无效的电子邮件。"
+      },
+      "sections": {
+        "personal_info": "个人信息：",
+        "car_details": "汽车详情："
+      },
+      "form_labels": {
+        "your_name": "您的姓名",
+        "your_email": "您的邮箱",
+        "model_year": "型号年份",
+        "model": "型号",
+        "trim": "配置",
+        "body_type": "车身类型",
+        "original_engine_size": "原装发动机排量",
+        "factory_color": "出厂颜色",
+        "body_shell_number": "车身编号",
+        "engine_plate_number": "发动机铭牌编号",
+        "special_notes": "特殊或附加说明"
+      },
+      "placeholders": {
+        "name": "例：张三",
+        "email": "例：john{'@'}example.com",
+        "model": "例：Morris Mini",
+        "trim": "例：Mini 50",
+        "color": "例：蓝色",
+        "body_number": "例：GB190fW",
+        "engine_number": "例：12H4102",
+        "notes": "例：此车仅在1959-1960年间生产"
+      },
+      "body_types": {
+        "saloon": "轿车",
+        "pickup": "皮卡",
+        "estate": "旅行车",
+        "cabriolet": "敞篷车",
+        "clubman": "俱乐部版",
+        "van": "厢式货车",
+        "hornet": "大黄蜂"
+      },
+      "error": {
+        "title": "抱歉！",
+        "message": "目前提交您的申请时出现问题，请稍后重试！",
+        "check_entries": "请检查您的条目并重试",
+        "dismiss": "关闭",
+        "api_unavailable": "API目前不可用。请稍后重试。"
+      },
+      "submit_button": "提交"
     },
     "patreon_card": {
       "title": "支持网站",
@@ -42,6 +139,15 @@
       "membership_benefits": "会员享有大量免费福利！",
       "button_text": "今天贡献",
       "image_alt": "我的车在千斤顶支架上的图片"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "发动机排量",
+        "needle_std": "标准针阀",
+        "needle_rich": "浓混合气针阀",
+        "needle_lean": "稀混合气针阀",
+        "spring_type": "弹簧类型"
+      }
     },
     "main_nav": {
       "logo_alt": "Classic Mini DIY标志",
@@ -70,6 +176,42 @@
         "cmdiy_privacy": "CMDIY网站隐私政策",
         "youtube_privacy": "YouTube隐私政策",
         "google_privacy": "Google隐私政策"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "询问任何关于您的Classic Mini的问题...",
+      "helper_text": "与CMDIY助手聊天"
+    },
+    "engine_plate_modal": {
+      "question_text": "不确定您的发动机铭牌是什么样子？",
+      "button_text": "我的发动机铭牌在哪里？",
+      "modal_title": "发动机铭牌",
+      "slide_aria_label": "转到第{number}张幻灯片",
+      "location_title": "发动机铭牌位置",
+      "location_description": "发动机铭牌在所有型号年份的Mini中位置相同。但在某些情况下这些铭牌会丢失：",
+      "missing_reasons": {
+        "replaced": "如果发动机已被更换",
+        "removed": "如果在大修过程中拆除了铭牌",
+        "corroded": "如果铭牌随时间腐蚀或脱落"
+      },
+      "close_button": "关闭",
+      "image_alts": {
+        "example1": "发动机铭牌示例1",
+        "example2": "发动机铭牌示例2",
+        "example3": "发动机铭牌示例3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "搜索任何内容（例：MPI、Cooper S、化油器HIF44）",
+      "empty_state": "没有符合当前筛选条件的项目",
+      "sort_key_label": "排序关键字：",
+      "actions": {
+        "share": "分享",
+        "contribute": "贡献",
+        "download": "下载"
+      },
+      "pagination": {
+        "page_text": "第{current}页，共{total}页"
       }
     },
     "chat": {
@@ -781,12 +923,7 @@
             "description": "Classic Mini紧固件的完整扭矩规格。发动机、悬架、传动系统和车身紧固件的参考表，数值以lb/ft和Nm为单位。",
             "dataset_name": "Classic Mini扭矩规格",
             "dataset_description": "Classic Mini紧固件扭矩规格的综合数据集",
-            "variable_measured": [
-              "紧固件名称",
-              "扭矩（lb/ft）",
-              "扭矩（Nm）",
-              "附加说明"
-            ]
+            "variable_measured": ["紧固件名称", "扭矩（lb/ft）", "扭矩（Nm）", "附加说明"]
           },
           "table_headers": {
             "fastener": "紧固件",

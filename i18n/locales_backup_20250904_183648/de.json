@@ -28,13 +28,110 @@
     "home_subtitle": "IHR FREUNDLICHER NACHBARSCHAFTS"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "Minuten angeschaut",
+      "over_30_days": "in den letzten 30 Tagen",
+      "subscribers": "Abonnenten",
+      "across_world": "weltweit",
+      "videos": "Videos",
+      "since_2015": "seit 2015"
+    },
+    "recent_videos": {
+      "title": "Neueste Videos",
+      "error_message": "YouTube-Daten konnten nicht geladen werden",
+      "published_on": "Veröffentlicht am",
+      "watch_button": "Ansehen"
+    },
     "registry_table": {
+      "search_placeholder": "Suche nach beliebigen Details",
+      "total_minis": "Minis insgesamt",
+      "per_page_options": {
+        "10": "10 pro Seite",
+        "25": "25 pro Seite",
+        "50": "50 pro Seite",
+        "100": "100 pro Seite"
+      },
       "table_headers": {
         "year": "Jahr",
         "model": "Modell",
         "trim": "Ausstattung",
         "color": "Farbe"
-      }
+      },
+      "status": {
+        "pending": "Ausstehend",
+        "approved": "Genehmigt",
+        "rejected": "Abgelehnt",
+        "unknown": "Unbekannt"
+      },
+      "expanded_details": {
+        "build_date": "Baudatum:",
+        "body_number": "Karosserie-Nr.:",
+        "engine_number": "Motor-Nr.:",
+        "submitted_by": "Eingereicht von:",
+        "notes": "Notizen:"
+      },
+      "no_items_found": "Keine Elemente gefunden",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "Ihren Mini einreichen",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "Vielen Dank!",
+        "submitted_message": "Ihr Registereintrag wurde eingereicht. Bitte rechnen Sie mit 1-2 Tagen, bis er in der Liste erscheint.",
+        "submission_details": "Ihre Registereinreichung ist",
+        "track_submission": "Verfolgen Sie Ihre Einreichung hier:",
+        "submission_link": "Einreichung",
+        "submit_another": "Einen weiteren Mini einreichen"
+      },
+      "validation": {
+        "required": "Dieses Feld ist zum Absenden erforderlich",
+        "invalid_email": "Ungültige E-Mail."
+      },
+      "sections": {
+        "personal_info": "Persönliche Informationen:",
+        "car_details": "Fahrzeugdetails:"
+      },
+      "form_labels": {
+        "your_name": "Ihr Name",
+        "your_email": "Ihre E-Mail",
+        "model_year": "Modelljahr",
+        "model": "Modell",
+        "trim": "Ausstattung",
+        "body_type": "Karosserietyp",
+        "original_engine_size": "Original-Motorgröße",
+        "factory_color": "Werksfarbe",
+        "body_shell_number": "Karosserienummer",
+        "engine_plate_number": "Motorplattennummer",
+        "special_notes": "Besondere oder zusätzliche Notizen"
+      },
+      "placeholders": {
+        "name": "z.B. Max Mustermann",
+        "email": "z.B. max{'@'}beispiel.de",
+        "model": "z.B. Morris Mini",
+        "trim": "z.B. Mini 50",
+        "color": "z.B. Clipper Blau",
+        "body_number": "z.B. GB190fW",
+        "engine_number": "z.B. 12H4102",
+        "notes": "z.B. Dieses Auto wurde nur von 1959 bis 1960 produziert"
+      },
+      "body_types": {
+        "saloon": "Limousine",
+        "pickup": "Pickup",
+        "estate": "Kombi",
+        "cabriolet": "Cabriolet",
+        "clubman": "Clubman",
+        "van": "Transporter",
+        "hornet": "Hornet"
+      },
+      "error": {
+        "title": "Es tut mir leid!",
+        "message": "Es gab ein Problem beim Einreichen Ihrer Einreichung, bitte versuchen Sie es später erneut!",
+        "check_entries": "Bitte überprüfen Sie Ihre Eingaben und versuchen Sie es erneut",
+        "dismiss": "Schließen",
+        "api_unavailable": "API ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut."
+      },
+      "submit_button": "Absenden"
     },
     "patreon_card": {
       "title": "DIE SEITE UNTERSTÜTZEN",
@@ -42,6 +139,15 @@
       "membership_benefits": "Die Mitgliedschaft bietet jede Menge kostenlose Vorteile und Vorteile!",
       "button_text": "Heute beitragen",
       "image_alt": "Bild meines Autos auf Wagenhebern"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "Motorgröße",
+        "needle_std": "Düse Standard",
+        "needle_rich": "Düse Fett",
+        "needle_lean": "Düse Mager",
+        "spring_type": "Federtyp"
+      }
     },
     "main_nav": {
       "logo_alt": "Classic Mini DIY Logo",
@@ -70,6 +176,42 @@
         "cmdiy_privacy": "CMDIY Website Datenschutzrichtlinie",
         "youtube_privacy": "YouTube Datenschutzrichtlinie",
         "google_privacy": "Google Datenschutzrichtlinie"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Fragen Sie mich alles über Ihren Classic Mini...",
+      "helper_text": "Chatten Sie mit dem CMDIY Assistenten"
+    },
+    "engine_plate_modal": {
+      "question_text": "Unsicher, wie Ihr Motorschild aussieht?",
+      "button_text": "Wo ist mein Motorschild?",
+      "modal_title": "Motorschilder",
+      "slide_aria_label": "Gehe zu Folie {number}",
+      "location_title": "Standort des Motorschilds",
+      "location_description": "Motorschilder befanden sich bei allen Modelljahren der Minis an derselben Stelle. Diese Schilder fehlen jedoch in manchen Situationen:",
+      "missing_reasons": {
+        "replaced": "Wenn der Motor ausgetauscht wurde",
+        "removed": "Wenn das Schild während einer Überholung entfernt wurde",
+        "corroded": "Wenn das Schild im Laufe der Zeit korrodiert oder abgefallen ist"
+      },
+      "close_button": "Schließen",
+      "image_alts": {
+        "example1": "Motorschild Beispiel 1",
+        "example2": "Motorschild Beispiel 2",
+        "example3": "Motorschild Beispiel 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "Suche nach allem (z.B. MPI, Cooper S, Vergaser HIF44)",
+      "empty_state": "Es existieren keine Elemente, die den aktuellen Filtern entsprechen",
+      "sort_key_label": "Sortierschlüssel:",
+      "actions": {
+        "share": "Teilen",
+        "contribute": "Beitragen",
+        "download": "Herunterladen"
+      },
+      "pagination": {
+        "page_text": "Seite {current} von {total}"
       }
     },
     "chat": {
@@ -791,12 +933,7 @@
             "description": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerks-, Antriebsstrang- und Karosserie-Befestigungselemente mit Werten in lb/ft und Nm.",
             "dataset_name": "Classic Mini Drehmoment-Spezifikationen",
             "dataset_description": "Umfassender Datensatz von Drehmoment-Spezifikationen für Classic Mini Befestigungselemente",
-            "variable_measured": [
-              "Befestigungsname",
-              "Drehmoment in lb/ft",
-              "Drehmoment in Nm",
-              "Zusätzliche Notizen"
-            ]
+            "variable_measured": ["Befestigungsname", "Drehmoment in lb/ft", "Drehmoment in Nm", "Zusätzliche Notizen"]
           },
           "table_headers": {
             "fastener": "Befestigung",

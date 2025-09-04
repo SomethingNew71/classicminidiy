@@ -28,13 +28,110 @@
     "home_subtitle": "ВАШ ДРУЖЕЛЮБНЫЙ СОСЕДСКИЙ"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "Минут просмотров",
+      "over_30_days": "за последние 30 дней",
+      "subscribers": "Подписчиков",
+      "across_world": "по всему миру",
+      "videos": "Видео",
+      "since_2015": "с 2015 года"
+    },
+    "recent_videos": {
+      "title": "Последние видео",
+      "error_message": "Не удается загрузить данные YouTube",
+      "published_on": "Опубликовано",
+      "watch_button": "Смотреть"
+    },
     "registry_table": {
+      "search_placeholder": "Поиск по любым деталям",
+      "total_minis": "Всего Мини",
+      "per_page_options": {
+        "10": "10 на странице",
+        "25": "25 на странице",
+        "50": "50 на странице",
+        "100": "100 на странице"
+      },
       "table_headers": {
         "year": "Год",
         "model": "Модель",
         "trim": "Комплектация",
         "color": "Цвет"
-      }
+      },
+      "status": {
+        "pending": "Ожидает",
+        "approved": "Одобрено",
+        "rejected": "Отклонено",
+        "unknown": "Неизвестно"
+      },
+      "expanded_details": {
+        "build_date": "Дата сборки:",
+        "body_number": "Номер кузова:",
+        "engine_number": "Номер двигателя:",
+        "submitted_by": "Отправлено:",
+        "notes": "Примечания:"
+      },
+      "no_items_found": "Элементы не найдены",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "Отправить ваш Мини",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "Спасибо!",
+        "submitted_message": "Ваша запись в реестр была отправлена. Пожалуйста, подождите 1-2 дня, чтобы она появилась в списке.",
+        "submission_details": "Детали вашей подачи в реестр",
+        "track_submission": "Отследить вашу подачу здесь:",
+        "submission_link": "Подача",
+        "submit_another": "Отправить другой Мини"
+      },
+      "validation": {
+        "required": "Это поле обязательно для заполнения",
+        "invalid_email": "Неверный e-mail."
+      },
+      "sections": {
+        "personal_info": "Личная информация:",
+        "car_details": "Детали автомобиля:"
+      },
+      "form_labels": {
+        "your_name": "Ваше имя",
+        "your_email": "Ваш Email",
+        "model_year": "Год модели",
+        "model": "Модель",
+        "trim": "Комплектация",
+        "body_type": "Тип кузова",
+        "original_engine_size": "Оригинальный объем двигателя",
+        "factory_color": "Заводской цвет",
+        "body_shell_number": "Номер кузова",
+        "engine_plate_number": "Номер табличкы двигателя",
+        "special_notes": "Особые или дополнительные примечания"
+      },
+      "placeholders": {
+        "name": "например, Иван Иванов",
+        "email": "например, ivan{'@'}example.com",
+        "model": "например, Morris Mini",
+        "trim": "например, Mini 50",
+        "color": "например, Clipper Blue",
+        "body_number": "например, GB190fW",
+        "engine_number": "например, 12H4102",
+        "notes": "например, Этот автомобиль производился только с 1959 по 1960 год"
+      },
+      "body_types": {
+        "saloon": "Седан",
+        "pickup": "Пикап",
+        "estate": "Универсал",
+        "cabriolet": "Кабриолет",
+        "clubman": "Клабмэн",
+        "van": "Фургон",
+        "hornet": "Хорнет"
+      },
+      "error": {
+        "title": "Извините!",
+        "message": "Возникла проблема с отправкой вашей заявки в данный момент, пожалуйста, попробуйте позже!",
+        "check_entries": "Пожалуйста, проверьте ваши записи и попробуйте снова",
+        "dismiss": "Отклонить",
+        "api_unavailable": "API в настоящее время недоступен. Пожалуйста, попробуйте позже."
+      },
+      "submit_button": "Отправить"
     },
     "patreon_card": {
       "title": "ПОДДЕРЖАТЬ САЙТ",
@@ -42,6 +139,15 @@
       "membership_benefits": "Членство предоставляет множество бесплатных привилегий и преимуществ!",
       "button_text": "Внести вклад сегодня",
       "image_alt": "Изображение моего автомобиля на подъемниках"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "Объем двигателя",
+        "needle_std": "Стандартная игла",
+        "needle_rich": "Богатая игла",
+        "needle_lean": "Бедная игла",
+        "spring_type": "Тип пружины"
+      }
     },
     "main_nav": {
       "logo_alt": "Логотип Classic Mini DIY",
@@ -70,6 +176,42 @@
         "cmdiy_privacy": "Политика конфиденциальности сайта CMDIY",
         "youtube_privacy": "Политика конфиденциальности YouTube",
         "google_privacy": "Политика конфиденциальности Google"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Спросите меня что-нибудь о вашем Classic Mini...",
+      "helper_text": "Чат с помощником CMDIY"
+    },
+    "engine_plate_modal": {
+      "question_text": "Не уверены, как выглядит ваша табличка двигателя?",
+      "button_text": "Где моя табличка двигателя?",
+      "modal_title": "Таблички двигателей",
+      "slide_aria_label": "Перейти к слайду {number}",
+      "location_title": "Расположение таблички двигателя",
+      "location_description": "Таблички двигателей находились в одном и том же месте на всех годах выпуска мини. Однако эти таблички отсутствуют в некоторых ситуациях:",
+      "missing_reasons": {
+        "replaced": "Если двигатель был заменен",
+        "removed": "Если табличка была удалена во время ремонта",
+        "corroded": "Если табличка проржавела или отпала со временем"
+      },
+      "close_button": "Закрыть",
+      "image_alts": {
+        "example1": "Пример таблички двигателя 1",
+        "example2": "Пример таблички двигателя 2",
+        "example3": "Пример таблички двигателя 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "Поиск чего угодно (например, MPI, Cooper S, Carburettor HIF44)",
+      "empty_state": "Не существует элементов, соответствующих текущим фильтрам",
+      "sort_key_label": "Ключ сортировки:",
+      "actions": {
+        "share": "Поделиться",
+        "contribute": "Внести вклад",
+        "download": "Скачать"
+      },
+      "pagination": {
+        "page_text": "Страница {current} из {total}"
       }
     },
     "chat": {

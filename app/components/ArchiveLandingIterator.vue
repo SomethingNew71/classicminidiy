@@ -2,7 +2,7 @@
   import type { AdvertsCollectionItem, ContentCollectionItem, ManualsCollectionItem } from '@nuxt/content';
   import { shareArchiveItem, submitArchiveFile, type ARCHIVE_TYPES } from '../../data/models/helper-utils';
 
-  const { t } = useI18n();
+  const { t } = useI18n({ useScope: 'local' });
 
   const search = ref('');
   const currentPage = ref(1);
@@ -73,7 +73,7 @@
           <input
             type="text"
             v-model="search"
-            :placeholder="t('components.archive_landing_iterator.search_placeholder')"
+            :placeholder="t('search_placeholder')"
             class="input input-bordered w-full"
           />
         </div>
@@ -103,7 +103,7 @@
       <div v-if="filteredItems.length === 0" class="text-center py-8">
         <div class="card card-bordered bg-base-100 shadow-sm">
           <div class="card-body">
-            <p class="text-base-content">{{ t('components.archive_landing_iterator.empty_state') }}</p>
+            <p class="text-base-content">{{ t('empty_state') }}</p>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
             <!-- Title and Code -->
             <h2 class="card-title text-lg font-bold">{{ item.title }}</h2>
             <p class="text-sm text-base-content/70">
-              {{ t('components.archive_landing_iterator.sort_key_label') }} {{ item.code }}
+              {{ t('sort_key_label') }} {{ item.code }}
             </p>
 
             <!-- Description -->
@@ -149,18 +149,18 @@
             <div class="card-actions justify-between mt-4">
               <button class="btn btn-sm btn-outline" @click="shareArchiveItem(item.title, item.path)">
                 <i class="fad fa-arrow-up-from-bracket mr-1"></i>
-                {{ t('components.archive_landing_iterator.actions.share') }}
+                {{ t('actions.share') }}
               </button>
 
               <button
                 class="btn btn-sm btn-outline btn-info"
                 @click="submitArchiveFile(archiveType, item.title, item.path, item.code, item.description)"
               >
-                <i class="fad fa-plus-large mr-1"></i> {{ t('components.archive_landing_iterator.actions.contribute') }}
+                <i class="fad fa-plus-large mr-1"></i> {{ t('actions.contribute') }}
               </button>
 
               <a v-if="item.download && item.download !== ''" class="btn btn-sm btn-primary" :href="item.download">
-                <i class="fad fa-download mr-1"></i> {{ t('components.archive_landing_iterator.actions.download') }}
+                <i class="fad fa-download mr-1"></i> {{ t('actions.download') }}
               </a>
             </div>
           </div>
@@ -173,9 +173,7 @@
           <i class="fad fa-arrow-left"></i>
         </button>
 
-        <span class="text-sm">{{
-          t('components.archive_landing_iterator.pagination.page_text', { current: currentPage, total: pageCount })
-        }}</span>
+        <span class="text-sm">{{ t('pagination.page_text', { current: currentPage, total: pageCount }) }}</span>
 
         <button class="btn btn-circle btn-sm" :disabled="currentPage >= pageCount" @click="nextPage">
           <i class="fad fa-arrow-right"></i>
@@ -184,6 +182,141 @@
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "search_placeholder": "Search for anything (ex. MPI, Cooper S, Carburettor HIF44)",
+    "empty_state": "No items meeting current filters exist",
+    "sort_key_label": "Sort Key:",
+    "actions": {
+      "share": "Share",
+      "contribute": "Contribute",
+      "download": "Download"
+    },
+    "pagination": {
+      "page_text": "Page {current} of {total}"
+    }
+  },
+  "de": {
+    "search_placeholder": "Suche nach allem (z.B. MPI, Cooper S, Vergaser HIF44)",
+    "empty_state": "Es existieren keine Elemente, die den aktuellen Filtern entsprechen",
+    "sort_key_label": "Sortierschlüssel:",
+    "actions": {
+      "share": "Teilen",
+      "contribute": "Beitragen",
+      "download": "Herunterladen"
+    },
+    "pagination": {
+      "page_text": "Seite {current} von {total}"
+    }
+  },
+  "es": {
+    "search_placeholder": "Buscar cualquier cosa (ej. MPI, Cooper S, Carburador HIF44)",
+    "empty_state": "No existen elementos que cumplan los filtros actuales",
+    "sort_key_label": "Clave de Ordenamiento:",
+    "actions": {
+      "share": "Compartir",
+      "contribute": "Contribuir",
+      "download": "Descargar"
+    },
+    "pagination": {
+      "page_text": "Página {current} de {total}"
+    }
+  },
+  "fr": {
+    "search_placeholder": "Rechercher n'importe quoi (ex. MPI, Cooper S, Carburateur HIF44)",
+    "empty_state": "Aucun élément répondant aux filtres actuels n'existe",
+    "sort_key_label": "Clé de tri :",
+    "actions": {
+      "share": "Partager",
+      "contribute": "Contribuer",
+      "download": "Télécharger"
+    },
+    "pagination": {
+      "page_text": "Page {current} sur {total}"
+    }
+  },
+  "it": {
+    "search_placeholder": "Cerca qualsiasi cosa (es. MPI, Cooper S, Carburatore HIF44)",
+    "empty_state": "Non esistono elementi che soddisfano i filtri attuali",
+    "sort_key_label": "Chiave di ordinamento:",
+    "actions": {
+      "share": "Condividi",
+      "contribute": "Contribuisci",
+      "download": "Scarica"
+    },
+    "pagination": {
+      "page_text": "Pagina {current} di {total}"
+    }
+  },
+  "pt": {
+    "search_placeholder": "Pesquisar por qualquer coisa (ex. MPI, Cooper S, Carburador HIF44)",
+    "empty_state": "Não existem itens que atendam aos filtros atuais",
+    "sort_key_label": "Chave de Ordenação:",
+    "actions": {
+      "share": "Compartilhar",
+      "contribute": "Contribuir",
+      "download": "Baixar"
+    },
+    "pagination": {
+      "page_text": "Página {current} de {total}"
+    }
+  },
+  "ru": {
+    "search_placeholder": "Поиск чего угодно (например, MPI, Cooper S, Carburettor HIF44)",
+    "empty_state": "Не существует элементов, соответствующих текущим фильтрам",
+    "sort_key_label": "Ключ сортировки:",
+    "actions": {
+      "share": "Поделиться",
+      "contribute": "Внести вклад",
+      "download": "Скачать"
+    },
+    "pagination": {
+      "page_text": "Страница {current} из {total}"
+    }
+  },
+  "ja": {
+    "search_placeholder": "何でも検索 (例: MPI、Cooper S、Carburettor HIF44)",
+    "empty_state": "現在のフィルターに一致する項目がありません",
+    "sort_key_label": "ソートキー:",
+    "actions": {
+      "share": "共有",
+      "contribute": "貢献",
+      "download": "ダウンロード"
+    },
+    "pagination": {
+      "page_text": "ページ{current}/{total}"
+    }
+  },
+  "zh": {
+    "search_placeholder": "搜索任何内容（例：MPI、Cooper S、化油器HIF44）",
+    "empty_state": "没有符合当前筛选条件的项目",
+    "sort_key_label": "排序关键字：",
+    "actions": {
+      "share": "分享",
+      "contribute": "贡献",
+      "download": "下载"
+    },
+    "pagination": {
+      "page_text": "第{current}页，共{total}页"
+    }
+  },
+  "ko": {
+    "search_placeholder": "무엇이든 검색하세요 (예: MPI, Cooper S, Carburettor HIF44)",
+    "empty_state": "현재 필터에 맞는 항목이 없습니다",
+    "sort_key_label": "정렬 키:",
+    "actions": {
+      "share": "공유",
+      "contribute": "기여하기",
+      "download": "다운로드"
+    },
+    "pagination": {
+      "page_text": "{total} 페이지 중 {current} 페이지"
+    }
+  }
+}
+</i18n>
 
 <style lang="scss">
   .card-title,

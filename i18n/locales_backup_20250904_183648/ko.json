@@ -28,13 +28,110 @@
     "home_subtitle": "여러분의 친근한 이웃"
   },
   "components": {
+    "stats": {
+      "minutes_watched": "시청 시간(분)",
+      "over_30_days": "지난 30일 동안",
+      "subscribers": "구독자",
+      "across_world": "전 세계",
+      "videos": "동영상",
+      "since_2015": "2015년부터"
+    },
+    "recent_videos": {
+      "title": "최신 동영상",
+      "error_message": "YouTube 데이터를 불러올 수 없습니다",
+      "published_on": "게시일",
+      "watch_button": "시청하기"
+    },
     "registry_table": {
+      "search_placeholder": "모든 세부사항 검색",
+      "total_minis": "총 미니 대수",
+      "per_page_options": {
+        "10": "페이지당 10개",
+        "25": "페이지당 25개",
+        "50": "페이지당 50개",
+        "100": "페이지당 100개"
+      },
       "table_headers": {
         "year": "연도",
         "model": "모델",
         "trim": "트림",
         "color": "색상"
-      }
+      },
+      "status": {
+        "pending": "대기 중",
+        "approved": "승인됨",
+        "rejected": "거부됨",
+        "unknown": "알 수 없음"
+      },
+      "expanded_details": {
+        "build_date": "제조 날짜:",
+        "body_number": "바디 번호:",
+        "engine_number": "엔진 번호:",
+        "submitted_by": "제출자:",
+        "notes": "참고사항:"
+      },
+      "no_items_found": "항목을 찾을 수 없습니다",
+      "no_data": "---"
+    },
+    "registry_submission": {
+      "title": "미니 제출하기",
+      "success": {
+        "icon_beat": "fa-beat",
+        "thank_you": "감사합니다!",
+        "submitted_message": "귀하의 레지스트리 항목이 제출되었습니다. 목록에 나타나기까지 1-2일 정도 소요됩니다.",
+        "submission_details": "귀하의 레지스트리 제출 세부사항은",
+        "track_submission": "여기에서 제출 상태를 추적하세요:",
+        "submission_link": "제출",
+        "submit_another": "다른 미니 제출하기"
+      },
+      "validation": {
+        "required": "이 필드는 제출하기 위해 필수입니다",
+        "invalid_email": "유효하지 않은 이메일입니다."
+      },
+      "sections": {
+        "personal_info": "개인 정보:",
+        "car_details": "차량 세부사항:"
+      },
+      "form_labels": {
+        "your_name": "이름",
+        "your_email": "이메일",
+        "model_year": "모델 연도",
+        "model": "모델",
+        "trim": "트림",
+        "body_type": "바디 타입",
+        "original_engine_size": "원래 엔진 크기",
+        "factory_color": "공장 색상",
+        "body_shell_number": "바디 셸 번호",
+        "engine_plate_number": "엔진 플레이트 번호",
+        "special_notes": "특별하거나 추가 참고사항"
+      },
+      "placeholders": {
+        "name": "예) 김철수",
+        "email": "예) john{'@'}example.com",
+        "model": "예) Morris Mini",
+        "trim": "예) Mini 50",
+        "color": "예) Clipper Blue",
+        "body_number": "예) GB190fW",
+        "engine_number": "예) 12H4102",
+        "notes": "예) 이 차량은 1959년부터 1960년까지만 생산되었습니다"
+      },
+      "body_types": {
+        "saloon": "세단",
+        "pickup": "픽업",
+        "estate": "에스테이트",
+        "cabriolet": "카브리올레",
+        "clubman": "클럽맨",
+        "van": "밴",
+        "hornet": "호넷"
+      },
+      "error": {
+        "title": "죄송합니다!",
+        "message": "현재 귀하의 제출을 처리하는 데 문제가 있습니다. 나중에 다시 시도해 주세요!",
+        "check_entries": "입력 내용을 확인하고 다시 시도해 주세요",
+        "dismiss": "닫기",
+        "api_unavailable": "API를 현재 사용할 수 없습니다. 나중에 다시 시도해 주세요."
+      },
+      "submit_button": "제출"
     },
     "patreon_card": {
       "title": "사이트 지원하기",
@@ -42,6 +139,15 @@
       "membership_benefits": "멤버십에는 수많은 무료 혜택과 이익이 포함됩니다!",
       "button_text": "오늘 기여하기",
       "image_alt": "잭 스탠드 위에 올려진 제 차량 이미지"
+    },
+    "needle_table": {
+      "table_headers": {
+        "engine_size": "엔진 크기",
+        "needle_std": "니들 표준",
+        "needle_rich": "니들 리치",
+        "needle_lean": "니들 린",
+        "spring_type": "스프링 타입"
+      }
     },
     "main_nav": {
       "logo_alt": "Classic Mini DIY 로고",
@@ -70,6 +176,42 @@
         "cmdiy_privacy": "CMDIY 웹사이트 개인정보 보호정책",
         "youtube_privacy": "YouTube 개인정보 보호정책",
         "google_privacy": "Google 개인정보 보호정책"
+      }
+    },
+    "floating_chat_input": {
+      "placeholder": "Classic Mini에 대해 무엇이든 물어보세요...",
+      "helper_text": "CMDIY 어시스턴트와 채팅"
+    },
+    "engine_plate_modal": {
+      "question_text": "엔진 플레이트가 어떻게 생겼는지 확실하지 않으신가요?",
+      "button_text": "엔진 플레이트는 어디에 있나요?",
+      "modal_title": "엔진 플레이트",
+      "slide_aria_label": "슬라이드 {number}로 이동",
+      "location_title": "엔진 플레이트 위치",
+      "location_description": "엔진 플레이트는 모든 모델 연도 미니에서 같은 위치에 있었습니다. 하지만 다음과 같은 상황에서는 이 플레이트가 없을 수 있습니다:",
+      "missing_reasons": {
+        "replaced": "엔진이 교체된 경우",
+        "removed": "재빌드 중에 플레이트가 제거된 경우",
+        "corroded": "시간이 지나면서 플레이트가 부식되거나 떨어진 경우"
+      },
+      "close_button": "닫기",
+      "image_alts": {
+        "example1": "엔진 플레이트 예시 1",
+        "example2": "엔진 플레이트 예시 2",
+        "example3": "엔진 플레이트 예시 3"
+      }
+    },
+    "archive_landing_iterator": {
+      "search_placeholder": "무엇이든 검색하세요 (예: MPI, Cooper S, Carburettor HIF44)",
+      "empty_state": "현재 필터에 맞는 항목이 없습니다",
+      "sort_key_label": "정렬 키:",
+      "actions": {
+        "share": "공유",
+        "contribute": "기여하기",
+        "download": "다운로드"
+      },
+      "pagination": {
+        "page_text": "{total} 페이지 중 {current} 페이지"
       }
     },
     "chat": {
@@ -781,12 +923,7 @@
             "description": "Classic Mini 패스너의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 바디 패스너에 대한 lb/ft 및 Nm 값이 포함된 참조 차트.",
             "dataset_name": "Classic Mini 토크 사양",
             "dataset_description": "Classic Mini 패스너에 대한 토크 사양의 포괄적인 데이터셋",
-            "variable_measured": [
-              "패스너 이름",
-              "lb/ft 토크",
-              "Nm 토크",
-              "추가 참고사항"
-            ]
+            "variable_measured": ["패스너 이름", "lb/ft 토크", "Nm 토크", "추가 참고사항"]
           },
           "table_headers": {
             "fastener": "패스너",
