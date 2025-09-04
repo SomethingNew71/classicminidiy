@@ -43,38 +43,6 @@
       "watch_button": "Ansehen"
     },
     "calculators": {
-      "compression": {
-        "help_button": "Wie messe ich diese Werte?",
-        "help_modal": {
-          "title": "Messen Ihrer Brennräume und Decks",
-          "friend_title": "Unser Freund Paul Hickey",
-          "friend_description": "auf Youtube",
-          "friend_text": "Wenn Sie Unterstützung beim Messen dieser Werte für den Rechner benötigen, schauen Sie sich das obige Video von Paul Hickey bei HRE IRL an. Dort behandelt er den kompletten Messvorgang am Classic Mini.",
-          "close_button": "Schließen"
-        },
-        "form_labels": {
-          "piston_size": "Kolbengröße",
-          "crankshaft": "Kurbelwelle",
-          "head_gasket": "Zylinderkopfdichtung",
-          "custom_gasket_size": "Benutzerdefinierte Dichtungsgröße (ccm)",
-          "decompression_plate": "Dekompressionsplatte",
-          "piston_dish_size": "Kolbenmuldengröße (ccm)",
-          "cylinder_head_chamber_volume": "Zylinderkopf-Brennraumvolumen (ccm)",
-          "piston_deck_height": "Kolbendeckhöhe (tausendstel Zoll)"
-        },
-        "results": {
-          "title": "Ergebnisse:",
-          "compression_ratio": "Verdichtungsverhältnis",
-          "engine_capacity": "Motorkapazität"
-        },
-        "disclaimer": {
-          "text": "Bitte beachten Sie, dass die obigen Zahlen {strong_start}Näherungswerte{strong_end} sind. Vor dem Kauf von Teilen und dem Bau Ihres Motors empfehlen wir Ihnen, Ihre Berechnungen {strong_start}mehrfach{strong_end} mit mehr als einer Quelle zu überprüfen. Die in diesem Tool verwendeten mathematischen Gleichungen finden Sie hier:",
-          "equation_source": "Gleichungsquellcode",
-          "alternate_source": "Alternative Quelle:",
-          "calver_link": "Calver Verdichtungsverhältnis",
-          "je_pistons_link": "JE Pistons Verdichtungsverhältnis"
-        }
-      },
       "gearbox": {
         "form_labels": {
           "imperial_or_metric": "Imperial oder Metrisch",

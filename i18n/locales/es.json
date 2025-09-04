@@ -43,38 +43,6 @@
       "watch_button": "Ver"
     },
     "calculators": {
-      "compression": {
-        "help_button": "¿Cómo mido estos valores?",
-        "help_modal": {
-          "title": "Midiendo tus cámaras y cubierta",
-          "friend_title": "Nuestro Amigo Paul Hickey",
-          "friend_description": "en Youtube",
-          "friend_text": "Si necesitas ayuda para medir estos valores para la calculadora, revisa el video de arriba por Paul Hickey en HRE IRL. Donde cubre todo el proceso de medición en el Classic Mini.",
-          "close_button": "Cerrar"
-        },
-        "form_labels": {
-          "piston_size": "Tamaño del Pistón",
-          "crankshaft": "Cigüeñal",
-          "head_gasket": "Junta de Culata",
-          "custom_gasket_size": "Tamaño de Junta Personalizada (cc)",
-          "decompression_plate": "Placa de Descompresión",
-          "piston_dish_size": "Tamaño del Plato del Pistón (cc)",
-          "cylinder_head_chamber_volume": "Volumen de la Cámara de la Culata (cc)",
-          "piston_deck_height": "Altura del Pistón sobre la Cubierta (thou)"
-        },
-        "results": {
-          "title": "Resultados:",
-          "compression_ratio": "Relación de Compresión",
-          "engine_capacity": "Capacidad del Motor"
-        },
-        "disclaimer": {
-          "text": "Ten en cuenta que las cifras anteriores son {strong_start}valores aproximados{strong_end}. Antes de comprar piezas y construir tu motor, recomendamos {strong_start}verificar{strong_end} tus cálculos múltiples veces usando más de una fuente. Las ecuaciones matemáticas usadas en esta herramienta se pueden encontrar aquí:",
-          "equation_source": "Código Fuente de las Ecuaciones",
-          "alternate_source": "Fuente Alternativa:",
-          "calver_link": "Relación de Compresión Calver",
-          "je_pistons_link": "Relación de Compresión JE Pistons"
-        }
-      },
       "gearbox": {
         "form_labels": {
           "imperial_or_metric": "Imperial o Métrico",

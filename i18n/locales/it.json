@@ -43,38 +43,6 @@
       "watch_button": "Guarda"
     },
     "calculators": {
-      "compression": {
-        "help_button": "Come misuro questi valori?",
-        "help_modal": {
-          "title": "Misurare le camere di combustione e l'altezza del pistone",
-          "friend_title": "Il nostro amico Paul Hickey",
-          "friend_description": "su YouTube",
-          "friend_text": "Se hai bisogno di assistenza per misurare questi valori per il calcolatore, guarda il video sopra di Paul Hickey di HRE IRL. Dove copre l'intero processo di misurazione sulla Classic Mini.",
-          "close_button": "Chiudi"
-        },
-        "form_labels": {
-          "piston_size": "Dimensione pistone",
-          "crankshaft": "Albero motore",
-          "head_gasket": "Guarnizione testata",
-          "custom_gasket_size": "Dimensione guarnizione personalizzata (cc)",
-          "decompression_plate": "Piastra di decompressione",
-          "piston_dish_size": "Dimensione concavità pistone (cc)",
-          "cylinder_head_chamber_volume": "Volume camera testata (cc)",
-          "piston_deck_height": "Altezza pistone (millesimi)"
-        },
-        "results": {
-          "title": "Risultati:",
-          "compression_ratio": "Rapporto di compressione",
-          "engine_capacity": "Cilindrata motore"
-        },
-        "disclaimer": {
-          "text": "Si prega di notare che le cifre sopra sono {strong_start}valori approssimativi{strong_end}. Prima di acquistare parti e costruire il vostro motore raccomandiamo di {strong_start}ricontrollare{strong_end} i vostri calcoli più volte utilizzando più di una fonte. Le equazioni matematiche utilizzate in questo strumento possono essere trovate qui:",
-          "equation_source": "Codice sorgente equazioni",
-          "alternate_source": "Fonte alternativa:",
-          "calver_link": "Rapporto di compressione Calver",
-          "je_pistons_link": "Rapporto di compressione JE Pistons"
-        }
-      },
       "gearbox": {
         "form_labels": {
           "imperial_or_metric": "Imperiale o Metrico",
