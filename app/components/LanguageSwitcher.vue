@@ -30,36 +30,36 @@
   // Language names in their native languages for better UX
   const getLanguageName = (localeCode: string): string => {
     const nativeNames: Record<string, string> = {
-      'en': 'English',
-      'de': 'Deutsch', 
-      'es': 'Español',
-      'fr': 'Français',
-      'it': 'Italiano',
-      'pt': 'Português',
-      'ru': 'Русский',
-      'ja': '日本語',
-      'zh': '中文',
-      'ko': '한국어'
+      en: 'English',
+      de: 'Deutsch',
+      es: 'Español',
+      fr: 'Français',
+      it: 'Italiano',
+      pt: 'Português',
+      ru: 'Русский',
+      ja: '日本語',
+      zh: '中文',
+      ko: '한국어',
     };
     return nativeNames[localeCode] || localeCode;
   };
 </script>
 
 <template>
-  <div class="dropdown dropdown-end">
-    <div 
-      tabindex="0" 
-      role="button" 
-      class="btn btn-ghost btn-sm"
+  <div class="dropdown dropdown-end flex-shrink-0">
+    <div
+      tabindex="0"
+      role="button"
+      class="btn btn-ghost btn-sm w-20"
       :aria-label="t('language_button_aria')"
       :title="t('language_button_title')"
     >
-      <i class="fad fa-globe"></i>
-      <span class="hidden sm:inline">{{ getLanguageName(currentLocale?.code || 'en') }}</span>
-      <i class="fad fa-chevron-down text-xs"></i>
+      <i class="fad fa-globe flex-shrink-0"></i>
+      <span class="text-xs font-medium">{{ currentLocale?.code?.toUpperCase() || 'EN' }}</span>
+      <i class="fad fa-chevron-down text-xs flex-shrink-0"></i>
     </div>
-    <ul 
-      tabindex="0" 
+    <ul
+      tabindex="0"
       class="dropdown-content menu bg-base-100 rounded-box z-[1] mt-1 w-40 p-2 shadow"
       :aria-label="t('language_menu_aria')"
     >

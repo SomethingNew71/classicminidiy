@@ -84,9 +84,9 @@
         </li>
       </ul>
     </div>
-    <div class="navbar-end hidden lg:flex">
+    <div class="navbar-end hidden lg:flex items-center gap-2">
       <LanguageSwitcher />
-      <a class="btn donate ml-2" href="https://patreon.com/classicminidiy">
+      <a class="btn donate flex-shrink-0" href="https://patreon.com/classicminidiy">
         <i class="fab fa-patreon"></i>{{ t('donate_button') }}</a
       >
     </div>
