@@ -781,12 +781,7 @@
             "description": "Classic Miniファスナーの完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディファスナーのlb/ftとNm値の参考チャート。",
             "dataset_name": "Classic Miniトルク仕様",
             "dataset_description": "Classic Miniファスナーのトルク仕様の包括的データセット",
-            "variable_measured": [
-              "ファスナー名",
-              "lb/ftでのトルク",
-              "Nmでのトルク",
-              "追加備考"
-            ]
+            "variable_measured": ["ファスナー名", "lb/ftでのトルク", "Nmでのトルク", "追加備考"]
           },
           "table_headers": {
             "fastener": "ファスナー",

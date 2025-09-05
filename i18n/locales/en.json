@@ -755,12 +755,7 @@
             "description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
             "dataset_name": "Classic Mini Torque Specifications",
             "dataset_description": "Comprehensive dataset of torque specifications for Classic Mini fasteners",
-            "variable_measured": [
-              "Fastener Name",
-              "Torque in lb/ft",
-              "Torque in Nm",
-              "Additional Notes"
-            ]
+            "variable_measured": ["Fastener Name", "Torque in lb/ft", "Torque in Nm", "Additional Notes"]
           },
           "table_headers": {
             "fastener": "Fastener",

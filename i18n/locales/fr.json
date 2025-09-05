@@ -755,12 +755,7 @@
             "description": "Spécifications de couple complètes pour fixations Classic Mini. Tableau de référence pour fixations moteur, suspension, groupe motopropulseur et carrosserie avec valeurs en lb/pi et Nm.",
             "dataset_name": "Spécifications couple Classic Mini",
             "dataset_description": "Ensemble de données complet des spécifications de couple pour fixations Classic Mini",
-            "variable_measured": [
-              "Nom fixation",
-              "Couple en lb/pi",
-              "Couple en Nm",
-              "Notes supplémentaires"
-            ]
+            "variable_measured": ["Nom fixation", "Couple en lb/pi", "Couple en Nm", "Notes supplémentaires"]
           },
           "table_headers": {
             "fastener": "Fixation",

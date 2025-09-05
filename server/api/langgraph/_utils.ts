@@ -17,7 +17,14 @@ export function getApiUrl() {
 }
 
 export function forwardHeaders(event: any, headers: Record<string, string>) {
-  const forwardHeaders = ['authorization', 'user-agent', 'accept', 'accept-encoding', 'assistant-id'];
+  const forwardHeaders = [
+    'authorization',
+    'user-agent',
+    'accept',
+    'accept-encoding',
+    'assistant-id',
+    'accept-language',
+  ];
   forwardHeaders.forEach((headerName) => {
     const headerValue = getHeader(event, headerName);
     if (headerValue) {

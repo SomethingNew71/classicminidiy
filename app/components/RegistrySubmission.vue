@@ -164,10 +164,7 @@
             </div>
             <div class="form-control w-full">
               <label class="label">
-                <span class="label-text"
-                  >{{ t('form_labels.your_name') }}
-                  <span class="text-error">*</span></span
-                >
+                <span class="label-text">{{ t('form_labels.your_name') }} <span class="text-error">*</span></span>
                 <span class="label-text-alt"><i class="fad fa-user"></i></span>
               </label>
               <input
@@ -180,17 +177,12 @@
                 @blur="touchedFields.submittedBy = true"
               />
               <label v-if="details.submittedBy === '' && touchedFields.submittedBy" class="label">
-                <span class="label-text-alt text-error">{{
-                  t('validation.required')
-                }}</span>
+                <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
               </label>
             </div>
             <div class="form-control w-full">
               <label class="label">
-                <span class="label-text"
-                  >{{ t('form_labels.your_email') }}
-                  <span class="text-error">*</span></span
-                >
+                <span class="label-text">{{ t('form_labels.your_email') }} <span class="text-error">*</span></span>
                 <span class="label-text-alt"><i class="fad fa-at"></i></span>
               </label>
               <input
@@ -214,11 +206,7 @@
                 class="label"
               >
                 <span class="label-text-alt text-error">
-                  {{
-                    details.submittedByEmail === ''
-                      ? t('validation.required')
-                      : t('validation.invalid_email')
-                  }}
+                  {{ details.submittedByEmail === '' ? t('validation.required') : t('validation.invalid_email') }}
                 </span>
               </label>
             </div>
@@ -228,10 +216,7 @@
             <div>
               <div class="form-control w-full">
                 <label class="label">
-                  <span class="label-text"
-                    >{{ t('form_labels.model_year') }}
-                    <span class="text-error">*</span></span
-                  >
+                  <span class="label-text">{{ t('form_labels.model_year') }} <span class="text-error">*</span></span>
                   <span class="label-text-alt"><i class="fad fa-calendar"></i></span>
                 </label>
                 <input
@@ -245,17 +230,13 @@
                   @blur="touchedFields.year = true"
                 />
                 <label v-if="!details.year && touchedFields.year" class="label">
-                  <span class="label-text-alt text-error">{{
-                    t('validation.required')
-                  }}</span>
+                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
                 </label>
               </div>
 
               <div class="form-control w-full mt-2">
                 <label class="label">
-                  <span class="label-text"
-                    >{{ t('form_labels.model') }} <span class="text-error">*</span></span
-                  >
+                  <span class="label-text">{{ t('form_labels.model') }} <span class="text-error">*</span></span>
                   <span class="label-text-alt"><i class="fad fa-car"></i></span>
                 </label>
                 <input
@@ -268,17 +249,13 @@
                   @blur="touchedFields.model = true"
                 />
                 <label v-if="details.model === '' && touchedFields.model" class="label">
-                  <span class="label-text-alt text-error">{{
-                    t('validation.required')
-                  }}</span>
+                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
                 </label>
               </div>
 
               <div class="form-control w-full mt-2">
                 <label class="label">
-                  <span class="label-text"
-                    >{{ t('form_labels.trim') }} <span class="text-error">*</span></span
-                  >
+                  <span class="label-text">{{ t('form_labels.trim') }} <span class="text-error">*</span></span>
                   <span class="label-text-alt"><i class="fad fa-scissors"></i></span>
                 </label>
                 <input
@@ -291,18 +268,13 @@
                   @blur="touchedFields.trim = true"
                 />
                 <label v-if="details.trim === '' && touchedFields.trim" class="label">
-                  <span class="label-text-alt text-error">{{
-                    t('validation.required')
-                  }}</span>
+                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
                 </label>
               </div>
 
               <div class="form-control w-full mt-2">
                 <label class="label">
-                  <span class="label-text"
-                    >{{ t('form_labels.body_type') }}
-                    <span class="text-error">*</span></span
-                  >
+                  <span class="label-text">{{ t('form_labels.body_type') }} <span class="text-error">*</span></span>
                   <span class="label-text-alt"><i class="fad fa-cars"></i></span>
                 </label>
                 <select
@@ -322,9 +294,7 @@
                   <option value="Hornet">{{ t('body_types.hornet') }}</option>
                 </select>
                 <label v-if="details.bodyType === '' && touchedFields.bodyType" class="label">
-                  <span class="label-text-alt text-error">{{
-                    t('validation.required')
-                  }}</span>
+                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
                 </label>
               </div>
             </div>
@@ -332,8 +302,7 @@
               <div class="form-control w-full">
                 <label class="label">
                   <span class="label-text"
-                    >{{ t('form_labels.original_engine_size') }}
-                    <span class="text-error">*</span></span
+                    >{{ t('form_labels.original_engine_size') }} <span class="text-error">*</span></span
                   >
                   <span class="label-text-alt"><i class="fad fa-engine"></i></span>
                 </label>
@@ -350,9 +319,7 @@
                   </option>
                 </select>
                 <label v-if="!details.engineSize && touchedFields.engineSize" class="label">
-                  <span class="label-text-alt text-error">{{
-                    t('validation.required')
-                  }}</span>
+                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
                 </label>
               </div>
 
@@ -371,9 +338,7 @@
 
               <div class="form-control w-full mt-2">
                 <label class="label">
-                  <span class="label-text">{{
-                    t('form_labels.body_shell_number')
-                  }}</span>
+                  <span class="label-text">{{ t('form_labels.body_shell_number') }}</span>
                   <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
                 </label>
                 <input
@@ -386,9 +351,7 @@
 
               <div class="form-control w-full mt-2">
                 <label class="label">
-                  <span class="label-text">{{
-                    t('form_labels.engine_plate_number')
-                  }}</span>
+                  <span class="label-text">{{ t('form_labels.engine_plate_number') }}</span>
                   <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
                 </label>
                 <input
