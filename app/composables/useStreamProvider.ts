@@ -100,6 +100,7 @@ export function createStreamSession(
     isLoading.value = true;
 
     try {
+      const { locale } = useI18n();
       const threadIdForUrl = currentThreadId.value || 'new';
       const endpoint = `${proxyApiUrl}/threads/${threadIdForUrl}/runs/stream`;
       const payload: any = {
@@ -108,9 +109,27 @@ export function createStreamSession(
         stream_mode: options.streamMode || ['values'],
       };
 
-      if (options.metadata) {
-        payload.metadata = options.metadata;
-      }
+      // Add language metadata with explicit instructions
+      const languageInstructions = {
+        en: 'Please respond in English',
+        de: 'Bitte antworten Sie auf Deutsch',
+        es: 'Por favor responde en español',
+        fr: 'Veuillez répondre en français',
+        it: 'Si prega di rispondere in italiano',
+        pt: 'Por favor responda em português',
+        ru: 'Пожалуйста, отвечайте на русском языке',
+        ja: '日本語で回答してください',
+        zh: '请用中文回答',
+        ko: '한국어로 답변해 주세요',
+      };
+
+      const metadata = {
+        language: locale.value,
+        user_locale: locale.value,
+        language_instruction: languageInstructions[locale.value] || languageInstructions.en,
+        ...options.metadata,
+      };
+      payload.metadata = metadata;
       if (options.checkpoint) {
         payload.config = {
           configurable: {

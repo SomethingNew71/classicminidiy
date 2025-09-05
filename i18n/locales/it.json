@@ -781,12 +781,7 @@
             "description": "Specifiche coppia complete per bulloni Classic Mini. Grafico di riferimento per bulloni motore, sospensioni, trasmissione e carrozzeria con valori in lb/ft e Nm.",
             "dataset_name": "Specifiche coppia Classic Mini",
             "dataset_description": "Dataset completo di specifiche coppia per bulloni Classic Mini",
-            "variable_measured": [
-              "Nome bullone",
-              "Coppia in lb/ft",
-              "Coppia in Nm",
-              "Note aggiuntive"
-            ]
+            "variable_measured": ["Nome bullone", "Coppia in lb/ft", "Coppia in Nm", "Note aggiuntive"]
           },
           "table_headers": {
             "fastener": "Bullone",

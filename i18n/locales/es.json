@@ -752,12 +752,7 @@
             "description": "Especificaciones completas de torque para pernos Classic Mini. Tabla de referencia para pernos de motor, suspensión, transmisión y carrocería con valores en lb/ft y Nm.",
             "dataset_name": "Especificaciones de Torque Classic Mini",
             "dataset_description": "Conjunto de datos integral de especificaciones de torque para pernos Classic Mini",
-            "variable_measured": [
-              "Nombre del Perno",
-              "Torque en lb/ft",
-              "Torque en Nm",
-              "Notas Adicionales"
-            ]
+            "variable_measured": ["Nombre del Perno", "Torque en lb/ft", "Torque en Nm", "Notas Adicionales"]
           },
           "table_headers": {
             "fastener": "Perno",

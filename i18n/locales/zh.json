@@ -781,12 +781,7 @@
             "description": "Classic Mini紧固件的完整扭矩规格。发动机、悬架、传动系统和车身紧固件的参考表，数值以lb/ft和Nm为单位。",
             "dataset_name": "Classic Mini扭矩规格",
             "dataset_description": "Classic Mini紧固件扭矩规格的综合数据集",
-            "variable_measured": [
-              "紧固件名称",
-              "扭矩（lb/ft）",
-              "扭矩（Nm）",
-              "附加说明"
-            ]
+            "variable_measured": ["紧固件名称", "扭矩（lb/ft）", "扭矩（Nm）", "附加说明"]
           },
           "table_headers": {
             "fastener": "紧固件",

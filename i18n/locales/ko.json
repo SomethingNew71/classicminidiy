@@ -781,12 +781,7 @@
             "description": "Classic Mini 패스너의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 바디 패스너에 대한 lb/ft 및 Nm 값이 포함된 참조 차트.",
             "dataset_name": "Classic Mini 토크 사양",
             "dataset_description": "Classic Mini 패스너에 대한 토크 사양의 포괄적인 데이터셋",
-            "variable_measured": [
-              "패스너 이름",
-              "lb/ft 토크",
-              "Nm 토크",
-              "추가 참고사항"
-            ]
+            "variable_measured": ["패스너 이름", "lb/ft 토크", "Nm 토크", "추가 참고사항"]
           },
           "table_headers": {
             "fastener": "패스너",

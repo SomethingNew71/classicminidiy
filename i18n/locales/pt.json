@@ -781,12 +781,7 @@
             "description": "Especificações completas de torque para fixadores Classic Mini. Gráfico de referência para motor, suspensão, drivetrain e fixadores de carroceria com valores em lb/ft e Nm.",
             "dataset_name": "Especificações de Torque Classic Mini",
             "dataset_description": "Dataset abrangente de especificações de torque para fixadores Classic Mini",
-            "variable_measured": [
-              "Nome do Fixador",
-              "Torque em lb/ft",
-              "Torque em Nm",
-              "Observações Adicionais"
-            ]
+            "variable_measured": ["Nome do Fixador", "Torque em lb/ft", "Torque em Nm", "Observações Adicionais"]
           },
           "table_headers": {
             "fastener": "Fixador",

@@ -138,9 +138,7 @@
           <div class="card-body p-4">
             <!-- Title and Code -->
             <h2 class="card-title text-lg font-bold">{{ item.title }}</h2>
-            <p class="text-sm text-base-content/70">
-              {{ t('sort_key_label') }} {{ item.code }}
-            </p>
+            <p class="text-sm text-base-content/70">{{ t('sort_key_label') }} {{ item.code }}</p>
 
             <!-- Description -->
             <p class="text-sm my-2">{{ item.description }}</p>

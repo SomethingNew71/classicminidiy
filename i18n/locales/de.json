@@ -791,12 +791,7 @@
             "description": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerks-, Antriebsstrang- und Karosserie-Befestigungselemente mit Werten in lb/ft und Nm.",
             "dataset_name": "Classic Mini Drehmoment-Spezifikationen",
             "dataset_description": "Umfassender Datensatz von Drehmoment-Spezifikationen für Classic Mini Befestigungselemente",
-            "variable_measured": [
-              "Befestigungsname",
-              "Drehmoment in lb/ft",
-              "Drehmoment in Nm",
-              "Zusätzliche Notizen"
-            ]
+            "variable_measured": ["Befestigungsname", "Drehmoment in lb/ft", "Drehmoment in Nm", "Zusätzliche Notizen"]
           },
           "table_headers": {
             "fastener": "Befestigung",
