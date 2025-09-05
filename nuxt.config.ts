@@ -340,6 +340,7 @@ export default defineNuxtConfig({
     '/technical/torque': { prerender: true },
     '/technical/calculators/needles': { prerender: false },
     '/technical/calculators/gearbox': { prerender: false },
+    '/admin/**': { prerender: false },
   },
 
   robots: {
@@ -393,6 +394,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
+      ignore: ['/admin', '/admin/**'],
       routes: [
         '/',
         '/privacy',
@@ -452,11 +454,25 @@ export default defineNuxtConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            highcharts: ['highcharts'],
-            vendors: ['luxon', 'lodash', '@vercel/analytics'],
+            // Chart libraries (tend to be large)
+            highcharts: [
+              'highcharts',
+              'highcharts-vue',
+              'highcharts/modules/exporting',
+              'highcharts/modules/export-data',
+              'highcharts/modules/accessibility',
+            ],
+
+            // Utility libraries
+            utilities: ['luxon', 'lodash'],
+
+            // Analytics and tracking
+            analytics: ['@vercel/analytics'],
           },
         },
       },
+      // Increase chunk size warning limit to reduce noise for intentionally large chunks
+      chunkSizeWarningLimit: 600,
     },
     // Optimize dev experience
     server: {

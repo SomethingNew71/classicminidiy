@@ -1,7 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, GetCommand } from '@aws-sdk/lib-dynamodb';
 import type { IWheelsData } from '../../../data/models/wheels';
-import { requireAdminAuth } from '../../utils/adminAuth';
 
 const createDynamoDBClient = (config: any) => {
   return new DynamoDBClient({
@@ -18,8 +17,6 @@ const createDynamoDBClient = (config: any) => {
 };
 
 export default defineEventHandler(async (event): Promise<IWheelsData> => {
-  // Require admin authentication
-  await requireAdminAuth(event);
   const config = useRuntimeConfig();
   const query = getQuery(event);
 
