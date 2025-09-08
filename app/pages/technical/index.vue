@@ -129,7 +129,17 @@
     "support_section": "Support",
     "breadcrumb_subtitle": "KEEPING MINIS DRIVING",
     "main_heading": "The Technical Toolbox",
-    "description_text": "One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need is at your fingertips."
+    "description_text": "One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need is at your fingertips.",
+    "toolbox": {
+      "torque_specs": "Torque Specs",
+      "chassis_decoder": "Chassis Number Decoder",
+      "engine_decoder": "Engine Number Decoder",
+      "needle_configurator": "Carb Needle Configurator",
+      "gearbox_calculator": "Gearbox Calculator",
+      "compression_calculator": "Compression Ratio Calculator",
+      "parts_equivalency": "Parts Equivalency",
+      "common_clearances": "Common Clearances"
+    }
   }
 }
 </i18n>

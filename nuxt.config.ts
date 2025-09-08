@@ -237,7 +237,7 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     strategy: 'no_prefix',
     locales: [
-      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'en', name: 'English' },
       { code: 'es', name: 'Spanish' },
       { code: 'fr', name: 'French' },
       { code: 'it', name: 'Italian' },
@@ -248,7 +248,7 @@ export default defineNuxtConfig({
       { code: 'zh', name: 'Chinese' },
       { code: 'ko', name: 'Korean' },
     ],
-
+    vueI18n: './i18n.config.ts',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',

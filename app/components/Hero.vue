@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '../../data/models/generic';
 
+  const { t } = useI18n({ useScope: 'local' });
   let styleObject: any;
 
   const props = defineProps({
@@ -56,11 +57,11 @@
   });
 
   const displayTitle = computed(() => {
-    return props.titleKey ? $t(props.titleKey) : props.title;
+    return props.titleKey ? t(props.titleKey) : props.title;
   });
 
   const displaySubtitle = computed(() => {
-    return props.subtitleKey ? $t(props.subtitleKey) : props.subtitle;
+    return props.subtitleKey ? t(props.subtitleKey) : props.subtitle;
   });
 
   switch (props.heroType) {
@@ -117,7 +118,7 @@
           :class="{ 'special-title': special, 'has-text-centered': blog }"
         >
           <span v-if="heroType === HERO_TYPES.HOME">
-            {{ $t('home_title') }}
+            {{ t('home_title') }}
           </span>
           <span v-else>
             {{ displayTitle }}

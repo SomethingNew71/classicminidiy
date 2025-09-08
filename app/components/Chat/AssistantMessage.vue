@@ -18,7 +18,7 @@
     <div class="flex items-center gap-2 mt-2 opacity-0 transition-opacity group-hover:opacity-100">
       <button @click="copyToClipboard(contentString)" class="btn btn-xs btn-ghost text-base-content/50">
         <i class="fa-solid fa-copy h-3 w-3" />
-        {{ $t('copy_button') }}
+        {{ t('copy_button') }}
       </button>
       <time v-if="message?.created_at" class="text-xs text-base-content/50">{{ formatTime(message?.created_at) }}</time>
     </div>
@@ -30,6 +30,7 @@
   import { useStreamContext } from '~/composables/useStreamProvider';
 
   import MarkdownText from './MarkdownText.vue';
+  const { t } = useI18n({ useScope: 'local' });
   const props = defineProps<AssistantMessageProps>();
 
   useStreamContext();

@@ -18,6 +18,10 @@
   import type { IWheelsData } from '../../data/models/wheels';
   import { humanFileSize } from '../../data/models/helper-utils';
 
+  const { t } = useI18n({
+    useScope: 'local',
+  });
+
   // Reactive state
   const wheel = ref();
   const pageLoad = ref(true);
@@ -88,7 +92,7 @@
       })
       .catch((error) => {
         pageError.value = error;
-        errorMessage.value = $t('errors.load_failed');
+        errorMessage.value = t('errors.load_failed');
       })
       .finally(() => {
         pageLoad.value = false;
@@ -235,14 +239,14 @@
     <!-- Stepper -->
     <ul class="steps w-full mb-8">
       <li :class="['step', step >= 1 ? 'step-primary' : '']">
-        {{ $t('stepper.wheel_details') }}
+        {{ t('stepper.wheel_details') }}
       </li>
-      <li :class="['step', step >= 2 ? 'step-primary' : '']">{{ $t('stepper.images') }}</li>
+      <li :class="['step', step >= 2 ? 'step-primary' : '']">{{ t('stepper.images') }}</li>
       <li :class="['step', step >= 3 ? 'step-primary' : '']">
-        {{ $t('stepper.contact_info') }}
+        {{ t('stepper.contact_info') }}
       </li>
-      <li :class="['step', step >= 4 ? 'step-primary' : '']">{{ $t('stepper.review') }}</li>
-      <li :class="['step', step >= 5 ? 'step-primary' : '']">{{ $t('stepper.submitted') }}</li>
+      <li :class="['step', step >= 4 ? 'step-primary' : '']">{{ t('stepper.review') }}</li>
+      <li :class="['step', step >= 5 ? 'step-primary' : '']">{{ t('stepper.submitted') }}</li>
     </ul>
 
     <!-- Step 1: Wheel Details -->
@@ -250,16 +254,16 @@
       <div v-if="pageLoad" class="skeleton w-full h-32"></div>
       <div v-else-if="pageError" class="alert alert-error">
         <div>
-          <span>{{ errorMessage || $t('errors.unable_to_load') }}</span>
+          <span>{{ errorMessage || t('errors.unable_to_load') }}</span>
           <button class="btn btn-sm btn-primary ml-4" @click="resetForm">
-            {{ $t('errors.start_over') }}
+            {{ t('errors.start_over') }}
           </button>
         </div>
       </div>
       <div v-else-if="wheel || newWheel" class="card bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title">
-            {{ newWheel ? $t('step1.title_new') : $t('step1.title_update') }}
+            {{ newWheel ? t('step1.title_new') : t('step1.title_update') }}
           </h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -267,20 +271,20 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  {{ $t('step1.current_name') }}
-                  <span class="font-semibold">{{ wheel.name || $t('step1.no_data') }}</span>
+                  {{ t('step1.current_name') }}
+                  <span class="font-semibold">{{ wheel.name || t('step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
                 <span class="label-text"
-                  >{{ $t('step1.wheel_name') }} <span v-if="newWheel" class="text-error">*</span></span
+                  >{{ t('step1.wheel_name') }} <span v-if="newWheel" class="text-error">*</span></span
                 >
               </label>
               <div class="relative">
                 <input
                   type="text"
                   v-model="name"
-                  :placeholder="$t('step1.wheel_name_placeholder')"
+                  :placeholder="t('step1.wheel_name_placeholder')"
                   class="input input-bordered w-full pl-10"
                   :class="{ 'input-error': isFieldTouched('name') && newWheel && !name.trim() }"
                   @blur="markFieldAsTouched('name')"
@@ -290,7 +294,7 @@
                 </span>
               </div>
               <label class="label" v-if="isFieldTouched('name') && newWheel && !name.trim()">
-                <span class="label-text-alt text-error">{{ $t('step1.wheel_name_required') }}</span>
+                <span class="label-text-alt text-error">{{ t('step1.wheel_name_required') }}</span>
               </label>
             </div>
 
@@ -298,18 +302,18 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  {{ $t('step1.current_type') }}
-                  <span class="font-semibold">{{ wheel.type || $t('step1.no_data') }}</span>
+                  {{ t('step1.current_type') }}
+                  <span class="font-semibold">{{ wheel.type || t('step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">{{ $t('step1.wheel_material_type') }}</span>
+                <span class="label-text">{{ t('step1.wheel_material_type') }}</span>
               </label>
               <div class="relative">
                 <input
                   type="text"
                   v-model="type"
-                  :placeholder="$t('step1.wheel_material_placeholder')"
+                  :placeholder="t('step1.wheel_material_placeholder')"
                   class="input input-bordered w-full pl-10"
                 />
                 <span class="absolute left-3 top-1/2 -translate-y-1/2">
@@ -322,20 +326,20 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  {{ $t('step1.current_width') }}
-                  <span class="font-semibold">{{ wheel.width || $t('step1.no_data') }}</span>
+                  {{ t('step1.current_width') }}
+                  <span class="font-semibold">{{ wheel.width || t('step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
                 <span class="label-text"
-                  >{{ $t('step1.wheel_width') }} <span v-if="newWheel" class="text-error">*</span></span
+                  >{{ t('step1.wheel_width') }} <span v-if="newWheel" class="text-error">*</span></span
                 >
               </label>
               <div class="relative">
                 <input
                   type="number"
                   v-model="width"
-                  :placeholder="$t('step1.wheel_width_placeholder')"
+                  :placeholder="t('step1.wheel_width_placeholder')"
                   class="input input-bordered w-full pl-10"
                   :class="{ 'input-error': isFieldTouched('width') && newWheel && !width }"
                   @blur="markFieldAsTouched('width')"
@@ -345,7 +349,7 @@
                 </span>
               </div>
               <label class="label" v-if="isFieldTouched('width') && newWheel && !width">
-                <span class="label-text-alt text-error">{{ $t('step1.width_required') }}</span>
+                <span class="label-text-alt text-error">{{ t('step1.width_required') }}</span>
               </label>
             </div>
 
@@ -353,13 +357,13 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  {{ $t('step1.current_size') }}
-                  <span class="font-semibold">{{ wheel.size || $t('step1.no_data') }}</span>
+                  {{ t('step1.current_size') }}
+                  <span class="font-semibold">{{ wheel.size || t('step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
                 <span class="label-text"
-                  >{{ $t('step1.wheel_size') }} <span v-if="newWheel" class="text-error">*</span></span
+                  >{{ t('step1.wheel_size') }} <span v-if="newWheel" class="text-error">*</span></span
                 >
               </label>
               <div class="relative">
@@ -369,7 +373,7 @@
                   :class="{ 'select-error': isFieldTouched('size') && newWheel && !size }"
                   @blur="markFieldAsTouched('size')"
                 >
-                  <option disabled value="">{{ $t('step1.wheel_size_placeholder') }}</option>
+                  <option disabled value="">{{ t('step1.wheel_size_placeholder') }}</option>
                   <option v-for="wheelSize in wheelSizes" :key="wheelSize" :value="wheelSize">{{ wheelSize }}"</option>
                 </select>
                 <span class="absolute left-3 top-1/2 -translate-y-1/2">
@@ -377,10 +381,10 @@
                 </span>
               </div>
               <label class="label">
-                <span class="label-text-alt">{{ $t('step1.diameter_inches') }}</span>
+                <span class="label-text-alt">{{ t('step1.diameter_inches') }}</span>
               </label>
               <label class="label" v-if="isFieldTouched('size') && newWheel && !size">
-                <span class="label-text-alt text-error">{{ $t('step1.wheel_size_required') }}</span>
+                <span class="label-text-alt text-error">{{ t('step1.wheel_size_required') }}</span>
               </label>
             </div>
 
@@ -388,18 +392,18 @@
             <div class="form-control">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  {{ $t('step1.current_offset') }}
-                  <span class="font-semibold">{{ wheel.offset || $t('step1.no_data') }}</span>
+                  {{ t('step1.current_offset') }}
+                  <span class="font-semibold">{{ wheel.offset || t('step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">{{ $t('step1.offset_info') }}</span>
+                <span class="label-text">{{ t('step1.offset_info') }}</span>
               </label>
               <div class="relative">
                 <input
                   type="text"
                   v-model="offset"
-                  :placeholder="$t('step1.offset_placeholder')"
+                  :placeholder="t('step1.offset_placeholder')"
                   class="input input-bordered w-full pl-10"
                   maxlength="30"
                 />
@@ -413,18 +417,18 @@
             <div class="form-control col-span-1 md:col-span-2">
               <label class="label" v-if="!newWheel && wheel">
                 <span class="label-text">
-                  {{ $t('step1.current_notes') }}
-                  <span class="font-semibold">{{ wheel.notes || $t('step1.no_data') }}</span>
+                  {{ t('step1.current_notes') }}
+                  <span class="font-semibold">{{ wheel.notes || t('step1.no_data') }}</span>
                 </span>
               </label>
               <label class="label">
-                <span class="label-text">{{ $t('step1.extra_notes') }}</span>
+                <span class="label-text">{{ t('step1.extra_notes') }}</span>
               </label>
               <div class="relative">
                 <textarea
                   v-model="notes"
                   class="textarea textarea-bordered w-full pl-10"
-                  :placeholder="$t('step1.notes_placeholder')"
+                  :placeholder="t('step1.notes_placeholder')"
                   rows="3"
                   maxlength="250"
                 ></textarea>
@@ -433,7 +437,7 @@
                 </span>
               </div>
               <label class="label">
-                <span class="label-text-alt">{{ $t('step1.characters_count', { count: notes.length }) }}</span>
+                <span class="label-text-alt">{{ t('step1.characters_count', { count: notes.length }) }}</span>
               </label>
             </div>
           </div>
@@ -444,20 +448,20 @@
     <!-- Step 2: Images -->
     <div v-else-if="step === 2" class="card bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title">{{ $t('step2.title') }}</h2>
+        <h2 class="card-title">{{ t('step2.title') }}</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Image Upload -->
           <div class="form-control">
-            <h3 class="text-xl font-semibold mb-2">{{ $t('step2.add_images') }}</h3>
+            <h3 class="text-xl font-semibold mb-2">{{ t('step2.add_images') }}</h3>
             <p class="text-sm text-gray-500 mb-4" v-if="newWheel">
-              {{ $t('step2.new_wheel_notice') }}
+              {{ t('step2.new_wheel_notice') }}
             </p>
 
             <div class="form-control w-full">
               <label class="label">
                 <span class="label-text">
-                  {{ $t('step2.upload_label') }}
+                  {{ t('step2.upload_label') }}
                   <span v-if="newWheel" class="text-error">*</span>
                 </span>
               </label>
@@ -470,7 +474,7 @@
                 @change="handleFileChange"
               />
               <label class="label">
-                <span class="label-text-alt">{{ $t('step2.accepted_formats') }}</span>
+                <span class="label-text-alt">{{ t('step2.accepted_formats') }}</span>
               </label>
               <div v-if="fileError" class="text-error text-sm mt-1">
                 {{ fileError }}
@@ -480,7 +484,7 @@
             <!-- Files to upload -->
             <div v-if="dropFiles.length > 0" class="mt-4">
               <h4 class="font-medium mb-2">
-                {{ $t('step2.files_to_upload', { count: dropFiles.length }) }}
+                {{ t('step2.files_to_upload', { count: dropFiles.length }) }}
               </h4>
               <div class="overflow-x-auto">
                 <table class="table table-zebra table-compact w-full">
@@ -506,7 +510,7 @@
           <!-- Image Preview -->
           <div>
             <h3 class="text-xl font-semibold mb-4">
-              {{ newWheel ? $t('step2.your_images') : $t('step2.existing_images') }}
+              {{ newWheel ? t('step2.your_images') : t('step2.existing_images') }}
             </h3>
 
             <div v-if="!newWheel && wheel?.images?.length" class="grid grid-cols-2 gap-4">
@@ -541,7 +545,7 @@
 
             <div v-else class="text-center p-8 border-2 border-dashed rounded-lg">
               <i class="fas fa-images text-4xl text-gray-300 mb-2"></i>
-              <p class="text-gray-500">{{ $t('step2.no_images') }}</p>
+              <p class="text-gray-500">{{ t('step2.no_images') }}</p>
             </div>
           </div>
         </div>
@@ -550,18 +554,18 @@
     <!-- Step 3: Contact Information -->
     <div v-else-if="step === 3" class="card bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title">{{ $t('step3.title') }}</h2>
+        <h2 class="card-title">{{ t('step3.title') }}</h2>
 
         <div class="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
           <div class="form-control">
             <label class="label">
-              <span class="label-text">{{ $t('step3.your_name') }} <span class="text-error">*</span></span>
+              <span class="label-text">{{ t('step3.your_name') }} <span class="text-error">*</span></span>
             </label>
             <div class="relative">
               <input
                 type="text"
                 v-model="userName"
-                :placeholder="$t('step3.name_placeholder')"
+                :placeholder="t('step3.name_placeholder')"
                 class="input input-bordered w-full pl-10"
                 :class="{ 'input-error': isFieldTouched('userName') && !userName.trim() }"
                 @blur="markFieldAsTouched('userName')"
@@ -572,19 +576,19 @@
               </span>
             </div>
             <label class="label" v-if="isFieldTouched('userName') && !userName.trim()">
-              <span class="label-text-alt text-error">{{ $t('step3.name_required') }}</span>
+              <span class="label-text-alt text-error">{{ t('step3.name_required') }}</span>
             </label>
           </div>
 
           <div class="form-control">
             <label class="label">
-              <span class="label-text">{{ $t('step3.email_address') }} <span class="text-error">*</span></span>
+              <span class="label-text">{{ t('step3.email_address') }} <span class="text-error">*</span></span>
             </label>
             <div class="relative">
               <input
                 type="email"
                 v-model="emailAddress"
-                :placeholder="$t('step3.email_placeholder')"
+                :placeholder="t('step3.email_placeholder')"
                 class="input input-bordered w-full pl-10"
                 :class="{
                   'input-error': isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress),
@@ -597,7 +601,7 @@
               </span>
             </div>
             <label class="label" v-if="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress)">
-              <span class="label-text-alt text-error">{{ $t('step3.email_invalid') }}</span>
+              <span class="label-text-alt text-error">{{ t('step3.email_invalid') }}</span>
             </label>
           </div>
         </div>
@@ -607,12 +611,12 @@
     <!-- Step 4: Review -->
     <div v-if="step === 4" class="card bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title">{{ $t('step4.title') }}</h2>
+        <h2 class="card-title">{{ t('step4.title') }}</h2>
 
         <div v-if="!newWheel" class="alert alert-info mb-6">
           <div>
             <i class="fas fa-info-circle"></i>
-            <span>{{ $t('step4.update_notice') }}</span>
+            <span>{{ t('step4.update_notice') }}</span>
           </div>
         </div>
 
@@ -620,32 +624,32 @@
           <!-- Wheel Details -->
           <div class="card bg-base-200">
             <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">{{ $t('step4.wheel_details') }}</h3>
+              <h3 class="card-title text-lg mb-4">{{ t('step4.wheel_details') }}</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ $t('step4.name') }}</div>
-                  <div class="text-base">{{ name || $t('step4.not_provided') }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.name') }}</div>
+                  <div class="text-base">{{ name || t('step4.not_provided') }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ $t('step4.type') }}</div>
-                  <div class="text-base">{{ type || $t('step4.not_provided') }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.type') }}</div>
+                  <div class="text-base">{{ type || t('step4.not_provided') }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ $t('step4.width') }}</div>
-                  <div class="text-base">{{ width || $t('step4.not_provided') }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.width') }}</div>
+                  <div class="text-base">{{ width || t('step4.not_provided') }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ $t('step4.size') }}</div>
-                  <div class="text-base">{{ size || $t('step4.not_provided') }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.size') }}</div>
+                  <div class="text-base">{{ size || t('step4.not_provided') }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ $t('step4.offset') }}</div>
-                  <div class="text-base">{{ offset || $t('step4.not_provided') }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.offset') }}</div>
+                  <div class="text-base">{{ offset || t('step4.not_provided') }}</div>
                 </div>
                 <div class="md:col-span-2">
-                  <div class="text-sm font-semibold text-gray-500">{{ $t('step4.notes') }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.notes') }}</div>
                   <div class="text-base whitespace-pre-line">
-                    {{ notes || $t('step4.no_additional_notes') }}
+                    {{ notes || t('step4.no_additional_notes') }}
                   </div>
                 </div>
               </div>
@@ -655,7 +659,7 @@
           <!-- Images -->
           <div class="card bg-base-200">
             <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">{{ $t('step4.images') }}</h3>
+              <h3 class="card-title text-lg mb-4">{{ t('step4.images') }}</h3>
               <div v-if="dropFiles.length > 0" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 <div v-for="(file, i) in dropFiles" :key="i" class="relative aspect-square">
                   <img
@@ -667,7 +671,7 @@
               </div>
               <div v-else class="text-center py-8 text-gray-500">
                 <i class="fas fa-images text-3xl mb-2"></i>
-                <p>{{ $t('step4.no_images_added') }}</p>
+                <p>{{ t('step4.no_images_added') }}</p>
               </div>
             </div>
           </div>
@@ -675,14 +679,14 @@
           <!-- Contact Information -->
           <div class="card bg-base-200">
             <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">{{ $t('step4.contact_information') }}</h3>
+              <h3 class="card-title text-lg mb-4">{{ t('step4.contact_information') }}</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ $t('step4.name') }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.name') }}</div>
                   <div class="text-base">{{ userName }}</div>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ $t('step4.email') }}</div>
+                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.email') }}</div>
                   <div class="text-base">{{ emailAddress }}</div>
                 </div>
               </div>
@@ -700,21 +704,21 @@
             <i class="fas fa-check text-3xl text-green-500"></i>
           </div>
         </div>
-        <h2 class="card-title justify-center text-3xl">{{ $t('step5.thank_you') }}</h2>
-        <p class="text-lg mb-6">{{ $t('step5.submission_received') }}</p>
+        <h2 class="card-title justify-center text-3xl">{{ t('step5.thank_you') }}</h2>
+        <p class="text-lg mb-6">{{ t('step5.submission_received') }}</p>
 
         <div class="bg-base-200 rounded-lg p-4 mb-6 max-w-2xl mx-auto">
           <p v-if="newWheel" class="mb-2">
-            {{ $t('step5.new_wheel_message', { email: emailAddress }) }}
+            {{ t('step5.new_wheel_message', { email: emailAddress }) }}
           </p>
           <p v-else>
-            {{ $t('step5.update_message', { email: emailAddress }) }}
+            {{ t('step5.update_message', { email: emailAddress }) }}
           </p>
         </div>
 
         <button class="btn btn-primary" @click="resetForm">
           <i class="fas fa-plus-circle mr-2"></i>
-          {{ $t('step5.submit_another') }}
+          {{ t('step5.submit_another') }}
         </button>
       </div>
     </div>
@@ -723,11 +727,11 @@
     <div class="flex justify-end gap-4 mt-8">
       <button v-if="step > 1 && step < 5" @click="step--" class="btn btn-ghost">
         <i class="fas fa-arrow-left mr-2"></i>
-        {{ $t('navigation.back') }}
+        {{ t('navigation.back') }}
       </button>
 
       <button v-if="step < 4" @click="handleNextStep" :disabled="!canProceedToNextStep" class="btn btn-primary">
-        {{ $t('navigation.next') }}
+        {{ t('navigation.next') }}
         <i class="fas fa-arrow-right ml-2"></i>
       </button>
 
@@ -738,7 +742,7 @@
         :class="['btn', 'btn-primary', { loading: loading }]"
       >
         <i class="fas fa-paper-plane mr-2"></i>
-        {{ $t('navigation.submit') }}
+        {{ t('navigation.submit') }}
       </button>
     </div>
   </div>
