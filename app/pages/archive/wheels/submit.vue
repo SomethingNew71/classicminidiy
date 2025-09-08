@@ -6,12 +6,12 @@
   const newWheel = route.query.newWheel === 'true' ? true : false;
 
   useHead({
-    title: $t('pages.archive.subpages.wheels.submit.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.archive.subpages.wheels.submit.description'),
+        content: $t('description'),
       },
     ],
     link: [
@@ -27,14 +27,14 @@
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.archive.subpages.wheels.submit.seo.og_title'),
-    ogDescription: $t('pages.archive.subpages.wheels.submit.seo.og_description'),
+    ogTitle: $t('seo.og_title'),
+    ogDescription: $t('seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/wheels/submit',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/wheels.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.archive.subpages.wheels.submit.seo.twitter_title'),
-    twitterDescription: $t('pages.archive.subpages.wheels.submit.seo.twitter_description'),
+    twitterTitle: $t('seo.twitter_title'),
+    twitterDescription: $t('seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/wheels.png',
   });
 </script>
@@ -43,7 +43,7 @@
   <div>
     <hero
       :navigation="true"
-      :title="$t('pages.archive.subpages.wheels.submit.hero_title')"
+      :title="$t('hero_title')"
       :heroType="HERO_TYPES.ARCHIVE"
     />
     <section id="scrollLocation" class="py-4">
@@ -55,19 +55,19 @@
                 <li>
                   <NuxtLink to="/">
                     <i class="fas fa-home mr-1"></i>
-                    {{ $t('pages.archive.subpages.wheels.submit.breadcrumb.home') }}
+                    {{ $t('breadcrumb.home') }}
                   </NuxtLink>
                 </li>
                 <li>
                   <NuxtLink to="/archive/wheels">
                     <i class="fas fa-tire mr-1"></i>
-                    {{ $t('pages.archive.subpages.wheels.submit.breadcrumb.wheels') }}
+                    {{ $t('breadcrumb.wheels') }}
                   </NuxtLink>
                 </li>
                 <li>
                   <span>
                     <i class="fas fa-tire mr-1"></i>
-                    {{ $t('pages.archive.subpages.wheels.submit.breadcrumb.submission') }}
+                    {{ $t('breadcrumb.submission') }}
                   </span>
                 </li>
               </ul>
@@ -84,3 +84,24 @@
     </section>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Submit Wheel - Classic Mini DIY",
+    "description": "Submit a wheel to the Classic Mini wheels database",
+    "hero_title": "Submit Wheel",
+    "breadcrumb": {
+      "home": "Home",
+      "wheels": "Wheels",
+      "submission": "Submit"
+    },
+    "seo": {
+      "og_title": "Submit Wheel - Classic Mini DIY",
+      "og_description": "Submit a wheel to the Classic Mini wheels database",
+      "twitter_title": "Submit Wheel - Classic Mini DIY",
+      "twitter_description": "Submit a wheel to the Classic Mini wheels database"
+    }
+  }
+}
+</i18n>
