@@ -272,6 +272,258 @@
       "search_placeholder": "Search this table",
       "no_notes": "---"
     }
+  },
+  "es": {
+    "title": "Tabla de Especificaciones de Torque Classic Mini | Classic Mini DIY",
+    "description": "Especificaciones completas de torque para sujetadores Classic Mini. Tabla de referencia para sujetadores de motor, suspensión, tren motriz y carrocería con valores en lb/ft y Nm.",
+    "keywords": "especificaciones torque Classic Mini, sujetadores Mini Cooper, especificaciones torque, valores torque motor, torque suspensión, mantenimiento Mini, especificaciones auto clásico",
+    "hero_title": "Especificaciones de Torque",
+    "breadcrumb_title": "Especificaciones de Torque",
+    "og_title": "Tabla de Especificaciones de Torque Classic Mini | Classic Mini DIY",
+    "og_description": "Especificaciones completas de torque para sujetadores Classic Mini. Tabla de referencia para sujetadores de motor, suspensión, tren motriz y carrocería con valores en lb/ft y Nm.",
+    "twitter_title": "Tabla de Especificaciones de Torque Classic Mini",
+    "twitter_description": "Especificaciones completas de torque para sujetadores Classic Mini. Tabla de referencia para sujetadores de motor, suspensión, tren motriz y carrocería.",
+    "structured_data": {
+      "headline": "Tabla de Especificaciones de Torque Classic Mini",
+      "description": "Especificaciones completas de torque para sujetadores Classic Mini. Tabla de referencia para sujetadores de motor, suspensión, tren motriz y carrocería con valores en lb/ft y Nm.",
+      "dataset_name": "Especificaciones de Torque Classic Mini",
+      "dataset_description": "Conjunto de datos completo de especificaciones de torque para sujetadores Classic Mini",
+      "variable_measured": ["Nombre del Sujetador", "Torque en lb/ft", "Torque en Nm", "Notas Adicionales"]
+    },
+    "table_headers": {
+      "fastener": "Sujetador",
+      "torque_lbft": "Torque (lb/ft)",
+      "torque_nm": "Torque (Nm)",
+      "notes": "Notas"
+    },
+    "ui": {
+      "search_placeholder": "Buscar en esta tabla",
+      "no_notes": "---"
+    }
+  },
+  "fr": {
+    "title": "Tableau des Spécifications de Couple Classic Mini | Classic Mini DIY",
+    "description": "Spécifications complètes de couple pour les fixations Classic Mini. Tableau de référence pour les fixations moteur, suspension, transmission et carrosserie avec valeurs en lb/ft et Nm.",
+    "keywords": "spécifications couple Classic Mini, fixations Mini Cooper, spécifications couple, valeurs couple moteur, couple suspension, entretien Mini, spécifications voiture classique",
+    "hero_title": "Spécifications de Couple",
+    "breadcrumb_title": "Spécifications de Couple",
+    "og_title": "Tableau des Spécifications de Couple Classic Mini | Classic Mini DIY",
+    "og_description": "Spécifications complètes de couple pour les fixations Classic Mini. Tableau de référence pour les fixations moteur, suspension, transmission et carrosserie avec valeurs en lb/ft et Nm.",
+    "twitter_title": "Tableau des Spécifications de Couple Classic Mini",
+    "twitter_description": "Spécifications complètes de couple pour les fixations Classic Mini. Tableau de référence pour les fixations moteur, suspension, transmission et carrosserie.",
+    "structured_data": {
+      "headline": "Tableau des Spécifications de Couple Classic Mini",
+      "description": "Spécifications complètes de couple pour les fixations Classic Mini. Tableau de référence pour les fixations moteur, suspension, transmission et carrosserie avec valeurs en lb/ft et Nm.",
+      "dataset_name": "Spécifications de Couple Classic Mini",
+      "dataset_description": "Jeu de données complet des spécifications de couple pour les fixations Classic Mini",
+      "variable_measured": ["Nom de la Fixation", "Couple en lb/ft", "Couple en Nm", "Notes Supplémentaires"]
+    },
+    "table_headers": {
+      "fastener": "Fixation",
+      "torque_lbft": "Couple (lb/ft)",
+      "torque_nm": "Couple (Nm)",
+      "notes": "Notes"
+    },
+    "ui": {
+      "search_placeholder": "Rechercher dans ce tableau",
+      "no_notes": "---"
+    }
+  },
+  "it": {
+    "title": "Tabella Specifiche di Coppia Classic Mini | Classic Mini DIY",
+    "description": "Specifiche complete di coppia per elementi di fissaggio Classic Mini. Tabella di riferimento per elementi di fissaggio motore, sospensioni, trasmissione e carrozzeria con valori in lb/ft e Nm.",
+    "keywords": "specifiche coppia Classic Mini, elementi fissaggio Mini Cooper, specifiche coppia, valori coppia motore, coppia sospensioni, manutenzione Mini, specifiche auto classica",
+    "hero_title": "Specifiche di Coppia",
+    "breadcrumb_title": "Specifiche di Coppia",
+    "og_title": "Tabella Specifiche di Coppia Classic Mini | Classic Mini DIY",
+    "og_description": "Specifiche complete di coppia per elementi di fissaggio Classic Mini. Tabella di riferimento per elementi di fissaggio motore, sospensioni, trasmissione e carrozzeria con valori in lb/ft e Nm.",
+    "twitter_title": "Tabella Specifiche di Coppia Classic Mini",
+    "twitter_description": "Specifiche complete di coppia per elementi di fissaggio Classic Mini. Tabella di riferimento per elementi di fissaggio motore, sospensioni, trasmissione e carrozzeria.",
+    "structured_data": {
+      "headline": "Tabella Specifiche di Coppia Classic Mini",
+      "description": "Specifiche complete di coppia per elementi di fissaggio Classic Mini. Tabella di riferimento per elementi di fissaggio motore, sospensioni, trasmissione e carrozzeria con valori in lb/ft e Nm.",
+      "dataset_name": "Specifiche di Coppia Classic Mini",
+      "dataset_description": "Set di dati completo delle specifiche di coppia per elementi di fissaggio Classic Mini",
+      "variable_measured": ["Nome Elemento di Fissaggio", "Coppia in lb/ft", "Coppia in Nm", "Note Aggiuntive"]
+    },
+    "table_headers": {
+      "fastener": "Elemento di Fissaggio",
+      "torque_lbft": "Coppia (lb/ft)",
+      "torque_nm": "Coppia (Nm)",
+      "notes": "Note"
+    },
+    "ui": {
+      "search_placeholder": "Cerca in questa tabella",
+      "no_notes": "---"
+    }
+  },
+  "de": {
+    "title": "Classic Mini Drehmoment-Spezifikationstabelle | Classic Mini DIY",
+    "description": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerk-, Antriebsstrang- und Karosseriebefestigungen mit Werten in lb/ft und Nm.",
+    "keywords": "Classic Mini Drehmoment-Spezifikationen, Mini Cooper Befestigungselemente, Drehmoment-Spezifikationen, Motor-Drehmomentwerte, Fahrwerk-Drehmoment, Mini-Wartung, Oldtimer-Spezifikationen",
+    "hero_title": "Drehmoment-Spezifikationen",
+    "breadcrumb_title": "Drehmoment-Spezifikationen",
+    "og_title": "Classic Mini Drehmoment-Spezifikationstabelle | Classic Mini DIY",
+    "og_description": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerk-, Antriebsstrang- und Karosseriebefestigungen mit Werten in lb/ft und Nm.",
+    "twitter_title": "Classic Mini Drehmoment-Spezifikationstabelle",
+    "twitter_description": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerk-, Antriebsstrang- und Karosseriebefestigungen.",
+    "structured_data": {
+      "headline": "Classic Mini Drehmoment-Spezifikationstabelle",
+      "description": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerk-, Antriebsstrang- und Karosseriebefestigungen mit Werten in lb/ft und Nm.",
+      "dataset_name": "Classic Mini Drehmoment-Spezifikationen",
+      "dataset_description": "Umfassender Datensatz von Drehmoment-Spezifikationen für Classic Mini Befestigungselemente",
+      "variable_measured": ["Befestigungsname", "Drehmoment in lb/ft", "Drehmoment in Nm", "Zusätzliche Hinweise"]
+    },
+    "table_headers": {
+      "fastener": "Befestigung",
+      "torque_lbft": "Drehmoment (lb/ft)",
+      "torque_nm": "Drehmoment (Nm)",
+      "notes": "Hinweise"
+    },
+    "ui": {
+      "search_placeholder": "Diese Tabelle durchsuchen",
+      "no_notes": "---"
+    }
+  },
+  "pt": {
+    "title": "Tabela de Especificações de Torque Classic Mini | Classic Mini DIY",
+    "description": "Especificações completas de torque para fixadores Classic Mini. Tabela de referência para fixadores de motor, suspensão, trem de força e carroceria com valores em lb/ft e Nm.",
+    "keywords": "especificações torque Classic Mini, fixadores Mini Cooper, especificações torque, valores torque motor, torque suspensão, manutenção Mini, especificações carro clássico",
+    "hero_title": "Especificações de Torque",
+    "breadcrumb_title": "Especificações de Torque",
+    "og_title": "Tabela de Especificações de Torque Classic Mini | Classic Mini DIY",
+    "og_description": "Especificações completas de torque para fixadores Classic Mini. Tabela de referência para fixadores de motor, suspensão, trem de força e carroceria com valores em lb/ft e Nm.",
+    "twitter_title": "Tabela de Especificações de Torque Classic Mini",
+    "twitter_description": "Especificações completas de torque para fixadores Classic Mini. Tabela de referência para fixadores de motor, suspensão, trem de força e carroceria.",
+    "structured_data": {
+      "headline": "Tabela de Especificações de Torque Classic Mini",
+      "description": "Especificações completas de torque para fixadores Classic Mini. Tabela de referência para fixadores de motor, suspensão, trem de força e carroceria com valores em lb/ft e Nm.",
+      "dataset_name": "Especificações de Torque Classic Mini",
+      "dataset_description": "Conjunto de dados abrangente de especificações de torque para fixadores Classic Mini",
+      "variable_measured": ["Nome do Fixador", "Torque em lb/ft", "Torque em Nm", "Notas Adicionais"]
+    },
+    "table_headers": {
+      "fastener": "Fixador",
+      "torque_lbft": "Torque (lb/ft)",
+      "torque_nm": "Torque (Nm)",
+      "notes": "Notas"
+    },
+    "ui": {
+      "search_placeholder": "Pesquisar nesta tabela",
+      "no_notes": "---"
+    }
+  },
+  "ru": {
+    "title": "Таблица Спецификаций Крутящего Момента Classic Mini | Classic Mini DIY",
+    "description": "Полные спецификации крутящего момента для крепежных элементов Classic Mini. Справочная таблица для крепежных элементов двигателя, подвески, трансмиссии и кузова со значениями в lb/ft и Nm.",
+    "keywords": "спецификации крутящего момента Classic Mini, крепежные элементы Mini Cooper, спецификации крутящего момента, значения крутящего момента двигателя, крутящий момент подвески, обслуживание Mini, спецификации классического автомобиля",
+    "hero_title": "Спецификации Крутящего Момента",
+    "breadcrumb_title": "Спецификации Крутящего Момента",
+    "og_title": "Таблица Спецификаций Крутящего Момента Classic Mini | Classic Mini DIY",
+    "og_description": "Полные спецификации крутящего момента для крепежных элементов Classic Mini. Справочная таблица для крепежных элементов двигателя, подвески, трансмиссии и кузова со значениями в lb/ft и Nm.",
+    "twitter_title": "Таблица Спецификаций Крутящего Момента Classic Mini",
+    "twitter_description": "Полные спецификации крутящего момента для крепежных элементов Classic Mini. Справочная таблица для крепежных элементов двигателя, подвески, трансмиссии и кузова.",
+    "structured_data": {
+      "headline": "Таблица Спецификаций Крутящего Момента Classic Mini",
+      "description": "Полные спецификации крутящего момента для крепежных элементов Classic Mini. Справочная таблица для крепежных элементов двигателя, подвески, трансмиссии и кузова со значениями в lb/ft и Nm.",
+      "dataset_name": "Спецификации Крутящего Момента Classic Mini",
+      "dataset_description": "Комплексный набор данных спецификаций крутящего момента для крепежных элементов Classic Mini",
+      "variable_measured": ["Название Крепежного Элемента", "Крутящий Момент в lb/ft", "Крутящий Момент в Nm", "Дополнительные Примечания"]
+    },
+    "table_headers": {
+      "fastener": "Крепежный Элемент",
+      "torque_lbft": "Крутящий Момент (lb/ft)",
+      "torque_nm": "Крутящий Момент (Nm)",
+      "notes": "Примечания"
+    },
+    "ui": {
+      "search_placeholder": "Поиск в этой таблице",
+      "no_notes": "---"
+    }
+  },
+  "ja": {
+    "title": "クラシック・ミニ トルク仕様表 | Classic Mini DIY",
+    "description": "クラシック・ミニ締結具の完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディ締結具のlb/ftおよびNm値を含む参照表。",
+    "keywords": "クラシック・ミニ トルク仕様、ミニクーパー 締結具、トルク仕様、エンジントルク値、サスペンショントルク、ミニメンテナンス、クラシックカー仕様",
+    "hero_title": "トルク仕様",
+    "breadcrumb_title": "トルク仕様",
+    "og_title": "クラシック・ミニ トルク仕様表 | Classic Mini DIY",
+    "og_description": "クラシック・ミニ締結具の完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディ締結具のlb/ftおよびNm値を含む参照表。",
+    "twitter_title": "クラシック・ミニ トルク仕様表",
+    "twitter_description": "クラシック・ミニ締結具の完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディ締結具の参照表。",
+    "structured_data": {
+      "headline": "クラシック・ミニ トルク仕様表",
+      "description": "クラシック・ミニ締結具の完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディ締結具のlb/ftおよびNm値を含む参照表。",
+      "dataset_name": "クラシック・ミニ トルク仕様",
+      "dataset_description": "クラシック・ミニ締結具のトルク仕様の包括的なデータセット",
+      "variable_measured": ["締結具名", "lb/ftでのトルク", "Nmでのトルク", "追加注記"]
+    },
+    "table_headers": {
+      "fastener": "締結具",
+      "torque_lbft": "トルク (lb/ft)",
+      "torque_nm": "トルク (Nm)",
+      "notes": "注記"
+    },
+    "ui": {
+      "search_placeholder": "この表を検索",
+      "no_notes": "---"
+    }
+  },
+  "zh": {
+    "title": "经典迷你扭矩规格表 | Classic Mini DIY",
+    "description": "经典迷你紧固件的完整扭矩规格。发动机、悬挂、传动系统和车身紧固件的参考表，包含lb/ft和Nm值。",
+    "keywords": "经典迷你扭矩规格，迷你库珀紧固件，扭矩规格，发动机扭矩值，悬挂扭矩，迷你维护，经典汽车规格",
+    "hero_title": "扭矩规格",
+    "breadcrumb_title": "扭矩规格",
+    "og_title": "经典迷你扭矩规格表 | Classic Mini DIY",
+    "og_description": "经典迷你紧固件的完整扭矩规格。发动机、悬挂、传动系统和车身紧固件的参考表，包含lb/ft和Nm值。",
+    "twitter_title": "经典迷你扭矩规格表",
+    "twitter_description": "经典迷你紧固件的完整扭矩规格。发动机、悬挂、传动系统和车身紧固件的参考表。",
+    "structured_data": {
+      "headline": "经典迷你扭矩规格表",
+      "description": "经典迷你紧固件的完整扭矩规格。发动机、悬挂、传动系统和车身紧固件的参考表，包含lb/ft和Nm值。",
+      "dataset_name": "经典迷你扭矩规格",
+      "dataset_description": "经典迷你紧固件扭矩规格的综合数据集",
+      "variable_measured": ["紧固件名称", "lb/ft扭矩", "Nm扭矩", "附加说明"]
+    },
+    "table_headers": {
+      "fastener": "紧固件",
+      "torque_lbft": "扭矩 (lb/ft)",
+      "torque_nm": "扭矩 (Nm)",
+      "notes": "说明"
+    },
+    "ui": {
+      "search_placeholder": "搜索此表",
+      "no_notes": "---"
+    }
+  },
+  "ko": {
+    "title": "클래식 미니 토크 사양표 | Classic Mini DIY",
+    "description": "클래식 미니 체결구의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 차체 체결구의 lb/ft 및 Nm 값을 포함한 참조표.",
+    "keywords": "클래식 미니 토크 사양, 미니 쿠퍼 체결구, 토크 사양, 엔진 토크 값, 서스펜션 토크, 미니 유지보수, 클래식 자동차 사양",
+    "hero_title": "토크 사양",
+    "breadcrumb_title": "토크 사양",
+    "og_title": "클래식 미니 토크 사양표 | Classic Mini DIY",
+    "og_description": "클래식 미니 체결구의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 차체 체결구의 lb/ft 및 Nm 값을 포함한 참조표.",
+    "twitter_title": "클래식 미니 토크 사양표",
+    "twitter_description": "클래식 미니 체결구의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 차체 체결구의 참조표.",
+    "structured_data": {
+      "headline": "클래식 미니 토크 사양표",
+      "description": "클래식 미니 체결구의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 차체 체결구의 lb/ft 및 Nm 값을 포함한 참조표.",
+      "dataset_name": "클래식 미니 토크 사양",
+      "dataset_description": "클래식 미니 체결구 토크 사양의 포괄적인 데이터셋",
+      "variable_measured": ["체결구 이름", "lb/ft 토크", "Nm 토크", "추가 참고사항"]
+    },
+    "table_headers": {
+      "fastener": "체결구",
+      "torque_lbft": "토크 (lb/ft)",
+      "torque_nm": "토크 (Nm)",
+      "notes": "참고사항"
+    },
+    "ui": {
+      "search_placeholder": "이 표 검색",
+      "no_notes": "---"
+    }
   }
 }
 </i18n>

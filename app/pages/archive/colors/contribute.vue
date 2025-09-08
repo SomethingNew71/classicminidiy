@@ -137,11 +137,7 @@
 </script>
 
 <template>
-  <hero
-    :navigation="true"
-    :title="$t('hero_title')"
-    :heroType="HERO_TYPES.ARCHIVE"
-  />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
 
   <div class="container mx-auto px-4 py-6">
     <!-- Breadcrumb -->
@@ -214,9 +210,7 @@
                       </p>
                     </div>
                     <div>
-                      <label class="text-sm font-medium text-gray-700">{{
-                        $t('current_data.labels.code')
-                      }}</label>
+                      <label class="text-sm font-medium text-gray-700">{{ $t('current_data.labels.code') }}</label>
                       <p class="mt-1 text-sm text-gray-900">
                         {{ color.pretty.Code }}
                       </p>
@@ -228,10 +222,7 @@
                         $t('current_data.labels.ditzler_ppg_code')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
-                        {{
-                          color.pretty['Ditzler PPG Code'] ||
-                          $t('current_data.na')
-                        }}
+                        {{ color.pretty['Ditzler PPG Code'] || $t('current_data.na') }}
                       </p>
                     </div>
                     <div>
@@ -239,17 +230,13 @@
                         $t('current_data.labels.dulux_code')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
-                        {{
-                          color.pretty['Dulux Code'] || $t('current_data.na')
-                        }}
+                        {{ color.pretty['Dulux Code'] || $t('current_data.na') }}
                       </p>
                     </div>
                   </div>
                   <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label class="text-sm font-medium text-gray-700">{{
-                        $t('current_data.labels.name')
-                      }}</label>
+                      <label class="text-sm font-medium text-gray-700">{{ $t('current_data.labels.name') }}</label>
                       <p class="mt-1 text-sm text-gray-900">
                         {{ color.pretty.Name || $t('current_data.na') }}
                       </p>
@@ -259,9 +246,7 @@
                         $t('current_data.labels.short_code')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
-                        {{
-                          color.pretty['Short Code'] || $t('current_data.na')
-                        }}
+                        {{ color.pretty['Short Code'] || $t('current_data.na') }}
                       </p>
                     </div>
                   </div>
@@ -297,10 +282,7 @@
               <h2 class="text-xl mb-6">{{ $t('form.success.subtitle') }}</h2>
               <div class="space-y-4 text-left max-w-md mx-auto">
                 <div class="bg-base-200 p-4 rounded-lg">
-                  <p class="font-medium">
-                    {{ $t('form.success.suggestion_number')
-                    }}{{ suggestion.number }}
-                  </p>
+                  <p class="font-medium">{{ $t('form.success.suggestion_number') }}{{ suggestion.number }}</p>
                   <p class="text-sm text-gray-600">
                     {{ $t('form.success.track_text') }}
                     <a :href="suggestion.url" target="_blank" class="link link-primary">
@@ -337,9 +319,7 @@
                 <form @submit.prevent="submit" class="space-y-4">
                   <div class="form-control">
                     <label class="label" for="colorName">
-                      <span class="label-text">{{
-                        $t('form.fields.color_name.label')
-                      }}</span>
+                      <span class="label-text">{{ $t('form.fields.color_name.label') }}</span>
                     </label>
                     <div class="relative">
                       <i class="fas fa-id-card absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -358,9 +338,7 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="form-control">
                       <label class="label" for="primaryCode">
-                        <span class="label-text">{{
-                          $t('form.fields.primary_code.label')
-                        }}</span>
+                        <span class="label-text">{{ $t('form.fields.primary_code.label') }}</span>
                       </label>
                       <div class="relative">
                         <i
@@ -370,9 +348,7 @@
                           id="code"
                           v-model="formData.code"
                           type="text"
-                          :placeholder="
-                            $t('form.fields.primary_code.placeholder')
-                          "
+                          :placeholder="$t('form.fields.primary_code.placeholder')"
                           class="input input-bordered w-full"
                           :disabled="processing"
                           required
@@ -382,9 +358,7 @@
 
                     <div class="form-control">
                       <label class="label" for="shortCode">
-                        <span class="label-text">{{
-                          $t('form.fields.short_code.label')
-                        }}</span>
+                        <span class="label-text">{{ $t('form.fields.short_code.label') }}</span>
                       </label>
                       <div class="relative">
                         <i
@@ -394,9 +368,7 @@
                           id="shortCode"
                           v-model="formData.shortCode"
                           type="text"
-                          :placeholder="
-                            $t('form.fields.short_code.placeholder')
-                          "
+                          :placeholder="$t('form.fields.short_code.placeholder')"
                           class="input input-bordered w-full"
                           :disabled="processing"
                         />
@@ -407,9 +379,7 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="form-control">
                       <label class="label" for="ditzlerPpgCode">
-                        <span class="label-text">{{
-                          $t('form.fields.ditzler_ppg_code.label')
-                        }}</span>
+                        <span class="label-text">{{ $t('form.fields.ditzler_ppg_code.label') }}</span>
                       </label>
                       <div class="relative">
                         <i
@@ -419,9 +389,7 @@
                           id="ditzlerPpgCode"
                           v-model="formData.ditzlerPpgCode"
                           type="text"
-                          :placeholder="
-                            $t('form.fields.ditzler_ppg_code.placeholder')
-                          "
+                          :placeholder="$t('form.fields.ditzler_ppg_code.placeholder')"
                           class="input input-bordered w-full"
                           :disabled="processing"
                         />
@@ -430,9 +398,7 @@
 
                     <div class="form-control">
                       <label class="label" for="duluxCode">
-                        <span class="label-text">{{
-                          $t('form.fields.dulux_code.label')
-                        }}</span>
+                        <span class="label-text">{{ $t('form.fields.dulux_code.label') }}</span>
                       </label>
                       <div class="relative">
                         <i
@@ -442,9 +408,7 @@
                           id="duluxCode"
                           v-model="formData.duluxCode"
                           type="text"
-                          :placeholder="
-                            $t('form.fields.dulux_code.placeholder')
-                          "
+                          :placeholder="$t('form.fields.dulux_code.placeholder')"
                           class="input input-bordered w-full"
                           :disabled="processing"
                         />
@@ -454,9 +418,7 @@
 
                   <div class="form-control">
                     <label class="label" for="years">
-                      <span class="label-text">{{
-                        $t('form.fields.years_used.label')
-                      }}</span>
+                      <span class="label-text">{{ $t('form.fields.years_used.label') }}</span>
                     </label>
                     <div class="relative">
                       <i
@@ -475,9 +437,7 @@
 
                   <div class="form-control">
                     <label class="label" for="imageSwatch">
-                      <span class="label-text">{{
-                        $t('form.fields.image_swatch.label')
-                      }}</span>
+                      <span class="label-text">{{ $t('form.fields.image_swatch.label') }}</span>
                     </label>
                     <div class="relative">
                       <i class="fas fa-image absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -485,28 +445,20 @@
                         id="imageSwatch"
                         v-model="formData.imageSwatch"
                         type="text"
-                        :placeholder="
-                          $t('form.fields.image_swatch.placeholder')
-                        "
+                        :placeholder="$t('form.fields.image_swatch.placeholder')"
                         class="input input-bordered w-full"
                         :disabled="processing"
                       />
                     </div>
                     <label class="label">
-                      <span class="label-text-alt">{{
-                        $t('form.fields.image_swatch.help')
-                      }}</span>
+                      <span class="label-text-alt">{{ $t('form.fields.image_swatch.help') }}</span>
                     </label>
                   </div>
 
                   <div class="pt-4">
                     <button type="submit" class="btn btn-primary w-full" :disabled="processing">
                       <span v-if="processing" class="loading loading-spinner"></span>
-                      {{
-                        processing
-                          ? $t('form.submit.submitting')
-                          : $t('form.submit.button')
-                      }}
+                      {{ processing ? $t('form.submit.submitting') : $t('form.submit.button') }}
                     </button>
                   </div>
                 </form>

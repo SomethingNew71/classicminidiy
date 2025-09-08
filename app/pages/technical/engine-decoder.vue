@@ -237,6 +237,402 @@
     "ui": {
       "support_section": "Support"
     }
+  },
+  "es": {
+    "title": "Técnico - Decodificador de Placa del Motor Mini",
+    "description": "Decodifica la placa del motor de tu Classic Mini para determinar el tamaño del motor y las características de tu coche. Esta placa está ubicada en el mismo lugar en todas las generaciones de mini y se usa para identificar el tamaño del motor y las características.",
+    "hero_title": "Decodificador de Código de Motor",
+    "breadcrumb_title": "Tamaños de Motor",
+    "og_title": "Técnico - Decodificador de Placa del Motor Mini",
+    "og_description": "Decodifica la placa del motor de tu Classic Mini para determinar el tamaño del motor y las características de tu coche. Esta placa está ubicada en el mismo lugar en todas las generaciones de mini y se usa para identificar el tamaño del motor y las características.",
+    "twitter_title": "Técnico - Decodificador de Placa del Motor Mini",
+    "twitter_description": "Decodifica la placa del motor de tu Classic Mini para determinar el tamaño del motor y las características de tu coche.",
+    "main_heading": "Decodificador de Placa del Motor",
+    "description_text": "La placa del motor es una serie de números y letras que están estampados en una placa metálica que está remachada al motor cerca de la bomba de agua. Esta placa está ubicada en el mismo lugar en todas las generaciones de mini y se usa para identificar el tamaño del motor y las características.",
+    "chassis_decoder_card": {
+      "link_title": "Enlace a la Herramienta Decodificadora de Chasis",
+      "heading": "¿Necesitas decodificar tu Número de Chasis?",
+      "description": "Haz clic aquí para identificar tu coche usando nuestra nueva herramienta de decodificación de número de chasis.",
+      "alt_text": "Imagen de lupa"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "Busca tu código de motor"
+    },
+    "table": {
+      "title": "Códigos de Motor",
+      "headers": {
+        "color": "",
+        "code": "Código",
+        "engine_size": "Tamaño del Motor",
+        "engine_variant": "Variante del Motor",
+        "gearbox_details": "Detalles de la Caja de Cambios",
+        "details": "Detalles"
+      }
+    },
+    "ui": {
+      "support_section": "Soporte"
+    }
+  },
+  "fr": {
+    "title": "Technique - Décodeur de Plaque Moteur Mini",
+    "description": "Décodez la plaque moteur de votre Classic Mini pour déterminer la taille du moteur et les caractéristiques de votre voiture. Cette plaque est située au même endroit sur toutes les générations de mini et est utilisée pour identifier la taille du moteur et les caractéristiques.",
+    "hero_title": "Décodeur de Code Moteur",
+    "breadcrumb_title": "Tailles de Moteur",
+    "og_title": "Technique - Décodeur de Plaque Moteur Mini",
+    "og_description": "Décodez la plaque moteur de votre Classic Mini pour déterminer la taille du moteur et les caractéristiques de votre voiture. Cette plaque est située au même endroit sur toutes les générations de mini et est utilisée pour identifier la taille du moteur et les caractéristiques.",
+    "twitter_title": "Technique - Décodeur de Plaque Moteur Mini",
+    "twitter_description": "Décodez la plaque moteur de votre Classic Mini pour déterminer la taille du moteur et les caractéristiques de votre voiture.",
+    "main_heading": "Décodeur de Plaque Moteur",
+    "description_text": "La plaque moteur est une série de numéros et de lettres qui sont estampés sur une plaque métallique qui est rivetée au moteur près de la pompe à eau. Cette plaque est située au même endroit sur toutes les générations de mini et est utilisée pour identifier la taille du moteur et les caractéristiques.",
+    "chassis_decoder_card": {
+      "link_title": "Lien vers l'Outil Décodeur de Châssis",
+      "heading": "Besoin de décoder votre Numéro de Châssis ?",
+      "description": "Cliquez ici pour identifier votre voiture en utilisant notre nouvel outil de décodage de numéro de châssis.",
+      "alt_text": "Image de loupe"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "Recherchez votre code moteur"
+    },
+    "table": {
+      "title": "Codes Moteur",
+      "headers": {
+        "color": "",
+        "code": "Code",
+        "engine_size": "Taille du Moteur",
+        "engine_variant": "Variante du Moteur",
+        "gearbox_details": "Détails de la Boîte de Vitesses",
+        "details": "Détails"
+      }
+    },
+    "ui": {
+      "support_section": "Support"
+    }
+  },
+  "it": {
+    "title": "Tecnico - Decodificatore Piastra Motore Mini",
+    "description": "Decodifica la piastra del motore della tua Classic Mini per determinare la dimensione del motore e le caratteristiche della tua auto. Questa piastra si trova nello stesso posto su tutte le generazioni di mini ed è usata per identificare la dimensione del motore e le caratteristiche.",
+    "hero_title": "Decodificatore Codice Motore",
+    "breadcrumb_title": "Dimensioni Motore",
+    "og_title": "Tecnico - Decodificatore Piastra Motore Mini",
+    "og_description": "Decodifica la piastra del motore della tua Classic Mini per determinare la dimensione del motore e le caratteristiche della tua auto. Questa piastra si trova nello stesso posto su tutte le generazioni di mini ed è usata per identificare la dimensione del motore e le caratteristiche.",
+    "twitter_title": "Tecnico - Decodificatore Piastra Motore Mini",
+    "twitter_description": "Decodifica la piastra del motore della tua Classic Mini per determinare la dimensione del motore e le caratteristiche della tua auto.",
+    "main_heading": "Decodificatore Piastra Motore",
+    "description_text": "La piastra del motore è una serie di numeri e lettere che sono stampati su una piastra metallica che è rivettata al motore vicino alla pompa dell'acqua. Questa piastra si trova nello stesso posto su tutte le generazioni di mini ed è usata per identificare la dimensione del motore e le caratteristiche.",
+    "chassis_decoder_card": {
+      "link_title": "Link allo Strumento Decodificatore Telaio",
+      "heading": "Hai bisogno di decodificare il tuo Numero di Telaio?",
+      "description": "Clicca qui per identificare la tua auto usando il nostro nuovo strumento di decodifica del numero di telaio.",
+      "alt_text": "Immagine di lente d'ingrandimento"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "Cerca il tuo codice motore"
+    },
+    "table": {
+      "title": "Codici Motore",
+      "headers": {
+        "color": "",
+        "code": "Codice",
+        "engine_size": "Dimensione Motore",
+        "engine_variant": "Variante Motore",
+        "gearbox_details": "Dettagli Cambio",
+        "details": "Dettagli"
+      }
+    },
+    "ui": {
+      "support_section": "Supporto"
+    }
+  },
+  "de": {
+    "title": "Technik - Mini Motorplaketten-Decoder",
+    "description": "Decodieren Sie die Motorplakette Ihres Classic Mini, um die Motorgröße und die Eigenschaften Ihres Autos zu bestimmen. Diese Plakette befindet sich bei allen Mini-Generationen an derselben Stelle und wird zur Identifizierung der Motorgröße und der Eigenschaften verwendet.",
+    "hero_title": "Motorcode-Decoder",
+    "breadcrumb_title": "Motorgrößen",
+    "og_title": "Technik - Mini Motorplaketten-Decoder",
+    "og_description": "Decodieren Sie die Motorplakette Ihres Classic Mini, um die Motorgröße und die Eigenschaften Ihres Autos zu bestimmen. Diese Plakette befindet sich bei allen Mini-Generationen an derselben Stelle und wird zur Identifizierung der Motorgröße und der Eigenschaften verwendet.",
+    "twitter_title": "Technik - Mini Motorplaketten-Decoder",
+    "twitter_description": "Decodieren Sie die Motorplakette Ihres Classic Mini, um die Motorgröße und die Eigenschaften Ihres Autos zu bestimmen.",
+    "main_heading": "Motorplaketten-Decoder",
+    "description_text": "Die Motorplakette ist eine Reihe von Zahlen und Buchstaben, die auf eine Metallplakette gestempelt sind, die in der Nähe der Wasserpumpe am Motor genietet ist. Diese Plakette befindet sich bei allen Mini-Generationen an derselben Stelle und wird zur Identifizierung der Motorgröße und der Eigenschaften verwendet.",
+    "chassis_decoder_card": {
+      "link_title": "Link zum Fahrgestell-Decoder-Tool",
+      "heading": "Müssen Sie Ihre Fahrgestellnummer decodieren?",
+      "description": "Klicken Sie hier, um Ihr Auto mit unserem neuen Fahrgestellnummer-Decodierungstool zu identifizieren.",
+      "alt_text": "Bild einer Lupe"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "Suchen Sie Ihren Motorcode"
+    },
+    "table": {
+      "title": "Motorcodes",
+      "headers": {
+        "color": "",
+        "code": "Code",
+        "engine_size": "Motorgröße",
+        "engine_variant": "Motorvariante",
+        "gearbox_details": "Getriebe-Details",
+        "details": "Details"
+      }
+    },
+    "ui": {
+      "support_section": "Support"
+    }
+  },
+  "pt": {
+    "title": "Técnico - Decodificador de Placa do Motor Mini",
+    "description": "Decodifique a placa do motor do seu Classic Mini para determinar o tamanho do motor e as características do seu carro. Esta placa está localizada no mesmo lugar em todas as gerações de mini e é usada para identificar o tamanho do motor e as características.",
+    "hero_title": "Decodificador de Código do Motor",
+    "breadcrumb_title": "Tamanhos de Motor",
+    "og_title": "Técnico - Decodificador de Placa do Motor Mini",
+    "og_description": "Decodifique a placa do motor do seu Classic Mini para determinar o tamanho do motor e as características do seu carro. Esta placa está localizada no mesmo lugar em todas as gerações de mini e é usada para identificar o tamanho do motor e as características.",
+    "twitter_title": "Técnico - Decodificador de Placa do Motor Mini",
+    "twitter_description": "Decodifique a placa do motor do seu Classic Mini para determinar o tamanho do motor e as características do seu carro.",
+    "main_heading": "Decodificador de Placa do Motor",
+    "description_text": "A placa do motor é uma série de números e letras que são estampados em uma placa metálica que é rebitada ao motor perto da bomba d'água. Esta placa está localizada no mesmo lugar em todas as gerações de mini e é usada para identificar o tamanho do motor e as características.",
+    "chassis_decoder_card": {
+      "link_title": "Link para a Ferramenta Decodificadora de Chassi",
+      "heading": "Precisa decodificar seu Número de Chassi?",
+      "description": "Clique aqui para identificar seu carro usando nossa nova ferramenta de decodificação de número de chassi.",
+      "alt_text": "Imagem de lupa"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "Pesquise seu código de motor"
+    },
+    "table": {
+      "title": "Códigos de Motor",
+      "headers": {
+        "color": "",
+        "code": "Código",
+        "engine_size": "Tamanho do Motor",
+        "engine_variant": "Variante do Motor",
+        "gearbox_details": "Detalhes da Caixa de Câmbio",
+        "details": "Detalhes"
+      }
+    },
+    "ui": {
+      "support_section": "Suporte"
+    }
+  },
+  "ru": {
+    "title": "Техника - Декодер Табличек Двигателя Mini",
+    "description": "Декодируйте табличку двигателя вашего Classic Mini, чтобы определить размер двигателя и характеристики вашего автомобиля. Эта табличка расположена в одном и том же месте во всех поколениях mini и используется для идентификации размера двигателя и характеристик.",
+    "hero_title": "Декодер Кода Двигателя",
+    "breadcrumb_title": "Размеры Двигателей",
+    "og_title": "Техника - Декодер Табличек Двигателя Mini",
+    "og_description": "Декодируйте табличку двигателя вашего Classic Mini, чтобы определить размер двигателя и характеристики вашего автомобиля. Эта табличка расположена в одном и том же месте во всех поколениях mini и используется для идентификации размера двигателя и характеристик.",
+    "twitter_title": "Техника - Декодер Табличек Двигателя Mini",
+    "twitter_description": "Декодируйте табличку двигателя вашего Classic Mini, чтобы определить размер двигателя и характеристики вашего автомобиля.",
+    "main_heading": "Декодер Табличек Двигателя",
+    "description_text": "Табличка двигателя - это серия цифр и букв, которые выштампованы на металлической табличке, которая приклепана к двигателю рядом с водяным насосом. Эта табличка расположена в одном и том же месте во всех поколениях mini и используется для идентификации размера двигателя и характеристик.",
+    "chassis_decoder_card": {
+      "link_title": "Ссылка на Инструмент Декодера Шасси",
+      "heading": "Нужно декодировать ваш Номер Шасси?",
+      "description": "Нажмите здесь, чтобы идентифицировать ваш автомобиль, используя наш новый инструмент декодирования номера шасси.",
+      "alt_text": "Изображение увеличительного стекла"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "Найдите ваш код двигателя"
+    },
+    "table": {
+      "title": "Коды Двигателей",
+      "headers": {
+        "color": "",
+        "code": "Код",
+        "engine_size": "Размер Двигателя",
+        "engine_variant": "Вариант Двигателя",
+        "gearbox_details": "Детали Коробки Передач",
+        "details": "Детали"
+      }
+    },
+    "ui": {
+      "support_section": "Поддержка"
+    }
+  },
+  "ja": {
+    "title": "技術 - ミニエンジンプレートデコーダー",
+    "description": "クラシックミニのエンジンプレートをデコードして、車のエンジンサイズと特徴を決定します。このプレートはすべてのミニ世代で同じ場所にあり、エンジンサイズと特徴を識別するために使用されます。",
+    "hero_title": "エンジンコードデコーダー",
+    "breadcrumb_title": "エンジンサイズ",
+    "og_title": "技術 - ミニエンジンプレートデコーダー",
+    "og_description": "クラシックミニのエンジンプレートをデコードして、車のエンジンサイズと特徴を決定します。このプレートはすべてのミニ世代で同じ場所にあり、エンジンサイズと特徴を識別するために使用されます。",
+    "twitter_title": "技術 - ミニエンジンプレートデコーダー",
+    "twitter_description": "クラシックミニのエンジンプレートをデコードして、車のエンジンサイズと特徴を決定します。",
+    "main_heading": "エンジンプレートデコーダー",
+    "description_text": "エンジンプレートは、ウォーターポンプの近くのエンジンにリベット留めされた金属プレートに刻印された一連の数字と文字です。このプレートはすべてのミニ世代で同じ場所にあり、エンジンサイズと特徴を識別するために使用されます。",
+    "chassis_decoder_card": {
+      "link_title": "シャーシデコーダーツールへのリンク",
+      "heading": "シャーシ番号をデコードする必要がありますか？",
+      "description": "新しいシャーシ番号デコードツールを使用して車を識別するにはここをクリック。",
+      "alt_text": "虫眼鏡の画像"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "エンジンコードを検索"
+    },
+    "table": {
+      "title": "エンジンコード",
+      "headers": {
+        "color": "",
+        "code": "コード",
+        "engine_size": "エンジンサイズ",
+        "engine_variant": "エンジンバリアント",
+        "gearbox_details": "ギアボックス詳細",
+        "details": "詳細"
+      }
+    },
+    "ui": {
+      "support_section": "サポート"
+    }
+  },
+  "zh": {
+    "title": "技术 - 迷你发动机铭牌解码器",
+    "description": "解码您的经典迷你发动机铭牌以确定您汽车的发动机尺寸和特征。该铭牌在所有迷你世代中都位于同一位置，用于识别发动机尺寸和特征。",
+    "hero_title": "发动机代码解码器",
+    "breadcrumb_title": "发动机尺寸",
+    "og_title": "技术 - 迷你发动机铭牌解码器",
+    "og_description": "解码您的经典迷你发动机铭牌以确定您汽车的发动机尺寸和特征。该铭牌在所有迷你世代中都位于同一位置，用于识别发动机尺寸和特征。",
+    "twitter_title": "技术 - 迷你发动机铭牌解码器",
+    "twitter_description": "解码您的经典迷你发动机铭牌以确定您汽车的发动机尺寸和特征。",
+    "main_heading": "发动机铭牌解码器",
+    "description_text": "发动机铭牌是一系列数字和字母，印在铆接到水泵附近发动机上的金属铭牌上。该铭牌在所有迷你世代中都位于同一位置，用于识别发动机尺寸和特征。",
+    "chassis_decoder_card": {
+      "link_title": "底盘解码器工具链接",
+      "heading": "需要解码您的底盘号码吗？",
+      "description": "点击这里使用我们新的底盘号码解码工具识别您的汽车。",
+      "alt_text": "放大镜图像"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "搜索您的发动机代码"
+    },
+    "table": {
+      "title": "发动机代码",
+      "headers": {
+        "color": "",
+        "code": "代码",
+        "engine_size": "发动机尺寸",
+        "engine_variant": "发动机变体",
+        "gearbox_details": "变速箱详情",
+        "details": "详情"
+      }
+    },
+    "ui": {
+      "support_section": "支持"
+    }
+  },
+  "ko": {
+    "title": "기술 - 미니 엔진 플레이트 디코더",
+    "description": "클래식 미니의 엔진 플레이트를 디코딩하여 자동차의 엔진 크기와 특징을 결정하세요. 이 플레이트는 모든 미니 세대에서 같은 위치에 있으며 엔진 크기와 특징을 식별하는 데 사용됩니다.",
+    "hero_title": "엔진 코드 디코더",
+    "breadcrumb_title": "엔진 크기",
+    "og_title": "기술 - 미니 엔진 플레이트 디코더",
+    "og_description": "클래식 미니의 엔진 플레이트를 디코딩하여 자동차의 엔진 크기와 특징을 결정하세요. 이 플레이트는 모든 미니 세대에서 같은 위치에 있으며 엔진 크기와 특징을 식별하는 데 사용됩니다.",
+    "twitter_title": "기술 - 미니 엔진 플레이트 디코더",
+    "twitter_description": "클래식 미니의 엔진 플레이트를 디코딩하여 자동차의 엔진 크기와 특징을 결정하세요.",
+    "main_heading": "엔진 플레이트 디코더",
+    "description_text": "엔진 플레이트는 워터 펌프 근처의 엔진에 리벳으로 고정된 금속 플레이트에 스탬프된 일련의 숫자와 문자입니다. 이 플레이트는 모든 미니 세대에서 같은 위치에 있으며 엔진 크기와 특징을 식별하는 데 사용됩니다.",
+    "chassis_decoder_card": {
+      "link_title": "섀시 디코더 도구 링크",
+      "heading": "섀시 번호를 디코딩해야 하나요?",
+      "description": "새로운 섀시 번호 디코딩 도구를 사용하여 자동차를 식별하려면 여기를 클릭하세요.",
+      "alt_text": "돋보기 이미지"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "엔진 코드 검색"
+    },
+    "table": {
+      "title": "엔진 코드",
+      "headers": {
+        "color": "",
+        "code": "코드",
+        "engine_size": "엔진 크기",
+        "engine_variant": "엔진 변형",
+        "gearbox_details": "기어박스 세부사항",
+        "details": "세부사항"
+      }
+    },
+    "ui": {
+      "support_section": "지원"
+    }
   }
 }
 </i18n>
