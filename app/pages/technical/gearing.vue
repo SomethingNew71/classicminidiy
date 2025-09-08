@@ -4,49 +4,49 @@
   const isCalculatorLoaded = ref(false);
 
   useHead({
-    title: $t('pages.technical.subPages.gearing.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.technical.subPages.gearing.description'),
+        content: $t('description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: $t('pages.technical.subPages.gearing.og_title'),
-    ogDescription: $t('pages.technical.subPages.gearing.og_description'),
+    ogTitle: $t('og_title'),
+    ogDescription: $t('og_description'),
     ogUrl: 'https://classicminidiy.com/technical/gearing',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/gearing.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.technical.subPages.gearing.twitter_title'),
-    twitterDescription: $t('pages.technical.subPages.gearing.twitter_description'),
+    twitterTitle: $t('twitter_title'),
+    twitterDescription: $t('twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/gearing.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="$t('pages.technical.subPages.gearing.hero_title')" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.TECH" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
         <breadcrumb
           class="my-6"
           :version="BREADCRUMB_VERSIONS.TECH"
-          :page="$t('pages.technical.subPages.gearing.breadcrumb_title')"
+          :page="$t('breadcrumb_title')"
         ></breadcrumb>
         <div class="grid grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-3xl font-bold mb-4">{{ $t('pages.technical.subPages.gearing.main_heading') }}</h1>
+            <h1 class="text-3xl font-bold mb-4">{{ $t('main_heading') }}</h1>
             <p class="mb-4">
-              {{ $t('pages.technical.subPages.gearing.description_text') }}
+              {{ $t('description_text') }}
             </p>
           </div>
           <div class="col-span-12 md:col-span-4">
             <NuxtLink
               :to="'/archive/engines'"
-              :title="$t('pages.technical.subPages.gearing.engine_sizes_card.link_title')"
+              :title="$t('engine_sizes_card.link_title')"
               class="block"
             >
               <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
@@ -67,16 +67,16 @@
                             loading="lazy"
                             src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
                             class="w-full h-full object-contain"
-                            :alt="$t('pages.technical.subPages.gearing.engine_sizes_card.alt_text')"
+                            :alt="$t('engine_sizes_card.alt_text')"
                           />
                         </picture>
                       </figure>
                     </div>
                     <div>
                       <h2 class="text-xl font-semibold">
-                        {{ $t('pages.technical.subPages.gearing.engine_sizes_card.heading') }}
+                        {{ $t('engine_sizes_card.heading') }}
                       </h2>
-                      <p class="mt-1">{{ $t('pages.technical.subPages.gearing.engine_sizes_card.description') }}</p>
+                      <p class="mt-1">{{ $t('engine_sizes_card.description') }}</p>
                     </div>
                   </div>
                 </div>
@@ -86,18 +86,18 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <ClientOnly fallback-tag="div" :fallback="$t('pages.technical.subPages.gearing.ui.loading_fallback')">
+        <ClientOnly fallback-tag="div" :fallback="$t('ui.loading_fallback')">
           <div class="min-h-96 flex items-center justify-center" v-if="!isCalculatorLoaded">
             <div class="flex flex-col items-center space-y-4">
               <span class="loading loading-spinner loading-lg text-primary"></span>
-              <p class="text-base-content/70">{{ $t('pages.technical.subPages.gearing.ui.loading_text') }}</p>
+              <p class="text-base-content/70">{{ $t('ui.loading_text') }}</p>
             </div>
           </div>
           <LazyCalculatorsGearbox @vue:mounted="isCalculatorLoaded = true" />
         </ClientOnly>
       </div>
       <div class="col-span-12 md:col-span-4 md:col-start-5">
-        <div class="divider">{{ $t('pages.technical.subPages.gearing.ui.more_section') }}</div>
+        <div class="divider">{{ $t('ui.more_section') }}</div>
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />
@@ -105,3 +105,31 @@
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Tech - Gearing Calculator",
+    "description": "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+    "hero_title": "Gearbox Calculator",
+    "breadcrumb_title": "Gearbox Calculator",
+    "og_title": "Tech - Gearing Calculator",
+    "og_description": "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+    "twitter_title": "Tech - Gearing Calculator",
+    "twitter_description": "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+    "main_heading": "Gearbox Calculator",
+    "description_text": "When building or rebuilding a gearbox, updaing your gear ratios, or changing out your speedometer sometimes you need to update some things. Using the Classic Mini DIY Gear Calculator below, you can determine the correct gearing for your for your new engine build and find the right speedo gear to use as well.",
+    "engine_sizes_card": {
+      "link_title": "Link to Engine Sizes",
+      "heading": "What are standard engine sizes?",
+      "description": "Click here to learn about common engine sizes in the classic mini.",
+      "alt_text": "Engine size table image preview"
+    },
+    "ui": {
+      "loading_fallback": "Loading gearbox calculator...",
+      "loading_text": "Loading gearbox calculator...",
+      "more_section": "More"
+    }
+  }
+}
+</i18n>

@@ -2,17 +2,17 @@
   import { ToolboxItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
 
   useHead({
-    title: $t('pages.technical.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.technical.description'),
+        content: $t('description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content: $t('pages.technical.keywords'),
+        content: $t('keywords'),
       },
     ],
     link: [
@@ -28,14 +28,14 @@
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.technical.ogTitle'),
-    ogDescription: $t('pages.technical.ogDescription'),
+    ogTitle: $t('ogTitle'),
+    ogDescription: $t('ogDescription'),
     ogUrl: 'https://classicminidiy.com/technical',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.technical.twitterTitle'),
-    twitterDescription: $t('pages.technical.twitterDescription'),
+    twitterTitle: $t('twitterTitle'),
+    twitterDescription: $t('twitterDescription'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical.png',
   });
 
@@ -43,8 +43,8 @@
   const toolboxJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: $t('pages.technical.structured_data.name'),
-    description: $t('pages.technical.structured_data.description'),
+    name: $t('structured_data.name'),
+    description: $t('structured_data.description'),
     url: 'https://classicminidiy.com/technical',
     itemListElement: ToolboxItems.map((item, index) => ({
       '@type': 'ListItem',
@@ -68,21 +68,21 @@
 <template>
   <hero
     :navigation="true"
-    :titleKey="'pages.technical.hero_title'"
+    :titleKey="$t('hero_title')"
     textSize="text-3xl"
-    :subtitleKey="'pages.technical.hero_subtitle'"
+    :subtitleKey="$t('hero_subtitle')"
     :heroType="HERO_TYPES.TECH"
   />
   <div class="container mx-auto px-4 pb-15 pt-6">
     <div class="grid grid-cols-1 gap-4">
       <div class="col-span-1 text-center">
         <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" root></breadcrumb>
-        <h2 class="fancy-font-book-oblique">{{ $t('pages.technical.breadcrumb_subtitle') }}</h2>
-        <h3 class="fancy-font-bold text-2xl">{{ $t('pages.technical.main_heading') }}</h3>
+        <h2 class="fancy-font-book-oblique">{{ $t('breadcrumb_subtitle') }}</h2>
+        <h3 class="fancy-font-bold text-2xl">{{ $t('main_heading') }}</h3>
       </div>
       <div class="col-span-1 text-center">
         <p class="text-lg py-5">
-          {{ $t('pages.technical.description_text') }}
+          {{ $t('description_text') }}
         </p>
       </div>
     </div>
@@ -98,7 +98,7 @@
     </div>
     <div class="grid grid-cols-12 gap-4 mt-6">
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ $t('pages.technical.support_section') }}</div>
+        <div class="divider">{{ $t('support_section') }}</div>
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />
@@ -106,3 +106,30 @@
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Classic Mini Technical Toolbox | DIY Calculators & Specifications",
+    "description": "Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.",
+    "keywords": "Classic Mini technical tools, Mini Cooper specifications, SU needle chart, compression calculator, torque specs, DIY Mini maintenance, technical reference",
+    "hero_title": "Classic Mini Technical Toolbox",
+    "hero_subtitle": "Keeping Minis Driving",
+    "ogTitle": "Classic Mini Technical Toolbox | DIY Calculators & Specifications",
+    "ogDescription": "Classic Mini technical tools and specifications for DIY mechanics. Access calculators, torque specs, needle charts, and more to maintain and upgrade your Mini.",
+    "twitterTitle": "Classic Mini Technical Toolbox",
+    "twitterDescription": "DIY technical tools and specifications for Classic Mini maintenance and upgrades.",
+    "structured_data": {
+      "name": "Classic Mini Technical Toolbox",
+      "description": "Collection of technical tools, calculators, and specifications for Classic Mini maintenance and upgrades."
+    },
+    "page_subtitle": "KEEPING MINIS DRIVING",
+    "page_title": "The Technical Toolbox",
+    "welcome_text": "One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need is at your fingertips.",
+    "support_section": "Support",
+    "breadcrumb_subtitle": "KEEPING MINIS DRIVING",
+    "main_heading": "The Technical Toolbox",
+    "description_text": "One of the most important parts of Classic Mini DIY is the focus on getting out and working on your own car. So to make this easier for you, I have collected technical information from various sources and consolidated it right here on classicminidiy.com. These tools and calculators will help you maintain, upgrade, and troubleshoot your Classic Mini with confidence. From compression ratios to needle charts, everything you need is at your fingertips."
+  }
+}
+</i18n>

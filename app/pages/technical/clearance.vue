@@ -24,37 +24,37 @@
   };
 
   useHead({
-    title: $t('pages.technical.subPages.clearance.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.technical.subPages.clearance.description'),
+        content: $t('description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.technical.subPages.clearance.og_title'),
-    ogDescription: $t('pages.technical.subPages.clearance.og_description'),
+    ogTitle: $t('og_title'),
+    ogDescription: $t('og_description'),
     ogUrl: 'https://classicminidiy.com/technical/clearance',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/clearance.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.technical.subPages.clearance.twitter_title'),
-    twitterDescription: $t('pages.technical.subPages.clearance.twitter_description'),
+    twitterTitle: $t('twitter_title'),
+    twitterDescription: $t('twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/clearance.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="$t('pages.technical.subPages.clearance.hero_title')" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.TECH" />
 
   <div class="container mx-auto px-4 py-6">
     <div class="mb-6">
       <breadcrumb
         :version="BREADCRUMB_VERSIONS.TECH"
-        :page="$t('pages.technical.subPages.clearance.breadcrumb_title')"
+        :page="$t('breadcrumb_title')"
       />
     </div>
 
@@ -71,7 +71,7 @@
                 <input
                   type="text"
                   v-model="searchValue"
-                  :placeholder="$t('pages.technical.subPages.clearance.search.placeholder')"
+                  :placeholder="$t('search.placeholder')"
                   class="input input-bordered w-full pr-10"
                 />
                 <span class="absolute right-3 top-1/2 -translate-y-1/2">
@@ -84,10 +84,10 @@
               <table class="table w-full">
                 <thead>
                   <tr>
-                    <th>{{ $t('pages.technical.subPages.clearance.table.headers.part') }}</th>
-                    <th>{{ $t('pages.technical.subPages.clearance.table.headers.clearance_thou') }}</th>
-                    <th>{{ $t('pages.technical.subPages.clearance.table.headers.clearance_mm') }}</th>
-                    <th>{{ $t('pages.technical.subPages.clearance.table.headers.expand') }}</th>
+                    <th>{{ $t('table.headers.part') }}</th>
+                    <th>{{ $t('table.headers.clearance_thou') }}</th>
+                    <th>{{ $t('table.headers.clearance_mm') }}</th>
+                    <th>{{ $t('table.headers.expand') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -99,8 +99,8 @@
                   >
                     <tr class="hover cursor-pointer" @click="toggleRow(`${name}-${itemIndex}`)">
                       <td>{{ item.name }}</td>
-                      <td>{{ item.thou || $t('pages.technical.subPages.clearance.table.no_value') }}</td>
-                      <td>{{ item.mm || $t('pages.technical.subPages.clearance.table.no_value') }}</td>
+                      <td>{{ item.thou || $t('table.no_value') }}</td>
+                      <td>{{ item.mm || $t('table.no_value') }}</td>
                       <td class="text-right">
                         <i
                           class="fas transition-transform duration-200"
@@ -111,17 +111,17 @@
                     <tr v-if="expandedRows[`${name}-${itemIndex}`]" class="bg-base-200">
                       <td colspan="4" class="p-4">
                         <div class="font-semibold mb-2">
-                          {{ $t('pages.technical.subPages.clearance.table.extra_notes_title') }}
+                          {{ $t('table.extra_notes_title') }}
                         </div>
                         <div class="whitespace-pre-line">
-                          {{ item.notes || $t('pages.technical.subPages.clearance.table.no_notes_available') }}
+                          {{ item.notes || $t('table.no_notes_available') }}
                         </div>
                       </td>
                     </tr>
                   </template>
                   <tr v-if="!table.items.length">
                     <td colspan="4" class="text-center py-4">
-                      {{ $t('pages.technical.subPages.clearance.table.no_items_found') }}
+                      {{ $t('table.no_items_found') }}
                     </td>
                   </tr>
                 </tbody>
@@ -132,9 +132,42 @@
       </div>
     </div>
 
-    <div class="divider my-12">{{ $t('pages.technical.subPages.clearance.ui.support_section') }}</div>
+    <div class="divider my-12">{{ $t('ui.support_section') }}</div>
     <div class="mb-8">
       <patreon-card size="large" />
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Tech - Mini Clearances",
+    "description": "Detailed clearance specifications can be found online right here at Classic Mini DIY.",
+    "hero_title": "Common Clearances",
+    "breadcrumb_title": "Common Clearances",
+    "og_title": "Tech - Mini Clearances",
+    "og_description": "Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.",
+    "twitter_title": "Tech - Mini Clearances",
+    "twitter_description": "Detailed clearance specifications for the Classic Mini can be found online right here at Classic Mini DIY.",
+    "table": {
+      "headers": {
+        "part": "Part",
+        "clearance_thou": "Clearance/Endfloat (thou)",
+        "clearance_mm": "Clearance/Endfloat (mm)",
+        "expand": ""
+      },
+      "no_value": "---",
+      "no_items_found": "No items found",
+      "extra_notes_title": "Extra Notes:",
+      "no_notes_available": "No additional notes available."
+    },
+    "search": {
+      "placeholder": "Search..."
+    },
+    "ui": {
+      "support_section": "Support"
+    }
+  }
+}
+</i18n>
