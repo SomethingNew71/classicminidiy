@@ -7,9 +7,6 @@
     type ISpeedometer,
     type TireValue,
   } from '../../../data/models/gearing';
-  const { t } = useI18n({
-    useScope: 'local',
-  });
 
   // Default Values for form elements
   const metric = ref(false);
@@ -241,7 +238,7 @@
       <div class="col-span-1 md:col-span-4">
         <div class="form-control">
           <label class="label cursor-pointer">
-            <span class="label-text">{{ t('form_labels.imperial_or_metric') }}</span>
+            <span class="label-text">{{ $t('form_labels.imperial_or_metric') }}</span>
             <input type="checkbox" class="toggle toggle-primary" v-model="metric" @change="triggerDebouncedUpdate" />
           </label>
         </div>
@@ -253,7 +250,7 @@
         <div class="form-control">
           <label class="label">
             <span class="label-text"
-              >{{ t('form_labels.tire_size') }} <span><i class="fad fa-tire"></i></span
+              >{{ $t('form_labels.tire_size') }} <span><i class="fad fa-tire"></i></span
             ></span>
           </label>
           <div class="input-group">
@@ -268,7 +265,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('form_labels.speedo_drive_ratio') }} <span><i class="fad fa-percent"></i></span
+            >{{ $t('form_labels.speedo_drive_ratio') }} <span><i class="fad fa-percent"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -282,7 +279,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('form_labels.drop_gear_ratio') }} <span><i class="fad fa-gears"></i></span
+            >{{ $t('form_labels.drop_gear_ratio') }} <span><i class="fad fa-gears"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -296,7 +293,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('form_labels.gearset') }} <span><i class="fad fa-gear"></i></span
+            >{{ $t('form_labels.gearset') }} <span><i class="fad fa-gear"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -310,7 +307,7 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('form_labels.final_drive') }} <span><i class="fad fa-gears"></i></span
+            >{{ $t('form_labels.final_drive') }} <span><i class="fad fa-gears"></i></span
           ></span>
         </label>
         <div class="input-group">
@@ -324,33 +321,33 @@
       <div class="form-control col-span-12 md:col-span-6">
         <label class="label">
           <span class="label-text"
-            >{{ t('form_labels.max_rpm') }} <span><i class="fad fa-tachometer-alt"></i></span
+            >{{ $t('form_labels.max_rpm') }} <span><i class="fad fa-tachometer-alt"></i></span
           ></span>
         </label>
         <div class="w-full">
           <select class="select select-bordered w-full" v-model.number="max_rpm" @change="triggerDebouncedUpdate">
-            <option value="5000">{{ t('rpm_options.5000') }}</option>
-            <option value="5500">{{ t('rpm_options.5500') }}</option>
-            <option value="6000">{{ t('rpm_options.6000') }}</option>
-            <option value="6500">{{ t('rpm_options.6500') }}</option>
-            <option value="7000">{{ t('rpm_options.7000') }}</option>
-            <option value="7500">{{ t('rpm_options.7500') }}</option>
-            <option value="8000">{{ t('rpm_options.8000') }}</option>
-            <option value="8500">{{ t('rpm_options.8500') }}</option>
-            <option value="9000">{{ t('rpm_options.9000') }}</option>
+            <option value="5000">{{ $t('rpm_options.5000') }}</option>
+            <option value="5500">{{ $t('rpm_options.5500') }}</option>
+            <option value="6000">{{ $t('rpm_options.6000') }}</option>
+            <option value="6500">{{ $t('rpm_options.6500') }}</option>
+            <option value="7000">{{ $t('rpm_options.7000') }}</option>
+            <option value="7500">{{ $t('rpm_options.7500') }}</option>
+            <option value="8000">{{ $t('rpm_options.8000') }}</option>
+            <option value="8500">{{ $t('rpm_options.8500') }}</option>
+            <option value="9000">{{ $t('rpm_options.9000') }}</option>
           </select>
         </div>
       </div>
     </div>
 
-    <div class="divider">{{ t('results_divider') }}</div>
+    <div class="divider">{{ $t('results_divider') }}</div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="card bg-stone-400 shadow-sm">
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
             <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin text-white"></i>
-            {{ t('results.revolutions_per', { unit: distanceUnit }) }}
+            {{ $t('results.revolutions_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ displayEngineRevs }}</p>
         </div>
@@ -359,7 +356,7 @@
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
             <i class="fa-jelly-duo fa-regular fa-arrow-rotate-right fa-spin"></i>
-            {{ t('results.gear_turns_per', { unit: distanceUnit }) }}
+            {{ $t('results.gear_turns_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ displayGearTurns }}</p>
         </div>
@@ -367,7 +364,7 @@
       <div class="card bg-primary shadow-sm">
         <div class="card-body text-center">
           <h3 class="text-lg text-white opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-gauge"></i> {{ t('results.top_speed') }}
+            <i class="fa-jelly-duo fa-regular fa-gauge"></i> {{ $t('results.top_speed') }}
           </h3>
           <p class="text-3xl text-white font-bold">{{ topSpeed || '---' }}</p>
         </div>
@@ -379,7 +376,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly-duo fa-regular fa-arrow-down-to-line"></i>
-            {{ t('tire_info.tire_width') }}
+            {{ $t('tire_info.tire_width') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.width || '---' }}mm</p>
         </div>
@@ -388,7 +385,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly fa-regular fa-circle"></i>
-            {{ t('tire_info.tire_profile') }}
+            {{ $t('tire_info.tire_profile') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.profile || '---' }}%</p>
         </div>
@@ -397,7 +394,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly-duo fa-regular fa-expand"></i>
-            {{ t('tire_info.tire_size') }}
+            {{ $t('tire_info.tire_size') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.size || '---' }}"</p>
         </div>
@@ -406,7 +403,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly-duo fa-regular fa-arrow-right-to-bracket"></i>
-            {{ t('tire_info.tire_diameter') }}
+            {{ $t('tire_info.tire_diameter') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.diameter || '---' }}mm</p>
         </div>
@@ -415,7 +412,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-jelly-duo fa-regular fa-circle"></i>
-            {{ t('tire_info.circumference') }}
+            {{ $t('tire_info.circumference') }}
           </h3>
           <p class="text-lg font-bold">{{ tireInfo.circ || '---' }}mm</p>
         </div>
@@ -424,7 +421,7 @@
         <div class="card-body p-4 text-center">
           <h3 class="text-sm opacity-70">
             <i class="fa-duotone fa-solid fa-tire fa-spin"></i>
-            {{ t('tire_info.tire_turns_per', { unit: distanceUnit }) }}
+            {{ $t('tire_info.tire_turns_per', { unit: distanceUnit }) }}
           </h3>
           <p class="text-lg font-bold">{{ displayTireTurns }}</p>
         </div>
@@ -442,7 +439,7 @@
             ></highcharts>
             <template #fallback>
               <div class="skeleton h-96 w-full"></div>
-              <p class="py-10 text-center text-2xl">{{ t('chart.loading') }}</p>
+              <p class="py-10 text-center text-2xl">{{ $t('chart.loading') }}</p>
             </template>
           </ClientOnly>
         </div>
@@ -454,7 +451,7 @@
           <div class="card-body">
             <h2 class="card-title">
               <i class="fa-duotone fa-gauge mr-2"></i>
-              {{ t('tables.speedo_information') }}
+              {{ $t('tables.speedo_information') }}
             </h2>
             <div class="overflow-x-auto">
               <table class="table table-zebra table-compact w-full">
@@ -482,7 +479,7 @@
           <div class="card-body">
             <h2 class="card-title">
               <i class="fa-duotone fa-gear fa-spin mr-2"></i>
-              {{ t('tables.gearing_information') }}
+              {{ $t('tables.gearing_information') }}
             </h2>
             <div class="overflow-x-auto">
               <table class="table table-zebra table-compact w-full">
@@ -503,7 +500,7 @@
           </div>
         </div>
         <div class="mt-6">
-          <div class="divider">{{ t('support_divider') }}</div>
+          <div class="divider">{{ $t('support_divider') }}</div>
           <patreon-card size="large" />
         </div>
       </div>
@@ -511,14 +508,14 @@
 
     <div class="mt-6 text-center max-w-3xl mx-auto">
       <p>
-        {{ t('disclaimer', { strong_start: '<strong>', strong_end: '</strong>' }) }}
+        {{ $t('disclaimer', { strong_start: '<strong>', strong_end: '</strong>' }) }}
         <a
           href="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
           target="_blank"
           rel="noopener noreferrer"
           class="link link-primary"
         >
-          {{ t('equation_source') }}
+          {{ $t('equation_source') }}
         </a>
       </p>
     </div>

@@ -2,27 +2,26 @@
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   // Track calculator loading state
   const isCalculatorLoaded = ref(false);
-  const { t } = useI18n();
 
   useHead({
-    title: t('pages.technical.subPages.gearing.title'),
+    title: $t('pages.technical.subPages.gearing.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: t('pages.technical.subPages.gearing.description'),
+        content: $t('pages.technical.subPages.gearing.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: t('pages.technical.subPages.gearing.og_title'),
-    ogDescription: t('pages.technical.subPages.gearing.og_description'),
+    ogTitle: $t('pages.technical.subPages.gearing.og_title'),
+    ogDescription: $t('pages.technical.subPages.gearing.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/gearing',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/gearing.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.technical.subPages.gearing.twitter_title'),
-    twitterDescription: t('pages.technical.subPages.gearing.twitter_description'),
+    twitterTitle: $t('pages.technical.subPages.gearing.twitter_title'),
+    twitterDescription: $t('pages.technical.subPages.gearing.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/gearing.png',
   });
 </script>

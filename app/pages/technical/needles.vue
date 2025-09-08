@@ -2,20 +2,19 @@
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   // Track calculator loading state
   const isCalculatorLoaded = ref(false);
-  const { t } = useI18n();
 
   useHead({
-    title: t('pages.technical.subPages.needles.title'),
+    title: $t('pages.technical.subPages.needles.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: t('pages.technical.subPages.needles.description'),
+        content: $t('pages.technical.subPages.needles.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content: t('pages.technical.subPages.needles.keywords'),
+        content: $t('pages.technical.subPages.needles.keywords'),
       },
     ],
     link: [
@@ -31,14 +30,14 @@
   });
 
   useSeoMeta({
-    ogTitle: t('pages.technical.subPages.needles.og_title'),
-    ogDescription: t('pages.technical.subPages.needles.og_description'),
+    ogTitle: $t('pages.technical.subPages.needles.og_title'),
+    ogDescription: $t('pages.technical.subPages.needles.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/needles',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/needles.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.technical.subPages.needles.twitter_title'),
-    twitterDescription: t('pages.technical.subPages.needles.twitter_description'),
+    twitterTitle: $t('pages.technical.subPages.needles.twitter_title'),
+    twitterDescription: $t('pages.technical.subPages.needles.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/needles.png',
   });
 
@@ -46,29 +45,29 @@
   const howToJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
-    name: t('pages.technical.subPages.needles.structured_data.name'),
-    description: t('pages.technical.subPages.needles.structured_data.description'),
+    name: $t('pages.technical.subPages.needles.structured_data.name'),
+    description: $t('pages.technical.subPages.needles.structured_data.description'),
     step: [
       {
         '@type': 'HowToStep',
-        name: t('pages.technical.subPages.needles.structured_data.steps.select_needles.name'),
-        text: t('pages.technical.subPages.needles.structured_data.steps.select_needles.text'),
+        name: $t('pages.technical.subPages.needles.structured_data.steps.select_needles.name'),
+        text: $t('pages.technical.subPages.needles.structured_data.steps.select_needles.text'),
       },
       {
         '@type': 'HowToStep',
-        name: t('pages.technical.subPages.needles.structured_data.steps.add_to_comparison.name'),
-        text: t('pages.technical.subPages.needles.structured_data.steps.add_to_comparison.text'),
+        name: $t('pages.technical.subPages.needles.structured_data.steps.add_to_comparison.name'),
+        text: $t('pages.technical.subPages.needles.structured_data.steps.add_to_comparison.text'),
       },
       {
         '@type': 'HowToStep',
-        name: t('pages.technical.subPages.needles.structured_data.steps.view_comparison.name'),
-        text: t('pages.technical.subPages.needles.structured_data.steps.view_comparison.text'),
+        name: $t('pages.technical.subPages.needles.structured_data.steps.view_comparison.name'),
+        text: $t('pages.technical.subPages.needles.structured_data.steps.view_comparison.text'),
       },
     ],
     tool: [
       {
         '@type': 'HowToTool',
-        name: t('pages.technical.subPages.needles.structured_data.tool_name'),
+        name: $t('pages.technical.subPages.needles.structured_data.tool_name'),
       },
     ],
   };

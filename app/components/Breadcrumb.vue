@@ -1,7 +1,6 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS } from '../../data/models/generic';
 
-  const { t } = useI18n({ useScope: 'local' });
   const crumbs: any = ref([]);
   const props = defineProps({
     page: {
@@ -29,17 +28,17 @@
   if (props.root) {
     crumbs.value.push(
       {
-        title: t('home'),
+        title: $t('home'),
         disabled: false,
         href: '/',
       },
       {
         title:
           props.version === BREADCRUMB_VERSIONS.TECH
-            ? t('technical')
+            ? $t('technical')
             : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? t('admin')
-              : t('archive'),
+              ? $t('admin')
+              : $t('archive'),
         disabled: true,
         href:
           props.version === BREADCRUMB_VERSIONS.TECH
@@ -52,17 +51,17 @@
   } else if (props.subpage) {
     crumbs.value.push(
       {
-        title: t('home'),
+        title: $t('home'),
         disabled: false,
         href: '/',
       },
       {
         title:
           props.version === BREADCRUMB_VERSIONS.TECH
-            ? t('technical')
+            ? $t('technical')
             : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? t('admin')
-              : t('archive'),
+              ? $t('admin')
+              : $t('archive'),
         disabled: false,
         href:
           props.version === BREADCRUMB_VERSIONS.TECH
@@ -84,17 +83,17 @@
   } else {
     crumbs.value.push(
       {
-        title: t('home'),
+        title: $t('home'),
         disabled: false,
         href: '/',
       },
       {
         title:
           props.version === BREADCRUMB_VERSIONS.TECH
-            ? t('technical')
+            ? $t('technical')
             : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? t('admin')
-              : t('archive'),
+              ? $t('admin')
+              : $t('archive'),
         disabled: false,
         href:
           props.version === BREADCRUMB_VERSIONS.TECH

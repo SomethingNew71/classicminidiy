@@ -1,7 +1,6 @@
 <script setup lang="ts">
-  const { locale, locales, setLocale } = useI18n({ useScope: 'local' });
+  const { locale, locales, setLocale } = useI18n();
   const switchLocalePath = useSwitchLocalePath();
-  const { t } = useI18n({ useScope: 'local' });
 
   const currentLocale = computed(() => {
     return locales.value.find((i) => i.code === locale.value);
@@ -51,8 +50,8 @@
       tabindex="0"
       role="button"
       class="btn btn-ghost btn-sm w-20"
-      :aria-label="t('language_button_aria')"
-      :title="t('language_button_title')"
+      :aria-label="$t('language_button_aria')"
+      :title="$t('language_button_title')"
     >
       <i class="fad fa-globe flex-shrink-0"></i>
       <span class="text-xs font-medium">{{ currentLocale?.code?.toUpperCase() || 'EN' }}</span>
@@ -61,7 +60,7 @@
     <ul
       tabindex="0"
       class="dropdown-content menu bg-base-100 rounded-box z-[1] mt-1 w-40 p-2 shadow"
-      :aria-label="t('language_menu_aria')"
+      :aria-label="$t('language_menu_aria')"
     >
       <li v-for="locale in availableLocales" :key="locale.code">
         <a
@@ -71,7 +70,7 @@
             closeDropdown();
           "
           class="text-sm"
-          :title="t('switch_to_language', { language: getLanguageName(locale.code) })"
+          :title="$t('switch_to_language', { language: getLanguageName(locale.code) })"
         >
           {{ getLanguageName(locale.code) }}
         </a>

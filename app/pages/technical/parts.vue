@@ -25,33 +25,32 @@
     activePanels.value[panel] = !activePanels.value[panel];
   };
 
-  const { t } = useI18n();
   const tableHeaders = [
-    { title: t('pages.technical.subPages.parts.table_headers.brand'), key: 'brand' },
-    { title: t('pages.technical.subPages.parts.table_headers.part_number'), key: 'part' },
-    { title: t('pages.technical.subPages.parts.table_headers.usage_info'), key: 'info' },
+    { title: $t('pages.technical.subPages.parts.table_headers.brand'), key: 'brand' },
+    { title: $t('pages.technical.subPages.parts.table_headers.part_number'), key: 'part' },
+    { title: $t('pages.technical.subPages.parts.table_headers.usage_info'), key: 'info' },
   ];
 
   useHead({
-    title: t('pages.technical.subPages.parts.title'),
+    title: $t('pages.technical.subPages.parts.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: t('pages.technical.subPages.parts.description'),
+        content: $t('pages.technical.subPages.parts.description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: t('pages.technical.subPages.parts.og_title'),
-    ogDescription: t('pages.technical.subPages.parts.og_description'),
+    ogTitle: $t('pages.technical.subPages.parts.og_title'),
+    ogDescription: $t('pages.technical.subPages.parts.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/parts',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/parts.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.technical.subPages.parts.twitter_title'),
-    twitterDescription: t('pages.technical.subPages.parts.twitter_description'),
+    twitterTitle: $t('pages.technical.subPages.parts.twitter_title'),
+    twitterDescription: $t('pages.technical.subPages.parts.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/parts.png',
   });
 </script>

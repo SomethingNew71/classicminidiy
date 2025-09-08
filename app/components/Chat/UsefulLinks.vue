@@ -2,7 +2,7 @@
   <div v-if="links && links.length > 0" class="mt-4 rounded-lg bg-base-100 border border-base-300 p-4">
     <div class="flex items-center gap-2 mb-3">
       <i class="fa-solid fa-link text-primary"></i>
-      <h3 class="text-sm font-semibold text-base-content">{{ t('title') }}</h3>
+      <h3 class="text-sm font-semibold text-base-content">{{ $t('title') }}</h3>
     </div>
     <div class="space-y-2">
       <a
@@ -47,10 +47,6 @@
   }
 
   defineProps<Props>();
-
-  const { t } = useI18n({
-    useScope: 'local',
-  });
 
   // Add UTM parameters to URLs for tracking
   const addUtmParams = (url: string): string => {

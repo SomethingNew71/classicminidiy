@@ -2,8 +2,6 @@
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   import { chassisRanges } from '../../../data/models/decoders';
 
-  const { t } = useI18n();
-
   interface ChassisPosition {
     position: number;
     value: string;
@@ -62,7 +60,7 @@
 
   async function decodeChassisNumber() {
     if (!chassisNumber.value.trim()) {
-      errorMessage.value = t('pages.technical.subPages.chassis_decoder.form.error_empty_chassis');
+      errorMessage.value = $t('pages.technical.subPages.chassis_decoder.form.error_empty_chassis');
       return;
     }
 
@@ -92,7 +90,7 @@
     } catch (error: any) {
       console.error('Error decoding chassis number:', error);
       errorMessage.value =
-        error?.data?.statusMessage || t('pages.technical.subPages.chassis_decoder.form.error_decode_failed');
+        error?.data?.statusMessage || $t('pages.technical.subPages.chassis_decoder.form.error_decode_failed');
     } finally {
       isLoading.value = false;
     }
@@ -112,24 +110,24 @@
   }
 
   useHead({
-    title: t('pages.technical.subPages.chassis_decoder.title'),
+    title: $t('pages.technical.subPages.chassis_decoder.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: t('pages.technical.subPages.chassis_decoder.description'),
+        content: $t('pages.technical.subPages.chassis_decoder.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: t('pages.technical.subPages.chassis_decoder.og_title'),
-    ogDescription: t('pages.technical.subPages.chassis_decoder.og_description'),
+    ogTitle: $t('pages.technical.subPages.chassis_decoder.og_title'),
+    ogDescription: $t('pages.technical.subPages.chassis_decoder.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/chassis-decoder',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/chassis-decoder.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.technical.subPages.chassis_decoder.twitter_title'),
-    twitterDescription: t('pages.technical.subPages.chassis_decoder.twitter_description'),
+    twitterTitle: $t('pages.technical.subPages.chassis_decoder.twitter_title'),
+    twitterDescription: $t('pages.technical.subPages.chassis_decoder.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/chassis-decoder.png',
   });
 </script>
@@ -137,7 +135,7 @@
 <template>
   <hero
     :navigation="true"
-    :title="t('pages.technical.subPages.chassis_decoder.hero_title')"
+    :title="$t('pages.technical.subPages.chassis_decoder.hero_title')"
     :heroType="HERO_TYPES.TECH"
   />
   <div class="container mx-auto px-4">
@@ -146,20 +144,20 @@
         <breadcrumb
           class="my-6"
           :version="BREADCRUMB_VERSIONS.TECH"
-          :page="t('pages.technical.subPages.chassis_decoder.breadcrumb_title')"
+          :page="$t('pages.technical.subPages.chassis_decoder.breadcrumb_title')"
         ></breadcrumb>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-7">
-            <h1 class="text-3xl font-bold mb-4">{{ t('pages.technical.subPages.chassis_decoder.main_heading') }}</h1>
+            <h1 class="text-3xl font-bold mb-4">{{ $t('pages.technical.subPages.chassis_decoder.main_heading') }}</h1>
             <p class="mb-4">
-              {{ t('pages.technical.subPages.chassis_decoder.description_text') }}
+              {{ $t('pages.technical.subPages.chassis_decoder.description_text') }}
             </p>
           </div>
           <div class="col-span-12 md:col-span-5">
             <NuxtLink
               :to="'/technical/engine-decoder'"
-              :title="t('pages.technical.subPages.chassis_decoder.engine_decoder_card.link_title')"
+              :title="$t('pages.technical.subPages.chassis_decoder.engine_decoder_card.link_title')"
               class="block"
             >
               <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
@@ -174,7 +172,7 @@
                           />
                           <img
                             src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png"
-                            :alt="t('pages.technical.subPages.chassis_decoder.engine_decoder_card.alt_text')"
+                            :alt="$t('pages.technical.subPages.chassis_decoder.engine_decoder_card.alt_text')"
                             class="w-full h-full object-cover rounded"
                           />
                         </picture>
@@ -182,10 +180,10 @@
                     </div>
                     <div class="flex-1">
                       <h3 class="text-lg font-semibold">
-                        {{ t('pages.technical.subPages.chassis_decoder.engine_decoder_card.heading') }}
+                        {{ $t('pages.technical.subPages.chassis_decoder.engine_decoder_card.heading') }}
                       </h3>
                       <p class="mt-1">
-                        {{ t('pages.technical.subPages.chassis_decoder.engine_decoder_card.description') }}
+                        {{ $t('pages.technical.subPages.chassis_decoder.engine_decoder_card.description') }}
                       </p>
                     </div>
                   </div>
@@ -201,10 +199,10 @@
         <div class="card bg-base-100 shadow-lg">
           <div class="card-body text-center">
             <h3 class="text-xl font-semibold mb-4">
-              {{ t('pages.technical.subPages.chassis_decoder.form.card_title') }}
+              {{ $t('pages.technical.subPages.chassis_decoder.form.card_title') }}
             </h3>
             <p class="mb-6">
-              {{ t('pages.technical.subPages.chassis_decoder.form.card_description') }}
+              {{ $t('pages.technical.subPages.chassis_decoder.form.card_description') }}
             </p>
 
             <div class="space-y-4 max-w-md mx-auto">
@@ -212,7 +210,7 @@
               <div class="form-control w-full">
                 <label class="label">
                   <span class="label-text font-medium">{{
-                    t('pages.technical.subPages.chassis_decoder.form.year_range_label')
+                    $t('pages.technical.subPages.chassis_decoder.form.year_range_label')
                   }}</span>
                 </label>
                 <select v-model="yearRange" class="select select-bordered w-full">
@@ -226,20 +224,20 @@
               <div class="form-control w-full">
                 <label class="label">
                   <span class="label-text font-medium">{{
-                    t('pages.technical.subPages.chassis_decoder.form.chassis_number_label')
+                    $t('pages.technical.subPages.chassis_decoder.form.chassis_number_label')
                   }}</span>
                 </label>
                 <input
                   v-model="chassisNumber"
                   type="text"
-                  :placeholder="t('pages.technical.subPages.chassis_decoder.form.chassis_number_placeholder')"
+                  :placeholder="$t('pages.technical.subPages.chassis_decoder.form.chassis_number_placeholder')"
                   class="input input-bordered w-full"
                   @keyup.enter="decodeChassisNumber"
                 />
                 <!-- Example for selected year range -->
                 <div v-if="exampleChassisNumber" class="mt-2 text-sm text-gray-600">
                   <span class="font-medium"
-                    >{{ t('pages.technical.subPages.chassis_decoder.form.example_text') }} {{ yearRange }}:</span
+                    >{{ $t('pages.technical.subPages.chassis_decoder.form.example_text') }} {{ yearRange }}:</span
                   >
                   <span class="font-mono ml-2 text-primary">{{ exampleChassisNumber }}</span>
                 </div>
@@ -255,12 +253,12 @@
                   <span v-if="isLoading" class="loading loading-spinner loading-sm"></span>
                   {{
                     isLoading
-                      ? t('pages.technical.subPages.chassis_decoder.form.decoding_button')
-                      : t('pages.technical.subPages.chassis_decoder.form.decode_button')
+                      ? $t('pages.technical.subPages.chassis_decoder.form.decoding_button')
+                      : $t('pages.technical.subPages.chassis_decoder.form.decode_button')
                   }}
                 </button>
                 <button @click="resetForm" class="btn btn-ghost">
-                  {{ t('pages.technical.subPages.chassis_decoder.form.reset_button') }}
+                  {{ $t('pages.technical.subPages.chassis_decoder.form.reset_button') }}
                 </button>
               </div>
 
@@ -279,14 +277,14 @@
           <div class="card-body">
             <div class="flex justify-between items-center mb-6">
               <h3 class="card-title text-xl font-semibold">
-                {{ t('pages.technical.subPages.chassis_decoder.results.title') }}
+                {{ $t('pages.technical.subPages.chassis_decoder.results.title') }}
               </h3>
               <div>
                 <span v-if="decodedResult.isValid" class="badge badge-success">{{
-                  t('pages.technical.subPages.chassis_decoder.results.status_decoded')
+                  $t('pages.technical.subPages.chassis_decoder.results.status_decoded')
                 }}</span>
                 <span v-else class="badge badge-error">{{
-                  t('pages.technical.subPages.chassis_decoder.results.status_invalid')
+                  $t('pages.technical.subPages.chassis_decoder.results.status_invalid')
                 }}</span>
               </div>
             </div>
@@ -295,13 +293,13 @@
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                 <div class="stat">
                   <div class="stat-title">
-                    {{ t('pages.technical.subPages.chassis_decoder.results.year_range_stat') }}
+                    {{ $t('pages.technical.subPages.chassis_decoder.results.year_range_stat') }}
                   </div>
                   <div class="stat-value text-lg">{{ decodedResult.yearRange }}</div>
                 </div>
                 <div class="stat">
                   <div class="stat-title text-lg">
-                    {{ t('pages.technical.subPages.chassis_decoder.results.chassis_number_stat') }}
+                    {{ $t('pages.technical.subPages.chassis_decoder.results.chassis_number_stat') }}
                   </div>
                   <div class="stat-value text-xl font-mono">
                     <p class="badge badge-secondary badge-lg">{{ decodedResult.chassisNumber }}</p>
@@ -309,7 +307,7 @@
                 </div>
                 <div class="stat">
                   <div class="stat-title">
-                    {{ t('pages.technical.subPages.chassis_decoder.results.expected_pattern_stat') }}
+                    {{ $t('pages.technical.subPages.chassis_decoder.results.expected_pattern_stat') }}
                   </div>
                   <div class="stat-value text-lg font-mono">{{ decodedResult.pattern }}</div>
                 </div>
@@ -319,7 +317,7 @@
             <!-- Validation Errors -->
             <div v-if="decodedResult.errors.length > 0" class="mb-6">
               <h4 class="text-lg font-semibold mb-3">
-                {{ t('pages.technical.subPages.chassis_decoder.results.validation_issues_title') }}
+                {{ $t('pages.technical.subPages.chassis_decoder.results.validation_issues_title') }}
               </h4>
               <div class="space-y-2">
                 <div v-for="error in decodedResult.errors" :key="error" class="alert alert-warning">
@@ -331,7 +329,7 @@
             <!-- Decoded Positions -->
             <div>
               <h4 class="text-lg font-semibold mb-4">
-                {{ t('pages.technical.subPages.chassis_decoder.results.decoded_positions_title') }}
+                {{ $t('pages.technical.subPages.chassis_decoder.results.decoded_positions_title') }}
               </h4>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div
@@ -344,7 +342,7 @@
                   <div class="flex-1">
                     <div class="flex items-center gap-2">
                       <span class="font-medium">
-                        {{ t('pages.technical.subPages.chassis_decoder.results.position_label') }}
+                        {{ $t('pages.technical.subPages.chassis_decoder.results.position_label') }}
                         {{ position.position }}: <strong>{{ position.value }}</strong>
                       </span>
                       <span v-if="position.matched" class="badge badge-success badge-sm">✓</span>
@@ -364,23 +362,23 @@
         <div class="card bg-base-100 shadow-md">
           <div class="card-body">
             <h3 class="card-title text-2xl font-semibold mb-4">
-              {{ t('pages.technical.subPages.chassis_decoder.special_notes.title') }}
+              {{ $t('pages.technical.subPages.chassis_decoder.special_notes.title') }}
             </h3>
             <div class="space-y-4">
               <div>
                 <h4 class="text-lg font-semibold mb-2">
-                  {{ t('pages.technical.subPages.chassis_decoder.special_notes.build_number_title') }}
+                  {{ $t('pages.technical.subPages.chassis_decoder.special_notes.build_number_title') }}
                 </h4>
                 <p>
-                  {{ t('pages.technical.subPages.chassis_decoder.special_notes.build_number_text') }}
+                  {{ $t('pages.technical.subPages.chassis_decoder.special_notes.build_number_text') }}
                 </p>
               </div>
               <div>
                 <h4 class="text-lg font-semibold mb-2">
-                  {{ t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_title') }}
+                  {{ $t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_title') }}
                 </h4>
                 <p>
-                  {{ t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_text') }}
+                  {{ $t('pages.technical.subPages.chassis_decoder.special_notes.assembly_plant_text') }}
                 </p>
               </div>
             </div>
@@ -391,23 +389,23 @@
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <div class="text-center">
           <p>
-            {{ t('pages.technical.subPages.chassis_decoder.attribution.text') }}
-            <strong>{{ t('pages.technical.subPages.chassis_decoder.attribution.mini_mania') }}</strong>
-            {{ t('pages.technical.subPages.chassis_decoder.attribution.technical_articles') }}
+            {{ $t('pages.technical.subPages.chassis_decoder.attribution.text') }}
+            <strong>{{ $t('pages.technical.subPages.chassis_decoder.attribution.mini_mania') }}</strong>
+            {{ $t('pages.technical.subPages.chassis_decoder.attribution.technical_articles') }}
             <a
               href="https://www.minimania.com/Mini_Chassis_VIN_and_Commission_Numbers__Part_I__Revised_"
               target="_blank"
               rel="noopener noreferrer"
               class="link link-primary"
             >
-              {{ t('pages.technical.subPages.chassis_decoder.attribution.link_text') }}</a
+              {{ $t('pages.technical.subPages.chassis_decoder.attribution.link_text') }}</a
             >
           </p>
         </div>
       </div>
 
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ t('pages.technical.subPages.chassis_decoder.ui.support_section') }}</div>
+        <div class="divider">{{ $t('pages.technical.subPages.chassis_decoder.ui.support_section') }}</div>
       </div>
 
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">

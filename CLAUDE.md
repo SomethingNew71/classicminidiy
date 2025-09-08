@@ -405,8 +405,8 @@ Each locale file follows a hierarchical JSON structure:
   const { t, locale, locales } = useI18n();
 
   // Use translations
-  const title = t('pages.home.title');
-  const description = t('pages.home.description');
+  const title = $t('pages.home.title');
+  const description = $t('pages.home.description');
 </script>
 
 <template>

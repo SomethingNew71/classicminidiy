@@ -32,11 +32,11 @@
               <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                 <i class="fad fa-comments text-2xl text-primary"></i>
               </div>
-              <h2 class="card-title text-xl">{{ t('pages.contact.general_inquiries_title') }}</h2>
+              <h2 class="card-title text-xl">{{ $t('pages.contact.general_inquiries_title') }}</h2>
             </div>
 
             <p class="text-base-content/70 mb-6">
-              {{ t('pages.contact.general_inquiries_description') }}
+              {{ $t('pages.contact.general_inquiries_description') }}
             </p>
 
             <div class="space-y-4">
@@ -53,16 +53,16 @@
               <div class="flex items-center gap-3">
                 <i class="fad fa-comment-dots text-primary"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.ai_chat_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.ai_chat_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.ai_chat_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.ai_chat_description') }}</p>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <i class="fad fa-clock text-primary"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.response_time_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.response_time_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.response_time_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.response_time_description') }}</p>
                 </div>
               </div>
             </div>
@@ -76,11 +76,11 @@
               <div class="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center">
                 <i class="fad fa-archive text-2xl text-success"></i>
               </div>
-              <h2 class="card-title text-xl">{{ t('pages.contact.archive_submissions_title') }}</h2>
+              <h2 class="card-title text-xl">{{ $t('pages.contact.archive_submissions_title') }}</h2>
             </div>
 
             <p class="text-base-content/70 mb-6">
-              {{ t('pages.contact.archive_submissions_description') }}
+              {{ $t('pages.contact.archive_submissions_description') }}
             </p>
 
             <div class="space-y-4">
@@ -97,16 +97,16 @@
               <div class="flex items-center gap-3">
                 <i class="fad fa-upload text-success"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.what_to_include_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.what_to_include_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.what_to_include_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.what_to_include_description') }}</p>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <i class="fad fa-shield-check text-success"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.rights_attribution_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.rights_attribution_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.rights_attribution_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.rights_attribution_description') }}</p>
                 </div>
               </div>
             </div>
@@ -120,11 +120,11 @@
               <div class="w-12 h-12 bg-info/10 rounded-lg flex items-center justify-center">
                 <i class="fad fa-wrench text-2xl text-info"></i>
               </div>
-              <h2 class="card-title text-xl">{{ t('pages.contact.technical_submissions_title') }}</h2>
+              <h2 class="card-title text-xl">{{ $t('pages.contact.technical_submissions_title') }}</h2>
             </div>
 
             <p class="text-base-content/70 mb-6">
-              {{ t('pages.contact.technical_submissions_description') }}
+              {{ $t('pages.contact.technical_submissions_description') }}
             </p>
 
             <div class="space-y-4">
@@ -141,16 +141,16 @@
               <div class="flex items-center gap-3">
                 <i class="fad fa-list-check text-info"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.content_types_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.content_types_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.content_types_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.content_types_description') }}</p>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <i class="fad fa-user-check text-info"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.credit_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.credit_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.credit_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.credit_description') }}</p>
                 </div>
               </div>
             </div>
@@ -164,11 +164,11 @@
               <div class="w-12 h-12 bg-error/10 rounded-lg flex items-center justify-center">
                 <i class="fad fa-bug text-2xl text-error"></i>
               </div>
-              <h2 class="card-title text-xl">{{ t('pages.contact.bug_reports_title') }}</h2>
+              <h2 class="card-title text-xl">{{ $t('pages.contact.bug_reports_title') }}</h2>
             </div>
 
             <p class="text-base-content/70 mb-6">
-              {{ t('pages.contact.bug_reports_description') }}
+              {{ $t('pages.contact.bug_reports_description') }}
             </p>
 
             <div class="space-y-4">
@@ -185,16 +185,16 @@
               <div class="flex items-center gap-3">
                 <i class="fad fa-list-ul text-error"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.include_details_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.include_details_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.include_details_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.include_details_description') }}</p>
                 </div>
               </div>
 
               <div class="flex items-center gap-3">
                 <i class="fad fa-bolt text-error"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.priority_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.priority_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.priority_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.priority_description') }}</p>
                 </div>
               </div>
             </div>
@@ -208,20 +208,20 @@
       <div class="mt-16 text-center">
         <div class="card bg-base-200 shadow-lg max-w-2xl mx-auto">
           <div class="card-body">
-            <h3 class="text-2xl font-bold mb-4">{{ t('pages.contact.other_ways_connect') }}</h3>
+            <h3 class="text-2xl font-bold mb-4">{{ $t('pages.contact.other_ways_connect') }}</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="flex flex-col items-center justify-center text-center">
                 <i class="fad fa-users text-primary text-4xl mb-3"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.community_forum_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.community_forum_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.community_forum_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.community_forum_description') }}</p>
                 </div>
               </div>
               <div class="flex flex-col items-center justify-center text-center">
                 <i class="fab fa-patreon text-error text-4xl mb-3"></i>
                 <div>
-                  <p class="font-medium">{{ t('pages.contact.support_patreon_label') }}</p>
-                  <p class="text-sm text-base-content/70">{{ t('pages.contact.support_patreon_description') }}</p>
+                  <p class="font-medium">{{ $t('pages.contact.support_patreon_label') }}</p>
+                  <p class="text-sm text-base-content/70">{{ $t('pages.contact.support_patreon_description') }}</p>
                 </div>
               </div>
             </div>
@@ -234,7 +234,7 @@
                 class="btn btn-primary btn-lg"
               >
                 <i class="fab fa-patreon mr-2"></i>
-                {{ t('pages.contact.support_patreon_button') }}
+                {{ $t('pages.contact.support_patreon_button') }}
               </a>
             </div>
           </div>
@@ -247,15 +247,13 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '../../data/models/generic';
 
-  const { t } = useI18n();
-
   // SEO and meta using proper Nuxt patterns
   useHead({
-    title: t('pages.contact.title'),
+    title: $t('pages.contact.title'),
     meta: [
       {
         name: 'description',
-        content: t('pages.contact.description'),
+        content: $t('pages.contact.description'),
       },
     ],
     link: [
@@ -267,20 +265,20 @@
   });
 
   useSeoMeta({
-    ogTitle: t('pages.contact.title'),
-    ogDescription: t('pages.contact.description'),
+    ogTitle: $t('pages.contact.title'),
+    ogDescription: $t('pages.contact.description'),
     ogUrl: 'https://classicminidiy.com/contact',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/contact.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.contact.title'),
-    twitterDescription: t('pages.contact.description'),
+    twitterTitle: $t('pages.contact.title'),
+    twitterDescription: $t('pages.contact.description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/contact.png',
   });
 
   // Breadcrumb navigation
   const breadcrumbItems = computed(() => [
-    { text: t('pages.contact.breadcrumb_home'), href: '/' },
-    { text: t('pages.contact.breadcrumb_contact'), href: '/contact' },
+    { text: $t('pages.contact.breadcrumb_home'), href: '/' },
+    { text: $t('pages.contact.breadcrumb_contact'), href: '/contact' },
   ]);
 </script>
