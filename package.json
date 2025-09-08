@@ -30,9 +30,9 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.883.0",
-    "@aws-sdk/client-s3": "^3.883.0",
+    "@aws-sdk/client-s3": "^3.884.0",
     "@aws-sdk/lib-dynamodb": "^3.883.0",
-    "@aws-sdk/lib-storage": "^3.883.0",
+    "@aws-sdk/lib-storage": "^3.884.0",
     "@fontsource/outfit": "^5.2.7",
     "@langchain/langgraph-sdk": "^0.1.1",
     "@nuxt/content": "^3.6.3",
@@ -60,7 +60,7 @@
     "pg": "^8.16.3",
     "sass": "^1.92.1",
     "tailwindcss": "^4.1.13",
-    "uuid": "^12.0.0",
+    "uuid": "^13.0.0",
     "vue-cookie-law": "^1.13.3"
   },
   "devDependencies": {
