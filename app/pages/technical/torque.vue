@@ -110,19 +110,11 @@
 </script>
 
 <template>
-  <hero
-    :navigation="true"
-    :title="$t('hero_title')"
-    :textSize="'text-3xl'"
-    :heroType="HERO_TYPES.TECH"
-  />
+  <hero :navigation="true" :title="$t('hero_title')" :textSize="'text-3xl'" :heroType="HERO_TYPES.TECH" />
   <div class="container mx-auto px-4 pt-10">
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-12">
-        <breadcrumb
-          :version="BREADCRUMB_VERSIONS.TECH"
-          :page="$t('breadcrumb_title')"
-        ></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')"></breadcrumb>
       </div>
       <div class="col-span-12">
         <!-- Loading state -->
@@ -428,7 +420,12 @@
       "description": "Полные спецификации крутящего момента для крепежных элементов Classic Mini. Справочная таблица для крепежных элементов двигателя, подвески, трансмиссии и кузова со значениями в lb/ft и Nm.",
       "dataset_name": "Спецификации Крутящего Момента Classic Mini",
       "dataset_description": "Комплексный набор данных спецификаций крутящего момента для крепежных элементов Classic Mini",
-      "variable_measured": ["Название Крепежного Элемента", "Крутящий Момент в lb/ft", "Крутящий Момент в Nm", "Дополнительные Примечания"]
+      "variable_measured": [
+        "Название Крепежного Элемента",
+        "Крутящий Момент в lb/ft",
+        "Крутящий Момент в Nm",
+        "Дополнительные Примечания"
+      ]
     },
     "table_headers": {
       "fastener": "Крепежный Элемент",

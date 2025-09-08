@@ -84,19 +84,11 @@
 </script>
 
 <template>
-  <hero
-    :navigation="true"
-    :title="$t('hero_title')"
-    text-size="text-3xl"
-    :heroType="HERO_TYPES.TECH"
-  />
+  <hero :navigation="true" :title="$t('hero_title')" text-size="text-3xl" :heroType="HERO_TYPES.TECH" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 pt-6">
-        <breadcrumb
-          :version="BREADCRUMB_VERSIONS.TECH"
-          :page="$t('breadcrumb_title')"
-        ></breadcrumb>
+        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')"></breadcrumb>
       </div>
       <div class="col-span-12">
         <h1 class="fancy-font-bold text-2xl">{{ $t('main_heading') }}</h1>

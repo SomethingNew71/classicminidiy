@@ -85,11 +85,7 @@
   });
 </script>
 <template>
-  <hero
-    :navigation="true"
-    :title="$t('hero_title')"
-    :heroType="HERO_TYPES.ARCHIVE"
-  />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4 py-4">
     <!-- Loading State -->
     <div v-if="pending" class="flex justify-center items-center min-h-[50vh]">
@@ -166,10 +162,7 @@
                       :src="wheel.images[0].src"
                     />
                     <div v-else class="w-full aspect-square flex items-center justify-center bg-gray-100 rounded-lg">
-                      <i
-                        class="fas fa-image text-6xl text-gray-300"
-                        :title="$t('no_image_placeholder')"
-                      ></i>
+                      <i class="fas fa-image text-6xl text-gray-300" :title="$t('no_image_placeholder')"></i>
                     </div>
                   </div>
                 </div>
@@ -279,7 +272,7 @@
     "no_image_placeholder": "No image available",
     "specifications": {
       "offset": "Offset",
-      "diameter": "Diameter", 
+      "diameter": "Diameter",
       "width": "Width",
       "not_specified": "Not specified"
     },

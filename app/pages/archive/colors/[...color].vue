@@ -254,3 +254,298 @@
     transform: translateY(-4px);
   }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Classic Mini Archive - {colorName}",
+    "description": "Details for Classic Mini color {colorName}",
+    "hero_title": "Classic Mini Archives",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Home",
+      "archive": "Archive",
+      "colors": "Colors"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Color Code",
+      "year_range": "Year Range",
+      "manufacturer": "Manufacturer",
+      "hex_color": "Hex Color",
+      "description": "Description"
+    },
+    "actions": {
+      "back_to_colors": "Back to Colors",
+      "edit_color": "Edit Color"
+    },
+    "seo": {
+      "og_title": "Classic Mini Archive - {colorName}",
+      "og_description": "Details for Classic Mini color {colorName}",
+      "twitter_title": "Classic Mini Archive - {colorName}",
+      "twitter_description": "Details for Classic Mini color {colorName}"
+    }
+  },
+  "de": {
+    "title": "Classic Mini Archiv - {colorName}",
+    "description": "Details für Classic Mini Farbe {colorName}",
+    "hero_title": "Classic Mini Archive",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Startseite",
+      "archive": "Archiv",
+      "colors": "Farben"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Farbcode",
+      "year_range": "Jahresbereich",
+      "manufacturer": "Hersteller",
+      "hex_color": "Hex-Farbe",
+      "description": "Beschreibung"
+    },
+    "actions": {
+      "back_to_colors": "Zurück zu Farben",
+      "edit_color": "Farbe Bearbeiten"
+    },
+    "seo": {
+      "og_title": "Classic Mini Archiv - {colorName}",
+      "og_description": "Details für Classic Mini Farbe {colorName}",
+      "twitter_title": "Classic Mini Archiv - {colorName}",
+      "twitter_description": "Details für Classic Mini Farbe {colorName}"
+    }
+  },
+  "es": {
+    "title": "Archivo Classic Mini - {colorName}",
+    "description": "Detalles del color Classic Mini {colorName}",
+    "hero_title": "Archivos Classic Mini",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Inicio",
+      "archive": "Archivo",
+      "colors": "Colores"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Código de Color",
+      "year_range": "Rango de Años",
+      "manufacturer": "Fabricante",
+      "hex_color": "Color Hexadecimal",
+      "description": "Descripción"
+    },
+    "actions": {
+      "back_to_colors": "Volver a Colores",
+      "edit_color": "Editar Color"
+    },
+    "seo": {
+      "og_title": "Archivo Classic Mini - {colorName}",
+      "og_description": "Detalles del color Classic Mini {colorName}",
+      "twitter_title": "Archivo Classic Mini - {colorName}",
+      "twitter_description": "Detalles del color Classic Mini {colorName}"
+    }
+  },
+  "fr": {
+    "title": "Archives Classic Mini - {colorName}",
+    "description": "Détails de la couleur Classic Mini {colorName}",
+    "hero_title": "Archives Classic Mini",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Accueil",
+      "archive": "Archive",
+      "colors": "Couleurs"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Code Couleur",
+      "year_range": "Plage d'Années",
+      "manufacturer": "Fabricant",
+      "hex_color": "Couleur Hexadécimale",
+      "description": "Description"
+    },
+    "actions": {
+      "back_to_colors": "Retour aux Couleurs",
+      "edit_color": "Modifier la Couleur"
+    },
+    "seo": {
+      "og_title": "Archives Classic Mini - {colorName}",
+      "og_description": "Détails de la couleur Classic Mini {colorName}",
+      "twitter_title": "Archives Classic Mini - {colorName}",
+      "twitter_description": "Détails de la couleur Classic Mini {colorName}"
+    }
+  },
+  "it": {
+    "title": "Archivio Classic Mini - {colorName}",
+    "description": "Dettagli del colore Classic Mini {colorName}",
+    "hero_title": "Archivi Classic Mini",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Home",
+      "archive": "Archivio",
+      "colors": "Colori"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Codice Colore",
+      "year_range": "Intervallo Anni",
+      "manufacturer": "Produttore",
+      "hex_color": "Colore Esadecimale",
+      "description": "Descrizione"
+    },
+    "actions": {
+      "back_to_colors": "Torna ai Colori",
+      "edit_color": "Modifica Colore"
+    },
+    "seo": {
+      "og_title": "Archivio Classic Mini - {colorName}",
+      "og_description": "Dettagli del colore Classic Mini {colorName}",
+      "twitter_title": "Archivio Classic Mini - {colorName}",
+      "twitter_description": "Dettagli del colore Classic Mini {colorName}"
+    }
+  },
+  "pt": {
+    "title": "Arquivo Classic Mini - {colorName}",
+    "description": "Detalhes da cor Classic Mini {colorName}",
+    "hero_title": "Arquivos Classic Mini",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Início",
+      "archive": "Arquivo",
+      "colors": "Cores"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Código da Cor",
+      "year_range": "Faixa de Anos",
+      "manufacturer": "Fabricante",
+      "hex_color": "Cor Hexadecimal",
+      "description": "Descrição"
+    },
+    "actions": {
+      "back_to_colors": "Voltar às Cores",
+      "edit_color": "Editar Cor"
+    },
+    "seo": {
+      "og_title": "Arquivo Classic Mini - {colorName}",
+      "og_description": "Detalhes da cor Classic Mini {colorName}",
+      "twitter_title": "Arquivo Classic Mini - {colorName}",
+      "twitter_description": "Detalhes da cor Classic Mini {colorName}"
+    }
+  },
+  "nl": {
+    "title": "Classic Mini Archief - {colorName}",
+    "description": "Details van Classic Mini kleur {colorName}",
+    "hero_title": "Classic Mini Archieven",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Home",
+      "archive": "Archief",
+      "colors": "Kleuren"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Kleurcode",
+      "year_range": "Jaarbereik",
+      "manufacturer": "Fabrikant",
+      "hex_color": "Hex Kleur",
+      "description": "Beschrijving"
+    },
+    "actions": {
+      "back_to_colors": "Terug naar Kleuren",
+      "edit_color": "Kleur Bewerken"
+    },
+    "seo": {
+      "og_title": "Classic Mini Archief - {colorName}",
+      "og_description": "Details van Classic Mini kleur {colorName}",
+      "twitter_title": "Classic Mini Archief - {colorName}",
+      "twitter_description": "Details van Classic Mini kleur {colorName}"
+    }
+  },
+  "sv": {
+    "title": "Classic Mini Arkiv - {colorName}",
+    "description": "Detaljer för Classic Mini färg {colorName}",
+    "hero_title": "Classic Mini Arkiv",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Hem",
+      "archive": "Arkiv",
+      "colors": "Färger"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Färgkod",
+      "year_range": "Årsintervall",
+      "manufacturer": "Tillverkare",
+      "hex_color": "Hex Färg",
+      "description": "Beskrivning"
+    },
+    "actions": {
+      "back_to_colors": "Tillbaka till Färger",
+      "edit_color": "Redigera Färg"
+    },
+    "seo": {
+      "og_title": "Classic Mini Arkiv - {colorName}",
+      "og_description": "Detaljer för Classic Mini färg {colorName}",
+      "twitter_title": "Classic Mini Arkiv - {colorName}",
+      "twitter_description": "Detaljer för Classic Mini färg {colorName}"
+    }
+  },
+  "da": {
+    "title": "Classic Mini Arkiv - {colorName}",
+    "description": "Detaljer for Classic Mini farve {colorName}",
+    "hero_title": "Classic Mini Arkiver",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Hjem",
+      "archive": "Arkiv",
+      "colors": "Farver"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Farvekode",
+      "year_range": "Årsinterval",
+      "manufacturer": "Producent",
+      "hex_color": "Hex Farve",
+      "description": "Beskrivelse"
+    },
+    "actions": {
+      "back_to_colors": "Tilbage til Farver",
+      "edit_color": "Rediger Farve"
+    },
+    "seo": {
+      "og_title": "Classic Mini Arkiv - {colorName}",
+      "og_description": "Detaljer for Classic Mini farve {colorName}",
+      "twitter_title": "Classic Mini Arkiv - {colorName}",
+      "twitter_description": "Detaljer for Classic Mini farve {colorName}"
+    }
+  },
+  "no": {
+    "title": "Classic Mini Arkiv - {colorName}",
+    "description": "Detaljer for Classic Mini farge {colorName}",
+    "hero_title": "Classic Mini Arkiver",
+    "breadcrumb_title": "{colorName}",
+    "breadcrumb": {
+      "home": "Hjem",
+      "archive": "Arkiv",
+      "colors": "Farger"
+    },
+    "main_heading": "{colorName}",
+    "color_details": {
+      "color_code": "Fargekode",
+      "year_range": "Årsperiode",
+      "manufacturer": "Produsent",
+      "hex_color": "Hex Farge",
+      "description": "Beskrivelse"
+    },
+    "actions": {
+      "back_to_colors": "Tilbake til Farger",
+      "edit_color": "Rediger Farge"
+    },
+    "seo": {
+      "og_title": "Classic Mini Arkiv - {colorName}",
+      "og_description": "Detaljer for Classic Mini farge {colorName}",
+      "twitter_title": "Classic Mini Arkiv - {colorName}",
+      "twitter_description": "Detaljer for Classic Mini farge {colorName}"
+    }
+  }
+}
+</i18n>

@@ -89,8 +89,7 @@
       }
     } catch (error: any) {
       console.error('Error decoding chassis number:', error);
-      errorMessage.value =
-        error?.data?.statusMessage || $t('form.error_decode_failed');
+      errorMessage.value = error?.data?.statusMessage || $t('form.error_decode_failed');
     } finally {
       isLoading.value = false;
     }
@@ -133,19 +132,11 @@
 </script>
 
 <template>
-  <hero
-    :navigation="true"
-    :title="$t('hero_title')"
-    :heroType="HERO_TYPES.TECH"
-  />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.TECH" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb
-          class="my-6"
-          :version="BREADCRUMB_VERSIONS.TECH"
-          :page="$t('breadcrumb_title')"
-        ></breadcrumb>
+        <breadcrumb class="my-6" :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')"></breadcrumb>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-7">
@@ -155,11 +146,7 @@
             </p>
           </div>
           <div class="col-span-12 md:col-span-5">
-            <NuxtLink
-              :to="'/technical/engine-decoder'"
-              :title="$t('engine_decoder_card.link_title')"
-              class="block"
-            >
+            <NuxtLink :to="'/technical/engine-decoder'" :title="$t('engine_decoder_card.link_title')" class="block">
               <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
                 <div class="card-body">
                   <div class="flex items-start space-x-4">
@@ -209,9 +196,7 @@
               <!-- Year Range Selection -->
               <div class="form-control w-full">
                 <label class="label">
-                  <span class="label-text font-medium">{{
-                    $t('form.year_range_label')
-                  }}</span>
+                  <span class="label-text font-medium">{{ $t('form.year_range_label') }}</span>
                 </label>
                 <select v-model="yearRange" class="select select-bordered w-full">
                   <option v-for="option in yearRangeOptions" :key="option" :value="option">
@@ -223,9 +208,7 @@
               <!-- Chassis Number Input -->
               <div class="form-control w-full">
                 <label class="label">
-                  <span class="label-text font-medium">{{
-                    $t('form.chassis_number_label')
-                  }}</span>
+                  <span class="label-text font-medium">{{ $t('form.chassis_number_label') }}</span>
                 </label>
                 <input
                   v-model="chassisNumber"
@@ -236,9 +219,7 @@
                 />
                 <!-- Example for selected year range -->
                 <div v-if="exampleChassisNumber" class="mt-2 text-sm text-gray-600">
-                  <span class="font-medium"
-                    >{{ $t('form.example_text') }} {{ yearRange }}:</span
-                  >
+                  <span class="font-medium">{{ $t('form.example_text') }} {{ yearRange }}:</span>
                   <span class="font-mono ml-2 text-primary">{{ exampleChassisNumber }}</span>
                 </div>
               </div>
@@ -251,11 +232,7 @@
                   class="btn btn-primary"
                 >
                   <span v-if="isLoading" class="loading loading-spinner loading-sm"></span>
-                  {{
-                    isLoading
-                      ? $t('form.decoding_button')
-                      : $t('form.decode_button')
-                  }}
+                  {{ isLoading ? $t('form.decoding_button') : $t('form.decode_button') }}
                 </button>
                 <button @click="resetForm" class="btn btn-ghost">
                   {{ $t('form.reset_button') }}
@@ -280,12 +257,8 @@
                 {{ $t('results.title') }}
               </h3>
               <div>
-                <span v-if="decodedResult.isValid" class="badge badge-success">{{
-                  $t('results.status_decoded')
-                }}</span>
-                <span v-else class="badge badge-error">{{
-                  $t('results.status_invalid')
-                }}</span>
+                <span v-if="decodedResult.isValid" class="badge badge-success">{{ $t('results.status_decoded') }}</span>
+                <span v-else class="badge badge-error">{{ $t('results.status_invalid') }}</span>
               </div>
             </div>
             <!-- Summary -->

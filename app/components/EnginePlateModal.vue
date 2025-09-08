@@ -2,10 +2,10 @@
   const { t } = useI18n({
     useScope: 'local',
   });
-  
+
   const isOpen = ref(false);
   const currentSlide = ref(0);
-  
+
   const slides = computed(() => [
     {
       src: 'https://classicminidiy.s3.us-east-1.amazonaws.com/engine-decoder/example1.jpg',

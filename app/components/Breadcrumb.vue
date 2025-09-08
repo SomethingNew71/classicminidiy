@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS } from '../../data/models/generic';
-  
+
   const { t } = useI18n({
     useScope: 'local',
   });
@@ -28,10 +28,10 @@
       default: '',
     },
   });
-  
+
   const crumbs = computed(() => {
     const result: any[] = [];
-    
+
     if (props.root) {
       result.push(
         {
@@ -115,7 +115,7 @@
         }
       );
     }
-    
+
     return result;
   });
 </script>

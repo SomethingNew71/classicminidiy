@@ -136,19 +136,13 @@
                       <div class="text-lg opacity-70 flex items-center mt-1">
                         <i class="fa-solid fa-calendar mr-2"></i>
                         <span v-if="item.from || item.to"
-                          >{{ item.from || $t('date_range.unknown_placeholder')
-                          }}{{ $t('date_range.separator')
-                          }}{{
-                            item.to || $t('date_range.unknown_placeholder')
-                          }}</span
+                          >{{ item.from || $t('date_range.unknown_placeholder') }}{{ $t('date_range.separator')
+                          }}{{ item.to || $t('date_range.unknown_placeholder') }}</span
                         >
                         <span v-else>{{ $t('date_range.unknown') }}</span>
                       </div>
                     </div>
-                    <button
-                      class="btn btn-ghost btn-lg"
-                      :aria-label="$t('download_button_aria')"
-                    >
+                    <button class="btn btn-ghost btn-lg" :aria-label="$t('download_button_aria')">
                       <i class="fa-solid fa-download"></i>
                     </button>
                   </a>
@@ -236,6 +230,276 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Classic Mini Electrical Diagrams",
       "dataset_description": "Collection of digitized electrical diagrams for Classic Mini vehicles"
+    }
+  },
+  "es": {
+    "title": "Archivo - Diagramas Eléctricos | Classic Mini DIY",
+    "description": "Diagramas eléctricos digitalizados y actualizados manualmente para tu Classic Mini Cooper.",
+    "keywords": "diagramas eléctricos Classic Mini, cableado Mini Cooper, diagramas de cableado, esquemas eléctricos, cableado autos clásicos",
+    "hero_title": "Diagramas Eléctricos",
+    "breadcrumb_title": "Diagramas Eléctricos",
+    "main_heading": "Diagramas Eléctricos",
+    "description_text": "Encuentra los diagramas de cableado que necesitas con nuestra colección de diagramas completamente digitalizados obtenidos directamente de The Mini Forum. Archivados aquí para la posteridad y preservación.",
+    "date_range": {
+      "unknown": "Fechas Desconocidas",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "Descargar diagrama",
+    "support_divider": "Soporte",
+    "seo": {
+      "og_title": "Archivo - Diagramas Eléctricos | Classic Mini DIY",
+      "og_description": "Diagramas eléctricos digitalizados y actualizados manualmente para tu Classic Mini Cooper.",
+      "twitter_title": "Diagramas Eléctricos Classic Mini",
+      "twitter_description": "Diagramas eléctricos digitalizados y actualizados manualmente para tu Classic Mini Cooper."
+    },
+    "structured_data": {
+      "headline": "Diagramas Eléctricos Classic Mini",
+      "description": "Diagramas eléctricos digitalizados y actualizados manualmente para tu Classic Mini Cooper.",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Diagramas Eléctricos Classic Mini",
+      "dataset_description": "Colección de diagramas eléctricos digitalizados para vehículos Classic Mini"
+    }
+  },
+  "fr": {
+    "title": "Archive - Schémas Électriques | Classic Mini DIY",
+    "description": "Schémas électriques numérisés et mis à jour manuellement pour votre Classic Mini Cooper.",
+    "keywords": "schémas électriques Classic Mini, câblage Mini Cooper, schémas de câblage, schémas électriques, câblage voitures classiques",
+    "hero_title": "Schémas Électriques",
+    "breadcrumb_title": "Schémas Électriques",
+    "main_heading": "Schémas Électriques",
+    "description_text": "Trouvez les schémas de câblage dont vous avez besoin avec notre collection de schémas entièrement numérisés provenant directement de The Mini Forum. Archivés ici pour la postérité et la préservation.",
+    "date_range": {
+      "unknown": "Dates Inconnues",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "Télécharger le schéma",
+    "support_divider": "Support",
+    "seo": {
+      "og_title": "Archive - Schémas Électriques | Classic Mini DIY",
+      "og_description": "Schémas électriques numérisés et mis à jour manuellement pour votre Classic Mini Cooper.",
+      "twitter_title": "Schémas Électriques Classic Mini",
+      "twitter_description": "Schémas électriques numérisés et mis à jour manuellement pour votre Classic Mini Cooper."
+    },
+    "structured_data": {
+      "headline": "Schémas Électriques Classic Mini",
+      "description": "Schémas électriques numérisés et mis à jour manuellement pour votre Classic Mini Cooper.",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Schémas Électriques Classic Mini",
+      "dataset_description": "Collection de schémas électriques numérisés pour véhicules Classic Mini"
+    }
+  },
+  "it": {
+    "title": "Archivio - Schemi Elettrici | Classic Mini DIY",
+    "description": "Schemi elettrici digitalizzati e aggiornati manualmente per la tua Classic Mini Cooper.",
+    "keywords": "schemi elettrici Classic Mini, cablaggio Mini Cooper, schemi di cablaggio, schemi elettrici, cablaggio auto classiche",
+    "hero_title": "Schemi Elettrici",
+    "breadcrumb_title": "Schemi Elettrici",
+    "main_heading": "Schemi Elettrici",
+    "description_text": "Trova gli schemi di cablaggio di cui hai bisogno con la nostra collezione di schemi completamente digitalizzati provenienti direttamente da The Mini Forum. Archiviati qui per la posterità e la conservazione.",
+    "date_range": {
+      "unknown": "Date Sconosciute",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "Scarica schema",
+    "support_divider": "Supporto",
+    "seo": {
+      "og_title": "Archivio - Schemi Elettrici | Classic Mini DIY",
+      "og_description": "Schemi elettrici digitalizzati e aggiornati manualmente per la tua Classic Mini Cooper.",
+      "twitter_title": "Schemi Elettrici Classic Mini",
+      "twitter_description": "Schemi elettrici digitalizzati e aggiornati manualmente per la tua Classic Mini Cooper."
+    },
+    "structured_data": {
+      "headline": "Schemi Elettrici Classic Mini",
+      "description": "Schemi elettrici digitalizzati e aggiornati manualmente per la tua Classic Mini Cooper.",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Schemi Elettrici Classic Mini",
+      "dataset_description": "Collezione di schemi elettrici digitalizzati per veicoli Classic Mini"
+    }
+  },
+  "de": {
+    "title": "Archiv - Elektrische Schaltpläne | Classic Mini DIY",
+    "description": "Manuell digitalisierte und aktualisierte elektrische Schaltpläne für Ihren Classic Mini Cooper.",
+    "keywords": "Classic Mini Schaltpläne, Mini Cooper Verkabelung, Schaltpläne, elektrische Schaltbilder, Oldtimer Verkabelung",
+    "hero_title": "Elektrische Schaltpläne",
+    "breadcrumb_title": "Elektrische Schaltpläne",
+    "main_heading": "Elektrische Schaltpläne",
+    "description_text": "Finden Sie die Schaltpläne, die Sie benötigen, mit unserer Sammlung vollständig digitalisierter Diagramme, die direkt von The Mini Forum stammen. Hier für die Nachwelt und Erhaltung archiviert.",
+    "date_range": {
+      "unknown": "Daten Unbekannt",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "Schaltplan herunterladen",
+    "support_divider": "Support",
+    "seo": {
+      "og_title": "Archiv - Elektrische Schaltpläne | Classic Mini DIY",
+      "og_description": "Manuell digitalisierte und aktualisierte elektrische Schaltpläne für Ihren Classic Mini Cooper.",
+      "twitter_title": "Classic Mini Elektrische Schaltpläne",
+      "twitter_description": "Manuell digitalisierte und aktualisierte elektrische Schaltpläne für Ihren Classic Mini Cooper."
+    },
+    "structured_data": {
+      "headline": "Classic Mini Elektrische Schaltpläne",
+      "description": "Manuell digitalisierte und aktualisierte elektrische Schaltpläne für Ihren Classic Mini Cooper.",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Classic Mini Elektrische Schaltpläne",
+      "dataset_description": "Sammlung digitalisierter elektrischer Schaltpläne für Classic Mini Fahrzeuge"
+    }
+  },
+  "pt": {
+    "title": "Arquivo - Diagramas Elétricos | Classic Mini DIY",
+    "description": "Diagramas elétricos digitalizados e atualizados manualmente para o seu Classic Mini Cooper.",
+    "keywords": "diagramas elétricos Classic Mini, fiação Mini Cooper, diagramas de fiação, esquemas elétricos, fiação carros clássicos",
+    "hero_title": "Diagramas Elétricos",
+    "breadcrumb_title": "Diagramas Elétricos",
+    "main_heading": "Diagramas Elétricos",
+    "description_text": "Encontre os diagramas de fiação que você precisa com nossa coleção de diagramas totalmente digitalizados obtidos diretamente do The Mini Forum. Arquivados aqui para a posteridade e preservação.",
+    "date_range": {
+      "unknown": "Datas Desconhecidas",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "Baixar diagrama",
+    "support_divider": "Suporte",
+    "seo": {
+      "og_title": "Arquivo - Diagramas Elétricos | Classic Mini DIY",
+      "og_description": "Diagramas elétricos digitalizados e atualizados manualmente para o seu Classic Mini Cooper.",
+      "twitter_title": "Diagramas Elétricos Classic Mini",
+      "twitter_description": "Diagramas elétricos digitalizados e atualizados manualmente para o seu Classic Mini Cooper."
+    },
+    "structured_data": {
+      "headline": "Diagramas Elétricos Classic Mini",
+      "description": "Diagramas elétricos digitalizados e atualizados manualmente para o seu Classic Mini Cooper.",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Diagramas Elétricos Classic Mini",
+      "dataset_description": "Coleção de diagramas elétricos digitalizados para veículos Classic Mini"
+    }
+  },
+  "ru": {
+    "title": "Архив - Электрические Схемы | Classic Mini DIY",
+    "description": "Вручную оцифрованные и обновленные электрические схемы для вашего Classic Mini Cooper.",
+    "keywords": "электрические схемы Classic Mini, проводка Mini Cooper, схемы проводки, электрические схемы, проводка классических автомобилей",
+    "hero_title": "Электрические Схемы",
+    "breadcrumb_title": "Электрические Схемы",
+    "main_heading": "Электрические Схемы",
+    "description_text": "Найдите нужные вам схемы проводки с помощью нашей коллекции полностью оцифрованных диаграмм, полученных непосредственно с The Mini Forum. Заархивированы здесь для потомков и сохранения.",
+    "date_range": {
+      "unknown": "Даты Неизвестны",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "Скачать схему",
+    "support_divider": "Поддержка",
+    "seo": {
+      "og_title": "Архив - Электрические Схемы | Classic Mini DIY",
+      "og_description": "Вручную оцифрованные и обновленные электрические схемы для вашего Classic Mini Cooper.",
+      "twitter_title": "Электрические Схемы Classic Mini",
+      "twitter_description": "Вручную оцифрованные и обновленные электрические схемы для вашего Classic Mini Cooper."
+    },
+    "structured_data": {
+      "headline": "Электрические Схемы Classic Mini",
+      "description": "Вручную оцифрованные и обновленные электрические схемы для вашего Classic Mini Cooper.",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Электрические Схемы Classic Mini",
+      "dataset_description": "Коллекция оцифрованных электрических схем для автомобилей Classic Mini"
+    }
+  },
+  "ja": {
+    "title": "アーカイブ - 電気図面 | Classic Mini DIY",
+    "description": "Classic Mini Cooperの手動でデジタル化・更新された電気図面。",
+    "keywords": "Classic Mini 電気図面, Mini Cooper 配線, 配線図, 電気回路図, クラシックカー配線",
+    "hero_title": "電気図面",
+    "breadcrumb_title": "電気図面",
+    "main_heading": "電気図面",
+    "description_text": "The Mini Forumから直接入手した完全にデジタル化された図面のコレクションで、必要な配線図を見つけてください。後世と保存のためにここにアーカイブされています。",
+    "date_range": {
+      "unknown": "日付不明",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "図面をダウンロード",
+    "support_divider": "サポート",
+    "seo": {
+      "og_title": "アーカイブ - 電気図面 | Classic Mini DIY",
+      "og_description": "Classic Mini Cooperの手動でデジタル化・更新された電気図面。",
+      "twitter_title": "Classic Mini 電気図面",
+      "twitter_description": "Classic Mini Cooperの手動でデジタル化・更新された電気図面。"
+    },
+    "structured_data": {
+      "headline": "Classic Mini 電気図面",
+      "description": "Classic Mini Cooperの手動でデジタル化・更新された電気図面。",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Classic Mini 電気図面",
+      "dataset_description": "Classic Mini車両用デジタル化電気図面のコレクション"
+    }
+  },
+  "zh": {
+    "title": "存档 - 电气图表 | Classic Mini DIY",
+    "description": "为您的Classic Mini Cooper手动数字化和更新的电气图表。",
+    "keywords": "Classic Mini电气图表, Mini Cooper线路, 线路图, 电气原理图, 经典汽车线路",
+    "hero_title": "电气图表",
+    "breadcrumb_title": "电气图表",
+    "main_heading": "电气图表",
+    "description_text": "通过我们直接从The Mini Forum获得的完全数字化图表集合，找到您需要的线路图。在此存档以供后代和保存。",
+    "date_range": {
+      "unknown": "日期未知",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "下载图表",
+    "support_divider": "支持",
+    "seo": {
+      "og_title": "存档 - 电气图表 | Classic Mini DIY",
+      "og_description": "为您的Classic Mini Cooper手动数字化和更新的电气图表。",
+      "twitter_title": "Classic Mini 电气图表",
+      "twitter_description": "为您的Classic Mini Cooper手动数字化和更新的电气图表。"
+    },
+    "structured_data": {
+      "headline": "Classic Mini 电气图表",
+      "description": "为您的Classic Mini Cooper手动数字化和更新的电气图表。",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Classic Mini 电气图表",
+      "dataset_description": "Classic Mini车辆数字化电气图表集合"
+    }
+  },
+  "ko": {
+    "title": "아카이브 - 전기 도면 | Classic Mini DIY",
+    "description": "Classic Mini Cooper를 위한 수동으로 디지털화되고 업데이트된 전기 도면.",
+    "keywords": "Classic Mini 전기 도면, Mini Cooper 배선, 배선도, 전기 회로도, 클래식 자동차 배선",
+    "hero_title": "전기 도면",
+    "breadcrumb_title": "전기 도면",
+    "main_heading": "전기 도면",
+    "description_text": "The Mini Forum에서 직접 얻은 완전히 디지털화된 도면 컬렉션으로 필요한 배선도를 찾으세요. 후세와 보존을 위해 여기에 보관되었습니다.",
+    "date_range": {
+      "unknown": "날짜 미상",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "도면 다운로드",
+    "support_divider": "지원",
+    "seo": {
+      "og_title": "아카이브 - 전기 도면 | Classic Mini DIY",
+      "og_description": "Classic Mini Cooper를 위한 수동으로 디지털화되고 업데이트된 전기 도면.",
+      "twitter_title": "Classic Mini 전기 도면",
+      "twitter_description": "Classic Mini Cooper를 위한 수동으로 디지털화되고 업데이트된 전기 도면."
+    },
+    "structured_data": {
+      "headline": "Classic Mini 전기 도면",
+      "description": "Classic Mini Cooper를 위한 수동으로 디지털화되고 업데이트된 전기 도면.",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Classic Mini 전기 도면",
+      "dataset_description": "Classic Mini 차량용 디지털화된 전기 도면 컬렉션"
     }
   }
 }

@@ -41,11 +41,7 @@
 
 <template>
   <div>
-    <hero
-      :navigation="true"
-      :title="$t('hero_title')"
-      :heroType="HERO_TYPES.ARCHIVE"
-    />
+    <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
     <section id="scrollLocation" class="py-4">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-12 gap-4">

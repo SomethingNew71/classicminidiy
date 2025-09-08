@@ -99,9 +99,7 @@
         <h1 class="text-3xl font-bold mb-4">{{ $t('main_heading') }}</h1>
         <p class="mb-6 text-base">
           {{ $t('description_text') }}
-          <a href="http://mini-colours.co.uk" class="link link-primary">{{
-            $t('partner_link')
-          }}</a>
+          <a href="http://mini-colours.co.uk" class="link link-primary">{{ $t('partner_link') }}</a>
           to provide you with a comprehensive list of the colors used on the Classic Mini throughout the years.
         </p>
         <div class="divider"></div>
@@ -222,9 +220,7 @@
                         <span v-if="color.shortCode && color.shortCode !== 'Unknown'" class="font-medium">
                           {{ color.shortCode }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">{{
-                          $t('states.missing')
-                        }}</span>
+                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
                       </td>
 
                       <!-- BMC Code -->
@@ -232,9 +228,7 @@
                         <span v-if="color.code && color.code !== 'Unknown'" class="font-medium">
                           {{ color.code }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">{{
-                          $t('states.missing')
-                        }}</span>
+                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
                       </td>
 
                       <!-- Ditzler/PPG Code -->
@@ -242,9 +236,7 @@
                         <span v-if="color.ditzlerPpgCode && color.ditzlerPpgCode !== 'Unknown'" class="font-medium">
                           {{ color.ditzlerPpgCode }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">{{
-                          $t('states.missing')
-                        }}</span>
+                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
                       </td>
 
                       <!-- Dulux Code -->
@@ -252,9 +244,7 @@
                         <span v-if="color.duluxCode && color.duluxCode !== 'Unknown'" class="font-medium">
                           {{ color.duluxCode }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">{{
-                          $t('states.missing')
-                        }}</span>
+                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
                       </td>
 
                       <!-- Years Used -->
@@ -262,9 +252,7 @@
                         <span v-if="color.years && color.years !== 'Unknown'" class="font-medium">
                           {{ Array.isArray(color.years) ? color.years.join(', ') : color.years }}
                         </span>
-                        <span v-else class="badge badge-error badge-soft">{{
-                          $t('states.missing')
-                        }}</span>
+                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
                       </td>
 
                       <!-- Edit Button -->
@@ -290,8 +278,7 @@
                   «
                 </button>
                 <button class="join-item btn btn-md">
-                  {{ $t('pagination.page') }} {{ currentPage }}
-                  {{ $t('pagination.of') }} {{ totalPages }}
+                  {{ $t('pagination.page') }} {{ currentPage }} {{ $t('pagination.of') }} {{ totalPages }}
                 </button>
                 <button
                   class="join-item btn btn-md"

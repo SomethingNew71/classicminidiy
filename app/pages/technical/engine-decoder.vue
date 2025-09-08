@@ -44,19 +44,11 @@
 </script>
 
 <template>
-  <hero
-    :navigation="true"
-    :title="$t('hero_title')"
-    :heroType="HERO_TYPES.TECH"
-  />
+  <hero :navigation="true" :title="$t('hero_title')" :subtitle="$t('keep_minis_driving')" :heroType="HERO_TYPES.TECH" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
       <div class="col-span-12">
-        <breadcrumb
-          class="my-4"
-          :version="BREADCRUMB_VERSIONS.TECH"
-          :page="$t('breadcrumb_title')"
-        ></breadcrumb>
+        <breadcrumb class="my-4" :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')"></breadcrumb>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div class="col-span-12 md:col-span-7">
@@ -67,11 +59,7 @@
             <EnginePlateModal></EnginePlateModal>
           </div>
           <div class="col-span-12 md:col-span-5">
-            <NuxtLink
-              :to="'/technical/chassis-decoder'"
-              :title="$t('chassis_decoder_card.link_title')"
-              class="block"
-            >
+            <NuxtLink :to="'/technical/chassis-decoder'" :title="$t('chassis_decoder_card.link_title')" class="block">
               <div class="card hover:shadow-lg transition-shadow">
                 <div class="flex items-center p-4">
                   <div class="flex-shrink-0">
@@ -205,6 +193,8 @@
     "twitter_description": "Decode your Classic Mini's Engine plate to determine the engine size and features of your car.",
     "main_heading": "Engine Plate Decoder",
     "description_text": "The engine plate is a series of numbers and letters that are stamped on a metal plate that is riveted to the engine near the water pump. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+    "keep_minis_driving": "Keeping Minis Driving",
+    "mini_toolbox": "Classic Mini Technical Toolbox",
     "chassis_decoder_card": {
       "link_title": "Link to Chassis Decoder Tool",
       "heading": "Need to decode your Chassis Number?",
@@ -249,6 +239,8 @@
     "twitter_description": "Decodifica la placa del motor de tu Classic Mini para determinar el tamaño del motor y las características de tu coche.",
     "main_heading": "Decodificador de Placa del Motor",
     "description_text": "La placa del motor es una serie de números y letras que están estampados en una placa metálica que está remachada al motor cerca de la bomba de agua. Esta placa está ubicada en el mismo lugar en todas las generaciones de mini y se usa para identificar el tamaño del motor y las características.",
+    "keep_minis_driving": "Manteniendo los Minis en Marcha",
+    "mini_toolbox": "Caja de Herramientas Técnicas del Classic Mini",
     "chassis_decoder_card": {
       "link_title": "Enlace a la Herramienta Decodificadora de Chasis",
       "heading": "¿Necesitas decodificar tu Número de Chasis?",
@@ -293,6 +285,8 @@
     "twitter_description": "Décodez la plaque moteur de votre Classic Mini pour déterminer la taille du moteur et les caractéristiques de votre voiture.",
     "main_heading": "Décodeur de Plaque Moteur",
     "description_text": "La plaque moteur est une série de numéros et de lettres qui sont estampés sur une plaque métallique qui est rivetée au moteur près de la pompe à eau. Cette plaque est située au même endroit sur toutes les générations de mini et est utilisée pour identifier la taille du moteur et les caractéristiques.",
+    "keep_minis_driving": "Garder les Minis en Marche",
+    "mini_toolbox": "Boîte à Outils Technique Classic Mini",
     "chassis_decoder_card": {
       "link_title": "Lien vers l'Outil Décodeur de Châssis",
       "heading": "Besoin de décoder votre Numéro de Châssis ?",
@@ -337,6 +331,8 @@
     "twitter_description": "Decodifica la piastra del motore della tua Classic Mini per determinare la dimensione del motore e le caratteristiche della tua auto.",
     "main_heading": "Decodificatore Piastra Motore",
     "description_text": "La piastra del motore è una serie di numeri e lettere che sono stampati su una piastra metallica che è rivettata al motore vicino alla pompa dell'acqua. Questa piastra si trova nello stesso posto su tutte le generazioni di mini ed è usata per identificare la dimensione del motore e le caratteristiche.",
+    "keep_minis_driving": "Mantenere le Mini in Movimento",
+    "mini_toolbox": "Cassetta degli Attrezzi Tecnica Classic Mini",
     "chassis_decoder_card": {
       "link_title": "Link allo Strumento Decodificatore Telaio",
       "heading": "Hai bisogno di decodificare il tuo Numero di Telaio?",
@@ -381,6 +377,8 @@
     "twitter_description": "Decodieren Sie die Motorplakette Ihres Classic Mini, um die Motorgröße und die Eigenschaften Ihres Autos zu bestimmen.",
     "main_heading": "Motorplaketten-Decoder",
     "description_text": "Die Motorplakette ist eine Reihe von Zahlen und Buchstaben, die auf eine Metallplakette gestempelt sind, die in der Nähe der Wasserpumpe am Motor genietet ist. Diese Plakette befindet sich bei allen Mini-Generationen an derselben Stelle und wird zur Identifizierung der Motorgröße und der Eigenschaften verwendet.",
+    "keep_minis_driving": "Minis am Fahren Halten",
+    "mini_toolbox": "Classic Mini Technische Werkzeugkiste",
     "chassis_decoder_card": {
       "link_title": "Link zum Fahrgestell-Decoder-Tool",
       "heading": "Müssen Sie Ihre Fahrgestellnummer decodieren?",
@@ -425,6 +423,8 @@
     "twitter_description": "Decodifique a placa do motor do seu Classic Mini para determinar o tamanho do motor e as características do seu carro.",
     "main_heading": "Decodificador de Placa do Motor",
     "description_text": "A placa do motor é uma série de números e letras que são estampados em uma placa metálica que é rebitada ao motor perto da bomba d'água. Esta placa está localizada no mesmo lugar em todas as gerações de mini e é usada para identificar o tamanho do motor e as características.",
+    "keep_minis_driving": "Mantendo os Minis Rodando",
+    "mini_toolbox": "Caixa de Ferramentas Técnicas do Classic Mini",
     "chassis_decoder_card": {
       "link_title": "Link para a Ferramenta Decodificadora de Chassi",
       "heading": "Precisa decodificar seu Número de Chassi?",
@@ -469,6 +469,8 @@
     "twitter_description": "Декодируйте табличку двигателя вашего Classic Mini, чтобы определить размер двигателя и характеристики вашего автомобиля.",
     "main_heading": "Декодер Табличек Двигателя",
     "description_text": "Табличка двигателя - это серия цифр и букв, которые выштампованы на металлической табличке, которая приклепана к двигателю рядом с водяным насосом. Эта табличка расположена в одном и том же месте во всех поколениях mini и используется для идентификации размера двигателя и характеристик.",
+    "keep_minis_driving": "Поддерживая Мини в Движении",
+    "mini_toolbox": "Техническая Коробка Инструментов Classic Mini",
     "chassis_decoder_card": {
       "link_title": "Ссылка на Инструмент Декодера Шасси",
       "heading": "Нужно декодировать ваш Номер Шасси?",
@@ -513,6 +515,8 @@
     "twitter_description": "クラシックミニのエンジンプレートをデコードして、車のエンジンサイズと特徴を決定します。",
     "main_heading": "エンジンプレートデコーダー",
     "description_text": "エンジンプレートは、ウォーターポンプの近くのエンジンにリベット留めされた金属プレートに刻印された一連の数字と文字です。このプレートはすべてのミニ世代で同じ場所にあり、エンジンサイズと特徴を識別するために使用されます。",
+    "keep_minis_driving": "ミニを走らせ続ける",
+    "mini_toolbox": "クラシックミニ技術ツールボックス",
     "chassis_decoder_card": {
       "link_title": "シャーシデコーダーツールへのリンク",
       "heading": "シャーシ番号をデコードする必要がありますか？",
@@ -557,6 +561,8 @@
     "twitter_description": "解码您的经典迷你发动机铭牌以确定您汽车的发动机尺寸和特征。",
     "main_heading": "发动机铭牌解码器",
     "description_text": "发动机铭牌是一系列数字和字母，印在铆接到水泵附近发动机上的金属铭牌上。该铭牌在所有迷你世代中都位于同一位置，用于识别发动机尺寸和特征。",
+    "keep_minis_driving": "保持迷你车行驶",
+    "mini_toolbox": "经典迷你技术工具箱",
     "chassis_decoder_card": {
       "link_title": "底盘解码器工具链接",
       "heading": "需要解码您的底盘号码吗？",
@@ -601,6 +607,8 @@
     "twitter_description": "클래식 미니의 엔진 플레이트를 디코딩하여 자동차의 엔진 크기와 특징을 결정하세요.",
     "main_heading": "엔진 플레이트 디코더",
     "description_text": "엔진 플레이트는 워터 펌프 근처의 엔진에 리벳으로 고정된 금속 플레이트에 스탬프된 일련의 숫자와 문자입니다. 이 플레이트는 모든 미니 세대에서 같은 위치에 있으며 엔진 크기와 특징을 식별하는 데 사용됩니다.",
+    "keep_minis_driving": "미니를 계속 운전하게 하기",
+    "mini_toolbox": "클래식 미니 기술 도구상자",
     "chassis_decoder_card": {
       "link_title": "섀시 디코더 도구 링크",
       "heading": "섀시 번호를 디코딩해야 하나요?",

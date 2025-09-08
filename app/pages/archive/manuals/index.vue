@@ -130,6 +130,222 @@
       "twitter_title": "Classic Mini Archive - Manuals",
       "twitter_description": "Curated collection of Classic Mini original manuals"
     }
+  },
+  "de": {
+    "title": "Classic Mini Archiv - Handbücher",
+    "description": "Kuratierte Sammlung von Classic Mini Original-Handbüchern",
+    "hero_title": "Classic Mini Archive",
+    "breadcrumb_title": "Handbücher",
+    "breadcrumb": {
+      "home": "Startseite",
+      "archive": "Archiv",
+      "manuals": "Handbücher"
+    },
+    "main_heading": "Original-Handbücher",
+    "description_text": "Kostenlose Kopien der ungekürzten Handbücher. Dies ist ein Versuch, alle verschiedenen historischen Handbücher und Dokumente für den Classic Mini zu archivieren und zu sammeln. Wenn Sie fehlende Handbücher haben, erwägen Sie bitte einen Beitrag!",
+    "actions": {
+      "add_to_archive": "Zum Archiv hinzufügen",
+      "cover_server_costs": "Serverkosten decken"
+    },
+    "support_divider": "Unterstützung",
+    "seo": {
+      "og_title": "Classic Mini Archiv - Handbücher",
+      "og_description": "Kuratierte Sammlung von Classic Mini Original-Handbüchern",
+      "twitter_title": "Classic Mini Archiv - Handbücher",
+      "twitter_description": "Kuratierte Sammlung von Classic Mini Original-Handbüchern"
+    }
+  },
+  "es": {
+    "title": "Archivo Classic Mini - Manuales",
+    "description": "Colección curada de manuales originales del Classic Mini",
+    "hero_title": "Archivos Classic Mini",
+    "breadcrumb_title": "Manuales",
+    "breadcrumb": {
+      "home": "Inicio",
+      "archive": "Archivo",
+      "manuals": "Manuales"
+    },
+    "main_heading": "Manuales Originales",
+    "description_text": "Copias gratuitas de los manuales completos. Este es un esfuerzo para archivar y compilar todos los diversos manuales y documentos históricos hechos para el Classic Mini. Si tienes manuales faltantes, ¡considera contribuir!",
+    "actions": {
+      "add_to_archive": "Agregar al Archivo",
+      "cover_server_costs": "Cubrir Costos del Servidor"
+    },
+    "support_divider": "Soporte",
+    "seo": {
+      "og_title": "Archivo Classic Mini - Manuales",
+      "og_description": "Colección curada de manuales originales del Classic Mini",
+      "twitter_title": "Archivo Classic Mini - Manuales",
+      "twitter_description": "Colección curada de manuales originales del Classic Mini"
+    }
+  },
+  "fr": {
+    "title": "Archives Classic Mini - Manuels",
+    "description": "Collection organisée de manuels originaux Classic Mini",
+    "hero_title": "Archives Classic Mini",
+    "breadcrumb_title": "Manuels",
+    "breadcrumb": {
+      "home": "Accueil",
+      "archive": "Archive",
+      "manuals": "Manuels"
+    },
+    "main_heading": "Manuels Originaux",
+    "description_text": "Copies gratuites des manuels intégraux. Ceci est un effort pour archiver et compiler tous les divers manuels et documents historiques créés pour la Classic Mini. Si vous avez des manuels manquants, veuillez considérer contribuer !",
+    "actions": {
+      "add_to_archive": "Ajouter aux Archives",
+      "cover_server_costs": "Couvrir les Coûts du Serveur"
+    },
+    "support_divider": "Support",
+    "seo": {
+      "og_title": "Archives Classic Mini - Manuels",
+      "og_description": "Collection organisée de manuels originaux Classic Mini",
+      "twitter_title": "Archives Classic Mini - Manuels",
+      "twitter_description": "Collection organisée de manuels originaux Classic Mini"
+    }
+  },
+  "it": {
+    "title": "Archivio Classic Mini - Manuali",
+    "description": "Collezione curata di manuali originali Classic Mini",
+    "hero_title": "Archivi Classic Mini",
+    "breadcrumb_title": "Manuali",
+    "breadcrumb": {
+      "home": "Home",
+      "archive": "Archivio",
+      "manuals": "Manuali"
+    },
+    "main_heading": "Manuali Originali",
+    "description_text": "Copie gratuite dei manuali integrali. Questo è uno sforzo per archiviare e compilare tutti i vari manuali e documenti storici creati per la Classic Mini. Se hai manuali mancanti, considera di contribuire!",
+    "actions": {
+      "add_to_archive": "Aggiungi all'Archivio",
+      "cover_server_costs": "Coprire i Costi del Server"
+    },
+    "support_divider": "Supporto",
+    "seo": {
+      "og_title": "Archivio Classic Mini - Manuali",
+      "og_description": "Collezione curata di manuali originali Classic Mini",
+      "twitter_title": "Archivio Classic Mini - Manuali",
+      "twitter_description": "Collezione curata di manuali originali Classic Mini"
+    }
+  },
+  "pt": {
+    "title": "Arquivo Classic Mini - Manuais",
+    "description": "Coleção curada de manuais originais Classic Mini",
+    "hero_title": "Arquivos Classic Mini",
+    "breadcrumb_title": "Manuais",
+    "breadcrumb": {
+      "home": "Início",
+      "archive": "Arquivo",
+      "manuals": "Manuais"
+    },
+    "main_heading": "Manuais Originais",
+    "description_text": "Cópias gratuitas dos manuais completos. Este é um esforço para arquivar e compilar todos os vários manuais e documentos históricos feitos para o Classic Mini. Se você tem manuais em falta, considere contribuir!",
+    "actions": {
+      "add_to_archive": "Adicionar ao Arquivo",
+      "cover_server_costs": "Cobrir Custos do Servidor"
+    },
+    "support_divider": "Suporte",
+    "seo": {
+      "og_title": "Arquivo Classic Mini - Manuais",
+      "og_description": "Coleção curada de manuais originais Classic Mini",
+      "twitter_title": "Arquivo Classic Mini - Manuais",
+      "twitter_description": "Coleção curada de manuais originais Classic Mini"
+    }
+  },
+  "nl": {
+    "title": "Classic Mini Archief - Handleidingen",
+    "description": "Gecureerde collectie van Classic Mini originele handleidingen",
+    "hero_title": "Classic Mini Archieven",
+    "breadcrumb_title": "Handleidingen",
+    "breadcrumb": {
+      "home": "Home",
+      "archive": "Archief",
+      "manuals": "Handleidingen"
+    },
+    "main_heading": "Originele Handleidingen",
+    "description_text": "Gratis kopieën van de onverkorte handleidingen. Dit is een poging om alle verschillende historische handleidingen en documenten gemaakt voor de Classic Mini te archiveren en compileren. Als je ontbrekende handleidingen hebt, overweeg dan om bij te dragen!",
+    "actions": {
+      "add_to_archive": "Toevoegen aan Archief",
+      "cover_server_costs": "Serverkosten Dekken"
+    },
+    "support_divider": "Ondersteuning",
+    "seo": {
+      "og_title": "Classic Mini Archief - Handleidingen",
+      "og_description": "Gecureerde collectie van Classic Mini originele handleidingen",
+      "twitter_title": "Classic Mini Archief - Handleidingen",
+      "twitter_description": "Gecureerde collectie van Classic Mini originele handleidingen"
+    }
+  },
+  "sv": {
+    "title": "Classic Mini Arkiv - Manualer",
+    "description": "Kurerad samling av Classic Mini original manualer",
+    "hero_title": "Classic Mini Arkiv",
+    "breadcrumb_title": "Manualer",
+    "breadcrumb": {
+      "home": "Hem",
+      "archive": "Arkiv",
+      "manuals": "Manualer"
+    },
+    "main_heading": "Original Manualer",
+    "description_text": "Gratis kopior av de oförkortade manualerna. Detta är ett försök att arkivera och sammanställa alla olika historiska manualer och dokument gjorda för Classic Mini. Om du har saknade manualer, överväg att bidra!",
+    "actions": {
+      "add_to_archive": "Lägg till i Arkiv",
+      "cover_server_costs": "Täck Serverkostnader"
+    },
+    "support_divider": "Support",
+    "seo": {
+      "og_title": "Classic Mini Arkiv - Manualer",
+      "og_description": "Kurerad samling av Classic Mini original manualer",
+      "twitter_title": "Classic Mini Arkiv - Manualer",
+      "twitter_description": "Kurerad samling av Classic Mini original manualer"
+    }
+  },
+  "da": {
+    "title": "Classic Mini Arkiv - Manualer",
+    "description": "Kurateret samling af Classic Mini originale manualer",
+    "hero_title": "Classic Mini Arkiver",
+    "breadcrumb_title": "Manualer",
+    "breadcrumb": {
+      "home": "Hjem",
+      "archive": "Arkiv",
+      "manuals": "Manualer"
+    },
+    "main_heading": "Originale Manualer",
+    "description_text": "Gratis kopier af de uforkortede manualer. Dette er et forsøg på at arkivere og kompilere alle de forskellige historiske manualer og dokumenter lavet til Classic Mini. Hvis du har manglende manualer, overvej venligst at bidrage!",
+    "actions": {
+      "add_to_archive": "Tilføj til Arkiv",
+      "cover_server_costs": "Dæk Serveromkostninger"
+    },
+    "support_divider": "Support",
+    "seo": {
+      "og_title": "Classic Mini Arkiv - Manualer",
+      "og_description": "Kurateret samling af Classic Mini originale manualer",
+      "twitter_title": "Classic Mini Arkiv - Manualer",
+      "twitter_description": "Kurateret samling af Classic Mini originale manualer"
+    }
+  },
+  "no": {
+    "title": "Classic Mini Arkiv - Manualer",
+    "description": "Kuratert samling av Classic Mini originale manualer",
+    "hero_title": "Classic Mini Arkiver",
+    "breadcrumb_title": "Manualer",
+    "breadcrumb": {
+      "home": "Hjem",
+      "archive": "Arkiv",
+      "manuals": "Manualer"
+    },
+    "main_heading": "Originale Manualer",
+    "description_text": "Gratis kopier av de uforkortede manualene. Dette er et forsøk på å arkivere og kompilere alle de forskjellige historiske manualene og dokumentene laget for Classic Mini. Hvis du har manglende manualer, vennligst vurder å bidra!",
+    "actions": {
+      "add_to_archive": "Legg til i Arkiv",
+      "cover_server_costs": "Dekk Serverkostnader"
+    },
+    "support_divider": "Støtte",
+    "seo": {
+      "og_title": "Classic Mini Arkiv - Manualer",
+      "og_description": "Kuratert samling av Classic Mini originale manualer",
+      "twitter_title": "Classic Mini Arkiv - Manualer",
+      "twitter_description": "Kuratert samling av Classic Mini originale manualer"
+    }
   }
 }
 </i18n>

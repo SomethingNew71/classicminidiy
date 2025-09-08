@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { TRACKING_EVENTS, trackStuff } from '../../data/models/helper-utils';
-  
+
   const { t } = useI18n({
     useScope: 'local',
   });

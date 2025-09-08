@@ -26,11 +26,7 @@
 
 <template>
   <div>
-    <hero
-      :navigation="true"
-      :title="$t('hero_title')"
-      :heroType="HERO_TYPES.ARCHIVE"
-    />
+    <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
     <div class="container mx-auto px-4">
       <breadcrumb :page="$t('breadcrumb_title')" class="my-6"></breadcrumb>
       <div class="grid grid-cols-12 gap-4 items-center">
@@ -41,10 +37,7 @@
           </p>
         </div>
         <div class="col-span-12 md:col-span-4">
-          <NuxtLink
-            :to="'/archive/wheels/submit?newWheel=true'"
-            :title="$t('add_wheel_card.link_title')"
-          >
+          <NuxtLink :to="'/archive/wheels/submit?newWheel=true'" :title="$t('add_wheel_card.link_title')">
             <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
               <div class="card-body">
                 <div class="flex items-start">
