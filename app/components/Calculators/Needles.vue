@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+  const { t } = useI18n({
+    useScope: 'local',
+  });
   import { chartOptions, type Needle, type NeedleResponse } from '../../../data/models/needles';
 
   // Fetch needles data
@@ -55,28 +58,28 @@
     <div class="col-span-12 md:col-span-4">
       <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
-          <h3 class="fancy-font-bold text-xl pb-3">{{ $t('title') }}</h3>
+          <h3 class="fancy-font-bold text-xl pb-3">{{ t('title') }}</h3>
           <p class="pb-3">
-            {{ $t('description') }}
+            {{ t('description') }}
           </p>
           <!-- Modal dialog for diagram -->
           <div>
             <button class="btn btn-sm btn-neutral mb-5" onclick="diagram_modal.showModal()">
-              {{ $t('diagram_button') }}
+              {{ t('diagram_button') }}
             </button>
             <dialog id="diagram_modal" class="modal">
               <div class="modal-box w-11/12 max-w-5xl">
-                <h3 class="font-bold text-lg">{{ $t('diagram_modal.title') }}</h3>
+                <h3 class="font-bold text-lg">{{ t('diagram_modal.title') }}</h3>
                 <img
                   loading="lazy"
                   class="diagram mx-auto"
                   src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/diagram.jpg"
-                  :alt="$t('diagram_modal.alt_text')"
+                  :alt="t('diagram_modal.alt_text')"
                 />
                 <div class="modal-action">
                   <form method="dialog">
                     <button class="btn btn-primary">
-                      {{ $t('diagram_modal.close_button') }}
+                      {{ t('diagram_modal.close_button') }}
                     </button>
                   </form>
                 </div>
@@ -93,7 +96,7 @@
             <div class="form-control w-full">
               <select class="select select-bordered w-full" v-model="addNeedleValue">
                 <option :value="null" disabled selected>
-                  {{ $t('form.select_placeholder') }}
+                  {{ t('form.select_placeholder') }}
                 </option>
                 <option v-for="needle in allNeedles.all" :key="needle.name" :value="needle">
                   {{ needle.name }}
@@ -116,7 +119,7 @@
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 ></path>
               </svg>
-              <span>{{ $t('alerts.already_exists') }}</span>
+              <span>{{ t('alerts.already_exists') }}</span>
             </div>
             <div v-if="emptyError" class="alert alert-info mb-4">
               <svg
@@ -132,7 +135,7 @@
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 ></path>
               </svg>
-              <span>{{ $t('alerts.empty_selection') }}</span>
+              <span>{{ t('alerts.empty_selection') }}</span>
             </div>
 
             <!-- Add needle button -->
@@ -146,12 +149,12 @@
               >
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
-              {{ $t('form.add_button') }}
+              {{ t('form.add_button') }}
             </button>
 
             <div class="divider"></div>
 
-            <h3 class="text-lg font-medium">{{ $t('selected_needles_title') }}</h3>
+            <h3 class="text-lg font-medium">{{ t('selected_needles_title') }}</h3>
             <div v-if="selectedNeedles" class="flex flex-wrap gap-2 mt-3">
               <div
                 v-for="(needle, index) in selectedNeedles"
@@ -187,7 +190,7 @@
           <ClientOnly fallback-tag="span">
             <highcharts ref="needlesChart" :options="reactiveChartOptions"></highcharts>
             <template #fallback>
-              <p class="p-10 text-center text-xl">{{ $t('chart.loading') }}</p>
+              <p class="p-10 text-center text-xl">{{ t('chart.loading') }}</p>
             </template>
           </ClientOnly>
         </div>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  const { t } = useI18n({
+    useScope: 'local',
+  });
   import type { RegistryItem } from '../../data/models/registry';
   import { RegistryItemStatus } from '../../data/models/registry';
   import { useDebounce } from '../composables/useDebounce';
@@ -109,13 +112,13 @@
   const getStatusText = (status: string) => {
     switch (status) {
       case RegistryItemStatus.PENDING:
-        return $t('status.pending');
+        return t('status.pending');
       case RegistryItemStatus.APPROVED:
-        return $t('status.approved');
+        return t('status.approved');
       case RegistryItemStatus.REJECTED:
-        return $t('status.rejected');
+        return t('status.rejected');
       default:
-        return $t('status.unknown');
+        return t('status.unknown');
     }
   };
 
@@ -171,21 +174,21 @@
             <input
               type="text"
               v-model="searchValue"
-              :placeholder="$t('search_placeholder')"
+              :placeholder="t('search_placeholder')"
               class="input input-bordered w-full"
             />
           </div>
         </div>
         <div class="flex items-center gap-2">
           <div v-if="items?.length" class="badge badge-primary badge-lg">
-            {{ items?.length }} {{ $t('total_minis') }}
+            {{ items?.length }} {{ t('total_minis') }}
           </div>
           <div class="form-control">
             <select v-model="pageSize" class="select select-bordered select-sm">
-              <option :value="10">{{ $t('per_page_options.10') }}</option>
-              <option :value="25">{{ $t('per_page_options.25') }}</option>
-              <option :value="50">{{ $t('per_page_options.50') }}</option>
-              <option :value="100">{{ $t('per_page_options.100') }}</option>
+              <option :value="10">{{ t('per_page_options.10') }}</option>
+              <option :value="25">{{ t('per_page_options.25') }}</option>
+              <option :value="50">{{ t('per_page_options.50') }}</option>
+              <option :value="100">{{ t('per_page_options.100') }}</option>
             </select>
           </div>
         </div>
@@ -233,7 +236,7 @@
                         {{ getStatusText(item.status) }}
                       </div>
                     </template>
-                    <template v-else>{{ item[header.key] || $t('no_data') }}</template>
+                    <template v-else>{{ item[header.key] || t('no_data') }}</template>
                   </td>
                 </tr>
                 <tr v-if="expanded.includes(item.uniqueId)" class="bg-base-200">
@@ -241,28 +244,28 @@
                   <td colspan="2" class="p-4">
                     <div class="grid grid-cols-1 gap-2">
                       <div>
-                        <strong>{{ $t('expanded_details.build_date') }}</strong>
-                        <div>{{ item.buildDate || $t('no_data') }}</div>
+                        <strong>{{ t('expanded_details.build_date') }}</strong>
+                        <div>{{ item.buildDate || t('no_data') }}</div>
                       </div>
                       <div>
-                        <strong>{{ $t('expanded_details.body_number') }}</strong>
-                        <div>{{ item.bodyNum || $t('no_data') }}</div>
+                        <strong>{{ t('expanded_details.body_number') }}</strong>
+                        <div>{{ item.bodyNum || t('no_data') }}</div>
                       </div>
                       <div>
-                        <strong>{{ $t('expanded_details.engine_number') }}</strong>
-                        <div>{{ item.engineNum || $t('no_data') }}</div>
+                        <strong>{{ t('expanded_details.engine_number') }}</strong>
+                        <div>{{ item.engineNum || t('no_data') }}</div>
                       </div>
                     </div>
                   </td>
                   <td colspan="2" class="p-4">
                     <div class="grid grid-cols-1 gap-2">
                       <div>
-                        <strong>{{ $t('expanded_details.submitted_by') }}</strong>
-                        <div>{{ item.submittedBy || $t('no_data') }}</div>
+                        <strong>{{ t('expanded_details.submitted_by') }}</strong>
+                        <div>{{ item.submittedBy || t('no_data') }}</div>
                       </div>
                       <div>
-                        <strong>{{ $t('expanded_details.notes') }}</strong>
-                        <div>{{ item.notes || $t('no_data') }}</div>
+                        <strong>{{ t('expanded_details.notes') }}</strong>
+                        <div>{{ item.notes || t('no_data') }}</div>
                       </div>
                     </div>
                   </td>
@@ -270,7 +273,7 @@
               </template>
             </template>
             <tr v-else>
-              <td colspan="5" class="text-center py-8">{{ $t('no_items_found') }}</td>
+              <td colspan="5" class="text-center py-8">{{ t('no_items_found') }}</td>
             </tr>
           </tbody>
         </table>

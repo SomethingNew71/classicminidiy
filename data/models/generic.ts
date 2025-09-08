@@ -87,54 +87,54 @@ export const MobileMenuItems: MobileMenuItem[] = [
 ];
 export const ToolboxItems: ToolboxItem[] = [
   {
-    titleKey: 'components.chat.toolbox.torque_specs',
+    titleKey: 'toolbox.torque_specs',
     path: '/technical/torque',
     iconHtml:
       '<i class="fa-duotone fa-screwdriver-wrench" style="--fa-primary-color: #ed7135; --fa-secondary-color: #ed7135;"></i>',
     to: '/technical/torque',
   },
   {
-    titleKey: 'components.chat.toolbox.chassis_decoder',
+    titleKey: 'toolbox.chassis_decoder',
     path: '/technical/chassis-decoder',
     iconHtml: '<i class="fa-duotone fa-hashtag" ></i>',
     to: '/technical/chassis-decoder',
   },
   {
-    titleKey: 'components.chat.toolbox.engine_decoder',
+    titleKey: 'toolbox.engine_decoder',
     path: '/technical/engine-decoder',
     iconHtml:
       '<i class="fa-duotone fa-engine" style="--fa-primary-color: #A49966; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.6;"></i>',
     to: '/technical/engine-decoder',
   },
   {
-    titleKey: 'components.chat.toolbox.needle_configurator',
+    titleKey: 'toolbox.needle_configurator',
     path: '/technical/needles',
     iconHtml:
       '<i class="fa-duotone fa-chart-line" style="--fa-primary-color: #b74d36; --fa-secondary-color: #417bbd; --fa-secondary-opacity: 0.8;"></i>',
     to: '/technical/needles',
   },
   {
-    titleKey: 'components.chat.toolbox.gearbox_calculator',
+    titleKey: 'toolbox.gearbox_calculator',
     path: '/technical/gearing',
     iconHtml: '<i class="fa-duotone fa-gears" style="--fa-primary-color: #c49031; --fa-secondary-color: #c49031;"></i>',
     to: '/technical/gearing',
   },
   {
-    titleKey: 'components.chat.toolbox.compression_calculator',
+    titleKey: 'toolbox.compression_calculator',
     path: '/technical/compression',
     iconHtml:
       '<i class="fa-duotone fa-calculator" style="--fa-primary-color: #859369; --fa-secondary-color: #859369;"></i>',
     to: '/technical/compression',
   },
   {
-    titleKey: 'components.chat.toolbox.parts_equivalency',
+    titleKey: 'toolbox.parts_equivalency',
     path: '/technical/parts',
     iconHtml:
       '<i class="fa-duotone fa-magnifying-glass" style="--fa-primary-color: #080808; --fa-secondary-color: #f3b140; --fa-secondary-opacity: .9;"></i>',
     to: '/technical/parts',
   },
   {
-    titleKey: 'components.chat.toolbox.common_clearances',
+    titleKey: 'toolbox.common_clearances',
     path: '/technical/clearance',
     iconHtml:
       '<i class="fa-duotone fa-ruler-triangle" style="--fa-primary-color: #433016; --fa-secondary-color: #ddbd8d; --fa-secondary-opacity: 1;"></i>',

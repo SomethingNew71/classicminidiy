@@ -1,4 +1,8 @@
-<script lang="ts" setup>
+<script setup lang="ts">
+  const { t } = useI18n({
+    useScope: 'local',
+  });
+
   import { formOptions } from '../../../data/models/compression';
 
   const reactiveFormOptions = ref(formOptions);
@@ -41,7 +45,7 @@
     <div class="col-span-1">
       <button class="btn btn-primary mb-5" @click="showHelpModal = true">
         <i class="fad fa-question-circle mr-2"></i>
-        {{ $t('help_button') }}
+        {{ t('help_button') }}
       </button>
 
       <!-- Help Modal -->
@@ -49,7 +53,7 @@
         <div class="modal-box w-11/12 max-w-4xl">
           <div class="card bg-base-100">
             <div class="card-body">
-              <h2 class="card-title">{{ $t('help_modal.title') }}</h2>
+              <h2 class="card-title">{{ t('help_modal.title') }}</h2>
               <div class="aspect-video w-full">
                 <iframe
                   class="w-full h-full"
@@ -61,19 +65,19 @@
                 ></iframe>
               </div>
               <div class="mt-4">
-                <h3 class="text-xl font-bold">{{ $t('help_modal.friend_title') }}</h3>
+                <h3 class="text-xl font-bold">{{ t('help_modal.friend_title') }}</h3>
                 <p class="text-sm opacity-70">
                   <a href="https://www.youtube.com/watch?v=GxlgkbrfK2Y" class="link link-primary">@hreirl</a>
-                  {{ $t('help_modal.friend_description') }}
+                  {{ t('help_modal.friend_description') }}
                 </p>
                 <p class="mt-2">
-                  {{ $t('help_modal.friend_text') }}
+                  {{ t('help_modal.friend_text') }}
                 </p>
               </div>
             </div>
             <div class="card-actions justify-end p-4">
               <button class="btn btn-primary" @click="showHelpModal = false">
-                {{ $t('help_modal.close_button') }}
+                {{ t('help_modal.close_button') }}
               </button>
             </div>
           </div>
@@ -89,7 +93,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">{{ $t('form_labels.piston_size') }}</span>
+            <span class="label-text">{{ t('form_labels.piston_size') }}</span>
           </label>
           <label class="select w-full">
             <span class="label"><i class="fad fa-engine"></i></span>
@@ -106,7 +110,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">{{ $t('form_labels.crankshaft') }}</span>
+            <span class="label-text">{{ t('form_labels.crankshaft') }}</span>
           </label>
           <label class="select w-full">
             <span class="label"><i class="fad fa-arrows-rotate fa-spin"></i></span>
@@ -125,7 +129,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">{{ $t('form_labels.head_gasket') }}</span>
+            <span class="label-text">{{ t('form_labels.head_gasket') }}</span>
           </label>
           <label class="select w-full">
             <span class="label"><i class="fad fa-head-side-gear"></i></span>
@@ -139,7 +143,7 @@
         <div v-if="gasket === 0" class="mt-2">
           <div class="input-group w-full">
             <label class="label pb-2">
-              <span class="label-text">{{ $t('form_labels.custom_gasket_size') }}</span>
+              <span class="label-text">{{ t('form_labels.custom_gasket_size') }}</span>
             </label>
             <label class="input w-full">
               <span class="label"><i class="fad fa-ruler"></i></span>
@@ -160,7 +164,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">{{ $t('form_labels.decompression_plate') }}</span>
+            <span class="label-text">{{ t('form_labels.decompression_plate') }}</span>
           </label>
           <label class="select w-full">
             <span class="label"><i class="fad fa-arrow-down-to-line"></i></span>
@@ -183,7 +187,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">{{ $t('form_labels.piston_dish_size') }}</span>
+            <span class="label-text">{{ t('form_labels.piston_dish_size') }}</span>
           </label>
           <label class="input w-full">
             <span class="label"><i class="fad fa-circle-half fa-rotate-270"></i></span>
@@ -203,7 +207,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">{{ $t('form_labels.cylinder_head_chamber_volume') }}</span>
+            <span class="label-text">{{ t('form_labels.cylinder_head_chamber_volume') }}</span>
           </label>
           <label class="input w-full">
             <span class="label"><i class="fad fa-arrows-to-dot"></i></span>
@@ -223,7 +227,7 @@
       <div class="form-control">
         <div class="input-group w-full">
           <label class="label pb-2">
-            <span class="label-text">{{ $t('form_labels.piston_deck_height') }}</span>
+            <span class="label-text">{{ t('form_labels.piston_deck_height') }}</span>
           </label>
           <label class="input w-full">
             <span class="label"><i class="fad fa-arrow-up-to-line"></i></span>
@@ -235,13 +239,13 @@
 
     <!-- Results Section -->
     <div class="mt-8">
-      <h2 class="text-2xl font-bold mb-4">{{ $t('results.title') }}</h2>
+      <h2 class="text-2xl font-bold mb-4">{{ t('results.title') }}</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="card bg-secondary shadow-sm">
           <div class="card-body text-center text-white">
             <h3 class="text-lg opacity-70">
               <i class="fa-jelly-duo fa-regular fa-compress fa-beat"></i>
-              {{ $t('results.compression_ratio') }}
+              {{ t('results.compression_ratio') }}
             </h3>
             <p class="text-3xl font-bold">{{ ratio || '?' }}</p>
           </div>
@@ -250,7 +254,7 @@
           <div class="card-body text-center text-white">
             <h3 class="text-lg opacity-70">
               <i class="fa-duotone fa-solid fa-fill"></i>
-              {{ $t('results.engine_capacity') }}
+              {{ t('results.engine_capacity') }}
             </h3>
             <p class="text-3xl font-bold">{{ capacity || '?' }}</p>
           </div>
@@ -262,25 +266,25 @@
     <div class="text-center mt-4">
       <div class="max-w-3xl mx-auto">
         <p class="mb-2">
-          {{ $t('disclaimer.text', { strong_start: '<strong>', strong_end: '</strong>' }) }}
+          {{ t('disclaimer.text', { strong_start: '<strong>', strong_end: '</strong>' }) }}
           <a
             href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344"
             target="_blank"
             rel="noopener noreferrer"
             class="link link-primary"
           >
-            {{ $t('disclaimer.equation_source') }}
+            {{ t('disclaimer.equation_source') }}
           </a>
         </p>
         <p>
-          {{ $t('disclaimer.alternate_source') }}
+          {{ t('disclaimer.alternate_source') }}
           <a
             href="https://www.calverst.com/technical-info/compression-ratio-%E2%80%93-working-it-out/"
             target="_blank"
             rel="noopener noreferrer"
             class="link link-primary"
           >
-            {{ $t('disclaimer.calver_link') }}</a
+            {{ t('disclaimer.calver_link') }}</a
           >,
           <a
             href="https://www.jepistons.com/blog/how-to-calculate-engine-compression-ratio-and-displacement"
@@ -288,7 +292,7 @@
             rel="noopener noreferrer"
             class="link link-primary"
           >
-            {{ $t('disclaimer.je_pistons_link') }}
+            {{ t('disclaimer.je_pistons_link') }}
           </a>
         </p>
       </div>

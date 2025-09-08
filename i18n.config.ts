@@ -1,0 +1,20 @@
+export default {
+  legacy: false,
+  locale: 'en',
+  fallbackLocale: 'en',
+  silentTranslationWarn: true,
+  silentFallbackWarn: true,
+  globalInjection: true,
+  messages: {
+    en: {},
+    es: {},
+    fr: {},
+    it: {},
+    de: {},
+    pt: {},
+    ru: {},
+    ja: {},
+    zh: {},
+    ko: {},
+  },
+};

@@ -1,7 +1,10 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS } from '../../data/models/generic';
+  
+  const { t } = useI18n({
+    useScope: 'local',
+  });
 
-  const crumbs: any = ref([]);
   const props = defineProps({
     page: {
       type: String,
@@ -25,89 +28,96 @@
       default: '',
     },
   });
-  if (props.root) {
-    crumbs.value.push(
-      {
-        title: $t('home'),
-        disabled: false,
-        href: '/',
-      },
-      {
-        title:
-          props.version === BREADCRUMB_VERSIONS.TECH
-            ? $t('technical')
-            : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? $t('admin')
-              : $t('archive'),
-        disabled: true,
-        href:
-          props.version === BREADCRUMB_VERSIONS.TECH
-            ? '/technical'
-            : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? '/admin'
-              : '/archive',
-      }
-    );
-  } else if (props.subpage) {
-    crumbs.value.push(
-      {
-        title: $t('home'),
-        disabled: false,
-        href: '/',
-      },
-      {
-        title:
-          props.version === BREADCRUMB_VERSIONS.TECH
-            ? $t('technical')
-            : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? $t('admin')
-              : $t('archive'),
-        disabled: false,
-        href:
-          props.version === BREADCRUMB_VERSIONS.TECH
-            ? '/technical'
-            : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? '/admin'
-              : '/archive',
-      },
-      {
-        title: props.subpage,
-        disabled: false,
-        href: props.subpageHref,
-      },
-      {
-        title: props.page,
-        disabled: true,
-      }
-    );
-  } else {
-    crumbs.value.push(
-      {
-        title: $t('home'),
-        disabled: false,
-        href: '/',
-      },
-      {
-        title:
-          props.version === BREADCRUMB_VERSIONS.TECH
-            ? $t('technical')
-            : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? $t('admin')
-              : $t('archive'),
-        disabled: false,
-        href:
-          props.version === BREADCRUMB_VERSIONS.TECH
-            ? '/technical'
-            : props.version === BREADCRUMB_VERSIONS.ADMIN
-              ? '/admin'
-              : '/archive',
-      },
-      {
-        title: props.page,
-        disabled: true,
-      }
-    );
-  }
+  
+  const crumbs = computed(() => {
+    const result: any[] = [];
+    
+    if (props.root) {
+      result.push(
+        {
+          title: t('home'),
+          disabled: false,
+          href: '/',
+        },
+        {
+          title:
+            props.version === BREADCRUMB_VERSIONS.TECH
+              ? t('technical')
+              : props.version === BREADCRUMB_VERSIONS.ADMIN
+                ? t('admin')
+                : t('archive'),
+          disabled: true,
+          href:
+            props.version === BREADCRUMB_VERSIONS.TECH
+              ? '/technical'
+              : props.version === BREADCRUMB_VERSIONS.ADMIN
+                ? '/admin'
+                : '/archive',
+        }
+      );
+    } else if (props.subpage) {
+      result.push(
+        {
+          title: t('home'),
+          disabled: false,
+          href: '/',
+        },
+        {
+          title:
+            props.version === BREADCRUMB_VERSIONS.TECH
+              ? t('technical')
+              : props.version === BREADCRUMB_VERSIONS.ADMIN
+                ? t('admin')
+                : t('archive'),
+          disabled: false,
+          href:
+            props.version === BREADCRUMB_VERSIONS.TECH
+              ? '/technical'
+              : props.version === BREADCRUMB_VERSIONS.ADMIN
+                ? '/admin'
+                : '/archive',
+        },
+        {
+          title: props.subpage,
+          disabled: false,
+          href: props.subpageHref,
+        },
+        {
+          title: props.page,
+          disabled: true,
+        }
+      );
+    } else {
+      result.push(
+        {
+          title: t('home'),
+          disabled: false,
+          href: '/',
+        },
+        {
+          title:
+            props.version === BREADCRUMB_VERSIONS.TECH
+              ? t('technical')
+              : props.version === BREADCRUMB_VERSIONS.ADMIN
+                ? t('admin')
+                : t('archive'),
+          disabled: false,
+          href:
+            props.version === BREADCRUMB_VERSIONS.TECH
+              ? '/technical'
+              : props.version === BREADCRUMB_VERSIONS.ADMIN
+                ? '/admin'
+                : '/archive',
+        },
+        {
+          title: props.page,
+          disabled: true,
+        }
+      );
+    }
+    
+    return result;
+  });
 </script>
 <template>
   <div class="text-base breadcrumbs">
