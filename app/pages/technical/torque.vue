@@ -5,25 +5,25 @@
   const tableSearchQueries = ref<Record<string, string>>({});
 
   const tableHeaders = [
-    { title: $t('pages.technical.subPages.torque.table_headers.fastener'), key: 'name' },
-    { title: $t('pages.technical.subPages.torque.table_headers.torque_lbft'), key: 'lbft' },
-    { title: $t('pages.technical.subPages.torque.table_headers.torque_nm'), key: 'nm' },
-    { title: $t('pages.technical.subPages.torque.table_headers.notes'), key: 'notes' },
+    { title: $t('table_headers.fastener'), key: 'name' },
+    { title: $t('table_headers.torque_lbft'), key: 'lbft' },
+    { title: $t('table_headers.torque_nm'), key: 'nm' },
+    { title: $t('table_headers.notes'), key: 'notes' },
   ];
   const activePanel = ref('Engine');
 
   useHead({
-    title: $t('pages.technical.subPages.torque.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.technical.subPages.torque.description'),
+        content: $t('description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content: $t('pages.technical.subPages.torque.keywords'),
+        content: $t('keywords'),
       },
     ],
     link: [
@@ -39,14 +39,14 @@
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.technical.subPages.torque.og_title'),
-    ogDescription: $t('pages.technical.subPages.torque.og_description'),
+    ogTitle: $t('og_title'),
+    ogDescription: $t('og_description'),
     ogUrl: 'https://classicminidiy.com/technical/torque',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/torque.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.technical.subPages.torque.twitter_title'),
-    twitterDescription: $t('pages.technical.subPages.torque.twitter_description'),
+    twitterTitle: $t('twitter_title'),
+    twitterDescription: $t('twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/torque.png',
   });
 
@@ -54,8 +54,8 @@
   const torqueSpecsJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: $t('pages.technical.subPages.torque.structured_data.headline'),
-    description: $t('pages.technical.subPages.torque.structured_data.description'),
+    headline: $t('structured_data.headline'),
+    description: $t('structured_data.description'),
     image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
     author: {
       '@type': 'Person',
@@ -72,9 +72,9 @@
     url: 'https://classicminidiy.com/technical/torque',
     mainEntity: {
       '@type': 'Dataset',
-      name: $t('pages.technical.subPages.torque.structured_data.dataset_name'),
-      description: $t('pages.technical.subPages.torque.structured_data.dataset_description'),
-      variableMeasured: $t('pages.technical.subPages.torque.structured_data.variable_measured'),
+      name: $t('structured_data.dataset_name'),
+      description: $t('structured_data.dataset_description'),
+      variableMeasured: $t('structured_data.variable_measured'),
     },
   };
 
@@ -112,7 +112,7 @@
 <template>
   <hero
     :navigation="true"
-    :title="$t('pages.technical.subPages.torque.hero_title')"
+    :title="$t('hero_title')"
     :textSize="'text-3xl'"
     :heroType="HERO_TYPES.TECH"
   />
@@ -121,7 +121,7 @@
       <div class="col-span-12">
         <breadcrumb
           :version="BREADCRUMB_VERSIONS.TECH"
-          :page="$t('pages.technical.subPages.torque.breadcrumb_title')"
+          :page="$t('breadcrumb_title')"
         ></breadcrumb>
       </div>
       <div class="col-span-12">
@@ -158,7 +158,7 @@
                   <div class="input-group">
                     <input
                       type="text"
-                      :placeholder="$t('pages.technical.subPages.torque.ui.search_placeholder')"
+                      :placeholder="$t('ui.search_placeholder')"
                       v-model="tableSearchQueries[name]"
                       class="input input-bordered w-full input-md"
                     />
@@ -186,7 +186,7 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.lbft }}</td>
                         <td>{{ item.nm }}</td>
-                        <td>{{ item.notes ? item.notes : $t('pages.technical.subPages.torque.ui.no_notes') }}</td>
+                        <td>{{ item.notes ? item.notes : $t('ui.no_notes') }}</td>
                       </tr>
                     </template>
                   </tbody>
@@ -242,3 +242,36 @@
     }
   }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Classic Mini Torque Specifications Chart | Classic Mini DIY",
+    "description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
+    "keywords": "Classic Mini torque specs, Mini Cooper fasteners, torque specifications, engine torque values, suspension torque, Mini maintenance, classic car specifications",
+    "hero_title": "Torque Specs",
+    "breadcrumb_title": "Torque Specs",
+    "og_title": "Classic Mini Torque Specifications Chart | Classic Mini DIY",
+    "og_description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
+    "twitter_title": "Classic Mini Torque Specifications Chart",
+    "twitter_description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners.",
+    "structured_data": {
+      "headline": "Classic Mini Torque Specifications Chart",
+      "description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
+      "dataset_name": "Classic Mini Torque Specifications",
+      "dataset_description": "Comprehensive dataset of torque specifications for Classic Mini fasteners",
+      "variable_measured": ["Fastener Name", "Torque in lb/ft", "Torque in Nm", "Additional Notes"]
+    },
+    "table_headers": {
+      "fastener": "Fastener",
+      "torque_lbft": "Torque (lb/ft)",
+      "torque_nm": "Torque (Nm)",
+      "notes": "Notes"
+    },
+    "ui": {
+      "search_placeholder": "Search this table",
+      "no_notes": "---"
+    }
+  }
+}
+</i18n>

@@ -8,23 +8,23 @@
   const age = ref<string | undefined>(today.diff(birthday, 'years').toObject().years?.toFixed(0));
 
   useHead({
-    title: $t('pages.home.title'),
+    title: $t('home.title'),
     meta: [
       {
         name: 'description',
-        content: $t('pages.home.description'),
+        content: $t('home.description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.home.title'),
-    ogDescription: $t('pages.home.description'),
+    ogTitle: $t('home.title'),
+    ogDescription: $t('home.description'),
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/root.jpg',
     ogUrl: 'https://classicminidiy.com',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.home.title'),
-    twitterDescription: $t('pages.home.description'),
+    twitterTitle: $t('home.title'),
+    twitterDescription: $t('home.description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/root.jpg',
   });
 </script>
@@ -44,18 +44,18 @@
     <div class="grid grid-cols-12 gap-4 pb-5">
       <div class="col-span-12"></div>
       <div class="col-span-12 md:col-span-8">
-        <h2 class="fancy-font-book-oblique"><i class="fad fa-book"></i> {{ $t('pages.home.mission.title') }}</h2>
-        <h3 class="text-3xl font-bold pt-2 pb-3">{{ $t('pages.home.mission.heading') }}</h3>
+        <h2 class="fancy-font-book-oblique"><i class="fad fa-book"></i> {{ $t('home.mission.title') }}</h2>
+        <h3 class="text-3xl font-bold pt-2 pb-3">{{ $t('home.mission.heading') }}</h3>
         <p class="text-lg pb-5">
-          {{ $t('pages.home.mission.content') }}
+          {{ $t('home.mission.content') }}
         </p>
         <stats />
       </div>
       <div class="col-span-12 md:col-span-4">
-        <h3 class="fancy-font-book-oblique"><i class="fad fa-gift"></i> {{ $t('pages.home.support.title') }}</h3>
-        <h4 class="text-3xl font-bold pt-2 pb-3">{{ $t('pages.home.support.heading') }}</h4>
+        <h3 class="fancy-font-book-oblique"><i class="fad fa-gift"></i> {{ $t('home.support.title') }}</h3>
+        <h4 class="text-3xl font-bold pt-2 pb-3">{{ $t('home.support.heading') }}</h4>
         <p class="text-lg pt-2 pb-3">
-          {{ $t('pages.home.support.content') }}
+          {{ $t('home.support.content') }}
         </p>
         <a class="mr-3 btn text-lg is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
           <span class="icon">
@@ -87,36 +87,36 @@
         </div>
         <div class="col-span-12 md:col-span-7">
           <h3 class="fancy-font-book-oblique">
-            <i class="fad fa-handshake-alt"></i> {{ $t('pages.home.toolbox.title') }}
+            <i class="fad fa-handshake-alt"></i> {{ $t('home.toolbox.title') }}
           </h3>
-          <h3 class="text-3xl font-bold">{{ $t('pages.home.toolbox.heading') }}</h3>
-          <h4 class="fancy-font-book-oblique pt-5 pb-5">{{ $t('pages.home.toolbox.subtitle') }}</h4>
+          <h3 class="text-3xl font-bold">{{ $t('home.toolbox.heading') }}</h3>
+          <h4 class="fancy-font-book-oblique pt-5 pb-5">{{ $t('home.toolbox.subtitle') }}</h4>
           <p class="pb-5 text-lg">
-            {{ $t('pages.home.toolbox.content') }}
+            {{ $t('home.toolbox.content') }}
           </p>
-          <nuxt-link class="btn btn-primary text-lg" to="/technical"> {{ $t('pages.home.toolbox.button') }} </nuxt-link>
+          <nuxt-link class="btn btn-primary text-lg" to="/technical"> {{ $t('home.toolbox.button') }} </nuxt-link>
         </div>
       </div>
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12 md:col-span-8 lg:col-span-6">
           <h3 class="fancy-font-book-oblique pb-5">
-            <i class="fad fa-hands-heart"></i> {{ $t('pages.home.patreon.title') }}
+            <i class="fad fa-hands-heart"></i> {{ $t('home.patreon.title') }}
           </h3>
-          <h3 class="text-3xl font-bold pb-5">{{ $t('pages.home.patreon.heading') }}</h3>
+          <h3 class="text-3xl font-bold pb-5">{{ $t('home.patreon.heading') }}</h3>
           <p class="text-lg">
-            {{ $t('pages.home.patreon.content') }}
+            {{ $t('home.patreon.content') }}
           </p>
           <a class="mt-5 mb-5 btn is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
             <span class="icon">
               <i class="fab fa-patreon" />
             </span>
-            <span>{{ $t('pages.home.patreon.button') }}</span>
+            <span>{{ $t('home.patreon.button') }}</span>
           </a>
 
           <div class="max-w-2xl mx-auto">
             <div class="p-4 mt-5 max-w-md bg-white rounded-lg shadow-md sm:p-8">
               <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold leading-none">{{ $t('pages.home.patreon.benefits.title') }}</h3>
+                <h3 class="text-xl font-bold leading-none">{{ $t('home.patreon.benefits.title') }}</h3>
               </div>
               <div class="flow-root">
                 <ul role="list" class="divide-y divide-gray-200 benefits-list">
@@ -126,7 +126,7 @@
                         <i class="text-h4 fab fa-discord pt-2"></i>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <p class="text-lg font-medium">{{ $t('pages.home.patreon.benefits.discord') }}</p>
+                        <p class="text-lg font-medium">{{ $t('home.patreon.benefits.discord') }}</p>
                       </div>
                     </div>
                   </li>
@@ -136,7 +136,7 @@
                         <i class="text-h4 fad fa-video pt-2"></i>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <p class="text-lg font-medium">{{ $t('pages.home.patreon.benefits.early_access') }}</p>
+                        <p class="text-lg font-medium">{{ $t('home.patreon.benefits.early_access') }}</p>
                       </div>
                     </div>
                   </li>
@@ -146,7 +146,7 @@
                         <i class="text-h4 fad fa-gift pt-2"></i>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <p class="text-lg font-medium">{{ $t('pages.home.patreon.benefits.gifts') }}</p>
+                        <p class="text-lg font-medium">{{ $t('home.patreon.benefits.gifts') }}</p>
                       </div>
                     </div>
                   </li>
@@ -156,7 +156,7 @@
                         <i class="text-h4 fad fa-circle-info pt-2"></i>
                       </div>
                       <div class="flex-1 min-w-0">
-                        <p class="text-lg font-medium">{{ $t('pages.home.patreon.benefits.insider') }}</p>
+                        <p class="text-lg font-medium">{{ $t('home.patreon.benefits.insider') }}</p>
                       </div>
                     </div>
                   </li>
@@ -177,15 +177,15 @@
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12 md:col-span-7 mb-5 pb-10">
           <h3 class="fancy-font-bold text-2xl">
-            <i class="fad fa-address-card"></i> {{ $t('pages.home.about.title') }}
+            <i class="fad fa-address-card"></i> {{ $t('home.about.title') }}
           </h3>
-          <h4 class="fancy-font-book-oblique pt-5">{{ $t('pages.home.about.name') }}</h4>
+          <h4 class="fancy-font-book-oblique pt-5">{{ $t('home.about.name') }}</h4>
           <p>
-            {{ $t('pages.home.about.bio', { age: age }) }}
+            {{ $t('home.about.bio', { age: age }) }}
           </p>
-          <h3 class="fancy-font-book-oblique pt-10">{{ $t('pages.home.about.promise_title') }}</h3>
+          <h3 class="fancy-font-book-oblique pt-10">{{ $t('home.about.promise_title') }}</h3>
           <p>
-            {{ $t('pages.home.about.promise') }}
+            {{ $t('home.about.promise') }}
           </p>
         </div>
         <div class="col-span-12 md:col-span-5 avatar-container">
@@ -213,6 +213,62 @@
     border-radius: 50px;
   }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "hero": {
+      "home_title": "Classic Mini DIY",
+      "home_subtitle": "YOUR FRIENDLY NEIGHBORHOOD"
+    },
+    "common": {
+      "donate": "Donate",
+      "contribute": "Contribute"
+    },
+    "home": {
+        "title": "Classic Mini DIY | Your Friendly Neighborhood Classic Mini Resource",
+        "description": "Classic Mini DIY - Your complete resource for Classic Mini restoration, maintenance, and modification. DIY tutorials, technical guides, and community support.",
+        "mission": {
+          "title": "THE MINI MISSION",
+          "heading": "Keeping the Classics on the Road",
+          "content": "Classic Mini DIY started out of my small driveway workshop in 2015. I always focus on two things: keeping your Classic Mini on the road and making DIY car work accessible for all skill levels. I make DIY videos and tutorials showing exactly how to complete a wide range of jobs on your Classic Mini. I also partner with world-class manufacturers to deliver top-of-the-line products to personalize and ensure the performance of your Classic Mini."
+        },
+        "support": {
+          "title": "SUPPORT THE MISSION",
+          "heading": "Support",
+          "content": "Classic Mini DIY is supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon or if you have skills in JS and modern web technologies, please consider supporting the open source codebase on github."
+        },
+        "toolbox": {
+          "title": "THE COMPLETELY FREE",
+          "heading": "Classic Mini Toolbox",
+          "subtitle": "THE TOOLKIT FOR THE DIY MECHANIC",
+          "content": "One of the largest reasons for starting this channel, was about making infromation related to working your Mini Cooper more accessible. In service to this goal I have created the Classic Mini Toolbox. Combining information from all over the web to bring you one location to find anything you need.",
+          "button": "Open the toolbox"
+        },
+        "patreon": {
+          "title": "SUPPORT THE CHANNEL",
+          "heading": "Become a Patreon",
+          "content": "Classic Mini DIY is completely free resource supported by our viewers. If you are interested in helping to keep the channel alive, consider supporting on Patreon.",
+          "button": "Become a Member",
+          "benefits": {
+            "title": "Membership Includes",
+            "discord": "Access to Live DIY Chat",
+            "early_access": "Early Access to videos",
+            "gifts": "Free gifts and merch",
+            "insider": "Insider information and much more..."
+          }
+        },
+        "about": {
+          "title": "About Me",
+          "name": "MY NAME IS COLE",
+          "bio": "I am a {age}-year-old Web Developer working in the financial industry. My experience in the automotive industry comes from 2 years of training on heavy diesel machinery and 8 years of Classic Mini ownership. With this experience, I do my best to provide the most comprehensive and technically correct information I can.",
+          "promise_title": "MY PROMISE",
+          "promise": "I will provide you with all the knowledge I can to the best of my ability. I will also accept feedback in the event that I get something incorrect. I am an enthusiast and not a complete expert so from time to time I will make mistakes."
+        }
+    }
+  }
+}
+</i18n>
 
 <style lang="scss" scoped>
   .benefits-list {

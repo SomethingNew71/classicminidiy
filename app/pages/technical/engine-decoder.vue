@@ -21,24 +21,24 @@
   });
 
   useHead({
-    title: $t('pages.technical.subPages.engine_decoder.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.technical.subPages.engine_decoder.description'),
+        content: $t('description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: $t('pages.technical.subPages.engine_decoder.og_title'),
-    ogDescription: $t('pages.technical.subPages.engine_decoder.og_description'),
+    ogTitle: $t('og_title'),
+    ogDescription: $t('og_description'),
     ogUrl: 'https://classicminidiy.com/technical/engine-decoder',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/engine-decoder.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.technical.subPages.engine_decoder.twitter_title'),
-    twitterDescription: $t('pages.technical.subPages.engine_decoder.twitter_description'),
+    twitterTitle: $t('twitter_title'),
+    twitterDescription: $t('twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/engine-decoder.png',
   });
 </script>
@@ -46,7 +46,7 @@
 <template>
   <hero
     :navigation="true"
-    :title="$t('pages.technical.subPages.engine_decoder.hero_title')"
+    :title="$t('hero_title')"
     :heroType="HERO_TYPES.TECH"
   />
   <div class="container mx-auto px-4">
@@ -55,21 +55,21 @@
         <breadcrumb
           class="my-4"
           :version="BREADCRUMB_VERSIONS.TECH"
-          :page="$t('pages.technical.subPages.engine_decoder.breadcrumb_title')"
+          :page="$t('breadcrumb_title')"
         ></breadcrumb>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div class="col-span-12 md:col-span-7">
-            <h1 class="text-3xl font-bold mb-4">{{ $t('pages.technical.subPages.engine_decoder.main_heading') }}</h1>
+            <h1 class="text-3xl font-bold mb-4">{{ $t('main_heading') }}</h1>
             <p class="mb-4">
-              {{ $t('pages.technical.subPages.engine_decoder.description_text') }}
+              {{ $t('description_text') }}
             </p>
             <EnginePlateModal></EnginePlateModal>
           </div>
           <div class="col-span-12 md:col-span-5">
             <NuxtLink
               :to="'/technical/chassis-decoder'"
-              :title="$t('pages.technical.subPages.engine_decoder.chassis_decoder_card.link_title')"
+              :title="$t('chassis_decoder_card.link_title')"
               class="block"
             >
               <div class="card hover:shadow-lg transition-shadow">
@@ -87,17 +87,17 @@
                       <nuxt-img
                         loading="lazy"
                         src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png"
-                        :alt="$t('pages.technical.subPages.engine_decoder.chassis_decoder_card.alt_text')"
+                        :alt="$t('chassis_decoder_card.alt_text')"
                         class="w-16 h-16"
                       />
                     </picture>
                   </div>
                   <div class="ml-4">
                     <h2 class="text-xl font-semibold mb-2">
-                      {{ $t('pages.technical.subPages.engine_decoder.chassis_decoder_card.heading') }}
+                      {{ $t('chassis_decoder_card.heading') }}
                     </h2>
                     <p class="text-gray-600">
-                      {{ $t('pages.technical.subPages.engine_decoder.chassis_decoder_card.description') }}
+                      {{ $t('chassis_decoder_card.description') }}
                     </p>
                   </div>
                 </div>
@@ -109,19 +109,19 @@
       <div class="col-span-12">
         <div class="col-span-12 pb-5">
           <i class="fas fa-circle pl-1 color-850"></i>
-          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.850cc') }}
+          {{ $t('engine_sizes_legend.850cc') }}
           <i class="fas fa-circle pl-1 color-970"></i>
-          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.970cc') }}
+          {{ $t('engine_sizes_legend.970cc') }}
           <i class="fas fa-circle pl-1 color-997"></i>
-          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.997cc') }}
+          {{ $t('engine_sizes_legend.997cc') }}
           <i class="fas fa-circle pl-1 color-998"></i>
-          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.998cc') }}
+          {{ $t('engine_sizes_legend.998cc') }}
           <i class="fas fa-circle pl-1 color-1070"></i>
-          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.1070cc') }}
+          {{ $t('engine_sizes_legend.1070cc') }}
           <i class="fas fa-circle pl-1 color-1100"></i>
-          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.1100cc') }}
+          {{ $t('engine_sizes_legend.1100cc') }}
           <i class="fas fa-circle pl-1 color-1275"></i>
-          {{ $t('pages.technical.subPages.engine_decoder.engine_sizes_legend.1275cc') }}
+          {{ $t('engine_sizes_legend.1275cc') }}
         </div>
         <div class="col-span-12 md:col-span-6">
           <div class="form-control pb-5">
@@ -130,7 +130,7 @@
                 <span class="label"><i class="fad fa-search"></i></span>
                 <input
                   v-model="search"
-                  :placeholder="$t('pages.technical.subPages.engine_decoder.search.placeholder')"
+                  :placeholder="$t('search.placeholder')"
                   type="text"
                   class="input-bordered w-full"
                 />
@@ -146,7 +146,7 @@
                   <i class="fad fa-engine text-2xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold ml-2">
-                  {{ $t('pages.technical.subPages.engine_decoder.table.title') }}
+                  {{ $t('table.title') }}
                 </h3>
               </div>
             </div>
@@ -156,12 +156,12 @@
                 <table class="table table-compact w-full">
                   <thead>
                     <tr>
-                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.color') }}</th>
-                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.code') }}</th>
-                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.engine_size') }}</th>
-                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.engine_variant') }}</th>
-                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.gearbox_details') }}</th>
-                      <th>{{ $t('pages.technical.subPages.engine_decoder.table.headers.details') }}</th>
+                      <th>{{ $t('table.headers.color') }}</th>
+                      <th>{{ $t('table.headers.code') }}</th>
+                      <th>{{ $t('table.headers.engine_size') }}</th>
+                      <th>{{ $t('table.headers.engine_variant') }}</th>
+                      <th>{{ $t('table.headers.gearbox_details') }}</th>
+                      <th>{{ $t('table.headers.details') }}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -183,7 +183,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider mb-4">{{ $t('pages.technical.subPages.engine_decoder.ui.support_section') }}</div>
+        <div class="divider mb-4">{{ $t('ui.support_section') }}</div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
         <patreon-card size="large" />
@@ -191,6 +191,55 @@
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Tech - Mini Engine Plate Decoder",
+    "description": "Decode your Classic Mini's Engine plate to determine the engine size and features of your car. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+    "hero_title": "Engine Code Decoder",
+    "breadcrumb_title": "Engine Sizes",
+    "og_title": "Tech - Mini Engine Plate Decoder",
+    "og_description": "Decode your Classic Mini's Engine plate to determine the engine size and features of your car. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+    "twitter_title": "Tech - Mini Engine Plate Decoder",
+    "twitter_description": "Decode your Classic Mini's Engine plate to determine the engine size and features of your car.",
+    "main_heading": "Engine Plate Decoder",
+    "description_text": "The engine plate is a series of numbers and letters that are stamped on a metal plate that is riveted to the engine near the water pump. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+    "chassis_decoder_card": {
+      "link_title": "Link to Chassis Decoder Tool",
+      "heading": "Need to decode your Chassis Number?",
+      "description": "Click here to identify your car using our new chassis number decoding tool.",
+      "alt_text": "Image of magnifying glass"
+    },
+    "engine_sizes_legend": {
+      "850cc": "850cc",
+      "970cc": "970cc",
+      "997cc": "997cc",
+      "998cc": "998cc",
+      "1070cc": "1070cc",
+      "1100cc": "1100",
+      "1275cc": "1275"
+    },
+    "search": {
+      "placeholder": "Search your engine code"
+    },
+    "table": {
+      "title": "Engine Codes",
+      "headers": {
+        "color": "",
+        "code": "Code",
+        "engine_size": "Engine Size",
+        "engine_variant": "Engine Variant",
+        "gearbox_details": "Gearbox Details",
+        "details": "Details"
+      }
+    },
+    "ui": {
+      "support_section": "Support"
+    }
+  }
+}
+</i18n>
 <style lang="scss" scoped>
   .color-850 {
     color: #e24329;

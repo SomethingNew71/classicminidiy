@@ -5,7 +5,7 @@
   const { path, fullPath } = useRoute();
   const crumbs = ref([
     {
-      title: $t('pages.archive_item.breadcrumb_archive'),
+      title: $t('breadcrumb_archive'),
       disabled: false,
       href: '/archive',
     },
@@ -44,19 +44,18 @@
   }
 
   await useHead({
-    title: `${currentPostData.value?.title} ${$t('pages.archive_item.seo.title_suffix')}`,
+    title: `${currentPostData.value?.title} ${$t('seo.title_suffix')}`,
     meta: [
       {
         key: 'description',
         name: 'description',
         content:
-          currentPostData.value?.description ||
-          $t('pages.archive_item.seo.description_fallback', { title: currentPostData.value?.title }),
+          currentPostData.value?.description || $t('seo.description_fallback', { title: currentPostData.value?.title }),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content: $t('pages.archive_item.seo.keywords_template', {
+        content: $t('seo.keywords_template', {
           title: currentPostData.value?.title,
           fileType: fileType || 'resource',
           archiveType,
@@ -76,19 +75,17 @@
   });
 
   await useSeoMeta({
-    ogTitle: `${currentPostData.value?.title} ${$t('pages.archive_item.seo.og_title_suffix')}`,
+    ogTitle: `${currentPostData.value?.title} ${$t('seo.og_title_suffix')}`,
     ogDescription:
-      currentPostData.value?.description ||
-      $t('pages.archive_item.seo.description_fallback', { title: currentPostData.value?.title }),
+      currentPostData.value?.description || $t('seo.description_fallback', { title: currentPostData.value?.title }),
     ogUrl: `https://classicminidiy.com${fullPath}`,
     ogImage: currentPostData.value?.image,
     ogType: 'article',
     author: currentPostData.value?.author,
     twitterCard: 'summary_large_image',
-    twitterTitle: `${currentPostData.value?.title} ${$t('pages.archive_item.seo.twitter_title_suffix')}`,
+    twitterTitle: `${currentPostData.value?.title} ${$t('seo.twitter_title_suffix')}`,
     twitterDescription:
-      currentPostData.value?.description ||
-      $t('pages.archive_item.seo.description_fallback', { title: currentPostData.value?.title }),
+      currentPostData.value?.description || $t('seo.description_fallback', { title: currentPostData.value?.title }),
     twitterImage: currentPostData.value?.image,
   });
 
@@ -103,11 +100,11 @@
     encodingFormat: fileType, // Using plain string value, not computed
     author: {
       '@type': 'Person',
-      name: currentPostData.value?.author || $t('pages.archive_item.structured_data.author_fallback'),
+      name: currentPostData.value?.author || $t('structured_data.author_fallback'),
     },
     publisher: {
       '@type': 'Organization',
-      name: $t('pages.archive_item.structured_data.publisher_name'),
+      name: $t('structured_data.publisher_name'),
       logo: {
         '@type': 'ImageObject',
         url: 'https://classicminidiy.s3.amazonaws.com/misc/logo.png',
@@ -115,7 +112,7 @@
     },
     isPartOf: {
       '@type': 'CollectionPage',
-      name: $t('pages.archive_item.structured_data.collection_name'),
+      name: $t('structured_data.collection_name'),
       url: 'https://classicminidiy.com/archive',
     },
   };
@@ -134,7 +131,7 @@
 <template>
   <hero
     :navigation="true"
-    :title="$t('pages.archive_item.hero_title')"
+    :title="$t('hero_title')"
     textSize="text-3xl"
     :subtitle="currentPostData?.title"
     :heroType="HERO_TYPES.ARCHIVE"
@@ -172,7 +169,7 @@
       <div v-else-if="error" class="alert alert-error shadow-lg max-w-2xl mx-auto">
         <div>
           <i class="fa-duotone fa-circle-exclamation"></i>
-          <span>{{ $t('pages.archive_item.loading_error') }}</span>
+          <span>{{ $t('loading_error') }}</span>
         </div>
       </div>
       <!-- Content state - only show if we have data and no errors -->
@@ -183,21 +180,21 @@
             <i
               v-if="!currentPostData.image || currentPostData.image === ''"
               class="fa-duotone fa-image-slash text-6xl"
-              :aria-label="$t('pages.archive_item.no_image_alt')"
+              :aria-label="$t('no_image_alt')"
             ></i>
             <!-- Image with download link -->
             <a
               v-else-if="currentPostData.download && currentPostData.download !== ''"
               :href="currentPostData.download"
-              :aria-label="$t('pages.archive_item.download_aria_label', { title: currentPostData.title || 'file' })"
+              :aria-label="$t('download_aria_label', { title: currentPostData.title || 'file' })"
               class="block"
             >
               <img
                 :src="currentPostData.image"
                 class="rounded-xl max-h-[200px] object-contain"
                 :alt="
-                  $t('pages.archive_item.preview_image_alt', {
-                    title: currentPostData.title || $t('pages.archive_item.fallback_title'),
+                  $t('preview_image_alt', {
+                    title: currentPostData.title || $t('fallback_title'),
                   })
                 "
                 loading="lazy"
@@ -210,8 +207,8 @@
               :src="currentPostData.image"
               class="rounded-xl max-h-[200px] object-contain"
               :alt="
-                $t('pages.archive_item.archive_item_alt', {
-                  title: currentPostData.title || $t('pages.archive_item.fallback_title'),
+                $t('archive_item_alt', {
+                  title: currentPostData.title || $t('fallback_title'),
                 })
               "
               loading="lazy"
@@ -221,7 +218,7 @@
           <div class="card-body items-center text-center">
             <!-- Title with fallback -->
             <h2 class="card-title text-2xl font-bold capitalize">
-              {{ currentPostData.title?.toLowerCase() || $t('pages.archive_item.fallback_title') }}
+              {{ currentPostData.title?.toLowerCase() || $t('fallback_title') }}
             </h2>
 
             <div class="flex flex-wrap items-center justify-center gap-4 my-2">
@@ -235,14 +232,13 @@
               <div v-if="currentPostData.download" class="flex items-center">
                 <i class="fa-duotone fa-file text-secondary mr-2"></i>
                 <span class="font-medium"
-                  >{{ $t('pages.archive_item.file_type_label') }}
-                  {{ currentPostData.download?.split('.')?.pop() || 'unknown' }}</span
+                  >{{ $t('file_type_label') }} {{ currentPostData.download?.split('.')?.pop() || 'unknown' }}</span
                 >
               </div>
             </div>
 
             <!-- Description with fallback -->
-            <p class="my-4">{{ currentPostData.description || $t('pages.archive_item.no_description') }}</p>
+            <p class="my-4">{{ currentPostData.description || $t('no_description') }}</p>
 
             <div class="card-actions justify-center mt-4">
               <ClientOnly>
@@ -251,7 +247,7 @@
                   @click="shareArchiveItem(currentPostData.title, currentPostData.path)"
                 >
                   <i class="fa-duotone fa-solid fa-arrow-up-from-bracket mr-2"></i>
-                  {{ $t('pages.archive_item.share_button') }}
+                  {{ $t('share_button') }}
                 </button>
                 <button
                   class="btn btn-secondary m-1 normal-case"
@@ -266,7 +262,7 @@
                   "
                 >
                   <i class="fa-duotone fa-solid fa-plus-large mr-2"></i>
-                  {{ $t('pages.archive_item.contribute_button') }}
+                  {{ $t('contribute_button') }}
                 </button>
                 <button
                   v-if="
@@ -277,7 +273,7 @@
                   disabled
                 >
                   <i class="fa-duotone fa-solid fa-question mr-2"></i>
-                  {{ $t('pages.archive_item.missing_file_button') }}
+                  {{ $t('missing_file_button') }}
                 </button>
                 <a
                   v-else-if="!currentPostData.path?.includes('companies')"
@@ -285,7 +281,7 @@
                   :href="currentPostData.download"
                 >
                   <i class="fa-duotone fa-solid fa-download mr-2"></i>
-                  {{ $t('pages.archive_item.download_button') }}
+                  {{ $t('download_button') }}
                 </a>
               </ClientOnly>
             </div>
@@ -295,6 +291,39 @@
     </div>
   </div>
 </template>
+
+<i18n>
+{
+  "en": {
+    "breadcrumb_archive": "Archive",
+    "hero_title": "Classic Mini Archives",
+    "loading_error": "Error loading content. Please try again later.",
+    "no_image_alt": "No image available",
+    "download_aria_label": "Download {title}",
+    "preview_image_alt": "{title} preview image",
+    "archive_item_alt": "{title} image",
+    "fallback_title": "Archive Item",
+    "file_type_label": "Type:",
+    "no_description": "No description available.",
+    "share_button": "Share",
+    "contribute_button": "Contribute",
+    "missing_file_button": "Missing File",
+    "download_button": "Download",
+    "seo": {
+      "title_suffix": "- Classic Mini Archive - Classic Mini DIY",
+      "description_fallback": "Archive resource for {title} in the Classic Mini DIY collection.",
+      "keywords_template": "Classic Mini, {title}, archive, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Classic Mini Archive",
+      "twitter_title_suffix": "- Classic Mini Archive"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Classic Mini Archives"
+    }
+  }
+}
+</i18n>
 
 <style lang="scss">
   .companies-content {

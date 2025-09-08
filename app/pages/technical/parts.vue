@@ -26,41 +26,41 @@
   };
 
   const tableHeaders = [
-    { title: $t('pages.technical.subPages.parts.table_headers.brand'), key: 'brand' },
-    { title: $t('pages.technical.subPages.parts.table_headers.part_number'), key: 'part' },
-    { title: $t('pages.technical.subPages.parts.table_headers.usage_info'), key: 'info' },
+    { title: $t('table_headers.brand'), key: 'brand' },
+    { title: $t('table_headers.part_number'), key: 'part' },
+    { title: $t('table_headers.usage_info'), key: 'info' },
   ];
 
   useHead({
-    title: $t('pages.technical.subPages.parts.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.technical.subPages.parts.description'),
+        content: $t('description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.technical.subPages.parts.og_title'),
-    ogDescription: $t('pages.technical.subPages.parts.og_description'),
+    ogTitle: $t('og_title'),
+    ogDescription: $t('og_description'),
     ogUrl: 'https://classicminidiy.com/technical/parts',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/parts.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.technical.subPages.parts.twitter_title'),
-    twitterDescription: $t('pages.technical.subPages.parts.twitter_description'),
+    twitterTitle: $t('twitter_title'),
+    twitterDescription: $t('twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/parts.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="$t('pages.technical.subPages.parts.hero_title')" :heroType="HERO_TYPES.TECH" />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.TECH" />
 
   <div class="container mx-auto px-4 py-6">
     <div class="mb-6">
-      <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('pages.technical.subPages.parts.breadcrumb_title')" />
+      <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')" />
     </div>
 
     <div class="space-y-4">
@@ -76,7 +76,7 @@
                 <input
                   type="text"
                   v-model="searchValue"
-                  :placeholder="$t('pages.technical.subPages.parts.ui.search_placeholder')"
+                  :placeholder="$t('ui.search_placeholder')"
                   class="input input-bordered w-full pr-10"
                 />
                 <span class="absolute right-3 top-1/2 -translate-y-1/2">
@@ -107,7 +107,7 @@
                   </tr>
                   <tr v-if="!table.items.length">
                     <td :colspan="tableHeaders.length" class="text-center py-4">
-                      {{ $t('pages.technical.subPages.parts.ui.no_items_found') }}
+                      {{ $t('ui.no_items_found') }}
                     </td>
                   </tr>
                 </tbody>
@@ -118,9 +118,34 @@
       </div>
     </div>
 
-    <div class="divider my-12">{{ $t('pages.technical.subPages.parts.ui.support_section') }}</div>
+    <div class="divider my-12">{{ $t('ui.support_section') }}</div>
     <div class="mb-8">
       <patreon-card size="large" />
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Tech - Parts Equivalency",
+    "description": "A complete list of parts which can be found at local parts sellers",
+    "hero_title": "Parts Equivalency",
+    "breadcrumb_title": "Parts Equivalency",
+    "og_title": "Tech - Parts Equivalency",
+    "og_description": "A complete list of parts which can be found at local parts sellers",
+    "twitter_title": "Tech - Parts Equivalency",
+    "twitter_description": "A complete list of parts which can be found at local parts sellers",
+    "table_headers": {
+      "brand": "Brand",
+      "part_number": "Part Number",
+      "usage_info": "Usage Info"
+    },
+    "ui": {
+      "search_placeholder": "Search...",
+      "no_items_found": "No items found",
+      "support_section": "Support"
+    }
+  }
+}
+</i18n>
