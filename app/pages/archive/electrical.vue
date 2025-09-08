@@ -5,17 +5,17 @@
   const activePanel = ref('Negative Ground');
 
   useHead({
-    title: $t('pages.archive.subpages.electrical.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.archive.subpages.electrical.description'),
+        content: $t('description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content: $t('pages.archive.subpages.electrical.keywords'),
+        content: $t('keywords'),
       },
     ],
     link: [
@@ -31,14 +31,14 @@
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.archive.subpages.electrical.seo.og_title'),
-    ogDescription: $t('pages.archive.subpages.electrical.seo.og_description'),
+    ogTitle: $t('seo.og_title'),
+    ogDescription: $t('seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/electrical',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/electrical.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.archive.subpages.electrical.seo.twitter_title'),
-    twitterDescription: $t('pages.archive.subpages.electrical.seo.twitter_description'),
+    twitterTitle: $t('seo.twitter_title'),
+    twitterDescription: $t('seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/electrical.png',
   });
 
@@ -46,16 +46,16 @@
   const electricalDiagramsJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: $t('pages.archive.subpages.electrical.structured_data.headline'),
-    description: $t('pages.archive.subpages.electrical.structured_data.description'),
+    headline: $t('structured_data.headline'),
+    description: $t('structured_data.description'),
     image: 'https://classicminidiy.s3.amazonaws.com/misc/archive-seo.jpg',
     author: {
       '@type': 'Person',
-      name: $t('pages.archive.subpages.electrical.structured_data.author_name'),
+      name: $t('structured_data.author_name'),
     },
     publisher: {
       '@type': 'Organization',
-      name: $t('pages.archive.subpages.electrical.structured_data.publisher_name'),
+      name: $t('structured_data.publisher_name'),
       logo: {
         '@type': 'ImageObject',
         url: 'https://classicminidiy.s3.amazonaws.com/misc/logo.png',
@@ -64,8 +64,8 @@
     url: 'https://classicminidiy.com/archive/electrical',
     mainEntity: {
       '@type': 'Dataset',
-      name: $t('pages.archive.subpages.electrical.structured_data.dataset_name'),
-      description: $t('pages.archive.subpages.electrical.structured_data.dataset_description'),
+      name: $t('structured_data.dataset_name'),
+      description: $t('structured_data.dataset_description'),
     },
   };
 
@@ -81,16 +81,16 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="$t('pages.archive.subpages.electrical.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" :page="$t('pages.archive.subpages.electrical.breadcrumb_title')"></breadcrumb>
+        <breadcrumb class="my-6" :page="$t('breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-2xl font-bold mb-4">{{ $t('pages.archive.subpages.electrical.main_heading') }}</h1>
+            <h1 class="text-2xl font-bold mb-4">{{ $t('main_heading') }}</h1>
             <p class="mb-6">
-              {{ $t('pages.archive.subpages.electrical.description_text') }}
+              {{ $t('description_text') }}
             </p>
           </div>
         </div>
@@ -136,18 +136,18 @@
                       <div class="text-lg opacity-70 flex items-center mt-1">
                         <i class="fa-solid fa-calendar mr-2"></i>
                         <span v-if="item.from || item.to"
-                          >{{ item.from || $t('pages.archive.subpages.electrical.date_range.unknown_placeholder')
-                          }}{{ $t('pages.archive.subpages.electrical.date_range.separator')
+                          >{{ item.from || $t('date_range.unknown_placeholder')
+                          }}{{ $t('date_range.separator')
                           }}{{
-                            item.to || $t('pages.archive.subpages.electrical.date_range.unknown_placeholder')
+                            item.to || $t('date_range.unknown_placeholder')
                           }}</span
                         >
-                        <span v-else>{{ $t('pages.archive.subpages.electrical.date_range.unknown') }}</span>
+                        <span v-else>{{ $t('date_range.unknown') }}</span>
                       </div>
                     </div>
                     <button
                       class="btn btn-ghost btn-lg"
-                      :aria-label="$t('pages.archive.subpages.electrical.download_button_aria')"
+                      :aria-label="$t('download_button_aria')"
                     >
                       <i class="fa-solid fa-download"></i>
                     </button>
@@ -161,7 +161,7 @@
 
       <!-- Support section -->
       <div class="col-span-12 mt-8 mb-10">
-        <div class="divider">{{ $t('pages.archive.subpages.electrical.support_divider') }}</div>
+        <div class="divider">{{ $t('support_divider') }}</div>
         <patreon-card size="large" />
       </div>
     </div>
@@ -205,3 +205,38 @@
     }
   }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Archive - Electrical Diagrams | Classic Mini DIY",
+    "description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper.",
+    "keywords": "Classic Mini electrical diagrams, Mini Cooper wiring, wiring diagrams, electrical schematics, classic car wiring",
+    "hero_title": "Electrical Diagrams",
+    "breadcrumb_title": "Electrical Diagrams",
+    "main_heading": "Electrical Diagrams",
+    "description_text": "Find the wiring diagrams you need with our collection of fully digitized diagrams sourced directly from The Mini Forum. Archived here for postarity and preservation.",
+    "date_range": {
+      "unknown": "Dates Unknown",
+      "separator": " - ",
+      "unknown_placeholder": "?"
+    },
+    "download_button_aria": "Download diagram",
+    "support_divider": "Support",
+    "seo": {
+      "og_title": "Archive - Electrical Diagrams | Classic Mini DIY",
+      "og_description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper.",
+      "twitter_title": "Classic Mini Electrical Diagrams",
+      "twitter_description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper."
+    },
+    "structured_data": {
+      "headline": "Classic Mini Electrical Diagrams",
+      "description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper.",
+      "author_name": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "dataset_name": "Classic Mini Electrical Diagrams",
+      "dataset_description": "Collection of digitized electrical diagrams for Classic Mini vehicles"
+    }
+  }
+}
+</i18n>

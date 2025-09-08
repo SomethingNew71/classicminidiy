@@ -49,14 +49,14 @@
     if (navigator.share) {
       navigator
         .share({
-          title: `${t('pages.archive.subpages.colors.share.title')} ${color.name || $t('pages.archive.subpages.colors.states.unnamed_color')}`,
-          text: `${t('pages.archive.subpages.colors.share.text')} ${color.name || $t('pages.archive.subpages.colors.states.unnamed_color')}`,
+          title: `${$t('share.title')} ${color.name || $t('states.unnamed_color')}`,
+          text: `${$t('share.text')} ${color.name || $t('states.unnamed_color')}`,
           url,
         })
         .catch(console.error);
     } else {
       navigator.clipboard.writeText(url);
-      alert(t('pages.archive.subpages.colors.states.link_copied'));
+      alert($t('states.link_copied'));
     }
   };
 
@@ -66,41 +66,41 @@
   });
 
   useHead({
-    title: $t('pages.archive.subpages.colors.title'),
+    title: $t('title'),
     meta: [
       {
         name: 'description',
-        content: $t('pages.archive.subpages.colors.description'),
+        content: $t('description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.archive.subpages.colors.seo.og_title'),
-    ogDescription: $t('pages.archive.subpages.colors.seo.og_description'),
+    ogTitle: $t('seo.og_title'),
+    ogDescription: $t('seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/colors',
     ogType: 'website',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.archive.subpages.colors.seo.twitter_title'),
-    twitterDescription: $t('pages.archive.subpages.colors.seo.twitter_description'),
+    twitterTitle: $t('seo.twitter_title'),
+    twitterDescription: $t('seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="$t('pages.archive.subpages.colors.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <!-- Breadcrumb -->
     <!-- Header -->
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <breadcrumb class="my-6" :page="$t('pages.archive.subpages.colors.breadcrumb_title')" />
-        <h1 class="text-3xl font-bold mb-4">{{ $t('pages.archive.subpages.colors.main_heading') }}</h1>
+        <breadcrumb class="my-6" :page="$t('breadcrumb_title')" />
+        <h1 class="text-3xl font-bold mb-4">{{ $t('main_heading') }}</h1>
         <p class="mb-6 text-base">
-          {{ $t('pages.archive.subpages.colors.description_text') }}
+          {{ $t('description_text') }}
           <a href="http://mini-colours.co.uk" class="link link-primary">{{
-            $t('pages.archive.subpages.colors.partner_link')
+            $t('partner_link')
           }}</a>
           to provide you with a comprehensive list of the colors used on the Classic Mini throughout the years.
         </p>
@@ -115,13 +115,13 @@
             <div class="p-4 border-b border-base-300 flex flex-col md:flex-row justify-between items-center gap-4">
               <div class="flex items-center gap-2">
                 <i class="fas fa-tire fa-spin text-primary text-2xl"></i>
-                <h2 class="text-2xl font-semibold">{{ $t('pages.archive.subpages.colors.search.card_title') }}</h2>
+                <h2 class="text-2xl font-semibold">{{ $t('search.card_title') }}</h2>
               </div>
               <div class="relative w-full md:w-96">
                 <input
                   v-model="search"
                   type="text"
-                  :placeholder="$t('pages.archive.subpages.colors.search.placeholder')"
+                  :placeholder="$t('search.placeholder')"
                   class="input input-bordered w-full pl-10"
                 />
                 <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -131,7 +131,7 @@
             <!-- Help Text -->
             <div class="p-4">
               <p class="text-base">
-                {{ $t('pages.archive.subpages.colors.search.help_text') }}
+                {{ $t('search.help_text') }}
               </p>
             </div>
 
@@ -166,7 +166,7 @@
                       <td :colspan="tableHeaders.length" class="text-center p-8">
                         <div class="alert alert-info">
                           <i class="fas fa-info-circle mr-2"></i>
-                          {{ $t('pages.archive.subpages.colors.states.no_colors') }}
+                          {{ $t('states.no_colors') }}
                         </div>
                       </td>
                     </tr>
@@ -185,7 +185,7 @@
                       <!-- Color Name -->
                       <td>
                         <NuxtLink :to="'/archive/colors/' + color.id" class="link link-primary">
-                          {{ color.name || $t('pages.archive.subpages.colors.states.unnamed_color') }}
+                          {{ color.name || $t('states.unnamed_color') }}
                         </NuxtLink>
                       </td>
 
@@ -223,7 +223,7 @@
                           {{ color.shortCode }}
                         </span>
                         <span v-else class="badge badge-error badge-soft">{{
-                          $t('pages.archive.subpages.colors.states.missing')
+                          $t('states.missing')
                         }}</span>
                       </td>
 
@@ -233,7 +233,7 @@
                           {{ color.code }}
                         </span>
                         <span v-else class="badge badge-error badge-soft">{{
-                          $t('pages.archive.subpages.colors.states.missing')
+                          $t('states.missing')
                         }}</span>
                       </td>
 
@@ -243,7 +243,7 @@
                           {{ color.ditzlerPpgCode }}
                         </span>
                         <span v-else class="badge badge-error badge-soft">{{
-                          $t('pages.archive.subpages.colors.states.missing')
+                          $t('states.missing')
                         }}</span>
                       </td>
 
@@ -253,7 +253,7 @@
                           {{ color.duluxCode }}
                         </span>
                         <span v-else class="badge badge-error badge-soft">{{
-                          $t('pages.archive.subpages.colors.states.missing')
+                          $t('states.missing')
                         }}</span>
                       </td>
 
@@ -263,7 +263,7 @@
                           {{ Array.isArray(color.years) ? color.years.join(', ') : color.years }}
                         </span>
                         <span v-else class="badge badge-error badge-soft">{{
-                          $t('pages.archive.subpages.colors.states.missing')
+                          $t('states.missing')
                         }}</span>
                       </td>
 
@@ -290,8 +290,8 @@
                   «
                 </button>
                 <button class="join-item btn btn-md">
-                  {{ $t('pages.archive.subpages.colors.pagination.page') }} {{ currentPage }}
-                  {{ $t('pages.archive.subpages.colors.pagination.of') }} {{ totalPages }}
+                  {{ $t('pagination.page') }} {{ currentPage }}
+                  {{ $t('pagination.of') }} {{ totalPages }}
                 </button>
                 <button
                   class="join-item btn btn-md"
@@ -308,9 +308,60 @@
 
       <!-- Support Section -->
       <div class="col-span-12 md:col-span-10 md:col-start-2 text-center py-8">
-        <div class="divider">{{ $t('pages.archive.subpages.colors.support_divider') }}</div>
+        <div class="divider">{{ $t('support_divider') }}</div>
         <patreon-card size="large" />
       </div>
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Color Picker",
+    "description": "Find the perfect color for your Classic Mini with our comprehensive color picker.",
+    "hero_title": "Color Picker",
+    "breadcrumb_title": "Color Swatches",
+    "main_heading": "Classic Mini Color Picker",
+    "description_text": "In an effort to make more information available, Classic Mini DIY has partnered with",
+    "partner_link": "mini-colours.co.uk",
+    "search": {
+      "card_title": "Find your Color",
+      "placeholder": "Search colors...",
+      "help_text": "Use the search above to filter for any field in the table below instantly. Notice some data missing? Click the edit button to contribute!"
+    },
+    "table_headers": {
+      "share": "Share",
+      "color_name": "Color Name",
+      "swatch": "Swatch",
+      "short_code": "Short Code",
+      "bmc_code": "BMC Code",
+      "ditzler_ppg_code": "Ditzler/PPG Code",
+      "dulux_code": "Dulux Code",
+      "years_used": "Years Used",
+      "edit": "Edit"
+    },
+    "states": {
+      "no_colors": "No colors found matching your search.",
+      "unnamed_color": "Unnamed Color",
+      "missing": "Missing",
+      "link_copied": "Link copied to clipboard!"
+    },
+    "pagination": {
+      "page": "Page",
+      "of": "of"
+    },
+    "share": {
+      "title": "Classic Mini Color:",
+      "text": "Check out this Classic Mini color:"
+    },
+    "support_divider": "Support",
+    "seo": {
+      "og_title": "Classic Mini Color Picker | Classic Mini DIY",
+      "og_description": "Find the perfect color for your Classic Mini with our comprehensive color picker and paint code reference.",
+      "twitter_title": "Classic Mini Color Picker | Classic Mini DIY",
+      "twitter_description": "Find the perfect color for your Classic Mini with our comprehensive color picker and paint code reference."
+    }
+  }
+}
+</i18n>

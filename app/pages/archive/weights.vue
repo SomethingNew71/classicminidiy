@@ -4,24 +4,24 @@
   const { data: tables, status } = await useFetch('/api/weights');
   const activePanel = ref('Brakes');
   const tableHeaders = [
-    { title: $t('pages.archive.subpages.weights.table_headers.item'), key: 'item' },
-    { title: $t('pages.archive.subpages.weights.table_headers.kg'), key: 'weight' },
-    { title: $t('pages.archive.subpages.weights.table_headers.lbs'), key: 'lbs' },
+    { title: $t('table_headers.item'), key: 'item' },
+    { title: $t('table_headers.kg'), key: 'weight' },
+    { title: $t('table_headers.lbs'), key: 'lbs' },
   ];
   const tableSearchQueries = ref<Record<string, string>>({});
 
   useHead({
-    title: $t('pages.archive.subpages.weights.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.archive.subpages.weights.description'),
+        content: $t('description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content: $t('pages.archive.subpages.weights.keywords'),
+        content: $t('keywords'),
       },
     ],
     link: [
@@ -37,19 +37,19 @@
   });
 
   useSeoMeta({
-    ogTitle: $t('pages.archive.subpages.weights.seo.og_title'),
-    ogDescription: $t('pages.archive.subpages.weights.seo.og_description'),
+    ogTitle: $t('seo.og_title'),
+    ogDescription: $t('seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/weights',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/weights.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.archive.subpages.weights.seo.twitter_title'),
-    twitterDescription: $t('pages.archive.subpages.weights.seo.twitter_description'),
+    twitterTitle: $t('seo.twitter_title'),
+    twitterDescription: $t('seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/weights.png',
   });
 
   function convertKgToLbs(weightInKg: number | null) {
-    if (!weightInKg) return $t('pages.archive.subpages.weights.no_weight');
+    if (!weightInKg) return $t('no_weight');
     return (weightInKg * 2.20462).toFixed(3);
   }
 
@@ -63,20 +63,20 @@
 </script>
 
 <template>
-  <hero :navigation="true" :title="$t('pages.archive.subpages.weights.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" :page="$t('pages.archive.subpages.weights.breadcrumb_title')"></breadcrumb>
+        <breadcrumb class="my-6" :page="$t('breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-2xl font-bold mb-4">{{ $t('pages.archive.subpages.weights.main_heading') }}</h1>
+            <h1 class="text-2xl font-bold mb-4">{{ $t('main_heading') }}</h1>
             <p class="mb-6">
-              {{ $t('pages.archive.subpages.weights.description_text') }}
+              {{ $t('description_text') }}
             </p>
             <a href="mailto:classicminidiy@gmail.com" class="btn btn-outline mb-6" target="_blank">
               <i class="fas fa-paper-plane mr-2"></i>
-              {{ $t('pages.archive.subpages.weights.email_button') }}
+              {{ $t('email_button') }}
             </a>
           </div>
         </div>
@@ -119,7 +119,7 @@
                       <input
                         v-model="tableSearchQueries[name]"
                         type="text"
-                        :placeholder="$t('pages.archive.subpages.weights.search_placeholder')"
+                        :placeholder="$t('search_placeholder')"
                         class="input-bordered w-full"
                       />
                     </label>
@@ -199,3 +199,31 @@
     }
   }
 </style>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Classic Mini Weights & Measurements | Classic Mini DIY",
+    "description": "Detailed weights & measurements for the Classic Mini can be found online right here at Classic Mini DIY.",
+    "keywords": "Classic Mini weights, Mini Cooper measurements, part weights, Mini component weights, classic car specifications",
+    "hero_title": "Weights & Measurements",
+    "breadcrumb_title": "Weights & Measurements",
+    "main_heading": "Mini Weights",
+    "description_text": "Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These weights were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you would like to contribute please click the link below to email me.",
+    "email_button": "classicminidiy{'@'}gmail.com",
+    "search_placeholder": "Search this table",
+    "table_headers": {
+      "item": "Item",
+      "kg": "Kg",
+      "lbs": "Lbs"
+    },
+    "no_weight": "---",
+    "seo": {
+      "og_title": "Classic Mini Weights & Measurements | Classic Mini DIY",
+      "og_description": "Detailed weights & measurements for the Classic Mini can be found online right here at Classic Mini DIY.",
+      "twitter_title": "Classic Mini Weights & Measurements",
+      "twitter_description": "Detailed weights & measurements for the Classic Mini."
+    }
+  }
+}
+</i18n>

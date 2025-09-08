@@ -4,57 +4,57 @@
 
   // Define table columns
   const tableHeaders = [
-    { title: $t('pages.archive.subpages.registry.table_headers.year'), key: 'year' },
-    { title: $t('pages.archive.subpages.registry.table_headers.model'), key: 'model' },
-    { title: $t('pages.archive.subpages.registry.table_headers.trim'), key: 'trim' },
-    { title: $t('pages.archive.subpages.registry.table_headers.color'), key: 'color' },
+    { title: $t('table_headers.year'), key: 'year' },
+    { title: $t('table_headers.model'), key: 'model' },
+    { title: $t('table_headers.trim'), key: 'trim' },
+    { title: $t('table_headers.color'), key: 'color' },
   ];
 
   const { data: registryItems, status } = await useFetch<RegistryItem[]>('/api/registry/list');
 
   useHead({
-    title: $t('pages.archive.subpages.registry.title'),
+    title: $t('title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: $t('pages.archive.subpages.registry.description'),
+        content: $t('description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: $t('pages.archive.subpages.registry.seo.og_title'),
-    ogDescription: $t('pages.archive.subpages.registry.seo.og_description'),
+    ogTitle: $t('seo.og_title'),
+    ogDescription: $t('seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/registry',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/registry.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: $t('pages.archive.subpages.registry.seo.twitter_title'),
-    twitterDescription: $t('pages.archive.subpages.registry.seo.twitter_description'),
+    twitterTitle: $t('seo.twitter_title'),
+    twitterDescription: $t('seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/registry.png',
   });
 </script>
 
 <template>
-  <hero :navigation="true" :title="$t('pages.archive.subpages.registry.hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
+  <hero :navigation="true" :title="$t('hero_title')" :heroType="HERO_TYPES.ARCHIVE" />
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb class="my-6" :page="$t('pages.archive.subpages.registry.breadcrumb_title')"></breadcrumb>
+        <breadcrumb class="my-6" :page="$t('breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
-            <h1 class="text-3xl font-bold">{{ $t('pages.archive.subpages.registry.main_heading') }}</h1>
+            <h1 class="text-3xl font-bold">{{ $t('main_heading') }}</h1>
             <h2 class="text-xl mt-4">
-              <strong>{{ registryItems?.length || $t('pages.archive.subpages.registry.subtitle_count') }}</strong>
-              {{ $t('pages.archive.subpages.registry.subtitle') }}
+              <strong>{{ registryItems?.length || $t('subtitle_count') }}</strong>
+              {{ $t('subtitle') }}
             </h2>
             <p class="my-4">
-              {{ $t('pages.archive.subpages.registry.description_text') }}
+              {{ $t('description_text') }}
             </p>
-            <p class="font-bold mt-4 mb-5">{{ $t('pages.archive.subpages.registry.submission_status_text') }}</p>
+            <p class="font-bold mt-4 mb-5">{{ $t('submission_status_text') }}</p>
             <NuxtLink to="/archive/registry/pending" class="btn btn-primary">
               <i class="fa-duotone fa-clipboard-question mr-2"></i>
-              {{ $t('pages.archive.subpages.registry.track_submission_button') }}
+              {{ $t('track_submission_button') }}
             </NuxtLink>
           </div>
           <div class="col-span-12 md:col-span-4">
@@ -76,16 +76,16 @@
                           <nuxt-img
                             loading="lazy"
                             src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
-                            :alt="$t('pages.archive.subpages.registry.submit_card.alt_text')"
+                            :alt="$t('submit_card.alt_text')"
                             class="w-16 h-16"
                           />
                         </picture>
                       </figure>
                     </div>
                     <div>
-                      <h2 class="card-title">{{ $t('pages.archive.subpages.registry.submit_card.title') }}</h2>
+                      <h2 class="card-title">{{ $t('submit_card.title') }}</h2>
                       <p>
-                        {{ $t('pages.archive.subpages.registry.submit_card.description') }}
+                        {{ $t('submit_card.description') }}
                       </p>
                     </div>
                   </div>
@@ -104,13 +104,13 @@
         />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider" id="submitAnchor">{{ $t('pages.archive.subpages.registry.submit_divider') }}</div>
+        <div class="divider" id="submitAnchor">{{ $t('submit_divider') }}</div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <RegistrySubmission></RegistrySubmission>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ $t('pages.archive.subpages.registry.support_divider') }}</div>
+        <div class="divider">{{ $t('support_divider') }}</div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <patreon-card size="large" />
@@ -118,3 +118,39 @@
     </div>
   </div>
 </template>
+
+<i18n lang="json">
+{
+  "en": {
+    "title": "Classic Mini Registry - Classic Mini DIY",
+    "description": "Browse and contribute to the Classic Mini registry database",
+    "hero_title": "Classic Mini Registry",
+    "breadcrumb_title": "Registry",
+    "main_heading": "Classic Mini Registry",
+    "subtitle_count": "0",
+    "subtitle": "Classic Minis registered",
+    "description_text": "The Classic Mini Registry is a community-driven database of Classic Mini vehicles. Help us build the most comprehensive registry by submitting your Mini's details.",
+    "submission_status_text": "Want to track your submission status?",
+    "track_submission_button": "Track Submission",
+    "table_headers": {
+      "year": "Year",
+      "model": "Model",
+      "trim": "Trim",
+      "color": "Color"
+    },
+    "submit_card": {
+      "title": "Submit Your Mini",
+      "description": "Add your Classic Mini to our registry",
+      "alt_text": "Submit Mini Icon"
+    },
+    "submit_divider": "Submit Your Mini",
+    "support_divider": "Support",
+    "seo": {
+      "og_title": "Classic Mini Registry - Classic Mini DIY",
+      "og_description": "Browse and contribute to the Classic Mini registry database",
+      "twitter_title": "Classic Mini Registry - Classic Mini DIY",
+      "twitter_description": "Browse and contribute to the Classic Mini registry database"
+    }
+  }
+}
+</i18n>
