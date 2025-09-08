@@ -3,27 +3,27 @@
   const expanded = ref<string[]>([]);
   const { data: tables, status } = await useFetch('/api/torque');
   const tableSearchQueries = ref<Record<string, string>>({});
-  const { t } = useI18n();
+
   const tableHeaders = [
-    { title: t('pages.technical.subPages.torque.table_headers.fastener'), key: 'name' },
-    { title: t('pages.technical.subPages.torque.table_headers.torque_lbft'), key: 'lbft' },
-    { title: t('pages.technical.subPages.torque.table_headers.torque_nm'), key: 'nm' },
-    { title: t('pages.technical.subPages.torque.table_headers.notes'), key: 'notes' },
+    { title: $t('pages.technical.subPages.torque.table_headers.fastener'), key: 'name' },
+    { title: $t('pages.technical.subPages.torque.table_headers.torque_lbft'), key: 'lbft' },
+    { title: $t('pages.technical.subPages.torque.table_headers.torque_nm'), key: 'nm' },
+    { title: $t('pages.technical.subPages.torque.table_headers.notes'), key: 'notes' },
   ];
   const activePanel = ref('Engine');
 
   useHead({
-    title: t('pages.technical.subPages.torque.title'),
+    title: $t('pages.technical.subPages.torque.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: t('pages.technical.subPages.torque.description'),
+        content: $t('pages.technical.subPages.torque.description'),
       },
       {
         key: 'keywords',
         name: 'keywords',
-        content: t('pages.technical.subPages.torque.keywords'),
+        content: $t('pages.technical.subPages.torque.keywords'),
       },
     ],
     link: [
@@ -39,14 +39,14 @@
   });
 
   useSeoMeta({
-    ogTitle: t('pages.technical.subPages.torque.og_title'),
-    ogDescription: t('pages.technical.subPages.torque.og_description'),
+    ogTitle: $t('pages.technical.subPages.torque.og_title'),
+    ogDescription: $t('pages.technical.subPages.torque.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/torque',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/torque.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.technical.subPages.torque.twitter_title'),
-    twitterDescription: t('pages.technical.subPages.torque.twitter_description'),
+    twitterTitle: $t('pages.technical.subPages.torque.twitter_title'),
+    twitterDescription: $t('pages.technical.subPages.torque.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/torque.png',
   });
 
@@ -54,8 +54,8 @@
   const torqueSpecsJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: t('pages.technical.subPages.torque.structured_data.headline'),
-    description: t('pages.technical.subPages.torque.structured_data.description'),
+    headline: $t('pages.technical.subPages.torque.structured_data.headline'),
+    description: $t('pages.technical.subPages.torque.structured_data.description'),
     image: 'https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png',
     author: {
       '@type': 'Person',
@@ -72,9 +72,9 @@
     url: 'https://classicminidiy.com/technical/torque',
     mainEntity: {
       '@type': 'Dataset',
-      name: t('pages.technical.subPages.torque.structured_data.dataset_name'),
-      description: t('pages.technical.subPages.torque.structured_data.dataset_description'),
-      variableMeasured: t('pages.technical.subPages.torque.structured_data.variable_measured'),
+      name: $t('pages.technical.subPages.torque.structured_data.dataset_name'),
+      description: $t('pages.technical.subPages.torque.structured_data.dataset_description'),
+      variableMeasured: $t('pages.technical.subPages.torque.structured_data.variable_measured'),
     },
   };
 

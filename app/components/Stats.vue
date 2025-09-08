@@ -1,8 +1,5 @@
 <script lang="ts" setup>
   const { data: stats } = await useFetch('/api/youtube/stats');
-  const { t } = useI18n({
-    useScope: 'local',
-  });
 </script>
 
 <template>
@@ -23,18 +20,18 @@
           ></path>
         </svg>
       </div>
-      <div class="stat-title">{{ t('minutes_watched') }}</div>
+      <div class="stat-title">{{ $t('minutes_watched') }}</div>
       <div class="stat-value text-primary" v-if="stats && stats.views">{{ stats?.views }}</div>
-      <div class="stat-desc">{{ t('over_30_days') }}</div>
+      <div class="stat-desc">{{ $t('over_30_days') }}</div>
     </div>
 
     <div class="stat">
       <div class="stat-figure">
         <i class="fad fa-user text-secondary text-3xl"></i>
       </div>
-      <div class="stat-title">{{ t('subscribers') }}</div>
+      <div class="stat-title">{{ $t('subscribers') }}</div>
       <div class="stat-value text-secondary" v-if="stats && stats.subscribers">{{ stats?.subscribers }}</div>
-      <div class="stat-desc">{{ t('across_world') }}</div>
+      <div class="stat-desc">{{ $t('across_world') }}</div>
     </div>
 
     <div class="stat">
@@ -42,8 +39,8 @@
         <i class="fad fa-video-camera text-info text-3xl"></i>
       </div>
       <div class="stat-value text-info" v-if="stats && stats.videos">{{ stats?.videos }}</div>
-      <div class="stat-title">{{ t('videos') }}</div>
-      <div class="stat-desc">{{ t('since_2015') }}</div>
+      <div class="stat-title">{{ $t('videos') }}</div>
+      <div class="stat-desc">{{ $t('since_2015') }}</div>
     </div>
   </div>
 </template>

@@ -6,8 +6,8 @@
       <div class="flex items-start gap-3">
         <i class="fa-solid fa-triangle-exclamation text-warning text-sm mt-0.5 flex-shrink-0"></i>
         <div class="text-sm text-base-content/80">
-          <strong class="text-warning">{{ t('experimental_feature') }}</strong>
-          {{ t('experimental_disclaimer') }} Always verify critical information with official documentation, qualified
+          <strong class="text-warning">{{ $t('experimental_feature') }}</strong>
+          {{ $t('experimental_disclaimer') }} Always verify critical information with official documentation, qualified
           mechanics, or experienced Classic Mini enthusiasts.
         </div>
       </div>
@@ -22,7 +22,7 @@
               <i class="fa-solid fa-comments text-primary text-4xl"></i>
               <div>
                 <h3 class="font-semibold text-xl mb-3 text-primary">
-                  {{ t('welcome_title') }}
+                  {{ $t('welcome_title') }}
                 </h3>
                 <p class="text-base text-base-content/80 leading-relaxed">
                   I'm your Classic Mini DIY assistant, here to help you with technical questions, decode chassis
@@ -42,7 +42,7 @@
                 ref="inputRef"
                 v-model="input"
                 @keydown="handleInputKeyDown"
-                :placeholder="t('input_placeholder')"
+                :placeholder="$t('input_placeholder')"
                 class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
                 rows="1"
               ></textarea>
@@ -69,7 +69,7 @@
 
           <!-- Report Issue Link Below Centered Input -->
           <div class="flex justify-center mt-3">
-            <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{ t('report_issue') }}</a>
+            <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{ $t('report_issue') }}</a>
             <i class="fa-solid fa-envelope text-xs"></i>
           </div>
         </div>
@@ -122,7 +122,7 @@
           <!-- Placeholder when no links -->
           <div v-else class="text-center text-base-content/50 mt-8">
             <i class="fa-solid fa-link text-2xl mb-2 block"></i>
-            <p class="text-sm">{{ t('useful_links_placeholder') }}</p>
+            <p class="text-sm">{{ $t('useful_links_placeholder') }}</p>
           </div>
         </div>
       </div>
@@ -136,7 +136,7 @@
             ref="inputRef"
             v-model="input"
             @keydown="handleInputKeyDown"
-            :placeholder="t('input_placeholder')"
+            :placeholder="$t('input_placeholder')"
             class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
             rows="1"
           ></textarea>
@@ -163,7 +163,7 @@
 
       <!-- Report Issue Link Below Chat -->
       <div class="flex justify-center mt-3">
-        <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{ t('report_issue') }}</a>
+        <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{ $t('report_issue') }}</a>
         <i class="fa-solid fa-envelope text-xs"></i>
       </div>
     </div>
@@ -177,10 +177,6 @@
   import HumanMessage from './HumanMessage.vue';
   import UsefulLinks from './UsefulLinks.vue';
   import UsefulLinksSidebar from './UsefulLinksSidebar.vue';
-
-  const { t } = useI18n({
-    useScope: 'local',
-  });
 
   const { assistantId, threadId, isConfigured, isThreadLoaded, setThreadId, updateThreadUsage, getThreadData } =
     useStreamProvider();

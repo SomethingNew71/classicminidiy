@@ -47,28 +47,26 @@
     imageSwatch: color.value?.raw.imageSwatch || '',
   });
 
-  const { t } = useI18n();
-
   useHead({
-    title: t('pages.archive.subpages.colors_contribute.title'),
+    title: $t('pages.archive.subpages.colors_contribute.title'),
 
     meta: [
       {
         name: 'description',
-        content: t('pages.archive.subpages.colors_contribute.description'),
+        content: $t('pages.archive.subpages.colors_contribute.description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: t('pages.archive.subpages.colors_contribute.seo.og_title'),
-    ogDescription: t('pages.archive.subpages.colors_contribute.seo.og_description'),
+    ogTitle: $t('pages.archive.subpages.colors_contribute.seo.og_title'),
+    ogDescription: $t('pages.archive.subpages.colors_contribute.seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/colors/contribute',
     ogType: 'website',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.archive.subpages.colors_contribute.seo.twitter_title'),
-    twitterDescription: t('pages.archive.subpages.colors_contribute.seo.twitter_description'),
+    twitterTitle: $t('pages.archive.subpages.colors_contribute.seo.twitter_title'),
+    twitterDescription: $t('pages.archive.subpages.colors_contribute.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
   });
 
@@ -93,7 +91,7 @@
   async function submit() {
     if (!color.value) {
       apiError.value = true;
-      apiMessage.value = t('pages.archive.subpages.colors_contribute.form.error.color_not_loaded');
+      apiMessage.value = $t('pages.archive.subpages.colors_contribute.form.error.color_not_loaded');
       return;
     }
 
@@ -130,7 +128,7 @@
     } catch (error) {
       issueCreated.value = false;
       apiError.value = true;
-      apiMessage.value = t('pages.archive.subpages.colors_contribute.form.error.github_unavailable');
+      apiMessage.value = $t('pages.archive.subpages.colors_contribute.form.error.github_unavailable');
       console.error('Error submitting color contribution:', error);
     } finally {
       processing.value = false;
@@ -141,21 +139,21 @@
 <template>
   <hero
     :navigation="true"
-    :title="t('pages.archive.subpages.colors_contribute.hero_title')"
+    :title="$t('pages.archive.subpages.colors_contribute.hero_title')"
     :heroType="HERO_TYPES.ARCHIVE"
   />
 
   <div class="container mx-auto px-4 py-6">
     <!-- Breadcrumb -->
     <div class="mb-6">
-      <breadcrumb :page="t('pages.archive.subpages.colors_contribute.breadcrumb_title')" />
+      <breadcrumb :page="$t('pages.archive.subpages.colors_contribute.breadcrumb_title')" />
     </div>
 
     <!-- Header -->
     <div class="mb-8">
-      <h1 class="text-3xl font-bold mb-4">{{ t('pages.archive.subpages.colors_contribute.main_heading') }}</h1>
+      <h1 class="text-3xl font-bold mb-4">{{ $t('pages.archive.subpages.colors_contribute.main_heading') }}</h1>
       <p class="mb-6 text-base">
-        {{ t('pages.archive.subpages.colors_contribute.description_text') }}
+        {{ $t('pages.archive.subpages.colors_contribute.description_text') }}
       </p>
       <div class="divider"></div>
     </div>
@@ -168,7 +166,7 @@
             <div class="card-title bg-gray-200 p-4">
               <i class="fas fa-list-timeline mr-2"></i>
               <h2 class="text-lg font-semibold">
-                {{ t('pages.archive.subpages.colors_contribute.current_data.title') }}
+                {{ $t('pages.archive.subpages.colors_contribute.current_data.title') }}
               </h2>
             </div>
 
@@ -198,7 +196,7 @@
                   <div class="text-center">
                     <i class="fas fa-spinner fa-spin text-3xl text-primary mb-2"></i>
                     <p class="text-sm text-gray-600">
-                      {{ t('pages.archive.subpages.colors_contribute.current_data.loading') }}
+                      {{ $t('pages.archive.subpages.colors_contribute.current_data.loading') }}
                     </p>
                   </div>
                 </div>
@@ -209,7 +207,7 @@
                   <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
                       <label class="text-sm font-medium text-gray-700">{{
-                        t('pages.archive.subpages.colors_contribute.current_data.labels.primary_color')
+                        $t('pages.archive.subpages.colors_contribute.current_data.labels.primary_color')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
                         {{ color.pretty['Primary Color'] }}
@@ -217,7 +215,7 @@
                     </div>
                     <div>
                       <label class="text-sm font-medium text-gray-700">{{
-                        t('pages.archive.subpages.colors_contribute.current_data.labels.code')
+                        $t('pages.archive.subpages.colors_contribute.current_data.labels.code')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
                         {{ color.pretty.Code }}
@@ -227,22 +225,22 @@
                   <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
                       <label class="text-sm font-medium text-gray-700">{{
-                        t('pages.archive.subpages.colors_contribute.current_data.labels.ditzler_ppg_code')
+                        $t('pages.archive.subpages.colors_contribute.current_data.labels.ditzler_ppg_code')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
                         {{
                           color.pretty['Ditzler PPG Code'] ||
-                          t('pages.archive.subpages.colors_contribute.current_data.na')
+                          $t('pages.archive.subpages.colors_contribute.current_data.na')
                         }}
                       </p>
                     </div>
                     <div>
                       <label class="text-sm font-medium text-gray-700">{{
-                        t('pages.archive.subpages.colors_contribute.current_data.labels.dulux_code')
+                        $t('pages.archive.subpages.colors_contribute.current_data.labels.dulux_code')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
                         {{
-                          color.pretty['Dulux Code'] || t('pages.archive.subpages.colors_contribute.current_data.na')
+                          color.pretty['Dulux Code'] || $t('pages.archive.subpages.colors_contribute.current_data.na')
                         }}
                       </p>
                     </div>
@@ -250,19 +248,19 @@
                   <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
                       <label class="text-sm font-medium text-gray-700">{{
-                        t('pages.archive.subpages.colors_contribute.current_data.labels.name')
+                        $t('pages.archive.subpages.colors_contribute.current_data.labels.name')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
-                        {{ color.pretty.Name || t('pages.archive.subpages.colors_contribute.current_data.na') }}
+                        {{ color.pretty.Name || $t('pages.archive.subpages.colors_contribute.current_data.na') }}
                       </p>
                     </div>
                     <div>
                       <label class="text-sm font-medium text-gray-700">{{
-                        t('pages.archive.subpages.colors_contribute.current_data.labels.short_code')
+                        $t('pages.archive.subpages.colors_contribute.current_data.labels.short_code')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
                         {{
-                          color.pretty['Short Code'] || t('pages.archive.subpages.colors_contribute.current_data.na')
+                          color.pretty['Short Code'] || $t('pages.archive.subpages.colors_contribute.current_data.na')
                         }}
                       </p>
                     </div>
@@ -270,10 +268,10 @@
                   <div class="grid grid-cols-1 gap-4">
                     <div>
                       <label class="text-sm font-medium text-gray-700">{{
-                        t('pages.archive.subpages.colors_contribute.current_data.labels.years_used')
+                        $t('pages.archive.subpages.colors_contribute.current_data.labels.years_used')
                       }}</label>
                       <p class="mt-1 text-sm text-gray-900">
-                        {{ color.pretty.Years || t('pages.archive.subpages.colors_contribute.current_data.na') }}
+                        {{ color.pretty.Years || $t('pages.archive.subpages.colors_contribute.current_data.na') }}
                       </p>
                     </div>
                   </div>
@@ -294,24 +292,24 @@
                 <i class="fas fa-check-circle text-6xl text-success"></i>
               </div>
               <h1 class="text-2xl font-bold mb-2">
-                {{ t('pages.archive.subpages.colors_contribute.form.success.title') }}
+                {{ $t('pages.archive.subpages.colors_contribute.form.success.title') }}
               </h1>
-              <h2 class="text-xl mb-6">{{ t('pages.archive.subpages.colors_contribute.form.success.subtitle') }}</h2>
+              <h2 class="text-xl mb-6">{{ $t('pages.archive.subpages.colors_contribute.form.success.subtitle') }}</h2>
               <div class="space-y-4 text-left max-w-md mx-auto">
                 <div class="bg-base-200 p-4 rounded-lg">
                   <p class="font-medium">
-                    {{ t('pages.archive.subpages.colors_contribute.form.success.suggestion_number')
+                    {{ $t('pages.archive.subpages.colors_contribute.form.success.suggestion_number')
                     }}{{ suggestion.number }}
                   </p>
                   <p class="text-sm text-gray-600">
-                    {{ t('pages.archive.subpages.colors_contribute.form.success.track_text') }}
+                    {{ $t('pages.archive.subpages.colors_contribute.form.success.track_text') }}
                     <a :href="suggestion.url" target="_blank" class="link link-primary">
-                      {{ t('pages.archive.subpages.colors_contribute.form.success.view_github') }}
+                      {{ $t('pages.archive.subpages.colors_contribute.form.success.view_github') }}
                     </a>
                   </p>
                 </div>
                 <button @click="issueCreated = false" class="btn btn-primary w-full">
-                  {{ t('pages.archive.subpages.colors_contribute.form.success.make_another') }}
+                  {{ $t('pages.archive.subpages.colors_contribute.form.success.make_another') }}
                 </button>
               </div>
             </div>
@@ -320,7 +318,7 @@
             <div v-else>
               <div class="card-title bg-primary text-primary-content p-4">
                 <i class="fas fa-sparkles mr-2"></i>
-                <h2 class="text-lg font-semibold">{{ t('pages.archive.subpages.colors_contribute.form.title') }}</h2>
+                <h2 class="text-lg font-semibold">{{ $t('pages.archive.subpages.colors_contribute.form.title') }}</h2>
               </div>
 
               <div class="p-6">
@@ -328,9 +326,9 @@
                 <div v-if="apiError" class="alert alert-warning mb-6">
                   <i class="fas fa-exclamation-triangle mr-2"></i>
                   <div>
-                    <h3 class="font-bold">{{ t('pages.archive.subpages.colors_contribute.form.error.title') }}</h3>
+                    <h3 class="font-bold">{{ $t('pages.archive.subpages.colors_contribute.form.error.title') }}</h3>
                     <div class="text-xs">
-                      {{ apiMessage || t('pages.archive.subpages.colors_contribute.form.error.default_message') }}
+                      {{ apiMessage || $t('pages.archive.subpages.colors_contribute.form.error.default_message') }}
                     </div>
                   </div>
                 </div>
@@ -340,7 +338,7 @@
                   <div class="form-control">
                     <label class="label" for="colorName">
                       <span class="label-text">{{
-                        t('pages.archive.subpages.colors_contribute.form.fields.color_name.label')
+                        $t('pages.archive.subpages.colors_contribute.form.fields.color_name.label')
                       }}</span>
                     </label>
                     <div class="relative">
@@ -349,7 +347,7 @@
                         id="colorName"
                         type="text"
                         v-model="formData.name"
-                        :placeholder="t('pages.archive.subpages.colors_contribute.form.fields.color_name.placeholder')"
+                        :placeholder="$t('pages.archive.subpages.colors_contribute.form.fields.color_name.placeholder')"
                         class="input input-bordered w-full pl-10"
                         maxlength="30"
                         required
@@ -361,7 +359,7 @@
                     <div class="form-control">
                       <label class="label" for="primaryCode">
                         <span class="label-text">{{
-                          t('pages.archive.subpages.colors_contribute.form.fields.primary_code.label')
+                          $t('pages.archive.subpages.colors_contribute.form.fields.primary_code.label')
                         }}</span>
                       </label>
                       <div class="relative">
@@ -373,7 +371,7 @@
                           v-model="formData.code"
                           type="text"
                           :placeholder="
-                            t('pages.archive.subpages.colors_contribute.form.fields.primary_code.placeholder')
+                            $t('pages.archive.subpages.colors_contribute.form.fields.primary_code.placeholder')
                           "
                           class="input input-bordered w-full"
                           :disabled="processing"
@@ -385,7 +383,7 @@
                     <div class="form-control">
                       <label class="label" for="shortCode">
                         <span class="label-text">{{
-                          t('pages.archive.subpages.colors_contribute.form.fields.short_code.label')
+                          $t('pages.archive.subpages.colors_contribute.form.fields.short_code.label')
                         }}</span>
                       </label>
                       <div class="relative">
@@ -397,7 +395,7 @@
                           v-model="formData.shortCode"
                           type="text"
                           :placeholder="
-                            t('pages.archive.subpages.colors_contribute.form.fields.short_code.placeholder')
+                            $t('pages.archive.subpages.colors_contribute.form.fields.short_code.placeholder')
                           "
                           class="input input-bordered w-full"
                           :disabled="processing"
@@ -410,7 +408,7 @@
                     <div class="form-control">
                       <label class="label" for="ditzlerPpgCode">
                         <span class="label-text">{{
-                          t('pages.archive.subpages.colors_contribute.form.fields.ditzler_ppg_code.label')
+                          $t('pages.archive.subpages.colors_contribute.form.fields.ditzler_ppg_code.label')
                         }}</span>
                       </label>
                       <div class="relative">
@@ -422,7 +420,7 @@
                           v-model="formData.ditzlerPpgCode"
                           type="text"
                           :placeholder="
-                            t('pages.archive.subpages.colors_contribute.form.fields.ditzler_ppg_code.placeholder')
+                            $t('pages.archive.subpages.colors_contribute.form.fields.ditzler_ppg_code.placeholder')
                           "
                           class="input input-bordered w-full"
                           :disabled="processing"
@@ -433,7 +431,7 @@
                     <div class="form-control">
                       <label class="label" for="duluxCode">
                         <span class="label-text">{{
-                          t('pages.archive.subpages.colors_contribute.form.fields.dulux_code.label')
+                          $t('pages.archive.subpages.colors_contribute.form.fields.dulux_code.label')
                         }}</span>
                       </label>
                       <div class="relative">
@@ -445,7 +443,7 @@
                           v-model="formData.duluxCode"
                           type="text"
                           :placeholder="
-                            t('pages.archive.subpages.colors_contribute.form.fields.dulux_code.placeholder')
+                            $t('pages.archive.subpages.colors_contribute.form.fields.dulux_code.placeholder')
                           "
                           class="input input-bordered w-full"
                           :disabled="processing"
@@ -457,7 +455,7 @@
                   <div class="form-control">
                     <label class="label" for="years">
                       <span class="label-text">{{
-                        t('pages.archive.subpages.colors_contribute.form.fields.years_used.label')
+                        $t('pages.archive.subpages.colors_contribute.form.fields.years_used.label')
                       }}</span>
                     </label>
                     <div class="relative">
@@ -468,7 +466,7 @@
                         id="years"
                         v-model="formData.years"
                         type="text"
-                        :placeholder="t('pages.archive.subpages.colors_contribute.form.fields.years_used.placeholder')"
+                        :placeholder="$t('pages.archive.subpages.colors_contribute.form.fields.years_used.placeholder')"
                         class="input input-bordered w-full"
                         :disabled="processing"
                       />
@@ -478,7 +476,7 @@
                   <div class="form-control">
                     <label class="label" for="imageSwatch">
                       <span class="label-text">{{
-                        t('pages.archive.subpages.colors_contribute.form.fields.image_swatch.label')
+                        $t('pages.archive.subpages.colors_contribute.form.fields.image_swatch.label')
                       }}</span>
                     </label>
                     <div class="relative">
@@ -488,7 +486,7 @@
                         v-model="formData.imageSwatch"
                         type="text"
                         :placeholder="
-                          t('pages.archive.subpages.colors_contribute.form.fields.image_swatch.placeholder')
+                          $t('pages.archive.subpages.colors_contribute.form.fields.image_swatch.placeholder')
                         "
                         class="input input-bordered w-full"
                         :disabled="processing"
@@ -496,7 +494,7 @@
                     </div>
                     <label class="label">
                       <span class="label-text-alt">{{
-                        t('pages.archive.subpages.colors_contribute.form.fields.image_swatch.help')
+                        $t('pages.archive.subpages.colors_contribute.form.fields.image_swatch.help')
                       }}</span>
                     </label>
                   </div>
@@ -506,8 +504,8 @@
                       <span v-if="processing" class="loading loading-spinner"></span>
                       {{
                         processing
-                          ? t('pages.archive.subpages.colors_contribute.form.submit.submitting')
-                          : t('pages.archive.subpages.colors_contribute.form.submit.button')
+                          ? $t('pages.archive.subpages.colors_contribute.form.submit.submitting')
+                          : $t('pages.archive.subpages.colors_contribute.form.submit.button')
                       }}
                     </button>
                   </div>

@@ -2,7 +2,6 @@
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   const { data: engineCodes } = await useFetch('/api/decoders/engine');
   const search = ref('');
-  const { t } = useI18n();
 
   // Computed property for filtered engine codes
   const filteredEngineCodes = computed(() => {
@@ -22,24 +21,24 @@
   });
 
   useHead({
-    title: t('pages.technical.subPages.engine_decoder.title'),
+    title: $t('pages.technical.subPages.engine_decoder.title'),
     meta: [
       {
         key: 'description',
         name: 'description',
-        content: t('pages.technical.subPages.engine_decoder.description'),
+        content: $t('pages.technical.subPages.engine_decoder.description'),
       },
     ],
   });
   useSeoMeta({
-    ogTitle: t('pages.technical.subPages.engine_decoder.og_title'),
-    ogDescription: t('pages.technical.subPages.engine_decoder.og_description'),
+    ogTitle: $t('pages.technical.subPages.engine_decoder.og_title'),
+    ogDescription: $t('pages.technical.subPages.engine_decoder.og_description'),
     ogUrl: 'https://classicminidiy.com/technical/engine-decoder',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/engine-decoder.png',
     ogType: 'website',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.technical.subPages.engine_decoder.twitter_title'),
-    twitterDescription: t('pages.technical.subPages.engine_decoder.twitter_description'),
+    twitterTitle: $t('pages.technical.subPages.engine_decoder.twitter_title'),
+    twitterDescription: $t('pages.technical.subPages.engine_decoder.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/technical/engine-decoder.png',
   });
 </script>

@@ -112,29 +112,6 @@
         }
       }
     },
-    "privacy": {
-      "title": "Privacy Policy | Classic Mini DIY",
-      "description": "Classic Mini DIY privacy policy regarding data collection, storage, and use of YouTube API Services. Learn how we protect your information.",
-      "hero_title": "Privacy Policy",
-      "hero_subtitle": "Classic Mini DIY",
-      "heading": "Privacy Policy",
-      "acceptance_title": "Acceptance of Terms",
-      "acceptance_content": "By using our API client, you agree to be bound by the",
-      "youtube_privacy_link": "Youtube Privacy Policy",
-      "accessibility_title": "Accessibility",
-      "accessibility_content": "This Privacy Policy is easily accessible to all users via",
-      "google_privacy_link": "Google Privacy Policy",
-      "youtube_api_title": "Use of YouTube API Services",
-      "youtube_api_content": "Our API client uses YouTube API Services. By using our API client, you agree to the collection, storage, and usage of your data as described in this policy.",
-      "data_collection_title": "Data Collection, Storage, and Use",
-      "data_collection_content": "We collect data directly from your device to provide and improve our services. This includes information about your device, IP address, and public cookie information. We do not collect any additional personal data for our use. This data is stored securely and used to enhance the user experience and ensure the smooth operation of our API client. In addition no data is stored on our servers, and thus is deleted each time you close your browser.",
-      "data_processing_title": "Data Processing and Sharing",
-      "data_processing_content": "We process your data to provide our services. Your data may be shared with internal and external parties for the purpose of improving and maintaining our API client. We ensure all external parties comply with our strict data protection guidelines.",
-      "data_methods_title": "Data Collection Methods",
-      "data_methods_content": "Data is collected through various means such as direct input, cookies, and other tracking technologies. This helps us to understand user preferences and provide better service.",
-      "contact_title": "Contact Information",
-      "contact_content": "Contact Information If you have any questions or concerns about this privacy policy, please contact us at"
-    },
     "maps": {
       "seo": {
         "title": "Classic Mini ECU Maps | Tuning Files for Multiple ECUs | Classic Mini DIY",
@@ -755,7 +732,12 @@
             "description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
             "dataset_name": "Classic Mini Torque Specifications",
             "dataset_description": "Comprehensive dataset of torque specifications for Classic Mini fasteners",
-            "variable_measured": ["Fastener Name", "Torque in lb/ft", "Torque in Nm", "Additional Notes"]
+            "variable_measured": [
+              "Fastener Name",
+              "Torque in lb/ft",
+              "Torque in Nm",
+              "Additional Notes"
+            ]
           },
           "table_headers": {
             "fastener": "Fastener",

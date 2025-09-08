@@ -248,6 +248,7 @@ export default defineNuxtConfig({
       { code: 'zh', name: 'Chinese', file: 'zh.json' },
       { code: 'ko', name: 'Korean', file: 'ko.json' },
     ],
+
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',

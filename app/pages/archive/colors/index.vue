@@ -49,8 +49,8 @@
     if (navigator.share) {
       navigator
         .share({
-          title: `${t('pages.archive.subpages.colors.share.title')} ${color.name || t('pages.archive.subpages.colors.states.unnamed_color')}`,
-          text: `${t('pages.archive.subpages.colors.share.text')} ${color.name || t('pages.archive.subpages.colors.states.unnamed_color')}`,
+          title: `${t('pages.archive.subpages.colors.share.title')} ${color.name || $t('pages.archive.subpages.colors.states.unnamed_color')}`,
+          text: `${t('pages.archive.subpages.colors.share.text')} ${color.name || $t('pages.archive.subpages.colors.states.unnamed_color')}`,
           url,
         })
         .catch(console.error);
@@ -65,27 +65,25 @@
     currentPage.value = 1;
   });
 
-  const { t } = useI18n();
-
   useHead({
-    title: t('pages.archive.subpages.colors.title'),
+    title: $t('pages.archive.subpages.colors.title'),
     meta: [
       {
         name: 'description',
-        content: t('pages.archive.subpages.colors.description'),
+        content: $t('pages.archive.subpages.colors.description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: t('pages.archive.subpages.colors.seo.og_title'),
-    ogDescription: t('pages.archive.subpages.colors.seo.og_description'),
+    ogTitle: $t('pages.archive.subpages.colors.seo.og_title'),
+    ogDescription: $t('pages.archive.subpages.colors.seo.og_description'),
     ogUrl: 'https://classicminidiy.com/archive/colors',
     ogType: 'website',
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.archive.subpages.colors.seo.twitter_title'),
-    twitterDescription: t('pages.archive.subpages.colors.seo.twitter_description'),
+    twitterTitle: $t('pages.archive.subpages.colors.seo.twitter_title'),
+    twitterDescription: $t('pages.archive.subpages.colors.seo.twitter_description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
   });
 </script>

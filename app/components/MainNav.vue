@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-  const { t } = useI18n({
-    useScope: 'local',
-  });
   const route = useRoute();
   const switchLocalePath = useSwitchLocalePath();
   const { locale, locales, setLocale } = useI18n();
@@ -43,7 +40,7 @@
     <div class="navbar-start">
       <NuxtLink :to="'/'" class="d-inline-block">
         <nuxt-img
-          :alt="t('logo_alt')"
+          :alt="$t('logo_alt')"
           src="https://classicminidiy.s3.amazonaws.com/misc/Small-Black.png"
           class="w-32"
         />
@@ -53,33 +50,33 @@
       <ul class="menu menu-horizontal px-1 text-base">
         <li>
           <a href="https://classicminidiy.substack.com/" target="_blank">
-            <span><i class="fad fa-pencil"></i></span> {{ t('navigation.blog') }}</a
+            <span><i class="fad fa-pencil"></i></span> {{ $t('navigation.blog') }}</a
           >
         </li>
         <li>
           <nuxt-link to="/maps" :class="{ active: isActive('/maps') }">
             <span><i class="fad fa-computer-classic"></i></span>
-            {{ t('navigation.maps') }}</nuxt-link
+            {{ $t('navigation.maps') }}</nuxt-link
           >
         </li>
         <li>
           <a href="https://store.classicminidiy.com/" target="_blank">
-            <span><i class="fad fa-store"></i></span> {{ t('navigation.store') }}</a
+            <span><i class="fad fa-store"></i></span> {{ $t('navigation.store') }}</a
           >
         </li>
         <li>
           <nuxt-link to="/archive" :class="{ active: isActive('/archive') }">
-            <span><i class="fad fa-books"></i></span> {{ t('navigation.archive') }}</nuxt-link
+            <span><i class="fad fa-books"></i></span> {{ $t('navigation.archive') }}</nuxt-link
           >
         </li>
         <li>
           <nuxt-link to="/technical" :class="{ active: isActive('/technical') }">
-            <span><i class="fad fa-toolbox"></i></span> {{ t('navigation.toolbox') }}</nuxt-link
+            <span><i class="fad fa-toolbox"></i></span> {{ $t('navigation.toolbox') }}</nuxt-link
           >
         </li>
         <li>
           <nuxt-link to="/chat" :class="{ active: isActive('/chat') }">
-            <span><i class="fad fa-comments"></i></span> {{ t('navigation.chat') }}</nuxt-link
+            <span><i class="fad fa-comments"></i></span> {{ $t('navigation.chat') }}</nuxt-link
           >
         </li>
       </ul>
@@ -87,7 +84,7 @@
     <div class="navbar-end hidden lg:flex items-center gap-2">
       <LanguageSwitcher />
       <a class="btn donate flex-shrink-0" href="https://patreon.com/classicminidiy">
-        <i class="fab fa-patreon"></i>{{ t('donate_button') }}</a
+        <i class="fab fa-patreon"></i>{{ $t('donate_button') }}</a
       >
     </div>
     <div class="navbar-end lg:hidden">
@@ -100,33 +97,33 @@
         <ul tabindex="0" class="menu dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li>
             <a href="https://classicminidiy.substack.com/" target="_blank" @click="closeMobileDropdown">
-              <span><i class="fad fa-pencil"></i></span> {{ t('navigation.blog') }}</a
+              <span><i class="fad fa-pencil"></i></span> {{ $t('navigation.blog') }}</a
             >
           </li>
           <li>
             <nuxt-link to="/maps" :class="{ active: isActive('/maps') }" @click="closeMobileDropdown">
               <span><i class="fad fa-computer-classic"></i></span>
-              {{ t('navigation.maps') }}</nuxt-link
+              {{ $t('navigation.maps') }}</nuxt-link
             >
           </li>
           <li>
             <a href="https://store.classicminidiy.com/" target="_blank" @click="closeMobileDropdown">
-              <span><i class="fad fa-store"></i></span> {{ t('navigation.store') }}</a
+              <span><i class="fad fa-store"></i></span> {{ $t('navigation.store') }}</a
             >
           </li>
           <li>
             <nuxt-link to="/archive" :class="{ active: isActive('/archive') }" @click="closeMobileDropdown">
-              <span><i class="fad fa-books"></i></span> {{ t('navigation.archive') }}</nuxt-link
+              <span><i class="fad fa-books"></i></span> {{ $t('navigation.archive') }}</nuxt-link
             >
           </li>
           <li>
             <nuxt-link to="/technical" :class="{ active: isActive('/technical') }" @click="closeMobileDropdown">
-              <span><i class="fad fa-toolbox"></i></span> {{ t('navigation.toolbox') }}</nuxt-link
+              <span><i class="fad fa-toolbox"></i></span> {{ $t('navigation.toolbox') }}</nuxt-link
             >
           </li>
           <li>
             <nuxt-link to="/chat" :class="{ active: isActive('/chat') }" @click="closeMobileDropdown">
-              <span><i class="fad fa-comments"></i></span> {{ t('navigation.chat') }}</nuxt-link
+              <span><i class="fad fa-comments"></i></span> {{ $t('navigation.chat') }}</nuxt-link
             >
           </li>
           <li class="border-t pt-2 mt-2">
@@ -134,7 +131,7 @@
               <div tabindex="0" role="button" class="w-full flex items-center justify-between py-2">
                 <div class="flex items-center">
                   <i class="fad fa-globe mr-2"></i>
-                  <span>{{ currentLocale?.name || t('language_label') }}</span>
+                  <span>{{ currentLocale?.name || $t('language_label') }}</span>
                 </div>
                 <i class="fad fa-chevron-down text-xs"></i>
               </div>

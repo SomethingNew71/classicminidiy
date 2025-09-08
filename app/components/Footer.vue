@@ -1,9 +1,6 @@
 <script lang="ts" setup>
   import { SocialItems } from '../../data/models/generic';
 
-  const { t } = useI18n({
-    useScope: 'local',
-  });
   const socials = ref(SocialItems);
 </script>
 <template>
@@ -27,19 +24,19 @@
 
       <div class="pt-0 mx-auto">
         <h2 class="text-xl font-semibold">
-          <strong class="text-primary">{{ t('brand_name') }}</strong> by
+          <strong class="text-primary">{{ $t('brand_name') }}</strong> by
           <a
             rel="noopener"
             target="_blank"
             href="https://youtube.com/c/classicminidiy?sub_confirmation=1"
-            :aria-label="t('youtube_link_aria')"
+            :aria-label="$t('youtube_link_aria')"
             class="link link-hover"
           >
-            {{ t('author_name') }}</a
+            {{ $t('author_name') }}</a
           >.
         </h2>
         <p class="pb-3 max-w-3xl mx-auto mt-2">
-          {{ t('description') }}
+          {{ $t('description') }}
         </p>
       </div>
 
@@ -47,26 +44,26 @@
         <div class="flex justify-center">
           <div class="w-10/12">
             <p>
-              {{ new Date().getFullYear() }} — <strong>{{ t('company_name') }}</strong>
+              {{ new Date().getFullYear() }} — <strong>{{ $t('company_name') }}</strong>
             </p>
-            <div class="divider">{{ t('links_divider') }}</div>
+            <div class="divider">{{ $t('links_divider') }}</div>
             <p>
               <nuxt-link class="link link-hover mr-3" to="/privacy" rel="noopener noreferrer">{{
-                t('privacy_links.cmdiy_privacy')
+                $t('privacy_links.cmdiy_privacy')
               }}</nuxt-link>
               <a
                 class="link link-hover mr-3"
                 href="https://www.youtube.com/t/terms"
                 target="_blank"
                 rel="noopener noreferrer"
-                >{{ t('privacy_links.youtube_privacy') }}</a
+                >{{ $t('privacy_links.youtube_privacy') }}</a
               >
               <a
                 class="link link-hover"
                 href="http://www.google.com/policies/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
-                >{{ t('privacy_links.google_privacy') }}</a
+                >{{ $t('privacy_links.google_privacy') }}</a
               >
             </p>
           </div>

@@ -3,7 +3,6 @@
   import { shareWheelItem } from '../../../../data/models/helper-utils';
   import type { IWheelsData } from '../../../../data/models/wheels';
 
-  const { t } = useI18n();
   const route = useRoute();
   const wheelId = ref(route.params.wheel);
   const {
@@ -38,12 +37,12 @@
   // Update head and meta tags when wheel data is loaded
   watchEffect(() => {
     if (wheel.value) {
-      const title = t('pages.archive.subpages.wheels.detail.seo.title_template', {
+      const title = $t('pages.archive.subpages.wheels.detail.seo.title_template', {
         name: wheel.value.name,
         size: wheel.value.size,
         width: wheel.value.width,
       });
-      const description = t('pages.archive.subpages.wheels.detail.seo.description');
+      const description = $t('pages.archive.subpages.wheels.detail.seo.description');
 
       useHead({
         title,
@@ -56,7 +55,7 @@
           {
             key: 'keywords',
             name: 'keywords',
-            content: t('pages.archive.subpages.wheels.detail.seo.keywords'),
+            content: $t('pages.archive.subpages.wheels.detail.seo.keywords'),
           },
         ],
         link: [
@@ -88,7 +87,7 @@
 <template>
   <hero
     :navigation="true"
-    :title="t('pages.archive.subpages.wheels.detail.hero_title')"
+    :title="$t('pages.archive.subpages.wheels.detail.hero_title')"
     :heroType="HERO_TYPES.ARCHIVE"
   />
   <div class="container mx-auto px-4 py-4">
@@ -96,16 +95,16 @@
     <div v-if="pending" class="flex justify-center items-center min-h-[50vh]">
       <div class="text-center">
         <span class="loading loading-spinner loading-lg text-primary"></span>
-        <p class="mt-4">{{ t('pages.archive.subpages.wheels.detail.loading_text') }}</p>
+        <p class="mt-4">{{ $t('pages.archive.subpages.wheels.detail.loading_text') }}</p>
       </div>
     </div>
 
     <!-- Error State -->
     <div v-else-if="error" class="alert alert-error my-8">
       <i class="fas fa-exclamation-triangle mr-2"></i>
-      <span>{{ t('pages.archive.subpages.wheels.detail.error_message') }}</span>
+      <span>{{ $t('pages.archive.subpages.wheels.detail.error_message') }}</span>
       <NuxtLink to="/archive/wheels" class="btn btn-sm btn-ghost ml-4">
-        <i class="fas fa-arrow-left mr-2"></i> {{ t('pages.archive.subpages.wheels.detail.back_to_wheels') }}
+        <i class="fas fa-arrow-left mr-2"></i> {{ $t('pages.archive.subpages.wheels.detail.back_to_wheels') }}
       </NuxtLink>
     </div>
 
@@ -115,8 +114,8 @@
         <div class="col-span-12 md:col-span-8">
           <breadcrumb
             class="mt-6"
-            :page="wheel?.name || t('pages.archive.subpages.wheels.detail.breadcrumb_fallback')"
-            :subpage="t('pages.archive.subpages.wheels.detail.breadcrumb_subpage')"
+            :page="wheel?.name || $t('pages.archive.subpages.wheels.detail.breadcrumb_fallback')"
+            :subpage="$t('pages.archive.subpages.wheels.detail.breadcrumb_subpage')"
             subpage-href="/archive/wheels"
           ></breadcrumb>
         </div>
@@ -162,14 +161,14 @@
                     </div>
                     <img
                       v-else-if="wheel.images && wheel.images[0]"
-                      :alt="t('pages.archive.subpages.wheels.detail.image_alt', { name: wheel.name })"
+                      :alt="$t('pages.archive.subpages.wheels.detail.image_alt', { name: wheel.name })"
                       class="w-full h-auto rounded-lg shadow-md"
                       :src="wheel.images[0].src"
                     />
                     <div v-else class="w-full aspect-square flex items-center justify-center bg-gray-100 rounded-lg">
                       <i
                         class="fas fa-image text-6xl text-gray-300"
-                        :title="t('pages.archive.subpages.wheels.detail.no_image_placeholder')"
+                        :title="$t('pages.archive.subpages.wheels.detail.no_image_placeholder')"
                       ></i>
                     </div>
                   </div>
@@ -183,11 +182,11 @@
                     <i class="fad fa-arrow-right-to-line text-xl text-primary"></i>
                   </div>
                   <h3 class="font-semibold text-gray-600 mb-1">
-                    {{ t('pages.archive.subpages.wheels.detail.specifications.offset') }}
+                    {{ $t('pages.archive.subpages.wheels.detail.specifications.offset') }}
                   </h3>
                   <p v-if="wheel.offset" class="text-lg font-medium">{{ wheel.offset }}</p>
                   <p v-else class="text-error text-sm">
-                    {{ t('pages.archive.subpages.wheels.detail.specifications.not_specified') }}
+                    {{ $t('pages.archive.subpages.wheels.detail.specifications.not_specified') }}
                   </p>
                 </div>
                 <div class="flex flex-col items-center text-center">
@@ -195,11 +194,11 @@
                     <i class="fad fa-arrows-to-line text-xl text-secondary"></i>
                   </div>
                   <h3 class="font-semibold text-gray-600 mb-1">
-                    {{ t('pages.archive.subpages.wheels.detail.specifications.diameter') }}
+                    {{ $t('pages.archive.subpages.wheels.detail.specifications.diameter') }}
                   </h3>
                   <p v-if="wheel.size" class="text-lg font-medium">{{ wheel.size }}</p>
                   <p v-else class="text-error text-sm">
-                    {{ t('pages.archive.subpages.wheels.detail.specifications.not_specified') }}
+                    {{ $t('pages.archive.subpages.wheels.detail.specifications.not_specified') }}
                   </p>
                 </div>
                 <div class="flex flex-col items-center text-center">
@@ -207,11 +206,11 @@
                     <i class="fad fa-arrows-left-right-to-line text-xl text-info"></i>
                   </div>
                   <h3 class="font-semibold text-gray-600 mb-1">
-                    {{ t('pages.archive.subpages.wheels.detail.specifications.width') }}
+                    {{ $t('pages.archive.subpages.wheels.detail.specifications.width') }}
                   </h3>
                   <p v-if="wheel.width" class="text-lg font-medium">{{ wheel.width }}</p>
                   <p v-else class="text-error text-sm">
-                    {{ t('pages.archive.subpages.wheels.detail.specifications.not_specified') }}
+                    {{ $t('pages.archive.subpages.wheels.detail.specifications.not_specified') }}
                   </p>
                 </div>
               </div>
@@ -219,11 +218,11 @@
               <div class="flex flex-wrap justify-center gap-3 pt-2">
                 <button v-if="copied" class="btn btn-lg btn-primary/10 gap-2" disabled>
                   <i class="fad fa-check text-success"></i>
-                  <span>{{ t('pages.archive.subpages.wheels.detail.actions.copied') }}</span>
+                  <span>{{ $t('pages.archive.subpages.wheels.detail.actions.copied') }}</span>
                 </button>
                 <button v-else class="btn btn-lg btn-primary gap-2" @click="copyUrl">
                   <i class="fad fa-link"></i>
-                  <span>{{ t('pages.archive.subpages.wheels.detail.actions.copy_link') }}</span>
+                  <span>{{ $t('pages.archive.subpages.wheels.detail.actions.copy_link') }}</span>
                 </button>
                 <button
                   v-if="wheel.name && wheel.uuid"
@@ -231,7 +230,7 @@
                   @click="shareWheelItem(wheel.name, wheel.uuid)"
                 >
                   <i class="fad fa-share"></i>
-                  <span>{{ t('pages.archive.subpages.wheels.detail.actions.share') }}</span>
+                  <span>{{ $t('pages.archive.subpages.wheels.detail.actions.share') }}</span>
                 </button>
                 <NuxtLink
                   v-if="wheel.uuid"
@@ -239,7 +238,7 @@
                   class="btn btn-lg btn-outlined gap-2"
                 >
                   <i class="fad fa-edit"></i>
-                  <span>{{ t('pages.archive.subpages.wheels.detail.actions.contribute') }}</span>
+                  <span>{{ $t('pages.archive.subpages.wheels.detail.actions.contribute') }}</span>
                 </NuxtLink>
               </div>
             </div>

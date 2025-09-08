@@ -3,29 +3,28 @@
   import { DateTime } from 'luxon';
   import { HERO_TYPES } from '../../data/models/generic';
 
-  const { t } = useI18n();
   const birthday = DateTime.local(1989, 5, 11);
   const today = DateTime.now();
   const age = ref<string | undefined>(today.diff(birthday, 'years').toObject().years?.toFixed(0));
 
   useHead({
-    title: t('pages.home.title'),
+    title: $t('pages.home.title'),
     meta: [
       {
         name: 'description',
-        content: t('pages.home.description'),
+        content: $t('pages.home.description'),
       },
     ],
   });
 
   useSeoMeta({
-    ogTitle: t('pages.home.title'),
-    ogDescription: t('pages.home.description'),
+    ogTitle: $t('pages.home.title'),
+    ogDescription: $t('pages.home.description'),
     ogImage: 'https://classicminidiy.s3.amazonaws.com/social-share/root.jpg',
     ogUrl: 'https://classicminidiy.com',
     twitterCard: 'summary_large_image',
-    twitterTitle: t('pages.home.title'),
-    twitterDescription: t('pages.home.description'),
+    twitterTitle: $t('pages.home.title'),
+    twitterDescription: $t('pages.home.description'),
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/root.jpg',
   });
 </script>

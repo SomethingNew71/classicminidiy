@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="flex items-center gap-2 pb-2 border-b border-base-300">
       <i class="fa-solid fa-link text-primary"></i>
-      <h3 class="text-sm font-semibold text-base-content">{{ t('title') }}</h3>
+      <h3 class="text-sm font-semibold text-base-content">{{ $t('title') }}</h3>
       <span class="text-xs text-base-content/50 ml-auto">{{ links.length }}</span>
     </div>
 
@@ -46,7 +46,7 @@
 
     <!-- Show More Indicator if many links -->
     <div v-if="links.length > 5" class="text-center pt-2 border-t border-base-300">
-      <p class="text-xs text-base-content/50">{{ t('showing_results', { count: links.length }) }}</p>
+      <p class="text-xs text-base-content/50">{{ $t('showing_results', { count: links.length }) }}</p>
     </div>
   </div>
 </template>
@@ -64,10 +64,6 @@
   }
 
   defineProps<Props>();
-
-  const { t } = useI18n({
-    useScope: 'local',
-  });
 
   // Add UTM parameters to URLs for tracking
   const addUtmParams = (url: string): string => {
