@@ -321,6 +321,258 @@
       "publisher_name": "Classic Mini DIY",
       "collection_name": "Classic Mini Archives"
     }
+  },
+  "es": {
+    "breadcrumb_archive": "Archivo",
+    "hero_title": "Archivos Classic Mini",
+    "loading_error": "Error al cargar el contenido. Por favor, inténtalo de nuevo más tarde.",
+    "no_image_alt": "No hay imagen disponible",
+    "download_aria_label": "Descargar {title}",
+    "preview_image_alt": "Imagen de vista previa de {title}",
+    "archive_item_alt": "Imagen de {title}",
+    "fallback_title": "Elemento del Archivo",
+    "file_type_label": "Tipo:",
+    "no_description": "No hay descripción disponible.",
+    "share_button": "Compartir",
+    "contribute_button": "Contribuir",
+    "missing_file_button": "Archivo Faltante",
+    "download_button": "Descargar",
+    "seo": {
+      "title_suffix": "- Archivo Classic Mini - Classic Mini DIY",
+      "description_fallback": "Recurso de archivo para {title} en la colección Classic Mini DIY.",
+      "keywords_template": "Classic Mini, {title}, archivo, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Archivo Classic Mini",
+      "twitter_title_suffix": "- Archivo Classic Mini"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Archivos Classic Mini"
+    }
+  },
+  "fr": {
+    "breadcrumb_archive": "Archive",
+    "hero_title": "Archives Classic Mini",
+    "loading_error": "Erreur lors du chargement du contenu. Veuillez réessayer plus tard.",
+    "no_image_alt": "Aucune image disponible",
+    "download_aria_label": "Télécharger {title}",
+    "preview_image_alt": "Image d'aperçu de {title}",
+    "archive_item_alt": "Image de {title}",
+    "fallback_title": "Élément d'Archive",
+    "file_type_label": "Type :",
+    "no_description": "Aucune description disponible.",
+    "share_button": "Partager",
+    "contribute_button": "Contribuer",
+    "missing_file_button": "Fichier Manquant",
+    "download_button": "Télécharger",
+    "seo": {
+      "title_suffix": "- Archive Classic Mini - Classic Mini DIY",
+      "description_fallback": "Ressource d'archive pour {title} dans la collection Classic Mini DIY.",
+      "keywords_template": "Classic Mini, {title}, archive, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Archive Classic Mini",
+      "twitter_title_suffix": "- Archive Classic Mini"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Archives Classic Mini"
+    }
+  },
+  "it": {
+    "breadcrumb_archive": "Archivio",
+    "hero_title": "Archivi Classic Mini",
+    "loading_error": "Errore nel caricamento del contenuto. Riprova più tardi.",
+    "no_image_alt": "Nessuna immagine disponibile",
+    "download_aria_label": "Scarica {title}",
+    "preview_image_alt": "Immagine di anteprima di {title}",
+    "archive_item_alt": "Immagine di {title}",
+    "fallback_title": "Elemento dell'Archivio",
+    "file_type_label": "Tipo:",
+    "no_description": "Nessuna descrizione disponibile.",
+    "share_button": "Condividi",
+    "contribute_button": "Contribuisci",
+    "missing_file_button": "File Mancante",
+    "download_button": "Scarica",
+    "seo": {
+      "title_suffix": "- Archivio Classic Mini - Classic Mini DIY",
+      "description_fallback": "Risorsa di archivio per {title} nella collezione Classic Mini DIY.",
+      "keywords_template": "Classic Mini, {title}, archivio, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Archivio Classic Mini",
+      "twitter_title_suffix": "- Archivio Classic Mini"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Archivi Classic Mini"
+    }
+  },
+  "de": {
+    "breadcrumb_archive": "Archiv",
+    "hero_title": "Classic Mini Archive",
+    "loading_error": "Fehler beim Laden des Inhalts. Bitte versuchen Sie es später erneut.",
+    "no_image_alt": "Kein Bild verfügbar",
+    "download_aria_label": "{title} herunterladen",
+    "preview_image_alt": "Vorschaubild von {title}",
+    "archive_item_alt": "Bild von {title}",
+    "fallback_title": "Archiv-Element",
+    "file_type_label": "Typ:",
+    "no_description": "Keine Beschreibung verfügbar.",
+    "share_button": "Teilen",
+    "contribute_button": "Beitragen",
+    "missing_file_button": "Fehlende Datei",
+    "download_button": "Herunterladen",
+    "seo": {
+      "title_suffix": "- Classic Mini Archiv - Classic Mini DIY",
+      "description_fallback": "Archiv-Ressource für {title} in der Classic Mini DIY Sammlung.",
+      "keywords_template": "Classic Mini, {title}, Archiv, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Classic Mini Archiv",
+      "twitter_title_suffix": "- Classic Mini Archiv"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Classic Mini Archive"
+    }
+  },
+  "pt": {
+    "breadcrumb_archive": "Arquivo",
+    "hero_title": "Arquivos Classic Mini",
+    "loading_error": "Erro ao carregar o conteúdo. Tente novamente mais tarde.",
+    "no_image_alt": "Nenhuma imagem disponível",
+    "download_aria_label": "Baixar {title}",
+    "preview_image_alt": "Imagem de visualização de {title}",
+    "archive_item_alt": "Imagem de {title}",
+    "fallback_title": "Item do Arquivo",
+    "file_type_label": "Tipo:",
+    "no_description": "Nenhuma descrição disponível.",
+    "share_button": "Compartilhar",
+    "contribute_button": "Contribuir",
+    "missing_file_button": "Arquivo Ausente",
+    "download_button": "Baixar",
+    "seo": {
+      "title_suffix": "- Arquivo Classic Mini - Classic Mini DIY",
+      "description_fallback": "Recurso de arquivo para {title} na coleção Classic Mini DIY.",
+      "keywords_template": "Classic Mini, {title}, arquivo, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Arquivo Classic Mini",
+      "twitter_title_suffix": "- Arquivo Classic Mini"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Arquivos Classic Mini"
+    }
+  },
+  "ru": {
+    "breadcrumb_archive": "Архив",
+    "hero_title": "Архивы Classic Mini",
+    "loading_error": "Ошибка загрузки контента. Пожалуйста, попробуйте позже.",
+    "no_image_alt": "Изображение недоступно",
+    "download_aria_label": "Скачать {title}",
+    "preview_image_alt": "Превью изображение {title}",
+    "archive_item_alt": "Изображение {title}",
+    "fallback_title": "Элемент Архива",
+    "file_type_label": "Тип:",
+    "no_description": "Описание недоступно.",
+    "share_button": "Поделиться",
+    "contribute_button": "Внести вклад",
+    "missing_file_button": "Отсутствующий Файл",
+    "download_button": "Скачать",
+    "seo": {
+      "title_suffix": "- Архив Classic Mini - Classic Mini DIY",
+      "description_fallback": "Архивный ресурс для {title} в коллекции Classic Mini DIY.",
+      "keywords_template": "Classic Mini, {title}, архив, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Архив Classic Mini",
+      "twitter_title_suffix": "- Архив Classic Mini"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Архивы Classic Mini"
+    }
+  },
+  "ja": {
+    "breadcrumb_archive": "アーカイブ",
+    "hero_title": "Classic Mini アーカイブ",
+    "loading_error": "コンテンツの読み込みエラーです。後でもう一度お試しください。",
+    "no_image_alt": "画像がありません",
+    "download_aria_label": "{title}をダウンロード",
+    "preview_image_alt": "{title}のプレビュー画像",
+    "archive_item_alt": "{title}の画像",
+    "fallback_title": "アーカイブアイテム",
+    "file_type_label": "タイプ：",
+    "no_description": "説明がありません。",
+    "share_button": "共有",
+    "contribute_button": "貢献",
+    "missing_file_button": "ファイルが見つかりません",
+    "download_button": "ダウンロード",
+    "seo": {
+      "title_suffix": "- Classic Mini アーカイブ - Classic Mini DIY",
+      "description_fallback": "Classic Mini DIYコレクションの{title}のアーカイブリソース。",
+      "keywords_template": "Classic Mini, {title}, アーカイブ, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Classic Mini アーカイブ",
+      "twitter_title_suffix": "- Classic Mini アーカイブ"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Classic Mini アーカイブ"
+    }
+  },
+  "zh": {
+    "breadcrumb_archive": "档案",
+    "hero_title": "Classic Mini 档案",
+    "loading_error": "加载内容时出错。请稍后重试。",
+    "no_image_alt": "无可用图片",
+    "download_aria_label": "下载 {title}",
+    "preview_image_alt": "{title} 预览图片",
+    "archive_item_alt": "{title} 图片",
+    "fallback_title": "档案项目",
+    "file_type_label": "类型：",
+    "no_description": "无可用描述。",
+    "share_button": "分享",
+    "contribute_button": "贡献",
+    "missing_file_button": "缺少文件",
+    "download_button": "下载",
+    "seo": {
+      "title_suffix": "- Classic Mini 档案 - Classic Mini DIY",
+      "description_fallback": "Classic Mini DIY 收藏中 {title} 的档案资源。",
+      "keywords_template": "Classic Mini, {title}, 档案, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Classic Mini 档案",
+      "twitter_title_suffix": "- Classic Mini 档案"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Classic Mini 档案"
+    }
+  },
+  "ko": {
+    "breadcrumb_archive": "아카이브",
+    "hero_title": "Classic Mini 아카이브",
+    "loading_error": "콘텐츠 로딩 중 오류가 발생했습니다. 나중에 다시 시도해 주세요.",
+    "no_image_alt": "사용 가능한 이미지가 없습니다",
+    "download_aria_label": "{title} 다운로드",
+    "preview_image_alt": "{title} 미리보기 이미지",
+    "archive_item_alt": "{title} 이미지",
+    "fallback_title": "아카이브 항목",
+    "file_type_label": "유형:",
+    "no_description": "사용 가능한 설명이 없습니다.",
+    "share_button": "공유",
+    "contribute_button": "기여",
+    "missing_file_button": "누락된 파일",
+    "download_button": "다운로드",
+    "seo": {
+      "title_suffix": "- Classic Mini 아카이브 - Classic Mini DIY",
+      "description_fallback": "Classic Mini DIY 컬렉션의 {title} 아카이브 리소스.",
+      "keywords_template": "Classic Mini, {title}, 아카이브, Mini Cooper, {fileType}, {archiveType}",
+      "og_title_suffix": "- Classic Mini 아카이브",
+      "twitter_title_suffix": "- Classic Mini 아카이브"
+    },
+    "structured_data": {
+      "author_fallback": "Classic Mini DIY",
+      "publisher_name": "Classic Mini DIY",
+      "collection_name": "Classic Mini 아카이브"
+    }
   }
 }
 </i18n>

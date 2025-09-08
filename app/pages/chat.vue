@@ -44,6 +44,96 @@
     "twitter_description": "Get instant help with your Classic Mini projects from our AI assistant.",
     "main_heading": "CMDIY Assistant",
     "description_text": "Your Classic Mini DIY assistant - ask technical questions, find parts information, and get guidance on restoration projects. Or just chat with me about your Classic Mini!"
+  },
+  "es": {
+    "title": "Asistente CMDIY - Classic Mini DIY",
+    "description": "Chatea con nuestro asistente de IA para ayuda técnica con Classic Mini, decodificación de chasis, información de piezas y guía de restauración.",
+    "og_title": "Asistente CMDIY - Classic Mini DIY",
+    "og_description": "Obtén ayuda instantánea con tus proyectos de Classic Mini de nuestro asistente de IA.",
+    "twitter_title": "Asistente CMDIY - Classic Mini DIY",
+    "twitter_description": "Obtén ayuda instantánea con tus proyectos de Classic Mini de nuestro asistente de IA.",
+    "main_heading": "Asistente CMDIY",
+    "description_text": "Tu asistente Classic Mini DIY - haz preguntas técnicas, encuentra información de piezas y obtén guía en proyectos de restauración. ¡O simplemente chatea conmigo sobre tu Classic Mini!"
+  },
+  "fr": {
+    "title": "Assistant CMDIY - Classic Mini DIY",
+    "description": "Discutez avec notre assistant IA pour l'aide technique Classic Mini, le décodage de châssis, les informations sur les pièces et les conseils de restauration.",
+    "og_title": "Assistant CMDIY - Classic Mini DIY",
+    "og_description": "Obtenez une aide instantanée pour vos projets Classic Mini grâce à notre assistant IA.",
+    "twitter_title": "Assistant CMDIY - Classic Mini DIY",
+    "twitter_description": "Obtenez une aide instantanée pour vos projets Classic Mini grâce à notre assistant IA.",
+    "main_heading": "Assistant CMDIY",
+    "description_text": "Votre assistant Classic Mini DIY - posez des questions techniques, trouvez des informations sur les pièces et obtenez des conseils sur les projets de restauration. Ou discutez simplement avec moi de votre Classic Mini !"
+  },
+  "it": {
+    "title": "Assistente CMDIY - Classic Mini DIY",
+    "description": "Chatta con il nostro assistente AI per aiuto tecnico Classic Mini, decodifica telaio, informazioni sui pezzi e guida al restauro.",
+    "og_title": "Assistente CMDIY - Classic Mini DIY",
+    "og_description": "Ottieni aiuto istantaneo per i tuoi progetti Classic Mini dal nostro assistente AI.",
+    "twitter_title": "Assistente CMDIY - Classic Mini DIY",
+    "twitter_description": "Ottieni aiuto istantaneo per i tuoi progetti Classic Mini dal nostro assistente AI.",
+    "main_heading": "Assistente CMDIY",
+    "description_text": "Il tuo assistente Classic Mini DIY - fai domande tecniche, trova informazioni sui pezzi e ottieni guida sui progetti di restauro. O semplicemente chiacchiera con me della tua Classic Mini!"
+  },
+  "de": {
+    "title": "CMDIY Assistent - Classic Mini DIY",
+    "description": "Chatten Sie mit unserem KI-Assistenten für Classic Mini technische Hilfe, Fahrgestell-Dekodierung, Teileinformationen und Restaurierungsberatung.",
+    "og_title": "CMDIY Assistent - Classic Mini DIY",
+    "og_description": "Erhalten Sie sofortige Hilfe für Ihre Classic Mini Projekte von unserem KI-Assistenten.",
+    "twitter_title": "CMDIY Assistent - Classic Mini DIY",
+    "twitter_description": "Erhalten Sie sofortige Hilfe für Ihre Classic Mini Projekte von unserem KI-Assistenten.",
+    "main_heading": "CMDIY Assistent",
+    "description_text": "Ihr Classic Mini DIY Assistent - stellen Sie technische Fragen, finden Sie Teileinformationen und erhalten Sie Beratung zu Restaurierungsprojekten. Oder chatten Sie einfach mit mir über Ihren Classic Mini!"
+  },
+  "pt": {
+    "title": "Assistente CMDIY - Classic Mini DIY",
+    "description": "Converse com nosso assistente de IA para ajuda técnica Classic Mini, decodificação de chassi, informações de peças e orientação de restauração.",
+    "og_title": "Assistente CMDIY - Classic Mini DIY",
+    "og_description": "Obtenha ajuda instantânea com seus projetos Classic Mini do nosso assistente de IA.",
+    "twitter_title": "Assistente CMDIY - Classic Mini DIY",
+    "twitter_description": "Obtenha ajuda instantânea com seus projetos Classic Mini do nosso assistente de IA.",
+    "main_heading": "Assistente CMDIY",
+    "description_text": "Seu assistente Classic Mini DIY - faça perguntas técnicas, encontre informações de peças e obtenha orientação em projetos de restauração. Ou apenas converse comigo sobre seu Classic Mini!"
+  },
+  "ru": {
+    "title": "Помощник CMDIY - Classic Mini DIY",
+    "description": "Общайтесь с нашим ИИ-помощником для технической помощи Classic Mini, декодирования шасси, информации о деталях и руководства по реставрации.",
+    "og_title": "Помощник CMDIY - Classic Mini DIY",
+    "og_description": "Получите мгновенную помощь с вашими проектами Classic Mini от нашего ИИ-помощника.",
+    "twitter_title": "Помощник CMDIY - Classic Mini DIY",
+    "twitter_description": "Получите мгновенную помощь с вашими проектами Classic Mini от нашего ИИ-помощника.",
+    "main_heading": "Помощник CMDIY",
+    "description_text": "Ваш помощник Classic Mini DIY - задавайте технические вопросы, находите информацию о деталях и получайте руководство по проектам реставрации. Или просто поговорите со мной о вашем Classic Mini!"
+  },
+  "ja": {
+    "title": "CMDIYアシスタント - Classic Mini DIY",
+    "description": "Classic Miniの技術的ヘルプ、シャーシデコード、パーツ情報、レストレーションガイダンスについて、AIアシスタントとチャットしてください。",
+    "og_title": "CMDIYアシスタント - Classic Mini DIY",
+    "og_description": "AIアシスタントからClassic Miniプロジェクトの即座のヘルプを得てください。",
+    "twitter_title": "CMDIYアシスタント - Classic Mini DIY",
+    "twitter_description": "AIアシスタントからClassic Miniプロジェクトの即座のヘルプを得てください。",
+    "main_heading": "CMDIYアシスタント",
+    "description_text": "あなたのClassic Mini DIYアシスタント - 技術的な質問をし、パーツ情報を見つけ、レストレーションプロジェクトのガイダンスを得てください。または、あなたのClassic Miniについて私とチャットしてください！"
+  },
+  "zh": {
+    "title": "CMDIY助手 - Classic Mini DIY",
+    "description": "与我们的AI助手聊天，获取Classic Mini技术帮助、底盘解码、零件信息和修复指导。",
+    "og_title": "CMDIY助手 - Classic Mini DIY",
+    "og_description": "从我们的AI助手那里获得Classic Mini项目的即时帮助。",
+    "twitter_title": "CMDIY助手 - Classic Mini DIY",
+    "twitter_description": "从我们的AI助手那里获得Classic Mini项目的即时帮助。",
+    "main_heading": "CMDIY助手",
+    "description_text": "您的Classic Mini DIY助手 - 询问技术问题，查找零件信息，并获得修复项目的指导。或者只是和我聊聊您的Classic Mini！"
+  },
+  "ko": {
+    "title": "CMDIY 어시스턴트 - Classic Mini DIY",
+    "description": "Classic Mini 기술 도움, 섀시 디코딩, 부품 정보 및 복원 가이드를 위해 AI 어시스턴트와 채팅하세요.",
+    "og_title": "CMDIY 어시스턴트 - Classic Mini DIY",
+    "og_description": "AI 어시스턴트로부터 Classic Mini 프로젝트에 대한 즉각적인 도움을 받으세요.",
+    "twitter_title": "CMDIY 어시스턴트 - Classic Mini DIY",
+    "twitter_description": "AI 어시스턴트로부터 Classic Mini 프로젝트에 대한 즉각적인 도움을 받으세요.",
+    "main_heading": "CMDIY 어시스턴트",
+    "description_text": "귀하의 Classic Mini DIY 어시스턴트 - 기술적 질문을 하고, 부품 정보를 찾고, 복원 프로젝트에 대한 가이드를 받으세요. 또는 귀하의 Classic Mini에 대해 저와 채팅하세요!"
   }
 }
 </i18n>

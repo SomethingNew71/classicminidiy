@@ -474,6 +474,238 @@
     "ui": {
       "support_section": "Support"
     }
+  },
+  "es": {
+    "title": "Tech - Decodificador de Placa de Chasis Mini",
+    "description": "Decodifica la placa de chasis de tu Classic Mini para determinar el año del modelo, planta de ensamblaje y número de construcción secuencial del auto. La placa de chasis también se conoce como placa VIN, etiqueta VIN o placa VIN dependiendo de la generación.",
+    "hero_title": "Decodificador de Chasis",
+    "breadcrumb_title": "Decodificador de Chasis",
+    "og_title": "Tech - Decodificador de Placa de Chasis Mini",
+    "og_description": "Decodifica la placa de chasis de tu Classic Mini para determinar el año del modelo, planta de ensamblaje y número de construcción secuencial del auto. La placa de chasis también se conoce como placa VIN, etiqueta VIN o placa VIN dependiendo de la generación.",
+    "twitter_title": "Tech - Decodificador de Placa de Chasis Mini",
+    "twitter_description": "Decodifica la placa de chasis de tu Classic Mini para determinar el año del modelo, planta de ensamblaje y número de construcción secuencial del auto.",
+    "main_heading": "Decodificador de Placa de Chasis",
+    "description_text": "La placa de chasis es una serie de números y letras que están estampados en una placa metálica que está remachada al cuerpo del auto. Esta placa está ubicada en diferentes lugares en todas las generaciones de mini y se usa para identificar el año del modelo, planta de ensamblaje y número de construcción secuencial del auto. La placa de chasis también se conoce como placa VIN, etiqueta VIN o placa VIN dependiendo de la generación.",
+    "engine_decoder_card": {
+      "link_title": "Enlace al decodificador de placa de motor",
+      "heading": "Decodificador de Motor",
+      "description": "Haz clic aquí para identificar tu motor usando nuestra nueva tabla de decodificación de números de motor.",
+      "alt_text": "Decodificador de Motor"
+    },
+    "form": {
+      "card_title": "Decodifica Tu Número de Chasis",
+      "card_description": "Ingresa tu número de chasis y selecciona el rango de años apropiado para decodificar todos los detalles automáticamente.",
+      "year_range_label": "Rango de Años",
+      "chassis_number_label": "Número de Chasis",
+      "chassis_number_placeholder": "Ingresa tu número de chasis",
+      "example_text": "Ejemplo para",
+      "decode_button": "Decodificar Chasis",
+      "decoding_button": "Decodificando...",
+      "reset_button": "Reiniciar",
+      "error_empty_chassis": "Por favor ingresa un número de chasis",
+      "error_decode_failed": "Error al decodificar el número de chasis. Por favor intenta de nuevo."
+    },
+    "results": {
+      "title": "Resultados Decodificados",
+      "status_decoded": "Decodificado",
+      "status_invalid": "Inválido",
+      "year_range_stat": "Rango de Años",
+      "chassis_number_stat": "Tu Número de Chasis",
+      "expected_pattern_stat": "Patrón Esperado",
+      "validation_issues_title": "Problemas de Validación",
+      "decoded_positions_title": "Posiciones Decodificadas",
+      "position_label": "Posición"
+    },
+    "special_notes": {
+      "title": "Notas Especiales",
+      "build_number_title": "Nota sobre el Número de Construcción",
+      "build_number_text": "El primer auto en Longbridge fue el número 101, al igual que el primero en Cowley. A partir de entonces, cada fábrica continuó con su propia secuencia numérica independientemente del modelo; por ejemplo, Sedán, Furgoneta, etc. En otras palabras, cada modelo no comenzó en 101 y mantuvo su propia secuencia. Los Sedanes y Furgonetas, etc., están mezclados en la secuencia numérica junto con los modelos Cooper y Cooper S",
+      "assembly_plant_title": "Nota sobre la Planta de Ensamblaje",
+      "assembly_plant_text": "Esto parece usarse de manera inconsistente en los autos construidos en Inglaterra, y se entiende que el auto fue construido en la fábrica \"normal\" si se omite la letra; por ejemplo, un Austin, Riley o Wolseley en Longbridge puede o no tener una \"A\" después del número de secuencia. Sí, hubo Austin Minis construidos en la planta Morris en Cowley y Morris Minis construidos en la planta Austin en Longbridge. Nota que todos los modelos Cooper y Cooper S construidos en Inglaterra (Austin y Morris) así como los modelos Riley Elf y Wolseley Hornet fueron construidos en la planta Austin de Longbridge"
+    },
+    "attribution": {
+      "text": "Por favor nota que los detalles anteriores fueron extraídos de",
+      "mini_mania": "Mini Mania's",
+      "technical_articles": "artículos técnicos. Más detalles se pueden encontrar aquí:",
+      "link_text": "Artículos Técnicos de Códigos de Chasis"
+    },
+    "ui": {
+      "support_section": "Soporte"
+    }
+  },
+  "fr": {
+    "title": "Tech - Décodeur de Plaque de Châssis Mini",
+    "description": "Décodez la plaque de châssis de votre Classic Mini pour déterminer l'année modèle, l'usine d'assemblage et le numéro de construction séquentiel de la voiture. La plaque de châssis est également connue sous le nom de plaque VIN, étiquette VIN ou plaque VIN selon la génération.",
+    "hero_title": "Décodeur de Châssis",
+    "breadcrumb_title": "Décodeur de Châssis",
+    "og_title": "Tech - Décodeur de Plaque de Châssis Mini",
+    "og_description": "Décodez la plaque de châssis de votre Classic Mini pour déterminer l'année modèle, l'usine d'assemblage et le numéro de construction séquentiel de la voiture. La plaque de châssis est également connue sous le nom de plaque VIN, étiquette VIN ou plaque VIN selon la génération.",
+    "twitter_title": "Tech - Décodeur de Plaque de Châssis Mini",
+    "twitter_description": "Décodez la plaque de châssis de votre Classic Mini pour déterminer l'année modèle, l'usine d'assemblage et le numéro de construction séquentiel de la voiture.",
+    "main_heading": "Décodeur de Plaque de Châssis",
+    "description_text": "La plaque de châssis est une série de numéros et de lettres qui sont estampés sur une plaque métallique qui est rivetée au corps de la voiture. Cette plaque est située à différents endroits sur toutes les générations de mini et est utilisée pour identifier l'année modèle, l'usine d'assemblage et le numéro de construction séquentiel de la voiture. La plaque de châssis est également connue sous le nom de plaque VIN, étiquette VIN ou plaque VIN selon la génération.",
+    "engine_decoder_card": {
+      "link_title": "Lien vers le décodeur de plaque moteur",
+      "heading": "Décodeur de Moteur",
+      "description": "Cliquez ici pour identifier votre moteur en utilisant notre nouvelle table de décodage des numéros de moteur.",
+      "alt_text": "Décodeur de Moteur"
+    },
+    "form": {
+      "card_title": "Décodez Votre Numéro de Châssis",
+      "card_description": "Entrez votre numéro de châssis et sélectionnez la plage d'années appropriée pour décoder automatiquement tous les détails.",
+      "year_range_label": "Plage d'Années",
+      "chassis_number_label": "Numéro de Châssis",
+      "chassis_number_placeholder": "Entrez votre numéro de châssis",
+      "example_text": "Exemple pour",
+      "decode_button": "Décoder le Châssis",
+      "decoding_button": "Décodage...",
+      "reset_button": "Réinitialiser",
+      "error_empty_chassis": "Veuillez entrer un numéro de châssis",
+      "error_decode_failed": "Échec du décodage du numéro de châssis. Veuillez réessayer."
+    },
+    "results": {
+      "title": "Résultats Décodés",
+      "status_decoded": "Décodé",
+      "status_invalid": "Invalide",
+      "year_range_stat": "Plage d'Années",
+      "chassis_number_stat": "Votre Numéro de Châssis",
+      "expected_pattern_stat": "Modèle Attendu",
+      "validation_issues_title": "Problèmes de Validation",
+      "decoded_positions_title": "Positions Décodées",
+      "position_label": "Position"
+    },
+    "special_notes": {
+      "title": "Notes Spéciales",
+      "build_number_title": "Note sur le Numéro de Construction",
+      "build_number_text": "La première voiture à Longbridge était le numéro 101, tout comme la première à Cowley. À partir de là, chaque usine a continué avec sa propre séquence numérique indépendamment du modèle ; par exemple, Berline, Fourgonnette, etc. En d'autres termes, chaque modèle n'a pas commencé à 101 et maintenu sa propre séquence. Les Berlines et Fourgonnettes, etc., sont mélangées dans la séquence numérique avec les modèles Cooper et Cooper S",
+      "assembly_plant_title": "Note sur l'Usine d'Assemblage",
+      "assembly_plant_text": "Cela semble être utilisé de manière incohérente sur les voitures construites en Angleterre, et il est entendu que la voiture a été construite à l'usine \"normale\" si la lettre est omise ; par exemple, une Austin, Riley ou Wolseley à Longbridge peut ou peut ne pas avoir un \"A\" après le numéro de séquence. Oui, il y avait des Austin Minis construites à l'usine Morris de Cowley et des Morris Minis construites à l'usine Austin de Longbridge. Notez que tous les modèles Cooper et Cooper S construits en Angleterre (Austin et Morris) ainsi que les modèles Riley Elf et Wolseley Hornet ont été construits à l'usine Austin de Longbridge"
+    },
+    "attribution": {
+      "text": "Veuillez noter que les détails ci-dessus ont été tirés de",
+      "mini_mania": "Mini Mania's",
+      "technical_articles": "articles techniques. Plus de détails peuvent être trouvés ici :",
+      "link_text": "Articles Techniques des Codes de Châssis"
+    },
+    "ui": {
+      "support_section": "Support"
+    }
+  },
+  "it": {
+    "title": "Tech - Decodificatore Piastra Telaio Mini",
+    "description": "Decodifica la piastra del telaio della tua Classic Mini per determinare l'anno del modello, stabilimento di assemblaggio e numero di costruzione sequenziale dell'auto. La piastra del telaio è anche conosciuta come piastra VIN, etichetta VIN o piastra VIN a seconda della generazione.",
+    "hero_title": "Decodificatore Telaio",
+    "breadcrumb_title": "Decodificatore Telaio",
+    "og_title": "Tech - Decodificatore Piastra Telaio Mini",
+    "og_description": "Decodifica la piastra del telaio della tua Classic Mini per determinare l'anno del modello, stabilimento di assemblaggio e numero di costruzione sequenziale dell'auto.",
+    "twitter_title": "Tech - Decodificatore Piastra Telaio Mini",
+    "twitter_description": "Decodifica la piastra del telaio della tua Classic Mini per determinare l'anno del modello, stabilimento di assemblaggio e numero di costruzione sequenziale dell'auto.",
+    "main_heading": "Decodificatore Piastra Telaio",
+    "description_text": "La piastra del telaio è una serie di numeri e lettere che sono stampati su una piastra metallica che è rivettata al corpo dell'auto. Questa piastra si trova in luoghi diversi in tutte le generazioni di mini ed è utilizzata per identificare l'anno del modello, lo stabilimento di assemblaggio e il numero di costruzione sequenziale dell'auto. La piastra del telaio è anche conosciuta come piastra VIN, etichetta VIN o piastra VIN a seconda della generazione.",
+    "engine_decoder_card": {
+      "link_title": "Link al decodificatore piastra motore",
+      "heading": "Decodificatore Motore",
+      "description": "Clicca qui per identificare il tuo motore usando la nostra nuova tabella di decodifica dei numeri motore.",
+      "alt_text": "Decodificatore Motore"
+    },
+    "form": {
+      "card_title": "Decodifica il Tuo Numero di Telaio",
+      "card_description": "Inserisci il tuo numero di telaio e seleziona l'intervallo di anni appropriato per decodificare automaticamente tutti i dettagli.",
+      "year_range_label": "Intervallo Anni",
+      "chassis_number_label": "Numero Telaio",
+      "chassis_number_placeholder": "Inserisci il tuo numero di telaio",
+      "example_text": "Esempio per",
+      "decode_button": "Decodifica Telaio",
+      "decoding_button": "Decodifica...",
+      "reset_button": "Reimposta",
+      "error_empty_chassis": "Inserisci un numero di telaio",
+      "error_decode_failed": "Errore nella decodifica del numero di telaio. Riprova."
+    },
+    "results": {
+      "title": "Risultati Decodificati",
+      "status_decoded": "Decodificato",
+      "status_invalid": "Non Valido",
+      "year_range_stat": "Intervallo Anni",
+      "chassis_number_stat": "Il Tuo Numero di Telaio",
+      "expected_pattern_stat": "Schema Previsto",
+      "validation_issues_title": "Problemi di Validazione",
+      "decoded_positions_title": "Posizioni Decodificate",
+      "position_label": "Posizione"
+    },
+    "special_notes": {
+      "title": "Note Speciali",
+      "build_number_title": "Nota sul Numero di Costruzione",
+      "build_number_text": "La prima auto a Longbridge era il numero 101, così come la prima a Cowley. Da allora, ogni fabbrica ha continuato con la propria sequenza numerica indipendentemente dal modello; ad esempio, Berlina, Furgone, ecc. In altre parole, ogni modello non ha iniziato da 101 e mantenuto la propria sequenza. Berline e Furgoni, ecc., sono mescolati nella sequenza numerica insieme ai modelli Cooper e Cooper S",
+      "assembly_plant_title": "Nota sullo Stabilimento di Assemblaggio",
+      "assembly_plant_text": "Questo sembra essere usato in modo incoerente sulle auto costruite in Inghilterra, ed è inteso che l'auto è stata costruita nella fabbrica \"normale\" se la lettera è omessa; ad esempio, un'Austin, Riley o Wolseley a Longbridge può o non può avere una \"A\" dopo il numero di sequenza. Sì, c'erano Austin Mini costruite nello stabilimento Morris a Cowley e Morris Mini costruite nello stabilimento Austin a Longbridge. Nota che tutti i modelli Cooper e Cooper S costruiti in Inghilterra (Austin e Morris) così come i modelli Riley Elf e Wolseley Hornet sono stati costruiti nello stabilimento Austin di Longbridge"
+    },
+    "attribution": {
+      "text": "Si prega di notare che i dettagli sopra sono stati presi da",
+      "mini_mania": "Mini Mania's",
+      "technical_articles": "articoli tecnici. Maggiori dettagli possono essere trovati qui:",
+      "link_text": "Articoli Tecnici Codici Telaio"
+    },
+    "ui": {
+      "support_section": "Supporto"
+    }
+  },
+  "de": {
+    "title": "Tech - Mini Fahrgestellplatte Decoder",
+    "description": "Dekodieren Sie die Fahrgestellplatte Ihres Classic Mini, um das Modelljahr, Montagewerk und die sequenzielle Baunummer des Autos zu bestimmen. Die Fahrgestellplatte ist auch als VIN-Platte, VIN-Etikett oder VIN-Platte bekannt, je nach Generation.",
+    "hero_title": "Fahrgestell-Decoder",
+    "breadcrumb_title": "Fahrgestell-Decoder",
+    "og_title": "Tech - Mini Fahrgestellplatte Decoder",
+    "og_description": "Dekodieren Sie die Fahrgestellplatte Ihres Classic Mini, um das Modelljahr, Montagewerk und die sequenzielle Baunummer des Autos zu bestimmen.",
+    "twitter_title": "Tech - Mini Fahrgestellplatte Decoder",
+    "twitter_description": "Dekodieren Sie die Fahrgestellplatte Ihres Classic Mini, um das Modelljahr, Montagewerk und die sequenzielle Baunummer des Autos zu bestimmen.",
+    "main_heading": "Fahrgestellplatte Decoder",
+    "description_text": "Die Fahrgestellplatte ist eine Reihe von Zahlen und Buchstaben, die auf eine Metallplatte gestempelt sind, die an die Karosserie des Autos genietet ist. Diese Platte befindet sich an verschiedenen Stellen bei allen Mini-Generationen und wird verwendet, um das Modelljahr, das Montagewerk und die sequenzielle Baunummer des Autos zu identifizieren. Die Fahrgestellplatte ist auch als VIN-Platte, VIN-Etikett oder VIN-Platte bekannt, je nach Generation.",
+    "engine_decoder_card": {
+      "link_title": "Link zum Motorplatte Decoder",
+      "heading": "Motor-Decoder",
+      "description": "Klicken Sie hier, um Ihren Motor mit unserer neuen Motornummer-Dekodierungstabelle zu identifizieren.",
+      "alt_text": "Motor-Decoder"
+    },
+    "form": {
+      "card_title": "Dekodieren Sie Ihre Fahrgestellnummer",
+      "card_description": "Geben Sie Ihre Fahrgestellnummer ein und wählen Sie den entsprechenden Jahresbereich aus, um alle Details automatisch zu dekodieren.",
+      "year_range_label": "Jahresbereich",
+      "chassis_number_label": "Fahrgestellnummer",
+      "chassis_number_placeholder": "Geben Sie Ihre Fahrgestellnummer ein",
+      "example_text": "Beispiel für",
+      "decode_button": "Fahrgestell Dekodieren",
+      "decoding_button": "Dekodierung...",
+      "reset_button": "Zurücksetzen",
+      "error_empty_chassis": "Bitte geben Sie eine Fahrgestellnummer ein",
+      "error_decode_failed": "Fehler beim Dekodieren der Fahrgestellnummer. Bitte versuchen Sie es erneut."
+    },
+    "results": {
+      "title": "Dekodierte Ergebnisse",
+      "status_decoded": "Dekodiert",
+      "status_invalid": "Ungültig",
+      "year_range_stat": "Jahresbereich",
+      "chassis_number_stat": "Ihre Fahrgestellnummer",
+      "expected_pattern_stat": "Erwartetes Muster",
+      "validation_issues_title": "Validierungsprobleme",
+      "decoded_positions_title": "Dekodierte Positionen",
+      "position_label": "Position"
+    },
+    "special_notes": {
+      "title": "Besondere Hinweise",
+      "build_number_title": "Hinweis zur Baunummer",
+      "build_number_text": "Das erste Auto in Longbridge war Nummer 101, ebenso wie das erste in Cowley. Von da an setzte jedes Werk seine eigene Zahlenfolge unabhängig vom Modell fort; z.B. Limousine, Transporter, etc. Mit anderen Worten, jedes Modell begann nicht bei 101 und behielt seine eigene Sequenz bei. Limousinen und Transporter, etc., sind in der Zahlenfolge zusammen mit den Cooper und Cooper S Modellen gemischt",
+      "assembly_plant_title": "Hinweis zum Montagewerk",
+      "assembly_plant_text": "Dies scheint bei in England gebauten Autos inkonsistent verwendet zu werden, und es wird verstanden, dass das Auto im \"normalen\" Werk gebaut wurde, wenn der Buchstabe weggelassen wird; z.B. ein Austin, Riley oder Wolseley in Longbridge kann nach der Sequenznummer ein \"A\" haben oder auch nicht. Ja, es gab Austin Minis, die im Morris-Werk in Cowley gebaut wurden, und Morris Minis, die im Austin-Werk in Longbridge gebaut wurden. Beachten Sie, dass alle in England gebauten Cooper und Cooper S Modelle (Austin und Morris) sowie Riley Elf und Wolseley Hornet Modelle im Austin-Werk in Longbridge gebaut wurden"
+    },
+    "attribution": {
+      "text": "Bitte beachten Sie, dass die obigen Details von",
+      "mini_mania": "Mini Mania's",
+      "technical_articles": "technischen Artikeln stammen. Weitere Details finden Sie hier:",
+      "link_text": "Technische Artikel zu Fahrgestell-Codes"
+    },
+    "ui": {
+      "support_section": "Support"
+    }
   }
 }
 </i18n>
