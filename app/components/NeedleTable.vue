@@ -3,7 +3,7 @@
 
   const { t } = useI18n({ useScope: 'local' });
   const { data: needlesTables, status } = await useFetch<SuggestedNeedles[]>(() => '/api/needles/suggested');
-  
+
   const tableHeaders = computed(() => [
     {
       title: t('table_headers.engine_size'),

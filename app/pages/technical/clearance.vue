@@ -52,10 +52,7 @@
 
   <div class="container mx-auto px-4 py-6">
     <div class="mb-6">
-      <breadcrumb
-        :version="BREADCRUMB_VERSIONS.TECH"
-        :page="$t('breadcrumb_title')"
-      />
+      <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')" />
     </div>
 
     <div class="space-y-4">

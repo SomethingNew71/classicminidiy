@@ -313,9 +313,7 @@
                 <i class="fad fa-credit-card text-3xl pb-3"></i>
               </div>
               <h3 class="fancy-font-bold text-2xl">{{ $t('options.purchase.title') }}</h3>
-              <h4 class="fancy-font-bold text-xl">
-                {{ $t('options.latestRelease') }}: {{ releases?.latestRelease }}
-              </h4>
+              <h4 class="fancy-font-bold text-xl">{{ $t('options.latestRelease') }}: {{ releases?.latestRelease }}</h4>
               <p class="py-3">
                 {{ $t('options.purchase.description') }}
               </p>
@@ -334,9 +332,7 @@
                 <i class="fad fa-download text-3xl pb-3"></i>
               </div>
               <h3 class="fancy-font-bold text-2xl">{{ $t('options.download.title') }}</h3>
-              <h4 class="fancy-font-bold text-xl">
-                {{ $t('options.latestRelease') }}: {{ releases?.latestRelease }}
-              </h4>
+              <h4 class="fancy-font-bold text-xl">{{ $t('options.latestRelease') }}: {{ releases?.latestRelease }}</h4>
               <p class="py-3">
                 {{ $t('options.download.description') }}
               </p>

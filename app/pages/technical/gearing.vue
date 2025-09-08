@@ -31,11 +31,7 @@
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb
-          class="my-6"
-          :version="BREADCRUMB_VERSIONS.TECH"
-          :page="$t('breadcrumb_title')"
-        ></breadcrumb>
+        <breadcrumb class="my-6" :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')"></breadcrumb>
         <div class="grid grid-cols-12 gap-6">
           <div class="col-span-12 md:col-span-8">
             <h1 class="text-3xl font-bold mb-4">{{ $t('main_heading') }}</h1>
@@ -44,11 +40,7 @@
             </p>
           </div>
           <div class="col-span-12 md:col-span-4">
-            <NuxtLink
-              :to="'/archive/engines'"
-              :title="$t('engine_sizes_card.link_title')"
-              class="block"
-            >
+            <NuxtLink :to="'/archive/engines'" :title="$t('engine_sizes_card.link_title')" class="block">
               <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
                 <div class="card-body">
                   <div class="flex items-start space-x-4">

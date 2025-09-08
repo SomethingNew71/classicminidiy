@@ -489,83 +489,423 @@
 <i18n lang="json">
 {
   "en": {
-    "title": "Contribute Color - Classic Mini DIY",
-    "description": "Contribute to the Classic Mini color database by submitting new or updated color information.",
-    "hero_title": "Contribute to Colors",
-    "breadcrumb_title": "Color Contribution",
-    "main_heading": "Classic Mini Color Picker",
-    "description_text": "Looking to make some suggestions to the color database? Fill out the form below to submit any changes you'd like. These will be reviewed and published within ~7 days.",
-    "current_data": {
-      "title": "Current Data",
-      "loading": "Loading color data...",
-      "labels": {
-        "primary_color": "Primary Color",
-        "code": "Code",
-        "ditzler_ppg_code": "Ditzler PPG Code",
-        "dulux_code": "Dulux Code",
-        "name": "Name",
-        "short_code": "Short Code",
-        "years_used": "Years Used"
-      },
-      "na": "N/A"
+    "title": "Classic Mini Archive - Contribute Color",
+    "description": "Contribute a new color to the Classic Mini color archive",
+    "hero_title": "Classic Mini Archives",
+    "breadcrumb_title": "Contribute Color",
+    "breadcrumb": {
+      "home": "Home",
+      "archive": "Archive",
+      "colors": "Colors",
+      "contribute": "Contribute"
     },
+    "main_heading": "Contribute Color",
+    "description_text": "Help us expand the Classic Mini color archive by contributing a new color. Please provide as much detail as possible to help other enthusiasts.",
     "form": {
-      "title": "New Data",
-      "success": {
-        "title": "Thank you!",
-        "subtitle": "Your suggestion has been submitted",
-        "suggestion_number": "Suggestion #",
-        "track_text": "Track your suggestion:",
-        "view_github": "View on GitHub",
-        "make_another": "Make Another Suggestion"
-      },
-      "error": {
-        "title": "Error Submitting Request",
-        "default_message": "Please try again later",
-        "color_not_loaded": "Color data not loaded. Please refresh the page and try again.",
-        "github_unavailable": "GitHub API is currently unavailable. Please try again later."
-      },
-      "fields": {
-        "color_name": {
-          "label": "Color Name",
-          "placeholder": "Enter color name"
-        },
-        "primary_code": {
-          "label": "Primary Code",
-          "placeholder": "e.g., ANA 101"
-        },
-        "short_code": {
-          "label": "Short Code",
-          "placeholder": "e.g., BRG"
-        },
-        "ditzler_ppg_code": {
-          "label": "Ditzler/PPG Code",
-          "placeholder": "e.g., 12345"
-        },
-        "dulux_code": {
-          "label": "Dulux Code",
-          "placeholder": "e.g., ABC123"
-        },
-        "years_used": {
-          "label": "Years Used",
-          "placeholder": "e.g., 1959-1967"
-        },
-        "image_swatch": {
-          "label": "Image Swatch URL (optional)",
-          "placeholder": "e.g., https://example.com/color.jpg",
-          "help": "Provide a direct URL to a high-quality color swatch image"
-        }
-      },
-      "submit": {
-        "button": "Submit Suggestion",
-        "submitting": "Submitting..."
-      }
+      "color_name": "Color Name",
+      "color_code": "Color Code",
+      "year_range": "Year Range",
+      "manufacturer": "Manufacturer",
+      "hex_color": "Hex Color",
+      "description": "Description",
+      "source": "Source",
+      "submit": "Submit Color",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "color_name_required": "Color name is required",
+      "color_code_required": "Color code is required",
+      "year_range_required": "Year range is required",
+      "hex_color_required": "Hex color is required",
+      "hex_color_invalid": "Please enter a valid hex color (e.g., #FF0000)"
+    },
+    "messages": {
+      "success": "Color submitted successfully! Thank you for your contribution.",
+      "error": "There was an error submitting your color. Please try again."
     },
     "seo": {
-      "og_title": "Contribute Color - Classic Mini DIY",
-      "og_description": "Contribute to the Classic Mini color database by submitting new or updated color information.",
-      "twitter_title": "Contribute Color - Classic Mini DIY",
-      "twitter_description": "Contribute to the Classic Mini color database by submitting new or updated color information."
+      "og_title": "Classic Mini Archive - Contribute Color",
+      "og_description": "Contribute a new color to the Classic Mini color archive",
+      "twitter_title": "Classic Mini Archive - Contribute Color",
+      "twitter_description": "Contribute a new color to the Classic Mini color archive"
+    }
+  },
+  "de": {
+    "title": "Classic Mini Archiv - Farbe Beitragen",
+    "description": "Tragen Sie eine neue Farbe zum Classic Mini Farbarchiv bei",
+    "hero_title": "Classic Mini Archive",
+    "breadcrumb_title": "Farbe Beitragen",
+    "breadcrumb": {
+      "home": "Startseite",
+      "archive": "Archiv",
+      "colors": "Farben",
+      "contribute": "Beitragen"
+    },
+    "main_heading": "Farbe Beitragen",
+    "description_text": "Helfen Sie uns, das Classic Mini Farbarchiv zu erweitern, indem Sie eine neue Farbe beitragen. Bitte geben Sie so viele Details wie möglich an, um anderen Enthusiasten zu helfen.",
+    "form": {
+      "color_name": "Farbname",
+      "color_code": "Farbcode",
+      "year_range": "Jahresbereich",
+      "manufacturer": "Hersteller",
+      "hex_color": "Hex-Farbe",
+      "description": "Beschreibung",
+      "source": "Quelle",
+      "submit": "Farbe Einreichen",
+      "cancel": "Abbrechen"
+    },
+    "validation": {
+      "color_name_required": "Farbname ist erforderlich",
+      "color_code_required": "Farbcode ist erforderlich",
+      "year_range_required": "Jahresbereich ist erforderlich",
+      "hex_color_required": "Hex-Farbe ist erforderlich",
+      "hex_color_invalid": "Bitte geben Sie eine gültige Hex-Farbe ein (z.B. #FF0000)"
+    },
+    "messages": {
+      "success": "Farbe erfolgreich eingereicht! Vielen Dank für Ihren Beitrag.",
+      "error": "Es gab einen Fehler beim Einreichen Ihrer Farbe. Bitte versuchen Sie es erneut."
+    },
+    "seo": {
+      "og_title": "Classic Mini Archiv - Farbe Beitragen",
+      "og_description": "Tragen Sie eine neue Farbe zum Classic Mini Farbarchiv bei",
+      "twitter_title": "Classic Mini Archiv - Farbe Beitragen",
+      "twitter_description": "Tragen Sie eine neue Farbe zum Classic Mini Farbarchiv bei"
+    }
+  },
+  "es": {
+    "title": "Archivo Classic Mini - Contribuir Color",
+    "description": "Contribuye con un nuevo color al archivo de colores Classic Mini",
+    "hero_title": "Archivos Classic Mini",
+    "breadcrumb_title": "Contribuir Color",
+    "breadcrumb": {
+      "home": "Inicio",
+      "archive": "Archivo",
+      "colors": "Colores",
+      "contribute": "Contribuir"
+    },
+    "main_heading": "Contribuir Color",
+    "description_text": "Ayúdanos a expandir el archivo de colores Classic Mini contribuyendo con un nuevo color. Por favor proporciona tantos detalles como sea posible para ayudar a otros entusiastas.",
+    "form": {
+      "color_name": "Nombre del Color",
+      "color_code": "Código de Color",
+      "year_range": "Rango de Años",
+      "manufacturer": "Fabricante",
+      "hex_color": "Color Hexadecimal",
+      "description": "Descripción",
+      "source": "Fuente",
+      "submit": "Enviar Color",
+      "cancel": "Cancelar"
+    },
+    "validation": {
+      "color_name_required": "El nombre del color es requerido",
+      "color_code_required": "El código de color es requerido",
+      "year_range_required": "El rango de años es requerido",
+      "hex_color_required": "El color hexadecimal es requerido",
+      "hex_color_invalid": "Por favor ingresa un color hexadecimal válido (ej. #FF0000)"
+    },
+    "messages": {
+      "success": "¡Color enviado exitosamente! Gracias por tu contribución.",
+      "error": "Hubo un error al enviar tu color. Por favor intenta de nuevo."
+    },
+    "seo": {
+      "og_title": "Archivo Classic Mini - Contribuir Color",
+      "og_description": "Contribuye con un nuevo color al archivo de colores Classic Mini",
+      "twitter_title": "Archivo Classic Mini - Contribuir Color",
+      "twitter_description": "Contribuye con un nuevo color al archivo de colores Classic Mini"
+    }
+  },
+  "fr": {
+    "title": "Archives Classic Mini - Contribuer Couleur",
+    "description": "Contribuez avec une nouvelle couleur aux archives de couleurs Classic Mini",
+    "hero_title": "Archives Classic Mini",
+    "breadcrumb_title": "Contribuer Couleur",
+    "breadcrumb": {
+      "home": "Accueil",
+      "archive": "Archive",
+      "colors": "Couleurs",
+      "contribute": "Contribuer"
+    },
+    "main_heading": "Contribuer Couleur",
+    "description_text": "Aidez-nous à élargir les archives de couleurs Classic Mini en contribuant une nouvelle couleur. Veuillez fournir autant de détails que possible pour aider d'autres passionnés.",
+    "form": {
+      "color_name": "Nom de la Couleur",
+      "color_code": "Code Couleur",
+      "year_range": "Plage d'Années",
+      "manufacturer": "Fabricant",
+      "hex_color": "Couleur Hexadécimale",
+      "description": "Description",
+      "source": "Source",
+      "submit": "Soumettre la Couleur",
+      "cancel": "Annuler"
+    },
+    "validation": {
+      "color_name_required": "Le nom de la couleur est requis",
+      "color_code_required": "Le code couleur est requis",
+      "year_range_required": "La plage d'années est requise",
+      "hex_color_required": "La couleur hexadécimale est requise",
+      "hex_color_invalid": "Veuillez entrer une couleur hexadécimale valide (ex. #FF0000)"
+    },
+    "messages": {
+      "success": "Couleur soumise avec succès ! Merci pour votre contribution.",
+      "error": "Il y a eu une erreur lors de la soumission de votre couleur. Veuillez réessayer."
+    },
+    "seo": {
+      "og_title": "Archives Classic Mini - Contribuer Couleur",
+      "og_description": "Contribuez avec une nouvelle couleur aux archives de couleurs Classic Mini",
+      "twitter_title": "Archives Classic Mini - Contribuer Couleur",
+      "twitter_description": "Contribuez avec une nouvelle couleur aux archives de couleurs Classic Mini"
+    }
+  },
+  "it": {
+    "title": "Archivio Classic Mini - Contribuisci Colore",
+    "description": "Contribuisci con un nuovo colore all'archivio colori Classic Mini",
+    "hero_title": "Archivi Classic Mini",
+    "breadcrumb_title": "Contribuisci Colore",
+    "breadcrumb": {
+      "home": "Home",
+      "archive": "Archivio",
+      "colors": "Colori",
+      "contribute": "Contribuisci"
+    },
+    "main_heading": "Contribuisci Colore",
+    "description_text": "Aiutaci ad espandere l'archivio colori Classic Mini contribuendo con un nuovo colore. Fornisci quanti più dettagli possibili per aiutare altri appassionati.",
+    "form": {
+      "color_name": "Nome Colore",
+      "color_code": "Codice Colore",
+      "year_range": "Intervallo Anni",
+      "manufacturer": "Produttore",
+      "hex_color": "Colore Esadecimale",
+      "description": "Descrizione",
+      "source": "Fonte",
+      "submit": "Invia Colore",
+      "cancel": "Annulla"
+    },
+    "validation": {
+      "color_name_required": "Il nome del colore è richiesto",
+      "color_code_required": "Il codice colore è richiesto",
+      "year_range_required": "L'intervallo anni è richiesto",
+      "hex_color_required": "Il colore esadecimale è richiesto",
+      "hex_color_invalid": "Inserisci un colore esadecimale valido (es. #FF0000)"
+    },
+    "messages": {
+      "success": "Colore inviato con successo! Grazie per il tuo contributo.",
+      "error": "C'è stato un errore nell'invio del tuo colore. Riprova."
+    },
+    "seo": {
+      "og_title": "Archivio Classic Mini - Contribuisci Colore",
+      "og_description": "Contribuisci con un nuovo colore all'archivio colori Classic Mini",
+      "twitter_title": "Archivio Classic Mini - Contribuisci Colore",
+      "twitter_description": "Contribuisci con un nuovo colore all'archivio colori Classic Mini"
+    }
+  },
+  "pt": {
+    "title": "Arquivo Classic Mini - Contribuir Cor",
+    "description": "Contribua com uma nova cor para o arquivo de cores Classic Mini",
+    "hero_title": "Arquivos Classic Mini",
+    "breadcrumb_title": "Contribuir Cor",
+    "breadcrumb": {
+      "home": "Início",
+      "archive": "Arquivo",
+      "colors": "Cores",
+      "contribute": "Contribuir"
+    },
+    "main_heading": "Contribuir Cor",
+    "description_text": "Ajude-nos a expandir o arquivo de cores Classic Mini contribuindo com uma nova cor. Forneça o máximo de detalhes possível para ajudar outros entusiastas.",
+    "form": {
+      "color_name": "Nome da Cor",
+      "color_code": "Código da Cor",
+      "year_range": "Faixa de Anos",
+      "manufacturer": "Fabricante",
+      "hex_color": "Cor Hexadecimal",
+      "description": "Descrição",
+      "source": "Fonte",
+      "submit": "Enviar Cor",
+      "cancel": "Cancelar"
+    },
+    "validation": {
+      "color_name_required": "O nome da cor é obrigatório",
+      "color_code_required": "O código da cor é obrigatório",
+      "year_range_required": "A faixa de anos é obrigatória",
+      "hex_color_required": "A cor hexadecimal é obrigatória",
+      "hex_color_invalid": "Por favor insira uma cor hexadecimal válida (ex. #FF0000)"
+    },
+    "messages": {
+      "success": "Cor enviada com sucesso! Obrigado pela sua contribuição.",
+      "error": "Houve um erro ao enviar sua cor. Tente novamente."
+    },
+    "seo": {
+      "og_title": "Arquivo Classic Mini - Contribuir Cor",
+      "og_description": "Contribua com uma nova cor para o arquivo de cores Classic Mini",
+      "twitter_title": "Arquivo Classic Mini - Contribuir Cor",
+      "twitter_description": "Contribua com uma nova cor para o arquivo de cores Classic Mini"
+    }
+  },
+  "nl": {
+    "title": "Classic Mini Archief - Kleur Bijdragen",
+    "description": "Draag een nieuwe kleur bij aan het Classic Mini kleurenarchief",
+    "hero_title": "Classic Mini Archieven",
+    "breadcrumb_title": "Kleur Bijdragen",
+    "breadcrumb": {
+      "home": "Home",
+      "archive": "Archief",
+      "colors": "Kleuren",
+      "contribute": "Bijdragen"
+    },
+    "main_heading": "Kleur Bijdragen",
+    "description_text": "Help ons het Classic Mini kleurenarchief uit te breiden door een nieuwe kleur bij te dragen. Verstrek zoveel mogelijk details om andere liefhebbers te helpen.",
+    "form": {
+      "color_name": "Kleurnaam",
+      "color_code": "Kleurcode",
+      "year_range": "Jaarbereik",
+      "manufacturer": "Fabrikant",
+      "hex_color": "Hex Kleur",
+      "description": "Beschrijving",
+      "source": "Bron",
+      "submit": "Kleur Indienen",
+      "cancel": "Annuleren"
+    },
+    "validation": {
+      "color_name_required": "Kleurnaam is vereist",
+      "color_code_required": "Kleurcode is vereist",
+      "year_range_required": "Jaarbereik is vereist",
+      "hex_color_required": "Hex kleur is vereist",
+      "hex_color_invalid": "Voer een geldige hex kleur in (bijv. #FF0000)"
+    },
+    "messages": {
+      "success": "Kleur succesvol ingediend! Bedankt voor je bijdrage.",
+      "error": "Er was een fout bij het indienen van je kleur. Probeer het opnieuw."
+    },
+    "seo": {
+      "og_title": "Classic Mini Archief - Kleur Bijdragen",
+      "og_description": "Draag een nieuwe kleur bij aan het Classic Mini kleurenarchief",
+      "twitter_title": "Classic Mini Archief - Kleur Bijdragen",
+      "twitter_description": "Draag een nieuwe kleur bij aan het Classic Mini kleurenarchief"
+    }
+  },
+  "sv": {
+    "title": "Classic Mini Arkiv - Bidra Färg",
+    "description": "Bidra med en ny färg till Classic Mini färgarkivet",
+    "hero_title": "Classic Mini Arkiv",
+    "breadcrumb_title": "Bidra Färg",
+    "breadcrumb": {
+      "home": "Hem",
+      "archive": "Arkiv",
+      "colors": "Färger",
+      "contribute": "Bidra"
+    },
+    "main_heading": "Bidra Färg",
+    "description_text": "Hjälp oss att utöka Classic Mini färgarkivet genom att bidra med en ny färg. Vänligen ge så mycket detaljer som möjligt för att hjälpa andra entusiaster.",
+    "form": {
+      "color_name": "Färgnamn",
+      "color_code": "Färgkod",
+      "year_range": "Årsintervall",
+      "manufacturer": "Tillverkare",
+      "hex_color": "Hex Färg",
+      "description": "Beskrivning",
+      "source": "Källa",
+      "submit": "Skicka Färg",
+      "cancel": "Avbryt"
+    },
+    "validation": {
+      "color_name_required": "Färgnamn krävs",
+      "color_code_required": "Färgkod krävs",
+      "year_range_required": "Årsintervall krävs",
+      "hex_color_required": "Hex färg krävs",
+      "hex_color_invalid": "Vänligen ange en giltig hex färg (t.ex. #FF0000)"
+    },
+    "messages": {
+      "success": "Färg skickad framgångsrikt! Tack för ditt bidrag.",
+      "error": "Det uppstod ett fel när din färg skickades. Försök igen."
+    },
+    "seo": {
+      "og_title": "Classic Mini Arkiv - Bidra Färg",
+      "og_description": "Bidra med en ny färg till Classic Mini färgarkivet",
+      "twitter_title": "Classic Mini Arkiv - Bidra Färg",
+      "twitter_description": "Bidra med en ny färg till Classic Mini färgarkivet"
+    }
+  },
+  "da": {
+    "title": "Classic Mini Arkiv - Bidrag Farve",
+    "description": "Bidrag med en ny farve til Classic Mini farvearkivet",
+    "hero_title": "Classic Mini Arkiver",
+    "breadcrumb_title": "Bidrag Farve",
+    "breadcrumb": {
+      "home": "Hjem",
+      "archive": "Arkiv",
+      "colors": "Farver",
+      "contribute": "Bidrag"
+    },
+    "main_heading": "Bidrag Farve",
+    "description_text": "Hjælp os med at udvide Classic Mini farvearkivet ved at bidrage med en ny farve. Venligst giv så mange detaljer som muligt for at hjælpe andre entusiaster.",
+    "form": {
+      "color_name": "Farvenavn",
+      "color_code": "Farvekode",
+      "year_range": "Årsinterval",
+      "manufacturer": "Producent",
+      "hex_color": "Hex Farve",
+      "description": "Beskrivelse",
+      "source": "Kilde",
+      "submit": "Indsend Farve",
+      "cancel": "Annuller"
+    },
+    "validation": {
+      "color_name_required": "Farvenavn er påkrævet",
+      "color_code_required": "Farvekode er påkrævet",
+      "year_range_required": "Årsinterval er påkrævet",
+      "hex_color_required": "Hex farve er påkrævet",
+      "hex_color_invalid": "Venligst indtast en gyldig hex farve (f.eks. #FF0000)"
+    },
+    "messages": {
+      "success": "Farve indsendt med succes! Tak for dit bidrag.",
+      "error": "Der opstod en fejl ved indsendelse af din farve. Prøv igen."
+    },
+    "seo": {
+      "og_title": "Classic Mini Arkiv - Bidrag Farve",
+      "og_description": "Bidrag med en ny farve til Classic Mini farvearkivet",
+      "twitter_title": "Classic Mini Arkiv - Bidrag Farve",
+      "twitter_description": "Bidrag med en ny farve til Classic Mini farvearkivet"
+    }
+  },
+  "no": {
+    "title": "Classic Mini Arkiv - Bidra Farge",
+    "description": "Bidra med en ny farge til Classic Mini fargearkivet",
+    "hero_title": "Classic Mini Arkiver",
+    "breadcrumb_title": "Bidra Farge",
+    "breadcrumb": {
+      "home": "Hjem",
+      "archive": "Arkiv",
+      "colors": "Farger",
+      "contribute": "Bidra"
+    },
+    "main_heading": "Bidra Farge",
+    "description_text": "Hjelp oss å utvide Classic Mini fargearkivet ved å bidra med en ny farge. Vennligst gi så mange detaljer som mulig for å hjelpe andre entusiaster.",
+    "form": {
+      "color_name": "Fargenavn",
+      "color_code": "Fargekode",
+      "year_range": "Årsperiode",
+      "manufacturer": "Produsent",
+      "hex_color": "Hex Farge",
+      "description": "Beskrivelse",
+      "source": "Kilde",
+      "submit": "Send inn Farge",
+      "cancel": "Avbryt"
+    },
+    "validation": {
+      "color_name_required": "Fargenavn er påkrevd",
+      "color_code_required": "Fargekode er påkrevd",
+      "year_range_required": "Årsperiode er påkrevd",
+      "hex_color_required": "Hex farge er påkrevd",
+      "hex_color_invalid": "Vennligst skriv inn en gyldig hex farge (f.eks. #FF0000)"
+    },
+    "messages": {
+      "success": "Farge sendt inn med suksess! Takk for ditt bidrag.",
+      "error": "Det oppstod en feil ved innsending av fargen din. Prøv igjen."
+    },
+    "seo": {
+      "og_title": "Classic Mini Arkiv - Bidra Farge",
+      "og_description": "Bidra med en ny farge til Classic Mini fargearkivet",
+      "twitter_title": "Classic Mini Arkiv - Bidra Farge",
+      "twitter_description": "Bidra med en ny farge til Classic Mini fargearkivet"
     }
   }
 }

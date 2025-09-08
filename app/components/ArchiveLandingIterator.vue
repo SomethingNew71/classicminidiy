@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import type { AdvertsCollectionItem, ContentCollectionItem, ManualsCollectionItem } from '@nuxt/content';
   import { shareArchiveItem, submitArchiveFile, type ARCHIVE_TYPES } from '../../data/models/helper-utils';
-  
+
   const { t } = useI18n({ useScope: 'local' });
   const search = ref('');
   const currentPage = ref(1);
