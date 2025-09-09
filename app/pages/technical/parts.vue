@@ -96,7 +96,7 @@
                 </thead>
                 <tbody>
                   <tr
-                    v-for="(item, itemIndex) in table.items.filter((i) =>
+                    v-for="(item, itemIndex) in table.items.filter((i: PartItem) =>
                       Object.values(i).some((val) => String(val).toLowerCase().includes(searchValue.toLowerCase()))
                     )"
                     :key="itemIndex"
