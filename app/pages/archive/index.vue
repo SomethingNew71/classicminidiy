@@ -2,6 +2,25 @@
   import { ArchiveItems, BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   import { ARCHIVE_TYPES, submitArchiveFile, TRACKING_EVENTS, trackStuff } from '../../../data/models/helper-utils';
   const { path } = useRoute();
+  const { t } = useI18n();
+
+  // Function to get translated archive item title
+  const getArchiveItemTitle = (title: string) => {
+    const titleMap: { [key: string]: string } = {
+      'Mini Registry': 'archive_items.mini_registry',
+      'Engine Sizes': 'archive_items.engine_sizes',
+      'Mini Weights': 'archive_items.mini_weights',
+      'Workshop Manuals': 'archive_items.workshop_manuals',
+      'Electrical Diagrams': 'archive_items.electrical_diagrams',
+      'Wheel Library': 'archive_items.wheel_library',
+      'Color Picker': 'archive_items.color_picker',
+      Adverts: 'archive_items.adverts',
+      'Vendor Catalogues': 'archive_items.vendor_catalogues',
+      'Tuning and Modifications': 'archive_items.tuning_modifications',
+      Dimensions: 'archive_items.dimensions',
+    };
+    return $t(titleMap[title] || title);
+  };
 
   // Enhanced SEO metadata
   useHead({
@@ -117,7 +136,7 @@
             <p class="text-xs text-right">{{ $t('coming_soon') }}</p>
             <span class="text-4xl block" v-html="archive.iconHtml"> </span>
             <div class="card-body p-2">
-              <p class="text-lg">{{ archive.title }}</p>
+              <p class="text-lg">{{ getArchiveItemTitle(archive.title) }}</p>
             </div>
           </div>
         </template>
@@ -125,7 +144,7 @@
         <NuxtLink v-else :to="archive.to" class="card bg-base-100 shadow-xl text-center p-5 h-full">
           <span class="text-4xl block" v-html="archive.iconHtml"> </span>
           <div class="card-body p-2">
-            <p class="text-lg">{{ archive.title }}</p>
+            <p class="text-lg">{{ getArchiveItemTitle(archive.title) }}</p>
           </div>
         </NuxtLink>
       </div>
@@ -168,6 +187,19 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Classic Mini Historical Archive",
       "dataset_description": "Collection of historical documents, manuals, and resources for Classic Mini enthusiasts"
+    },
+    "archive_items": {
+      "mini_registry": "Mini Registry",
+      "engine_sizes": "Engine Sizes",
+      "mini_weights": "Mini Weights",
+      "workshop_manuals": "Workshop Manuals",
+      "electrical_diagrams": "Electrical Diagrams",
+      "wheel_library": "Wheel Library",
+      "color_picker": "Color Picker",
+      "adverts": "Adverts",
+      "vendor_catalogues": "Vendor Catalogues",
+      "tuning_modifications": "Tuning and Modifications",
+      "dimensions": "Dimensions"
     }
   },
   "es": {
@@ -222,6 +254,19 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Archive Historique Classic Mini",
       "dataset_description": "Collection de documents historiques, manuels et ressources pour les enthousiastes du Classic Mini"
+    },
+    "archive_items": {
+      "mini_registry": "Registre Mini",
+      "engine_sizes": "Tailles de Moteur",
+      "mini_weights": "Poids du Mini",
+      "workshop_manuals": "Manuels d'Atelier",
+      "electrical_diagrams": "Schémas Électriques",
+      "wheel_library": "Bibliothèque de Roues",
+      "color_picker": "Sélecteur de Couleur",
+      "adverts": "Publicités",
+      "vendor_catalogues": "Catalogues de Fournisseurs",
+      "tuning_modifications": "Réglages et Modifications",
+      "dimensions": "Dimensions"
     }
   },
   "it": {
@@ -249,6 +294,19 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Archivio Storico Classic Mini",
       "dataset_description": "Collezione di documenti storici, manuali e risorse per appassionati del Classic Mini"
+    },
+    "archive_items": {
+      "mini_registry": "Registro Mini",
+      "engine_sizes": "Dimensioni Motore",
+      "mini_weights": "Pesi del Mini",
+      "workshop_manuals": "Manuali di Officina",
+      "electrical_diagrams": "Schemi Elettrici",
+      "wheel_library": "Libreria Ruote",
+      "color_picker": "Selettore Colore",
+      "adverts": "Pubblicità",
+      "vendor_catalogues": "Cataloghi Fornitori",
+      "tuning_modifications": "Messa a Punto e Modifiche",
+      "dimensions": "Dimensioni"
     }
   },
   "de": {
@@ -276,6 +334,19 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Classic Mini Historisches Archiv",
       "dataset_description": "Sammlung historischer Dokumente, Handbücher und Ressourcen für Classic Mini Enthusiasten"
+    },
+    "archive_items": {
+      "mini_registry": "Mini Register",
+      "engine_sizes": "Motorgrößen",
+      "mini_weights": "Mini Gewichte",
+      "workshop_manuals": "Werkstatthandbücher",
+      "electrical_diagrams": "Schaltpläne",
+      "wheel_library": "Felgen-Bibliothek",
+      "color_picker": "Farbwähler",
+      "adverts": "Werbeanzeigen",
+      "vendor_catalogues": "Lieferantenkataloge",
+      "tuning_modifications": "Tuning und Modifikationen",
+      "dimensions": "Abmessungen"
     }
   },
   "pt": {
@@ -303,6 +374,19 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Arquivo Histórico Classic Mini",
       "dataset_description": "Coleção de documentos históricos, manuais e recursos para entusiastas do Classic Mini"
+    },
+    "archive_items": {
+      "mini_registry": "Registro Mini",
+      "engine_sizes": "Tamanhos de Motor",
+      "mini_weights": "Pesos do Mini",
+      "workshop_manuals": "Manuais de Oficina",
+      "electrical_diagrams": "Diagramas Elétricos",
+      "wheel_library": "Biblioteca de Rodas",
+      "color_picker": "Seletor de Cor",
+      "adverts": "Anúncios",
+      "vendor_catalogues": "Catálogos de Fornecedores",
+      "tuning_modifications": "Ajustes e Modificações",
+      "dimensions": "Dimensões"
     }
   },
   "ru": {
@@ -330,6 +414,19 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Исторический Архив Classic Mini",
       "dataset_description": "Коллекция исторических документов, руководств и ресурсов для энтузиастов Classic Mini"
+    },
+    "archive_items": {
+      "mini_registry": "Реестр Mini",
+      "engine_sizes": "Размеры Двигателя",
+      "mini_weights": "Вес Mini",
+      "workshop_manuals": "Руководства по Ремонту",
+      "electrical_diagrams": "Электрические Схемы",
+      "wheel_library": "Библиотека Колес",
+      "color_picker": "Выбор Цвета",
+      "adverts": "Реклама",
+      "vendor_catalogues": "Каталоги Поставщиков",
+      "tuning_modifications": "Тюнинг и Модификации",
+      "dimensions": "Размеры"
     }
   },
   "ja": {
@@ -355,8 +452,21 @@
       "description": "Classic Miniの歴史的文書とリソースの包括的なアーカイブ",
       "author_name": "Classic Mini DIY コミュニティ",
       "publisher_name": "Classic Mini DIY",
-      "dataset_name": "Classic Mini 歴史アーカイブ",
+      "dataset_name": "Classic Mini 歴史的アーカイブ",
       "dataset_description": "Classic Mini愛好家のための歴史的文書、マニュアル、リソースのコレクション"
+    },
+    "archive_items": {
+      "mini_registry": "Miniレジストリ",
+      "engine_sizes": "エンジンサイズ",
+      "mini_weights": "Mini重量",
+      "workshop_manuals": "ワークショップマニュアル",
+      "electrical_diagrams": "電気配線図",
+      "wheel_library": "ホイールライブラリ",
+      "color_picker": "カラーピッカー",
+      "adverts": "広告",
+      "vendor_catalogues": "ベンダーカタログ",
+      "tuning_modifications": "チューニングと改造",
+      "dimensions": "寸法"
     }
   },
   "zh": {
@@ -384,6 +494,19 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Classic Mini 历史档案",
       "dataset_description": "为Classic Mini爱好者收集的历史文档、手册和资源"
+    },
+    "archive_items": {
+      "mini_registry": "Mini注册表",
+      "engine_sizes": "发动机尺寸",
+      "mini_weights": "Mini重量",
+      "workshop_manuals": "维修手册",
+      "electrical_diagrams": "电路图",
+      "wheel_library": "轮毂库",
+      "color_picker": "颜色选择器",
+      "adverts": "广告",
+      "vendor_catalogues": "供应商目录",
+      "tuning_modifications": "调校和改装",
+      "dimensions": "尺寸"
     }
   },
   "ko": {
@@ -411,6 +534,19 @@
       "publisher_name": "Classic Mini DIY",
       "dataset_name": "Classic Mini 역사 아카이브",
       "dataset_description": "Classic Mini 애호가를 위한 역사적 문서, 매뉴얼, 자료 컬렉션"
+    },
+    "archive_items": {
+      "mini_registry": "Mini 등록부",
+      "engine_sizes": "엔진 크기",
+      "mini_weights": "Mini 무게",
+      "workshop_manuals": "워크샵 매뉴얼",
+      "electrical_diagrams": "전기 배선도",
+      "wheel_library": "휠 라이브러리",
+      "color_picker": "색상 선택기",
+      "adverts": "광고",
+      "vendor_catalogues": "공급업체 카탈로그",
+      "tuning_modifications": "튜닝 및 개조",
+      "dimensions": "치수"
     }
   }
 }

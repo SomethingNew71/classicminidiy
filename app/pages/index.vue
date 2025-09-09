@@ -31,8 +31,8 @@
 
 <template>
   <hero
-    :titleKey="'hero.home_title'"
-    :subtitleKey="'hero.home_subtitle'"
+    :titleKey="'home_title'"
+    :subtitleKey="'home_subtitle'"
     :size="'is-medium'"
     :special="true"
     :heroType="HERO_TYPES.HOME"

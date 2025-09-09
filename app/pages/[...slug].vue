@@ -198,7 +198,7 @@
                   })
                 "
                 loading="lazy"
-                @error="(e) => handleImageError(e)"
+                @error="(e: Event) => handleImageError(e)"
               />
             </a>
             <!-- Image without download link -->
@@ -212,7 +212,7 @@
                 })
               "
               loading="lazy"
-              @error="(e) => handleImageError(e)"
+              @error="(e: Event) => handleImageError(e)"
             />
           </figure>
           <div class="card-body items-center text-center">

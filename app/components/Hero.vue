@@ -150,34 +150,44 @@
 <i18n lang="json">
 {
   "en": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "YOUR FRIENDLY NEIGHBORHOOD"
   },
   "es": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "TU RECURSO AMIGABLE DEL BARRIO"
   },
   "fr": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "VOTRE RESSOURCE AMICALE DE QUARTIER"
   },
   "de": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "IHRE FREUNDLICHE NACHBARSCHAFTSRESSOURCE"
   },
   "it": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "LA TUA RISORSA AMICHEVOLE DI QUARTIERE"
   },
   "ja": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "あなたの親しみやすい近所のリソース"
   },
   "ko": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "당신의 친근한 동네 리소스"
   },
   "pt": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "SEU RECURSO AMIGÁVEL DA VIZINHANÇA"
   },
   "ru": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "ВАШ ДРУЖЕЛЮБНЫЙ СОСЕДСКИЙ РЕСУРС"
   },
   "zh": {
-    "home_title": "Classic Mini DIY"
+    "home_title": "Classic Mini DIY",
+    "home_subtitle": "您友好的邻里资源"
   }
 }
 </i18n>
