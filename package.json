@@ -46,7 +46,7 @@
     "axios": "^1.11.0",
     "better-sqlite3": "^12.2.0",
     "core-js": "^3.45.1",
-    "daisyui": "^5.1.8",
+    "daisyui": "^5.1.10",
     "formidable": "^3.5.4",
     "fuse.js": "^7.1.0",
     "highcharts": "^12.4.0",
@@ -66,7 +66,7 @@
   "devDependencies": {
     "@nuxt/image": "^1.11.0",
     "@nuxtjs/fontaine": "^0.5.0",
-    "@nuxtjs/i18n": "^10.0.6",
+    "@nuxtjs/i18n": "^10.1.0",
     "@nuxtjs/sitemap": "^7.4.3",
     "@tailwindcss/typography": "^0.5.16",
     "@types/formidable": "^3.4.5",
