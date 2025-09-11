@@ -229,7 +229,7 @@
     "breadcrumb_title": "Pesos y Medidas",
     "main_heading": "Pesos del Mini",
     "description_text": "A continuación encontrarás múltiples tablas buscables de pesos para varias partes del Classic Mini. Estos pesos fueron proporcionados por un archivo del ahora desconectado miniweights.co.uk. Si ves valores faltantes o te gustaría contribuir, por favor haz clic en el enlace de abajo para enviarme un email.",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "Contáctanos",
     "search_placeholder": "Buscar en esta tabla",
     "table_headers": {
       "item": "Artículo",
@@ -252,7 +252,7 @@
     "breadcrumb_title": "Poids et Mesures",
     "main_heading": "Poids du Mini",
     "description_text": "Ci-dessous, vous trouverez plusieurs tableaux recherchables de poids pour diverses parties du Classic Mini. Ces poids ont été fournis par une archive du site maintenant hors ligne miniweights.co.uk. Si vous voyez des valeurs manquantes ou si vous souhaitez contribuer, veuillez cliquer sur le lien ci-dessous pour m'envoyer un email.",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "Nous Contacter",
     "search_placeholder": "Rechercher dans ce tableau",
     "table_headers": {
       "item": "Article",
@@ -275,7 +275,7 @@
     "breadcrumb_title": "Pesi e Misure",
     "main_heading": "Pesi del Mini",
     "description_text": "Di seguito troverai più tabelle ricercabili di pesi per varie parti del Classic Mini. Questi pesi sono stati forniti da un archivio del sito ora offline miniweights.co.uk. Se vedi valori mancanti o vorresti contribuire, per favore clicca sul link qui sotto per inviarmi un'email.",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "Contattaci",
     "search_placeholder": "Cerca in questa tabella",
     "table_headers": {
       "item": "Articolo",
@@ -298,7 +298,7 @@
     "breadcrumb_title": "Gewichte & Maße",
     "main_heading": "Mini Gewichte",
     "description_text": "Unten finden Sie mehrere durchsuchbare Tabellen mit Gewichten für verschiedene Teile des Classic Mini. Diese Gewichte wurden von einem Archiv der jetzt offline befindlichen Website miniweights.co.uk bereitgestellt. Wenn Sie fehlende Werte sehen oder beitragen möchten, klicken Sie bitte auf den unten stehenden Link, um mir eine E-Mail zu senden.",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "Kontaktieren Sie uns",
     "search_placeholder": "Diese Tabelle durchsuchen",
     "table_headers": {
       "item": "Artikel",
@@ -321,7 +321,7 @@
     "breadcrumb_title": "Pesos e Medidas",
     "main_heading": "Pesos do Mini",
     "description_text": "Abaixo você encontrará múltiplas tabelas pesquisáveis de pesos para várias partes do Classic Mini. Estes pesos foram fornecidos por um arquivo do agora offline miniweights.co.uk. Se você vir valores em falta ou gostaria de contribuir, por favor clique no link abaixo para me enviar um email.",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "Entre em Contato",
     "search_placeholder": "Pesquisar nesta tabela",
     "table_headers": {
       "item": "Item",
@@ -344,7 +344,7 @@
     "breadcrumb_title": "Веса и Размеры",
     "main_heading": "Веса Mini",
     "description_text": "Ниже вы найдете несколько поисковых таблиц весов для различных частей Classic Mini. Эти веса были предоставлены архивом теперь офлайн сайта miniweights.co.uk. Если вы видите отсутствующие значения или хотели бы внести вклад, пожалуйста, нажмите на ссылку ниже, чтобы отправить мне электронное письмо.",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "Связаться с нами",
     "search_placeholder": "Поиск в этой таблице",
     "table_headers": {
       "item": "Элемент",
@@ -367,7 +367,7 @@
     "breadcrumb_title": "重量・寸法",
     "main_heading": "Mini 重量",
     "description_text": "以下では、Classic Miniの様々な部品の重量に関する複数の検索可能な表を見つけることができます。これらの重量は、現在オフラインのminiweights.co.ukのアーカイブによって提供されました。欠落している値を見つけたり、貢献したい場合は、下のリンクをクリックして私にメールを送ってください。",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "お問い合わせ",
     "search_placeholder": "この表を検索",
     "table_headers": {
       "item": "アイテム",
@@ -390,7 +390,7 @@
     "breadcrumb_title": "重量和尺寸",
     "main_heading": "Mini重量",
     "description_text": "下面您将找到Classic Mini各个部件重量的多个可搜索表格。这些重量由现已离线的miniweights.co.uk的存档提供。如果您看到缺失的值或想要贡献，请点击下面的链接给我发送电子邮件。",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "联系我们",
     "search_placeholder": "搜索此表",
     "table_headers": {
       "item": "项目",
@@ -413,7 +413,7 @@
     "breadcrumb_title": "무게 및 치수",
     "main_heading": "Mini 무게",
     "description_text": "아래에서 Classic Mini의 다양한 부품에 대한 여러 검색 가능한 무게 표를 찾을 수 있습니다. 이러한 무게는 현재 오프라인인 miniweights.co.uk의 아카이브에서 제공되었습니다. 누락된 값을 보거나 기여하고 싶다면 아래 링크를 클릭하여 이메일을 보내주세요.",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "contact_button": "문의하기",
     "search_placeholder": "이 표 검색",
     "table_headers": {
       "item": "항목",
