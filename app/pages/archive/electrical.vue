@@ -2,7 +2,7 @@
   import { HERO_TYPES } from '../../../data/models/generic';
 
   const { data: diagrams, status } = await useFetch('/api/diagrams');
-  const activePanel = ref('Negative Ground');
+  const activePanel = ref<string | null>(null);
 
   useHead({
     title: $t('title'),
@@ -113,41 +113,54 @@
           >
             <!-- Accordion header -->
             <input
-              type="radio"
-              :name="'electrical-accordion'"
+              type="checkbox"
               :checked="diagram.title === activePanel"
-              @change="activePanel = diagram.title"
+              @change="activePanel = activePanel === diagram.title ? null : diagram.title"
             />
             <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
               {{ diagram.title }}
             </div>
 
             <!-- Accordion content -->
-            <div class="collapse-content p-0">
-              <ul class="menu bg-base-100 w-full">
-                <li
-                  v-for="(item, index) in diagram.items"
-                  :key="`${index}-${item.name}`"
-                  class="border-b border-base-200 last:border-b-0"
-                >
-                  <a :href="item.link" target="_blank" class="flex justify-between py-4">
-                    <div>
-                      <div class="text-lg">{{ item.name }}</div>
-                      <div class="text-lg opacity-70 flex items-center mt-1">
+            <div class="collapse-content">
+              <!-- Table -->
+              <div class="overflow-x-auto">
+                <table class="table table-sm table-pin-rows table-zebra w-full">
+                  <!-- Table header -->
+                  <thead>
+                    <tr>
+                      <th>{{ $t('table_headers.diagram_name') }}</th>
+                      <th>{{ $t('table_headers.date_range') }}</th>
+                      <th>{{ $t('table_headers.download') }}</th>
+                    </tr>
+                  </thead>
+
+                  <!-- Table body -->
+                  <tbody>
+                    <tr v-for="(item, index) in diagram.items" :key="`${index}-${item.name}`" class="hover">
+                      <td>{{ item.name }}</td>
+                      <td class="flex items-center">
                         <i class="fa-solid fa-calendar mr-2"></i>
                         <span v-if="item.from || item.to"
                           >{{ item.from || $t('date_range.unknown_placeholder') }}{{ $t('date_range.separator')
                           }}{{ item.to || $t('date_range.unknown_placeholder') }}</span
                         >
                         <span v-else>{{ $t('date_range.unknown') }}</span>
-                      </div>
-                    </div>
-                    <button class="btn btn-ghost btn-lg" :aria-label="$t('download_button_aria')">
-                      <i class="fa-solid fa-download"></i>
-                    </button>
-                  </a>
-                </li>
-              </ul>
+                      </td>
+                      <td>
+                        <a
+                          :href="item.link"
+                          target="_blank"
+                          class="btn btn-ghost btn-sm"
+                          :aria-label="$t('download_button_aria')"
+                        >
+                          <i class="fa-solid fa-download"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -217,6 +230,11 @@
     },
     "download_button_aria": "Download diagram",
     "support_divider": "Support",
+    "table_headers": {
+      "diagram_name": "Diagram Name",
+      "date_range": "Date Range",
+      "download": "Download"
+    },
     "seo": {
       "og_title": "Archive - Electrical Diagrams | Classic Mini DIY",
       "og_description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper.",
@@ -247,6 +265,11 @@
     },
     "download_button_aria": "Descargar diagrama",
     "support_divider": "Soporte",
+    "table_headers": {
+      "diagram_name": "Nombre del Diagrama",
+      "date_range": "Rango de Fechas",
+      "download": "Descargar"
+    },
     "seo": {
       "og_title": "Archivo - Diagramas Eléctricos | Classic Mini DIY",
       "og_description": "Diagramas eléctricos digitalizados y actualizados manualmente para tu Classic Mini Cooper.",
@@ -277,6 +300,11 @@
     },
     "download_button_aria": "Télécharger le schéma",
     "support_divider": "Support",
+    "table_headers": {
+      "diagram_name": "Nom du Schéma",
+      "date_range": "Plage de Dates",
+      "download": "Télécharger"
+    },
     "seo": {
       "og_title": "Archive - Schémas Électriques | Classic Mini DIY",
       "og_description": "Schémas électriques numérisés et mis à jour manuellement pour votre Classic Mini Cooper.",
@@ -307,6 +335,11 @@
     },
     "download_button_aria": "Scarica schema",
     "support_divider": "Supporto",
+    "table_headers": {
+      "diagram_name": "Nome Schema",
+      "date_range": "Intervallo Date",
+      "download": "Scarica"
+    },
     "seo": {
       "og_title": "Archivio - Schemi Elettrici | Classic Mini DIY",
       "og_description": "Schemi elettrici digitalizzati e aggiornati manualmente per la tua Classic Mini Cooper.",
@@ -337,6 +370,11 @@
     },
     "download_button_aria": "Schaltplan herunterladen",
     "support_divider": "Support",
+    "table_headers": {
+      "diagram_name": "Schaltplan Name",
+      "date_range": "Datumsbereich",
+      "download": "Herunterladen"
+    },
     "seo": {
       "og_title": "Archiv - Elektrische Schaltpläne | Classic Mini DIY",
       "og_description": "Manuell digitalisierte und aktualisierte elektrische Schaltpläne für Ihren Classic Mini Cooper.",
@@ -367,6 +405,11 @@
     },
     "download_button_aria": "Baixar diagrama",
     "support_divider": "Suporte",
+    "table_headers": {
+      "diagram_name": "Nome do Diagrama",
+      "date_range": "Intervalo de Datas",
+      "download": "Baixar"
+    },
     "seo": {
       "og_title": "Arquivo - Diagramas Elétricos | Classic Mini DIY",
       "og_description": "Diagramas elétricos digitalizados e atualizados manualmente para o seu Classic Mini Cooper.",
@@ -397,6 +440,11 @@
     },
     "download_button_aria": "Скачать схему",
     "support_divider": "Поддержка",
+    "table_headers": {
+      "diagram_name": "Название Схемы",
+      "date_range": "Диапазон Дат",
+      "download": "Скачать"
+    },
     "seo": {
       "og_title": "Архив - Электрические Схемы | Classic Mini DIY",
       "og_description": "Вручную оцифрованные и обновленные электрические схемы для вашего Classic Mini Cooper.",
@@ -427,6 +475,11 @@
     },
     "download_button_aria": "図面をダウンロード",
     "support_divider": "サポート",
+    "table_headers": {
+      "diagram_name": "図面名",
+      "date_range": "日付範囲",
+      "download": "ダウンロード"
+    },
     "seo": {
       "og_title": "アーカイブ - 電気図面 | Classic Mini DIY",
       "og_description": "Classic Mini Cooperの手動でデジタル化・更新された電気図面。",
@@ -457,6 +510,11 @@
     },
     "download_button_aria": "下载图表",
     "support_divider": "支持",
+    "table_headers": {
+      "diagram_name": "图表名称",
+      "date_range": "日期范围",
+      "download": "下载"
+    },
     "seo": {
       "og_title": "存档 - 电气图表 | Classic Mini DIY",
       "og_description": "为您的Classic Mini Cooper手动数字化和更新的电气图表。",
@@ -487,6 +545,11 @@
     },
     "download_button_aria": "도면 다운로드",
     "support_divider": "지원",
+    "table_headers": {
+      "diagram_name": "도면 이름",
+      "date_range": "날짜 범위",
+      "download": "다운로드"
+    },
     "seo": {
       "og_title": "아카이브 - 전기 도면 | Classic Mini DIY",
       "og_description": "Classic Mini Cooper를 위한 수동으로 디지털화되고 업데이트된 전기 도면.",

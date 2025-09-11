@@ -2,7 +2,7 @@
   import { HERO_TYPES } from '../../../data/models/generic';
 
   const { data: tables, status } = await useFetch('/api/weights');
-  const activePanel = ref('Brakes');
+  const activePanel = ref<string | null>(null);
   const tableHeaders = [
     { title: $t('table_headers.item'), key: 'item' },
     { title: $t('table_headers.kg'), key: 'weight' },
@@ -99,10 +99,9 @@
           >
             <!-- Accordion header -->
             <input
-              type="radio"
-              :name="'weights-accordion'"
+              type="checkbox"
               :checked="table.title === activePanel"
-              @change="activePanel = table.title"
+              @change="activePanel = activePanel === table.title ? null : table.title"
             />
             <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
               {{ table.title }}
@@ -113,23 +112,20 @@
               <!-- Search field -->
               <div class="flex justify-end mb-4 mt-4">
                 <div class="form-control w-full max-w-xs">
-                  <div class="input-group w-full">
-                    <label class="input w-full">
-                      <span class="label"><i class="fad fa-search"></i></span>
-                      <input
-                        v-model="tableSearchQueries[name]"
-                        type="text"
-                        :placeholder="$t('search_placeholder')"
-                        class="input-bordered w-full"
-                      />
-                    </label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      :placeholder="$t('search_placeholder')"
+                      v-model="tableSearchQueries[name]"
+                      class="input input-bordered w-full input-md"
+                    />
                   </div>
                 </div>
               </div>
 
               <!-- Table -->
               <div class="overflow-x-auto">
-                <table class="table table-zebra w-full table-md">
+                <table class="table table-sm table-pin-rows table-zebra w-full">
                   <!-- Table header -->
                   <thead>
                     <tr>
@@ -139,7 +135,7 @@
 
                   <!-- Table body -->
                   <tbody>
-                    <template v-for="(item, itemIndex) in filterItems(table.items, name)" :key="itemIndex">
+                    <template v-for="item in filterItems(table.items, name)" :key="itemIndex">
                       <tr class="hover">
                         <td>{{ item.item }}</td>
                         <td>{{ item.weight || '---' }}</td>

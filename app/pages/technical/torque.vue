@@ -1,6 +1,5 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
-  const expanded = ref<string[]>([]);
   const { data: tables, status } = await useFetch('/api/torque');
   const tableSearchQueries = ref<Record<string, string>>({});
 
@@ -10,7 +9,7 @@
     { title: $t('table_headers.torque_nm'), key: 'nm' },
     { title: $t('table_headers.notes'), key: 'notes' },
   ];
-  const activePanel = ref('Engine');
+  const activePanel = ref<string | null>(null);
 
   useHead({
     title: $t('title'),
@@ -51,7 +50,7 @@
   });
 
   // Add structured data for the torque specifications reference
-  const torqueSpecsJsonLd = {
+  const torqueSpecsJsonLd = computed(() => ({
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
     headline: $t('structured_data.headline'),
@@ -76,14 +75,14 @@
       description: $t('structured_data.dataset_description'),
       variableMeasured: $t('structured_data.variable_measured'),
     },
-  };
+  }));
 
   // Add JSON-LD structured data to head
   useHead({
     script: [
       {
         type: 'application/ld+json',
-        innerHTML: JSON.stringify(torqueSpecsJsonLd),
+        innerHTML: () => JSON.stringify(torqueSpecsJsonLd.value),
       },
     ],
   });
@@ -98,23 +97,22 @@
         item.name.toLowerCase().includes(queryLower) || (item.notes && item.notes.toLowerCase().includes(queryLower))
     );
   };
-
-  // Toggle expanded state for a row
-  const toggleExpanded = (itemName: string) => {
-    if (expanded.value.includes(itemName)) {
-      expanded.value = expanded.value.filter((name) => name !== itemName);
-    } else {
-      expanded.value = [...expanded.value, itemName];
-    }
-  };
 </script>
 
 <template>
   <hero :navigation="true" :title="$t('hero_title')" :textSize="'text-3xl'" :heroType="HERO_TYPES.TECH" />
-  <div class="container mx-auto px-4 pt-10">
-    <div class="grid grid-cols-12 gap-4">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
-        <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')"></breadcrumb>
+        <breadcrumb class="my-6" :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')"></breadcrumb>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="col-span-12 md:col-span-8">
+            <h1 class="text-2xl font-bold mb-4">{{ $t('main_heading') }}</h1>
+            <p class="mb-6">
+              {{ $t('description_text') }}
+            </p>
+          </div>
+        </div>
       </div>
       <div class="col-span-12">
         <!-- Loading state -->
@@ -133,10 +131,9 @@
           >
             <!-- Accordion header -->
             <input
-              type="radio"
-              :name="'torque-accordion'"
+              type="checkbox"
               :checked="table.title === activePanel"
-              @change="activePanel = table.title"
+              @change="activePanel = activePanel === table.title ? null : table.title"
             />
             <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
               {{ table.title }}
@@ -160,21 +157,18 @@
 
               <!-- Table -->
               <div class="overflow-x-auto">
-                <table class="table table-zebra w-full table-md">
+                <table class="table table-sm table-pin-rows table-zebra w-full">
                   <!-- Table header -->
                   <thead>
                     <tr>
                       <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>
-                      <th class="w-10"></th>
-                      <!-- Extra column for expand button -->
                     </tr>
                   </thead>
 
                   <!-- Table body -->
                   <tbody>
-                    <template v-for="(item, itemIndex) in filterItems(table.items, name)" :key="itemIndex">
-                      <!-- Main row -->
-                      <tr class="hover cursor-pointer" @click="toggleExpanded(item.name)">
+                    <template v-for="item in filterItems(table.items, name)" :key="itemIndex">
+                      <tr class="hover">
                         <td>{{ item.name }}</td>
                         <td>{{ item.lbft }}</td>
                         <td>{{ item.nm }}</td>
@@ -190,7 +184,8 @@
       </div>
 
       <!-- Support section -->
-      <div class="col-span-12 pb-15">
+      <div class="col-span-12 mt-8 mb-10">
+        <div class="divider">{{ $t('support_divider') }}</div>
         <patreon-card size="large" />
       </div>
     </div>
@@ -243,6 +238,9 @@
     "keywords": "Classic Mini torque specs, Mini Cooper fasteners, torque specifications, engine torque values, suspension torque, Mini maintenance, classic car specifications",
     "hero_title": "Torque Specs",
     "breadcrumb_title": "Torque Specs",
+    "main_heading": "Torque Specifications",
+    "description_text": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
+    "support_divider": "Support",
     "og_title": "Classic Mini Torque Specifications Chart | Classic Mini DIY",
     "og_description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
     "twitter_title": "Classic Mini Torque Specifications Chart",
@@ -271,6 +269,9 @@
     "keywords": "especificaciones torque Classic Mini, sujetadores Mini Cooper, especificaciones torque, valores torque motor, torque suspensión, mantenimiento Mini, especificaciones auto clásico",
     "hero_title": "Especificaciones de Torque",
     "breadcrumb_title": "Especificaciones de Torque",
+    "main_heading": "Especificaciones de Torque",
+    "description_text": "Especificaciones completas de torque para sujetadores Classic Mini. Tabla de referencia para sujetadores de motor, suspensión, tren motriz y carrocería con valores en lb/ft y Nm.",
+    "support_divider": "Soporte",
     "og_title": "Tabla de Especificaciones de Torque Classic Mini | Classic Mini DIY",
     "og_description": "Especificaciones completas de torque para sujetadores Classic Mini. Tabla de referencia para sujetadores de motor, suspensión, tren motriz y carrocería con valores en lb/ft y Nm.",
     "twitter_title": "Tabla de Especificaciones de Torque Classic Mini",
@@ -299,6 +300,9 @@
     "keywords": "spécifications couple Classic Mini, fixations Mini Cooper, spécifications couple, valeurs couple moteur, couple suspension, entretien Mini, spécifications voiture classique",
     "hero_title": "Spécifications de Couple",
     "breadcrumb_title": "Spécifications de Couple",
+    "main_heading": "Spécifications de Couple",
+    "description_text": "Spécifications complètes de couple pour les fixations Classic Mini. Tableau de référence pour les fixations moteur, suspension, transmission et carrosserie avec valeurs en lb/ft et Nm.",
+    "support_divider": "Support",
     "og_title": "Tableau des Spécifications de Couple Classic Mini | Classic Mini DIY",
     "og_description": "Spécifications complètes de couple pour les fixations Classic Mini. Tableau de référence pour les fixations moteur, suspension, transmission et carrosserie avec valeurs en lb/ft et Nm.",
     "twitter_title": "Tableau des Spécifications de Couple Classic Mini",
@@ -327,6 +331,9 @@
     "keywords": "specifiche coppia Classic Mini, elementi fissaggio Mini Cooper, specifiche coppia, valori coppia motore, coppia sospensioni, manutenzione Mini, specifiche auto classica",
     "hero_title": "Specifiche di Coppia",
     "breadcrumb_title": "Specifiche di Coppia",
+    "main_heading": "Specifiche di Coppia",
+    "description_text": "Specifiche complete di coppia per elementi di fissaggio Classic Mini. Tabella di riferimento per elementi di fissaggio motore, sospensioni, trasmissione e carrozzeria con valori in lb/ft e Nm.",
+    "support_divider": "Supporto",
     "og_title": "Tabella Specifiche di Coppia Classic Mini | Classic Mini DIY",
     "og_description": "Specifiche complete di coppia per elementi di fissaggio Classic Mini. Tabella di riferimento per elementi di fissaggio motore, sospensioni, trasmissione e carrozzeria con valori in lb/ft e Nm.",
     "twitter_title": "Tabella Specifiche di Coppia Classic Mini",
@@ -355,6 +362,9 @@
     "keywords": "Classic Mini Drehmoment-Spezifikationen, Mini Cooper Befestigungselemente, Drehmoment-Spezifikationen, Motor-Drehmomentwerte, Fahrwerk-Drehmoment, Mini-Wartung, Oldtimer-Spezifikationen",
     "hero_title": "Drehmoment-Spezifikationen",
     "breadcrumb_title": "Drehmoment-Spezifikationen",
+    "main_heading": "Drehmoment-Spezifikationen",
+    "description_text": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerk-, Antriebsstrang- und Karosseriebefestigungen mit Werten in lb/ft und Nm.",
+    "support_divider": "Support",
     "og_title": "Classic Mini Drehmoment-Spezifikationstabelle | Classic Mini DIY",
     "og_description": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerk-, Antriebsstrang- und Karosseriebefestigungen mit Werten in lb/ft und Nm.",
     "twitter_title": "Classic Mini Drehmoment-Spezifikationstabelle",
@@ -383,6 +393,9 @@
     "keywords": "especificações torque Classic Mini, fixadores Mini Cooper, especificações torque, valores torque motor, torque suspensão, manutenção Mini, especificações carro clássico",
     "hero_title": "Especificações de Torque",
     "breadcrumb_title": "Especificações de Torque",
+    "main_heading": "Especificações de Torque",
+    "description_text": "Especificações completas de torque para fixadores Classic Mini. Tabela de referência para fixadores de motor, suspensão, trem de força e carroceria com valores em lb/ft e Nm.",
+    "support_divider": "Suporte",
     "og_title": "Tabela de Especificações de Torque Classic Mini | Classic Mini DIY",
     "og_description": "Especificações completas de torque para fixadores Classic Mini. Tabela de referência para fixadores de motor, suspensão, trem de força e carroceria com valores em lb/ft e Nm.",
     "twitter_title": "Tabela de Especificações de Torque Classic Mini",
@@ -411,6 +424,9 @@
     "keywords": "спецификации крутящего момента Classic Mini, крепежные элементы Mini Cooper, спецификации крутящего момента, значения крутящего момента двигателя, крутящий момент подвески, обслуживание Mini, спецификации классического автомобиля",
     "hero_title": "Спецификации Крутящего Момента",
     "breadcrumb_title": "Спецификации Крутящего Момента",
+    "main_heading": "Спецификации Крутящего Момента",
+    "description_text": "Полные спецификации крутящего момента для крепежных элементов Classic Mini. Справочная таблица для крепежных элементов двигателя, подвески, трансмиссии и кузова со значениями в lb/ft и Nm.",
+    "support_divider": "Поддержка",
     "og_title": "Таблица Спецификаций Крутящего Момента Classic Mini | Classic Mini DIY",
     "og_description": "Полные спецификации крутящего момента для крепежных элементов Classic Mini. Справочная таблица для крепежных элементов двигателя, подвески, трансмиссии и кузова со значениями в lb/ft и Nm.",
     "twitter_title": "Таблица Спецификаций Крутящего Момента Classic Mini",
@@ -444,6 +460,9 @@
     "keywords": "クラシック・ミニ トルク仕様、ミニクーパー 締結具、トルク仕様、エンジントルク値、サスペンショントルク、ミニメンテナンス、クラシックカー仕様",
     "hero_title": "トルク仕様",
     "breadcrumb_title": "トルク仕様",
+    "main_heading": "トルク仕様",
+    "description_text": "クラシック・ミニ締結具の完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディ締結具のlb/ftおよびNm値を含む参照表。",
+    "support_divider": "サポート",
     "og_title": "クラシック・ミニ トルク仕様表 | Classic Mini DIY",
     "og_description": "クラシック・ミニ締結具の完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディ締結具のlb/ftおよびNm値を含む参照表。",
     "twitter_title": "クラシック・ミニ トルク仕様表",
@@ -472,6 +491,9 @@
     "keywords": "经典迷你扭矩规格，迷你库珀紧固件，扭矩规格，发动机扭矩值，悬挂扭矩，迷你维护，经典汽车规格",
     "hero_title": "扭矩规格",
     "breadcrumb_title": "扭矩规格",
+    "main_heading": "扭矩规格",
+    "description_text": "经典迷你紧固件的完整扭矩规格。发动机、悬挂、传动系统和车身紧固件的参考表，包含lb/ft和Nm值。",
+    "support_divider": "支持",
     "og_title": "经典迷你扭矩规格表 | Classic Mini DIY",
     "og_description": "经典迷你紧固件的完整扭矩规格。发动机、悬挂、传动系统和车身紧固件的参考表，包含lb/ft和Nm值。",
     "twitter_title": "经典迷你扭矩规格表",
@@ -500,6 +522,9 @@
     "keywords": "클래식 미니 토크 사양, 미니 쿠퍼 체결구, 토크 사양, 엔진 토크 값, 서스펜션 토크, 미니 유지보수, 클래식 자동차 사양",
     "hero_title": "토크 사양",
     "breadcrumb_title": "토크 사양",
+    "main_heading": "토크 사양",
+    "description_text": "클래식 미니 체결구의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 차체 체결구의 lb/ft 및 Nm 값을 포함한 참조표.",
+    "support_divider": "지원",
     "og_title": "클래식 미니 토크 사양표 | Classic Mini DIY",
     "og_description": "클래식 미니 체결구의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 차체 체결구의 lb/ft 및 Nm 값을 포함한 참조표.",
     "twitter_title": "클래식 미니 토크 사양표",
