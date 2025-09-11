@@ -3,6 +3,29 @@
 
   const { data: diagrams, status } = await useFetch('/api/diagrams');
   const activePanel = ref<string | null>(null);
+  const searchQuery = ref('');
+
+  // Computed property to filter all diagrams based on search query
+  const filteredResults = computed(() => {
+    if (!searchQuery.value || !diagrams.value) return [];
+
+    const query = searchQuery.value.toLowerCase();
+    const results: any[] = [];
+
+    // Search through all diagrams and their items
+    Object.entries(diagrams.value).forEach(([key, diagram]: [string, any]) => {
+      diagram.items.forEach((item: any) => {
+        if (item.name.toLowerCase().includes(query) || diagram.title.toLowerCase().includes(query)) {
+          results.push({
+            ...item,
+            category: diagram.title,
+          });
+        }
+      });
+    });
+
+    return results;
+  });
 
   useHead({
     title: $t('title'),
@@ -96,7 +119,77 @@
         </div>
       </div>
 
+      <!-- Global Search -->
+      <div v-if="diagrams && status !== 'pending'" class="col-span-12 mb-6">
+        <div class="flex justify-center">
+          <div class="card bg-base-100 border border-base-300 shadow-sm w-full max-w-2xl">
+            <div class="card-body p-4 text-center">
+              <div class="flex items-center justify-center gap-3 mb-2">
+                <i class="fa-solid fa-search text-primary text-lg"></i>
+                <h2 class="card-title text-lg">{{ $t('search_title') }}</h2>
+              </div>
+              <div class="form-control w-full flex items-center">
+                <label class="input input-bordered flex items-center gap-2 input-lg w-full max-w-md mx-auto">
+                  <i class="fa-solid fa-search opacity-60"></i>
+                  <input
+                    type="search"
+                    :placeholder="$t('search_placeholder')"
+                    v-model="searchQuery"
+                    class="grow text-base"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="col-span-12">
+        <!-- Search Results Pane -->
+        <div v-if="searchQuery && filteredResults.length > 0" class="mb-6">
+          <div class="bg-base-200 border border-base-300 rounded-lg">
+            <div class="bg-primary text-primary-content p-4 rounded-t-lg">
+              <h3 class="text-lg font-semibold">{{ $t('search_results_title') }} ({{ filteredResults.length }})</h3>
+            </div>
+            <ul class="menu bg-base-100 w-full rounded-b-lg">
+              <li
+                v-for="(result, index) in filteredResults"
+                :key="`search-${index}-${result.name}`"
+                class="border-b border-base-200 last:border-b-0"
+              >
+                <a :href="result.link" target="_blank" class="flex justify-between py-4">
+                  <div>
+                    <div class="text-lg">{{ result.name }}</div>
+                    <div class="text-sm opacity-70 flex items-center mt-1">
+                      <i class="fa-solid fa-folder mr-2"></i>
+                      <span>{{ result.category }}</span>
+                    </div>
+                    <div class="text-sm opacity-70 flex items-center mt-1">
+                      <i class="fa-solid fa-calendar mr-2"></i>
+                      <span v-if="result.from || result.to"
+                        >{{ result.from || $t('date_range.unknown_placeholder') }}{{ $t('date_range.separator')
+                        }}{{ result.to || $t('date_range.unknown_placeholder') }}</span
+                      >
+                      <span v-else>{{ $t('date_range.unknown') }}</span>
+                    </div>
+                  </div>
+                  <button class="btn btn-ghost btn-lg" :aria-label="$t('download_button_aria')">
+                    <i class="fa-solid fa-download"></i>
+                  </button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div v-if="searchQuery && filteredResults.length === 0" class="mb-6">
+          <div class="alert alert-info">
+            <i class="fa-solid fa-info-circle"></i>
+            <span>{{ $t('no_results_message') }}</span>
+          </div>
+        </div>
+
         <!-- Loading state -->
         <div v-if="status === 'pending'" class="space-y-4">
           <div class="skeleton h-12 w-full"></div>
@@ -104,8 +197,8 @@
           <div class="skeleton h-12 w-full"></div>
         </div>
 
-        <!-- Content when loaded -->
-        <div v-if="diagrams && status !== 'pending'" class="space-y-6">
+        <!-- Content when loaded (hidden during search) -->
+        <div v-if="diagrams && status !== 'pending' && !searchQuery" class="space-y-6">
           <div
             v-for="(diagram, name, index) in diagrams"
             :key="`${name}-${index}`"
@@ -122,45 +215,31 @@
             </div>
 
             <!-- Accordion content -->
-            <div class="collapse-content">
-              <!-- Table -->
-              <div class="overflow-x-auto">
-                <table class="table table-sm table-pin-rows table-zebra w-full">
-                  <!-- Table header -->
-                  <thead>
-                    <tr>
-                      <th>{{ $t('table_headers.diagram_name') }}</th>
-                      <th>{{ $t('table_headers.date_range') }}</th>
-                      <th>{{ $t('table_headers.download') }}</th>
-                    </tr>
-                  </thead>
-
-                  <!-- Table body -->
-                  <tbody>
-                    <tr v-for="(item, index) in diagram.items" :key="`${index}-${item.name}`" class="hover">
-                      <td>{{ item.name }}</td>
-                      <td class="flex items-center">
+            <div class="collapse-content p-0">
+              <ul class="menu bg-base-100 w-full">
+                <li
+                  v-for="(item, index) in diagram.items"
+                  :key="`${index}-${item.name}`"
+                  class="border-b border-base-200 last:border-b-0"
+                >
+                  <a :href="item.link" target="_blank" class="flex justify-between py-4">
+                    <div>
+                      <div class="text-lg">{{ item.name }}</div>
+                      <div class="text-lg opacity-70 flex items-center mt-1">
                         <i class="fa-solid fa-calendar mr-2"></i>
                         <span v-if="item.from || item.to"
                           >{{ item.from || $t('date_range.unknown_placeholder') }}{{ $t('date_range.separator')
                           }}{{ item.to || $t('date_range.unknown_placeholder') }}</span
                         >
                         <span v-else>{{ $t('date_range.unknown') }}</span>
-                      </td>
-                      <td>
-                        <a
-                          :href="item.link"
-                          target="_blank"
-                          class="btn btn-ghost btn-sm"
-                          :aria-label="$t('download_button_aria')"
-                        >
-                          <i class="fa-solid fa-download"></i>
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-ghost btn-lg" :aria-label="$t('download_button_aria')">
+                      <i class="fa-solid fa-download"></i>
+                    </button>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -229,12 +308,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "Download diagram",
+    "search_title": "Search Electrical Diagrams",
+    "search_placeholder": "Search all electrical diagrams...",
+    "search_results_title": "Search Results",
+    "no_results_message": "No diagrams found matching your search.",
     "support_divider": "Support",
-    "table_headers": {
-      "diagram_name": "Diagram Name",
-      "date_range": "Date Range",
-      "download": "Download"
-    },
     "seo": {
       "og_title": "Archive - Electrical Diagrams | Classic Mini DIY",
       "og_description": "Manually digitized and updated electrical diagrams for your Classic Mini Cooper.",
@@ -264,12 +342,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "Descargar diagrama",
+    "search_title": "Buscar Diagramas Eléctricos",
+    "search_placeholder": "Buscar en todos los diagramas eléctricos...",
+    "search_results_title": "Resultados de Búsqueda",
+    "no_results_message": "No se encontraron diagramas que coincidan con su búsqueda.",
     "support_divider": "Soporte",
-    "table_headers": {
-      "diagram_name": "Nombre del Diagrama",
-      "date_range": "Rango de Fechas",
-      "download": "Descargar"
-    },
     "seo": {
       "og_title": "Archivo - Diagramas Eléctricos | Classic Mini DIY",
       "og_description": "Diagramas eléctricos digitalizados y actualizados manualmente para tu Classic Mini Cooper.",
@@ -299,12 +376,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "Télécharger le schéma",
+    "search_title": "Rechercher Schémas Électriques",
+    "search_placeholder": "Rechercher dans tous les schémas électriques...",
+    "search_results_title": "Résultats de Recherche",
+    "no_results_message": "Aucun schéma trouvé correspondant à votre recherche.",
     "support_divider": "Support",
-    "table_headers": {
-      "diagram_name": "Nom du Schéma",
-      "date_range": "Plage de Dates",
-      "download": "Télécharger"
-    },
     "seo": {
       "og_title": "Archive - Schémas Électriques | Classic Mini DIY",
       "og_description": "Schémas électriques numérisés et mis à jour manuellement pour votre Classic Mini Cooper.",
@@ -334,12 +410,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "Scarica schema",
+    "search_title": "Cerca Schemi Elettrici",
+    "search_placeholder": "Cerca in tutti gli schemi elettrici...",
+    "search_results_title": "Risultati di Ricerca",
+    "no_results_message": "Nessuno schema trovato corrispondente alla tua ricerca.",
     "support_divider": "Supporto",
-    "table_headers": {
-      "diagram_name": "Nome Schema",
-      "date_range": "Intervallo Date",
-      "download": "Scarica"
-    },
     "seo": {
       "og_title": "Archivio - Schemi Elettrici | Classic Mini DIY",
       "og_description": "Schemi elettrici digitalizzati e aggiornati manualmente per la tua Classic Mini Cooper.",
@@ -369,12 +444,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "Schaltplan herunterladen",
+    "search_title": "Elektrische Schaltpläne Suchen",
+    "search_placeholder": "Alle elektrischen Schaltpläne durchsuchen...",
+    "search_results_title": "Suchergebnisse",
+    "no_results_message": "Keine Schaltpläne gefunden, die Ihrer Suche entsprechen.",
     "support_divider": "Support",
-    "table_headers": {
-      "diagram_name": "Schaltplan Name",
-      "date_range": "Datumsbereich",
-      "download": "Herunterladen"
-    },
     "seo": {
       "og_title": "Archiv - Elektrische Schaltpläne | Classic Mini DIY",
       "og_description": "Manuell digitalisierte und aktualisierte elektrische Schaltpläne für Ihren Classic Mini Cooper.",
@@ -404,12 +478,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "Baixar diagrama",
+    "search_title": "Pesquisar Diagramas Elétricos",
+    "search_placeholder": "Pesquisar em todos os diagramas elétricos...",
+    "search_results_title": "Resultados da Pesquisa",
+    "no_results_message": "Nenhum diagrama encontrado correspondente à sua pesquisa.",
     "support_divider": "Suporte",
-    "table_headers": {
-      "diagram_name": "Nome do Diagrama",
-      "date_range": "Intervalo de Datas",
-      "download": "Baixar"
-    },
     "seo": {
       "og_title": "Arquivo - Diagramas Elétricos | Classic Mini DIY",
       "og_description": "Diagramas elétricos digitalizados e atualizados manualmente para o seu Classic Mini Cooper.",
@@ -439,12 +512,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "Скачать схему",
+    "search_title": "Поиск Электрических Схем",
+    "search_placeholder": "Поиск по всем электрическим схемам...",
+    "search_results_title": "Результаты Поиска",
+    "no_results_message": "Не найдено схем, соответствующих вашему запросу.",
     "support_divider": "Поддержка",
-    "table_headers": {
-      "diagram_name": "Название Схемы",
-      "date_range": "Диапазон Дат",
-      "download": "Скачать"
-    },
     "seo": {
       "og_title": "Архив - Электрические Схемы | Classic Mini DIY",
       "og_description": "Вручную оцифрованные и обновленные электрические схемы для вашего Classic Mini Cooper.",
@@ -474,12 +546,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "図面をダウンロード",
+    "search_title": "電気図面を検索",
+    "search_placeholder": "すべての電気図面を検索...",
+    "search_results_title": "検索結果",
+    "no_results_message": "検索に一致する図面が見つかりませんでした。",
     "support_divider": "サポート",
-    "table_headers": {
-      "diagram_name": "図面名",
-      "date_range": "日付範囲",
-      "download": "ダウンロード"
-    },
     "seo": {
       "og_title": "アーカイブ - 電気図面 | Classic Mini DIY",
       "og_description": "Classic Mini Cooperの手動でデジタル化・更新された電気図面。",
@@ -509,12 +580,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "下载图表",
+    "search_title": "搜索电气图表",
+    "search_placeholder": "搜索所有电气图表...",
+    "search_results_title": "搜索结果",
+    "no_results_message": "未找到与您的搜索匹配的图表。",
     "support_divider": "支持",
-    "table_headers": {
-      "diagram_name": "图表名称",
-      "date_range": "日期范围",
-      "download": "下载"
-    },
     "seo": {
       "og_title": "存档 - 电气图表 | Classic Mini DIY",
       "og_description": "为您的Classic Mini Cooper手动数字化和更新的电气图表。",
@@ -544,12 +614,11 @@
       "unknown_placeholder": "?"
     },
     "download_button_aria": "도면 다운로드",
+    "search_title": "전기 도면 검색",
+    "search_placeholder": "모든 전기 도면 검색...",
+    "search_results_title": "검색 결과",
+    "no_results_message": "검색과 일치하는 도면을 찾을 수 없습니다.",
     "support_divider": "지원",
-    "table_headers": {
-      "diagram_name": "도면 이름",
-      "date_range": "날짜 범위",
-      "download": "다운로드"
-    },
     "seo": {
       "og_title": "아카이브 - 전기 도면 | Classic Mini DIY",
       "og_description": "Classic Mini Cooper를 위한 수동으로 디지털화되고 업데이트된 전기 도면.",

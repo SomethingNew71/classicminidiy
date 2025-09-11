@@ -69,8 +69,8 @@
 
           <!-- Report Issue Link Below Centered Input -->
           <div class="flex justify-center mt-3">
-            <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{ t('report_issue') }}</a>
-            <i class="fa-solid fa-envelope text-xs"></i>
+            <NuxtLink to="/contact">{{ t('report_issue') }}</NuxtLink>
+            <i class="fa-solid fa-envelope text-xs ml-1"></i>
           </div>
         </div>
       </div>
@@ -163,8 +163,8 @@
 
       <!-- Report Issue Link Below Chat -->
       <div class="flex justify-center mt-3">
-        <a href="mailto:support@classicminidiy.com?subject=Chat Issue Report">{{ t('report_issue') }}</a>
-        <i class="fa-solid fa-envelope text-xs"></i>
+        <NuxtLink to="/contact">{{ t('report_issue') }}</NuxtLink>
+        <i class="fa-solid fa-envelope text-xs ml-1"></i>
       </div>
     </div>
   </div>

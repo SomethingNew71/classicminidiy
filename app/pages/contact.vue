@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <Hero :titleKey="'hero_title'" :heroType="HERO_TYPES.CONTACT" textSize="text-4xl" class="pb-7" />
+    <Hero :titleKey="$t('hero_title')" :heroType="HERO_TYPES.CONTACT" textSize="text-4xl" class="pb-7" />
 
     <!-- Breadcrumb Navigation -->
     <div class="container mx-auto px-4 pt-10">

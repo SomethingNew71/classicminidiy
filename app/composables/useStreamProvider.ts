@@ -57,6 +57,9 @@ export function createStreamSession(
   const messages = ref<any[]>([]);
   const isLoading = ref(false);
   const currentThreadId = ref<string | null>(threadId);
+  
+  // Get locale at the top level of the composable
+  const { locale } = useI18n();
 
   // Track message count for thread persistence
   const messageCount = computed(() => messages.value.length);
@@ -100,7 +103,6 @@ export function createStreamSession(
     isLoading.value = true;
 
     try {
-      const { locale } = useI18n();
       const threadIdForUrl = currentThreadId.value || 'new';
       const endpoint = `${proxyApiUrl}/threads/${threadIdForUrl}/runs/stream`;
       const payload: any = {
