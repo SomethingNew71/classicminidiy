@@ -74,10 +74,10 @@
             <p class="mb-6">
               {{ $t('description_text') }}
             </p>
-            <a href="mailto:classicminidiy@gmail.com" class="btn btn-outline mb-6" target="_blank">
+            <NuxtLink to="/contact" class="btn btn-outline mb-6">
               <i class="fas fa-paper-plane mr-2"></i>
-              {{ $t('email_button') }}
-            </a>
+              {{ $t('contact_button') }}
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -205,8 +205,8 @@
     "hero_title": "Weights & Measurements",
     "breadcrumb_title": "Weights & Measurements",
     "main_heading": "Mini Weights",
-    "description_text": "Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These weights were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you would like to contribute please click the link below to email me.",
-    "email_button": "classicminidiy{'@'}gmail.com",
+    "description_text": "Below you will find multiple searchable tables of weights for various parts of the Classic Mini. These weights were provided by an archive of the now offline miniweights.co.uk. If you see missing values or you would like to contribute please use the contact page below.",
+    "contact_button": "Contact Us",
     "search_placeholder": "Search this table",
     "table_headers": {
       "item": "Item",
