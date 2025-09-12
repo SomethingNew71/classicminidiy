@@ -1,30 +1,52 @@
 <script lang="ts" setup>
   import { HERO_TYPES } from '../../../data/models/generic';
+  import Fuse from 'fuse.js';
 
   const { data: diagrams, status } = await useFetch('/api/diagrams');
   const activePanel = ref<string | null>(null);
   const searchQuery = ref('');
 
-  // Computed property to filter all diagrams based on search query
-  const filteredResults = computed(() => {
-    if (!searchQuery.value || !diagrams.value) return [];
-
-    const query = searchQuery.value.toLowerCase();
-    const results: any[] = [];
-
-    // Search through all diagrams and their items
+  // Prepare data for Fuse.js search
+  const searchableItems = computed(() => {
+    if (!diagrams.value) return [];
+    
+    const items: any[] = [];
     Object.entries(diagrams.value).forEach(([key, diagram]: [string, any]) => {
       diagram.items.forEach((item: any) => {
-        if (item.name.toLowerCase().includes(query) || diagram.title.toLowerCase().includes(query)) {
-          results.push({
-            ...item,
-            category: diagram.title,
-          });
-        }
+        items.push({
+          ...item,
+          category: diagram.title,
+          searchableText: `${item.name} ${diagram.title} ${item.from || ''} ${item.to || ''}`
+        });
       });
     });
+    
+    return items;
+  });
 
-    return results;
+  // Configure Fuse.js options for fuzzy search
+  const fuseOptions = {
+    keys: [
+      { name: 'name', weight: 0.7 },
+      { name: 'category', weight: 0.2 },
+      { name: 'searchableText', weight: 0.1 }
+    ],
+    threshold: 0.3, // Lower = more strict matching (0.0 = exact, 1.0 = match anything)
+    distance: 100,
+    minMatchCharLength: 2,
+    includeScore: true,
+    includeMatches: true
+  };
+
+  // Computed property to filter all diagrams based on search query using Fuse.js
+  const filteredResults = computed(() => {
+    if (!searchQuery.value || searchQuery.value.length < 2 || !searchableItems.value.length) return [];
+
+    const fuse = new Fuse(searchableItems.value, fuseOptions);
+    const searchResults = fuse.search(searchQuery.value);
+    
+    // Return just the items (without Fuse.js metadata) sorted by score
+    return searchResults.map(result => result.item);
   });
 
   useHead({
