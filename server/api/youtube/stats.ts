@@ -1,5 +1,6 @@
 import axios from 'axios';
 import type { YoutubeStatsFEResponse, YoutubeStatsResponse } from '../../../data/models/youtube';
+import { log } from 'console';
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
