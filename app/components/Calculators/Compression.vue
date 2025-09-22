@@ -266,7 +266,7 @@
     <div class="text-center mt-4">
       <div class="max-w-3xl mx-auto">
         <p class="mb-2">
-          {{ t('disclaimer.text', { strong_start: '<strong>', strong_end: '</strong>' }) }}
+          <span v-html="t('disclaimer.text', { strong_start: '<strong>', strong_end: '</strong>' })"></span>
           <a
             href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344"
             target="_blank"

@@ -143,25 +143,17 @@
 
       <!-- Global Search -->
       <div v-if="diagrams && status !== 'pending'" class="col-span-12 mb-6">
-        <div class="flex justify-center">
-          <div class="card bg-base-100 border border-base-300 shadow-sm w-full max-w-2xl">
-            <div class="card-body p-4 text-center">
-              <div class="flex items-center justify-center gap-3 mb-2">
-                <i class="fa-solid fa-search text-primary text-lg"></i>
-                <h2 class="card-title text-lg">{{ $t('search_title') }}</h2>
-              </div>
-              <div class="form-control w-full flex items-center">
-                <label class="input input-bordered flex items-center gap-2 input-lg w-full max-w-md mx-auto">
-                  <i class="fa-solid fa-search opacity-60"></i>
-                  <input
-                    type="search"
-                    :placeholder="$t('search_placeholder')"
-                    v-model="searchQuery"
-                    class="grow text-base"
-                  />
-                </label>
-              </div>
-            </div>
+        <div class="form-control w-full max-w-md">
+          <div class="input-group w-full">
+            <label class="input w-full">
+              <span class="label"><i class="fad fa-search"></i></span>
+              <input
+                v-model="searchQuery"
+                :placeholder="$t('search_placeholder')"
+                type="search"
+                class="input-bordered w-full"
+              />
+            </label>
           </div>
         </div>
       </div>

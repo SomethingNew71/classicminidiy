@@ -145,10 +145,15 @@
 
         <div class="form-control">
           <div class="input-group w-full">
-            <label class="label">
-              <span class="label-text">{{ t('search_label') }}</span>
+            <label class="input w-full">
+              <span class="label"><i class="fad fa-search"></i></span>
+              <input
+                v-model="search"
+                :placeholder="t('search_placeholder')"
+                type="text"
+                class="input-bordered w-full"
+              />
             </label>
-            <input v-model="search" type="text" :placeholder="t('search_placeholder')" />
           </div>
         </div>
       </div>
