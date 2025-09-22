@@ -128,7 +128,7 @@
           </div>
         </div>
       </div>
-      <div class="col-span-12 md:col-span-10 md:col-start-2">
+      <div class="col-span-12">
         <div class="mb-5">
           <i class="fas fa-circle text-primary mr-2"></i> {{ $t('legend.standard') }}
           <i class="fas fa-circle text-info mx-2"></i>

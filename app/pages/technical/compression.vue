@@ -112,7 +112,7 @@
 
 <template>
   <hero :navigation="true" :heroType="HERO_TYPES.TECH" />
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 pb-10">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12">
         <breadcrumb class="my-6" :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')"></breadcrumb>
@@ -161,7 +161,7 @@
           </div>
         </div>
       </div>
-      <div class="col-span-12 md:col-span-10 md:col-start-2">
+      <div class="col-span-12">
         <CalculatorsCompression />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">

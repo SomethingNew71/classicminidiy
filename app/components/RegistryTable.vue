@@ -171,12 +171,15 @@
       <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
         <div class="form-control w-full max-w-md">
           <div class="input-group">
-            <input
-              type="text"
-              v-model="searchValue"
-              :placeholder="t('search_placeholder')"
-              class="input input-bordered w-full"
-            />
+            <label class="input w-full">
+              <span class="label"><i class="fad fa-search"></i></span>
+              <input
+                v-model="searchValue"
+                :placeholder="t('search_placeholder')"
+                type="text"
+                class="input-bordered w-full"
+              />
+            </label>
           </div>
         </div>
         <div class="flex items-center gap-2">
