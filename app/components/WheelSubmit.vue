@@ -64,21 +64,54 @@
 
   const handleFileChange = (event: Event) => {
     const input = event.target as HTMLInputElement;
+    fileError.value = '';
+
     if (input.files) {
-      dropFiles.value = Array.from(input.files);
+      const files = Array.from(input.files);
+
+      // Validate file types and sizes
+      const validFiles: File[] = [];
+      const maxSize = 3 * 1024 * 1024; // 3MB
+      const allowedTypes = ['image/jpeg', 'image/png'];
+
+      for (const file of files) {
+        if (!allowedTypes.includes(file.type)) {
+          fileError.value = `Invalid file type: ${file.name}. Only JPG and PNG files are allowed.`;
+          continue;
+        }
+
+        if (file.size > maxSize) {
+          fileError.value = `File too large: ${file.name}. Maximum size is 3MB.`;
+          continue;
+        }
+
+        validFiles.push(file);
+      }
+
+      if (validFiles.length > 5) {
+        fileError.value = 'Maximum 5 files allowed.';
+        dropFiles.value = validFiles.slice(0, 5);
+      } else {
+        dropFiles.value = validFiles;
+      }
     }
   };
 
   // Load existing wheel data if editing
-  if (!props.newWheel) {
-    await useFetch(`/api/wheels/wheel`, {
-      query: {
-        uuid: props.uuid || 'noWheel',
-      },
-      server: !!props.uuid, // Only fetch on server if wheel UUID exists
-      default: () => ({}) as IWheelsData, // Provide default value when fetch is skipped
-    })
-      .then(({ data }) => {
+  if (!props.newWheel && props.uuid) {
+    try {
+      const { data, error } = await useFetch(`/api/wheels/wheel`, {
+        query: {
+          uuid: props.uuid,
+        },
+        server: true,
+        default: () => ({}) as IWheelsData,
+      });
+
+      if (error.value) {
+        pageError.value = error.value;
+        errorMessage.value = t('errors.load_failed');
+      } else {
         wheel.value = data.value;
         // Pre-populate form fields with existing data
         if (wheel.value) {
@@ -89,14 +122,13 @@
           offset.value = wheel.value.offset || '';
           notes.value = wheel.value.notes || '';
         }
-      })
-      .catch((error) => {
-        pageError.value = error;
-        errorMessage.value = t('errors.load_failed');
-      })
-      .finally(() => {
-        pageLoad.value = false;
-      });
+      }
+    } catch (error) {
+      pageError.value = error;
+      errorMessage.value = t('errors.load_failed');
+    } finally {
+      pageLoad.value = false;
+    }
   } else {
     pageLoad.value = false;
   }
@@ -188,24 +220,46 @@
 
   // Form validation state
   const validateForm = () => {
-    detailsValid.value = !!name.value.trim() && !!width.value && !!size.value;
+    // For wheel details: name, width, and size are required for new wheels
+    // For updates, we're more lenient as they might just be adding images or notes
+    detailsValid.value = props.newWheel
+      ? !!name.value.trim() && !!width.value && !!size.value
+      : true; // For updates, always allow to proceed to next step
+
+    // Images are required for new wheels, optional for updates
     imagesValid.value = !props.newWheel || dropFiles.value.length > 0;
-    contactValid.value = !!userName.value.trim() && validateEmail(emailAddress.value) === true;
+
+    // Contact info is always required
+    contactValid.value = !!userName.value.trim() && !!emailAddress.value.trim() && validateEmail(emailAddress.value) === true;
   };
 
   // Submit form handler
   const submitForm = async () => {
     try {
       loading.value = true;
+      hasError.value = false;
+      errorMessage.value = '';
+
       if (props.newWheel) {
-        await storeWheelDetails();
+        // For new wheels, save details first, then images
+        const { data: detailsResponse } = await storeWheelDetails();
+        if (detailsResponse.value?.uuid && dropFiles.value.length > 0) {
+          await storeWheelImages(detailsResponse.value.uuid);
+        }
       } else {
-        await storeWheelImages(props.uuid);
+        // For existing wheels, save details (updates) first, then any new images
+        await storeWheelDetails();
+        if (dropFiles.value.length > 0) {
+          await storeWheelImages(props.uuid);
+        }
       }
+
+      hasSuccess.value = true;
       step.value++;
     } catch (error) {
       hasError.value = true;
-      errorMessage.value = error instanceof Error ? error.message : 'An error occurred';
+      errorMessage.value = error instanceof Error ? error.message : 'An error occurred during submission';
+      console.error('Submission error:', error);
     } finally {
       loading.value = false;
     }
@@ -723,14 +777,30 @@
       </div>
     </div>
 
+    <!-- Error Display -->
+    <div v-if="hasError" class="alert alert-error mt-6">
+      <div>
+        <i class="fas fa-exclamation-circle"></i>
+        <span>{{ errorMessage }}</span>
+      </div>
+    </div>
+
+    <!-- Success Display -->
+    <div v-if="hasSuccess && step < 5" class="alert alert-success mt-6">
+      <div>
+        <i class="fas fa-check-circle"></i>
+        <span>{{ t('success.submission_processing') }}</span>
+      </div>
+    </div>
+
     <!-- Navigation Buttons -->
     <div class="flex justify-end gap-4 mt-8">
-      <button v-if="step > 1 && step < 5" @click="step--" class="btn btn-ghost">
+      <button v-if="step > 1 && step < 5" @click="step--" class="btn btn-ghost" :disabled="loading">
         <i class="fas fa-arrow-left mr-2"></i>
         {{ t('navigation.back') }}
       </button>
 
-      <button v-if="step < 4" @click="handleNextStep" :disabled="!canProceedToNextStep" class="btn btn-primary">
+      <button v-if="step < 4" @click="handleNextStep" :disabled="!canProceedToNextStep || loading" class="btn btn-primary">
         {{ t('navigation.next') }}
         <i class="fas fa-arrow-right ml-2"></i>
       </button>
@@ -738,11 +808,14 @@
       <button
         v-else-if="step === 4"
         @click="submitForm"
-        :disabled="!canProceedToNextStep"
+        :disabled="!canProceedToNextStep || loading"
         :class="['btn', 'btn-primary', { loading: loading }]"
       >
-        <i class="fas fa-paper-plane mr-2"></i>
-        {{ t('navigation.submit') }}
+        <span v-if="!loading">
+          <i class="fas fa-paper-plane mr-2"></i>
+          {{ t('navigation.submit') }}
+        </span>
+        <span v-else>{{ t('navigation.submitting') }}</span>
       </button>
     </div>
   </div>
@@ -830,10 +903,14 @@
       "update_message": "Your suggested updates have been submitted for review. We'll notify you at {email} once they've been processed.",
       "submit_another": "Submit Another Wheel"
     },
+    "success": {
+      "submission_processing": "Your submission is being processed..."
+    },
     "navigation": {
       "back": "Back",
       "next": "Next",
-      "submit": "Submit"
+      "submit": "Submit",
+      "submitting": "Submitting..."
     },
     "errors": {
       "load_failed": "Failed to load wheel data. Please try again.",
