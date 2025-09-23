@@ -6,7 +6,7 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 
 **Classic Mini DIY** is a comprehensive web application serving as both a toolkit and permanent archive for Classic Mini enthusiasts. It provides technical information, calculators, historical documents, and interactive tools for Classic Mini owners and mechanics.
 
-- **Framework**: Nuxt 3 (Vue.js) with TypeScript
+- **Framework**: Nuxt 4.1.2 (Vue.js) with TypeScript
 - **Purpose**: Classic Mini car enthusiast website and knowledgebase
 - **URL**: https://classicminidiy.com
 - **Repository**: https://github.com/somethingnew71/classicminidiy
@@ -16,8 +16,9 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 
 ### Frontend
 
-- **Framework**: Nuxt 3 with TypeScript
-- **Styling**: TailwindCSS + DaisyUI custom theme
+- **Framework**: Nuxt 4.1.2 with TypeScript
+- **Styling**: TailwindCSS 4.1.13 with @tailwindcss/vite + DaisyUI custom theme
+- **Search**: Fuse.js for advanced fuzzy search functionality
 - **Charts**: Highcharts for data visualization
 - **PWA**: Configured with @vite-pwa/nuxt for offline functionality
 - **SEO**: Comprehensive meta tags, structured data, sitemap generation
@@ -43,21 +44,23 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ### Package Management
 
 - **Primary**: npm (Node.js v22.12.0+)
+- **Current Version**: 3.5.4
 - **Scripts**:
-  - `npm run dev` - Start development server
-  - `npm run build` - Build for production
-  - `npm run start` - Preview production build
+  - `npm run dev` - Start development server (using `nuxi dev`)
+  - `npm run build` - Build for production (using `nuxi build`)
+  - `npm run start` - Preview production build (using `nuxi preview`)
   - `npm run format` - Format code with Prettier
 
 ### Key Technologies
 
-- **Vue 3** with Composition API
+- **Nuxt 4.1.2** with Vue 3 Composition API
 - **TypeScript** for type safety
-- **TailwindCSS** for styling with custom DaisyUI theme
+- **TailwindCSS 4.1.13** with @tailwindcss/vite for styling and custom DaisyUI theme
 - **Nuxt Content** for content management
-- **AWS SDK v3** for cloud services
-- **LangChain/LangGraph** for AI functionality
-- **Highcharts** for interactive data visualization
+- **AWS SDK v3** (v3.894.0) for cloud services
+- **LangChain/LangGraph** (v0.1.6) for AI functionality
+- **Highcharts** (v12.4.0) for interactive data visualization
+- **Fuse.js** (v7.1.0) for advanced search functionality
 
 ## Project Structure
 
@@ -524,6 +527,31 @@ Current implementation includes:
 4. **User-Generated Content System**: Advanced submission and administrative review workflows
 5. **Performance Excellence**: Extensive optimization strategies including PWA, CDN, and caching
 6. **Real-time Features**: Streaming AI responses and live data synchronization
+
+## Recent Updates & Changes
+
+### Current Version: 3.5.4
+
+**Major Framework Upgrades:**
+- **Nuxt 4.1.2**: Upgraded from Nuxt 3 to Nuxt 4.1.2 for improved performance and new features
+- **TailwindCSS v4**: Migration to TailwindCSS 4.1.13 with @tailwindcss/vite for better build performance and developer experience
+- **Node.js 22.12.0**: Updated Node.js requirement to v22.12.0+ for latest performance improvements
+
+**Recent Commits and Updates:**
+- **AWS Package Updates**: Updated AWS SDK packages to v3.894.0 for improved performance and security
+- **Visual Normalization**: Extensive visual improvements across search and table views with new table options for archive pages
+- **Wheel Submit Bugfixes**: Small improvements to the wheel submission functionality
+- **Search Enhancement**: Migration to Fuse.js v7.1.0 for improved fuzzy search capabilities across the platform
+- **Security Updates**: Regular package updates focusing on security improvements
+- **Translation Fixes**: Ongoing improvements to internationalization support
+
+**Key Dependencies Updated:**
+- `@aws-sdk/*` packages: v3.894.0
+- `nuxt`: v4.1.2
+- `tailwindcss`: v4.1.13
+- `fuse.js`: v7.1.0 (new addition)
+- `highcharts`: v12.4.0
+- `@langchain/langgraph-sdk`: v0.1.6
 
 ## Support Resources
 
