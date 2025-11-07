@@ -1,7 +1,45 @@
 <script lang="ts" setup>
+  import { h } from 'vue';
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   const { data: engineCodes } = await useFetch('/api/decoders/engine');
   const search = ref('');
+
+  // Column definitions for Nuxt UI table
+  const tableColumns = [
+    {
+      accessorKey: 'color',
+      header: () => $t('table.headers.color'),
+      cell: ({ row }) => h('i', {
+        class: `fas fa-circle pt-1 color-${row.getValue('size')}`
+      }),
+      enableSorting: false,
+    },
+    {
+      accessorKey: 'code',
+      header: () => $t('table.headers.code'),
+      cell: ({ row }) => row.getValue('code'),
+    },
+    {
+      accessorKey: 'size',
+      header: () => $t('table.headers.engine_size'),
+      cell: ({ row }) => row.getValue('size'),
+    },
+    {
+      accessorKey: 'variant',
+      header: () => $t('table.headers.engine_variant'),
+      cell: ({ row }) => row.getValue('variant'),
+    },
+    {
+      accessorKey: 'gearbox',
+      header: () => $t('table.headers.gearbox_details'),
+      cell: ({ row }) => row.getValue('gearbox'),
+    },
+    {
+      accessorKey: 'description',
+      header: () => $t('table.headers.details'),
+      cell: ({ row }) => row.getValue('description'),
+    },
+  ];
 
   // Computed property for filtered engine codes
   const filteredEngineCodes = computed(() => {
@@ -140,31 +178,12 @@
             </div>
 
             <div class="card-body">
-              <div class="overflow-x-auto">
-                <table class="table table-compact w-full">
-                  <thead>
-                    <tr>
-                      <th>{{ $t('table.headers.color') }}</th>
-                      <th>{{ $t('table.headers.code') }}</th>
-                      <th>{{ $t('table.headers.engine_size') }}</th>
-                      <th>{{ $t('table.headers.engine_variant') }}</th>
-                      <th>{{ $t('table.headers.gearbox_details') }}</th>
-                      <th>{{ $t('table.headers.details') }}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="item in filteredEngineCodes" :key="item.code">
-                      <td>
-                        <i class="fas fa-circle pt-1" :class="'color-' + item.size"></i>
-                      </td>
-                      <td>{{ item.code }}</td>
-                      <td>{{ item.size }}</td>
-                      <td>{{ item.variant }}</td>
-                      <td>{{ item.gearbox }}</td>
-                      <td>{{ item.description }}</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="w-full overflow-x-auto">
+                <UTable
+                  :data="filteredEngineCodes"
+                  :columns="tableColumns"
+                  class="w-full min-w-full"
+                />
               </div>
             </div>
           </div>
@@ -644,7 +663,7 @@
   }
 }
 </i18n>
-<style lang="scss" scoped>
+<style lang="scss">
   .color-850 {
     color: #e24329;
   }
@@ -665,7 +684,9 @@
   }
   .color-1275 {
     color: #c57b57;
-  }
+  }</style>
+
+<style lang="scss" scoped>
 
   .card {
     background-color: var(--base-100);

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { h } from 'vue';
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
 
   interface ClearanceItem {
@@ -21,6 +22,61 @@
 
   const toggleRow = (id: string) => {
     expandedRows.value[id] = !expandedRows.value[id];
+  };
+
+  // Column definitions for Nuxt UI table
+  const tableColumns = [
+    {
+      accessorKey: 'name',
+      header: () => $t('table.headers.part'),
+      cell: ({ row }) => row.getValue('name'),
+    },
+    {
+      accessorKey: 'thou',
+      header: () => $t('table.headers.clearance_thou'),
+      cell: ({ row }) => {
+        const value = row.getValue('thou');
+        return value ? h('span', {
+          class: 'px-2 py-1 rounded bg-primary/10 text-primary font-medium'
+        }, value) : $t('table.no_value');
+      },
+    },
+    {
+      accessorKey: 'mm',
+      header: () => $t('table.headers.clearance_mm'),
+      cell: ({ row }) => {
+        const value = row.getValue('mm');
+        return value ? h('span', {
+          class: 'px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium'
+        }, value) : $t('table.no_value');
+      },
+    },
+    {
+      accessorKey: 'expand',
+      header: () => $t('table.headers.expand'),
+      cell: ({ row }) => {
+        const hasNotes = row.original.notes;
+        const rowId = `${row.index}`;
+        return hasNotes ? h('button', {
+          class: 'text-right w-full hover:text-primary transition-colors',
+          onClick: () => toggleRow(rowId)
+        }, [
+          h('i', {
+            class: `fas transition-transform duration-200 ${expandedRows.value[rowId] ? 'fa-chevron-up' : 'fa-chevron-down'}`
+          })
+        ]) : '';
+      },
+      enableSorting: false,
+    },
+  ];
+
+  // Function to filter items based on search
+  const filterItems = (items: ClearanceItem[], tableName: string) => {
+    if (!searchValue.value) return items;
+    const query = searchValue.value.toLowerCase();
+    return items.filter((item: ClearanceItem) =>
+      Object.values(item).some((val) => String(val).toLowerCase().includes(query))
+    );
   };
 
   useHead({
@@ -55,29 +111,28 @@
       <breadcrumb :version="BREADCRUMB_VERSIONS.TECH" :page="$t('breadcrumb_title')" />
     </div>
 
-    <div class="space-y-4">
-      <div v-for="(table, name, index) in tables" :key="`${name}-${index}`" class="collapse collapse-arrow bg-base-200">
+    <div class="space-y-6">
+      <div v-for="(table, name, index) in tables" :key="`${name}-${index}`" class="collapse collapse-plus bg-base-200 border border-base-300 mb-2">
         <input type="checkbox" checked />
-        <div class="collapse-title text-xl font-medium">
+        <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
           {{ table.title }}
         </div>
         <div class="collapse-content">
-          <div class="py-4">
-            <div class="form-control w-full max-w-xs ml-auto mb-4">
-              <div class="relative">
+          <!-- Search field -->
+          <div class="flex justify-end mb-4 mt-4">
+            <div class="form-control w-full max-w-xs">
+              <div class="input-group">
                 <input
                   type="text"
                   v-model="searchValue"
                   :placeholder="$t('search.placeholder')"
-                  class="input input-bordered w-full pr-10"
+                  class="input input-bordered input-md w-full"
                 />
-                <span class="absolute right-3 top-1/2 -translate-y-1/2">
-                  <i class="fas fa-search text-gray-400"></i>
-                </span>
               </div>
             </div>
+          </div>
 
-            <div class="overflow-x-auto">
+          <div class="w-full overflow-x-auto">
               <table class="table w-full">
                 <thead>
                   <tr>
@@ -89,41 +144,55 @@
                 </thead>
                 <tbody>
                   <template
-                    v-for="(item, itemIndex) in table.items.filter((i: ClearanceItem) =>
-                      Object.values(i).some((val) => String(val).toLowerCase().includes(searchValue.toLowerCase()))
-                    )"
+                    v-for="(item, itemIndex) in filterItems(table.items, name)"
                     :key="itemIndex"
                   >
                     <tr class="hover cursor-pointer" @click="toggleRow(`${name}-${itemIndex}`)">
                       <td>{{ item.name }}</td>
-                      <td>{{ item.thou || $t('table.no_value') }}</td>
-                      <td>{{ item.mm || $t('table.no_value') }}</td>
+                      <td>
+                        <span
+                          v-if="item.thou"
+                          class="px-2 py-1 rounded bg-primary/10 text-primary font-medium"
+                        >
+                          {{ item.thou }}
+                        </span>
+                        <span v-else>{{ $t('table.no_value') }}</span>
+                      </td>
+                      <td>
+                        <span
+                          v-if="item.mm"
+                          class="px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium"
+                        >
+                          {{ item.mm }}
+                        </span>
+                        <span v-else>{{ $t('table.no_value') }}</span>
+                      </td>
                       <td class="text-right">
                         <i
+                          v-if="item.notes"
                           class="fas transition-transform duration-200"
                           :class="expandedRows[`${name}-${itemIndex}`] ? 'fa-chevron-up' : 'fa-chevron-down'"
                         ></i>
                       </td>
                     </tr>
-                    <tr v-if="expandedRows[`${name}-${itemIndex}`]" class="bg-base-200">
+                    <tr v-if="expandedRows[`${name}-${itemIndex}`] && item.notes" class="bg-base-200">
                       <td colspan="4" class="p-4">
                         <div class="font-semibold mb-2">
                           {{ $t('table.extra_notes_title') }}
                         </div>
                         <div class="whitespace-pre-line">
-                          {{ item.notes || $t('table.no_notes_available') }}
+                          {{ item.notes }}
                         </div>
                       </td>
                     </tr>
                   </template>
-                  <tr v-if="!table.items.length">
+                  <tr v-if="!filterItems(table.items, name).length">
                     <td colspan="4" class="text-center py-4">
                       {{ $t('table.no_items_found') }}
                     </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
           </div>
         </div>
       </div>

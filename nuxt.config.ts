@@ -228,6 +228,7 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxt/content',
     '@nuxt/image',
+    '@nuxt/ui',
     'nuxt-llms',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
     '@nuxtjs/i18n',
