@@ -3,6 +3,7 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "esModuleInterop": true,
-    "typeRoots": ["./node_modules/@types", "@types"]
+    "typeRoots": ["./node_modules/@types", "@types"],
+    "noImplicitAny": false
   }
 }

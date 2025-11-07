@@ -1,13 +1,44 @@
 <script lang="ts" setup>
+  import { h } from 'vue';
   import { BREADCRUMB_VERSIONS, HERO_TYPES } from '../../../data/models/generic';
   const { data: tables, status } = await useFetch('/api/torque');
   const tableSearchQueries = ref<Record<string, string>>({});
 
-  const tableHeaders = [
-    { title: $t('table_headers.fastener'), key: 'name' },
-    { title: $t('table_headers.torque_lbft'), key: 'lbft' },
-    { title: $t('table_headers.torque_nm'), key: 'nm' },
-    { title: $t('table_headers.notes'), key: 'notes' },
+  const tableColumns = [
+    {
+      accessorKey: 'name',
+      header: () => $t('table_headers.fastener'),
+      cell: ({ row }) => row.getValue('name'),
+    },
+    {
+      accessorKey: 'lbft',
+      header: () => $t('table_headers.torque_lbft'),
+      cell: ({ row }) =>
+        h(
+          'span',
+          {
+            class: 'px-2 py-1 rounded bg-primary/10 text-primary font-medium',
+          },
+          row.getValue('lbft')
+        ),
+    },
+    {
+      accessorKey: 'nm',
+      header: () => $t('table_headers.torque_nm'),
+      cell: ({ row }) =>
+        h(
+          'span',
+          {
+            class: 'px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium',
+          },
+          row.getValue('nm')
+        ),
+    },
+    {
+      accessorKey: 'notes',
+      header: () => $t('table_headers.notes'),
+      cell: ({ row }) => row.getValue('notes') || $t('ui.no_notes'),
+    },
   ];
   const activePanel = ref<string | null>(null);
 
@@ -156,27 +187,8 @@
               </div>
 
               <!-- Table -->
-              <div class="overflow-x-auto">
-                <table class="table table-sm table-pin-rows table-zebra w-full">
-                  <!-- Table header -->
-                  <thead>
-                    <tr>
-                      <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>
-                    </tr>
-                  </thead>
-
-                  <!-- Table body -->
-                  <tbody>
-                    <template v-for="item in filterItems(table.items, name)" :key="itemIndex">
-                      <tr class="hover">
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.lbft }}</td>
-                        <td>{{ item.nm }}</td>
-                        <td>{{ item.notes ? item.notes : $t('ui.no_notes') }}</td>
-                      </tr>
-                    </template>
-                  </tbody>
-                </table>
+              <div class="w-full overflow-x-auto">
+                <UTable :data="filterItems(table.items, name)" :columns="tableColumns" class="w-full min-w-full" />
               </div>
             </div>
           </div>
@@ -250,7 +262,7 @@
       "description": "Complete torque specifications for Classic Mini fasteners. Reference chart for engine, suspension, drivetrain, and body fasteners with values in lb/ft and Nm.",
       "dataset_name": "Classic Mini Torque Specifications",
       "dataset_description": "Comprehensive dataset of torque specifications for Classic Mini fasteners",
-      "variable_measured": ["Fastener Name", "Torque in lb/ft", "Torque in Nm", "Additional Notes"]
+      "variable_measured": "Fastener Name, Torque in lb/ft, Torque in Nm, Additional Notes"
     },
     "table_headers": {
       "fastener": "Fastener",
@@ -281,7 +293,7 @@
       "description": "Especificaciones completas de torque para sujetadores Classic Mini. Tabla de referencia para sujetadores de motor, suspensión, tren motriz y carrocería con valores en lb/ft y Nm.",
       "dataset_name": "Especificaciones de Torque Classic Mini",
       "dataset_description": "Conjunto de datos completo de especificaciones de torque para sujetadores Classic Mini",
-      "variable_measured": ["Nombre del Sujetador", "Torque en lb/ft", "Torque en Nm", "Notas Adicionales"]
+      "variable_measured": "Nombre del Sujetador, Torque en lb/ft, Torque en Nm, Notas Adicionales"
     },
     "table_headers": {
       "fastener": "Sujetador",
@@ -312,7 +324,7 @@
       "description": "Spécifications complètes de couple pour les fixations Classic Mini. Tableau de référence pour les fixations moteur, suspension, transmission et carrosserie avec valeurs en lb/ft et Nm.",
       "dataset_name": "Spécifications de Couple Classic Mini",
       "dataset_description": "Jeu de données complet des spécifications de couple pour les fixations Classic Mini",
-      "variable_measured": ["Nom de la Fixation", "Couple en lb/ft", "Couple en Nm", "Notes Supplémentaires"]
+      "variable_measured": "Nom de la Fixation, Couple en lb/ft, Couple en Nm, Notes Supplémentaires"
     },
     "table_headers": {
       "fastener": "Fixation",
@@ -343,7 +355,7 @@
       "description": "Specifiche complete di coppia per elementi di fissaggio Classic Mini. Tabella di riferimento per elementi di fissaggio motore, sospensioni, trasmissione e carrozzeria con valori in lb/ft e Nm.",
       "dataset_name": "Specifiche di Coppia Classic Mini",
       "dataset_description": "Set di dati completo delle specifiche di coppia per elementi di fissaggio Classic Mini",
-      "variable_measured": ["Nome Elemento di Fissaggio", "Coppia in lb/ft", "Coppia in Nm", "Note Aggiuntive"]
+      "variable_measured": "Nome Elemento di Fissaggio, Coppia in lb/ft, Coppia in Nm, Note Aggiuntive"
     },
     "table_headers": {
       "fastener": "Elemento di Fissaggio",
@@ -374,7 +386,7 @@
       "description": "Vollständige Drehmoment-Spezifikationen für Classic Mini Befestigungselemente. Referenztabelle für Motor-, Fahrwerk-, Antriebsstrang- und Karosseriebefestigungen mit Werten in lb/ft und Nm.",
       "dataset_name": "Classic Mini Drehmoment-Spezifikationen",
       "dataset_description": "Umfassender Datensatz von Drehmoment-Spezifikationen für Classic Mini Befestigungselemente",
-      "variable_measured": ["Befestigungsname", "Drehmoment in lb/ft", "Drehmoment in Nm", "Zusätzliche Hinweise"]
+      "variable_measured": "Befestigungsname, Drehmoment in lb/ft, Drehmoment in Nm, Zusätzliche Hinweise"
     },
     "table_headers": {
       "fastener": "Befestigung",
@@ -405,7 +417,7 @@
       "description": "Especificações completas de torque para fixadores Classic Mini. Tabela de referência para fixadores de motor, suspensão, trem de força e carroceria com valores em lb/ft e Nm.",
       "dataset_name": "Especificações de Torque Classic Mini",
       "dataset_description": "Conjunto de dados abrangente de especificações de torque para fixadores Classic Mini",
-      "variable_measured": ["Nome do Fixador", "Torque em lb/ft", "Torque em Nm", "Notas Adicionais"]
+      "variable_measured": "Nome do Fixador, Torque em lb/ft, Torque em Nm, Notas Adicionais"
     },
     "table_headers": {
       "fastener": "Fixador",
@@ -436,12 +448,7 @@
       "description": "Полные спецификации крутящего момента для крепежных элементов Classic Mini. Справочная таблица для крепежных элементов двигателя, подвески, трансмиссии и кузова со значениями в lb/ft и Nm.",
       "dataset_name": "Спецификации Крутящего Момента Classic Mini",
       "dataset_description": "Комплексный набор данных спецификаций крутящего момента для крепежных элементов Classic Mini",
-      "variable_measured": [
-        "Название Крепежного Элемента",
-        "Крутящий Момент в lb/ft",
-        "Крутящий Момент в Nm",
-        "Дополнительные Примечания"
-      ]
+      "variable_measured": "Название Крепежного Элемента, Крутящий Момент в lb/ft, Крутящий Момент в Nm, Дополнительные Примечания"
     },
     "table_headers": {
       "fastener": "Крепежный Элемент",
@@ -472,7 +479,7 @@
       "description": "クラシック・ミニ締結具の完全なトルク仕様。エンジン、サスペンション、ドライブトレイン、ボディ締結具のlb/ftおよびNm値を含む参照表。",
       "dataset_name": "クラシック・ミニ トルク仕様",
       "dataset_description": "クラシック・ミニ締結具のトルク仕様の包括的なデータセット",
-      "variable_measured": ["締結具名", "lb/ftでのトルク", "Nmでのトルク", "追加注記"]
+      "variable_measured": "締結具名, lb/ftでのトルク, Nmでのトルク, 追加注記"
     },
     "table_headers": {
       "fastener": "締結具",
@@ -503,7 +510,7 @@
       "description": "经典迷你紧固件的完整扭矩规格。发动机、悬挂、传动系统和车身紧固件的参考表，包含lb/ft和Nm值。",
       "dataset_name": "经典迷你扭矩规格",
       "dataset_description": "经典迷你紧固件扭矩规格的综合数据集",
-      "variable_measured": ["紧固件名称", "lb/ft扭矩", "Nm扭矩", "附加说明"]
+      "variable_measured": "紧固件名称, lb/ft扭矩, Nm扭矩, 附加说明"
     },
     "table_headers": {
       "fastener": "紧固件",
@@ -534,7 +541,7 @@
       "description": "클래식 미니 체결구의 완전한 토크 사양. 엔진, 서스펜션, 드라이브트레인 및 차체 체결구의 lb/ft 및 Nm 값을 포함한 참조표.",
       "dataset_name": "클래식 미니 토크 사양",
       "dataset_description": "클래식 미니 체결구 토크 사양의 포괄적인 데이터셋",
-      "variable_measured": ["체결구 이름", "lb/ft 토크", "Nm 토크", "추가 참고사항"]
+      "variable_measured": "체결구 이름, lb/ft 토크, Nm 토크, 추가 참고사항"
     },
     "table_headers": {
       "fastener": "체결구",
