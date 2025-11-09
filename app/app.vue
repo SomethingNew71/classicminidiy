@@ -25,6 +25,7 @@
     <VitePwaManifest />
     <Analytics />
     <SpeedInsights />
+    <AppPromoPopup />
   </div>
 </template>
 
