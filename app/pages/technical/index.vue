@@ -68,9 +68,9 @@
 <template>
   <hero
     :navigation="true"
-    :titleKey="$t('hero_title')"
+    :title="$t('hero_title')"
     textSize="text-3xl"
-    :subtitleKey="$t('hero_subtitle')"
+    :subtitle="$t('hero_subtitle')"
     :heroType="HERO_TYPES.TECH"
   />
   <div class="container mx-auto px-4 pb-15 pt-6">

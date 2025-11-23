@@ -70,8 +70,8 @@
 
 <template>
   <hero
-    :titleKey="$t('hero_title')"
-    :subtitleKey="$t('hero_subtitle')"
+    :title="$t('hero_title')"
+    :subtitle="$t('hero_subtitle')"
     :textSize="'3xl'"
     :special="true"
     :heroType="HERO_TYPES.HOME"
