@@ -56,6 +56,7 @@ export interface Configuration {
 export interface UseStreamContextProvider {
   messages: Ref<Message[]>;
   isLoading: Ref<boolean>;
+  error: Ref<string | null>;
   submit: (input: any, options?: any) => Promise<void>;
   stop: () => void;
   threadId: Ref<string | null>;

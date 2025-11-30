@@ -57,7 +57,8 @@ export function createStreamSession(
   const messages = ref<any[]>([]);
   const isLoading = ref(false);
   const currentThreadId = ref<string | null>(threadId);
-  
+  const error = ref<string | null>(null);
+
   // Get locale at the top level of the composable
   const { locale } = useI18n();
 
@@ -101,6 +102,7 @@ export function createStreamSession(
 
   const submit = async (input: any, options: any = {}) => {
     isLoading.value = true;
+    error.value = null;
 
     try {
       const threadIdForUrl = currentThreadId.value || 'new';
@@ -203,8 +205,17 @@ export function createStreamSession(
           }
         }
       }
-    } catch (error) {
-      console.error('Stream submission failed:', error);
+    } catch (err: any) {
+      console.error('Stream submission failed:', err);
+      error.value = err.message || 'Failed to send message. Please try again.';
+
+      // Add an error message to the chat
+      messages.value.push({
+        id: `error-${Date.now()}`,
+        type: 'ai',
+        content: `I encountered an error: ${error.value}. Please try again or refresh the page.`,
+        created_at: new Date().toISOString(),
+      });
     } finally {
       isLoading.value = false;
     }
@@ -230,10 +241,11 @@ export function createStreamSession(
         return;
       }
 
+      // Check if this message already exists by ID
       const existingIndex = messages.value.findIndex((m: any) => m.id === messageUpdate.id);
 
       if (existingIndex >= 0) {
-        // Update existing message
+        // Update existing message in place
         messages.value[existingIndex] = { ...messages.value[existingIndex], ...messageUpdate };
       } else {
         // Check if we should group this with the last message
@@ -447,6 +459,7 @@ export function createStreamSession(
   return {
     messages,
     isLoading,
+    error,
     submit,
     stop,
     threadId: currentThreadId,

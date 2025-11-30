@@ -259,6 +259,7 @@
 
   // Stream context
   let streamContext: ReturnType<typeof createStreamSession> | null = null;
+  const streamContextInitialized = ref(false);
 
   // Methods
 
@@ -269,7 +270,7 @@
       if (
         isConfigured.value &&
         isThreadLoaded.value &&
-        !streamContext &&
+        !streamContextInitialized.value &&
         assistantId.value &&
         typeof assistantId.value === 'string'
       ) {
@@ -282,17 +283,27 @@
           }
         );
         provideStreamContext(streamContext);
+        streamContextInitialized.value = true;
       }
     },
     { immediate: true }
   );
+
+  // Cleanup on unmount
+  onUnmounted(() => {
+    if (streamContext) {
+      streamContext.stop();
+      streamContext = null;
+      streamContextInitialized.value = false;
+    }
+  });
 
   // Computed properties
   const messages = computed(() => streamContext?.messages.value || []);
   const isLoading = computed(() => streamContext?.isLoading.value || false);
 
   async function handleSubmit() {
-    if (!input.value.trim() || !streamContext) return;
+    if (!input.value.trim() || !streamContext || isLoading.value) return;
 
     const message = input.value.trim();
     input.value = '';
@@ -309,7 +320,7 @@
       pageSlug: route.path,
     };
 
-    streamContext.submit(
+    await streamContext.submit(
       { messages: [{ type: 'human', content: message }] },
       {
         streamMode: ['values'],
@@ -383,13 +394,14 @@
   // Handle pre-populated message from query parameter
   const hasAutoSubmitted = ref(false);
 
-  // Watch for stream context to be ready, then auto-submit if needed
+  // Watch for stream context initialization and auto-submit if needed
   watch(
-    () => streamContext?.messages,
-    () => {
+    streamContextInitialized,
+    (initialized) => {
+      if (!initialized || hasAutoSubmitted.value) return;
+
       const queryMessage = route.query.message;
       if (
-        !hasAutoSubmitted.value &&
         queryMessage &&
         typeof queryMessage === 'string' &&
         queryMessage.trim() &&
@@ -399,14 +411,12 @@
         hasAutoSubmitted.value = true;
         input.value = queryMessage.trim();
 
-        // Wait a bit more to ensure everything is fully initialized
+        // Wait for next tick to ensure everything is fully initialized
         nextTick(() => {
-          setTimeout(() => {
-            if (streamContext && input.value.trim()) {
-              console.log('Auto-submitting message from homepage:', input.value);
-              handleSubmit();
-            }
-          }, 100);
+          if (streamContext && input.value.trim()) {
+            console.log('Auto-submitting message from query parameter:', input.value);
+            handleSubmit();
+          }
         });
       }
     },

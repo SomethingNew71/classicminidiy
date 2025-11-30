@@ -22,8 +22,8 @@ export function usePersistentThread() {
   const currentThreadId = ref<string | null>(null);
   const isThreadLoaded = ref(false);
 
-  // Check if we're in a browser environment
-  const isBrowser = typeof window !== 'undefined';
+  // Check if we're in a browser environment (use process.client for Nuxt SSR)
+  const isBrowser = process.client;
 
   /**
    * Load thread from localStorage if it exists and is still valid
