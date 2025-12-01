@@ -533,11 +533,13 @@ Current implementation includes:
 ### Current Version: 3.5.4
 
 **Major Framework Upgrades:**
+
 - **Nuxt 4.1.2**: Upgraded from Nuxt 3 to Nuxt 4.1.2 for improved performance and new features
 - **TailwindCSS v4**: Migration to TailwindCSS 4.1.13 with @tailwindcss/vite for better build performance and developer experience
 - **Node.js 22.12.0**: Updated Node.js requirement to v22.12.0+ for latest performance improvements
 
 **Recent Commits and Updates:**
+
 - **AWS Package Updates**: Updated AWS SDK packages to v3.894.0 for improved performance and security
 - **Visual Normalization**: Extensive visual improvements across search and table views with new table options for archive pages
 - **Wheel Submit Bugfixes**: Small improvements to the wheel submission functionality
@@ -546,6 +548,7 @@ Current implementation includes:
 - **Translation Fixes**: Ongoing improvements to internationalization support
 
 **Key Dependencies Updated:**
+
 - `@aws-sdk/*` packages: v3.894.0
 - `nuxt`: v4.1.2
 - `tailwindcss`: v4.1.13

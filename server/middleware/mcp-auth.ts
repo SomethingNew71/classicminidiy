@@ -39,7 +39,9 @@ export default defineEventHandler(async (event) => {
 
   // Check for comma-separated API keys
   if (config.MCP_API_KEYS && typeof config.MCP_API_KEYS === 'string' && config.MCP_API_KEYS.length > 0) {
-    const keys = config.MCP_API_KEYS.split(',').map(k => k.trim()).filter(k => k.length > 0);
+    const keys = config.MCP_API_KEYS.split(',')
+      .map((k) => k.trim())
+      .filter((k) => k.length > 0);
     validKeys.push(...keys);
   }
 

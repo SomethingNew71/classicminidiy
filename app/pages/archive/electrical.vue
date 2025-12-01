@@ -9,18 +9,18 @@
   // Prepare data for Fuse.js search
   const searchableItems = computed(() => {
     if (!diagrams.value) return [];
-    
+
     const items: any[] = [];
     Object.entries(diagrams.value).forEach(([key, diagram]: [string, any]) => {
       diagram.items.forEach((item: any) => {
         items.push({
           ...item,
           category: diagram.title,
-          searchableText: `${item.name} ${diagram.title} ${item.from || ''} ${item.to || ''}`
+          searchableText: `${item.name} ${diagram.title} ${item.from || ''} ${item.to || ''}`,
         });
       });
     });
-    
+
     return items;
   });
 
@@ -29,13 +29,13 @@
     keys: [
       { name: 'name', weight: 0.7 },
       { name: 'category', weight: 0.2 },
-      { name: 'searchableText', weight: 0.1 }
+      { name: 'searchableText', weight: 0.1 },
     ],
     threshold: 0.3, // Lower = more strict matching (0.0 = exact, 1.0 = match anything)
     distance: 100,
     minMatchCharLength: 2,
     includeScore: true,
-    includeMatches: true
+    includeMatches: true,
   };
 
   // Computed property to filter all diagrams based on search query using Fuse.js
@@ -44,9 +44,9 @@
 
     const fuse = new Fuse(searchableItems.value, fuseOptions);
     const searchResults = fuse.search(searchQuery.value);
-    
+
     // Return just the items (without Fuse.js metadata) sorted by score
-    return searchResults.map(result => result.item);
+    return searchResults.map((result) => result.item);
   });
 
   useHead({

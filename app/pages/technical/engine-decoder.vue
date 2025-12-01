@@ -9,9 +9,10 @@
     {
       accessorKey: 'color',
       header: () => $t('table.headers.color'),
-      cell: ({ row }) => h('i', {
-        class: `fas fa-circle pt-1 color-${row.getValue('size')}`
-      }),
+      cell: ({ row }) =>
+        h('i', {
+          class: `fas fa-circle pt-1 color-${row.getValue('size')}`,
+        }),
       enableSorting: false,
     },
     {
@@ -179,11 +180,7 @@
 
             <div class="card-body">
               <div class="w-full overflow-x-auto">
-                <UTable
-                  :data="filteredEngineCodes"
-                  :columns="tableColumns"
-                  class="w-full min-w-full"
-                />
+                <UTable :data="filteredEngineCodes" :columns="tableColumns" class="w-full min-w-full" />
               </div>
             </div>
           </div>
@@ -684,10 +681,10 @@
   }
   .color-1275 {
     color: #c57b57;
-  }</style>
+  }
+</style>
 
 <style lang="scss" scoped>
-
   .card {
     background-color: var(--base-100);
     box-shadow:
