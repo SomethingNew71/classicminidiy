@@ -110,7 +110,7 @@ export function createStreamSession(
       const payload: any = {
         assistant_id: assistantId,
         input: input,
-        stream_mode: options.streamMode || ['values'],
+        stream_mode: options.streamMode || ['messages', 'updates'],
       };
 
       // Add language metadata with explicit instructions
@@ -177,6 +177,7 @@ export function createStreamSession(
               dataBuffer += dataContent;
               try {
                 const data = JSON.parse(dataBuffer);
+                console.log('[DEBUG] Received stream event:', data);
                 handleStreamEvent(data, options);
                 dataBuffer = ''; // Reset buffer after successful parse
               } catch (e) {
@@ -222,6 +223,7 @@ export function createStreamSession(
   };
 
   function handleStreamEvent(event: any, options: any) {
+    console.log('[DEBUG] Processing event type:', event.event, 'Data:', event.data);
     if (event.event === 'thread_id') {
       const newThreadId = event.data?.thread_id;
       if (newThreadId) {
@@ -233,104 +235,139 @@ export function createStreamSession(
           onThreadCreated(newThreadId);
         }
       }
-    } else if (event.event === 'messages/partial') {
-      // Update or add message
-      const messageUpdate = event.data;
-      // Only process messages with valid content
-      if (!hasValidContent(messageUpdate)) {
-        return;
-      }
+    } else if (event.event === 'messages/partial' || event.event === 'messages/stream') {
+      // Handle array of messages (LangGraph returns messages as an array)
+      const messageUpdates = Array.isArray(event.data) ? event.data : [event.data];
 
-      // Check if this message already exists by ID
-      const existingIndex = messages.value.findIndex((m: any) => m.id === messageUpdate.id);
+      for (const messageUpdate of messageUpdates) {
+        // Only process messages with valid content
+        if (!hasValidContent(messageUpdate)) {
+          continue;
+        }
 
-      if (existingIndex >= 0) {
-        // Update existing message in place
-        messages.value[existingIndex] = { ...messages.value[existingIndex], ...messageUpdate };
-      } else {
-        // Check if we should group this with the last message
-        const lastMessage = messages.value[messages.value.length - 1];
-        if (shouldGroupWithLastMessage(messageUpdate, lastMessage)) {
-          // Merge with the last message instead of creating a new one
-          const currentContent = getContentString(messageUpdate.content);
-          const lastContent = getContentString(lastMessage.content);
+        // Check if this message already exists by ID
+        const existingIndex = messages.value.findIndex((m: any) => m.id === messageUpdate.id);
 
-          if (currentContent.trim()) {
-            lastMessage.content = lastContent + (lastContent ? '\n\n' : '') + currentContent;
-
-            // Merge tool calls if any
-            if (messageUpdate.tool_calls && messageUpdate.tool_calls.length > 0) {
-              lastMessage.tool_calls = [...(lastMessage.tool_calls || []), ...messageUpdate.tool_calls];
-            }
-
-            // Update timestamp and ID to the latest
-            if (messageUpdate.created_at) {
-              lastMessage.created_at = messageUpdate.created_at;
-            }
-            lastMessage.id = messageUpdate.id; // Use the latest message ID
-          }
+        if (existingIndex >= 0) {
+          // Update existing message in place
+          messages.value[existingIndex] = { ...messages.value[existingIndex], ...messageUpdate };
         } else {
-          // Add as new message
-          messages.value.push(messageUpdate);
+          // Check if we should group this with the last message
+          const lastMessage = messages.value[messages.value.length - 1];
+          if (shouldGroupWithLastMessage(messageUpdate, lastMessage)) {
+            // Merge with the last message instead of creating a new one
+            const currentContent = getContentString(messageUpdate.content);
+            const lastContent = getContentString(lastMessage.content);
+
+            if (currentContent.trim()) {
+              lastMessage.content = lastContent + (lastContent ? '\n\n' : '') + currentContent;
+
+              // Merge tool calls if any
+              if (messageUpdate.tool_calls && messageUpdate.tool_calls.length > 0) {
+                lastMessage.tool_calls = [...(lastMessage.tool_calls || []), ...messageUpdate.tool_calls];
+              }
+
+              // Update timestamp and ID to the latest
+              if (messageUpdate.created_at) {
+                lastMessage.created_at = messageUpdate.created_at;
+              }
+              lastMessage.id = messageUpdate.id; // Use the latest message ID
+            }
+          } else {
+            // Add as new message
+            messages.value.push(messageUpdate);
+          }
         }
       }
     } else if (event.event === 'messages/complete') {
-      // Finalize message
-      const completedMessage = event.data;
+      // Handle array of messages (LangGraph may return messages as an array)
+      const completedMessages = Array.isArray(event.data) ? event.data : [event.data];
 
-      // Only process messages with valid content
-      if (!hasValidContent(completedMessage)) {
-        // Remove any existing empty message with this ID
-        const existingIndex = messages.value.findIndex((m: any) => m.id === completedMessage.id);
-        if (existingIndex >= 0) {
-          messages.value.splice(existingIndex, 1);
-        }
-        return;
-      }
-
-      const existingIndex = messages.value.findIndex((m: any) => m.id === completedMessage.id);
-
-      if (existingIndex >= 0) {
-        // Update existing message
-        messages.value[existingIndex] = completedMessage;
-      } else {
-        // Check if we should group this with the last message
-        const lastMessage = messages.value[messages.value.length - 1];
-        if (shouldGroupWithLastMessage(completedMessage, lastMessage)) {
-          // Merge with the last message instead of creating a new one
-          const currentContent = getContentString(completedMessage.content);
-          const lastContent = getContentString(lastMessage.content);
-
-          if (currentContent.trim()) {
-            lastMessage.content = lastContent + (lastContent ? '\n\n' : '') + currentContent;
-
-            // Merge tool calls if any
-            if (completedMessage.tool_calls && completedMessage.tool_calls.length > 0) {
-              lastMessage.tool_calls = [...(lastMessage.tool_calls || []), ...completedMessage.tool_calls];
-            }
-
-            // Update timestamp and ID to the latest
-            if (completedMessage.created_at) {
-              lastMessage.created_at = completedMessage.created_at;
-            }
-            lastMessage.id = completedMessage.id; // Use the latest message ID
+      for (const completedMessage of completedMessages) {
+        // Only process messages with valid content
+        if (!hasValidContent(completedMessage)) {
+          // Remove any existing empty message with this ID
+          const existingIndex = messages.value.findIndex((m: any) => m.id === completedMessage.id);
+          if (existingIndex >= 0) {
+            messages.value.splice(existingIndex, 1);
           }
+          continue;
+        }
+
+        const existingIndex = messages.value.findIndex((m: any) => m.id === completedMessage.id);
+
+        if (existingIndex >= 0) {
+          // Update existing message
+          messages.value[existingIndex] = completedMessage;
         } else {
-          // Add as new message
-          messages.value.push(completedMessage);
+          // Check if we should group this with the last message
+          const lastMessage = messages.value[messages.value.length - 1];
+          if (shouldGroupWithLastMessage(completedMessage, lastMessage)) {
+            // Merge with the last message instead of creating a new one
+            const currentContent = getContentString(completedMessage.content);
+            const lastContent = getContentString(lastMessage.content);
+
+            if (currentContent.trim()) {
+              lastMessage.content = lastContent + (lastContent ? '\n\n' : '') + currentContent;
+
+              // Merge tool calls if any
+              if (completedMessage.tool_calls && completedMessage.tool_calls.length > 0) {
+                lastMessage.tool_calls = [...(lastMessage.tool_calls || []), ...completedMessage.tool_calls];
+              }
+
+              // Update timestamp and ID to the latest
+              if (completedMessage.created_at) {
+                lastMessage.created_at = completedMessage.created_at;
+              }
+              lastMessage.id = completedMessage.id; // Use the latest message ID
+            }
+          } else {
+            // Add as new message
+            messages.value.push(completedMessage);
+          }
         }
       }
-    } else if (event.event === 'values') {
-      // Handle 'values' event type which might contain messages
+    } else if (event.event === 'updates') {
+      // Handle 'updates' event which contains node execution updates
       if (event.data && event.data.messages) {
         // Filter out empty messages and group consecutive AI messages
         const validMessages = event.data.messages.filter(hasValidContent);
         const groupedMessages = groupConsecutiveMessages(validMessages);
         messages.value = groupedMessages;
       }
+    } else if (event.event === 'values') {
+      // Handle 'values' event type which might contain messages (fallback)
+      if (event.data && event.data.messages) {
+        // Filter out empty messages and group consecutive AI messages
+        const validMessages = event.data.messages.filter(hasValidContent);
+        const groupedMessages = groupConsecutiveMessages(validMessages);
+        messages.value = groupedMessages;
+      }
+    } else if (Array.isArray(event) && event.length === 2) {
+      // Handle multi-mode streaming tuples: [streamMode, chunk]
+      const [streamMode, chunk] = event;
+      if (streamMode === 'messages' && typeof chunk === 'string') {
+        // Handle token-level streaming - append to last AI message
+        const lastMessage = messages.value[messages.value.length - 1];
+        if (lastMessage && (lastMessage.type === 'ai' || lastMessage.type === 'assistant')) {
+          const currentContent = getContentString(lastMessage.content);
+          lastMessage.content = currentContent + chunk;
+        } else {
+          // Create a new AI message if there isn't one
+          messages.value.push({
+            id: `ai-${Date.now()}`,
+            type: 'ai',
+            content: chunk,
+            created_at: new Date().toISOString(),
+          });
+        }
+      } else if (streamMode === 'updates' || streamMode === 'values') {
+        // Recursively handle the chunk as a normal event
+        handleStreamEvent({ event: streamMode, data: chunk }, options);
+      }
     } else {
       // Log unhandled events for debugging
-      console.warn('Unhandled stream event:', event.event, event);
+      console.warn('[DEBUG] Unhandled stream event:', event.event, 'Full event:', event);
     }
   }
 
