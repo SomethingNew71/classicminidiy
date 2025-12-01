@@ -12,6 +12,8 @@
     <!-- Message content -->
     <div v-else-if="message && !isToolResult && contentString.trim().length > 0" class="">
       <MarkdownText :content="contentString" />
+      <!-- Streaming indicator (blinking cursor when loading) -->
+      <span v-if="isLoading" class="inline-block w-2 h-4 bg-primary animate-pulse ml-1 align-middle"></span>
     </div>
 
     <!-- Copy button (appears on hover) -->

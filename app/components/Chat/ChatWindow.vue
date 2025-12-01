@@ -323,7 +323,7 @@
     await streamContext.submit(
       { messages: [{ type: 'human', content: message }] },
       {
-        streamMode: ['values'],
+        // Use default streamMode from composable for optimized streaming
         metadata,
       }
     );
