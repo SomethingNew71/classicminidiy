@@ -177,7 +177,6 @@ export function createStreamSession(
               dataBuffer += dataContent;
               try {
                 const data = JSON.parse(dataBuffer);
-                console.log('[DEBUG] Received stream event:', data);
                 handleStreamEvent(data, options);
                 dataBuffer = ''; // Reset buffer after successful parse
               } catch (e) {
@@ -223,7 +222,6 @@ export function createStreamSession(
   };
 
   function handleStreamEvent(event: any, options: any) {
-    console.log('[DEBUG] Processing event type:', event.event, 'Data:', event.data);
     if (event.event === 'thread_id') {
       const newThreadId = event.data?.thread_id;
       if (newThreadId) {
@@ -366,8 +364,10 @@ export function createStreamSession(
         handleStreamEvent({ event: streamMode, data: chunk }, options);
       }
     } else {
-      // Log unhandled events for debugging
-      console.warn('[DEBUG] Unhandled stream event:', event.event, 'Full event:', event);
+      // Log unhandled events for debugging (only in development)
+      if (process.dev) {
+        console.debug('Unhandled stream event:', event.event, event);
+      }
     }
   }
 

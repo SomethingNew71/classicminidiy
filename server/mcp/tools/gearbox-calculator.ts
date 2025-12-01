@@ -1,77 +1,39 @@
+import { z } from 'zod';
 import { options, kphFactor } from '../../../data/models/gearing';
-import { requireMcpAuth } from '../../utils/mcpAuth';
 
-export default defineEventHandler(async (event) => {
-  // Only allow POST requests
-  if (event.method !== 'POST') {
-    throw createError({
-      statusCode: 405,
-      statusMessage: 'Method Not Allowed',
-    });
-  }
+/**
+ * Gearbox Calculator MCP Tool
+ * Calculate gear ratios, top speed, and speedometer compatibility for Classic Mini gearboxes
+ */
+export default defineMcpTool({
+  description:
+    'Calculate gear ratios, top speed, and speedometer compatibility for Classic Mini gearboxes. Supports various final drives (2.76:1 to 4.571:1), gear ratios (Pre-64 Magic Wand to modern dog engagement kits), tire sizes (145/80r10 to 195/50r13), and speedometer drives.',
 
-  // Require authentication
-  requireMcpAuth(event);
+  inputSchema: {
+    metric: z.boolean().default(false).describe('Use metric units (true for km/h, false for mph)'),
+    final_drive: z
+      .number()
+      .default(3.444)
+      .describe('Final drive ratio (e.g., 3.444 for standard). Range: 2.76 to 4.571'),
+    gear_ratios: z
+      .array(z.number())
+      .length(4)
+      .default([2.583, 1.644, 1.25, 1.0])
+      .describe('Array of 4 gear ratios [1st, 2nd, 3rd, 4th]. Example: [2.583, 1.644, 1.25, 1.0]'),
+    drop_gear: z.number().default(1).describe('Drop gear ratio. Standard: 1.0'),
+    speedo_drive: z.number().default(0.3529).describe('Speedometer drive ratio. Common: 0.3529 (5/18)'),
+    max_rpm: z.number().default(6500).describe('Maximum engine RPM. Typical: 6000-7000 RPM'),
+    tire_type: z
+      .object({
+        width: z.number().describe('Tire width in mm (e.g., 145)'),
+        profile: z.number().describe('Tire profile percentage (e.g., 80 for 80%)'),
+        size: z.number().describe('Wheel size in inches (e.g., 10)'),
+      })
+      .default({ width: 145, profile: 80, size: 10 })
+      .describe('Tire specifications object with width, profile, and size'),
+  },
 
-  try {
-    const body = await readBody(event);
-
-    // Default values matching the Vue component
-    const {
-      metric = false,
-      final_drive = 3.444,
-      gear_ratios = [2.583, 1.644, 1.25, 1.0],
-      drop_gear = 1,
-      speedo_drive = 0.3529,
-      max_rpm = 6500,
-      tire_type = {
-        width: 145,
-        profile: 80,
-        size: 10,
-      },
-    } = body;
-
-    // Validate inputs
-    if (typeof metric !== 'boolean') {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'metric must be a boolean',
-      });
-    }
-
-    if (typeof final_drive !== 'number' || final_drive <= 0) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'final_drive must be a positive number',
-      });
-    }
-
-    if (!Array.isArray(gear_ratios) || gear_ratios.length !== 4) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'gear_ratios must be an array of 4 numbers',
-      });
-    }
-
-    if (typeof max_rpm !== 'number' || max_rpm <= 0) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'max_rpm must be a positive number',
-      });
-    }
-
-    if (
-      !tire_type ||
-      typeof tire_type.width !== 'number' ||
-      typeof tire_type.profile !== 'number' ||
-      typeof tire_type.size !== 'number'
-    ) {
-      throw createError({
-        statusCode: 400,
-        statusMessage: 'tire_type must have width, profile, and size as numbers',
-      });
-    }
-
+  async handler({ metric, final_drive, gear_ratios, drop_gear, speedo_drive, max_rpm, tire_type }) {
     // Constants
     const YARDS_IN_MILE = 1760;
     const MM_IN_YARD = 914.4;
@@ -126,14 +88,10 @@ export default defineEventHandler(async (event) => {
       const difference = Math.abs(calculatedSpeed - speedometer.speed);
       const percentageDiff = Math.round((difference / speedometer.speed) * 100);
 
-      let status = 'text-green';
       let result = 'Perfect Match';
-
       if (percentageDiff > 0 && percentageDiff <= 5) {
-        status = 'text-primary';
         result = 'Close Match';
       } else if (percentageDiff > 5) {
-        status = 'text-red';
         result = 'Poor Match';
       }
 
@@ -144,7 +102,6 @@ export default defineEventHandler(async (event) => {
         expectedSpeed: speedometer.speed,
         difference: difference,
         percentageDiff: percentageDiff,
-        status: status,
         result: result,
       };
     });
@@ -154,7 +111,6 @@ export default defineEventHandler(async (event) => {
       (t: any) =>
         t.value.width === tire_type.width && t.value.profile === tire_type.profile && t.value.size === tire_type.size
     );
-
     const matchingDiff = options.diffs.find((d: any) => d.value === final_drive);
     const matchingGearRatio = options.gearRatios.find(
       (g: any) => JSON.stringify(g.value) === JSON.stringify(gear_ratios)
@@ -165,15 +121,50 @@ export default defineEventHandler(async (event) => {
     const displayEngineRevs = metric
       ? Math.round(speedoDetails.engineRevsMile / kphFactor)
       : speedoDetails.engineRevsMile;
-
     const displayGearTurns = metric ? Math.round(speedoDetails.turnsPerMile / kphFactor) : speedoDetails.turnsPerMile;
-
     const displayTireTurns = metric ? Math.round(tireInfo.tireTurnsPerMile / kphFactor) : tireInfo.tireTurnsPerMile;
-
     const distanceUnit = metric ? 'Km' : 'Mile';
 
-    const result = {
-      success: true,
+    // Format gear table
+    const gearingTable = gearingData
+      .map((g) => `${g.gear}: ${g.ratio} (${g.totalRatio}:1 total) - Max: ${g.maxSpeed}${g.unit}`)
+      .join('\n');
+
+    // Format speedometer matches
+    const speedoMatches = speedometerData
+      .filter((s: any) => s.result === 'Perfect Match' || s.result === 'Close Match')
+      .slice(0, 5)
+      .map((s: any) => `${s.speedometer}: ${s.result} (${s.percentageDiff}% diff)`)
+      .join('\n');
+
+    const resultText = `**Gearbox Calculator Results**
+
+**Configuration:**
+- Tire: ${matchingTire?.label || `${tire_type.width}/${tire_type.profile}r${tire_type.size} (custom)`}
+- Final Drive: ${matchingDiff?.label || `${final_drive}:1 (custom)`}
+- Gear Ratios: ${matchingGearRatio?.label || 'Custom gear ratios'}
+- Speedo Drive: ${matchingSpeedoDrive?.label || `${speedo_drive}:1 (custom)`}
+- Max RPM: ${max_rpm}
+- Units: ${metric ? 'Metric' : 'Imperial'}
+
+**Performance:**
+- **Top Speed: ${topSpeed}${metric ? 'kph' : 'mph'}**
+- Engine Revs per ${distanceUnit}: ${displayEngineRevs}
+- Gearbox Turns per ${distanceUnit}: ${displayGearTurns}
+- Tire Turns per ${distanceUnit}: ${displayTireTurns}
+
+**Gear Ratios:**
+${gearingTable}
+
+**Tire Information:**
+- Diameter: ${tireInfo.diameter}mm
+- Circumference: ${tireInfo.circ}mm
+- Turns per Mile: ${tireInfo.tireTurnsPerMile}
+
+**Compatible Speedometers:**
+${speedoMatches || 'No close matches found'}`;
+
+    return jsonResult({
       inputs: {
         metric,
         final_drive,
@@ -204,22 +195,10 @@ export default defineEventHandler(async (event) => {
         gearRatios: matchingGearRatio?.label || 'Custom gear ratios',
         speedoDrive: matchingSpeedoDrive?.label || `${speedo_drive}:1 (custom)`,
       },
-    };
-
-    // Set cache headers (24 hours for calculator logic)
-    setHeader(event, 'Cache-Control', 'public, max-age=86400');
-
-    return result;
-  } catch (error: any) {
-    console.error('Gearbox calculator error:', error);
-
-    if (error.statusCode) {
-      throw error;
-    }
-
-    throw createError({
-      statusCode: 500,
-      statusMessage: 'Internal server error calculating gearbox ratios',
+      formattedText: resultText,
     });
-  }
+  },
+
+  // Cache results for 1 hour since calculations are deterministic
+  cache: '1h',
 });

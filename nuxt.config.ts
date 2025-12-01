@@ -216,6 +216,8 @@ export default defineNuxtConfig({
     payloadExtraction: false,
     // Optimize page load with renderJsonPayloads
     renderJsonPayloads: true,
+    // Enable async context for server composables (required for MCP tools)
+    asyncContext: true,
   },
 
   /*
@@ -232,7 +234,14 @@ export default defineNuxtConfig({
     'nuxt-llms',
     ['nuxt-gtag', { id: 'G-FBH0E64HM1' }],
     '@nuxtjs/i18n',
+    '@nuxtjs/mcp-toolkit',
   ],
+
+  // MCP (Model Context Protocol) Configuration
+  mcp: {
+    name: 'classic-mini-calculators',
+    description: 'Classic Mini DIY Calculator and Decoder Tools for LLMs',
+  },
 
   i18n: {
     defaultLocale: 'en',
@@ -374,6 +383,10 @@ export default defineNuxtConfig({
     ADMIN_USERNAME: process.env.ADMIN_USERNAME,
     ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
     SESSION_PASSWORD: process.env.SESSION_PASSWORD,
+    // MCP API Keys
+    MCP_API_KEY: process.env.MCP_API_KEY || 'dev-mcp-key-classic-mini-diy',
+    MCP_API_KEYS: process.env.MCP_API_KEYS || '',
+    NODE_ENV: process.env.NODE_ENV || 'development',
   },
 
   // Add custom reviver/replacer for functions that can't be serialized
