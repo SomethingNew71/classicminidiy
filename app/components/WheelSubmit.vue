@@ -222,15 +222,14 @@
   const validateForm = () => {
     // For wheel details: name, width, and size are required for new wheels
     // For updates, we're more lenient as they might just be adding images or notes
-    detailsValid.value = props.newWheel
-      ? !!name.value.trim() && !!width.value && !!size.value
-      : true; // For updates, always allow to proceed to next step
+    detailsValid.value = props.newWheel ? !!name.value.trim() && !!width.value && !!size.value : true; // For updates, always allow to proceed to next step
 
     // Images are required for new wheels, optional for updates
     imagesValid.value = !props.newWheel || dropFiles.value.length > 0;
 
     // Contact info is always required
-    contactValid.value = !!userName.value.trim() && !!emailAddress.value.trim() && validateEmail(emailAddress.value) === true;
+    contactValid.value =
+      !!userName.value.trim() && !!emailAddress.value.trim() && validateEmail(emailAddress.value) === true;
   };
 
   // Submit form handler
@@ -800,7 +799,12 @@
         {{ t('navigation.back') }}
       </button>
 
-      <button v-if="step < 4" @click="handleNextStep" :disabled="!canProceedToNextStep || loading" class="btn btn-primary">
+      <button
+        v-if="step < 4"
+        @click="handleNextStep"
+        :disabled="!canProceedToNextStep || loading"
+        class="btn btn-primary"
+      >
         {{ t('navigation.next') }}
         <i class="fas fa-arrow-right ml-2"></i>
       </button>

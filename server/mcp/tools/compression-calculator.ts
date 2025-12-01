@@ -10,22 +10,13 @@ export default defineMcpTool({
     'Calculate compression ratio and engine capacity for Classic Mini engines. Supports various piston sizes (62.9mm to 74mm), crankshafts (850cc to custom stroked), head gaskets, and decompression plates.',
 
   inputSchema: {
-    bore: z
-      .number()
-      .default(7.06)
-      .describe('Bore diameter in cm (e.g., 7.06 for 70.6mm). Range: 6.29cm to 7.4cm'),
+    bore: z.number().default(7.06).describe('Bore diameter in cm (e.g., 7.06 for 70.6mm). Range: 6.29cm to 7.4cm'),
     stroke: z
       .number()
       .default(8.128)
       .describe('Stroke length in cm (e.g., 8.128 for 81.28mm). Range: 6.826cm to custom'),
-    pistonDish: z
-      .number()
-      .default(6.5)
-      .describe('Piston dish volume in cc. Typical values: 6.5cc to 12cc'),
-    headVolume: z
-      .number()
-      .default(25.5)
-      .describe('Cylinder head chamber volume in cc. Typical values: 22cc to 30cc'),
+    pistonDish: z.number().default(6.5).describe('Piston dish volume in cc. Typical values: 6.5cc to 12cc'),
+    headVolume: z.number().default(25.5).describe('Cylinder head chamber volume in cc. Typical values: 22cc to 30cc'),
     deckHeight: z
       .number()
       .default(20)

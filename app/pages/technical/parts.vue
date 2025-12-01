@@ -31,16 +31,26 @@
     {
       accessorKey: 'brand',
       header: () => $t('table_headers.brand'),
-      cell: ({ row }) => h('span', {
-        class: 'px-2 py-1 rounded bg-primary/10 text-primary font-medium'
-      }, row.getValue('brand')),
+      cell: ({ row }) =>
+        h(
+          'span',
+          {
+            class: 'px-2 py-1 rounded bg-primary/10 text-primary font-medium',
+          },
+          row.getValue('brand')
+        ),
     },
     {
       accessorKey: 'part',
       header: () => $t('table_headers.part_number'),
-      cell: ({ row }) => h('span', {
-        class: 'px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium'
-      }, row.getValue('part')),
+      cell: ({ row }) =>
+        h(
+          'span',
+          {
+            class: 'px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium',
+          },
+          row.getValue('part')
+        ),
     },
     {
       accessorKey: 'info',
@@ -135,7 +145,11 @@
     </div>
 
     <div class="space-y-6">
-      <div v-for="(table, name, index) in tables" :key="`${name}-${index}`" class="collapse collapse-plus bg-base-200 border border-base-300 mb-2">
+      <div
+        v-for="(table, name, index) in tables"
+        :key="`${name}-${index}`"
+        class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
+      >
         <input type="checkbox" :checked="activePanels[table.title]" @change="togglePanel(table.title)" />
         <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
           {{ table.title }}
@@ -156,11 +170,7 @@
           </div>
 
           <div class="w-full overflow-x-auto">
-            <UTable
-              :data="filterItems(table.items)"
-              :columns="tableColumns"
-              class="w-full min-w-full"
-            />
+            <UTable :data="filterItems(table.items)" :columns="tableColumns" class="w-full min-w-full" />
           </div>
         </div>
       </div>

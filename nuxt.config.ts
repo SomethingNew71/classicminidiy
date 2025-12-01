@@ -240,7 +240,6 @@ export default defineNuxtConfig({
   // MCP (Model Context Protocol) Configuration
   mcp: {
     name: 'classic-mini-calculators',
-    description: 'Classic Mini DIY Calculator and Decoder Tools for LLMs',
   },
 
   i18n: {
@@ -393,13 +392,7 @@ export default defineNuxtConfig({
   hooks: {
     'vite:extendConfig': (config) => {
       // Ensure Highcharts is properly handled during SSR
-      if (!config.optimizeDeps) {
-        config.optimizeDeps = {};
-      }
-      if (!config.optimizeDeps.include) {
-        config.optimizeDeps.include = [];
-      }
-      if (Array.isArray(config.optimizeDeps.include)) {
+      if (config.optimizeDeps?.include && Array.isArray(config.optimizeDeps.include)) {
         config.optimizeDeps.include.push('highcharts', 'highcharts-vue');
       }
     },

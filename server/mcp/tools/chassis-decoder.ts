@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { chassisRanges } from '../../../data/models/decoders';
+import { useRuntimeConfig } from 'nuxt/app';
 
 /**
  * Chassis Decoder MCP Tool
@@ -107,7 +108,10 @@ ${positionsBreakdown}
         humanReadable: {
           summary: `Chassis number ${decoderResponse.chassisNumber} for ${decoderResponse.yearRange} range is ${decoderResponse.isValid ? 'VALID' : 'INVALID'}`,
           breakdown: positionsBreakdown,
-          errors: decoderResponse.errors && decoderResponse.errors.length > 0 ? decoderResponse.errors.join('; ') : 'No errors',
+          errors:
+            decoderResponse.errors && decoderResponse.errors.length > 0
+              ? decoderResponse.errors.join('; ')
+              : 'No errors',
         },
         formattedText: resultText,
       });

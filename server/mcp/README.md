@@ -29,6 +29,7 @@ MCP_API_KEYS=key1,key2,key3
 ### Development Mode
 
 In development, a default key is available:
+
 ```
 dev-mcp-key-classic-mini-diy
 ```
@@ -54,6 +55,7 @@ curl -H "Authorization: Bearer your-api-key" https://classicminidiy.com/mcp
 Calculate compression ratio and engine capacity for Classic Mini engines.
 
 **Parameters:**
+
 - `bore` (number): Bore diameter in cm (e.g., 7.06 for 70.6mm)
 - `stroke` (number): Stroke length in cm (e.g., 8.128 for 81.28mm)
 - `pistonDish` (number): Piston dish volume in cc
@@ -64,6 +66,7 @@ Calculate compression ratio and engine capacity for Classic Mini engines.
 - `decomp` (number): Decompression plate volume in cc
 
 **Example:**
+
 ```json
 {
   "bore": 7.06,
@@ -81,6 +84,7 @@ Calculate compression ratio and engine capacity for Classic Mini engines.
 Calculate gear ratios, top speed, and speedometer compatibility.
 
 **Parameters:**
+
 - `metric` (boolean): Use metric units (true for km/h, false for mph)
 - `final_drive` (number): Final drive ratio (e.g., 3.444)
 - `gear_ratios` (array): Array of 4 gear ratios [1st, 2nd, 3rd, 4th]
@@ -90,6 +94,7 @@ Calculate gear ratios, top speed, and speedometer compatibility.
 - `tire_type` (object): Tire specifications with width, profile, and size
 
 **Example:**
+
 ```json
 {
   "metric": false,
@@ -111,11 +116,13 @@ Calculate gear ratios, top speed, and speedometer compatibility.
 Decode and validate Classic Mini chassis numbers based on year range.
 
 **Parameters:**
+
 - `yearRange` (string): Year range for chassis format
   - Valid values: "1959-1969", "1969-1974", "1974-1980", "1980", "1980-1985", "1985-1990", "1990-on"
 - `chassisNumber` (string): Classic Mini chassis number to decode
 
 **Example:**
+
 ```json
 {
   "yearRange": "1959-1969",
@@ -172,8 +179,8 @@ const client = new Client({
 await client.connect({
   url: 'https://classicminidiy.com/mcp',
   headers: {
-    'Authorization': 'Bearer your-api-key'
-  }
+    Authorization: 'Bearer your-api-key',
+  },
 });
 
 // List available tools
@@ -186,8 +193,8 @@ const result = await client.callTool({
     bore: 7.06,
     stroke: 8.128,
     pistonDish: 6.5,
-    headVolume: 25.5
-  }
+    headVolume: 25.5,
+  },
 });
 ```
 
@@ -202,7 +209,9 @@ const result = await client.callTool({
 ## Error Responses
 
 ### 401 Unauthorized
+
 No Bearer token provided:
+
 ```json
 {
   "statusCode": 401,
@@ -212,7 +221,9 @@ No Bearer token provided:
 ```
 
 ### 403 Forbidden
+
 Invalid API key:
+
 ```json
 {
   "statusCode": 403,
@@ -230,5 +241,6 @@ Invalid API key:
 ## Support
 
 For issues or questions:
+
 - GitHub: https://github.com/SomethingNew71/classicminidiy
 - Website: https://classicminidiy.com

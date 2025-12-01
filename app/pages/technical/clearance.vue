@@ -36,9 +36,15 @@
       header: () => $t('table.headers.clearance_thou'),
       cell: ({ row }) => {
         const value = row.getValue('thou');
-        return value ? h('span', {
-          class: 'px-2 py-1 rounded bg-primary/10 text-primary font-medium'
-        }, value) : $t('table.no_value');
+        return value
+          ? h(
+              'span',
+              {
+                class: 'px-2 py-1 rounded bg-primary/10 text-primary font-medium',
+              },
+              value
+            )
+          : $t('table.no_value');
       },
     },
     {
@@ -46,9 +52,15 @@
       header: () => $t('table.headers.clearance_mm'),
       cell: ({ row }) => {
         const value = row.getValue('mm');
-        return value ? h('span', {
-          class: 'px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium'
-        }, value) : $t('table.no_value');
+        return value
+          ? h(
+              'span',
+              {
+                class: 'px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium',
+              },
+              value
+            )
+          : $t('table.no_value');
       },
     },
     {
@@ -57,14 +69,20 @@
       cell: ({ row }) => {
         const hasNotes = row.original.notes;
         const rowId = `${row.index}`;
-        return hasNotes ? h('button', {
-          class: 'text-right w-full hover:text-primary transition-colors',
-          onClick: () => toggleRow(rowId)
-        }, [
-          h('i', {
-            class: `fas transition-transform duration-200 ${expandedRows.value[rowId] ? 'fa-chevron-up' : 'fa-chevron-down'}`
-          })
-        ]) : '';
+        return hasNotes
+          ? h(
+              'button',
+              {
+                class: 'text-right w-full hover:text-primary transition-colors',
+                onClick: () => toggleRow(rowId),
+              },
+              [
+                h('i', {
+                  class: `fas transition-transform duration-200 ${expandedRows.value[rowId] ? 'fa-chevron-up' : 'fa-chevron-down'}`,
+                }),
+              ]
+            )
+          : '';
       },
       enableSorting: false,
     },
@@ -112,7 +130,11 @@
     </div>
 
     <div class="space-y-6">
-      <div v-for="(table, name, index) in tables" :key="`${name}-${index}`" class="collapse collapse-plus bg-base-200 border border-base-300 mb-2">
+      <div
+        v-for="(table, name, index) in tables"
+        :key="`${name}-${index}`"
+        class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
+      >
         <input type="checkbox" checked />
         <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
           {{ table.title }}
@@ -133,66 +155,57 @@
           </div>
 
           <div class="w-full overflow-x-auto">
-              <table class="table w-full">
-                <thead>
-                  <tr>
-                    <th>{{ $t('table.headers.part') }}</th>
-                    <th>{{ $t('table.headers.clearance_thou') }}</th>
-                    <th>{{ $t('table.headers.clearance_mm') }}</th>
-                    <th>{{ $t('table.headers.expand') }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <template
-                    v-for="(item, itemIndex) in filterItems(table.items, name)"
-                    :key="itemIndex"
-                  >
-                    <tr class="hover cursor-pointer" @click="toggleRow(`${name}-${itemIndex}`)">
-                      <td>{{ item.name }}</td>
-                      <td>
-                        <span
-                          v-if="item.thou"
-                          class="px-2 py-1 rounded bg-primary/10 text-primary font-medium"
-                        >
-                          {{ item.thou }}
-                        </span>
-                        <span v-else>{{ $t('table.no_value') }}</span>
-                      </td>
-                      <td>
-                        <span
-                          v-if="item.mm"
-                          class="px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium"
-                        >
-                          {{ item.mm }}
-                        </span>
-                        <span v-else>{{ $t('table.no_value') }}</span>
-                      </td>
-                      <td class="text-right">
-                        <i
-                          v-if="item.notes"
-                          class="fas transition-transform duration-200"
-                          :class="expandedRows[`${name}-${itemIndex}`] ? 'fa-chevron-up' : 'fa-chevron-down'"
-                        ></i>
-                      </td>
-                    </tr>
-                    <tr v-if="expandedRows[`${name}-${itemIndex}`] && item.notes" class="bg-base-200">
-                      <td colspan="4" class="p-4">
-                        <div class="font-semibold mb-2">
-                          {{ $t('table.extra_notes_title') }}
-                        </div>
-                        <div class="whitespace-pre-line">
-                          {{ item.notes }}
-                        </div>
-                      </td>
-                    </tr>
-                  </template>
-                  <tr v-if="!filterItems(table.items, name).length">
-                    <td colspan="4" class="text-center py-4">
-                      {{ $t('table.no_items_found') }}
+            <table class="table w-full">
+              <thead>
+                <tr>
+                  <th>{{ $t('table.headers.part') }}</th>
+                  <th>{{ $t('table.headers.clearance_thou') }}</th>
+                  <th>{{ $t('table.headers.clearance_mm') }}</th>
+                  <th>{{ $t('table.headers.expand') }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template v-for="(item, itemIndex) in filterItems(table.items, name)" :key="itemIndex">
+                  <tr class="hover cursor-pointer" @click="toggleRow(`${name}-${itemIndex}`)">
+                    <td>{{ item.name }}</td>
+                    <td>
+                      <span v-if="item.thou" class="px-2 py-1 rounded bg-primary/10 text-primary font-medium">
+                        {{ item.thou }}
+                      </span>
+                      <span v-else>{{ $t('table.no_value') }}</span>
+                    </td>
+                    <td>
+                      <span v-if="item.mm" class="px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium">
+                        {{ item.mm }}
+                      </span>
+                      <span v-else>{{ $t('table.no_value') }}</span>
+                    </td>
+                    <td class="text-right">
+                      <i
+                        v-if="item.notes"
+                        class="fas transition-transform duration-200"
+                        :class="expandedRows[`${name}-${itemIndex}`] ? 'fa-chevron-up' : 'fa-chevron-down'"
+                      ></i>
                     </td>
                   </tr>
-                </tbody>
-              </table>
+                  <tr v-if="expandedRows[`${name}-${itemIndex}`] && item.notes" class="bg-base-200">
+                    <td colspan="4" class="p-4">
+                      <div class="font-semibold mb-2">
+                        {{ $t('table.extra_notes_title') }}
+                      </div>
+                      <div class="whitespace-pre-line">
+                        {{ item.notes }}
+                      </div>
+                    </td>
+                  </tr>
+                </template>
+                <tr v-if="!filterItems(table.items, name).length">
+                  <td colspan="4" class="text-center py-4">
+                    {{ $t('table.no_items_found') }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
