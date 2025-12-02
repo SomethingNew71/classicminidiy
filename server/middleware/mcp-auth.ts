@@ -21,12 +21,17 @@ export default defineEventHandler(async (event) => {
   let providedKey: string | null = null;
 
   // Extract API key from Authorization header (Bearer token)
-  if (authHeader && authHeader.startsWith('Bearer ')) {
-    providedKey = authHeader.substring(7);
+  // Case-insensitive check for "Bearer" prefix and trim whitespace
+  if (authHeader) {
+    const trimmedHeader = authHeader.trim();
+    if (trimmedHeader.toLowerCase().startsWith('bearer ')) {
+      providedKey = trimmedHeader.substring(7).trim();
+    }
   }
 
   // If no API key provided, reject the request
   if (!providedKey) {
+    console.error(`[MCP Auth] No valid Bearer token found. Header: ${authHeader ? 'present' : 'missing'}`);
     throw createError({
       statusCode: 401,
       statusMessage: 'Unauthorized',
@@ -57,6 +62,7 @@ export default defineEventHandler(async (event) => {
 
   // Validate the provided API key
   if (!validKeys.includes(providedKey)) {
+    console.error(`[MCP Auth] Invalid API key. Provided key does not match any valid keys. Valid keys count: ${validKeys.length}`);
     throw createError({
       statusCode: 403,
       statusMessage: 'Forbidden',
@@ -65,5 +71,5 @@ export default defineEventHandler(async (event) => {
   }
 
   // API key is valid, allow the request to proceed
-  console.log(`[MCP Auth] Authenticated request to ${url.pathname}`);
+  console.log(`[MCP Auth] ✓ Authenticated request to ${url.pathname}`);
 });

@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { chassisRanges } from '../../../data/models/decoders';
-import { useRuntimeConfig } from 'nuxt/app';
 
 /**
  * Chassis Decoder MCP Tool
