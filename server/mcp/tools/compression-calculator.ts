@@ -57,29 +57,29 @@ export default defineMcpTool({
     const decompPlate = matchingDecomp?.label || `${decomp}cc (custom)`;
 
     // Format results in a human-readable way
-    const resultText = `**Compression Calculator Results**
+    const resultText = `
+      **Compression Calculator Results**
+      **Engine Configuration:**
+      - Bore: ${bore}cm (${pistonSize})
+      - Stroke: ${stroke}cm (${crankshaft})
+      - Head Gasket: ${headGasket}
+      - Decompression Plate: ${decompPlate}
 
-**Engine Configuration:**
-- Bore: ${bore}cm (${pistonSize})
-- Stroke: ${stroke}cm (${crankshaft})
-- Head Gasket: ${headGasket}
-- Decompression Plate: ${decompPlate}
+      **Measurements:**
+      - Piston Dish: ${pistonDish}cc
+      - Head Volume: ${headVolume}cc
+      - Deck Height: ${deckHeight} thou
 
-**Measurements:**
-- Piston Dish: ${pistonDish}cc
-- Head Volume: ${headVolume}cc
-- Deck Height: ${deckHeight} thou
+      **Results:**
+      - **Compression Ratio: ${ratio}:1**
+      - **Engine Capacity: ${capacity}cc**
+      - Combustion Chamber Volume: ${Math.round((vc + Number.EPSILON) * 100) / 100}cc
 
-**Results:**
-- **Compression Ratio: ${ratio}:1**
-- **Engine Capacity: ${capacity}cc**
-- Combustion Chamber Volume: ${Math.round((vc + Number.EPSILON) * 100) / 100}cc
-
-**Calculation Details:**
-- Bore Radius: ${boreRadius}cm
-- Deck Volume: ${Math.round((deckVolume + Number.EPSILON) * 100) / 100}cc
-- Ringland Volume: ${Math.round((ringland + Number.EPSILON) * 100) / 100}cc
-- Total Chamber Volume: ${Math.round((vc + Number.EPSILON) * 100) / 100}cc`;
+      **Calculation Details:**
+      - Bore Radius: ${boreRadius}cm
+      - Deck Volume: ${Math.round((deckVolume + Number.EPSILON) * 100) / 100}cc
+      - Ringland Volume: ${Math.round((ringland + Number.EPSILON) * 100) / 100}cc
+      - Total Chamber Volume: ${Math.round((vc + Number.EPSILON) * 100) / 100}cc`;
 
     return jsonResult({
       inputs: {
