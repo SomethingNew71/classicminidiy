@@ -2,16 +2,7 @@
   <!-- Chat Interface -->
   <div class="flex flex-col h-full bg-base-100">
     <!-- Experimental Disclaimer (always visible) -->
-    <div class="bg-warning/10 border-b border-warning/20 px-4 py-2">
-      <div class="flex items-start gap-3">
-        <i class="fa-solid fa-triangle-exclamation text-warning text-sm mt-0.5 flex-shrink-0"></i>
-        <div class="text-sm text-base-content/80">
-          <strong class="text-warning">{{ t('experimental_feature') }}</strong>
-          {{ t('experimental_disclaimer') }} Always verify critical information with official documentation, qualified
-          mechanics, or experienced Classic Mini enthusiasts.
-        </div>
-      </div>
-    </div>
+
     <!-- Welcome Banner (shown when chat is empty) -->
     <div v-if="isChatEmpty && !isLoading" class="flex-1 flex items-center justify-center px-4">
       <div class="max-w-2xl mx-auto text-center space-y-6">
@@ -43,7 +34,7 @@
                 v-model="input"
                 @keydown="handleInputKeyDown"
                 :placeholder="t('input_placeholder')"
-                class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
+                class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50 py-2 leading-6"
                 rows="1"
               ></textarea>
 
@@ -137,7 +128,7 @@
             v-model="input"
             @keydown="handleInputKeyDown"
             :placeholder="t('input_placeholder')"
-            class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50"
+            class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50 py-2 leading-6"
             rows="1"
           ></textarea>
 
@@ -160,6 +151,16 @@
           </button>
         </div>
       </form>
+      <div class="bg-warning/10 border-b border-warning/20 px-4 py-2 mt-3 rounded-md">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-triangle-exclamation text-warning text-sm mt-0.5 flex-shrink-0"></i>
+          <div class="text-sm text-base-content/80">
+            <strong class="text-warning">{{ t('experimental_feature') }}</strong>
+            {{ t('experimental_disclaimer') }} Always verify critical information with official documentation, qualified
+            mechanics, or experienced Classic Mini enthusiasts.
+          </div>
+        </div>
+      </div>
 
       <!-- Report Issue Link Below Chat -->
       <div class="flex justify-center mt-3">
@@ -443,7 +444,8 @@
     "welcome_title": "Welcome to Classic Mini DIY Assistant",
     "input_placeholder": "Ask me anything about your Classic Mini...",
     "report_issue": "Report an issue with the chat",
-    "useful_links_placeholder": "Useful links will appear here after I search for information"
+    "useful_links_placeholder": "Useful links will appear here after I search for information",
+    "loading_chat": "Loading chat..."
   },
   "es": {
     "experimental_feature": "Función Experimental:",
@@ -451,7 +453,8 @@
     "welcome_title": "Bienvenido al Asistente de Classic Mini DIY",
     "input_placeholder": "Pregúntame cualquier cosa sobre tu Classic Mini...",
     "report_issue": "Reportar un problema con el chat",
-    "useful_links_placeholder": "Los enlaces útiles aparecerán aquí después de que busque información"
+    "useful_links_placeholder": "Los enlaces útiles aparecerán aquí después de que busque información",
+    "loading_chat": "Cargando chat..."
   },
   "fr": {
     "experimental_feature": "Fonctionnalité Expérimentale:",
@@ -459,7 +462,8 @@
     "welcome_title": "Bienvenue dans l'Assistant Classic Mini DIY",
     "input_placeholder": "Demandez-moi n'importe quoi sur votre Classic Mini...",
     "report_issue": "Signaler un problème avec le chat",
-    "useful_links_placeholder": "Les liens utiles apparaîtront ici après que j'aie recherché des informations"
+    "useful_links_placeholder": "Les liens utiles apparaîtront ici après que j'aie recherché des informations",
+    "loading_chat": "Chargement du chat..."
   },
   "de": {
     "experimental_feature": "Experimentelle Funktion:",
@@ -467,7 +471,8 @@
     "welcome_title": "Willkommen beim Classic Mini DIY Assistenten",
     "input_placeholder": "Fragen Sie mich alles über Ihren Classic Mini...",
     "report_issue": "Ein Problem mit dem Chat melden",
-    "useful_links_placeholder": "Nützliche Links erscheinen hier, nachdem ich nach Informationen gesucht habe"
+    "useful_links_placeholder": "Nützliche Links erscheinen hier, nachdem ich nach Informationen gesucht habe",
+    "loading_chat": "Chat wird geladen..."
   },
   "it": {
     "experimental_feature": "Funzione Sperimentale:",
@@ -475,7 +480,8 @@
     "welcome_title": "Benvenuto nell'Assistente Classic Mini DIY",
     "input_placeholder": "Chiedimi qualsiasi cosa sul tuo Classic Mini...",
     "report_issue": "Segnala un problema con la chat",
-    "useful_links_placeholder": "I link utili appariranno qui dopo che avrò cercato informazioni"
+    "useful_links_placeholder": "I link utili appariranno qui dopo che avrò cercato informazioni",
+    "loading_chat": "Caricamento chat..."
   },
   "ja": {
     "experimental_feature": "実験的機能:",
@@ -483,7 +489,8 @@
     "welcome_title": "Classic Mini DIY アシスタントへようこそ",
     "input_placeholder": "あなたのClassic Miniについて何でもお聞きください...",
     "report_issue": "チャットの問題を報告する",
-    "useful_links_placeholder": "情報を検索した後、有用なリンクがここに表示されます"
+    "useful_links_placeholder": "情報を検索した後、有用なリンクがここに表示されます",
+    "loading_chat": "チャットを読み込んでいます..."
   },
   "ko": {
     "experimental_feature": "실험적 기능:",
@@ -491,7 +498,8 @@
     "welcome_title": "Classic Mini DIY 어시스턴트에 오신 것을 환영합니다",
     "input_placeholder": "당신의 Classic Mini에 대해 무엇이든 물어보세요...",
     "report_issue": "채팅 문제 신고",
-    "useful_links_placeholder": "정보를 검색한 후 유용한 링크가 여기에 나타납니다"
+    "useful_links_placeholder": "정보를 검색한 후 유용한 링크가 여기에 나타납니다",
+    "loading_chat": "채팅 로딩 중..."
   },
   "pt": {
     "experimental_feature": "Recurso Experimental:",
@@ -499,7 +507,8 @@
     "welcome_title": "Bem-vindo ao Assistente Classic Mini DIY",
     "input_placeholder": "Pergunte-me qualquer coisa sobre seu Classic Mini...",
     "report_issue": "Relatar um problema com o chat",
-    "useful_links_placeholder": "Links úteis aparecerão aqui depois que eu pesquisar informações"
+    "useful_links_placeholder": "Links úteis aparecerão aqui depois que eu pesquisar informações",
+    "loading_chat": "Carregando chat..."
   },
   "ru": {
     "experimental_feature": "Экспериментальная функция:",
@@ -507,7 +516,8 @@
     "welcome_title": "Добро пожаловать в помощник Classic Mini DIY",
     "input_placeholder": "Спросите меня что-нибудь о вашем Classic Mini...",
     "report_issue": "Сообщить о проблеме с чатом",
-    "useful_links_placeholder": "Полезные ссылки появятся здесь после того, как я найду информацию"
+    "useful_links_placeholder": "Полезные ссылки появятся здесь после того, как я найду информацию",
+    "loading_chat": "Загрузка чата..."
   },
   "zh": {
     "experimental_feature": "实验性功能：",
@@ -515,7 +525,8 @@
     "welcome_title": "欢迎使用Classic Mini DIY助手",
     "input_placeholder": "询问我关于您的Classic Mini的任何问题...",
     "report_issue": "报告聊天问题",
-    "useful_links_placeholder": "在我搜索信息后，有用的链接将出现在这里"
+    "useful_links_placeholder": "在我搜索信息后，有用的链接将出现在这里",
+    "loading_chat": "加载聊天中..."
   }
 }
 </i18n>
