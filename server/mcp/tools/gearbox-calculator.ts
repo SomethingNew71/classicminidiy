@@ -62,7 +62,7 @@ export default defineMcpTool({
     // Calculate gearing data
     const gearingData = gear_ratios.map((ratio, index) => {
       const gearRatio = ratio * final_drive * drop_gear;
-      const maxSpeedAtRpm = (max_rpm / gearRatio) * typeCircInMiles;
+      const maxSpeedAtRpm = (max_rpm / gearRatio) * typeCircInMiles * 60; // Multiply by 60 to convert from minutes to hours
       const maxSpeed = metric ? Math.round(maxSpeedAtRpm * kphFactor) : Math.round(maxSpeedAtRpm);
 
       return {
