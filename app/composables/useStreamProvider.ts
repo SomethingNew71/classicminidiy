@@ -104,6 +104,20 @@ export function createStreamSession(
     isLoading.value = true;
     error.value = null;
 
+    // Add user message to the UI immediately
+    if (input.messages && Array.isArray(input.messages)) {
+      for (const msg of input.messages) {
+        if (msg.type === 'human' && msg.content) {
+          messages.value.push({
+            id: `human-${Date.now()}-${Math.random()}`,
+            type: 'human',
+            content: msg.content,
+            created_at: new Date().toISOString(),
+          });
+        }
+      }
+    }
+
     try {
       const threadIdForUrl = currentThreadId.value || 'new';
       const endpoint = `${proxyApiUrl}/threads/${threadIdForUrl}/runs/stream`;
@@ -328,18 +342,38 @@ export function createStreamSession(
     } else if (event.event === 'updates') {
       // Handle 'updates' event which contains node execution updates
       if (event.data && event.data.messages) {
-        // Filter out empty messages and group consecutive AI messages
-        const validMessages = event.data.messages.filter(hasValidContent);
-        const groupedMessages = groupConsecutiveMessages(validMessages);
-        messages.value = groupedMessages;
+        // Process new messages from the event
+        const newMessages = event.data.messages.filter(hasValidContent);
+
+        // Merge with existing messages instead of replacing
+        for (const newMsg of newMessages) {
+          const existingIndex = messages.value.findIndex((m: any) => m.id === newMsg.id);
+          if (existingIndex >= 0) {
+            // Update existing message
+            messages.value[existingIndex] = { ...messages.value[existingIndex], ...newMsg };
+          } else {
+            // Add new message if it doesn't exist
+            messages.value.push(newMsg);
+          }
+        }
       }
     } else if (event.event === 'values') {
       // Handle 'values' event type which might contain messages (fallback)
       if (event.data && event.data.messages) {
-        // Filter out empty messages and group consecutive AI messages
-        const validMessages = event.data.messages.filter(hasValidContent);
-        const groupedMessages = groupConsecutiveMessages(validMessages);
-        messages.value = groupedMessages;
+        // Process new messages from the event
+        const newMessages = event.data.messages.filter(hasValidContent);
+
+        // Merge with existing messages instead of replacing
+        for (const newMsg of newMessages) {
+          const existingIndex = messages.value.findIndex((m: any) => m.id === newMsg.id);
+          if (existingIndex >= 0) {
+            // Update existing message
+            messages.value[existingIndex] = { ...messages.value[existingIndex], ...newMsg };
+          } else {
+            // Add new message if it doesn't exist
+            messages.value.push(newMsg);
+          }
+        }
       }
     } else if (Array.isArray(event) && event.length === 2) {
       // Handle multi-mode streaming tuples: [streamMode, chunk]
