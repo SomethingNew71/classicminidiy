@@ -1,7 +1,7 @@
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { DateTime } from 'luxon';
 import type { RegistryItem } from '../../../data/models/registry';
+import { getDynamoDBClient, withTimeout, handleDynamoDBError } from '../../utils/dynamodb';
 
 export default defineEventHandler(async (event): Promise<RegistryItem[]> => {
   // Set cache headers - cache for 15 minutes since registry data changes occasionally
@@ -10,25 +10,20 @@ export default defineEventHandler(async (event): Promise<RegistryItem[]> => {
     'CDN-Cache-Control': 'public, max-age=900',
   });
 
-  const config = useRuntimeConfig();
-  const docClient = DynamoDBDocumentClient.from(
-    new DynamoDBClient({
-      region: 'us-east-1',
-      credentials: {
-        accessKeyId: config.dynamo_id,
-        secretAccessKey: config.dynamo_key,
-      },
-    })
-  );
+  const docClient = getDynamoDBClient();
 
   try {
-    // Create a promise that will reject after timeout
-    const timeoutPromise = new Promise<never>((_, reject) => {
-      setTimeout(() => reject(new Error('DynamoDB request timed out')), 5000);
-    });
-
-    // Race between the actual request and the timeout
-    const result = await Promise.race([docClient.send(new ScanCommand({ TableName: 'MiniRegister' })), timeoutPromise]);
+    // Use a longer timeout for scan operations (15 seconds) as they can be slow on large tables
+    const result = await withTimeout(
+      docClient.send(
+        new ScanCommand({
+          TableName: 'MiniRegister',
+          // Limit the number of items to improve performance
+          Limit: 1000,
+        })
+      ),
+      15000 // 15 second timeout for scan operations
+    );
 
     if (!result.Items || !Array.isArray(result.Items)) {
       throw createError({
@@ -45,30 +40,6 @@ export default defineEventHandler(async (event): Promise<RegistryItem[]> => {
     return parsedResponse;
   } catch (error: any) {
     console.error('Error getting registry info:', error);
-
-    if (error.name === 'TimeoutError' || error.message?.includes('timed out')) {
-      throw createError({
-        statusCode: 504,
-        statusMessage: 'Database request timed out',
-      });
-    } else if (error.name === 'ValidationException') {
-      throw createError({
-        statusCode: 400,
-        statusMessage: `Invalid request: ${error.message}`,
-      });
-    } else if (error.name === 'ResourceNotFoundException') {
-      throw createError({
-        statusCode: 404,
-        statusMessage: 'Registry table not found',
-      });
-    } else if (error.statusCode) {
-      // If we already created an error with createError, just rethrow it
-      throw error;
-    } else {
-      throw createError({
-        statusCode: 500,
-        statusMessage: `Error getting registry info: ${error.message || 'Unknown error'}`,
-      });
-    }
+    throw handleDynamoDBError(error, 'Get registry list');
   }
 });
