@@ -261,29 +261,29 @@ export function createStreamSession(
         const existingIndex = messages.value.findIndex((m: any) => m.id === messageUpdate.id);
 
         if (existingIndex >= 0) {
-          // Update existing message in place
+          // Update existing message in place - replace content completely for streaming updates
           messages.value[existingIndex] = { ...messages.value[existingIndex], ...messageUpdate };
         } else {
-          // Check if we should group this with the last message
+          // For new AI messages during streaming, check if we should merge with the last AI message
           const lastMessage = messages.value[messages.value.length - 1];
-          if (shouldGroupWithLastMessage(messageUpdate, lastMessage)) {
-            // Merge with the last message instead of creating a new one
+          const isNewMessageAI = messageUpdate.type === 'ai' || messageUpdate.type === 'assistant';
+          const isLastMessageAI = lastMessage && (lastMessage.type === 'ai' || lastMessage.type === 'assistant');
+
+          // Only merge if both are AI messages AND the last message doesn't have a proper ID yet
+          // (indicating it's still being streamed)
+          if (isNewMessageAI && isLastMessageAI && lastMessage.id.startsWith('ai-')) {
+            // Replace the temporary message with the real one from the server
+            messages.value[messages.value.length - 1] = messageUpdate;
+          } else if (isNewMessageAI && isLastMessageAI && !messageUpdate.id.includes('run')) {
+            // If both are AI messages but this looks like a continuation, update the last one
             const currentContent = getContentString(messageUpdate.content);
-            const lastContent = getContentString(lastMessage.content);
-
-            if (currentContent.trim()) {
-              lastMessage.content = lastContent + (lastContent ? '\n\n' : '') + currentContent;
-
-              // Merge tool calls if any
-              if (messageUpdate.tool_calls && messageUpdate.tool_calls.length > 0) {
-                lastMessage.tool_calls = [...(lastMessage.tool_calls || []), ...messageUpdate.tool_calls];
-              }
-
-              // Update timestamp and ID to the latest
-              if (messageUpdate.created_at) {
-                lastMessage.created_at = messageUpdate.created_at;
-              }
-              lastMessage.id = messageUpdate.id; // Use the latest message ID
+            lastMessage.content = currentContent;
+            lastMessage.id = messageUpdate.id;
+            if (messageUpdate.created_at) {
+              lastMessage.created_at = messageUpdate.created_at;
+            }
+            if (messageUpdate.tool_calls) {
+              lastMessage.tool_calls = messageUpdate.tool_calls;
             }
           } else {
             // Add as new message

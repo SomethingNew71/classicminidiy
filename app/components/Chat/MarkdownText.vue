@@ -1,5 +1,8 @@
 <template>
-  <div class="markdown-content" v-html="renderedMarkdown"></div>
+  <div class="markdown-content" :class="{ 'streaming-content': showCursor }">
+    <span v-html="renderedMarkdown"></span><!--
+    --><span v-if="showCursor" class="streaming-cursor"></span>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -8,7 +11,9 @@
   import hljs from 'highlight.js';
   import type { MarkdownTextProps } from '../../../data/models/chat';
 
-  const props = defineProps<MarkdownTextProps>();
+  const props = withDefaults(defineProps<MarkdownTextProps & { showCursor?: boolean }>(), {
+    showCursor: false,
+  });
 
   // Function to add UTM parameters to URLs
   function addUtmParameters(url: string): string {
@@ -270,5 +275,25 @@
 
   .markdown-content :deep(> *:last-child) {
     margin-bottom: 0;
+  }
+
+  /* Streaming cursor */
+  .streaming-cursor {
+    display: inline-block;
+    width: 0.375rem; /* 1.5 */
+    height: 1rem;
+    background-color: hsl(var(--p));
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    margin-left: 0.125rem; /* 0.5 */
+    vertical-align: text-bottom;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
 </style>
