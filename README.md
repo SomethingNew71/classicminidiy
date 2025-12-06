@@ -178,7 +178,6 @@ s3Base=https://classicminidiy.s3.us-east-1.amazonaws.com
 # Admin Authentication (for admin panel)
 ADMIN_USERNAME=your_admin_username
 ADMIN_PASSWORD=your_admin_password
-SESSION_PASSWORD=your_session_password
 ```
 
 ### Available Scripts

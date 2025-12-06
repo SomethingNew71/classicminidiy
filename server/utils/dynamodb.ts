@@ -20,8 +20,8 @@ export function getDynamoDBClient(): DynamoDBDocumentClient {
       requestHandler: {
         // Keep connections alive for better performance
         keepAlive: true,
-        // Reasonable timeout
-        timeoutInMs: 5000,
+        // Increased timeout for DynamoDB operations (10 seconds base)
+        timeoutInMs: 10000,
         // Maximum concurrent connections
         maxConcurrency: 50,
       },
@@ -52,13 +52,13 @@ export interface DynamoDBQueryOptions {
   retries?: number;
 }
 
-export function createTimeoutPromise<T>(timeout: number = 5000): Promise<never> {
+export function createTimeoutPromise<T>(timeout: number = 10000): Promise<never> {
   return new Promise((_, reject) => {
     setTimeout(() => reject(new Error('DynamoDB request timed out')), timeout);
   });
 }
 
-export async function withTimeout<T>(operation: Promise<T>, timeout: number = 5000): Promise<T> {
+export async function withTimeout<T>(operation: Promise<T>, timeout: number = 10000): Promise<T> {
   return Promise.race([operation, createTimeoutPromise<T>(timeout)]);
 }
 

@@ -215,38 +215,40 @@
           </div>
         </div>
 
-        <!-- Future Admin Tools Card (Placeholder) -->
-        <div class="card bg-base-100 shadow-xl border border-base-300 opacity-60">
+        <!-- Chat Threads Card -->
+        <div class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
           <div class="card-body">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-info/10 rounded-lg flex items-center justify-center">
-                <i class="fad fa-plus text-2xl text-info"></i>
+              <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                <i class="fad fa-messages text-2xl text-accent"></i>
               </div>
-              <h2 class="card-title text-xl">Future Tools</h2>
+              <h2 class="card-title text-xl">Chat Threads</h2>
             </div>
 
-            <p class="text-base-content/70 mb-6">Additional admin tools and management features will be added here.</p>
+            <p class="text-base-content/70 mb-6">
+              View and manage LangGraph chat threads from users interacting with the AI assistant.
+            </p>
 
             <div class="space-y-3 mb-6">
-              <div class="flex items-center gap-2 text-sm text-base-content/50">
-                <i class="fad fa-cog"></i>
-                <span>Site configuration</span>
+              <div class="flex items-center gap-2 text-sm">
+                <i class="fad fa-list text-info"></i>
+                <span>Browse all chat threads</span>
               </div>
-              <div class="flex items-center gap-2 text-sm text-base-content/50">
-                <i class="fad fa-users"></i>
-                <span>User management</span>
+              <div class="flex items-center gap-2 text-sm">
+                <i class="fad fa-filter text-info"></i>
+                <span>Filter by status and metadata</span>
               </div>
-              <div class="flex items-center gap-2 text-sm text-base-content/50">
-                <i class="fad fa-chart-line"></i>
-                <span>Analytics dashboard</span>
+              <div class="flex items-center gap-2 text-sm">
+                <i class="fad fa-eye text-info"></i>
+                <span>View thread history and state</span>
               </div>
             </div>
 
             <div class="card-actions justify-end">
-              <button class="btn btn-info btn-disabled">
-                <i class="fad fa-clock mr-2"></i>
-                Coming Soon
-              </button>
+              <NuxtLink to="/admin/threads" class="btn btn-accent">
+                <i class="fad fa-arrow-right mr-2"></i>
+                View Threads
+              </NuxtLink>
             </div>
           </div>
         </div>

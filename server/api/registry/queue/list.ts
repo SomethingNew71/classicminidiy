@@ -1,19 +1,7 @@
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { DateTime } from 'luxon';
 import type { RegistryItem } from '../../../../data/models/registry';
-
-const createDynamoDBClient = (config: any) => {
-  return DynamoDBDocumentClient.from(
-    new DynamoDBClient({
-      region: 'us-east-1',
-      credentials: {
-        accessKeyId: config.dynamo_id,
-        secretAccessKey: config.dynamo_key,
-      },
-    })
-  );
-};
+import { getDynamoDBClient, withTimeout, handleDynamoDBError } from '../../../utils/dynamodb';
 
 export default defineEventHandler(async (event): Promise<RegistryItem[]> => {
   // Set cache headers - cache for 5 minutes since queue data changes frequently
@@ -22,19 +10,16 @@ export default defineEventHandler(async (event): Promise<RegistryItem[]> => {
     'CDN-Cache-Control': 'public, max-age=300',
   });
 
-  const config = useRuntimeConfig();
-  const docClient = createDynamoDBClient(config);
+  const docClient = getDynamoDBClient();
 
   try {
-    // Create a promise that will reject after timeout
-    const timeoutPromise = new Promise<never>((_, reject) => {
-      setTimeout(() => reject(new Error('DynamoDB request timed out')), 5000);
+    const command = new ScanCommand({
+      TableName: 'MiniRegisterQueue',
+      Limit: 1000,
     });
 
-    const command = new ScanCommand({ TableName: 'MiniRegisterQueue' });
-
-    // Race between the actual request and the timeout
-    const result = await Promise.race([docClient.send(command), timeoutPromise]);
+    // Use longer timeout for scan operations
+    const result = await withTimeout(docClient.send(command), 15000);
 
     if (!result.Items) {
       return [];
@@ -48,27 +33,6 @@ export default defineEventHandler(async (event): Promise<RegistryItem[]> => {
     return parsedResponse;
   } catch (error: any) {
     console.error('Error getting registry queue info:', error);
-
-    if (error.name === 'TimeoutError' || error.message?.includes('timed out')) {
-      throw createError({
-        statusCode: 504,
-        statusMessage: 'Database request timed out',
-      });
-    } else if (error.name === 'ValidationException') {
-      throw createError({
-        statusCode: 400,
-        statusMessage: `Invalid request: ${error.message}`,
-      });
-    } else if (error.name === 'ResourceNotFoundException') {
-      throw createError({
-        statusCode: 404,
-        statusMessage: 'Registry queue table not found',
-      });
-    } else {
-      throw createError({
-        statusCode: 500,
-        statusMessage: `Error getting registry queue info: ${error.message || 'Unknown error'}`,
-      });
-    }
+    throw handleDynamoDBError(error, 'Get registry queue');
   }
 });

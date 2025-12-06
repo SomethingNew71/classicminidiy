@@ -381,7 +381,6 @@ export default defineNuxtConfig({
     NUXT_LANGSMITH_API_KEY: process.env.NUXT_LANGSMITH_API_KEY,
     ADMIN_USERNAME: process.env.ADMIN_USERNAME,
     ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
-    SESSION_PASSWORD: process.env.SESSION_PASSWORD,
     // MCP API Keys
     MCP_API_KEY: process.env.MCP_API_KEY || 'dev-mcp-key-classic-mini-diy',
     MCP_API_KEYS: process.env.MCP_API_KEYS || '',
