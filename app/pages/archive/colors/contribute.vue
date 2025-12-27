@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import type { Color, PrettyColor } from '../../../../data/models/colors';
+  import type { PrettyColor, ColorQueueItem, ColorQueueSubmissionResponse } from '../../../../data/models/colors';
   import { HERO_TYPES } from '../../../../data/models/generic';
 
   const { query } = useRoute();
@@ -21,18 +21,13 @@
       formData.shortCode = newColor.pretty['Short Code'] || '';
       formData.years = newColor.pretty.Years || '';
       formData.imageSwatch = newColor.raw.imageSwatch || '';
+      formData.primaryColor = newColor.pretty['Primary Color'] || '';
     }
   });
 
-  const issueCreated = ref(false);
+  const submissionSuccess = ref(false);
   const apiError = ref(false);
-  const suggestion = ref<{
-    number: number;
-    url: string;
-  }>({
-    number: 0,
-    url: '',
-  });
+  const submissionId = ref('');
 
   const apiMessage = ref('');
   const processing = ref(false);
@@ -45,6 +40,9 @@
     shortCode: color.value?.pretty['Short Code'] || '',
     years: color.value?.pretty.Years || '',
     imageSwatch: color.value?.raw.imageSwatch || '',
+    primaryColor: color.value?.pretty['Primary Color'] || '',
+    submittedBy: '',
+    submittedByEmail: '',
   });
 
   useHead({
@@ -70,65 +68,59 @@
     twitterImage: 'https://classicminidiy.s3.amazonaws.com/social-share/archive/colors.png',
   });
 
-  interface GitHubIssueResponse {
-    number: number;
-    html_url: string;
-  }
-
-  interface SubmitPayload {
-    color: Color;
-    newDetails: {
-      code: string;
-      ditzlerPpgCode: string;
-      duluxCode: string;
-      name: string;
-      shortCode: string;
-      years: string;
-      imageSwatch: string;
-    };
-  }
-
   async function submit() {
-    if (!color.value) {
+    // Validate submitter info
+    if (!formData.submittedBy || !formData.submittedByEmail) {
       apiError.value = true;
-      apiMessage.value = $t('form.error.color_not_loaded');
+      apiMessage.value = $t('form.error.submitter_required');
+      return;
+    }
+
+    if (!formData.submittedByEmail.includes('@')) {
+      apiError.value = true;
+      apiMessage.value = $t('form.error.invalid_email');
+      return;
+    }
+
+    if (!formData.name || !formData.code) {
+      apiError.value = true;
+      apiMessage.value = $t('form.error.name_code_required');
       return;
     }
 
     processing.value = true;
     try {
-      const payload: SubmitPayload = {
-        color: color.value.raw,
-        newDetails: {
-          code: formData.code,
-          ditzlerPpgCode: formData.ditzlerPpgCode,
-          duluxCode: formData.duluxCode,
-          name: formData.name,
-          shortCode: formData.shortCode,
-          years: formData.years,
-          imageSwatch: formData.imageSwatch,
-        },
+      const details: Partial<ColorQueueItem> = {
+        code: formData.code,
+        ditzlerPpgCode: formData.ditzlerPpgCode,
+        duluxCode: formData.duluxCode,
+        name: formData.name,
+        shortCode: formData.shortCode,
+        years: formData.years,
+        imageSwatch: formData.imageSwatch,
+        primaryColor: formData.primaryColor,
+        submittedBy: formData.submittedBy,
+        submittedByEmail: formData.submittedByEmail,
+        hasSwatch: !!formData.imageSwatch,
+        originalColorId: color.value?.raw.id || undefined,
       };
 
-      const { data: response } = await useFetch<GitHubIssueResponse>('/api/colors/contribute', {
+      const { data: response } = await useFetch<ColorQueueSubmissionResponse>('/api/colors/queue/submit', {
         method: 'POST',
-        body: payload,
+        body: { details },
       });
 
       if (response.value) {
-        issueCreated.value = true;
+        submissionSuccess.value = true;
         apiError.value = false;
-        suggestion.value = {
-          number: response.value.number,
-          url: response.value.html_url,
-        };
+        submissionId.value = response.value.uuid;
       } else {
         throw new Error('No response from server');
       }
     } catch (error) {
-      issueCreated.value = false;
+      submissionSuccess.value = false;
       apiError.value = true;
-      apiMessage.value = $t('form.error.github_unavailable');
+      apiMessage.value = $t('form.error.submission_failed');
       console.error('Error submitting color contribution:', error);
     } finally {
       processing.value = false;
@@ -272,7 +264,7 @@
         <div class="card bg-base-100 shadow-xl">
           <div class="card-body p-0">
             <!-- Success Message -->
-            <div v-if="issueCreated" class="p-6 text-center">
+            <div v-if="submissionSuccess" class="p-6 text-center">
               <div class="mb-4">
                 <i class="fas fa-check-circle text-6xl text-success"></i>
               </div>
@@ -282,15 +274,12 @@
               <h2 class="text-xl mb-6">{{ $t('form.success.subtitle') }}</h2>
               <div class="space-y-4 text-left max-w-md mx-auto">
                 <div class="bg-base-200 p-4 rounded-lg">
-                  <p class="font-medium">{{ $t('form.success.suggestion_number') }}{{ suggestion.number }}</p>
+                  <p class="font-medium">{{ $t('form.success.submission_id') }}{{ submissionId }}</p>
                   <p class="text-sm text-gray-600">
-                    {{ $t('form.success.track_text') }}
-                    <a :href="suggestion.url" target="_blank" class="link link-primary">
-                      {{ $t('form.success.view_github') }}
-                    </a>
+                    {{ $t('form.success.pending_review') }}
                   </p>
                 </div>
-                <button @click="issueCreated = false" class="btn btn-primary w-full">
+                <button @click="submissionSuccess = false" class="btn btn-primary w-full">
                   {{ $t('form.success.make_another') }}
                 </button>
               </div>
@@ -317,9 +306,51 @@
 
                 <!-- Form Fields -->
                 <form @submit.prevent="submit" class="space-y-4">
+                  <!-- Submitter Information -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-control">
+                      <label class="label" for="submittedBy">
+                        <span class="label-text">{{ $t('form.fields.submitted_by.label') }} *</span>
+                      </label>
+                      <div class="relative">
+                        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input
+                          id="submittedBy"
+                          type="text"
+                          v-model="formData.submittedBy"
+                          :placeholder="$t('form.fields.submitted_by.placeholder')"
+                          class="input input-bordered w-full pl-10"
+                          :disabled="processing"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-control">
+                      <label class="label" for="submittedByEmail">
+                        <span class="label-text">{{ $t('form.fields.submitted_by_email.label') }} *</span>
+                      </label>
+                      <div class="relative">
+                        <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input
+                          id="submittedByEmail"
+                          type="email"
+                          v-model="formData.submittedByEmail"
+                          :placeholder="$t('form.fields.submitted_by_email.placeholder')"
+                          class="input input-bordered w-full pl-10"
+                          :disabled="processing"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <!-- Color Information -->
                   <div class="form-control">
                     <label class="label" for="colorName">
-                      <span class="label-text">{{ $t('form.fields.color_name.label') }}</span>
+                      <span class="label-text">{{ $t('form.fields.color_name.label') }} *</span>
                     </label>
                     <div class="relative">
                       <i class="fas fa-id-card absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -500,8 +531,9 @@
       "contribute": "Contribute"
     },
     "main_heading": "Contribute Color",
-    "description_text": "Help us expand the Classic Mini color archive by contributing a new color. Please provide as much detail as possible to help other enthusiasts.",
+    "description_text": "Help us expand the Classic Mini color archive by contributing a new color. Please provide as much detail as possible to help other enthusiasts. Your submission will be reviewed by an administrator before being added to the database.",
     "form": {
+      "title": "Submit Color Contribution",
       "color_name": "Color Name",
       "color_code": "Color Code",
       "year_range": "Year Range",
@@ -509,8 +541,79 @@
       "hex_color": "Hex Color",
       "description": "Description",
       "source": "Source",
-      "submit": "Submit Color",
-      "cancel": "Cancel"
+      "submit": {
+        "button": "Submit Color",
+        "submitting": "Submitting..."
+      },
+      "cancel": "Cancel",
+      "fields": {
+        "submitted_by": {
+          "label": "Your Name",
+          "placeholder": "Enter your name"
+        },
+        "submitted_by_email": {
+          "label": "Your Email",
+          "placeholder": "Enter your email address"
+        },
+        "color_name": {
+          "label": "Color Name",
+          "placeholder": "Enter color name"
+        },
+        "primary_code": {
+          "label": "Primary Code",
+          "placeholder": "Enter primary code"
+        },
+        "short_code": {
+          "label": "Short Code",
+          "placeholder": "Enter short code"
+        },
+        "ditzler_ppg_code": {
+          "label": "Ditzler/PPG Code",
+          "placeholder": "Enter Ditzler/PPG code"
+        },
+        "dulux_code": {
+          "label": "Dulux Code",
+          "placeholder": "Enter Dulux code"
+        },
+        "years_used": {
+          "label": "Years Used",
+          "placeholder": "e.g., 1959-1967"
+        },
+        "image_swatch": {
+          "label": "Image Swatch URL",
+          "placeholder": "Enter URL to color swatch image",
+          "help": "Optional: URL to an image showing this color"
+        }
+      },
+      "success": {
+        "title": "Submission Received!",
+        "subtitle": "Thank you for your contribution",
+        "submission_id": "Submission ID: ",
+        "pending_review": "Your submission is pending review by an administrator. Once approved, it will appear in the color database.",
+        "make_another": "Make Another Contribution"
+      },
+      "error": {
+        "title": "Submission Error",
+        "default_message": "There was an error submitting your contribution. Please try again.",
+        "submitter_required": "Please enter your name and email address.",
+        "invalid_email": "Please enter a valid email address.",
+        "name_code_required": "Color name and code are required.",
+        "submission_failed": "Failed to submit your contribution. Please try again."
+      }
+    },
+    "current_data": {
+      "title": "Current Color Data",
+      "loading": "Loading color data...",
+      "na": "N/A",
+      "labels": {
+        "primary_color": "Primary Color",
+        "code": "Code",
+        "ditzler_ppg_code": "Ditzler/PPG Code",
+        "dulux_code": "Dulux Code",
+        "name": "Name",
+        "short_code": "Short Code",
+        "years_used": "Years Used"
+      }
     },
     "validation": {
       "color_name_required": "Color name is required",

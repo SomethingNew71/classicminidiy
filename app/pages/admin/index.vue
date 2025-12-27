@@ -4,6 +4,8 @@
   import { RegistryItemStatus } from '../../../data/models/registry';
   import type { IWheelsDataReviewItem } from '../../../data/models/wheels';
   import { WheelItemStatus } from '../../../data/models/wheels';
+  import type { ColorQueueItem } from '../../../data/models/colors';
+  import { ColorItemStatus } from '../../../data/models/colors';
 
   // SEO and meta
   useHead({
@@ -41,6 +43,8 @@
     await useFetch<RegistryItem[]>('/api/registry/queue/list');
   const { data: wheelsStats, refresh: refreshWheelsStats } =
     await useFetch<IWheelsDataReviewItem[]>('/api/wheels/review/list');
+  const { data: colorsStats, refresh: refreshColorsStats } =
+    await useFetch<ColorQueueItem[]>('/api/colors/queue/list');
 
   // Refresh state
   const isRefreshing = ref(false);
@@ -49,7 +53,7 @@
   const refreshStats = async () => {
     isRefreshing.value = true;
     try {
-      await Promise.all([refreshRegistryStats(), refreshWheelsStats()]);
+      await Promise.all([refreshRegistryStats(), refreshWheelsStats(), refreshColorsStats()]);
     } catch (error) {
       console.error('Error refreshing stats:', error);
     } finally {
@@ -60,6 +64,7 @@
   // Helper functions to check if items are pending
   const isPending = (item: RegistryItem) => !item.status || item.status === RegistryItemStatus.PENDING;
   const isWheelPending = (item: IWheelsDataReviewItem) => !item.status || item.status === WheelItemStatus.PENDING;
+  const isColorPending = (item: ColorQueueItem) => !item.status || item.status === ColorItemStatus.PENDING;
 
   // Computed stats
   const registryCount = computed(() => {
@@ -70,6 +75,11 @@
   const wheelsCount = computed(() => {
     if (!Array.isArray(wheelsStats.value)) return 0;
     return wheelsStats.value.filter(isWheelPending).length;
+  });
+
+  const colorsCount = computed(() => {
+    if (!Array.isArray(colorsStats.value)) return 0;
+    return colorsStats.value.filter(isColorPending).length;
   });
 
   const lastUpdated = computed(() => {
@@ -142,7 +152,7 @@
 
     <!-- Admin Components Grid -->
     <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <!-- Registry Review Card -->
         <div class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
           <div class="card-body">
@@ -215,6 +225,42 @@
           </div>
         </div>
 
+        <!-- Colors Review Card -->
+        <div class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
+          <div class="card-body">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center">
+                <i class="fad fa-palette text-2xl text-warning"></i>
+              </div>
+              <h2 class="card-title text-xl">Colors Review</h2>
+            </div>
+
+            <p class="text-base-content/70 mb-6">Review and manage color database submissions from the community.</p>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center gap-2 text-sm">
+                <i class="fad fa-check-circle text-success"></i>
+                <span>Approve color entries</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <i class="fad fa-times-circle text-error"></i>
+                <span>Reject invalid data</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <i class="fad fa-edit text-info"></i>
+                <span>Edit color details</span>
+              </div>
+            </div>
+
+            <div class="card-actions justify-end">
+              <NuxtLink to="/admin/colors/review" class="btn btn-warning">
+                <i class="fad fa-arrow-right mr-2"></i>
+                Manage Colors
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+
         <!-- Chat Threads Card -->
         <div class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
           <div class="card-body">
@@ -270,7 +316,7 @@
                 {{ isRefreshing ? 'Refreshing...' : 'Refresh' }}
               </button>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
               <div class="stat">
                 <div class="stat-figure text-primary">
                   <i class="fad fa-clipboard-list text-3xl"></i>
@@ -286,6 +332,15 @@
                 </div>
                 <div class="stat-title">Wheels Queue</div>
                 <div class="stat-value text-secondary">{{ wheelsCount || '0' }}</div>
+                <div class="stat-desc">Pending reviews</div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-figure text-warning">
+                  <i class="fad fa-palette text-3xl"></i>
+                </div>
+                <div class="stat-title">Colors Queue</div>
+                <div class="stat-value text-warning">{{ colorsCount || '0' }}</div>
                 <div class="stat-desc">Pending reviews</div>
               </div>
 
