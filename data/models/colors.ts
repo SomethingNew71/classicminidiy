@@ -30,6 +30,12 @@ export interface ColorQueueSubmissionResponse {
   details: ColorQueueItem;
 }
 
+export interface ColorSaveResponse {
+  success: boolean;
+  message: string;
+  colorId: string;
+}
+
 export interface PrettyColor {
   pretty: {
     'Primary Color': string;

@@ -75,13 +75,19 @@
 
     checkingDuplicates.value = true;
     try {
-      const { data } = await useFetch<DuplicateCheckResponse>('/api/colors/queue/check-duplicate', {
+      const { data, error } = await useFetch<DuplicateCheckResponse>('/api/colors/queue/check-duplicate', {
         method: 'POST',
         body: {
           name: details.value.name,
           code: details.value.code,
         },
       });
+
+      if (error.value) {
+        // Log but don't block submission if duplicate check fails
+        console.error('Error checking duplicates:', error.value);
+        return false;
+      }
 
       if (data.value?.hasDuplicates) {
         duplicateMatches.value = data.value.matches;
@@ -90,7 +96,8 @@
       }
       return false;
     } catch (error) {
-      console.error('Error checking duplicates:', error);
+      // Network or unexpected errors - don't block submission
+      console.error('Unexpected error checking duplicates:', error);
       return false;
     } finally {
       checkingDuplicates.value = false;
@@ -122,21 +129,31 @@
         hasSwatch: false,
       };
 
-      const { data } = await useFetch<ColorQueueSubmissionResponse>('/api/colors/queue/submit', {
+      const { data, error } = await useFetch<ColorQueueSubmissionResponse>('/api/colors/queue/submit', {
         method: 'POST',
         body: { details: colorDetails },
       });
+
+      if (error.value) {
+        submissionSuccess.value = false;
+        apiError.value = true;
+        apiMessage.value = error.value.data?.statusMessage || error.value.message || t('error.api_unavailable');
+        return;
+      }
 
       if (data.value?.uuid) {
         submissionSuccess.value = true;
         submissionId.value = data.value.uuid;
         resetForm();
+      } else {
+        submissionSuccess.value = false;
+        apiError.value = true;
+        apiMessage.value = t('error.api_unavailable');
       }
-    } catch (error) {
+    } catch (error: any) {
       submissionSuccess.value = false;
       apiError.value = true;
-      console.error(error);
-      apiMessage.value = t('error.api_unavailable');
+      apiMessage.value = error?.message || t('error.api_unavailable');
     } finally {
       processing.value = false;
     }
@@ -158,16 +175,14 @@
     navigateTo(`/archive/colors/contribute?color=${colorId}`);
   }
 
-  function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
-    let timeout: ReturnType<typeof setTimeout>;
-    return function (...args: Parameters<T>) {
-      clearTimeout(timeout);
-      // @ts-ignore
-      timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-  }
+  // Cleanup timeout on unmount to prevent memory leaks
+  let submitTimeout: ReturnType<typeof setTimeout> | null = null;
 
-  const debouncedSubmit = debounce(submit, 300);
+  onUnmounted(() => {
+    if (submitTimeout) {
+      clearTimeout(submitTimeout);
+    }
+  });
 
   function resetForm() {
     details.value = { ...initialDetails };
@@ -211,13 +226,19 @@
       </div>
 
       <!-- Duplicate Warning Modal -->
-      <dialog :class="['modal', { 'modal-open': showDuplicateWarning }]">
+      <dialog
+        :class="['modal', { 'modal-open': showDuplicateWarning }]"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="duplicate-dialog-title"
+        aria-describedby="duplicate-dialog-description"
+      >
         <div class="modal-box max-w-2xl">
-          <h3 class="font-bold text-lg flex items-center gap-2">
+          <h3 id="duplicate-dialog-title" class="font-bold text-lg flex items-center gap-2">
             <i class="fas fa-exclamation-triangle text-warning"></i>
             {{ t('duplicate.title') }}
           </h3>
-          <p class="py-4">{{ t('duplicate.message') }}</p>
+          <p id="duplicate-dialog-description" class="py-4">{{ t('duplicate.message') }}</p>
 
           <div class="space-y-3 max-h-60 overflow-y-auto">
             <div
@@ -413,10 +434,10 @@
             </div>
 
             <button
+              type="submit"
               class="btn btn-primary btn-lg"
               :class="{ 'btn-disabled': !validateForm() }"
               :disabled="processing || checkingDuplicates"
-              @click="debouncedSubmit()"
             >
               <i class="fad fa-paper-plane mr-2" v-if="!processing && !checkingDuplicates"></i>
               <span class="loading loading-spinner" v-if="processing || checkingDuplicates"></span>
@@ -650,6 +671,336 @@
     },
     "checking_duplicates": "Vérification des doublons...",
     "submit_button": "Soumettre la couleur"
+  },
+  "it": {
+    "title": "Invia un nuovo colore",
+    "success": {
+      "thank_you": "Grazie!",
+      "submitted_message": "La tua proposta di colore è stata ricevuta. Attendi 1-2 giorni per la revisione.",
+      "submission_id": "ID di invio:",
+      "pending_review": "La tua proposta è in attesa di revisione da parte di un amministratore. Una volta approvata, apparirà nel database dei colori.",
+      "submit_another": "Invia un altro colore"
+    },
+    "validation": {
+      "required": "Questo campo è obbligatorio",
+      "invalid_email": "Indirizzo email non valido"
+    },
+    "sections": {
+      "personal_info": "Le tue informazioni",
+      "color_details": "Dettagli del colore"
+    },
+    "form_labels": {
+      "your_name": "Il tuo nome",
+      "your_email": "La tua email",
+      "color_name": "Nome del colore",
+      "bmc_code": "Codice BMC",
+      "short_code": "Codice breve",
+      "ditzler_ppg_code": "Codice Ditzler/PPG",
+      "dulux_code": "Codice Dulux",
+      "years_used": "Anni utilizzati"
+    },
+    "placeholders": {
+      "name": "es. Mario Rossi",
+      "email": "es. mario{'@'}esempio.it",
+      "color_name": "es. Blu Clipper",
+      "bmc_code": "es. GR29",
+      "short_code": "es. BLVC47",
+      "ditzler_ppg_code": "es. 2706",
+      "dulux_code": "es. 23-3632",
+      "years_used": "es. 1959-1967"
+    },
+    "duplicate": {
+      "title": "Possibile duplicato trovato",
+      "message": "Abbiamo trovato uno o più colori esistenti che potrebbero corrispondere alla tua proposta. Controlla le corrispondenze qui sotto e modifica il colore esistente o conferma che la tua proposta è un nuovo colore.",
+      "code": "Codice",
+      "short_code": "Codice breve",
+      "edit_existing": "Modifica questo",
+      "cancel": "Annulla",
+      "submit_anyway": "Invia come nuovo colore"
+    },
+    "error": {
+      "title": "Errore di invio",
+      "message": "Si è verificato un problema durante l'invio del tuo colore. Riprova più tardi.",
+      "dismiss": "Chiudi",
+      "api_unavailable": "L'API non è attualmente disponibile. Riprova più tardi."
+    },
+    "checking_duplicates": "Controllo duplicati...",
+    "submit_button": "Invia colore"
+  },
+  "pt": {
+    "title": "Enviar uma nova cor",
+    "success": {
+      "thank_you": "Obrigado!",
+      "submitted_message": "O seu envio de cor foi recebido. Aguarde 1-2 dias para revisão.",
+      "submission_id": "ID de envio:",
+      "pending_review": "O seu envio está pendente de revisão por um administrador. Uma vez aprovado, aparecerá na base de dados de cores.",
+      "submit_another": "Enviar outra cor"
+    },
+    "validation": {
+      "required": "Este campo é obrigatório",
+      "invalid_email": "Endereço de email inválido"
+    },
+    "sections": {
+      "personal_info": "Suas informações",
+      "color_details": "Detalhes da cor"
+    },
+    "form_labels": {
+      "your_name": "Seu nome",
+      "your_email": "Seu email",
+      "color_name": "Nome da cor",
+      "bmc_code": "Código BMC",
+      "short_code": "Código curto",
+      "ditzler_ppg_code": "Código Ditzler/PPG",
+      "dulux_code": "Código Dulux",
+      "years_used": "Anos utilizados"
+    },
+    "placeholders": {
+      "name": "ex. João Silva",
+      "email": "ex. joao{'@'}exemplo.com",
+      "color_name": "ex. Azul Clipper",
+      "bmc_code": "ex. GR29",
+      "short_code": "ex. BLVC47",
+      "ditzler_ppg_code": "ex. 2706",
+      "dulux_code": "ex. 23-3632",
+      "years_used": "ex. 1959-1967"
+    },
+    "duplicate": {
+      "title": "Possível duplicado encontrado",
+      "message": "Encontramos uma ou mais cores existentes que podem corresponder ao seu envio. Reveja as correspondências abaixo e edite a cor existente ou confirme que o seu envio é uma nova cor.",
+      "code": "Código",
+      "short_code": "Código curto",
+      "edit_existing": "Editar esta",
+      "cancel": "Cancelar",
+      "submit_anyway": "Enviar como nova cor"
+    },
+    "error": {
+      "title": "Erro de envio",
+      "message": "Houve um problema ao enviar a sua cor. Tente novamente mais tarde.",
+      "dismiss": "Fechar",
+      "api_unavailable": "A API está atualmente indisponível. Tente novamente mais tarde."
+    },
+    "checking_duplicates": "Verificando duplicados...",
+    "submit_button": "Enviar cor"
+  },
+  "ru": {
+    "title": "Отправить новый цвет",
+    "success": {
+      "thank_you": "Спасибо!",
+      "submitted_message": "Ваша заявка на цвет получена. Пожалуйста, подождите 1-2 дня для проверки.",
+      "submission_id": "ID заявки:",
+      "pending_review": "Ваша заявка ожидает проверки администратором. После утверждения она появится в базе данных цветов.",
+      "submit_another": "Отправить другой цвет"
+    },
+    "validation": {
+      "required": "Это поле обязательно",
+      "invalid_email": "Неверный адрес электронной почты"
+    },
+    "sections": {
+      "personal_info": "Ваша информация",
+      "color_details": "Детали цвета"
+    },
+    "form_labels": {
+      "your_name": "Ваше имя",
+      "your_email": "Ваш email",
+      "color_name": "Название цвета",
+      "bmc_code": "Код BMC",
+      "short_code": "Короткий код",
+      "ditzler_ppg_code": "Код Ditzler/PPG",
+      "dulux_code": "Код Dulux",
+      "years_used": "Годы использования"
+    },
+    "placeholders": {
+      "name": "напр. Иван Иванов",
+      "email": "напр. ivan{'@'}example.com",
+      "color_name": "напр. Синий Clipper",
+      "bmc_code": "напр. GR29",
+      "short_code": "напр. BLVC47",
+      "ditzler_ppg_code": "напр. 2706",
+      "dulux_code": "напр. 23-3632",
+      "years_used": "напр. 1959-1967"
+    },
+    "duplicate": {
+      "title": "Обнаружен возможный дубликат",
+      "message": "Мы нашли один или несколько существующих цветов, которые могут совпадать с вашей заявкой. Пожалуйста, просмотрите совпадения ниже и либо отредактируйте существующий цвет, либо подтвердите, что ваша заявка - это новый цвет.",
+      "code": "Код",
+      "short_code": "Короткий код",
+      "edit_existing": "Редактировать",
+      "cancel": "Отмена",
+      "submit_anyway": "Отправить как новый цвет"
+    },
+    "error": {
+      "title": "Ошибка отправки",
+      "message": "Возникла проблема при отправке вашего цвета. Пожалуйста, попробуйте позже.",
+      "dismiss": "Закрыть",
+      "api_unavailable": "API в настоящее время недоступен. Пожалуйста, попробуйте позже."
+    },
+    "checking_duplicates": "Проверка на дубликаты...",
+    "submit_button": "Отправить цвет"
+  },
+  "ja": {
+    "title": "新しいカラーを送信",
+    "success": {
+      "thank_you": "ありがとうございます！",
+      "submitted_message": "カラーの送信を受け付けました。審査には1〜2日かかります。",
+      "submission_id": "送信ID：",
+      "pending_review": "送信内容は管理者による審査待ちです。承認されると、カラーデータベースに表示されます。",
+      "submit_another": "別のカラーを送信"
+    },
+    "validation": {
+      "required": "この項目は必須です",
+      "invalid_email": "無効なメールアドレス"
+    },
+    "sections": {
+      "personal_info": "あなたの情報",
+      "color_details": "カラーの詳細"
+    },
+    "form_labels": {
+      "your_name": "お名前",
+      "your_email": "メールアドレス",
+      "color_name": "カラー名",
+      "bmc_code": "BMCコード",
+      "short_code": "ショートコード",
+      "ditzler_ppg_code": "Ditzler/PPGコード",
+      "dulux_code": "Duluxコード",
+      "years_used": "使用年"
+    },
+    "placeholders": {
+      "name": "例：山田太郎",
+      "email": "例：taro{'@'}example.com",
+      "color_name": "例：クリッパーブルー",
+      "bmc_code": "例：GR29",
+      "short_code": "例：BLVC47",
+      "ditzler_ppg_code": "例：2706",
+      "dulux_code": "例：23-3632",
+      "years_used": "例：1959-1967"
+    },
+    "duplicate": {
+      "title": "重複の可能性が見つかりました",
+      "message": "送信内容と一致する可能性のある既存のカラーが1つ以上見つかりました。以下の一致を確認して、既存のカラーを編集するか、送信が新しいカラーであることを確認してください。",
+      "code": "コード",
+      "short_code": "ショートコード",
+      "edit_existing": "これを編集",
+      "cancel": "キャンセル",
+      "submit_anyway": "新しいカラーとして送信"
+    },
+    "error": {
+      "title": "送信エラー",
+      "message": "カラーの送信中に問題が発生しました。後でもう一度お試しください。",
+      "dismiss": "閉じる",
+      "api_unavailable": "APIは現在利用できません。後でもう一度お試しください。"
+    },
+    "checking_duplicates": "重複を確認中...",
+    "submit_button": "カラーを送信"
+  },
+  "zh": {
+    "title": "提交新颜色",
+    "success": {
+      "thank_you": "谢谢！",
+      "submitted_message": "您的颜色提交已收到。请等待1-2天进行审核。",
+      "submission_id": "提交ID：",
+      "pending_review": "您的提交正在等待管理员审核。一旦获得批准，它将出现在颜色数据库中。",
+      "submit_another": "提交另一个颜色"
+    },
+    "validation": {
+      "required": "此字段为必填项",
+      "invalid_email": "无效的邮箱地址"
+    },
+    "sections": {
+      "personal_info": "您的信息",
+      "color_details": "颜色详情"
+    },
+    "form_labels": {
+      "your_name": "您的姓名",
+      "your_email": "您的邮箱",
+      "color_name": "颜色名称",
+      "bmc_code": "BMC代码",
+      "short_code": "简码",
+      "ditzler_ppg_code": "Ditzler/PPG代码",
+      "dulux_code": "Dulux代码",
+      "years_used": "使用年份"
+    },
+    "placeholders": {
+      "name": "例如：张三",
+      "email": "例如：zhang{'@'}example.com",
+      "color_name": "例如：快船蓝",
+      "bmc_code": "例如：GR29",
+      "short_code": "例如：BLVC47",
+      "ditzler_ppg_code": "例如：2706",
+      "dulux_code": "例如：23-3632",
+      "years_used": "例如：1959-1967"
+    },
+    "duplicate": {
+      "title": "发现可能的重复",
+      "message": "我们发现一个或多个可能与您的提交匹配的现有颜色。请查看以下匹配项，然后编辑现有颜色或确认您的提交是新颜色。",
+      "code": "代码",
+      "short_code": "简码",
+      "edit_existing": "编辑此项",
+      "cancel": "取消",
+      "submit_anyway": "作为新颜色提交"
+    },
+    "error": {
+      "title": "提交错误",
+      "message": "提交您的颜色时出现问题。请稍后再试。",
+      "dismiss": "关闭",
+      "api_unavailable": "API当前不可用。请稍后再试。"
+    },
+    "checking_duplicates": "正在检查重复项...",
+    "submit_button": "提交颜色"
+  },
+  "ko": {
+    "title": "새 색상 제출",
+    "success": {
+      "thank_you": "감사합니다!",
+      "submitted_message": "색상 제출이 접수되었습니다. 검토까지 1-2일 정도 소요됩니다.",
+      "submission_id": "제출 ID:",
+      "pending_review": "제출 내용이 관리자 검토 대기 중입니다. 승인되면 색상 데이터베이스에 표시됩니다.",
+      "submit_another": "다른 색상 제출"
+    },
+    "validation": {
+      "required": "이 필드는 필수입니다",
+      "invalid_email": "잘못된 이메일 주소"
+    },
+    "sections": {
+      "personal_info": "귀하의 정보",
+      "color_details": "색상 세부정보"
+    },
+    "form_labels": {
+      "your_name": "이름",
+      "your_email": "이메일",
+      "color_name": "색상 이름",
+      "bmc_code": "BMC 코드",
+      "short_code": "짧은 코드",
+      "ditzler_ppg_code": "Ditzler/PPG 코드",
+      "dulux_code": "Dulux 코드",
+      "years_used": "사용 연도"
+    },
+    "placeholders": {
+      "name": "예: 홍길동",
+      "email": "예: hong{'@'}example.com",
+      "color_name": "예: 클리퍼 블루",
+      "bmc_code": "예: GR29",
+      "short_code": "예: BLVC47",
+      "ditzler_ppg_code": "예: 2706",
+      "dulux_code": "예: 23-3632",
+      "years_used": "예: 1959-1967"
+    },
+    "duplicate": {
+      "title": "중복 가능성 발견",
+      "message": "제출 내용과 일치할 수 있는 기존 색상을 하나 이상 찾았습니다. 아래 일치 항목을 검토하고 기존 색상을 편집하거나 제출이 새 색상임을 확인하세요.",
+      "code": "코드",
+      "short_code": "짧은 코드",
+      "edit_existing": "편집하기",
+      "cancel": "취소",
+      "submit_anyway": "새 색상으로 제출"
+    },
+    "error": {
+      "title": "제출 오류",
+      "message": "색상 제출 중 문제가 발생했습니다. 나중에 다시 시도하세요.",
+      "dismiss": "닫기",
+      "api_unavailable": "API를 현재 사용할 수 없습니다. 나중에 다시 시도하세요."
+    },
+    "checking_duplicates": "중복 확인 중...",
+    "submit_button": "색상 제출"
   }
 }
 </i18n>

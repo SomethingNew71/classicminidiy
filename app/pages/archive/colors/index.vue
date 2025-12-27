@@ -4,8 +4,22 @@
 
   const { data: colors, pending } = await useFetch<Color[]>('/api/colors/list');
   const search = ref('');
+  const debouncedSearch = ref('');
   const currentPage = ref(1);
   const itemsPerPage = 10;
+
+  // Debounce search input for better performance
+  let searchTimeout: ReturnType<typeof setTimeout> | null = null;
+  watch(search, (newValue) => {
+    if (searchTimeout) clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      debouncedSearch.value = newValue;
+    }, 300);
+  });
+
+  onUnmounted(() => {
+    if (searchTimeout) clearTimeout(searchTimeout);
+  });
 
   const tableHeaders = [
     { title: 'Share', key: 'share' },
@@ -21,9 +35,9 @@
 
   const filteredColors = computed(() => {
     if (!colors.value) return [];
-    if (!search.value.trim()) return colors.value;
+    if (!debouncedSearch.value.trim()) return colors.value;
 
-    const searchTerm = search.value.toLowerCase().trim();
+    const searchTerm = debouncedSearch.value.toLowerCase().trim();
     return colors.value.filter(
       (color) =>
         (color.name?.toLowerCase() || '').includes(searchTerm) ||
@@ -53,15 +67,17 @@
           text: `${$t('share.text')} ${color.name || $t('states.unnamed_color')}`,
           url,
         })
-        .catch(console.error);
+        .catch(() => {
+          // User cancelled or share failed - silently handle
+        });
     } else {
       navigator.clipboard.writeText(url);
       alert($t('states.link_copied'));
     }
   };
 
-  // Reset to first page when search changes
-  watch(search, () => {
+  // Reset to first page when debounced search changes
+  watch(debouncedSearch, () => {
     currentPage.value = 1;
   });
 
@@ -166,9 +182,10 @@
                   v-model="search"
                   type="text"
                   :placeholder="$t('search.placeholder')"
+                  :aria-label="$t('search.placeholder')"
                   class="input input-bordered w-full pl-10"
                 />
-                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" aria-hidden="true"></i>
               </div>
             </div>
 
@@ -221,8 +238,12 @@
                     <tr class="hover">
                       <!-- Share Button -->
                       <td>
-                        <button @click="shareColor(color)" class="btn btn-ghost btn-md">
-                          <i class="fas fa-share"></i>
+                        <button
+                          @click="shareColor(color)"
+                          class="btn btn-ghost btn-md"
+                          :aria-label="`Share ${color.name || 'color'}`"
+                        >
+                          <i class="fas fa-share" aria-hidden="true"></i>
                         </button>
                       </td>
 
@@ -303,8 +324,12 @@
 
                       <!-- Edit Button -->
                       <td class="text-center">
-                        <NuxtLink :to="'/archive/colors/contribute?color=' + color.id" class="btn btn-ghost btn-md">
-                          <i class="fas fa-edit"></i>
+                        <NuxtLink
+                          :to="'/archive/colors/contribute?color=' + color.id"
+                          class="btn btn-ghost btn-md"
+                          :aria-label="`Edit ${color.name || 'color'}`"
+                        >
+                          <i class="fas fa-edit" aria-hidden="true"></i>
                         </NuxtLink>
                       </td>
                     </tr>
