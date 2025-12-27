@@ -24,9 +24,9 @@
   const selectedItem = ref<ColorQueueItem | null>(null);
   const showDeleteDialog = ref(false);
 
-  // Editing state
-  const editingItems = ref<Set<string>>(new Set());
-  const editedData = ref<Map<string, ColorQueueItem>>(new Map());
+  // Editing state - using reactive objects instead of Set/Map for proper reactivity
+  const editingItems = reactive<Record<string, boolean>>({});
+  const editedData = reactive<Record<string, ColorQueueItem>>({});
 
   // API Data
   const {
@@ -73,38 +73,42 @@
 
   // Editing functions
   const startEditing = (item: ColorQueueItem) => {
-    editingItems.value.add(item.id);
-    editedData.value.set(item.id, { ...item });
+    editingItems[item.id] = true;
+    editedData[item.id] = { ...item };
   };
 
   const cancelEditing = (item: ColorQueueItem) => {
-    editingItems.value.delete(item.id);
-    editedData.value.delete(item.id);
+    delete editingItems[item.id];
+    delete editedData[item.id];
   };
 
   const saveEditing = (item: ColorQueueItem) => {
-    const editedItem = editedData.value.get(item.id);
+    const editedItem = editedData[item.id];
     if (editedItem && colorItems.value) {
       const index = colorItems.value.findIndex((i) => i.id === item.id);
       if (index !== -1) {
         colorItems.value[index] = { ...editedItem };
       }
     }
-    editingItems.value.delete(item.id);
-    editedData.value.delete(item.id);
+    delete editingItems[item.id];
+    delete editedData[item.id];
   };
 
-  const isEditing = (item: ColorQueueItem) => editingItems.value.has(item.id);
+  const isEditing = (item: ColorQueueItem) => !!editingItems[item.id];
 
   const getEditedValue = (item: ColorQueueItem, field: keyof ColorQueueItem) => {
-    const editedItem = editedData.value.get(item.id);
+    const editedItem = editedData[item.id];
     return editedItem ? editedItem[field] : item[field];
   };
 
-  const updateEditedValue = (item: ColorQueueItem, field: keyof ColorQueueItem, value: any) => {
-    const editedItem = editedData.value.get(item.id);
+  const updateEditedValue = <K extends keyof ColorQueueItem>(
+    item: ColorQueueItem,
+    field: K,
+    value: ColorQueueItem[K]
+  ) => {
+    const editedItem = editedData[item.id];
     if (editedItem) {
-      (editedItem as any)[field] = value;
+      editedItem[field] = value;
     }
   };
 
@@ -116,7 +120,6 @@
       errorMessage.value = '';
     } catch (error) {
       errorMessage.value = 'Failed to refresh data. Please try again.';
-      console.error('Refresh error:', error);
     }
   }
 
@@ -127,7 +130,7 @@
 
     try {
       // Use edited data if available, otherwise use original item
-      const dataToSave = editedData.value.get(item.id) || item;
+      const dataToSave = editedData[item.id] || item;
 
       const { error } = await useFetch('/api/colors/queue/save', {
         method: 'POST',
@@ -138,12 +141,12 @@
       });
 
       if (error.value) {
-        throw new Error(error.value.data?.message || 'Failed to approve item');
+        throw new Error(error.value.data?.message || error.value.statusMessage || 'Failed to approve item');
       }
 
       // Clean up editing state
-      editingItems.value.delete(item.id);
-      editedData.value.delete(item.id);
+      delete editingItems[item.id];
+      delete editedData[item.id];
 
       // Update item status to approved
       if (colorItems.value) {
@@ -154,7 +157,6 @@
       }
     } catch (error) {
       errorMessage.value = error instanceof Error ? error.message : 'Failed to approve item';
-      console.error('Approve error:', error);
     } finally {
       isProcessing.value = false;
       processingItemId.value = null;
@@ -206,7 +208,6 @@
       selectedItem.value = null;
     } catch (error: any) {
       errorMessage.value = error?.data?.message || error?.message || 'Failed to reject item';
-      console.error('Reject error:', error);
     } finally {
       isProcessing.value = false;
       processingItemId.value = null;
@@ -288,6 +289,7 @@
                 v-if="isEditing(item)"
                 type="text"
                 class="input input-sm input-bordered w-full"
+                aria-label="Color name"
                 :value="getEditedValue(item, 'name')"
                 @input="updateEditedValue(item, 'name', ($event.target as HTMLInputElement).value)"
               />
@@ -300,6 +302,7 @@
                 v-if="isEditing(item)"
                 type="text"
                 class="input input-sm input-bordered w-full"
+                aria-label="BMC code"
                 :value="getEditedValue(item, 'code')"
                 @input="updateEditedValue(item, 'code', ($event.target as HTMLInputElement).value)"
               />
@@ -312,6 +315,7 @@
                 v-if="isEditing(item)"
                 type="text"
                 class="input input-sm input-bordered w-full"
+                aria-label="Short code"
                 :value="getEditedValue(item, 'shortCode')"
                 @input="updateEditedValue(item, 'shortCode', ($event.target as HTMLInputElement).value)"
               />
@@ -324,6 +328,7 @@
                 v-if="isEditing(item)"
                 type="text"
                 class="input input-sm input-bordered w-full"
+                aria-label="Ditzler/PPG code"
                 :value="getEditedValue(item, 'ditzlerPpgCode')"
                 @input="updateEditedValue(item, 'ditzlerPpgCode', ($event.target as HTMLInputElement).value)"
               />
@@ -336,6 +341,7 @@
                 v-if="isEditing(item)"
                 type="text"
                 class="input input-sm input-bordered w-full"
+                aria-label="Dulux code"
                 :value="getEditedValue(item, 'duluxCode')"
                 @input="updateEditedValue(item, 'duluxCode', ($event.target as HTMLInputElement).value)"
               />
@@ -348,6 +354,7 @@
                 v-if="isEditing(item)"
                 type="text"
                 class="input input-sm input-bordered w-full"
+                aria-label="Years used"
                 :value="getEditedValue(item, 'years')"
                 @input="updateEditedValue(item, 'years', ($event.target as HTMLInputElement).value)"
               />
@@ -417,10 +424,16 @@
     </div>
 
     <!-- Delete Confirmation Modal -->
-    <dialog :class="['modal', { 'modal-open': showDeleteDialog }]">
+    <dialog
+      :class="['modal', { 'modal-open': showDeleteDialog }]"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="delete-dialog-title"
+      aria-describedby="delete-dialog-description"
+    >
       <div class="modal-box">
-        <h3 class="font-bold text-lg">Confirm Rejection</h3>
-        <p class="py-4">Are you sure you want to reject this color submission? This action cannot be undone.</p>
+        <h3 id="delete-dialog-title" class="font-bold text-lg">Confirm Rejection</h3>
+        <p id="delete-dialog-description" class="py-4">Are you sure you want to reject this color submission? This action cannot be undone.</p>
         <div v-show="selectedItem" class="bg-base-200 p-4 rounded-lg mb-4">
           <p><strong>Color:</strong> {{ selectedItem?.name }} ({{ selectedItem?.code }})</p>
           <p><strong>Submitted by:</strong> {{ selectedItem?.submittedBy || 'Unknown' }}</p>

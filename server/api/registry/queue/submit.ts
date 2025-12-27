@@ -4,7 +4,7 @@ import type { RegistryItem, RegistryQueueSubmissionResponse } from '../../../../
 import { v5 as uuidv5 } from 'uuid';
 import { RegistryItemStatus } from '../../../../data/models/registry';
 
-const CMDIY_NAMEPSACE = 'a48a62bf-fec1-4ed7-9381-a1bf2a08738c';
+const CMDIY_NAMESPACE = 'a48a62bf-fec1-4ed7-9381-a1bf2a08738c';
 
 export default defineEventHandler(async (event): Promise<RegistryQueueSubmissionResponse> => {
   const config = useRuntimeConfig();
@@ -21,7 +21,7 @@ export default defineEventHandler(async (event): Promise<RegistryQueueSubmission
   try {
     const { details } = await readBody<{ details: RegistryItem }>(event);
     validateDetails(details);
-    details.uniqueId = uuidv5(details.submittedBy, CMDIY_NAMEPSACE);
+    details.uniqueId = uuidv5(`${details.submittedBy}-${details.submittedByEmail}-${Date.now()}`, CMDIY_NAMESPACE);
     details.buildDate = '---';
     details.year = Number(details.year);
     details.status = RegistryItemStatus.PENDING;
@@ -51,7 +51,8 @@ function validateDetails(details: RegistryItem): void {
     throw new Error('Invalid or missing submittedBy');
   }
   if (
-    (!details.submittedByEmail || typeof details.submittedByEmail !== 'string') &&
+    !details.submittedByEmail ||
+    typeof details.submittedByEmail !== 'string' ||
     !details.submittedByEmail.includes('@')
   ) {
     throw new Error('Invalid or missing submittedByEmail');
