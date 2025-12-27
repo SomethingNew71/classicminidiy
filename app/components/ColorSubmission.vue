@@ -137,7 +137,8 @@
       if (error.value) {
         submissionSuccess.value = false;
         apiError.value = true;
-        apiMessage.value = error.value.data?.statusMessage || error.value.message || t('error.api_unavailable');
+        const errorData = error.value.data as { statusMessage?: string } | undefined;
+        apiMessage.value = errorData?.statusMessage || error.value.message || t('error.api_unavailable');
         return;
       }
 
@@ -175,14 +176,6 @@
     navigateTo(`/archive/colors/contribute?color=${colorId}`);
   }
 
-  // Cleanup timeout on unmount to prevent memory leaks
-  let submitTimeout: ReturnType<typeof setTimeout> | null = null;
-
-  onUnmounted(() => {
-    if (submitTimeout) {
-      clearTimeout(submitTimeout);
-    }
-  });
 
   function resetForm() {
     details.value = { ...initialDetails };
