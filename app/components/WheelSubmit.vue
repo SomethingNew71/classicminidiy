@@ -56,6 +56,21 @@
   // Available wheel sizes
   const wheelSizes = ['10', '12', '13'];
 
+  // Stepper items for display
+  const stepperItems = computed(() => [
+    t('stepper.wheel_details'),
+    t('stepper.images'),
+    t('stepper.contact_info'),
+    t('stepper.review'),
+    t('stepper.submitted'),
+  ]);
+
+  // Wheel size options for USelect
+  const wheelSizeOptions = wheelSizes.map((size) => ({
+    label: `${size}"`,
+    value: size,
+  }));
+
   // Form validation
   const validateEmail = (value: string) => {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -290,537 +305,460 @@
 <template>
   <div class="container mx-auto px-4 py-6">
     <!-- Stepper -->
-    <ul class="steps w-full mb-8">
-      <li :class="['step', step >= 1 ? 'step-primary' : '']">
-        {{ t('stepper.wheel_details') }}
-      </li>
-      <li :class="['step', step >= 2 ? 'step-primary' : '']">{{ t('stepper.images') }}</li>
-      <li :class="['step', step >= 3 ? 'step-primary' : '']">
-        {{ t('stepper.contact_info') }}
-      </li>
-      <li :class="['step', step >= 4 ? 'step-primary' : '']">{{ t('stepper.review') }}</li>
-      <li :class="['step', step >= 5 ? 'step-primary' : '']">{{ t('stepper.submitted') }}</li>
-    </ul>
+    <div class="flex justify-between items-center mb-8">
+      <div
+        v-for="(stepItem, index) in stepperItems"
+        :key="index"
+        class="flex flex-col items-center flex-1"
+      >
+        <div
+          class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors"
+          :class="step >= index + 1 ? 'bg-primary text-white' : 'bg-muted text-muted'"
+        >
+          {{ index + 1 }}
+        </div>
+        <span class="text-xs mt-1 text-center hidden sm:block" :class="step >= index + 1 ? 'text-primary font-medium' : 'text-muted'">
+          {{ stepItem }}
+        </span>
+        <div v-if="index < stepperItems.length - 1" class="hidden sm:block absolute" />
+      </div>
+    </div>
 
     <!-- Step 1: Wheel Details -->
     <div v-if="step === 1">
-      <div v-if="pageLoad" class="skeleton w-full h-32"></div>
-      <div v-else-if="pageError" class="alert alert-error">
-        <div>
-          <span>{{ errorMessage || t('errors.unable_to_load') }}</span>
-          <button class="btn btn-sm btn-primary ml-4" @click="resetForm">
-            {{ t('errors.start_over') }}
-          </button>
-        </div>
-      </div>
-      <div v-else-if="wheel || newWheel" class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">
+      <USkeleton v-if="pageLoad" class="w-full h-32" />
+      <UAlert v-else-if="pageError" color="error">
+        <template #description>
+          <div class="flex items-center justify-between">
+            <span>{{ errorMessage || t('errors.unable_to_load') }}</span>
+            <UButton size="sm" color="primary" class="ml-4" @click="resetForm">
+              {{ t('errors.start_over') }}
+            </UButton>
+          </div>
+        </template>
+      </UAlert>
+      <UCard v-else-if="wheel || newWheel">
+        <template #header>
+          <h2 class="font-semibold text-lg">
             {{ newWheel ? t('step1.title_new') : t('step1.title_update') }}
           </h2>
+        </template>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Wheel Name -->
-            <div class="form-control">
-              <label class="label" v-if="!newWheel && wheel">
-                <span class="label-text">
-                  {{ t('step1.current_name') }}
-                  <span class="font-semibold">{{ wheel.name || t('step1.no_data') }}</span>
-                </span>
-              </label>
-              <label class="label">
-                <span class="label-text"
-                  >{{ t('step1.wheel_name') }} <span v-if="newWheel" class="text-error">*</span></span
-                >
-              </label>
-              <div class="relative">
-                <input
-                  type="text"
-                  v-model="name"
-                  :placeholder="t('step1.wheel_name_placeholder')"
-                  class="input input-bordered w-full pl-10"
-                  :class="{ 'input-error': isFieldTouched('name') && newWheel && !name.trim() }"
-                  @blur="markFieldAsTouched('name')"
-                />
-                <span class="absolute left-3 top-1/2 -translate-y-1/2">
-                  <i class="fas fa-file-signature text-gray-400"></i>
-                </span>
-              </div>
-              <label class="label" v-if="isFieldTouched('name') && newWheel && !name.trim()">
-                <span class="label-text-alt text-error">{{ t('step1.wheel_name_required') }}</span>
-              </label>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Wheel Name -->
+          <div class="w-full">
+            <p v-if="!newWheel && wheel" class="text-sm text-muted mb-1">
+              {{ t('step1.current_name') }}
+              <span class="font-semibold">{{ wheel.name || t('step1.no_data') }}</span>
+            </p>
+            <label class="flex items-center gap-1 mb-1">
+              <span class="text-sm font-medium">{{ t('step1.wheel_name') }}</span>
+              <span v-if="newWheel" class="text-error">*</span>
+            </label>
+            <UInput
+              v-model="name"
+              :placeholder="t('step1.wheel_name_placeholder')"
+              icon="i-heroicons-document-text"
+              :color="isFieldTouched('name') && newWheel && !name.trim() ? 'error' : undefined"
+              @blur="markFieldAsTouched('name')"
+            />
+            <p v-if="isFieldTouched('name') && newWheel && !name.trim()" class="text-sm text-error mt-1">
+              {{ t('step1.wheel_name_required') }}
+            </p>
+          </div>
 
-            <!-- Wheel Type -->
-            <div class="form-control">
-              <label class="label" v-if="!newWheel && wheel">
-                <span class="label-text">
-                  {{ t('step1.current_type') }}
-                  <span class="font-semibold">{{ wheel.type || t('step1.no_data') }}</span>
-                </span>
-              </label>
-              <label class="label">
-                <span class="label-text">{{ t('step1.wheel_material_type') }}</span>
-              </label>
-              <div class="relative">
-                <input
-                  type="text"
-                  v-model="type"
-                  :placeholder="t('step1.wheel_material_placeholder')"
-                  class="input input-bordered w-full pl-10"
-                />
-                <span class="absolute left-3 top-1/2 -translate-y-1/2">
-                  <i class="fas fa-box-open-full text-gray-400"></i>
-                </span>
-              </div>
-            </div>
+          <!-- Wheel Type -->
+          <div class="w-full">
+            <p v-if="!newWheel && wheel" class="text-sm text-muted mb-1">
+              {{ t('step1.current_type') }}
+              <span class="font-semibold">{{ wheel.type || t('step1.no_data') }}</span>
+            </p>
+            <label class="text-sm font-medium mb-1 block">{{ t('step1.wheel_material_type') }}</label>
+            <UInput
+              v-model="type"
+              :placeholder="t('step1.wheel_material_placeholder')"
+              icon="i-heroicons-cube"
+            />
+          </div>
 
-            <!-- Wheel Width -->
-            <div class="form-control">
-              <label class="label" v-if="!newWheel && wheel">
-                <span class="label-text">
-                  {{ t('step1.current_width') }}
-                  <span class="font-semibold">{{ wheel.width || t('step1.no_data') }}</span>
-                </span>
-              </label>
-              <label class="label">
-                <span class="label-text"
-                  >{{ t('step1.wheel_width') }} <span v-if="newWheel" class="text-error">*</span></span
-                >
-              </label>
-              <div class="relative">
-                <input
-                  type="number"
-                  v-model="width"
-                  :placeholder="t('step1.wheel_width_placeholder')"
-                  class="input input-bordered w-full pl-10"
-                  :class="{ 'input-error': isFieldTouched('width') && newWheel && !width }"
-                  @blur="markFieldAsTouched('width')"
-                />
-                <span class="absolute left-3 top-1/2 -translate-y-1/2">
-                  <i class="fas fa-ruler-horizontal text-gray-400"></i>
-                </span>
-              </div>
-              <label class="label" v-if="isFieldTouched('width') && newWheel && !width">
-                <span class="label-text-alt text-error">{{ t('step1.width_required') }}</span>
-              </label>
-            </div>
+          <!-- Wheel Width -->
+          <div class="w-full">
+            <p v-if="!newWheel && wheel" class="text-sm text-muted mb-1">
+              {{ t('step1.current_width') }}
+              <span class="font-semibold">{{ wheel.width || t('step1.no_data') }}</span>
+            </p>
+            <label class="flex items-center gap-1 mb-1">
+              <span class="text-sm font-medium">{{ t('step1.wheel_width') }}</span>
+              <span v-if="newWheel" class="text-error">*</span>
+            </label>
+            <UInput
+              type="number"
+              v-model="width"
+              :placeholder="t('step1.wheel_width_placeholder')"
+              icon="i-heroicons-arrows-right-left"
+              :color="isFieldTouched('width') && newWheel && !width ? 'error' : undefined"
+              @blur="markFieldAsTouched('width')"
+            />
+            <p v-if="isFieldTouched('width') && newWheel && !width" class="text-sm text-error mt-1">
+              {{ t('step1.width_required') }}
+            </p>
+          </div>
 
-            <!-- Wheel Size -->
-            <div class="form-control">
-              <label class="label" v-if="!newWheel && wheel">
-                <span class="label-text">
-                  {{ t('step1.current_size') }}
-                  <span class="font-semibold">{{ wheel.size || t('step1.no_data') }}</span>
-                </span>
-              </label>
-              <label class="label">
-                <span class="label-text"
-                  >{{ t('step1.wheel_size') }} <span v-if="newWheel" class="text-error">*</span></span
-                >
-              </label>
-              <div class="relative">
-                <select
-                  v-model="size"
-                  class="select select-bordered w-full pl-10"
-                  :class="{ 'select-error': isFieldTouched('size') && newWheel && !size }"
-                  @blur="markFieldAsTouched('size')"
-                >
-                  <option disabled value="">{{ t('step1.wheel_size_placeholder') }}</option>
-                  <option v-for="wheelSize in wheelSizes" :key="wheelSize" :value="wheelSize">{{ wheelSize }}"</option>
-                </select>
-                <span class="absolute left-3 top-1/2 -translate-y-1/2">
-                  <i class="fas fa-ruler text-gray-400"></i>
-                </span>
-              </div>
-              <label class="label">
-                <span class="label-text-alt">{{ t('step1.diameter_inches') }}</span>
-              </label>
-              <label class="label" v-if="isFieldTouched('size') && newWheel && !size">
-                <span class="label-text-alt text-error">{{ t('step1.wheel_size_required') }}</span>
-              </label>
-            </div>
+          <!-- Wheel Size -->
+          <div class="w-full">
+            <p v-if="!newWheel && wheel" class="text-sm text-muted mb-1">
+              {{ t('step1.current_size') }}
+              <span class="font-semibold">{{ wheel.size || t('step1.no_data') }}</span>
+            </p>
+            <label class="flex items-center gap-1 mb-1">
+              <span class="text-sm font-medium">{{ t('step1.wheel_size') }}</span>
+              <span v-if="newWheel" class="text-error">*</span>
+            </label>
+            <USelect
+              v-model="size"
+              :items="wheelSizeOptions"
+              :placeholder="t('step1.wheel_size_placeholder')"
+              :color="isFieldTouched('size') && newWheel && !size ? 'error' : undefined"
+              @blur="markFieldAsTouched('size')"
+            />
+            <p class="text-sm text-muted mt-1">{{ t('step1.diameter_inches') }}</p>
+            <p v-if="isFieldTouched('size') && newWheel && !size" class="text-sm text-error mt-1">
+              {{ t('step1.wheel_size_required') }}
+            </p>
+          </div>
 
-            <!-- Offset -->
-            <div class="form-control">
-              <label class="label" v-if="!newWheel && wheel">
-                <span class="label-text">
-                  {{ t('step1.current_offset') }}
-                  <span class="font-semibold">{{ wheel.offset || t('step1.no_data') }}</span>
-                </span>
-              </label>
-              <label class="label">
-                <span class="label-text">{{ t('step1.offset_info') }}</span>
-              </label>
-              <div class="relative">
-                <input
-                  type="text"
-                  v-model="offset"
-                  :placeholder="t('step1.offset_placeholder')"
-                  class="input input-bordered w-full pl-10"
-                  maxlength="30"
-                />
-                <span class="absolute left-3 top-1/2 -translate-y-1/2">
-                  <i class="fas fa-arrow-right-from-line text-gray-400"></i>
-                </span>
-              </div>
-            </div>
+          <!-- Offset -->
+          <div class="w-full">
+            <p v-if="!newWheel && wheel" class="text-sm text-muted mb-1">
+              {{ t('step1.current_offset') }}
+              <span class="font-semibold">{{ wheel.offset || t('step1.no_data') }}</span>
+            </p>
+            <label class="text-sm font-medium mb-1 block">{{ t('step1.offset_info') }}</label>
+            <UInput
+              v-model="offset"
+              :placeholder="t('step1.offset_placeholder')"
+              icon="i-heroicons-arrow-right"
+              maxlength="30"
+            />
+          </div>
 
-            <!-- Notes -->
-            <div class="form-control col-span-1 md:col-span-2">
-              <label class="label" v-if="!newWheel && wheel">
-                <span class="label-text">
-                  {{ t('step1.current_notes') }}
-                  <span class="font-semibold">{{ wheel.notes || t('step1.no_data') }}</span>
-                </span>
-              </label>
-              <label class="label">
-                <span class="label-text">{{ t('step1.extra_notes') }}</span>
-              </label>
-              <div class="relative">
-                <textarea
-                  v-model="notes"
-                  class="textarea textarea-bordered w-full pl-10"
-                  :placeholder="t('step1.notes_placeholder')"
-                  rows="3"
-                  maxlength="250"
-                ></textarea>
-                <span class="absolute left-3 top-4">
-                  <i class="fas fa-notebook text-gray-400"></i>
-                </span>
-              </div>
-              <label class="label">
-                <span class="label-text-alt">{{ t('step1.characters_count', { count: notes.length }) }}</span>
-              </label>
-            </div>
+          <!-- Notes -->
+          <div class="w-full col-span-1 md:col-span-2">
+            <p v-if="!newWheel && wheel" class="text-sm text-muted mb-1">
+              {{ t('step1.current_notes') }}
+              <span class="font-semibold">{{ wheel.notes || t('step1.no_data') }}</span>
+            </p>
+            <label class="text-sm font-medium mb-1 block">{{ t('step1.extra_notes') }}</label>
+            <UTextarea
+              v-model="notes"
+              :placeholder="t('step1.notes_placeholder')"
+              :rows="3"
+              maxlength="250"
+            />
+            <p class="text-sm text-muted mt-1">{{ t('step1.characters_count', { count: notes.length }) }}</p>
           </div>
         </div>
-      </div>
+      </UCard>
     </div>
 
     <!-- Step 2: Images -->
-    <div v-else-if="step === 2" class="card bg-base-100 shadow-xl">
-      <div class="card-body">
-        <h2 class="card-title">{{ t('step2.title') }}</h2>
+    <UCard v-else-if="step === 2">
+      <template #header>
+        <h2 class="font-semibold text-lg">{{ t('step2.title') }}</h2>
+      </template>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Image Upload -->
-          <div class="form-control">
-            <h3 class="text-xl font-semibold mb-2">{{ t('step2.add_images') }}</h3>
-            <p class="text-sm text-gray-500 mb-4" v-if="newWheel">
-              {{ t('step2.new_wheel_notice') }}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Image Upload -->
+        <div>
+          <h3 class="text-xl font-semibold mb-2">{{ t('step2.add_images') }}</h3>
+          <p class="text-sm text-muted mb-4" v-if="newWheel">
+            {{ t('step2.new_wheel_notice') }}
+          </p>
+
+          <div class="w-full">
+            <label class="flex items-center gap-1 mb-1">
+              <span class="text-sm font-medium">{{ t('step2.upload_label') }}</span>
+              <span v-if="newWheel" class="text-error">*</span>
+            </label>
+            <input
+              type="file"
+              ref="fileInput"
+              class="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/80 cursor-pointer border border-default rounded-lg"
+              accept="image/png, image/jpeg"
+              multiple
+              @change="handleFileChange"
+            />
+            <p class="text-sm text-muted mt-1">{{ t('step2.accepted_formats') }}</p>
+            <p v-if="fileError" class="text-error text-sm mt-1">
+              {{ fileError }}
             </p>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">
-                  {{ t('step2.upload_label') }}
-                  <span v-if="newWheel" class="text-error">*</span>
-                </span>
-              </label>
-              <input
-                type="file"
-                ref="fileInput"
-                class="file-input file-input-bordered w-full"
-                accept="image/png, image/jpeg"
-                multiple
-                @change="handleFileChange"
-              />
-              <label class="label">
-                <span class="label-text-alt">{{ t('step2.accepted_formats') }}</span>
-              </label>
-              <div v-if="fileError" class="text-error text-sm mt-1">
-                {{ fileError }}
-              </div>
-            </div>
-
-            <!-- Files to upload -->
-            <div v-if="dropFiles.length > 0" class="mt-4">
-              <h4 class="font-medium mb-2">
-                {{ t('step2.files_to_upload', { count: dropFiles.length }) }}
-              </h4>
-              <div class="overflow-x-auto">
-                <table class="table table-zebra table-compact w-full">
-                  <tbody>
-                    <tr v-for="(file, index) in dropFiles" :key="index">
-                      <td class="w-10">
-                        <i class="fas fa-image text-gray-400"></i>
-                      </td>
-                      <td class="truncate max-w-[200px]">{{ file.name }}</td>
-                      <td class="text-right">{{ humanFileSize(file.size) }}</td>
-                      <td class="w-10">
-                        <button class="btn btn-ghost btn-xs" @click="dropFiles.splice(index, 1)">
-                          <i class="fas fa-times"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
           </div>
 
-          <!-- Image Preview -->
-          <div>
-            <h3 class="text-xl font-semibold mb-4">
-              {{ newWheel ? t('step2.your_images') : t('step2.existing_images') }}
-            </h3>
-
-            <div v-if="!newWheel && wheel?.images?.length" class="grid grid-cols-2 gap-4">
-              <div v-for="(image, i) in wheel.images" :key="i" class="relative aspect-square">
-                <img :src="image.src" :alt="`Wheel image ${i + 1}`" class="w-full h-full object-cover rounded-lg" />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100"
-                >
-                  <button class="btn btn-ghost btn-sm text-white">
-                    <i class="fas fa-search-plus"></i>
-                  </button>
+          <!-- Files to upload -->
+          <div v-if="dropFiles.length > 0" class="mt-4">
+            <h4 class="font-medium mb-2">
+              {{ t('step2.files_to_upload', { count: dropFiles.length }) }}
+            </h4>
+            <div class="space-y-2">
+              <div
+                v-for="(file, index) in dropFiles"
+                :key="index"
+                class="flex items-center justify-between p-2 bg-muted rounded-lg"
+              >
+                <div class="flex items-center gap-2 min-w-0">
+                  <i class="fas fa-image text-muted shrink-0"></i>
+                  <span class="truncate max-w-50">{{ file.name }}</span>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                  <span class="text-sm text-muted">{{ humanFileSize(file.size) }}</span>
+                  <UButton size="xs" variant="ghost" color="neutral" @click="dropFiles.splice(index, 1)">
+                    <i class="fas fa-times"></i>
+                  </UButton>
                 </div>
               </div>
-            </div>
-
-            <div v-else-if="dropFiles.length > 0" class="grid grid-cols-2 gap-4">
-              <div v-for="(file, i) in dropFiles" :key="i" class="relative aspect-square">
-                <img
-                  :src="URL.createObjectURL(file)"
-                  :alt="`Preview ${i + 1}`"
-                  class="w-full h-full object-cover rounded-lg"
-                />
-                <div
-                  class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100"
-                >
-                  <button class="btn btn-ghost btn-sm text-white" @click="dropFiles.splice(i, 1)">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div v-else class="text-center p-8 border-2 border-dashed rounded-lg">
-              <i class="fas fa-images text-4xl text-gray-300 mb-2"></i>
-              <p class="text-gray-500">{{ t('step2.no_images') }}</p>
             </div>
           </div>
         </div>
+
+        <!-- Image Preview -->
+        <div>
+          <h3 class="text-xl font-semibold mb-4">
+            {{ newWheel ? t('step2.your_images') : t('step2.existing_images') }}
+          </h3>
+
+          <div v-if="!newWheel && wheel?.images?.length" class="grid grid-cols-2 gap-4">
+            <div v-for="(image, i) in wheel.images" :key="i" class="relative aspect-square">
+              <img :src="image.src" :alt="`Wheel image ${i + 1}`" class="w-full h-full object-cover rounded-lg" />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100"
+              >
+                <UButton variant="ghost" size="sm" class="text-white">
+                  <i class="fas fa-search-plus"></i>
+                </UButton>
+              </div>
+            </div>
+          </div>
+
+          <div v-else-if="dropFiles.length > 0" class="grid grid-cols-2 gap-4">
+            <div v-for="(file, i) in dropFiles" :key="i" class="relative aspect-square">
+              <img
+                :src="URL.createObjectURL(file)"
+                :alt="`Preview ${i + 1}`"
+                class="w-full h-full object-cover rounded-lg"
+              />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100"
+              >
+                <UButton variant="ghost" size="sm" class="text-white" @click="dropFiles.splice(i, 1)">
+                  <i class="fas fa-trash"></i>
+                </UButton>
+              </div>
+            </div>
+          </div>
+
+          <div v-else class="text-center p-8 border-2 border-dashed border-default rounded-lg">
+            <i class="fas fa-images text-4xl text-muted mb-2"></i>
+            <p class="text-muted">{{ t('step2.no_images') }}</p>
+          </div>
+        </div>
       </div>
-    </div>
+    </UCard>
     <!-- Step 3: Contact Information -->
-    <div v-else-if="step === 3" class="card bg-base-100 shadow-xl">
-      <div class="card-body">
-        <h2 class="card-title">{{ t('step3.title') }}</h2>
+    <UCard v-else-if="step === 3">
+      <template #header>
+        <h2 class="font-semibold text-lg">{{ t('step3.title') }}</h2>
+      </template>
 
-        <div class="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">{{ t('step3.your_name') }} <span class="text-error">*</span></span>
-            </label>
-            <div class="relative">
-              <input
-                type="text"
-                v-model="userName"
-                :placeholder="t('step3.name_placeholder')"
-                class="input input-bordered w-full pl-10"
-                :class="{ 'input-error': isFieldTouched('userName') && !userName.trim() }"
-                @blur="markFieldAsTouched('userName')"
-                required
-              />
-              <span class="absolute left-3 top-1/2 -translate-y-1/2">
-                <i class="fas fa-user text-gray-400"></i>
-              </span>
-            </div>
-            <label class="label" v-if="isFieldTouched('userName') && !userName.trim()">
-              <span class="label-text-alt text-error">{{ t('step3.name_required') }}</span>
-            </label>
-          </div>
+      <div class="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
+        <div class="w-full">
+          <label class="flex items-center gap-1 mb-1">
+            <span class="text-sm font-medium">{{ t('step3.your_name') }}</span>
+            <span class="text-error">*</span>
+          </label>
+          <UInput
+            v-model="userName"
+            :placeholder="t('step3.name_placeholder')"
+            icon="i-heroicons-user"
+            :color="isFieldTouched('userName') && !userName.trim() ? 'error' : undefined"
+            @blur="markFieldAsTouched('userName')"
+            required
+          />
+          <p v-if="isFieldTouched('userName') && !userName.trim()" class="text-sm text-error mt-1">
+            {{ t('step3.name_required') }}
+          </p>
+        </div>
 
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">{{ t('step3.email_address') }} <span class="text-error">*</span></span>
-            </label>
-            <div class="relative">
-              <input
-                type="email"
-                v-model="emailAddress"
-                :placeholder="t('step3.email_placeholder')"
-                class="input input-bordered w-full pl-10"
-                :class="{
-                  'input-error': isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress),
-                }"
-                @blur="markFieldAsTouched('emailAddress')"
-                required
-              />
-              <span class="absolute left-3 top-1/2 -translate-y-1/2">
-                <i class="fas fa-envelope text-gray-400"></i>
-              </span>
-            </div>
-            <label class="label" v-if="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress)">
-              <span class="label-text-alt text-error">{{ t('step3.email_invalid') }}</span>
-            </label>
-          </div>
+        <div class="w-full">
+          <label class="flex items-center gap-1 mb-1">
+            <span class="text-sm font-medium">{{ t('step3.email_address') }}</span>
+            <span class="text-error">*</span>
+          </label>
+          <UInput
+            type="email"
+            v-model="emailAddress"
+            :placeholder="t('step3.email_placeholder')"
+            icon="i-heroicons-envelope"
+            :color="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress) ? 'error' : undefined"
+            @blur="markFieldAsTouched('emailAddress')"
+            required
+          />
+          <p v-if="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress)" class="text-sm text-error mt-1">
+            {{ t('step3.email_invalid') }}
+          </p>
         </div>
       </div>
-    </div>
+    </UCard>
 
     <!-- Step 4: Review -->
-    <div v-if="step === 4" class="card bg-base-100 shadow-xl">
-      <div class="card-body">
-        <h2 class="card-title">{{ t('step4.title') }}</h2>
+    <UCard v-if="step === 4">
+      <template #header>
+        <h2 class="font-semibold text-lg">{{ t('step4.title') }}</h2>
+      </template>
 
-        <div v-if="!newWheel" class="alert alert-info mb-6">
-          <div>
-            <i class="fas fa-info-circle"></i>
-            <span>{{ t('step4.update_notice') }}</span>
+      <UAlert v-if="!newWheel" color="info" class="mb-6">
+        <template #icon>
+          <i class="fas fa-info-circle"></i>
+        </template>
+        <template #description>{{ t('step4.update_notice') }}</template>
+      </UAlert>
+
+      <div class="space-y-6">
+        <!-- Wheel Details -->
+        <div class="bg-muted rounded-lg p-4">
+          <h3 class="font-semibold text-lg mb-4">{{ t('step4.wheel_details') }}</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <div class="text-sm font-semibold text-muted">{{ t('step4.name') }}</div>
+              <div class="text-base">{{ name || t('step4.not_provided') }}</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-muted">{{ t('step4.type') }}</div>
+              <div class="text-base">{{ type || t('step4.not_provided') }}</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-muted">{{ t('step4.width') }}</div>
+              <div class="text-base">{{ width || t('step4.not_provided') }}</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-muted">{{ t('step4.size') }}</div>
+              <div class="text-base">{{ size || t('step4.not_provided') }}</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-muted">{{ t('step4.offset') }}</div>
+              <div class="text-base">{{ offset || t('step4.not_provided') }}</div>
+            </div>
+            <div class="md:col-span-2">
+              <div class="text-sm font-semibold text-muted">{{ t('step4.notes') }}</div>
+              <div class="text-base whitespace-pre-line">
+                {{ notes || t('step4.no_additional_notes') }}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="space-y-6">
-          <!-- Wheel Details -->
-          <div class="card bg-base-200">
-            <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">{{ t('step4.wheel_details') }}</h3>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.name') }}</div>
-                  <div class="text-base">{{ name || t('step4.not_provided') }}</div>
-                </div>
-                <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.type') }}</div>
-                  <div class="text-base">{{ type || t('step4.not_provided') }}</div>
-                </div>
-                <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.width') }}</div>
-                  <div class="text-base">{{ width || t('step4.not_provided') }}</div>
-                </div>
-                <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.size') }}</div>
-                  <div class="text-base">{{ size || t('step4.not_provided') }}</div>
-                </div>
-                <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.offset') }}</div>
-                  <div class="text-base">{{ offset || t('step4.not_provided') }}</div>
-                </div>
-                <div class="md:col-span-2">
-                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.notes') }}</div>
-                  <div class="text-base whitespace-pre-line">
-                    {{ notes || t('step4.no_additional_notes') }}
-                  </div>
-                </div>
-              </div>
+        <!-- Images -->
+        <div class="bg-muted rounded-lg p-4">
+          <h3 class="font-semibold text-lg mb-4">{{ t('step4.images') }}</h3>
+          <div v-if="dropFiles.length > 0" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <div v-for="(file, i) in dropFiles" :key="i" class="relative aspect-square">
+              <img
+                :src="URL.createObjectURL(file)"
+                :alt="`Preview ${i + 1}`"
+                class="w-full h-full object-cover rounded-lg"
+              />
             </div>
           </div>
-
-          <!-- Images -->
-          <div class="card bg-base-200">
-            <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">{{ t('step4.images') }}</h3>
-              <div v-if="dropFiles.length > 0" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <div v-for="(file, i) in dropFiles" :key="i" class="relative aspect-square">
-                  <img
-                    :src="URL.createObjectURL(file)"
-                    :alt="`Preview ${i + 1}`"
-                    class="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-              </div>
-              <div v-else class="text-center py-8 text-gray-500">
-                <i class="fas fa-images text-3xl mb-2"></i>
-                <p>{{ t('step4.no_images_added') }}</p>
-              </div>
-            </div>
+          <div v-else class="text-center py-8 text-muted">
+            <i class="fas fa-images text-3xl mb-2"></i>
+            <p>{{ t('step4.no_images_added') }}</p>
           </div>
+        </div>
 
-          <!-- Contact Information -->
-          <div class="card bg-base-200">
-            <div class="card-body p-4">
-              <h3 class="card-title text-lg mb-4">{{ t('step4.contact_information') }}</h3>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.name') }}</div>
-                  <div class="text-base">{{ userName }}</div>
-                </div>
-                <div>
-                  <div class="text-sm font-semibold text-gray-500">{{ t('step4.email') }}</div>
-                  <div class="text-base">{{ emailAddress }}</div>
-                </div>
-              </div>
+        <!-- Contact Information -->
+        <div class="bg-muted rounded-lg p-4">
+          <h3 class="font-semibold text-lg mb-4">{{ t('step4.contact_information') }}</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <div class="text-sm font-semibold text-muted">{{ t('step4.name') }}</div>
+              <div class="text-base">{{ userName }}</div>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-muted">{{ t('step4.email') }}</div>
+              <div class="text-base">{{ emailAddress }}</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </UCard>
 
     <!-- Step 5: Submitted -->
-    <div v-else-if="step === 5" class="card bg-base-100 shadow-xl text-center">
-      <div class="card-body">
-        <div class="flex justify-center mb-4">
-          <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-            <i class="fas fa-check text-3xl text-green-500"></i>
-          </div>
+    <UCard v-else-if="step === 5" class="text-center">
+      <div class="flex justify-center mb-4">
+        <div class="w-16 h-16 rounded-full bg-success/10 flex items-center justify-center">
+          <i class="fas fa-check text-3xl text-success"></i>
         </div>
-        <h2 class="card-title justify-center text-3xl">{{ t('step5.thank_you') }}</h2>
-        <p class="text-lg mb-6">{{ t('step5.submission_received') }}</p>
-
-        <div class="bg-base-200 rounded-lg p-4 mb-6 max-w-2xl mx-auto">
-          <p v-if="newWheel" class="mb-2">
-            {{ t('step5.new_wheel_message', { email: emailAddress }) }}
-          </p>
-          <p v-else>
-            {{ t('step5.update_message', { email: emailAddress }) }}
-          </p>
-        </div>
-
-        <button class="btn btn-primary" @click="resetForm">
-          <i class="fas fa-plus-circle mr-2"></i>
-          {{ t('step5.submit_another') }}
-        </button>
       </div>
-    </div>
+      <h2 class="font-bold text-3xl mb-2">{{ t('step5.thank_you') }}</h2>
+      <p class="text-lg mb-6">{{ t('step5.submission_received') }}</p>
+
+      <div class="bg-muted rounded-lg p-4 mb-6 max-w-2xl mx-auto">
+        <p v-if="newWheel" class="mb-2">
+          {{ t('step5.new_wheel_message', { email: emailAddress }) }}
+        </p>
+        <p v-else>
+          {{ t('step5.update_message', { email: emailAddress }) }}
+        </p>
+      </div>
+
+      <UButton color="primary" @click="resetForm">
+        <i class="fas fa-plus-circle mr-2"></i>
+        {{ t('step5.submit_another') }}
+      </UButton>
+    </UCard>
 
     <!-- Error Display -->
-    <div v-if="hasError" class="alert alert-error mt-6">
-      <div>
+    <UAlert v-if="hasError" color="error" class="mt-6">
+      <template #icon>
         <i class="fas fa-exclamation-circle"></i>
-        <span>{{ errorMessage }}</span>
-      </div>
-    </div>
+      </template>
+      <template #description>{{ errorMessage }}</template>
+    </UAlert>
 
     <!-- Success Display -->
-    <div v-if="hasSuccess && step < 5" class="alert alert-success mt-6">
-      <div>
+    <UAlert v-if="hasSuccess && step < 5" color="success" class="mt-6">
+      <template #icon>
         <i class="fas fa-check-circle"></i>
-        <span>{{ t('success.submission_processing') }}</span>
-      </div>
-    </div>
+      </template>
+      <template #description>{{ t('success.submission_processing') }}</template>
+    </UAlert>
 
     <!-- Navigation Buttons -->
     <div class="flex justify-end gap-4 mt-8">
-      <button v-if="step > 1 && step < 5" @click="step--" class="btn btn-ghost" :disabled="loading">
+      <UButton v-if="step > 1 && step < 5" variant="ghost" @click="step--" :disabled="loading">
         <i class="fas fa-arrow-left mr-2"></i>
         {{ t('navigation.back') }}
-      </button>
+      </UButton>
 
-      <button
+      <UButton
         v-if="step < 4"
+        color="primary"
         @click="handleNextStep"
         :disabled="!canProceedToNextStep || loading"
-        class="btn btn-primary"
       >
         {{ t('navigation.next') }}
         <i class="fas fa-arrow-right ml-2"></i>
-      </button>
+      </UButton>
 
-      <button
+      <UButton
         v-else-if="step === 4"
+        color="primary"
         @click="submitForm"
         :disabled="!canProceedToNextStep || loading"
-        :class="['btn', 'btn-primary', { loading: loading }]"
+        :loading="loading"
       >
-        <span v-if="!loading">
-          <i class="fas fa-paper-plane mr-2"></i>
-          {{ t('navigation.submit') }}
-        </span>
-        <span v-else>{{ t('navigation.submitting') }}</span>
-      </button>
+        <i class="fas fa-paper-plane mr-2" v-if="!loading"></i>
+        {{ loading ? t('navigation.submitting') : t('navigation.submit') }}
+      </UButton>
     </div>
   </div>
 </template>

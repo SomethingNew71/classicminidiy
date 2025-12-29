@@ -47,38 +47,25 @@
 </script>
 
 <template>
-  <div class="dropdown dropdown-end flex-shrink-0">
-    <div
-      tabindex="0"
-      role="button"
-      class="btn btn-ghost btn-sm w-20"
+  <UDropdownMenu
+    :items="availableLocales.map(loc => ({
+      label: getLanguageName(loc.code),
+      click: () => handleLanguageChange(loc.code)
+    }))"
+    :aria-label="t('language_menu_aria')"
+  >
+    <UButton
+      variant="ghost"
+      size="sm"
+      class="w-20"
       :aria-label="t('language_button_aria')"
       :title="t('language_button_title')"
     >
-      <i class="fad fa-globe flex-shrink-0"></i>
+      <i class="fad fa-globe shrink-0"></i>
       <span class="text-xs font-medium">{{ currentLocale?.code?.toUpperCase() || 'EN' }}</span>
-      <i class="fad fa-chevron-down text-xs flex-shrink-0"></i>
-    </div>
-    <ul
-      tabindex="0"
-      class="dropdown-content menu bg-base-100 rounded-box z-[1] mt-1 w-40 p-2 shadow"
-      :aria-label="t('language_menu_aria')"
-    >
-      <li v-for="locale in availableLocales" :key="locale.code">
-        <a
-          href="#"
-          @click.prevent.stop="
-            handleLanguageChange(locale.code);
-            closeDropdown();
-          "
-          class="text-sm"
-          :title="t('switch_to_language', { language: getLanguageName(locale.code) })"
-        >
-          {{ getLanguageName(locale.code) }}
-        </a>
-      </li>
-    </ul>
-  </div>
+      <i class="fad fa-chevron-down text-xs shrink-0"></i>
+    </UButton>
+  </UDropdownMenu>
 </template>
 
 <i18n lang="json">

@@ -1,7 +1,7 @@
 <template>
-  <div class="mb-6 group flex justify-end">
+  <div class="mb-6 group flex flex-col items-end">
     <!-- Message content -->
-    <div v-if="contentString" class="bg-primary text-primary-content rounded-2xl px-4 py-3 max-w-[80%] ml-auto">
+    <div v-if="contentString" class="bg-primary text-white rounded-2xl px-4 py-3 max-w-[80%]">
       <div class="whitespace-pre-wrap">
         {{ contentString }}
       </div>
@@ -9,10 +9,10 @@
 
     <!-- Action buttons (shown on hover) -->
     <div class="flex items-center gap-2 mt-2 opacity-0 transition-opacity group-hover:opacity-100 justify-end">
-      <button @click="copyToClipboard(contentString)" class="btn btn-xs btn-ghost text-base-content/50">
-        <i class="fa-solid fa-copy h-3 w-3" />
+      <UButton @click="copyToClipboard(contentString)" size="xs" variant="ghost" color="neutral">
+        <i class="fa-solid fa-copy h-3 w-3 mr-1" />
         {{ t('copy_button') }}
-      </button>
+      </UButton>
     </div>
   </div>
 </template>

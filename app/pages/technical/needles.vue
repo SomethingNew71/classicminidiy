@@ -101,15 +101,15 @@
         <ClientOnly fallback-tag="div" :fallback="$t('ui.loading_fallback')">
           <div class="min-h-96 flex items-center justify-center" v-if="!isCalculatorLoaded">
             <div class="flex flex-col items-center space-y-4">
-              <span class="loading loading-spinner loading-lg text-primary"></span>
-              <p class="text-base-content/70">{{ $t('ui.loading_text') }}</p>
+              <span class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></span>
+              <p class="opacity-70">{{ $t('ui.loading_text') }}</p>
             </div>
           </div>
           <LazyCalculatorsNeedles @vue:mounted="isCalculatorLoaded = true" />
         </ClientOnly>
       </div>
       <div class="col-span-12">
-        <div class="divider">{{ $t('ui.needle_charts_section') }}</div>
+        <USeparator :label="$t('ui.needle_charts_section')" />
       </div>
       <div class="col-span-12 text-center">
         <h2 class="fancy-font-book text-2xl">{{ $t('ui.find_needle_heading') }}</h2>
@@ -127,7 +127,7 @@
         <NeedleTable />
       </div>
       <div class="col-span-12">
-        <div class="divider">{{ $t('ui.support_section') }}</div>
+        <USeparator :label="$t('ui.support_section')" />
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />

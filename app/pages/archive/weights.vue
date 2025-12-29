@@ -74,10 +74,10 @@
             <p class="mb-6">
               {{ $t('description_text') }}
             </p>
-            <NuxtLink to="/contact" class="btn btn-outline mb-6">
+            <UButton to="/contact" variant="outline" class="mb-6">
               <i class="fas fa-paper-plane mr-2"></i>
               {{ $t('contact_button') }}
-            </NuxtLink>
+            </UButton>
           </div>
         </div>
       </div>
@@ -85,68 +85,56 @@
       <div class="col-span-12">
         <!-- Loading state -->
         <div v-if="status === 'pending'" class="space-y-4">
-          <div class="skeleton h-12 w-full"></div>
-          <div class="skeleton h-12 w-full"></div>
-          <div class="skeleton h-12 w-full"></div>
+          <USkeleton class="h-12 w-full" />
+          <USkeleton class="h-12 w-full" />
+          <USkeleton class="h-12 w-full" />
         </div>
 
         <!-- Content when loaded -->
         <div v-if="tables && status !== 'pending'" class="space-y-6">
-          <div
-            v-for="(table, name, index) in tables"
-            :key="`${name}-${index}`"
-            class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
+          <UAccordion
+            :items="Object.entries(tables || {}).map(([name, table]) => ({ label: table.title, value: name, table }))"
+            multiple
           >
-            <!-- Accordion header -->
-            <input
-              type="checkbox"
-              :checked="table.title === activePanel"
-              @change="activePanel = activePanel === table.title ? null : table.title"
-            />
-            <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
-              {{ table.title }}
-            </div>
-
-            <!-- Accordion content -->
-            <div class="collapse-content">
+            <template #body="{ item }">
               <!-- Search field -->
               <div class="flex justify-end mb-4 mt-4">
-                <div class="form-control w-full max-w-xs">
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      :placeholder="$t('search_placeholder')"
-                      v-model="tableSearchQueries[name]"
-                      class="input input-bordered w-full input-md"
-                    />
-                  </div>
+                <div class="w-full max-w-xs">
+                  <UInput
+                    type="text"
+                    :placeholder="$t('search_placeholder')"
+                    v-model="tableSearchQueries[item.value]"
+                    icon="i-heroicons-magnifying-glass"
+                  />
                 </div>
               </div>
 
               <!-- Table -->
               <div class="overflow-x-auto">
-                <table class="table table-sm table-pin-rows table-zebra w-full">
+                <table class="w-full text-sm">
                   <!-- Table header -->
                   <thead>
-                    <tr>
-                      <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>
+                    <tr class="border-b border-default">
+                      <th v-for="header in tableHeaders" :key="header.key" class="text-left p-2 font-medium">
+                        {{ header.title }}
+                      </th>
                     </tr>
                   </thead>
 
                   <!-- Table body -->
                   <tbody>
-                    <template v-for="item in filterItems(table.items, name)" :key="itemIndex">
-                      <tr class="hover">
-                        <td>{{ item.item }}</td>
-                        <td>{{ item.weight || '---' }}</td>
-                        <td>{{ convertKgToLbs(item.weight) }}</td>
+                    <template v-for="(tableItem, itemIndex) in filterItems(item.table.items, item.value)" :key="itemIndex">
+                      <tr class="border-b border-default last:border-0 hover:bg-muted transition-colors">
+                        <td class="p-2">{{ tableItem.item }}</td>
+                        <td class="p-2">{{ tableItem.weight || '---' }}</td>
+                        <td class="p-2">{{ convertKgToLbs(tableItem.weight) }}</td>
                       </tr>
                     </template>
                   </tbody>
                 </table>
               </div>
-            </div>
-          </div>
+            </template>
+          </UAccordion>
         </div>
       </div>
 
@@ -158,43 +146,6 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-  .divider {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-
-    &:before,
-    &:after {
-      flex-grow: 1;
-      background-color: hsl(var(--b3));
-      height: 1px;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      content: '';
-    }
-  }
-
-  .skeleton {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    background-color: hsl(var(--b3));
-    border-radius: 0.25rem;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-</style>
 
 <i18n lang="json">
 {

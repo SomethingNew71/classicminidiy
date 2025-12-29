@@ -1,11 +1,11 @@
 <template>
   <div v-if="message" class="mb-6 group">
     <!-- Loading state -->
-    <div v-if="isLoading && !message" class="flex items-center gap-2 text-base-content/70 mb-2">
+    <div v-if="isLoading && !message" class="flex items-center gap-2 text-muted mb-2">
       <div class="flex items-center gap-1">
-        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50"></div>
-        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-500"></div>
-        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-1000"></div>
+        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-muted"></div>
+        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-muted animation-delay-500"></div>
+        <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-muted animation-delay-1000"></div>
       </div>
     </div>
 
@@ -16,11 +16,11 @@
 
     <!-- Copy button (appears on hover) -->
     <div class="flex items-center gap-2 mt-2 opacity-0 transition-opacity group-hover:opacity-100">
-      <button @click="copyToClipboard(contentString)" class="btn btn-xs btn-ghost text-base-content/50">
-        <i class="fa-solid fa-copy h-3 w-3" />
+      <UButton @click="copyToClipboard(contentString)" size="xs" variant="ghost" color="neutral">
+        <i class="fa-solid fa-copy h-3 w-3 mr-1" />
         {{ t('copy_button') }}
-      </button>
-      <time v-if="message?.created_at" class="text-xs text-base-content/50">{{ formatTime(message?.created_at) }}</time>
+      </UButton>
+      <time v-if="message?.created_at" class="text-xs text-muted">{{ formatTime(message?.created_at) }}</time>
     </div>
   </div>
 </template>

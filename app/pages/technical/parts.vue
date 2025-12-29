@@ -123,99 +123,93 @@
       </div>
       <div class="col-span-12 md:col-span-4">
         <a @click="scrollToSubmissions" :title="$t('contact_card.link_title')" class="block cursor-pointer">
-          <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
-            <div class="card-body">
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0">
-                  <div class="w-16 h-16 flex items-center justify-center">
-                    <i class="fas fa-envelope text-4xl text-primary"></i>
-                  </div>
-                </div>
-                <div>
-                  <h2 class="text-xl font-semibold">
-                    {{ $t('contact_card.heading') }}
-                  </h2>
-                  <p class="mt-1">{{ $t('contact_card.description') }}</p>
+          <UCard class="hover:shadow-lg transition-shadow">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 flex items-center justify-center">
+                  <i class="fas fa-envelope text-4xl text-primary"></i>
                 </div>
               </div>
+              <div>
+                <h2 class="text-xl font-semibold">
+                  {{ $t('contact_card.heading') }}
+                </h2>
+                <p class="mt-1">{{ $t('contact_card.description') }}</p>
+              </div>
             </div>
-          </div>
+          </UCard>
         </a>
       </div>
     </div>
 
-    <div class="space-y-6">
-      <div
+    <div class="space-y-4">
+      <UCollapsible
         v-for="(table, name, index) in tables"
         :key="`${name}-${index}`"
-        class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
+        :default-open="activePanels[table.title]"
+        class="border border-muted rounded-lg overflow-hidden"
       >
-        <input type="checkbox" :checked="activePanels[table.title]" @change="togglePanel(table.title)" />
-        <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
-          {{ table.title }}
-        </div>
-        <div class="collapse-content">
+        <template #trigger>
+          <div class="flex items-center justify-between w-full px-4 py-3 bg-primary text-primary-content font-semibold text-xl">
+            <span>{{ table.title }}</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </div>
+        </template>
+        <div class="p-4 bg-muted/50">
           <!-- Search field -->
-          <div class="flex justify-end mb-4 mt-4">
-            <div class="form-control w-full max-w-xs">
-              <div class="input-group">
-                <input
-                  type="text"
-                  v-model="searchValue"
-                  :placeholder="$t('ui.search_placeholder')"
-                  class="input input-bordered input-md w-full"
-                />
-              </div>
-            </div>
+          <div class="flex justify-end mb-4">
+            <UInput
+              v-model="searchValue"
+              :placeholder="$t('ui.search_placeholder')"
+              class="w-full max-w-xs"
+            />
           </div>
 
           <div class="w-full overflow-x-auto">
             <UTable :data="filterItems(table.items)" :columns="tableColumns" class="w-full min-w-full" />
           </div>
         </div>
-      </div>
+      </UCollapsible>
     </div>
 
     <!-- Contact Section for Submissions -->
-    <div class="divider my-12">{{ $t('ui.submissions_section') }}</div>
+    <USeparator :label="$t('ui.submissions_section')" class="my-12" />
     <div id="submissions-section" class="mb-8">
-      <div class="card bg-base-100 shadow-lg">
-        <div class="card-body">
-          <div class="text-center">
-            <div class="mb-4">
-              <i class="fas fa-plus-circle text-6xl text-primary"></i>
-            </div>
-            <h2 class="text-2xl font-bold mb-4">{{ $t('submissions.heading') }}</h2>
-            <p class="text-lg mb-6">{{ $t('submissions.description') }}</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div class="text-left">
-                <h3 class="font-semibold text-lg mb-2">{{ $t('submissions.what_to_include.heading') }}</h3>
-                <ul class="list-disc list-inside space-y-1">
-                  <li>{{ $t('submissions.what_to_include.brand') }}</li>
-                  <li>{{ $t('submissions.what_to_include.part_number') }}</li>
-                  <li>{{ $t('submissions.what_to_include.fits') }}</li>
-                  <li>{{ $t('submissions.what_to_include.store') }}</li>
-                </ul>
-              </div>
-              <div class="text-left">
-                <h3 class="font-semibold text-lg mb-2">{{ $t('submissions.examples.heading') }}</h3>
-                <ul class="list-disc list-inside space-y-1">
-                  <li>{{ $t('submissions.examples.oil_filter') }}</li>
-                  <li>{{ $t('submissions.examples.spark_plug') }}</li>
-                  <li>{{ $t('submissions.examples.brake_pad') }}</li>
-                </ul>
-              </div>
-            </div>
-            <a :href="mailtoLink" class="btn btn-primary btn-lg">
-              <i class="fas fa-envelope mr-2"></i>
-              {{ $t('submissions.submit_button') }}
-            </a>
+      <UCard>
+        <div class="text-center">
+          <div class="mb-4">
+            <i class="fas fa-plus-circle text-6xl text-primary"></i>
           </div>
+          <h2 class="text-2xl font-bold mb-4">{{ $t('submissions.heading') }}</h2>
+          <p class="text-lg mb-6">{{ $t('submissions.description') }}</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="text-left">
+              <h3 class="font-semibold text-lg mb-2">{{ $t('submissions.what_to_include.heading') }}</h3>
+              <ul class="list-disc list-inside space-y-1">
+                <li>{{ $t('submissions.what_to_include.brand') }}</li>
+                <li>{{ $t('submissions.what_to_include.part_number') }}</li>
+                <li>{{ $t('submissions.what_to_include.fits') }}</li>
+                <li>{{ $t('submissions.what_to_include.store') }}</li>
+              </ul>
+            </div>
+            <div class="text-left">
+              <h3 class="font-semibold text-lg mb-2">{{ $t('submissions.examples.heading') }}</h3>
+              <ul class="list-disc list-inside space-y-1">
+                <li>{{ $t('submissions.examples.oil_filter') }}</li>
+                <li>{{ $t('submissions.examples.spark_plug') }}</li>
+                <li>{{ $t('submissions.examples.brake_pad') }}</li>
+              </ul>
+            </div>
+          </div>
+          <UButton :to="mailtoLink" color="primary" size="lg">
+            <i class="fas fa-envelope mr-2"></i>
+            {{ $t('submissions.submit_button') }}
+          </UButton>
         </div>
-      </div>
+      </UCard>
     </div>
 
-    <div class="divider my-12">{{ $t('ui.support_section') }}</div>
+    <USeparator :label="$t('ui.support_section')" class="my-12" />
     <div class="mb-8">
       <patreon-card size="large" />
     </div>

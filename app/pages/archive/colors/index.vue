@@ -121,252 +121,255 @@
             </h2>
             <p class="my-4">
               {{ $t('description_text') }}
-              <a href="http://mini-colours.co.uk" class="link link-primary">{{ $t('partner_link') }}</a>
+              <a href="http://mini-colours.co.uk" class="text-primary hover:underline">{{ $t('partner_link') }}</a>
               {{ $t('description_text_2') }}
             </p>
           </div>
           <div class="col-span-12 md:col-span-4">
             <a href="#submitAnchor" class="block">
-              <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                <div class="card-body">
-                  <div class="flex items-start space-x-4">
-                    <div class="shrink-0">
-                      <figure class="w-16 h-16">
-                        <picture>
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-palette-100.webp"
-                            type="image/webp"
-                          />
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-palette-100.png"
-                            type="image/png"
-                          />
-                          <nuxt-img
-                            loading="lazy"
-                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-palette-100.png"
-                            :alt="$t('submit_card.alt_text')"
-                            class="w-16 h-16"
-                          />
-                        </picture>
-                      </figure>
-                    </div>
-                    <div>
-                      <h2 class="card-title">{{ $t('submit_card.title') }}</h2>
-                      <p>
-                        {{ $t('submit_card.description') }}
-                      </p>
-                    </div>
+              <UCard class="hover:shadow-lg transition-shadow duration-300">
+                <div class="flex items-start space-x-4">
+                  <div class="shrink-0">
+                    <figure class="w-16 h-16">
+                      <picture>
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-palette-100.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-palette-100.png"
+                          type="image/png"
+                        />
+                        <nuxt-img
+                          loading="lazy"
+                          src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-palette-100.png"
+                          :alt="$t('submit_card.alt_text')"
+                          class="w-16 h-16"
+                        />
+                      </picture>
+                    </figure>
+                  </div>
+                  <div>
+                    <h2 class="font-semibold text-lg">{{ $t('submit_card.title') }}</h2>
+                    <p>
+                      {{ $t('submit_card.description') }}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </UCard>
             </a>
           </div>
         </div>
       </div>
       <div class="col-span-12">
-        <div class="divider"></div>
+        <USeparator class="my-4" />
       </div>
 
       <!-- Search and Table Card -->
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="card bg-base-100 shadow-xl mb-8">
-          <div class="card-body p-0">
-            <!-- Card Header with Search -->
-            <div class="p-4 border-b border-base-300 flex flex-col md:flex-row justify-between items-center gap-4">
+        <UCard class="mb-8">
+          <template #header>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
               <div class="flex items-center gap-2">
                 <i class="fas fa-tire fa-spin text-primary text-2xl"></i>
                 <h2 class="text-2xl font-semibold">{{ $t('search.card_title') }}</h2>
               </div>
-              <div class="relative w-full md:w-96">
-                <input
+              <div class="w-full md:w-96">
+                <UInput
                   v-model="search"
                   type="text"
                   :placeholder="$t('search.placeholder')"
                   :aria-label="$t('search.placeholder')"
-                  class="input input-bordered w-full pl-10"
+                  icon="i-heroicons-magnifying-glass"
+                  class="w-full"
                 />
-                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" aria-hidden="true"></i>
               </div>
             </div>
+          </template>
 
-            <!-- Help Text -->
-            <div class="p-4">
-              <p class="text-base">
-                {{ $t('search.help_text') }}
-              </p>
-            </div>
+          <!-- Help Text -->
+          <p class="text-base mb-4">
+            {{ $t('search.help_text') }}
+          </p>
 
-            <!-- Table -->
-            <div class="overflow-x-auto">
-              <table class="table w-full">
-                <thead>
-                  <tr>
-                    <th
-                      v-for="header in tableHeaders"
-                      :key="header.key"
-                      class="bg-base-200"
-                      :class="{ 'text-center': header.key === 'edit' }"
-                    >
-                      {{ header.title }}
-                    </th>
+          <!-- Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-default">
+                  <th
+                    v-for="header in tableHeaders"
+                    :key="header.key"
+                    class="text-left p-2 font-medium bg-muted"
+                    :class="{ 'text-center': header.key === 'edit' }"
+                  >
+                    {{ header.title }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Loading State -->
+                <template v-if="pending">
+                  <tr v-for="i in 5" :key="'skeleton-' + i" class="border-b border-default last:border-0">
+                    <td v-for="header in tableHeaders" :key="header.key" class="p-2">
+                      <USkeleton class="h-4 w-3/4" />
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  <!-- Loading State -->
-                  <template v-if="pending">
-                    <tr v-for="i in 5" :key="'skeleton-' + i">
-                      <td v-for="header in tableHeaders" :key="header.key">
-                        <div class="skeleton h-4 w-3/4"></div>
-                      </td>
-                    </tr>
-                  </template>
+                </template>
 
-                  <!-- Empty State -->
-                  <template v-else-if="!filteredColors.length">
-                    <tr>
-                      <td :colspan="tableHeaders.length" class="text-center p-8">
-                        <div class="alert alert-info">
-                          <i class="fas fa-info-circle mr-2"></i>
-                          {{ $t('states.no_colors') }}
+                <!-- Empty State -->
+                <template v-else-if="!filteredColors.length">
+                  <tr>
+                    <td :colspan="tableHeaders.length" class="text-center p-8">
+                      <UAlert
+                        color="info"
+                        icon="i-heroicons-information-circle"
+                        :title="$t('states.no_colors')"
+                      />
+                    </td>
+                  </tr>
+                </template>
+
+                <!-- Data Rows -->
+                <template v-else v-for="color in paginatedColors" :key="color.id">
+                  <tr class="border-b border-default last:border-0 hover:bg-muted transition-colors">
+                    <!-- Share Button -->
+                    <td class="p-2">
+                      <UButton
+                        @click="shareColor(color)"
+                        variant="ghost"
+                        size="md"
+                        :aria-label="`Share ${color.name || 'color'}`"
+                      >
+                        <i class="fas fa-share" aria-hidden="true"></i>
+                      </UButton>
+                    </td>
+
+                    <!-- Color Name -->
+                    <td class="p-2">
+                      <NuxtLink :to="'/archive/colors/' + color.id" class="text-primary hover:underline">
+                        {{ color.name || $t('states.unnamed_color') }}
+                      </NuxtLink>
+                    </td>
+
+                    <!-- Color Swatch -->
+                    <td class="p-2">
+                      <div class="inline-block">
+                        <picture v-if="color.hasSwatch">
+                          <source
+                            :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.code}.webp`"
+                            type="image/webp"
+                          />
+                          <source
+                            :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.code}.jpg`"
+                            type="image/jpeg"
+                          />
+                          <img
+                            loading="lazy"
+                            width="40"
+                            height="40"
+                            :alt="`${color.name || 'Color'} swatch`"
+                            :src="`https://classicminidiy.s3.amazonaws.com/colors/${color.code}.jpg`"
+                            class="w-10 h-10 object-cover rounded border border-default"
+                          />
+                        </picture>
+
+                        <div v-else class="w-10 h-10 flex items-center justify-center">
+                          <i class="fa-regular fa-square-xmark text-4xl text-gray-400"></i>
                         </div>
-                      </td>
-                    </tr>
-                  </template>
+                      </div>
+                    </td>
 
-                  <!-- Data Rows -->
-                  <template v-else v-for="color in paginatedColors" :key="color.id">
-                    <tr class="hover">
-                      <!-- Share Button -->
-                      <td>
-                        <button
-                          @click="shareColor(color)"
-                          class="btn btn-ghost btn-md"
-                          :aria-label="`Share ${color.name || 'color'}`"
-                        >
-                          <i class="fas fa-share" aria-hidden="true"></i>
-                        </button>
-                      </td>
+                    <!-- Short Code -->
+                    <td class="p-2">
+                      <span v-if="color.shortCode && color.shortCode !== 'Unknown'" class="font-medium">
+                        {{ color.shortCode }}
+                      </span>
+                      <UBadge v-else color="error" variant="soft">{{ $t('states.missing') }}</UBadge>
+                    </td>
 
-                      <!-- Color Name -->
-                      <td>
-                        <NuxtLink :to="'/archive/colors/' + color.id" class="link link-primary">
-                          {{ color.name || $t('states.unnamed_color') }}
-                        </NuxtLink>
-                      </td>
+                    <!-- BMC Code -->
+                    <td class="p-2">
+                      <span v-if="color.code && color.code !== 'Unknown'" class="font-medium">
+                        {{ color.code }}
+                      </span>
+                      <UBadge v-else color="error" variant="soft">{{ $t('states.missing') }}</UBadge>
+                    </td>
 
-                      <!-- Color Swatch -->
-                      <td class="">
-                        <div class="inline-block">
-                          <picture v-if="color.hasSwatch">
-                            <source
-                              :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.code}.webp`"
-                              type="image/webp"
-                            />
-                            <source
-                              :srcset="`https://classicminidiy.s3.amazonaws.com/colors/${color.code}.jpg`"
-                              type="image/jpeg"
-                            />
-                            <img
-                              loading="lazy"
-                              width="40"
-                              height="40"
-                              :alt="`${color.name || 'Color'} swatch`"
-                              :src="`https://classicminidiy.s3.amazonaws.com/colors/${color.code}.jpg`"
-                              class="w-10 h-10 object-cover rounded border border-base-300"
-                            />
-                          </picture>
+                    <!-- Ditzler/PPG Code -->
+                    <td class="p-2">
+                      <span v-if="color.ditzlerPpgCode && color.ditzlerPpgCode !== 'Unknown'" class="font-medium">
+                        {{ color.ditzlerPpgCode }}
+                      </span>
+                      <UBadge v-else color="error" variant="soft">{{ $t('states.missing') }}</UBadge>
+                    </td>
 
-                          <div v-else class="w-10 h-10 flex items-center justify-center">
-                            <i class="fa-regular fa-square-xmark text-4xl text-gray-400"></i>
-                          </div>
-                        </div>
-                      </td>
+                    <!-- Dulux Code -->
+                    <td class="p-2">
+                      <span v-if="color.duluxCode && color.duluxCode !== 'Unknown'" class="font-medium">
+                        {{ color.duluxCode }}
+                      </span>
+                      <UBadge v-else color="error" variant="soft">{{ $t('states.missing') }}</UBadge>
+                    </td>
 
-                      <!-- Short Code -->
-                      <td>
-                        <span v-if="color.shortCode && color.shortCode !== 'Unknown'" class="font-medium">
-                          {{ color.shortCode }}
-                        </span>
-                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
-                      </td>
+                    <!-- Years Used -->
+                    <td class="p-2">
+                      <span v-if="color.years && color.years !== 'Unknown'" class="font-medium">
+                        {{ Array.isArray(color.years) ? color.years.join(', ') : color.years }}
+                      </span>
+                      <UBadge v-else color="error" variant="soft">{{ $t('states.missing') }}</UBadge>
+                    </td>
 
-                      <!-- BMC Code -->
-                      <td>
-                        <span v-if="color.code && color.code !== 'Unknown'" class="font-medium">
-                          {{ color.code }}
-                        </span>
-                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
-                      </td>
+                    <!-- Edit Button -->
+                    <td class="p-2 text-center">
+                      <UButton
+                        :to="'/archive/colors/contribute?color=' + color.id"
+                        variant="ghost"
+                        size="md"
+                        :aria-label="`Edit ${color.name || 'color'}`"
+                      >
+                        <i class="fas fa-edit" aria-hidden="true"></i>
+                      </UButton>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
 
-                      <!-- Ditzler/PPG Code -->
-                      <td>
-                        <span v-if="color.ditzlerPpgCode && color.ditzlerPpgCode !== 'Unknown'" class="font-medium">
-                          {{ color.ditzlerPpgCode }}
-                        </span>
-                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
-                      </td>
-
-                      <!-- Dulux Code -->
-                      <td>
-                        <span v-if="color.duluxCode && color.duluxCode !== 'Unknown'" class="font-medium">
-                          {{ color.duluxCode }}
-                        </span>
-                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
-                      </td>
-
-                      <!-- Years Used -->
-                      <td>
-                        <span v-if="color.years && color.years !== 'Unknown'" class="font-medium">
-                          {{ Array.isArray(color.years) ? color.years.join(', ') : color.years }}
-                        </span>
-                        <span v-else class="badge badge-error badge-soft">{{ $t('states.missing') }}</span>
-                      </td>
-
-                      <!-- Edit Button -->
-                      <td class="text-center">
-                        <NuxtLink
-                          :to="'/archive/colors/contribute?color=' + color.id"
-                          class="btn btn-ghost btn-md"
-                          :aria-label="`Edit ${color.name || 'color'}`"
-                        >
-                          <i class="fas fa-edit" aria-hidden="true"></i>
-                        </NuxtLink>
-                      </td>
-                    </tr>
-                  </template>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination -->
-            <div v-if="filteredColors.length > itemsPerPage" class="flex justify-center p-4 border-t border-base-300">
-              <div class="join">
-                <button
-                  class="join-item btn btn-md"
+          <template #footer v-if="filteredColors.length > itemsPerPage">
+            <div class="flex justify-center">
+              <div class="inline-flex rounded-md shadow-sm">
+                <UButton
                   :disabled="currentPage === 1"
                   @click="currentPage = Math.max(1, currentPage - 1)"
+                  variant="outline"
+                  class="rounded-r-none"
                 >
                   «
-                </button>
-                <button class="join-item btn btn-md">
+                </UButton>
+                <UButton variant="outline" class="rounded-none border-x-0" disabled>
                   {{ $t('pagination.page') }} {{ currentPage }} {{ $t('pagination.of') }} {{ totalPages }}
-                </button>
-                <button
-                  class="join-item btn btn-md"
+                </UButton>
+                <UButton
                   :disabled="currentPage >= totalPages"
                   @click="currentPage = Math.min(totalPages, currentPage + 1)"
+                  variant="outline"
+                  class="rounded-l-none"
                 >
                   »
-                </button>
+                </UButton>
               </div>
             </div>
-          </div>
-        </div>
+          </template>
+        </UCard>
       </div>
 
       <!-- Submit New Color Section -->
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider" id="submitAnchor">{{ $t('submit_divider') }}</div>
+        <USeparator id="submitAnchor" class="my-4">
+          <span class="text-sm text-muted">{{ $t('submit_divider') }}</span>
+        </USeparator>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <ColorSubmission />
@@ -374,7 +377,9 @@
 
       <!-- Support Section -->
       <div class="col-span-12 md:col-span-10 md:col-start-2 text-center py-8">
-        <div class="divider">{{ $t('support_divider') }}</div>
+        <USeparator class="my-4">
+          <span class="text-sm text-muted">{{ $t('support_divider') }}</span>
+        </USeparator>
         <patreon-card size="large" />
       </div>
     </div>

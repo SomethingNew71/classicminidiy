@@ -48,7 +48,6 @@
     "axios": "^1.13.2",
     "better-sqlite3": "^12.5.0",
     "core-js": "^3.47.0",
-    "daisyui": "^5.5.14",
     "formidable": "^3.5.4",
     "fuse.js": "^7.1.0",
     "highcharts": "^12.4.0",

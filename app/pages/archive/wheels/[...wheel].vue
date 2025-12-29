@@ -90,19 +90,20 @@
     <!-- Loading State -->
     <div v-if="pending" class="flex justify-center items-center min-h-[50vh]">
       <div class="text-center">
-        <span class="loading loading-spinner loading-lg text-primary"></span>
+        <span class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary inline-block"></span>
         <p class="mt-4">{{ $t('loading_text') }}</p>
       </div>
     </div>
 
     <!-- Error State -->
-    <div v-else-if="error" class="alert alert-error my-8">
-      <i class="fas fa-exclamation-triangle mr-2"></i>
-      <span>{{ $t('error_message') }}</span>
-      <NuxtLink to="/archive/wheels" class="btn btn-sm btn-ghost ml-4">
-        <i class="fas fa-arrow-left mr-2"></i> {{ $t('back_to_wheels') }}
-      </NuxtLink>
-    </div>
+    <UAlert v-else-if="error" color="error" class="my-8" icon="i-heroicons-exclamation-triangle">
+      <template #title>{{ $t('error_message') }}</template>
+      <template #actions>
+        <UButton to="/archive/wheels" size="sm" variant="ghost">
+          <i class="fas fa-arrow-left mr-2"></i> {{ $t('back_to_wheels') }}
+        </UButton>
+      </template>
+    </UAlert>
 
     <!-- Content -->
     <div v-else>
@@ -118,8 +119,8 @@
       </div>
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12">
-          <div class="card bg-base-100 shadow-xl">
-            <div v-if="wheel" class="card-body p-6">
+          <UCard>
+            <div v-if="wheel">
               <div class="flex flex-col md:flex-row gap-8">
                 <div class="flex-1">
                   <h1 class="text-3xl font-bold mb-4">{{ wheel.name }}</h1>
@@ -142,13 +143,13 @@
                         <div class="absolute flex justify-between transform -translate-y-1/2 left-2 right-2 top-1/2">
                           <a
                             :href="`#slide${index === 0 ? wheel.images.length - 1 : index - 1}`"
-                            class="btn btn-circle btn-sm bg-white/80 hover:bg-white text-gray-800 border-0 shadow-md"
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-md"
                           >
                             <i class="fas fa-chevron-left"></i>
                           </a>
                           <a
                             :href="`#slide${index === wheel.images.length - 1 ? 0 : index + 1}`"
-                            class="btn btn-circle btn-sm bg-white/80 hover:bg-white text-gray-800 border-0 shadow-md"
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/80 hover:bg-white text-gray-800 shadow-md"
                           >
                             <i class="fas fa-chevron-right"></i>
                           </a>
@@ -168,7 +169,7 @@
                 </div>
               </div>
 
-              <div class="divider my-2"></div>
+              <USeparator class="my-4" />
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 py-4">
                 <div class="flex flex-col items-center text-center">
                   <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-2">
@@ -207,35 +208,37 @@
                   </p>
                 </div>
               </div>
-              <div class="divider my-2"></div>
+              <USeparator class="my-4" />
               <div class="flex flex-wrap justify-center gap-3 pt-2">
-                <button v-if="copied" class="btn btn-lg btn-primary/10 gap-2" disabled>
-                  <i class="fad fa-check text-success"></i>
+                <UButton v-if="copied" size="lg" color="neutral" disabled>
+                  <i class="fad fa-check text-success mr-2"></i>
                   <span>{{ $t('actions.copied') }}</span>
-                </button>
-                <button v-else class="btn btn-lg btn-primary gap-2" @click="copyUrl">
-                  <i class="fad fa-link"></i>
+                </UButton>
+                <UButton v-else size="lg" color="primary" @click="copyUrl">
+                  <i class="fad fa-link mr-2"></i>
                   <span>{{ $t('actions.copy_link') }}</span>
-                </button>
-                <button
+                </UButton>
+                <UButton
                   v-if="wheel.name && wheel.uuid"
-                  class="btn btn-lg btn-secondary gap-2"
+                  size="lg"
+                  color="secondary"
                   @click="shareWheelItem(wheel.name, wheel.uuid)"
                 >
-                  <i class="fad fa-share"></i>
+                  <i class="fad fa-share mr-2"></i>
                   <span>{{ $t('actions.share') }}</span>
-                </button>
-                <NuxtLink
+                </UButton>
+                <UButton
                   v-if="wheel.uuid"
                   :to="`/archive/wheels/submit?uuid=${wheel.uuid}`"
-                  class="btn btn-lg btn-outlined gap-2"
+                  size="lg"
+                  variant="outline"
                 >
-                  <i class="fad fa-edit"></i>
+                  <i class="fad fa-edit mr-2"></i>
                   <span>{{ $t('actions.contribute') }}</span>
-                </NuxtLink>
+                </UButton>
               </div>
             </div>
-          </div>
+          </UCard>
         </div>
       </div>
     </div>

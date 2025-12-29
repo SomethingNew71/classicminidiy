@@ -15,8 +15,18 @@
   const emptyError = ref(false);
   const addNeedleValue: any = ref();
 
-  // DaisyUI specific reactive properties
+  // Modal and UI state
   const searchText = ref('');
+  const showDiagramModal = ref(false);
+
+  // Computed options for USelect
+  const needleSelectOptions = computed(() => {
+    if (!allNeedles.value?.all) return [];
+    return allNeedles.value.all.map((needle: Needle) => ({
+      label: needle.name,
+      value: needle,
+    }));
+  });
 
   function updateArrayItem() {
     reactiveChartOptions.value.series = selectedNeedles.value;
@@ -56,145 +66,93 @@
 <template>
   <div class="grid grid-cols-12 gap-3 configurator-component">
     <div class="col-span-12 md:col-span-4">
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h3 class="fancy-font-bold text-xl pb-3">{{ t('title') }}</h3>
-          <p class="pb-3">
-            {{ t('description') }}
-          </p>
-          <!-- Modal dialog for diagram -->
-          <div>
-            <button class="btn btn-sm btn-neutral mb-5" onclick="diagram_modal.showModal()">
-              {{ t('diagram_button') }}
-            </button>
-            <dialog id="diagram_modal" class="modal">
-              <div class="modal-box w-11/12 max-w-5xl">
-                <h3 class="font-bold text-lg">{{ t('diagram_modal.title') }}</h3>
+      <UCard>
+        <h3 class="fancy-font-bold text-xl pb-3">{{ t('title') }}</h3>
+        <p class="pb-3">
+          {{ t('description') }}
+        </p>
+        <!-- Modal dialog for diagram -->
+        <div>
+          <UButton size="sm" color="neutral" class="mb-5" @click="showDiagramModal = true">
+            {{ t('diagram_button') }}
+          </UButton>
+          <UModal v-model:open="showDiagramModal">
+            <template #content>
+              <UCard>
+                <template #header>
+                  <h3 class="font-bold text-lg">{{ t('diagram_modal.title') }}</h3>
+                </template>
                 <img
                   loading="lazy"
                   class="diagram mx-auto"
                   src="https://classicminidiy.s3.us-east-1.amazonaws.com/misc/diagram.jpg"
                   :alt="t('diagram_modal.alt_text')"
                 />
-                <div class="modal-action">
-                  <form method="dialog">
-                    <button class="btn btn-primary">
+                <template #footer>
+                  <div class="flex justify-end">
+                    <UButton color="primary" @click="showDiagramModal = false">
                       {{ t('diagram_modal.close_button') }}
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
-          </div>
-
-          <template v-if="pending">
-            <!-- Loading state -->
-            <div class="skeleton h-32 w-full"></div>
-          </template>
-          <template v-else-if="allNeedles && selectedNeedles">
-            <!-- Needle selection dropdown -->
-            <div class="form-control w-full">
-              <select class="select select-bordered w-full" v-model="addNeedleValue">
-                <option :value="null" disabled selected>
-                  {{ t('form.select_placeholder') }}
-                </option>
-                <option v-for="needle in allNeedles.all" :key="needle.name" :value="needle">
-                  {{ needle.name }}
-                </option>
-              </select>
-            </div>
-
-            <!-- Alerts -->
-            <div v-if="alreadyExistsError" class="alert alert-info mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="stroke-current shrink-0 w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-              <span>{{ t('alerts.already_exists') }}</span>
-            </div>
-            <div v-if="emptyError" class="alert alert-info mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                class="stroke-current shrink-0 w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-              <span>{{ t('alerts.empty_selection') }}</span>
-            </div>
-
-            <!-- Add needle button -->
-            <button class="btn btn-primary mt-2" @click="addArrayItem()">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-              </svg>
-              {{ t('form.add_button') }}
-            </button>
-
-            <div class="divider"></div>
-
-            <h3 class="text-lg font-medium">{{ t('selected_needles_title') }}</h3>
-            <div v-if="selectedNeedles" class="flex flex-wrap gap-2 mt-3">
-              <div
-                v-for="(needle, index) in selectedNeedles"
-                :key="index"
-                class="badge badge-lg gap-1"
-                :class="{ 'badge-neutral': selectedNeedles.length === 1, 'badge-primary': selectedNeedles.length > 1 }"
-              >
-                <span>{{ needle.name }}</span>
-                <button
-                  v-if="selectedNeedles.length > 1"
-                  @click="removeArrayItem(selectedNeedles[index] as Needle)"
-                  class="btn btn-xs btn-circle btn-ghost"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </template>
+                    </UButton>
+                  </div>
+                </template>
+              </UCard>
+            </template>
+          </UModal>
         </div>
-      </div>
+
+        <template v-if="pending">
+          <!-- Loading state -->
+          <USkeleton class="h-32 w-full" />
+        </template>
+        <template v-else-if="allNeedles && selectedNeedles">
+          <!-- Needle selection dropdown -->
+          <UFormField class="w-full">
+            <USelect v-model="addNeedleValue" :items="needleSelectOptions" value-key="value" class="w-full" :placeholder="t('form.select_placeholder')" />
+          </UFormField>
+
+          <!-- Alerts -->
+          <UAlert v-if="alreadyExistsError" color="info" class="mb-4" icon="i-heroicons-information-circle" :title="t('alerts.already_exists')" />
+          <UAlert v-if="emptyError" color="info" class="mb-4" icon="i-heroicons-information-circle" :title="t('alerts.empty_selection')" />
+
+          <!-- Add needle button -->
+          <UButton color="primary" class="mt-2" @click="addArrayItem()">
+            <i class="fas fa-plus mr-2"></i>
+            {{ t('form.add_button') }}
+          </UButton>
+
+          <USeparator class="my-4" />
+
+          <h3 class="text-lg font-medium">{{ t('selected_needles_title') }}</h3>
+          <div v-if="selectedNeedles" class="flex flex-wrap gap-2 mt-3">
+            <UBadge
+              v-for="(needle, index) in selectedNeedles"
+              :key="index"
+              size="lg"
+              :color="selectedNeedles.length === 1 ? 'neutral' : 'primary'"
+              class="gap-1"
+            >
+              <span>{{ needle.name }}</span>
+              <button
+                v-if="selectedNeedles.length > 1"
+                @click="removeArrayItem(selectedNeedles[index] as Needle)"
+                class="ml-1 hover:opacity-70"
+              >
+                <i class="fas fa-times text-xs"></i>
+              </button>
+            </UBadge>
+          </div>
+        </template>
+      </UCard>
     </div>
     <div class="col-span-12 md:col-span-8">
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body p-2">
-          <ClientOnly fallback-tag="span">
-            <highcharts ref="needlesChart" :options="reactiveChartOptions"></highcharts>
-            <template #fallback>
-              <p class="p-10 text-center text-xl">{{ t('chart.loading') }}</p>
-            </template>
-          </ClientOnly>
-        </div>
-      </div>
+      <UCard class="p-2">
+        <ClientOnly fallback-tag="span">
+          <highcharts ref="needlesChart" :options="reactiveChartOptions"></highcharts>
+          <template #fallback>
+            <p class="p-10 text-center text-xl">{{ t('chart.loading') }}</p>
+          </template>
+        </ClientOnly>
+      </UCard>
     </div>
   </div>
 </template>

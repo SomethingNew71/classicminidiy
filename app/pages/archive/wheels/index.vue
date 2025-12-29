@@ -38,33 +38,31 @@
         </div>
         <div class="col-span-12 md:col-span-4">
           <NuxtLink :to="'/archive/wheels/submit?newWheel=true'" :title="$t('add_wheel_card.link_title')">
-            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-              <div class="card-body">
-                <div class="flex items-start">
-                  <div class="mr-4">
-                    <i class="fad fa-rectangle-history-circle-plus text-3xl"></i>
-                  </div>
-                  <div>
-                    <h2 class="card-title">{{ $t('add_wheel_card.title') }}</h2>
-                    <p>{{ $t('add_wheel_card.description') }}</p>
-                  </div>
+            <UCard class="hover:shadow-2xl transition-shadow">
+              <div class="flex items-start">
+                <div class="mr-4">
+                  <i class="fad fa-rectangle-history-circle-plus text-3xl"></i>
+                </div>
+                <div>
+                  <h2 class="text-lg font-semibold">{{ $t('add_wheel_card.title') }}</h2>
+                  <p>{{ $t('add_wheel_card.description') }}</p>
                 </div>
               </div>
-            </div>
+            </UCard>
           </NuxtLink>
         </div>
       </div>
-      <div class="divider my-4"></div>
+      <USeparator class="my-4" />
       <div class="grid grid-cols-12 gap-4 mb-4">
         <div class="col-span-12">
           <WheelGrid></WheelGrid>
         </div>
       </div>
-      <footer class="bg-base-200 text-center p-6 rounded-lg">
+      <footer class="bg-muted text-center p-6 rounded-lg">
         <div>
           <h2 class="text-xl font-bold mb-2">
             {{ $t('footer.title') }}
-            <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer" class="link link-primary"
+            <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"
               >Mini-Forum.de</a
             >.
           </h2>
@@ -74,7 +72,7 @@
           </p>
         </div>
       </footer>
-      <div class="divider my-4"></div>
+      <USeparator class="my-4" />
     </div>
   </div>
 </template>

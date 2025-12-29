@@ -114,15 +114,15 @@
   const getStatusColor = (status?: string) => {
     switch (status) {
       case 'idle':
-        return 'badge-success';
+        return 'success';
       case 'busy':
-        return 'badge-warning';
+        return 'warning';
       case 'interrupted':
-        return 'badge-info';
+        return 'info';
       case 'error':
-        return 'badge-error';
+        return 'error';
       default:
-        return 'badge-ghost';
+        return 'neutral';
     }
   };
 
@@ -176,20 +176,20 @@
   });
 
   // Get role badge styling
-  const getRoleBadge = (role: string) => {
+  const getRoleBadgeColor = (role: string) => {
     switch (role.toLowerCase()) {
       case 'human':
       case 'user':
-        return 'badge-primary';
+        return 'primary';
       case 'ai':
       case 'assistant':
-        return 'badge-secondary';
+        return 'secondary';
       case 'system':
-        return 'badge-info';
+        return 'info';
       case 'tool':
-        return 'badge-warning';
+        return 'warning';
       default:
-        return 'badge-ghost';
+        return 'neutral';
     }
   };
 </script>
@@ -207,32 +207,21 @@
     <!-- Breadcrumb Navigation -->
     <div class="container mx-auto px-4 pt-10">
       <div class="flex justify-between items-center">
-        <div class="text-base breadcrumbs">
-          <ul>
-            <li>
-              <div class="flex items-center">
-                <i class="fa-duotone fa-home mr-1"></i>
-                <NuxtLink to="/">Home</NuxtLink>
-              </div>
-            </li>
-            <li>
-              <NuxtLink to="/admin">Admin</NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/admin/threads">Chat Threads</NuxtLink>
-            </li>
-            <li>
-              <span class="opacity-60">Thread Details</span>
-            </li>
-          </ul>
-        </div>
+        <UBreadcrumb
+          :items="[
+            { label: 'Home', to: '/', icon: 'i-heroicons-home' },
+            { label: 'Admin', to: '/admin' },
+            { label: 'Chat Threads', to: '/admin/threads' },
+            { label: 'Thread Details' }
+          ]"
+        />
 
         <div class="flex items-center gap-4">
-          <span class="text-sm text-base-content/70"> Welcome, {{ user?.username }} </span>
-          <button @click="handleLogout" class="btn btn-ghost btn-sm">
+          <span class="text-sm opacity-70"> Welcome, {{ user?.username }} </span>
+          <UButton @click="handleLogout" variant="ghost" size="sm">
             <i class="fad fa-sign-out mr-2"></i>
             Logout
-          </button>
+          </UButton>
         </div>
       </div>
     </div>
@@ -241,161 +230,137 @@
     <div class="container mx-auto px-4 py-8">
       <!-- Loading State -->
       <div v-if="pending" class="flex items-center justify-center py-12">
-        <span class="loading loading-spinner loading-lg"></span>
+        <span class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></span>
       </div>
 
       <!-- Error State -->
-      <div v-else-if="error" class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <div class="alert alert-error">
-            <i class="fad fa-exclamation-triangle text-2xl"></i>
-            <div>
-              <h3 class="font-bold">Error Loading Thread</h3>
-              <div class="text-sm">{{ error.message || 'Failed to load thread details' }}</div>
-            </div>
-          </div>
-          <div class="card-actions justify-end">
-            <NuxtLink to="/admin/threads" class="btn btn-primary">
-              <i class="fad fa-arrow-left mr-2"></i>
-              Back to Threads
-            </NuxtLink>
-          </div>
+      <UCard v-else-if="error">
+        <UAlert color="error" icon="i-heroicons-exclamation-triangle" class="mb-4">
+          <template #title>Error Loading Thread</template>
+          <template #description>{{ error.message || 'Failed to load thread details' }}</template>
+        </UAlert>
+        <div class="flex justify-end">
+          <UButton to="/admin/threads" color="primary">
+            <i class="fad fa-arrow-left mr-2"></i>
+            Back to Threads
+          </UButton>
         </div>
-      </div>
+      </UCard>
 
       <!-- Thread Details -->
       <div v-else-if="threadData" class="space-y-6">
         <!-- Back Button -->
         <div>
-          <NuxtLink to="/admin/threads" class="btn btn-ghost btn-sm">
+          <UButton to="/admin/threads" variant="ghost" size="sm">
             <i class="fad fa-arrow-left mr-2"></i>
             Back to Threads
-          </NuxtLink>
+          </UButton>
         </div>
 
         <!-- Thread Information -->
-        <div class="card bg-base-200 shadow-lg">
-          <div class="card-body">
-            <h2 class="card-title text-2xl">Thread Information</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div>
-                <span class="opacity-70">Thread ID:</span>
-                <code class="ml-2">{{ threadData.thread.thread_id }}</code>
-              </div>
-              <div>
-                <span class="opacity-70">Status:</span>
-                <span class="badge ml-2" :class="getStatusColor(threadData.thread.status)">
-                  {{ threadData.thread.status || 'unknown' }}
-                </span>
-              </div>
-              <div>
-                <span class="opacity-70">Created:</span>
-                <span class="ml-2">{{ formatDate(threadData.thread.created_at) }}</span>
-              </div>
-              <div>
-                <span class="opacity-70">Updated:</span>
-                <span class="ml-2">{{ formatDate(threadData.thread.updated_at) }}</span>
-              </div>
+        <UCard class="bg-muted">
+          <h2 class="text-2xl font-bold mb-4">Thread Information</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <span class="opacity-70">Thread ID:</span>
+              <code class="ml-2">{{ threadData.thread.thread_id }}</code>
             </div>
-            <div v-if="threadData.thread.metadata" class="mt-4">
-              <span class="opacity-70 block mb-2">Metadata:</span>
-              <pre class="bg-base-300 p-3 rounded text-xs overflow-auto max-h-40">{{
-                JSON.stringify(threadData.thread.metadata, null, 2)
-              }}</pre>
+            <div>
+              <span class="opacity-70">Status:</span>
+              <UBadge :color="getStatusColor(threadData.thread.status)" class="ml-2">
+                {{ threadData.thread.status || 'unknown' }}
+              </UBadge>
+            </div>
+            <div>
+              <span class="opacity-70">Created:</span>
+              <span class="ml-2">{{ formatDate(threadData.thread.created_at) }}</span>
+            </div>
+            <div>
+              <span class="opacity-70">Updated:</span>
+              <span class="ml-2">{{ formatDate(threadData.thread.updated_at) }}</span>
             </div>
           </div>
-        </div>
-
-        <!-- Chat Messages -->
-        <div v-if="chatMessages.length > 0" class="card bg-base-200 shadow-lg">
-          <div class="card-body">
-            <h2 class="card-title text-2xl">Chat Messages ({{ chatMessages.length }})</h2>
-            <div class="space-y-4 mt-4">
-              <div
-                v-for="message in chatMessages"
-                :key="message.index"
-                class="card bg-base-300 border-l-4"
-                :class="{
-                  'border-primary': message.role.toLowerCase().includes('human') || message.role.toLowerCase().includes('user'),
-                  'border-secondary': message.role.toLowerCase().includes('ai') || message.role.toLowerCase().includes('assistant'),
-                  'border-info': message.role.toLowerCase().includes('system'),
-                  'border-warning': message.role.toLowerCase().includes('tool'),
-                }"
-              >
-                <div class="card-body p-4">
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="badge" :class="getRoleBadge(message.role)">{{ message.role }}</span>
-                    <span v-if="message.name" class="text-xs opacity-70">{{ message.name }}</span>
-                    <span class="text-xs opacity-50 ml-auto">#{{ message.index }}</span>
-                  </div>
-
-                  <!-- Display formatted content -->
-                  <div class="prose prose-sm max-w-none mb-3">
-                    <div class="whitespace-pre-wrap">{{ message.displayContent }}</div>
-                  </div>
-
-                  <!-- Tool Calls -->
-                  <div v-if="message.toolCalls" class="mt-3">
-                    <details class="collapse collapse-arrow bg-base-100 rounded-lg">
-                      <summary class="collapse-title text-xs font-semibold">Tool Calls</summary>
-                      <div class="collapse-content">
-                        <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto mt-2">{{
-                          JSON.stringify(message.toolCalls, null, 2)
-                        }}</pre>
-                      </div>
-                    </details>
-                  </div>
-
-                  <!-- Tool Results -->
-                  <div v-if="message.toolResults" class="mt-3">
-                    <details class="collapse collapse-arrow bg-base-100 rounded-lg">
-                      <summary class="collapse-title text-xs font-semibold">Tool Results</summary>
-                      <div class="collapse-content">
-                        <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto mt-2">{{
-                          JSON.stringify(message.toolResults, null, 2)
-                        }}</pre>
-                      </div>
-                    </details>
-                  </div>
-
-                  <!-- Raw Message JSON -->
-                  <div class="mt-3">
-                    <details class="collapse collapse-arrow bg-base-100 rounded-lg">
-                      <summary class="collapse-title text-xs font-semibold opacity-60">Raw Message Data</summary>
-                      <div class="collapse-content">
-                        <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto mt-2">{{
-                          JSON.stringify(message.rawContent, null, 2)
-                        }}</pre>
-                      </div>
-                    </details>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Thread State (Raw JSON) -->
-        <div v-if="threadData.state" class="card bg-base-200 shadow-lg">
-          <div class="card-body">
-            <h2 class="card-title text-2xl">Thread State (Raw JSON)</h2>
-            <pre class="bg-base-300 p-3 rounded text-xs overflow-auto max-h-96">{{
-              JSON.stringify(threadData.state, null, 2)
+          <div v-if="threadData.thread.metadata" class="mt-4">
+            <span class="opacity-70 block mb-2">Metadata:</span>
+            <pre class="bg-muted/50 p-3 rounded text-xs overflow-auto max-h-40">{{
+              JSON.stringify(threadData.thread.metadata, null, 2)
             }}</pre>
           </div>
-        </div>
+        </UCard>
 
-        <!-- Thread History (Raw JSON) -->
-        <div v-if="threadData.history && threadData.history.length > 0" class="card bg-base-200 shadow-lg">
-          <div class="card-body">
-            <h2 class="card-title text-2xl">Run History ({{ threadData.history.length }} runs)</h2>
-            <div class="overflow-x-auto">
-              <pre class="bg-base-300 p-3 rounded text-xs max-h-96 overflow-auto">{{
-                JSON.stringify(threadData.history, null, 2)
-              }}</pre>
+        <!-- Chat Messages -->
+        <UCard v-if="chatMessages.length > 0" class="bg-muted">
+          <h2 class="text-2xl font-bold mb-4">Chat Messages ({{ chatMessages.length }})</h2>
+          <div class="space-y-4 mt-4">
+            <div
+              v-for="message in chatMessages"
+              :key="message.index"
+              class="rounded-lg p-4 border-l-4"
+              :class="{
+                'border-primary bg-primary/5': message.role.toLowerCase().includes('human') || message.role.toLowerCase().includes('user'),
+                'border-secondary bg-secondary/5': message.role.toLowerCase().includes('ai') || message.role.toLowerCase().includes('assistant'),
+                'border-info bg-info/5': message.role.toLowerCase().includes('system'),
+                'border-warning bg-warning/5': message.role.toLowerCase().includes('tool'),
+              }"
+            >
+              <div class="flex items-center gap-2 mb-2">
+                <UBadge :color="getRoleBadgeColor(message.role)">{{ message.role }}</UBadge>
+                <span v-if="message.name" class="text-xs opacity-70">{{ message.name }}</span>
+                <span class="text-xs opacity-50 ml-auto">#{{ message.index }}</span>
+              </div>
+
+              <!-- Display formatted content -->
+              <div class="prose prose-sm max-w-none mb-3">
+                <div class="whitespace-pre-wrap">{{ message.displayContent }}</div>
+              </div>
+
+              <!-- Tool Calls -->
+              <UAccordion v-if="message.toolCalls" :items="[{ label: 'Tool Calls', slot: 'tool-calls' }]" class="mt-3">
+                <template #tool-calls>
+                  <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto">{{
+                    JSON.stringify(message.toolCalls, null, 2)
+                  }}</pre>
+                </template>
+              </UAccordion>
+
+              <!-- Tool Results -->
+              <UAccordion v-if="message.toolResults" :items="[{ label: 'Tool Results', slot: 'tool-results' }]" class="mt-3">
+                <template #tool-results>
+                  <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto">{{
+                    JSON.stringify(message.toolResults, null, 2)
+                  }}</pre>
+                </template>
+              </UAccordion>
+
+              <!-- Raw Message JSON -->
+              <UAccordion :items="[{ label: 'Raw Message Data', slot: 'raw-data' }]" class="mt-3">
+                <template #raw-data>
+                  <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto">{{
+                    JSON.stringify(message.rawContent, null, 2)
+                  }}</pre>
+                </template>
+              </UAccordion>
             </div>
           </div>
-        </div>
+        </UCard>
+
+        <!-- Thread State (Raw JSON) -->
+        <UCard v-if="threadData.state" class="bg-muted">
+          <h2 class="text-2xl font-bold mb-4">Thread State (Raw JSON)</h2>
+          <pre class="bg-muted/50 p-3 rounded text-xs overflow-auto max-h-96">{{
+            JSON.stringify(threadData.state, null, 2)
+          }}</pre>
+        </UCard>
+
+        <!-- Thread History (Raw JSON) -->
+        <UCard v-if="threadData.history && threadData.history.length > 0" class="bg-muted">
+          <h2 class="text-2xl font-bold mb-4">Run History ({{ threadData.history.length }} runs)</h2>
+          <div class="overflow-x-auto">
+            <pre class="bg-muted/50 p-3 rounded text-xs max-h-96 overflow-auto">{{
+              JSON.stringify(threadData.history, null, 2)
+            }}</pre>
+          </div>
+        </UCard>
       </div>
     </div>
   </div>

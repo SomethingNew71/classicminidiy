@@ -99,9 +99,9 @@
           </div>
           <div class="col-span-12 md:col-span-5">
             <NuxtLink :to="'/technical/chassis-decoder'" :title="$t('chassis_decoder_card.link_title')" class="block">
-              <div class="card hover:shadow-lg transition-shadow">
-                <div class="flex items-center p-4">
-                  <div class="flex-shrink-0">
+              <UCard class="hover:shadow-lg transition-shadow">
+                <div class="flex items-center">
+                  <div class="shrink-0">
                     <picture>
                       <source
                         srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp"
@@ -128,7 +128,7 @@
                     </p>
                   </div>
                 </div>
-              </div>
+              </UCard>
             </NuxtLink>
           </div>
         </div>
@@ -151,24 +151,22 @@
           {{ $t('engine_sizes_legend.1275cc') }}
         </div>
         <div class="col-span-12 md:col-span-6">
-          <div class="form-control pb-5">
-            <div class="input-group w-full">
-              <label class="input w-full">
-                <span class="label"><i class="fad fa-search"></i></span>
-                <input
-                  v-model="search"
-                  :placeholder="$t('search.placeholder')"
-                  type="text"
-                  class="input-bordered w-full"
-                />
-              </label>
-            </div>
+          <div class="pb-5">
+            <UInput
+              v-model="search"
+              :placeholder="$t('search.placeholder')"
+              class="w-full"
+            >
+              <template #leading>
+                <i class="fad fa-search"></i>
+              </template>
+            </UInput>
           </div>
         </div>
         <div class="col-span-12">
-          <div class="card">
-            <div class="card-header bg-base-200">
-              <div class="flex items-center">
+          <UCard>
+            <template #header>
+              <div class="flex items-center bg-muted -m-4 p-4 rounded-t-lg">
                 <div>
                   <i class="fad fa-engine text-2xl"></i>
                 </div>
@@ -176,18 +174,16 @@
                   {{ $t('table.title') }}
                 </h3>
               </div>
-            </div>
+            </template>
 
-            <div class="card-body">
-              <div class="w-full overflow-x-auto">
-                <UTable :data="filteredEngineCodes" :columns="tableColumns" class="w-full min-w-full" />
-              </div>
+            <div class="w-full overflow-x-auto">
+              <UTable :data="filteredEngineCodes" :columns="tableColumns" class="w-full min-w-full" />
             </div>
-          </div>
+          </UCard>
         </div>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider mb-4">{{ $t('ui.support_section') }}</div>
+        <USeparator :label="$t('ui.support_section')" class="mb-4" />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
         <patreon-card size="large" />
@@ -681,36 +677,5 @@
   }
   .color-1275 {
     color: #c57b57;
-  }
-</style>
-
-<style lang="scss" scoped>
-  .card {
-    background-color: var(--base-100);
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-  }
-
-  .card-body {
-    padding: 1rem;
-  }
-
-  .input {
-    width: 100%;
-    max-width: 56rem;
-  }
-
-  .divider {
-    text-align: center;
-    color: #64748b;
-    margin: 2rem 0;
   }
 </style>

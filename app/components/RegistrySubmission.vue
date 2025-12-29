@@ -35,6 +35,22 @@
 
   const rules = ref(validationRules());
 
+  // Options for USelect components
+  const bodyTypeOptions = computed(() => [
+    { label: t('body_types.saloon'), value: 'Saloon' },
+    { label: t('body_types.pickup'), value: 'Pickup' },
+    { label: t('body_types.estate'), value: 'Estate' },
+    { label: t('body_types.cabriolet'), value: 'Cabriolet' },
+    { label: t('body_types.clubman'), value: 'Clubman' },
+    { label: t('body_types.van'), value: 'Van' },
+    { label: t('body_types.hornet'), value: 'Hornet' },
+  ]);
+
+  const engineSizeOptions = [850, 997, 998, 1100, 1275].map((size) => ({
+    label: String(size),
+    value: size,
+  }));
+
   const initialDetails: RegistryItem = {
     year: 1959,
     model: '',
@@ -132,285 +148,276 @@
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-xl">
-    <div class="card-body">
-      <h2 class="card-title">{{ t('title') }}</h2>
-      <div v-if="!processing && issueCreated && submission && !apiError">
-        <div class="text-center py-5">
-          <i class="text-4xl text-success fa-duotone fa-box-check fa-beat py-5"></i>
-          <h1 class="text-2xl font-bold mb-1">{{ t('success.thank_you') }}</h1>
-          <h2 class="text-lg mb-4">
-            {{ t('success.submitted_message') }}
-          </h2>
-          <ul class="mb-5">
-            <li class="mb-2">
-              {{ t('success.submission_details') }}
-              <strong>{{ submission.number }}</strong>
-            </li>
-            <li>
-              {{ t('success.track_submission') }}
-              <a class="link link-primary" target="_blank" v-if="submission.url" :href="submission.url">
-                {{ t('success.submission_link') }} {{ submission.number }}</a
-              >
-            </li>
-          </ul>
-          <button class="btn btn-primary" @click="submitAnotherMini()">
-            <i class="fa-duotone fa-solid fa-plus-large mr-2"></i>
-            {{ t('success.submit_another') }}
-          </button>
-        </div>
-      </div>
-      <div v-if="!issueCreated">
-        <form @submit.prevent="submit">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
-            <div class="col-span-1 md:col-span-2">
-              <h2 class="text-xl font-bold">{{ t('sections.personal_info') }}</h2>
-            </div>
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.your_name') }} <span class="text-error">*</span></span>
-                <span class="label-text-alt"><i class="fad fa-user"></i></span>
-              </label>
-              <input
-                type="text"
-                :placeholder="t('placeholders.name')"
-                v-model="details.submittedBy"
-                class="input input-bordered w-full"
-                :class="{ 'input-error': details.submittedBy === '' && touchedFields.submittedBy }"
-                required
-                @blur="touchedFields.submittedBy = true"
-              />
-              <label v-if="details.submittedBy === '' && touchedFields.submittedBy" class="label">
-                <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
-              </label>
-            </div>
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.your_email') }} <span class="text-error">*</span></span>
-                <span class="label-text-alt"><i class="fad fa-at"></i></span>
-              </label>
-              <input
-                type="email"
-                :placeholder="t('placeholders.email')"
-                v-model="details.submittedByEmail"
-                class="input input-bordered w-full"
-                :class="{
-                  'input-error':
-                    (details.submittedByEmail === '' || !rules.email(details.submittedByEmail)) &&
-                    touchedFields.submittedByEmail,
-                }"
-                required
-                @blur="touchedFields.submittedByEmail = true"
-              />
-              <label
-                v-if="
-                  (details.submittedByEmail === '' || !rules.email(details.submittedByEmail)) &&
-                  touchedFields.submittedByEmail
-                "
-                class="label"
-              >
-                <span class="label-text-alt text-error">
-                  {{ details.submittedByEmail === '' ? t('validation.required') : t('validation.invalid_email') }}
-                </span>
-              </label>
-            </div>
-            <div class="col-span-1 md:col-span-2">
-              <h2 class="text-xl font-bold">{{ t('sections.car_details') }}</h2>
-            </div>
-            <div>
-              <div class="form-control w-full">
-                <label class="label">
-                  <span class="label-text">{{ t('form_labels.model_year') }} <span class="text-error">*</span></span>
-                  <span class="label-text-alt"><i class="fad fa-calendar"></i></span>
-                </label>
-                <input
-                  type="number"
-                  min="1959"
-                  max="2000"
-                  v-model.number="details.year"
-                  class="input input-bordered w-full"
-                  :class="{ 'input-error': !details.year && touchedFields.year }"
-                  required
-                  @blur="touchedFields.year = true"
-                />
-                <label v-if="!details.year && touchedFields.year" class="label">
-                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
-                </label>
-              </div>
+  <UCard>
+    <template #header>
+      <h2 class="font-semibold text-lg">{{ t('title') }}</h2>
+    </template>
 
-              <div class="form-control w-full mt-2">
-                <label class="label">
-                  <span class="label-text">{{ t('form_labels.model') }} <span class="text-error">*</span></span>
-                  <span class="label-text-alt"><i class="fad fa-car"></i></span>
-                </label>
-                <input
-                  type="text"
-                  :placeholder="t('placeholders.model')"
-                  v-model="details.model"
-                  class="input input-bordered w-full"
-                  :class="{ 'input-error': details.model === '' && touchedFields.model }"
-                  required
-                  @blur="touchedFields.model = true"
-                />
-                <label v-if="details.model === '' && touchedFields.model" class="label">
-                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
-                </label>
-              </div>
-
-              <div class="form-control w-full mt-2">
-                <label class="label">
-                  <span class="label-text">{{ t('form_labels.trim') }} <span class="text-error">*</span></span>
-                  <span class="label-text-alt"><i class="fad fa-scissors"></i></span>
-                </label>
-                <input
-                  type="text"
-                  :placeholder="t('placeholders.trim')"
-                  v-model="details.trim"
-                  class="input input-bordered w-full"
-                  :class="{ 'input-error': details.trim === '' && touchedFields.trim }"
-                  required
-                  @blur="touchedFields.trim = true"
-                />
-                <label v-if="details.trim === '' && touchedFields.trim" class="label">
-                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
-                </label>
-              </div>
-
-              <div class="form-control w-full mt-2">
-                <label class="label">
-                  <span class="label-text">{{ t('form_labels.body_type') }} <span class="text-error">*</span></span>
-                  <span class="label-text-alt"><i class="fad fa-cars"></i></span>
-                </label>
-                <select
-                  v-model="details.bodyType"
-                  class="select select-bordered w-full"
-                  :class="{ 'select-error': details.bodyType === '' && touchedFields.bodyType }"
-                  required
-                  @blur="touchedFields.bodyType = true"
-                  @change="touchedFields.bodyType = true"
-                >
-                  <option value="Saloon">{{ t('body_types.saloon') }}</option>
-                  <option value="Pickup">{{ t('body_types.pickup') }}</option>
-                  <option value="Estate">{{ t('body_types.estate') }}</option>
-                  <option value="Cabriolet">{{ t('body_types.cabriolet') }}</option>
-                  <option value="Clubman">{{ t('body_types.clubman') }}</option>
-                  <option value="Van">{{ t('body_types.van') }}</option>
-                  <option value="Hornet">{{ t('body_types.hornet') }}</option>
-                </select>
-                <label v-if="details.bodyType === '' && touchedFields.bodyType" class="label">
-                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
-                </label>
-              </div>
-            </div>
-            <div>
-              <div class="form-control w-full">
-                <label class="label">
-                  <span class="label-text"
-                    >{{ t('form_labels.original_engine_size') }} <span class="text-error">*</span></span
-                  >
-                  <span class="label-text-alt"><i class="fad fa-engine"></i></span>
-                </label>
-                <select
-                  v-model.number="details.engineSize"
-                  class="select select-bordered w-full"
-                  :class="{ 'select-error': !details.engineSize && touchedFields.engineSize }"
-                  required
-                  @blur="touchedFields.engineSize = true"
-                  @change="touchedFields.engineSize = true"
-                >
-                  <option v-for="size in [850, 997, 998, 1100, 1275]" :key="size" :value="size">
-                    {{ size }}
-                  </option>
-                </select>
-                <label v-if="!details.engineSize && touchedFields.engineSize" class="label">
-                  <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
-                </label>
-              </div>
-
-              <div class="form-control w-full mt-2">
-                <label class="label">
-                  <span class="label-text">{{ t('form_labels.factory_color') }}</span>
-                  <span class="label-text-alt"><i class="fad fa-palette"></i></span>
-                </label>
-                <input
-                  type="text"
-                  :placeholder="t('placeholders.color')"
-                  v-model="details.color"
-                  class="input input-bordered w-full"
-                />
-              </div>
-
-              <div class="form-control w-full mt-2">
-                <label class="label">
-                  <span class="label-text">{{ t('form_labels.body_shell_number') }}</span>
-                  <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
-                </label>
-                <input
-                  type="text"
-                  :placeholder="t('placeholders.body_number')"
-                  v-model="details.bodyNum"
-                  class="input input-bordered w-full"
-                />
-              </div>
-
-              <div class="form-control w-full mt-2">
-                <label class="label">
-                  <span class="label-text">{{ t('form_labels.engine_plate_number') }}</span>
-                  <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
-                </label>
-                <input
-                  type="text"
-                  :placeholder="t('placeholders.engine_number')"
-                  v-model="details.engineNum"
-                  class="input input-bordered w-full"
-                />
-              </div>
-            </div>
-            <div class="col-span-1 md:col-span-2">
-              <div class="form-control w-full">
-                <fieldset class="fieldset">
-                  <legend class="fieldset-legend">
-                    {{ t('form_labels.special_notes') }}
-                    <span class="label-text-alt"><i class="fad fa-note"></i></span>
-                  </legend>
-                  <textarea
-                    class="textarea h-24 w-full"
-                    :placeholder="t('placeholders.notes')"
-                    v-model="details.notes"
-                  ></textarea>
-                </fieldset>
-              </div>
-            </div>
-          </div>
-          <div class="mt-6">
-            <div v-if="apiError" class="alert alert-error mb-4">
-              <i class="fa-duotone fa-circle-exclamation"></i>
-              <div>
-                <h3 class="font-bold">{{ t('error.title') }}</h3>
-                <div class="text-sm">
-                  {{ t('error.message') }}
-                  <p class="mt-2">{{ t('error.check_entries') }}</p>
-                </div>
-              </div>
-              <button class="btn btn-sm" @click="apiError = false">
-                {{ t('error.dismiss') }}
-              </button>
-            </div>
-            <button
-              class="btn btn-primary btn-lg"
-              :class="{ 'btn-disabled': !validateForm() }"
-              :disabled="processing"
-              @click="debouncedSubmit()"
+    <!-- Success State -->
+    <div v-if="!processing && issueCreated && submission && !apiError">
+      <div class="text-center py-5">
+        <i class="text-4xl text-success fa-duotone fa-box-check fa-beat py-5"></i>
+        <h1 class="text-2xl font-bold mb-1">{{ t('success.thank_you') }}</h1>
+        <h2 class="text-lg mb-4">
+          {{ t('success.submitted_message') }}
+        </h2>
+        <ul class="mb-5">
+          <li class="mb-2">
+            {{ t('success.submission_details') }}
+            <strong>{{ submission.number }}</strong>
+          </li>
+          <li>
+            {{ t('success.track_submission') }}
+            <a class="text-primary hover:underline" target="_blank" v-if="submission.url" :href="submission.url">
+              {{ t('success.submission_link') }} {{ submission.number }}</a
             >
-              <i class="fad fa-paper-plane mr-2" v-if="!processing"></i>
-              <span class="loading loading-spinner" v-if="processing"></span>
-              {{ t('submit_button') }}
-            </button>
-          </div>
-        </form>
+          </li>
+        </ul>
+        <UButton color="primary" @click="submitAnotherMini()">
+          <i class="fa-duotone fa-solid fa-plus-large mr-2"></i>
+          {{ t('success.submit_another') }}
+        </UButton>
       </div>
     </div>
-  </div>
+
+    <!-- Form -->
+    <div v-if="!issueCreated">
+      <form @submit.prevent="submit">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
+          <!-- Personal Info Section -->
+          <div class="col-span-1 md:col-span-2">
+            <h2 class="text-xl font-bold">{{ t('sections.personal_info') }}</h2>
+          </div>
+
+          <!-- Your Name -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.your_name') }} <span class="text-error">*</span></span>
+              <span class="text-sm text-muted"><i class="fad fa-user"></i></span>
+            </label>
+            <UInput
+              type="text"
+              :placeholder="t('placeholders.name')"
+              v-model="details.submittedBy"
+              :color="details.submittedBy === '' && touchedFields.submittedBy ? 'error' : undefined"
+              required
+              @blur="touchedFields.submittedBy = true"
+            />
+            <p v-if="details.submittedBy === '' && touchedFields.submittedBy" class="text-sm text-error mt-1">
+              {{ t('validation.required') }}
+            </p>
+          </div>
+
+          <!-- Your Email -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.your_email') }} <span class="text-error">*</span></span>
+              <span class="text-sm text-muted"><i class="fad fa-at"></i></span>
+            </label>
+            <UInput
+              type="email"
+              :placeholder="t('placeholders.email')"
+              v-model="details.submittedByEmail"
+              :color="
+                (details.submittedByEmail === '' || !rules.email(details.submittedByEmail)) &&
+                touchedFields.submittedByEmail
+                  ? 'error'
+                  : undefined
+              "
+              required
+              @blur="touchedFields.submittedByEmail = true"
+            />
+            <p
+              v-if="
+                (details.submittedByEmail === '' || !rules.email(details.submittedByEmail)) &&
+                touchedFields.submittedByEmail
+              "
+              class="text-sm text-error mt-1"
+            >
+              {{ details.submittedByEmail === '' ? t('validation.required') : t('validation.invalid_email') }}
+            </p>
+          </div>
+
+          <!-- Car Details Section -->
+          <div class="col-span-1 md:col-span-2">
+            <h2 class="text-xl font-bold">{{ t('sections.car_details') }}</h2>
+          </div>
+
+          <!-- Left Column -->
+          <div class="space-y-4">
+            <!-- Model Year -->
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium">{{ t('form_labels.model_year') }} <span class="text-error">*</span></span>
+                <span class="text-sm text-muted"><i class="fad fa-calendar"></i></span>
+              </label>
+              <UInput
+                type="number"
+                min="1959"
+                max="2000"
+                v-model.number="details.year"
+                :color="!details.year && touchedFields.year ? 'error' : undefined"
+                required
+                @blur="touchedFields.year = true"
+              />
+              <p v-if="!details.year && touchedFields.year" class="text-sm text-error mt-1">
+                {{ t('validation.required') }}
+              </p>
+            </div>
+
+            <!-- Model -->
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium">{{ t('form_labels.model') }} <span class="text-error">*</span></span>
+                <span class="text-sm text-muted"><i class="fad fa-car"></i></span>
+              </label>
+              <UInput
+                type="text"
+                :placeholder="t('placeholders.model')"
+                v-model="details.model"
+                :color="details.model === '' && touchedFields.model ? 'error' : undefined"
+                required
+                @blur="touchedFields.model = true"
+              />
+              <p v-if="details.model === '' && touchedFields.model" class="text-sm text-error mt-1">
+                {{ t('validation.required') }}
+              </p>
+            </div>
+
+            <!-- Trim -->
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium">{{ t('form_labels.trim') }} <span class="text-error">*</span></span>
+                <span class="text-sm text-muted"><i class="fad fa-scissors"></i></span>
+              </label>
+              <UInput
+                type="text"
+                :placeholder="t('placeholders.trim')"
+                v-model="details.trim"
+                :color="details.trim === '' && touchedFields.trim ? 'error' : undefined"
+                required
+                @blur="touchedFields.trim = true"
+              />
+              <p v-if="details.trim === '' && touchedFields.trim" class="text-sm text-error mt-1">
+                {{ t('validation.required') }}
+              </p>
+            </div>
+
+            <!-- Body Type -->
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium">{{ t('form_labels.body_type') }} <span class="text-error">*</span></span>
+                <span class="text-sm text-muted"><i class="fad fa-cars"></i></span>
+              </label>
+              <USelect
+                v-model="details.bodyType"
+                :items="bodyTypeOptions"
+                :color="details.bodyType === '' && touchedFields.bodyType ? 'error' : undefined"
+                required
+                @blur="touchedFields.bodyType = true"
+                @change="touchedFields.bodyType = true"
+              />
+              <p v-if="details.bodyType === '' && touchedFields.bodyType" class="text-sm text-error mt-1">
+                {{ t('validation.required') }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="space-y-4">
+            <!-- Engine Size -->
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium"
+                  >{{ t('form_labels.original_engine_size') }} <span class="text-error">*</span></span
+                >
+                <span class="text-sm text-muted"><i class="fad fa-engine"></i></span>
+              </label>
+              <USelect
+                v-model.number="details.engineSize"
+                :items="engineSizeOptions"
+                :color="!details.engineSize && touchedFields.engineSize ? 'error' : undefined"
+                required
+                @blur="touchedFields.engineSize = true"
+                @change="touchedFields.engineSize = true"
+              />
+              <p v-if="!details.engineSize && touchedFields.engineSize" class="text-sm text-error mt-1">
+                {{ t('validation.required') }}
+              </p>
+            </div>
+
+            <!-- Factory Color -->
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium">{{ t('form_labels.factory_color') }}</span>
+                <span class="text-sm text-muted"><i class="fad fa-palette"></i></span>
+              </label>
+              <UInput type="text" :placeholder="t('placeholders.color')" v-model="details.color" />
+            </div>
+
+            <!-- Body Shell Number -->
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium">{{ t('form_labels.body_shell_number') }}</span>
+                <span class="text-sm text-muted"><i class="fad fa-hashtag"></i></span>
+              </label>
+              <UInput type="text" :placeholder="t('placeholders.body_number')" v-model="details.bodyNum" />
+            </div>
+
+            <!-- Engine Plate Number -->
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium">{{ t('form_labels.engine_plate_number') }}</span>
+                <span class="text-sm text-muted"><i class="fad fa-hashtag"></i></span>
+              </label>
+              <UInput type="text" :placeholder="t('placeholders.engine_number')" v-model="details.engineNum" />
+            </div>
+          </div>
+
+          <!-- Special Notes -->
+          <div class="col-span-1 md:col-span-2">
+            <div class="w-full">
+              <label class="flex justify-between items-center mb-1">
+                <span class="text-sm font-medium">{{ t('form_labels.special_notes') }}</span>
+                <span class="text-sm text-muted"><i class="fad fa-note"></i></span>
+              </label>
+              <UTextarea :placeholder="t('placeholders.notes')" v-model="details.notes" :rows="4" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Error Alert & Submit Button -->
+        <div class="mt-6">
+          <UAlert v-if="apiError" color="error" class="mb-4">
+            <template #icon>
+              <i class="fa-duotone fa-circle-exclamation"></i>
+            </template>
+            <template #title>{{ t('error.title') }}</template>
+            <template #description>
+              {{ t('error.message') }}
+              <p class="mt-2">{{ t('error.check_entries') }}</p>
+            </template>
+            <template #actions>
+              <UButton size="sm" variant="outline" @click="apiError = false">
+                {{ t('error.dismiss') }}
+              </UButton>
+            </template>
+          </UAlert>
+
+          <UButton
+            color="primary"
+            size="lg"
+            :disabled="!validateForm() || processing"
+            :loading="processing"
+            @click="debouncedSubmit()"
+          >
+            <i class="fad fa-paper-plane mr-2" v-if="!processing"></i>
+            {{ t('submit_button') }}
+          </UButton>
+        </div>
+      </form>
+    </div>
+  </UCard>
 </template>
 
 <i18n lang="json">

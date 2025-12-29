@@ -114,44 +114,44 @@
         <p class="text-lg pb-5">
           {{ $t('maintenance_description') }}
         </p>
-        <button class="btn btn-primary mr-3 text-lg" target="_blank" @click="submitArchiveFile(ARCHIVE_TYPES.GENERIC)">
+        <UButton class="mr-3 text-lg" color="primary" @click="submitArchiveFile(ARCHIVE_TYPES.GENERIC)">
           <i class="fa-duotone fa-paper-plane mr-2"></i>
           {{ $t('add_to_archive') }}
-        </button>
-        <a
-          class="btn btn-secondary mr-3 text-lg"
+        </UButton>
+        <UButton
+          class="mr-3 text-lg"
+          color="secondary"
+          to="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
           target="_blank"
-          href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
+          external
           @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
         >
           <i class="fa-duotone fa-hand-holding-circle-dollar mr-2"></i>
           {{ $t('cover_server_costs') }}
-        </a>
+        </UButton>
       </div>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-10">
-      <div v-for="archive in ArchiveItems" class="col-span-1">
+      <div v-for="archive in ArchiveItems" :key="archive.to" class="col-span-1">
         <template v-if="archive.disabled">
-          <div class="card bg-base-100 shadow-xl text-center p-5 h-full opacity-50 cursor-not-allowed">
+          <UCard class="text-center p-5 h-full opacity-50 cursor-not-allowed">
             <p class="text-xs text-right">{{ $t('coming_soon') }}</p>
             <span class="text-4xl block" v-html="archive.iconHtml"> </span>
-            <div class="card-body p-2">
-              <p class="text-lg">{{ getArchiveItemTitle(archive.title) }}</p>
-            </div>
-          </div>
+            <p class="text-lg mt-2">{{ getArchiveItemTitle(archive.title) }}</p>
+          </UCard>
         </template>
 
-        <NuxtLink v-else :to="archive.to" class="card bg-base-100 shadow-xl text-center p-5 h-full">
-          <span class="text-4xl block" v-html="archive.iconHtml"> </span>
-          <div class="card-body p-2">
-            <p class="text-lg">{{ getArchiveItemTitle(archive.title) }}</p>
-          </div>
+        <NuxtLink v-else :to="archive.to" class="block h-full">
+          <UCard class="text-center p-5 h-full hover:shadow-xl transition-shadow">
+            <span class="text-4xl block" v-html="archive.iconHtml"> </span>
+            <p class="text-lg mt-2">{{ getArchiveItemTitle(archive.title) }}</p>
+          </UCard>
         </NuxtLink>
       </div>
     </div>
     <div class="grid grid-cols-12 gap-4 mt-6">
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ $t('support_divider') }}</div>
+        <USeparator :label="$t('support_divider')" />
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />

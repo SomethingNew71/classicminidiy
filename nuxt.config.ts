@@ -1,4 +1,4 @@
-import tailwindcss from '@tailwindcss/vite';
+// TailwindCSS is now handled by @nuxt/ui module
 import { ArchiveItems, ToolboxItems } from './data/models/generic';
 
 const parsedArchive = ArchiveItems.map((item) => {
@@ -19,7 +19,6 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
         prefix: 'og: https://ogp.me/ns#',
-        'data-theme': 'cmdiy',
       },
       meta: [
         { charset: 'utf-8' },
@@ -204,7 +203,7 @@ export default defineNuxtConfig({
    ** Global CSS
    */
   // Global CSS files
-  css: ['@/assets/daisy.css'],
+  css: ['@/assets/css/main.css'],
 
   // Performance optimization
   experimental: {
@@ -236,6 +235,14 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/mcp-toolkit',
   ],
+
+  // Nuxt UI Configuration
+  ui: {
+    colorMode: true, // Enable dark/light mode
+    theme: {
+      colors: ['primary', 'secondary', 'success', 'info', 'warning', 'error', 'neutral'],
+    },
+  },
 
   // MCP (Model Context Protocol) Configuration
   mcp: {
@@ -431,7 +438,7 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false,
     },
-    plugins: [tailwindcss()],
+    plugins: [],
     // Pre-optimize dependencies to prevent reloading on route changes
     optimizeDeps: {
       include: [

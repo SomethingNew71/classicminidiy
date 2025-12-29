@@ -57,18 +57,14 @@
         <p class="text-lg pt-2 pb-3">
           {{ $t('home.support.content') }}
         </p>
-        <a class="mr-3 btn text-lg is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
-          <span class="icon">
-            <i class="fab fa-patreon" />
-          </span>
-          <span>{{ $t('common.donate') }}</span>
-        </a>
-        <a class="btn text-lg" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
-          <span class="icon">
-            <i class="fab fa-github" />
-          </span>
-          <span>{{ $t('common.contribute') }}</span>
-        </a>
+        <UButton class="mr-3 text-lg is-patreon" rel="noopener" to="https://patreon.com/classicminidiy" target="_blank" external>
+          <i class="fab fa-patreon mr-2" />
+          {{ $t('common.donate') }}
+        </UButton>
+        <UButton class="text-lg" variant="outline" rel="noopener" to="https://github.com/somethingnew71/classicminidiy" target="_blank" external>
+          <i class="fab fa-github mr-2" />
+          {{ $t('common.contribute') }}
+        </UButton>
       </div>
       <div class="pt-20 pb-10 grid grid-cols-subgrid col-span-12 gap-4">
         <recent-videos></recent-videos>
@@ -92,7 +88,7 @@
           <p class="pb-5 text-lg">
             {{ $t('home.toolbox.content') }}
           </p>
-          <nuxt-link class="btn btn-primary text-lg" to="/technical"> {{ $t('home.toolbox.button') }} </nuxt-link>
+          <UButton color="primary" class="text-lg" to="/technical"> {{ $t('home.toolbox.button') }} </UButton>
         </div>
       </div>
       <div class="grid grid-cols-12 gap-4">
@@ -104,63 +100,59 @@
           <p class="text-lg">
             {{ $t('home.patreon.content') }}
           </p>
-          <a class="mt-5 mb-5 btn is-patreon" rel="noopener" href="https://patreon.com/classicminidiy" target="_blank">
-            <span class="icon">
-              <i class="fab fa-patreon" />
-            </span>
-            <span>{{ $t('home.patreon.button') }}</span>
-          </a>
+          <UButton class="mt-5 mb-5 is-patreon" rel="noopener" to="https://patreon.com/classicminidiy" target="_blank" external>
+            <i class="fab fa-patreon mr-2" />
+            {{ $t('home.patreon.button') }}
+          </UButton>
 
           <div class="max-w-2xl mx-auto">
-            <div class="p-4 mt-5 max-w-md bg-white rounded-lg shadow-md sm:p-8">
-              <div class="flex justify-between items-center mb-4">
+            <UCard class="mt-5 max-w-md">
+              <template #header>
                 <h3 class="text-xl font-bold leading-none">{{ $t('home.patreon.benefits.title') }}</h3>
-              </div>
-              <div class="flow-root">
-                <ul role="list" class="divide-y divide-gray-200 benefits-list">
-                  <li class="py-3 sm:py-4">
-                    <div class="flex items-center space-x-4">
-                      <div class="flex-shrink-0">
-                        <i class="text-h4 fab fa-discord pt-2"></i>
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-lg font-medium">{{ $t('home.patreon.benefits.discord') }}</p>
-                      </div>
+              </template>
+              <ul role="list" class="divide-y divide-default benefits-list">
+                <li class="py-3 sm:py-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="shrink-0">
+                      <i class="text-h4 fab fa-discord pt-2"></i>
                     </div>
-                  </li>
-                  <li class="py-3 sm:py-4">
-                    <div class="flex items-center space-x-4">
-                      <div class="flex-shrink-0">
-                        <i class="text-h4 fad fa-video pt-2"></i>
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-lg font-medium">{{ $t('home.patreon.benefits.early_access') }}</p>
-                      </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-lg font-medium">{{ $t('home.patreon.benefits.discord') }}</p>
                     </div>
-                  </li>
-                  <li class="py-3 sm:py-4">
-                    <div class="flex items-center space-x-4">
-                      <div class="flex-shrink-0">
-                        <i class="text-h4 fad fa-gift pt-2"></i>
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-lg font-medium">{{ $t('home.patreon.benefits.gifts') }}</p>
-                      </div>
+                  </div>
+                </li>
+                <li class="py-3 sm:py-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="shrink-0">
+                      <i class="text-h4 fad fa-video pt-2"></i>
                     </div>
-                  </li>
-                  <li class="py-3 sm:py-4">
-                    <div class="flex items-center space-x-4">
-                      <div class="flex-shrink-0">
-                        <i class="text-h4 fad fa-circle-info pt-2"></i>
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-lg font-medium">{{ $t('home.patreon.benefits.insider') }}</p>
-                      </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-lg font-medium">{{ $t('home.patreon.benefits.early_access') }}</p>
                     </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                  </div>
+                </li>
+                <li class="py-3 sm:py-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="shrink-0">
+                      <i class="text-h4 fad fa-gift pt-2"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-lg font-medium">{{ $t('home.patreon.benefits.gifts') }}</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="py-3 sm:py-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="shrink-0">
+                      <i class="text-h4 fad fa-circle-info pt-2"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-lg font-medium">{{ $t('home.patreon.benefits.insider') }}</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </UCard>
           </div>
         </div>
         <div class="col-span-12 md:col-span-6">

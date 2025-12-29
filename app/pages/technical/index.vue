@@ -87,18 +87,18 @@
       </div>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-10">
-      <div v-for="tool in ToolboxItems" class="col-span-1">
-        <NuxtLink :to="tool.to" class="card bg-base-100 shadow-xl text-center p-5 h-full">
-          <span class="text-4xl block" v-html="tool.iconHtml"> </span>
-          <div class="card-body p-2">
-            <p class="text-lg">{{ $t(tool.titleKey) }}</p>
-          </div>
+      <div v-for="tool in ToolboxItems" :key="tool.to" class="col-span-1">
+        <NuxtLink :to="tool.to" class="block h-full">
+          <UCard class="text-center p-5 h-full hover:shadow-xl transition-shadow">
+            <span class="text-4xl block" v-html="tool.iconHtml"> </span>
+            <p class="text-lg mt-2">{{ $t(tool.titleKey) }}</p>
+          </UCard>
         </NuxtLink>
       </div>
     </div>
     <div class="grid grid-cols-12 gap-4 mt-6">
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ $t('support_section') }}</div>
+        <USeparator :label="$t('support_section')" />
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />

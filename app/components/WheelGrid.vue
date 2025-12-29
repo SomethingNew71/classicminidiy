@@ -86,163 +86,145 @@
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-lg">
+  <UCard>
     <!-- Header section -->
-    <div class="card-body pb-0">
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="card-title"><i class="fad fa-tire fa-spin mr-2"></i> {{ t('title') }}</h2>
-        <div v-if="filtersActive" class="tooltip tooltip-left" :data-tip="t('clear_filters')">
-          <button class="btn btn-ghost btn-sm" @click="clearFilters">
-            <i class="fas fa-filter-circle-xmark"></i>
+    <template #header>
+      <div class="flex items-center justify-between">
+        <h2 class="font-semibold text-lg"><i class="fad fa-tire fa-spin mr-2"></i> {{ t('title') }}</h2>
+        <UTooltip v-if="filtersActive" :text="t('clear_filters')">
+          <UButton variant="ghost" size="sm" @click="clearFilters">
+            <i class="fas fa-filter-circle-xmark mr-1"></i>
             {{ t('clear_filters') }}
-          </button>
+          </UButton>
+        </UTooltip>
+      </div>
+    </template>
+
+    <div class="mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="col-span-1 md:col-span-1 mb-4">
+          <UButtonGroup>
+            <UButton
+              :color="size === 'list' ? 'primary' : 'neutral'"
+              :variant="size === 'list' ? 'solid' : 'outline'"
+              @click="size = 'list'"
+            >
+              {{ t('all_sizes') }}
+            </UButton>
+            <UButton
+              :color="size === 'ten' ? 'primary' : 'neutral'"
+              :variant="size === 'ten' ? 'solid' : 'outline'"
+              @click="size = 'ten'"
+            >
+              {{ t('ten_inch_wheels') }}
+            </UButton>
+            <UButton
+              :color="size === 'twelve' ? 'primary' : 'neutral'"
+              :variant="size === 'twelve' ? 'solid' : 'outline'"
+              @click="size = 'twelve'"
+            >
+              {{ t('twelve_inch_wheels') }}
+            </UButton>
+            <UButton
+              :color="size === 'thirteen' ? 'primary' : 'neutral'"
+              :variant="size === 'thirteen' ? 'solid' : 'outline'"
+              @click="size = 'thirteen'"
+            >
+              {{ t('thirteen_inch_wheels') }}
+            </UButton>
+          </UButtonGroup>
         </div>
       </div>
 
-      <div class="mb-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div class="col-span-1 md:col-span-1 mb-4">
-            <form class="filter">
-              <input
-                type="radio"
-                name="wheel-size"
-                class="btn filter-reset"
-                :class="{ 'btn-primary': size === 'list' }"
-                @change="size = 'list'"
-                :checked="size === 'list'"
-                :aria-label="t('all_sizes')"
-              />
-              <input
-                type="radio"
-                name="wheel-size"
-                class="btn"
-                :class="{ 'btn-primary': size === 'ten' }"
-                @change="size = 'ten'"
-                :checked="size === 'ten'"
-                :aria-label="t('ten_inch_wheels')"
-              />
-              <input
-                type="radio"
-                name="wheel-size"
-                class="btn"
-                :class="{ 'btn-primary': size === 'twelve' }"
-                @change="size = 'twelve'"
-                :checked="size === 'twelve'"
-                :aria-label="t('twelve_inch_wheels')"
-              />
-              <input
-                type="radio"
-                name="wheel-size"
-                class="btn"
-                :class="{ 'btn-primary': size === 'thirteen' }"
-                @change="size = 'thirteen'"
-                :checked="size === 'thirteen'"
-                :aria-label="t('thirteen_inch_wheels')"
-              />
-            </form>
-          </div>
-        </div>
-
-        <div class="form-control">
-          <div class="input-group w-full">
-            <label class="input w-full">
-              <span class="label"><i class="fad fa-search"></i></span>
-              <input
-                v-model="search"
-                :placeholder="t('search_placeholder')"
-                type="text"
-                class="input-bordered w-full"
-              />
-            </label>
-          </div>
-        </div>
-      </div>
+      <UInput
+        v-model="search"
+        :placeholder="t('search_placeholder')"
+        icon="i-heroicons-magnifying-glass"
+        size="lg"
+      />
     </div>
 
     <!-- Content section -->
-    <div class="p-4">
+    <div>
       <!-- Error state -->
-      <div v-if="error" class="alert alert-error">
-        <i class="fas fa-exclamation-circle"></i>
-        <span>{{ error.message || t('error_loading') }}</span>
-      </div>
+      <UAlert v-if="error" color="error" :title="error.message || t('error_loading')" icon="i-heroicons-exclamation-circle" />
 
       <!-- Loading state -->
       <div v-else-if="status === 'pending'" class="flex justify-center p-8">
-        <span class="loading loading-spinner loading-lg"></span>
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
 
       <!-- No results -->
       <div v-else-if="filteredWheels.length === 0" class="text-center p-8">
-        <i class="fas fa-tire text-6xl text-gray-400 mb-4"></i>
+        <i class="fas fa-tire text-6xl text-muted mb-4"></i>
         <h3 class="text-xl font-semibold mb-2">{{ t('no_results_title') }}</h3>
-        <p class="text-gray-500">{{ t('no_results_message') }}</p>
+        <p class="text-muted">{{ t('no_results_message') }}</p>
       </div>
 
       <!-- Grid of wheels -->
       <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <div
+        <UCard
           v-for="wheel in filteredWheels.slice((page - 1) * 12, page * 12)"
           :key="wheel.uuid"
-          class="card card-compact bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-300"
+          class="hover:shadow-lg transition-shadow duration-300"
         >
-          <figure class="relative pt-[100%] bg-gray-100">
-            <img
-              :src="getWheelImageUrl(wheel)"
-              :alt="wheel.name"
-              class="absolute inset-0 w-full h-full object-contain p-4"
-              loading="lazy"
-            />
-          </figure>
-          <div class="card-body">
-            <h3 class="card-title text-lg">{{ wheel.name }}</h3>
-            <div class="grid grid-cols-2 gap-2 text-sm">
-              <div>
-                <div class="text-gray-500">{{ t('size_label') }}</div>
-                <div class="font-medium">{{ wheel.size || t('not_available') }}</div>
-              </div>
-              <div>
-                <div class="text-gray-500">{{ t('width_label') }}</div>
-                <div class="font-medium">{{ wheel.width || t('not_available') }}</div>
-              </div>
-              <div>
-                <div class="text-gray-500">{{ t('offset_label') }}</div>
-                <div class="font-medium">{{ wheel.offset || t('not_available') }}</div>
-              </div>
-              <div>
-                <div class="text-gray-500">{{ t('material_label') }}</div>
-                <div class="font-medium">{{ wheel.type || t('not_available') }}</div>
-              </div>
+          <template #header>
+            <figure class="relative pt-[100%] bg-muted rounded-t-lg">
+              <img
+                :src="getWheelImageUrl(wheel)"
+                :alt="wheel.name"
+                class="absolute inset-0 w-full h-full object-contain p-4"
+                loading="lazy"
+              />
+            </figure>
+          </template>
+          <h3 class="font-semibold text-lg mb-2">{{ wheel.name }}</h3>
+          <div class="grid grid-cols-2 gap-2 text-sm">
+            <div>
+              <div class="text-muted">{{ t('size_label') }}</div>
+              <div class="font-medium">{{ wheel.size || t('not_available') }}</div>
             </div>
-            <div class="card-actions justify-end mt-2">
-              <NuxtLink :to="`/archive/wheels/${wheel.uuid}`" class="btn btn-sm btn-secondary">
-                {{ t('view_details') }}
-              </NuxtLink>
+            <div>
+              <div class="text-muted">{{ t('width_label') }}</div>
+              <div class="font-medium">{{ wheel.width || t('not_available') }}</div>
+            </div>
+            <div>
+              <div class="text-muted">{{ t('offset_label') }}</div>
+              <div class="font-medium">{{ wheel.offset || t('not_available') }}</div>
+            </div>
+            <div>
+              <div class="text-muted">{{ t('material_label') }}</div>
+              <div class="font-medium">{{ wheel.type || t('not_available') }}</div>
             </div>
           </div>
-        </div>
+          <template #footer>
+            <div class="flex justify-end">
+              <UButton :to="`/archive/wheels/${wheel.uuid}`" size="sm" color="secondary">
+                {{ t('view_details') }}
+              </UButton>
+            </div>
+          </template>
+        </UCard>
       </div>
     </div>
 
     <!-- Pagination footer -->
-    <div class="flex items-center justify-center p-4">
-      <div class="join">
-        <button class="join-item btn" :class="{ 'btn-disabled': page === 1 }" @click="page > 1 && page--">
-          <i class="fad fa-arrow-left"></i>
-        </button>
-        <button class="join-item btn btn-ghost">
-          {{ t('page_info', { current: page, total: Math.ceil(filteredWheels.length / 12) }) }}
-        </button>
-        <button
-          class="join-item btn"
-          :class="{ 'btn-disabled': page >= Math.ceil(filteredWheels.length / 12) }"
-          @click="page < Math.ceil(filteredWheels.length / 12) && page++"
-        >
-          <i class="fad fa-arrow-right"></i>
-        </button>
+    <template #footer>
+      <div class="flex items-center justify-center">
+        <UButtonGroup>
+          <UButton :disabled="page === 1" @click="page > 1 && page--">
+            <i class="fad fa-arrow-left"></i>
+          </UButton>
+          <UButton variant="ghost" color="neutral">
+            {{ t('page_info', { current: page, total: Math.ceil(filteredWheels.length / 12) }) }}
+          </UButton>
+          <UButton :disabled="page >= Math.ceil(filteredWheels.length / 12)" @click="page < Math.ceil(filteredWheels.length / 12) && page++">
+            <i class="fad fa-arrow-right"></i>
+          </UButton>
+        </UButtonGroup>
       </div>
-    </div>
-  </div>
+    </template>
+  </UCard>
 </template>
 
 <i18n lang="json">

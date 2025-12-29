@@ -13,20 +13,23 @@
 </script>
 
 <template>
-  <div class="app-wrapper">
-    <div class="app-content">
-      <MainNav></MainNav>
-      <NuxtLoadingIndicator />
-      <main>
-        <NuxtPage />
-      </main>
+  <UApp>
+    <div class="app-wrapper bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
+      <div class="app-content">
+        <MainNav></MainNav>
+        <UToaster />
+        <NuxtLoadingIndicator />
+        <main class="bg-neutral-50 dark:bg-neutral-900">
+          <NuxtPage />
+        </main>
+      </div>
+      <Footer></Footer>
+      <VitePwaManifest />
+      <Analytics />
+      <SpeedInsights />
+      <AppPromoPopup />
     </div>
-    <Footer></Footer>
-    <VitePwaManifest />
-    <Analytics />
-    <SpeedInsights />
-    <AppPromoPopup />
-  </div>
+  </UApp>
 </template>
 
 <style lang="scss">

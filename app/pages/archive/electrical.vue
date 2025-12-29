@@ -143,35 +143,32 @@
 
       <!-- Global Search -->
       <div v-if="diagrams && status !== 'pending'" class="col-span-12 mb-6">
-        <div class="form-control w-full max-w-md">
-          <div class="input-group w-full">
-            <label class="input w-full">
-              <span class="label"><i class="fad fa-search"></i></span>
-              <input
-                v-model="searchQuery"
-                :placeholder="$t('search_placeholder')"
-                type="search"
-                class="input-bordered w-full"
-              />
-            </label>
-          </div>
+        <div class="w-full max-w-md">
+          <UInput
+            v-model="searchQuery"
+            :placeholder="$t('search_placeholder')"
+            type="search"
+            class="w-full"
+            icon="i-heroicons-magnifying-glass"
+          />
         </div>
       </div>
 
       <div class="col-span-12">
         <!-- Search Results Pane -->
         <div v-if="searchQuery && filteredResults.length > 0" class="mb-6">
-          <div class="bg-base-200 border border-base-300 rounded-lg">
-            <div class="bg-primary text-primary-content p-4 rounded-t-lg">
-              <h3 class="text-lg font-semibold">{{ $t('search_results_title') }} ({{ filteredResults.length }})</h3>
-            </div>
-            <ul class="menu bg-base-100 w-full rounded-b-lg">
+          <UCard>
+            <template #header>
+              <div class="bg-primary text-primary-content -m-4 p-4 rounded-t-lg">
+                <h3 class="text-lg font-semibold">{{ $t('search_results_title') }} ({{ filteredResults.length }})</h3>
+              </div>
+            </template>
+            <ul class="divide-y divide-default">
               <li
                 v-for="(result, index) in filteredResults"
                 :key="`search-${index}-${result.name}`"
-                class="border-b border-base-200 last:border-b-0"
               >
-                <a :href="result.link" target="_blank" class="flex justify-between py-4">
+                <a :href="result.link" target="_blank" class="flex justify-between py-4 hover:bg-muted rounded px-2 transition-colors">
                   <div>
                     <div class="text-lg">{{ result.name }}</div>
                     <div class="text-sm opacity-70 flex items-center mt-1">
@@ -187,124 +184,83 @@
                       <span v-else>{{ $t('date_range.unknown') }}</span>
                     </div>
                   </div>
-                  <button class="btn btn-ghost btn-lg" :aria-label="$t('download_button_aria')">
+                  <UButton variant="ghost" size="lg" :aria-label="$t('download_button_aria')">
                     <i class="fa-solid fa-download"></i>
-                  </button>
+                  </UButton>
                 </a>
               </li>
             </ul>
-          </div>
+          </UCard>
         </div>
 
         <!-- No Results Message -->
-        <div v-if="searchQuery && filteredResults.length === 0" class="mb-6">
-          <div class="alert alert-info">
+        <UAlert v-if="searchQuery && filteredResults.length === 0" color="info" class="mb-6">
+          <template #icon>
             <i class="fa-solid fa-info-circle"></i>
-            <span>{{ $t('no_results_message') }}</span>
-          </div>
-        </div>
+          </template>
+          <template #title>{{ $t('no_results_message') }}</template>
+        </UAlert>
 
         <!-- Loading state -->
         <div v-if="status === 'pending'" class="space-y-4">
-          <div class="skeleton h-12 w-full"></div>
-          <div class="skeleton h-12 w-full"></div>
-          <div class="skeleton h-12 w-full"></div>
+          <USkeleton class="h-12 w-full" />
+          <USkeleton class="h-12 w-full" />
+          <USkeleton class="h-12 w-full" />
         </div>
 
         <!-- Content when loaded (hidden during search) -->
-        <div v-if="diagrams && status !== 'pending' && !searchQuery" class="space-y-6">
-          <div
+        <div v-if="diagrams && status !== 'pending' && !searchQuery" class="space-y-4">
+          <UAccordion
             v-for="(diagram, name, index) in diagrams"
             :key="`${name}-${index}`"
-            class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
+            :items="[{ label: diagram.title, slot: 'content' }]"
+            class="mb-2"
           >
-            <!-- Accordion header -->
-            <input
-              type="checkbox"
-              :checked="diagram.title === activePanel"
-              @change="activePanel = activePanel === diagram.title ? null : diagram.title"
-            />
-            <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
-              {{ diagram.title }}
-            </div>
-
-            <!-- Accordion content -->
-            <div class="collapse-content p-0">
-              <ul class="menu bg-base-100 w-full">
-                <li
-                  v-for="(item, index) in diagram.items"
-                  :key="`${index}-${item.name}`"
-                  class="border-b border-base-200 last:border-b-0"
-                >
-                  <a :href="item.link" target="_blank" class="flex justify-between py-4">
-                    <div>
-                      <div class="text-lg">{{ item.name }}</div>
-                      <div class="text-lg opacity-70 flex items-center mt-1">
-                        <i class="fa-solid fa-calendar mr-2"></i>
-                        <span v-if="item.from || item.to"
-                          >{{ item.from || $t('date_range.unknown_placeholder') }}{{ $t('date_range.separator')
-                          }}{{ item.to || $t('date_range.unknown_placeholder') }}</span
-                        >
-                        <span v-else>{{ $t('date_range.unknown') }}</span>
+            <template #leading="{ item }">
+              <div class="bg-primary text-primary-content px-4 py-3 rounded-t-lg font-semibold text-xl w-full">
+                {{ item.label }}
+              </div>
+            </template>
+            <template #content>
+              <UCard class="rounded-t-none">
+                <ul class="divide-y divide-default">
+                  <li
+                    v-for="(item, idx) in diagram.items"
+                    :key="`${idx}-${item.name}`"
+                  >
+                    <a :href="item.link" target="_blank" class="flex justify-between py-4 hover:bg-muted rounded px-2 transition-colors">
+                      <div>
+                        <div class="text-lg">{{ item.name }}</div>
+                        <div class="text-lg opacity-70 flex items-center mt-1">
+                          <i class="fa-solid fa-calendar mr-2"></i>
+                          <span v-if="item.from || item.to"
+                            >{{ item.from || $t('date_range.unknown_placeholder') }}{{ $t('date_range.separator')
+                            }}{{ item.to || $t('date_range.unknown_placeholder') }}</span
+                          >
+                          <span v-else>{{ $t('date_range.unknown') }}</span>
+                        </div>
                       </div>
-                    </div>
-                    <button class="btn btn-ghost btn-lg" :aria-label="$t('download_button_aria')">
-                      <i class="fa-solid fa-download"></i>
-                    </button>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+                      <UButton variant="ghost" size="lg" :aria-label="$t('download_button_aria')">
+                        <i class="fa-solid fa-download"></i>
+                      </UButton>
+                    </a>
+                  </li>
+                </ul>
+              </UCard>
+            </template>
+          </UAccordion>
         </div>
       </div>
 
       <!-- Support section -->
       <div class="col-span-12 mt-8 mb-10">
-        <div class="divider">{{ $t('support_divider') }}</div>
+        <USeparator :label="$t('support_divider')" class="mb-6" />
         <patreon-card size="large" />
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-  .divider {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-
-    &:before,
-    &:after {
-      flex-grow: 1;
-      background-color: hsl(var(--b3));
-      height: 1px;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      content: '';
-    }
-  }
-
-  .skeleton {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    background-color: hsl(var(--b3));
-    border-radius: 0.25rem;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-</style>
 
 <i18n lang="json">
 {

@@ -130,88 +130,87 @@
     </div>
 
     <div class="space-y-6">
-      <div
-        v-for="(table, name, index) in tables"
-        :key="`${name}-${index}`"
-        class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
+      <UAccordion
+        :items="Object.entries(tables || {}).map(([name, table]) => ({ label: table.title, value: name, table }))"
+        :default-value="Object.keys(tables || {})"
+        multiple
       >
-        <input type="checkbox" checked />
-        <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
-          {{ table.title }}
-        </div>
-        <div class="collapse-content">
+        <template #body="{ item }">
           <!-- Search field -->
           <div class="flex justify-end mb-4 mt-4">
-            <div class="form-control w-full max-w-xs">
-              <div class="input-group">
-                <input
-                  type="text"
-                  v-model="searchValue"
-                  :placeholder="$t('search.placeholder')"
-                  class="input input-bordered input-md w-full"
-                />
-              </div>
+            <div class="w-full max-w-xs">
+              <UInput
+                type="text"
+                v-model="searchValue"
+                :placeholder="$t('search.placeholder')"
+                icon="i-heroicons-magnifying-glass"
+              />
             </div>
           </div>
 
           <div class="w-full overflow-x-auto">
-            <table class="table w-full">
+            <table class="w-full text-sm">
               <thead>
-                <tr>
-                  <th>{{ $t('table.headers.part') }}</th>
-                  <th>{{ $t('table.headers.clearance_thou') }}</th>
-                  <th>{{ $t('table.headers.clearance_mm') }}</th>
-                  <th>{{ $t('table.headers.expand') }}</th>
+                <tr class="border-b border-default">
+                  <th class="text-left p-2 font-medium">{{ $t('table.headers.part') }}</th>
+                  <th class="text-left p-2 font-medium">{{ $t('table.headers.clearance_thou') }}</th>
+                  <th class="text-left p-2 font-medium">{{ $t('table.headers.clearance_mm') }}</th>
+                  <th class="text-left p-2 font-medium">{{ $t('table.headers.expand') }}</th>
                 </tr>
               </thead>
               <tbody>
-                <template v-for="(item, itemIndex) in filterItems(table.items, name)" :key="itemIndex">
-                  <tr class="hover cursor-pointer" @click="toggleRow(`${name}-${itemIndex}`)">
-                    <td>{{ item.name }}</td>
-                    <td>
-                      <span v-if="item.thou" class="px-2 py-1 rounded bg-primary/10 text-primary font-medium">
-                        {{ item.thou }}
+                <template v-for="(tableItem, itemIndex) in filterItems(item.table.items, item.value)" :key="itemIndex">
+                  <tr
+                    class="border-b border-default last:border-0 hover:bg-muted cursor-pointer transition-colors"
+                    @click="toggleRow(`${item.value}-${itemIndex}`)"
+                  >
+                    <td class="p-2">{{ tableItem.name }}</td>
+                    <td class="p-2">
+                      <span v-if="tableItem.thou" class="px-2 py-1 rounded bg-primary/10 text-primary font-medium">
+                        {{ tableItem.thou }}
                       </span>
-                      <span v-else>{{ $t('table.no_value') }}</span>
+                      <span v-else class="text-muted">{{ $t('table.no_value') }}</span>
                     </td>
-                    <td>
-                      <span v-if="item.mm" class="px-2 py-1 rounded bg-blue-100 text-blue-700 font-medium">
-                        {{ item.mm }}
+                    <td class="p-2">
+                      <span v-if="tableItem.mm" class="px-2 py-1 rounded bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 font-medium">
+                        {{ tableItem.mm }}
                       </span>
-                      <span v-else>{{ $t('table.no_value') }}</span>
+                      <span v-else class="text-muted">{{ $t('table.no_value') }}</span>
                     </td>
-                    <td class="text-right">
+                    <td class="p-2 text-right">
                       <i
-                        v-if="item.notes"
+                        v-if="tableItem.notes"
                         class="fas transition-transform duration-200"
-                        :class="expandedRows[`${name}-${itemIndex}`] ? 'fa-chevron-up' : 'fa-chevron-down'"
+                        :class="expandedRows[`${item.value}-${itemIndex}`] ? 'fa-chevron-up' : 'fa-chevron-down'"
                       ></i>
                     </td>
                   </tr>
-                  <tr v-if="expandedRows[`${name}-${itemIndex}`] && item.notes" class="bg-base-200">
+                  <tr v-if="expandedRows[`${item.value}-${itemIndex}`] && tableItem.notes" class="bg-muted">
                     <td colspan="4" class="p-4">
                       <div class="font-semibold mb-2">
                         {{ $t('table.extra_notes_title') }}
                       </div>
                       <div class="whitespace-pre-line">
-                        {{ item.notes }}
+                        {{ tableItem.notes }}
                       </div>
                     </td>
                   </tr>
                 </template>
-                <tr v-if="!filterItems(table.items, name).length">
-                  <td colspan="4" class="text-center py-4">
+                <tr v-if="!filterItems(item.table.items, item.value).length">
+                  <td colspan="4" class="text-center py-4 text-muted">
                     {{ $t('table.no_items_found') }}
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
+        </template>
+      </UAccordion>
     </div>
 
-    <div class="divider my-12">{{ $t('ui.support_section') }}</div>
+    <USeparator class="my-12">
+      <span class="text-sm text-muted">{{ $t('ui.support_section') }}</span>
+    </USeparator>
     <div class="mb-8">
       <patreon-card size="large" />
     </div>

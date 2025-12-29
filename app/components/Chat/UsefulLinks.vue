@@ -1,8 +1,8 @@
 <template>
-  <div v-if="links && links.length > 0" class="mt-4 rounded-lg bg-base-100 border border-base-300 p-4">
+  <div v-if="links && links.length > 0" class="mt-4 rounded-lg bg-default border border-default p-4">
     <div class="flex items-center gap-2 mb-3">
       <i class="fa-solid fa-link text-primary"></i>
-      <h3 class="text-sm font-semibold text-base-content">{{ t('title') }}</h3>
+      <h3 class="text-sm font-semibold">{{ t('title') }}</h3>
     </div>
     <div class="space-y-2">
       <a
@@ -11,22 +11,22 @@
         :href="addUtmParams(link.url)"
         target="_blank"
         rel="noopener noreferrer"
-        class="block p-3 rounded-lg bg-base-50 hover:bg-base-200 transition-colors border border-base-200 hover:border-base-300"
+        class="block p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors border border-default hover:border-muted"
       >
         <div class="flex items-start justify-between gap-2">
           <div class="flex-1 min-w-0">
-            <div class="font-medium text-sm text-primary hover:text-primary-focus line-clamp-2">
+            <div class="font-medium text-sm text-primary hover:text-primary/80 line-clamp-2">
               {{ link.title }}
             </div>
-            <div class="text-xs text-base-content/70 mt-1 line-clamp-2">
+            <div class="text-xs text-muted mt-1 line-clamp-2">
               {{ link.content }}
             </div>
-            <div class="text-xs text-base-content/50 mt-1 truncate">
+            <div class="text-xs text-muted mt-1 truncate">
               {{ link.url }}
             </div>
           </div>
-          <div class="flex-shrink-0 flex items-center gap-2">
-            <i class="fa-solid fa-external-link text-xs text-base-content/50"></i>
+          <div class="shrink-0 flex items-center gap-2">
+            <i class="fa-solid fa-external-link text-xs text-muted"></i>
           </div>
         </div>
       </a>

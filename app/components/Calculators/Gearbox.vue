@@ -191,6 +191,68 @@
   const tableDataGearing = computed(() => gearingTableData.value);
   const tableDataSpeedos = computed(() => speedometerTableData.value);
 
+  // USelect options for form selects
+  const tireOptions = computed(() =>
+    tires.value.map((item: { label: string; value: TireValue }) => ({
+      label: item.label,
+      value: item.value,
+    }))
+  );
+
+  const speedoRatioOptions = computed(() =>
+    speedosRatios.value.map((item: { label: string; value: number }) => ({
+      label: item.label,
+      value: item.value,
+    }))
+  );
+
+  const dropGearOptions = computed(() =>
+    dropGears.value.map((item: { label: string; value: number }) => ({
+      label: item.label,
+      value: item.value,
+    }))
+  );
+
+  const gearRatioOptions = computed(() =>
+    gearRatios.value.map((item: { label: string; value: number[] }) => ({
+      label: item.label,
+      value: item.value,
+    }))
+  );
+
+  const diffOptions = computed(() =>
+    diffs.value.map((item: { label: string; value: number }) => ({
+      label: item.label,
+      value: item.value,
+    }))
+  );
+
+  const rpmOptions = [
+    { label: t('rpm_options.5000'), value: 5000 },
+    { label: t('rpm_options.5500'), value: 5500 },
+    { label: t('rpm_options.6000'), value: 6000 },
+    { label: t('rpm_options.6500'), value: 6500 },
+    { label: t('rpm_options.7000'), value: 7000 },
+    { label: t('rpm_options.7500'), value: 7500 },
+    { label: t('rpm_options.8000'), value: 8000 },
+    { label: t('rpm_options.8500'), value: 8500 },
+    { label: t('rpm_options.9000'), value: 9000 },
+  ];
+
+  // UTable column definitions
+  const speedoColumns = computed(() => [
+    { accessorKey: 'speedometer', header: tableHeadersSpeedos[0]?.title || 'Speedometer' },
+    { accessorKey: 'turns', header: tableHeadersSpeedos[1]?.title || 'Turns' },
+    { accessorKey: 'speed', header: tableHeadersSpeedos[2]?.title || 'Speed' },
+    { accessorKey: 'result', header: tableHeadersSpeedos[3]?.title || 'Result' },
+  ]);
+
+  const gearingColumns = computed(() => [
+    { accessorKey: 'gear', header: tableHeadersGearing[0]?.title || 'Gear' },
+    { accessorKey: 'ratio', header: tableHeadersGearing[1]?.title || 'Ratio' },
+    { accessorKey: 'maxSpeed', header: tableHeadersGearing[2]?.label || 'Max Speed' },
+  ]);
+
   // Computed properties for metric conversion of "per Mile" values
   const displayEngineRevs = computed(() => {
     if (!speedoDetails.value.engineRevsMile) return '---';
@@ -239,271 +301,237 @@
   <div class="grid grid-cols-1 gap-6">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       <div class="col-span-1 md:col-span-4">
-        <div class="form-control">
-          <label class="label cursor-pointer">
-            <span class="label-text">{{ t('form_labels.imperial_or_metric') }}</span>
-            <input type="checkbox" class="toggle toggle-primary" v-model="metric" @change="triggerDebouncedUpdate" />
-          </label>
+        <div class="flex items-center justify-between">
+          <label class="text-sm font-medium">{{ t('form_labels.imperial_or_metric') }}</label>
+          <USwitch v-model="metric" color="primary" @update:model-value="triggerDebouncedUpdate" />
         </div>
       </div>
     </div>
 
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 md:col-span-6">
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text"
-              >{{ t('form_labels.tire_size') }} <span><i class="fad fa-tire"></i></span
-            ></span>
-          </label>
-          <div class="input-group">
-            <select class="select select-bordered w-full" v-model="tire_type" @change="triggerDebouncedUpdate">
-              <option v-for="item in tires" :key="item.label" :value="item.value">
-                {{ item.label }}
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="form-control col-span-12 md:col-span-6">
-        <label class="label">
-          <span class="label-text"
-            >{{ t('form_labels.speedo_drive_ratio') }} <span><i class="fad fa-percent"></i></span
-          ></span>
+        <label class="block text-sm font-medium mb-2">
+          {{ t('form_labels.tire_size') }} <i class="fad fa-tire"></i>
         </label>
-        <div class="input-group">
-          <select class="select select-bordered w-full" v-model="speedo_drive" @change="triggerDebouncedUpdate">
-            <option v-for="item in speedosRatios" :key="item.label" :value="item.value">
-              {{ item.label }}
-            </option>
-          </select>
-        </div>
+        <USelect
+          v-model="tire_type"
+          :items="tireOptions"
+          value-key="value"
+          class="w-full"
+          @update:model-value="triggerDebouncedUpdate"
+        />
       </div>
-      <div class="form-control col-span-12 md:col-span-6">
-        <label class="label">
-          <span class="label-text"
-            >{{ t('form_labels.drop_gear_ratio') }} <span><i class="fad fa-gears"></i></span
-          ></span>
+      <div class="col-span-12 md:col-span-6">
+        <label class="block text-sm font-medium mb-2">
+          {{ t('form_labels.speedo_drive_ratio') }} <i class="fad fa-percent"></i>
         </label>
-        <div class="input-group">
-          <select class="select select-bordered w-full" v-model="drop_gear" @change="triggerDebouncedUpdate">
-            <option v-for="item in dropGears" :key="item.label" :value="item.value">
-              {{ item.label }}
-            </option>
-          </select>
-        </div>
+        <USelect
+          v-model="speedo_drive"
+          :items="speedoRatioOptions"
+          value-key="value"
+          class="w-full"
+          @update:model-value="triggerDebouncedUpdate"
+        />
       </div>
-      <div class="form-control col-span-12 md:col-span-6">
-        <label class="label">
-          <span class="label-text"
-            >{{ t('form_labels.gearset') }} <span><i class="fad fa-gear"></i></span
-          ></span>
+      <div class="col-span-12 md:col-span-6">
+        <label class="block text-sm font-medium mb-2">
+          {{ t('form_labels.drop_gear_ratio') }} <i class="fad fa-gears"></i>
         </label>
-        <div class="input-group">
-          <select class="select select-bordered w-full" v-model="gear_ratios" @change="triggerDebouncedUpdate">
-            <option v-for="item in gearRatios" :key="item.label" :value="item.value">
-              {{ item.label }}
-            </option>
-          </select>
-        </div>
+        <USelect
+          v-model="drop_gear"
+          :items="dropGearOptions"
+          value-key="value"
+          class="w-full"
+          @update:model-value="triggerDebouncedUpdate"
+        />
       </div>
-      <div class="form-control col-span-12 md:col-span-6">
-        <label class="label">
-          <span class="label-text"
-            >{{ t('form_labels.final_drive') }} <span><i class="fad fa-gears"></i></span
-          ></span>
+      <div class="col-span-12 md:col-span-6">
+        <label class="block text-sm font-medium mb-2">
+          {{ t('form_labels.gearset') }} <i class="fad fa-gear"></i>
         </label>
-        <div class="input-group">
-          <select class="select select-bordered w-full" v-model="final_drive" @change="triggerDebouncedUpdate">
-            <option v-for="item in diffs" :key="item.label" :value="item.value">
-              {{ item.label }}
-            </option>
-          </select>
-        </div>
+        <USelect
+          v-model="gear_ratios"
+          :items="gearRatioOptions"
+          value-key="value"
+          class="w-full"
+          @update:model-value="triggerDebouncedUpdate"
+        />
       </div>
-      <div class="form-control col-span-12 md:col-span-6">
-        <label class="label">
-          <span class="label-text"
-            >{{ t('form_labels.max_rpm') }} <span><i class="fad fa-tachometer-alt"></i></span
-          ></span>
+      <div class="col-span-12 md:col-span-6">
+        <label class="block text-sm font-medium mb-2">
+          {{ t('form_labels.final_drive') }} <i class="fad fa-gears"></i>
         </label>
-        <div class="w-full">
-          <select class="select select-bordered w-full" v-model.number="max_rpm" @change="triggerDebouncedUpdate">
-            <option value="5000">{{ t('rpm_options.5000') }}</option>
-            <option value="5500">{{ t('rpm_options.5500') }}</option>
-            <option value="6000">{{ t('rpm_options.6000') }}</option>
-            <option value="6500">{{ t('rpm_options.6500') }}</option>
-            <option value="7000">{{ t('rpm_options.7000') }}</option>
-            <option value="7500">{{ t('rpm_options.7500') }}</option>
-            <option value="8000">{{ t('rpm_options.8000') }}</option>
-            <option value="8500">{{ t('rpm_options.8500') }}</option>
-            <option value="9000">{{ t('rpm_options.9000') }}</option>
-          </select>
-        </div>
+        <USelect
+          v-model="final_drive"
+          :items="diffOptions"
+          value-key="value"
+          class="w-full"
+          @update:model-value="triggerDebouncedUpdate"
+        />
+      </div>
+      <div class="col-span-12 md:col-span-6">
+        <label class="block text-sm font-medium mb-2">
+          {{ t('form_labels.max_rpm') }} <i class="fad fa-tachometer-alt"></i>
+        </label>
+        <USelect
+          v-model="max_rpm"
+          :items="rpmOptions"
+          value-key="value"
+          class="w-full"
+          @update:model-value="triggerDebouncedUpdate"
+        />
       </div>
     </div>
 
-    <div class="divider">{{ t('results_divider') }}</div>
+    <USeparator class="my-4">
+      <span class="text-sm text-muted">{{ t('results_divider') }}</span>
+    </USeparator>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="card bg-stone-400 shadow-sm">
-        <div class="card-body text-center">
-          <h3 class="text-lg text-white opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin text-white"></i>
-            {{ t('results.revolutions_per', { unit: distanceUnit }) }}
-          </h3>
-          <p class="text-3xl text-white font-bold">{{ displayEngineRevs }}</p>
-        </div>
+      <div class="rounded-lg bg-stone-400 shadow-sm p-6 text-center">
+        <h3 class="text-lg text-white opacity-70">
+          <i class="fa-jelly-duo fa-regular fa-arrows-rotate fa-spin text-white"></i>
+          {{ t('results.revolutions_per', { unit: distanceUnit }) }}
+        </h3>
+        <p class="text-3xl text-white font-bold">{{ displayEngineRevs }}</p>
       </div>
-      <div class="card bg-secondary shadow-sm">
-        <div class="card-body text-center">
-          <h3 class="text-lg text-white opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-arrow-rotate-right fa-spin"></i>
-            {{ t('results.gear_turns_per', { unit: distanceUnit }) }}
-          </h3>
-          <p class="text-3xl text-white font-bold">{{ displayGearTurns }}</p>
-        </div>
+      <div class="rounded-lg bg-secondary shadow-sm p-6 text-center">
+        <h3 class="text-lg text-white opacity-70">
+          <i class="fa-jelly-duo fa-regular fa-arrow-rotate-right fa-spin"></i>
+          {{ t('results.gear_turns_per', { unit: distanceUnit }) }}
+        </h3>
+        <p class="text-3xl text-white font-bold">{{ displayGearTurns }}</p>
       </div>
-      <div class="card bg-primary shadow-sm">
-        <div class="card-body text-center">
-          <h3 class="text-lg text-white opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-gauge"></i> {{ t('results.top_speed') }}
-          </h3>
-          <p class="text-3xl text-white font-bold">{{ topSpeed || '---' }}</p>
-        </div>
+      <div class="rounded-lg bg-primary shadow-sm p-6 text-center">
+        <h3 class="text-lg text-white opacity-70">
+          <i class="fa-jelly-duo fa-regular fa-gauge"></i> {{ t('results.top_speed') }}
+        </h3>
+        <p class="text-3xl text-white font-bold">{{ topSpeed || '---' }}</p>
       </div>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-4">
-      <div class="card bg-base-300 shadow-sm">
-        <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-arrow-down-to-line"></i>
-            {{ t('tire_info.tire_width') }}
-          </h3>
-          <p class="text-lg font-bold">{{ tireInfo.width || '---' }}mm</p>
-        </div>
+      <div class="rounded-lg bg-muted shadow-sm p-4 text-center">
+        <h3 class="text-sm opacity-70">
+          <i class="fa-jelly-duo fa-regular fa-arrow-down-to-line"></i>
+          {{ t('tire_info.tire_width') }}
+        </h3>
+        <p class="text-lg font-bold">{{ tireInfo.width || '---' }}mm</p>
       </div>
-      <div class="card bg-base-300 shadow-sm">
-        <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">
-            <i class="fa-jelly fa-regular fa-circle"></i>
-            {{ t('tire_info.tire_profile') }}
-          </h3>
-          <p class="text-lg font-bold">{{ tireInfo.profile || '---' }}%</p>
-        </div>
+      <div class="rounded-lg bg-muted shadow-sm p-4 text-center">
+        <h3 class="text-sm opacity-70">
+          <i class="fa-jelly fa-regular fa-circle"></i>
+          {{ t('tire_info.tire_profile') }}
+        </h3>
+        <p class="text-lg font-bold">{{ tireInfo.profile || '---' }}%</p>
       </div>
-      <div class="card bg-base-300 shadow-sm">
-        <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-expand"></i>
-            {{ t('tire_info.tire_size') }}
-          </h3>
-          <p class="text-lg font-bold">{{ tireInfo.size || '---' }}"</p>
-        </div>
+      <div class="rounded-lg bg-muted shadow-sm p-4 text-center">
+        <h3 class="text-sm opacity-70">
+          <i class="fa-jelly-duo fa-regular fa-expand"></i>
+          {{ t('tire_info.tire_size') }}
+        </h3>
+        <p class="text-lg font-bold">{{ tireInfo.size || '---' }}"</p>
       </div>
-      <div class="card bg-base-300 shadow-sm">
-        <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-arrow-right-to-bracket"></i>
-            {{ t('tire_info.tire_diameter') }}
-          </h3>
-          <p class="text-lg font-bold">{{ tireInfo.diameter || '---' }}mm</p>
-        </div>
+      <div class="rounded-lg bg-muted shadow-sm p-4 text-center">
+        <h3 class="text-sm opacity-70">
+          <i class="fa-jelly-duo fa-regular fa-arrow-right-to-bracket"></i>
+          {{ t('tire_info.tire_diameter') }}
+        </h3>
+        <p class="text-lg font-bold">{{ tireInfo.diameter || '---' }}mm</p>
       </div>
-      <div class="card bg-base-300 shadow-sm">
-        <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">
-            <i class="fa-jelly-duo fa-regular fa-circle"></i>
-            {{ t('tire_info.circumference') }}
-          </h3>
-          <p class="text-lg font-bold">{{ tireInfo.circ || '---' }}mm</p>
-        </div>
+      <div class="rounded-lg bg-muted shadow-sm p-4 text-center">
+        <h3 class="text-sm opacity-70">
+          <i class="fa-jelly-duo fa-regular fa-circle"></i>
+          {{ t('tire_info.circumference') }}
+        </h3>
+        <p class="text-lg font-bold">{{ tireInfo.circ || '---' }}mm</p>
       </div>
-      <div class="card bg-base-300 shadow-sm">
-        <div class="card-body p-4 text-center">
-          <h3 class="text-sm opacity-70">
-            <i class="fa-duotone fa-solid fa-tire fa-spin"></i>
-            {{ t('tire_info.tire_turns_per', { unit: distanceUnit }) }}
-          </h3>
-          <p class="text-lg font-bold">{{ displayTireTurns }}</p>
-        </div>
+      <div class="rounded-lg bg-muted shadow-sm p-4 text-center">
+        <h3 class="text-sm opacity-70">
+          <i class="fa-duotone fa-solid fa-tire fa-spin"></i>
+          {{ t('tire_info.tire_turns_per', { unit: distanceUnit }) }}
+        </h3>
+        <p class="text-lg font-bold">{{ displayTireTurns }}</p>
       </div>
     </div>
     <div class="mt-6">
-      <div class="card bg-base-100 shadow-md">
-        <div class="card-body">
-          <ClientOnly fallback-tag="span">
-            <highcharts
-              ref="gearSpeedChart"
-              :options="mapOptions"
-              :updateArgs="[true, true, true]"
-              :constructorType="'chart'"
-            ></highcharts>
-            <template #fallback>
-              <div class="skeleton h-96 w-full"></div>
-              <p class="py-10 text-center text-2xl">{{ t('chart.loading') }}</p>
-            </template>
-          </ClientOnly>
-        </div>
-      </div>
+      <UCard>
+        <ClientOnly fallback-tag="span">
+          <highcharts
+            ref="gearSpeedChart"
+            :options="mapOptions"
+            :updateArgs="[true, true, true]"
+            :constructorType="'chart'"
+          ></highcharts>
+          <template #fallback>
+            <USkeleton class="h-96 w-full" />
+            <p class="py-10 text-center text-2xl">{{ t('chart.loading') }}</p>
+          </template>
+        </ClientOnly>
+      </UCard>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6">
       <div class="col-span-1 md:col-span-7">
-        <div class="card bg-base-100 shadow-md">
-          <div class="card-body">
-            <h2 class="card-title">
+        <UCard>
+          <template #header>
+            <h2 class="font-semibold text-lg flex items-center">
               <i class="fa-duotone fa-gauge mr-2"></i>
               {{ t('tables.speedo_information') }}
             </h2>
-            <div class="overflow-x-auto">
-              <table class="table table-zebra table-compact w-full">
-                <thead>
-                  <tr>
-                    <th v-for="header in tableHeadersSpeedos" :key="header.key">{{ header.title }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) in tableDataSpeedos" :key="index">
-                    <td class="font-bold">{{ item.speedometer }}</td>
-                    <td>{{ item.turns }}</td>
-                    <td>{{ item.speed }}{{ metric ? 'kph' : 'mph' }}</td>
-                    <td :class="item.status">{{ item.result }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          </template>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-default">
+                  <th v-for="header in tableHeadersSpeedos" :key="header.key" class="text-left p-2 font-medium">
+                    {{ header.title }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in tableDataSpeedos" :key="index" class="border-b border-default last:border-0">
+                  <td class="p-2 font-bold">{{ item.speedometer }}</td>
+                  <td class="p-2">{{ item.turns }}</td>
+                  <td class="p-2">{{ item.speed }}{{ metric ? 'kph' : 'mph' }}</td>
+                  <td class="p-2" :class="item.status">{{ item.result }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
+        </UCard>
       </div>
 
       <div class="col-span-1 md:col-span-5">
-        <div class="card bg-base-100 shadow-md">
-          <div class="card-body">
-            <h2 class="card-title">
+        <UCard>
+          <template #header>
+            <h2 class="font-semibold text-lg flex items-center">
               <i class="fa-duotone fa-gear fa-spin mr-2"></i>
               {{ t('tables.gearing_information') }}
             </h2>
-            <div class="overflow-x-auto">
-              <table class="table table-zebra table-compact w-full">
-                <thead>
-                  <tr>
-                    <th v-for="header in tableHeadersGearing" :key="header.key">{{ header.title }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) in tableDataGearing" :key="index">
-                    <td>{{ item.gear }}</td>
-                    <td>{{ item.ratio }}</td>
-                    <td>{{ item.maxSpeed }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          </template>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-default">
+                  <th v-for="header in tableHeadersGearing" :key="header.key" class="text-left p-2 font-medium">
+                    {{ header.title }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in tableDataGearing" :key="index" class="border-b border-default last:border-0">
+                  <td class="p-2">{{ item.gear }}</td>
+                  <td class="p-2">{{ item.ratio }}</td>
+                  <td class="p-2">{{ item.maxSpeed }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
+        </UCard>
         <div class="mt-6">
-          <div class="divider">{{ t('support_divider') }}</div>
+          <USeparator class="my-4">
+            <span class="text-sm text-muted">{{ t('support_divider') }}</span>
+          </USeparator>
           <patreon-card size="large" />
         </div>
       </div>
@@ -512,14 +540,14 @@
     <div class="mt-6 text-center max-w-3xl mx-auto">
       <p>
         {{ t('disclaimer', { strong_start: '<strong>', strong_end: '</strong>' }) }}
-        <a
-          href="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
+        <UButton
+          variant="link"
+          color="primary"
+          to="https://github.com/SomethingNew71/classicminidiy/blob/dev/components/SpeedoDriveCalculator.vue#L512"
           target="_blank"
-          rel="noopener noreferrer"
-          class="link link-primary"
         >
           {{ t('equation_source') }}
-        </a>
+        </UButton>
       </p>
     </div>
   </div>

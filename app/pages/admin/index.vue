@@ -126,26 +126,19 @@
     <!-- Breadcrumb Navigation -->
     <div class="container mx-auto px-4 pt-10">
       <div class="flex justify-between items-center">
-        <div class="text-base breadcrumbs">
-          <ul>
-            <li>
-              <div class="flex items-center">
-                <i class="fa-duotone fa-home mr-1"></i>
-                <NuxtLink to="/">Home</NuxtLink>
-              </div>
-            </li>
-            <li>
-              <span class="opacity-60">Admin</span>
-            </li>
-          </ul>
-        </div>
+        <UBreadcrumb
+          :items="[
+            { label: 'Home', to: '/', icon: 'i-heroicons-home' },
+            { label: 'Admin' }
+          ]"
+        />
 
         <div class="flex items-center gap-4">
-          <span class="text-sm text-base-content/70"> Welcome, {{ user?.username }} </span>
-          <button @click="handleLogout" class="btn btn-ghost btn-sm">
+          <span class="text-sm opacity-70"> Welcome, {{ user?.username }} </span>
+          <UButton @click="handleLogout" variant="ghost" size="sm">
             <i class="fad fa-sign-out mr-2"></i>
             Logout
-          </button>
+          </UButton>
         </div>
       </div>
     </div>
@@ -154,207 +147,198 @@
     <div class="container mx-auto px-4 py-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <!-- Registry Review Card -->
-        <div class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
-          <div class="card-body">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                <i class="fad fa-clipboard-list text-2xl text-primary"></i>
-              </div>
-              <h2 class="card-title text-xl">Registry Review</h2>
+        <UCard class="hover:shadow-2xl transition-shadow">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+              <i class="fad fa-clipboard-list text-2xl text-primary"></i>
             </div>
+            <h2 class="text-xl font-bold">Registry Review</h2>
+          </div>
 
-            <p class="text-base-content/70 mb-6">Review and manage Classic Mini registry submissions from users.</p>
+          <p class="opacity-70 mb-6">Review and manage Classic Mini registry submissions from users.</p>
 
-            <div class="space-y-3 mb-6">
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-check-circle text-success"></i>
-                <span>Approve submissions</span>
-              </div>
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-times-circle text-error"></i>
-                <span>Reject invalid entries</span>
-              </div>
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-edit text-info"></i>
-                <span>Edit submission details</span>
-              </div>
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-check-circle text-success"></i>
+              <span>Approve submissions</span>
             </div>
-
-            <div class="card-actions justify-end">
-              <NuxtLink to="/admin/registry/review" class="btn btn-primary">
-                <i class="fad fa-arrow-right mr-2"></i>
-                Manage Registry
-              </NuxtLink>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-times-circle text-error"></i>
+              <span>Reject invalid entries</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-edit text-info"></i>
+              <span>Edit submission details</span>
             </div>
           </div>
-        </div>
+
+          <div class="flex justify-end">
+            <UButton to="/admin/registry/review" color="primary">
+              <i class="fad fa-arrow-right mr-2"></i>
+              Manage Registry
+            </UButton>
+          </div>
+        </UCard>
 
         <!-- Wheels Review Card -->
-        <div class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
-          <div class="card-body">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
-                <i class="fad fa-tire text-2xl text-secondary"></i>
-              </div>
-              <h2 class="card-title text-xl">Wheels Review</h2>
+        <UCard class="hover:shadow-2xl transition-shadow">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+              <i class="fad fa-tire text-2xl text-secondary"></i>
             </div>
+            <h2 class="text-xl font-bold">Wheels Review</h2>
+          </div>
 
-            <p class="text-base-content/70 mb-6">Review and manage wheel and tire submissions from the community.</p>
+          <p class="opacity-70 mb-6">Review and manage wheel and tire submissions from the community.</p>
 
-            <div class="space-y-3 mb-6">
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-check-circle text-success"></i>
-                <span>Approve wheel data</span>
-              </div>
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-times-circle text-error"></i>
-                <span>Remove duplicates</span>
-              </div>
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-edit text-info"></i>
-                <span>Validate specifications</span>
-              </div>
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-check-circle text-success"></i>
+              <span>Approve wheel data</span>
             </div>
-
-            <div class="card-actions justify-end">
-              <NuxtLink to="/admin/wheels/review" class="btn btn-secondary">
-                <i class="fad fa-arrow-right mr-2"></i>
-                Manage Wheels
-              </NuxtLink>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-times-circle text-error"></i>
+              <span>Remove duplicates</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-edit text-info"></i>
+              <span>Validate specifications</span>
             </div>
           </div>
-        </div>
+
+          <div class="flex justify-end">
+            <UButton to="/admin/wheels/review" color="secondary">
+              <i class="fad fa-arrow-right mr-2"></i>
+              Manage Wheels
+            </UButton>
+          </div>
+        </UCard>
 
         <!-- Colors Review Card -->
-        <div class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
-          <div class="card-body">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center">
-                <i class="fad fa-palette text-2xl text-warning"></i>
-              </div>
-              <h2 class="card-title text-xl">Colors Review</h2>
+        <UCard class="hover:shadow-2xl transition-shadow">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center">
+              <i class="fad fa-palette text-2xl text-warning"></i>
             </div>
+            <h2 class="text-xl font-bold">Colors Review</h2>
+          </div>
 
-            <p class="text-base-content/70 mb-6">Review and manage color database submissions from the community.</p>
+          <p class="opacity-70 mb-6">Review and manage color database submissions from the community.</p>
 
-            <div class="space-y-3 mb-6">
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-check-circle text-success"></i>
-                <span>Approve color entries</span>
-              </div>
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-times-circle text-error"></i>
-                <span>Reject invalid data</span>
-              </div>
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-edit text-info"></i>
-                <span>Edit color details</span>
-              </div>
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-check-circle text-success"></i>
+              <span>Approve color entries</span>
             </div>
-
-            <div class="card-actions justify-end">
-              <NuxtLink to="/admin/colors/review" class="btn btn-warning">
-                <i class="fad fa-arrow-right mr-2"></i>
-                Manage Colors
-              </NuxtLink>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-times-circle text-error"></i>
+              <span>Reject invalid data</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-edit text-info"></i>
+              <span>Edit color details</span>
             </div>
           </div>
-        </div>
+
+          <div class="flex justify-end">
+            <UButton to="/admin/colors/review" color="warning">
+              <i class="fad fa-arrow-right mr-2"></i>
+              Manage Colors
+            </UButton>
+          </div>
+        </UCard>
 
         <!-- Chat Threads Card -->
-        <div class="card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-shadow">
-          <div class="card-body">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                <i class="fad fa-messages text-2xl text-accent"></i>
-              </div>
-              <h2 class="card-title text-xl">Chat Threads</h2>
+        <UCard class="hover:shadow-2xl transition-shadow">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-info/10 rounded-lg flex items-center justify-center">
+              <i class="fad fa-messages text-2xl text-info"></i>
             </div>
+            <h2 class="text-xl font-bold">Chat Threads</h2>
+          </div>
 
-            <p class="text-base-content/70 mb-6">
-              View and manage LangGraph chat threads from users interacting with the AI assistant.
-            </p>
+          <p class="opacity-70 mb-6">
+            View and manage LangGraph chat threads from users interacting with the AI assistant.
+          </p>
 
-            <div class="space-y-3 mb-6">
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-list text-info"></i>
-                <span>Browse all chat threads</span>
-              </div>
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-filter text-info"></i>
-                <span>Filter by status and metadata</span>
-              </div>
-              <div class="flex items-center gap-2 text-sm">
-                <i class="fad fa-eye text-info"></i>
-                <span>View thread history and state</span>
-              </div>
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-list text-info"></i>
+              <span>Browse all chat threads</span>
             </div>
-
-            <div class="card-actions justify-end">
-              <NuxtLink to="/admin/threads" class="btn btn-accent">
-                <i class="fad fa-arrow-right mr-2"></i>
-                View Threads
-              </NuxtLink>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-filter text-info"></i>
+              <span>Filter by status and metadata</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fad fa-eye text-info"></i>
+              <span>View thread history and state</span>
             </div>
           </div>
-        </div>
+
+          <div class="flex justify-end">
+            <UButton to="/admin/threads" color="info">
+              <i class="fad fa-arrow-right mr-2"></i>
+              View Threads
+            </UButton>
+          </div>
+        </UCard>
       </div>
 
       <!-- Admin Stats Section -->
       <div class="mt-16 max-w-4xl mx-auto">
-        <div class="card bg-base-200 shadow-lg">
-          <div class="card-body">
-            <div class="flex justify-between items-center mb-6">
-              <h3 class="text-2xl font-bold">Quick Stats</h3>
-              <button
-                @click="refreshStats"
-                :disabled="isRefreshing"
-                class="btn btn-ghost btn-sm"
-                :class="{ loading: isRefreshing }"
-              >
-                <i v-if="!isRefreshing" class="fad fa-refresh mr-2"></i>
-                {{ isRefreshing ? 'Refreshing...' : 'Refresh' }}
-              </button>
+        <UCard class="bg-muted">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold">Quick Stats</h3>
+            <UButton
+              @click="refreshStats"
+              :disabled="isRefreshing"
+              variant="ghost"
+              size="sm"
+            >
+              <span v-if="isRefreshing" class="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2"></span>
+              <i v-else class="fad fa-refresh mr-2"></i>
+              {{ isRefreshing ? 'Refreshing...' : 'Refresh' }}
+            </UButton>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div class="p-4 rounded-lg">
+              <div class="text-primary mb-2">
+                <i class="fad fa-clipboard-list text-3xl"></i>
+              </div>
+              <div class="text-sm opacity-70">Registry Queue</div>
+              <div class="text-3xl font-bold text-primary">{{ registryCount || '0' }}</div>
+              <div class="text-xs opacity-60">Pending submissions</div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              <div class="stat">
-                <div class="stat-figure text-primary">
-                  <i class="fad fa-clipboard-list text-3xl"></i>
-                </div>
-                <div class="stat-title">Registry Queue</div>
-                <div class="stat-value text-primary">{{ registryCount || '0' }}</div>
-                <div class="stat-desc">Pending submissions</div>
-              </div>
 
-              <div class="stat">
-                <div class="stat-figure text-secondary">
-                  <i class="fad fa-tire text-3xl"></i>
-                </div>
-                <div class="stat-title">Wheels Queue</div>
-                <div class="stat-value text-secondary">{{ wheelsCount || '0' }}</div>
-                <div class="stat-desc">Pending reviews</div>
+            <div class="p-4 rounded-lg">
+              <div class="text-secondary mb-2">
+                <i class="fad fa-tire text-3xl"></i>
               </div>
+              <div class="text-sm opacity-70">Wheels Queue</div>
+              <div class="text-3xl font-bold text-secondary">{{ wheelsCount || '0' }}</div>
+              <div class="text-xs opacity-60">Pending reviews</div>
+            </div>
 
-              <div class="stat">
-                <div class="stat-figure text-warning">
-                  <i class="fad fa-palette text-3xl"></i>
-                </div>
-                <div class="stat-title">Colors Queue</div>
-                <div class="stat-value text-warning">{{ colorsCount || '0' }}</div>
-                <div class="stat-desc">Pending reviews</div>
+            <div class="p-4 rounded-lg">
+              <div class="text-warning mb-2">
+                <i class="fad fa-palette text-3xl"></i>
               </div>
+              <div class="text-sm opacity-70">Colors Queue</div>
+              <div class="text-3xl font-bold text-warning">{{ colorsCount || '0' }}</div>
+              <div class="text-xs opacity-60">Pending reviews</div>
+            </div>
 
-              <div class="stat">
-                <div class="stat-figure text-info">
-                  <i class="fad fa-clock text-3xl"></i>
-                </div>
-                <div class="stat-title">Last Updated</div>
-                <div class="stat-value text-info text-lg">{{ lastUpdated }}</div>
-                <div class="stat-desc">{{ formatDate(new Date()) }}</div>
+            <div class="p-4 rounded-lg">
+              <div class="text-info mb-2">
+                <i class="fad fa-clock text-3xl"></i>
               </div>
+              <div class="text-sm opacity-70">Last Updated</div>
+              <div class="text-lg font-bold text-info">{{ lastUpdated }}</div>
+              <div class="text-xs opacity-60">{{ formatDate(new Date()) }}</div>
             </div>
           </div>
-        </div>
+        </UCard>
       </div>
     </div>
   </div>
