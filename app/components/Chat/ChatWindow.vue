@@ -1,60 +1,62 @@
 <template>
   <!-- Chat Interface -->
-  <div class="flex flex-col h-full bg-base-100">
+  <div class="flex flex-col h-full bg-default">
     <!-- Experimental Disclaimer (always visible) -->
 
     <!-- Welcome Banner (shown when chat is empty) -->
     <div v-if="isChatEmpty && !isLoading" class="flex-1 flex items-center justify-center px-4">
       <div class="max-w-2xl mx-auto text-center space-y-6">
         <!-- Welcome Message -->
-        <div class="card bg-primary/10 border border-primary/20">
-          <div class="card-body p-6">
-            <div class="flex flex-col items-center gap-4">
-              <i class="fa-solid fa-comments text-primary text-4xl"></i>
-              <div>
-                <h3 class="font-semibold text-xl mb-3 text-primary">
-                  {{ t('welcome_title') }}
-                </h3>
-                <p class="text-base text-base-content/80 leading-relaxed">
-                  I'm your Classic Mini DIY assistant, here to help you with technical questions, decode chassis
-                  numbers, find parts information, navigate the archives, and provide guidance on Classic Mini
-                  restoration and maintenance. Ask me anything about your Classic Mini project!
-                </p>
-              </div>
+        <UCard class="bg-primary/10 border border-primary/20">
+          <div class="flex flex-col items-center gap-4">
+            <i class="fa-solid fa-comments text-primary text-4xl"></i>
+            <div>
+              <h3 class="font-semibold text-xl mb-3 text-primary">
+                {{ t('welcome_title') }}
+              </h3>
+              <p class="text-base text-muted leading-relaxed">
+                I'm your Classic Mini DIY assistant, here to help you with technical questions, decode chassis
+                numbers, find parts information, navigate the archives, and provide guidance on Classic Mini
+                restoration and maintenance. Ask me anything about your Classic Mini project!
+              </p>
             </div>
           </div>
-        </div>
+        </UCard>
 
         <!-- Centered Input Area (when chat is empty) -->
         <div class="w-full max-w-2xl">
           <form @submit.prevent="handleSubmit" class="relative">
-            <div class="flex items-end gap-3 bg-base-200 rounded-2xl p-3 shadow-sm border border-base-300">
+            <div class="flex items-end gap-3 bg-muted rounded-2xl p-3 shadow-sm border border-default">
               <textarea
                 ref="inputRef"
                 v-model="input"
                 @keydown="handleInputKeyDown"
                 :placeholder="t('input_placeholder')"
-                class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50 py-2 leading-6"
+                class="flex-1 bg-transparent resize-none outline-none min-h-6 max-h-32 placeholder:text-muted py-2 leading-6"
                 rows="1"
               ></textarea>
 
-              <button
+              <UButton
                 v-if="isLoading"
                 @click="stopGeneration"
                 type="button"
-                class="btn btn-circle btn-sm btn-error flex-shrink-0"
+                size="sm"
+                color="error"
+                square
               >
                 <i class="fa-solid fa-stop"></i>
-              </button>
+              </UButton>
 
-              <button
+              <UButton
                 v-else
                 type="submit"
-                class="btn btn-circle btn-sm btn-primary flex-shrink-0"
+                size="sm"
+                color="primary"
+                square
                 :disabled="!input.trim()"
               >
                 <i class="fa-solid fa-paper-plane"></i>
-              </button>
+              </UButton>
             </div>
           </form>
 
@@ -82,10 +84,10 @@
               </div>
             </template>
 
-            <div v-if="isLoading" class="flex h-8 items-center gap-1 rounded-2xl bg-base-200 px-4 py-2">
-              <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50"></div>
-              <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-500"></div>
-              <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-base-content/50 animation-delay-1000"></div>
+            <div v-if="isLoading" class="flex h-8 items-center gap-1 rounded-2xl bg-muted px-4 py-2">
+              <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-muted"></div>
+              <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-muted animation-delay-500"></div>
+              <div class="h-1.5 w-1.5 animate-pulse rounded-full bg-muted animation-delay-1000"></div>
             </div>
             <!-- Useful Links from Tavily Search Results (Mobile Only) -->
             <UsefulLinks v-if="!isLoading && usefulLinks.length > 0" :links="usefulLinks" class="md:hidden" />
@@ -93,25 +95,29 @@
         </div>
 
         <!-- Floating Scroll to Bottom Button -->
-        <button
+        <UButton
           v-if="showScrollButton"
           @click="scrollToBottom"
-          class="absolute bottom-24 right-6 lg:right-80 btn btn-circle btn-sm bg-base-200 border border-base-300 shadow-lg hover:shadow-xl transition-all duration-200 z-10"
+          class="absolute bottom-24 right-6 lg:right-80 shadow-lg hover:shadow-xl transition-all duration-200 z-10"
+          size="sm"
+          variant="outline"
+          color="neutral"
+          square
           title="Scroll to bottom"
         >
           <i class="fa-solid fa-chevron-down text-sm"></i>
-        </button>
+        </UButton>
       </div>
 
       <!-- Right Sidebar for Useful Links (Desktop/Tablet Only) -->
-      <div class="hidden md:flex md:flex-col md:w-80 md:border-l md:border-base-300 md:bg-base-50">
+      <div class="hidden md:flex md:flex-col md:w-80 md:border-l md:border-default md:bg-muted/50">
         <div class="flex-1 overflow-y-auto p-4">
           <!-- Useful Links Sidebar -->
           <div v-if="!isLoading && usefulLinks.length > 0" class="sticky top-0">
             <UsefulLinksSidebar :links="usefulLinks" />
           </div>
           <!-- Placeholder when no links -->
-          <div v-else class="text-center text-base-content/50 mt-8">
+          <div v-else class="text-center text-muted mt-8">
             <i class="fa-solid fa-link text-2xl mb-2 block"></i>
             <p class="text-sm">{{ t('useful_links_placeholder') }}</p>
           </div>
@@ -120,47 +126,48 @@
     </div>
 
     <!-- Floating Input Area (when messages exist) -->
-    <div v-if="!isChatEmpty || isLoading" class="p-4 bg-base-100">
+    <div v-if="!isChatEmpty || isLoading" class="p-4 bg-default">
       <form @submit.prevent="handleSubmit" class="relative">
-        <div class="flex items-end gap-3 bg-base-200 rounded-2xl p-3 shadow-sm border border-base-300">
+        <div class="flex items-end gap-3 bg-muted rounded-2xl p-3 shadow-sm border border-default">
           <textarea
             ref="inputRef"
             v-model="input"
             @keydown="handleInputKeyDown"
             :placeholder="t('input_placeholder')"
-            class="flex-1 bg-transparent resize-none outline-none min-h-[1.5rem] max-h-32 placeholder-base-content/50 py-2 leading-6"
+            class="flex-1 bg-transparent resize-none outline-none min-h-6 max-h-32 placeholder:text-muted py-2 leading-6"
             rows="1"
           ></textarea>
 
-          <button
+          <UButton
             v-if="isLoading"
             @click="stopGeneration"
             type="button"
-            class="btn btn-circle btn-sm btn-error flex-shrink-0"
+            size="sm"
+            color="error"
+            square
           >
             <i class="fa-solid fa-stop"></i>
-          </button>
+          </UButton>
 
-          <button
+          <UButton
             v-else
             type="submit"
-            class="btn btn-circle btn-sm btn-primary flex-shrink-0"
+            size="sm"
+            color="primary"
+            square
             :disabled="!input.trim()"
           >
             <i class="fa-solid fa-paper-plane"></i>
-          </button>
+          </UButton>
         </div>
       </form>
-      <div class="bg-warning/10 border-b border-warning/20 px-4 py-2 mt-3 rounded-md">
-        <div class="flex items-start gap-3">
-          <i class="fa-solid fa-triangle-exclamation text-warning text-sm mt-0.5 flex-shrink-0"></i>
-          <div class="text-sm text-base-content/80">
-            <strong class="text-warning">{{ t('experimental_feature') }}</strong>
-            {{ t('experimental_disclaimer') }} Always verify critical information with official documentation, qualified
-            mechanics, or experienced Classic Mini enthusiasts.
-          </div>
-        </div>
-      </div>
+      <UAlert color="warning" class="mt-3" icon="i-heroicons-exclamation-triangle">
+        <template #title>{{ t('experimental_feature') }}</template>
+        <template #description>
+          {{ t('experimental_disclaimer') }} Always verify critical information with official documentation, qualified
+          mechanics, or experienced Classic Mini enthusiasts.
+        </template>
+      </UAlert>
 
       <!-- Report Issue Link Below Chat -->
       <div class="flex justify-center mt-3">

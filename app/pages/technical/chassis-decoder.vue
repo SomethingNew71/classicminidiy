@@ -147,35 +147,33 @@
           </div>
           <div class="col-span-12 md:col-span-5">
             <NuxtLink :to="'/technical/engine-decoder'" :title="$t('engine_decoder_card.link_title')" class="block">
-              <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
-                <div class="card-body">
-                  <div class="flex items-start space-x-4">
-                    <div class="flex-shrink-0">
-                      <figure class="w-16 h-16">
-                        <picture>
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp"
-                            type="image/webp"
-                          />
-                          <img
-                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png"
-                            :alt="$t('engine_decoder_card.alt_text')"
-                            class="w-full h-full object-cover rounded"
-                          />
-                        </picture>
-                      </figure>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="text-lg font-semibold">
-                        {{ $t('engine_decoder_card.heading') }}
-                      </h3>
-                      <p class="mt-1">
-                        {{ $t('engine_decoder_card.description') }}
-                      </p>
-                    </div>
+              <UCard class="hover:shadow-lg transition-shadow">
+                <div class="flex items-start space-x-4">
+                  <div class="shrink-0">
+                    <figure class="w-16 h-16">
+                      <picture>
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-blueprint-zoom-100.png"
+                          :alt="$t('engine_decoder_card.alt_text')"
+                          class="w-full h-full object-cover rounded"
+                        />
+                      </picture>
+                    </figure>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold">
+                      {{ $t('engine_decoder_card.heading') }}
+                    </h3>
+                    <p class="mt-1">
+                      {{ $t('engine_decoder_card.description') }}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </UCard>
             </NuxtLink>
           </div>
         </div>
@@ -183,8 +181,8 @@
 
       <!-- Chassis Decoder Form -->
       <div class="col-span-12 md:col-span-8 md:col-start-3">
-        <div class="card bg-base-100 shadow-lg">
-          <div class="card-body text-center">
+        <UCard>
+          <div class="text-center">
             <h3 class="text-xl font-semibold mb-4">
               {{ $t('form.card_title') }}
             </h3>
@@ -194,169 +192,157 @@
 
             <div class="space-y-4 max-w-md mx-auto">
               <!-- Year Range Selection -->
-              <div class="form-control w-full">
-                <label class="label">
-                  <span class="label-text font-medium">{{ $t('form.year_range_label') }}</span>
-                </label>
-                <select v-model="yearRange" class="select select-bordered w-full">
-                  <option v-for="option in yearRangeOptions" :key="option" :value="option">
-                    {{ option }}
-                  </option>
-                </select>
-              </div>
+              <UFormField :label="$t('form.year_range_label')">
+                <USelect
+                  v-model="yearRange"
+                  :items="yearRangeOptions"
+                  class="w-full"
+                />
+              </UFormField>
 
               <!-- Chassis Number Input -->
-              <div class="form-control w-full">
-                <label class="label">
-                  <span class="label-text font-medium">{{ $t('form.chassis_number_label') }}</span>
-                </label>
-                <input
+              <UFormField :label="$t('form.chassis_number_label')">
+                <UInput
                   v-model="chassisNumber"
                   type="text"
                   :placeholder="$t('form.chassis_number_placeholder')"
-                  class="input input-bordered w-full"
+                  class="w-full"
                   @keyup.enter="decodeChassisNumber"
                 />
                 <!-- Example for selected year range -->
-                <div v-if="exampleChassisNumber" class="mt-2 text-sm text-gray-600">
-                  <span class="font-medium">{{ $t('form.example_text') }} {{ yearRange }}:</span>
-                  <span class="font-mono ml-2 text-primary">{{ exampleChassisNumber }}</span>
-                </div>
-              </div>
+                <template #help>
+                  <div v-if="exampleChassisNumber" class="text-sm opacity-70">
+                    <span class="font-medium">{{ $t('form.example_text') }} {{ yearRange }}:</span>
+                    <span class="font-mono ml-2 text-primary">{{ exampleChassisNumber }}</span>
+                  </div>
+                </template>
+              </UFormField>
 
               <!-- Action Buttons -->
               <div class="flex gap-3 justify-center">
-                <button
+                <UButton
                   @click="decodeChassisNumber"
                   :disabled="isLoading || !chassisNumber.trim()"
-                  class="btn btn-primary"
+                  color="primary"
                 >
-                  <span v-if="isLoading" class="loading loading-spinner loading-sm"></span>
+                  <span v-if="isLoading" class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
                   {{ isLoading ? $t('form.decoding_button') : $t('form.decode_button') }}
-                </button>
-                <button @click="resetForm" class="btn btn-ghost">
+                </UButton>
+                <UButton @click="resetForm" variant="ghost">
                   {{ $t('form.reset_button') }}
-                </button>
+                </UButton>
               </div>
 
               <!-- Error Message -->
-              <div v-if="errorMessage" class="alert alert-error">
-                <span>{{ errorMessage }}</span>
-              </div>
+              <UAlert v-if="errorMessage" color="error" :title="errorMessage" />
             </div>
           </div>
-        </div>
+        </UCard>
       </div>
 
       <!-- Decoded Results -->
       <div v-if="decodedResult" ref="decodedResultsSection" class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="card bg-base-100 shadow-md">
-          <div class="card-body">
-            <div class="flex justify-between items-center mb-6">
-              <h3 class="card-title text-xl font-semibold">
-                {{ $t('results.title') }}
-              </h3>
-              <div>
-                <span v-if="decodedResult.isValid" class="badge badge-success">{{ $t('results.status_decoded') }}</span>
-                <span v-else class="badge badge-error">{{ $t('results.status_invalid') }}</span>
-              </div>
-            </div>
-            <!-- Summary -->
-            <div class="mb-6">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                <div class="stat">
-                  <div class="stat-title">
-                    {{ $t('results.year_range_stat') }}
-                  </div>
-                  <div class="stat-value text-lg">{{ decodedResult.yearRange }}</div>
-                </div>
-                <div class="stat">
-                  <div class="stat-title text-lg">
-                    {{ $t('results.chassis_number_stat') }}
-                  </div>
-                  <div class="stat-value text-xl font-mono">
-                    <p class="badge badge-secondary badge-lg">{{ decodedResult.chassisNumber }}</p>
-                  </div>
-                </div>
-                <div class="stat">
-                  <div class="stat-title">
-                    {{ $t('results.expected_pattern_stat') }}
-                  </div>
-                  <div class="stat-value text-lg font-mono">{{ decodedResult.pattern }}</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Validation Errors -->
-            <div v-if="decodedResult.errors.length > 0" class="mb-6">
-              <h4 class="text-lg font-semibold mb-3">
-                {{ $t('results.validation_issues_title') }}
-              </h4>
-              <div class="space-y-2">
-                <div v-for="error in decodedResult.errors" :key="error" class="alert alert-warning">
-                  <span>{{ error }}</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Decoded Positions -->
+        <UCard>
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-semibold">
+              {{ $t('results.title') }}
+            </h3>
             <div>
-              <h4 class="text-lg font-semibold mb-4">
-                {{ $t('results.decoded_positions_title') }}
-              </h4>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div
-                  v-for="position in decodedResult.decodedPositions"
-                  :key="position.position"
-                  class="flex items-start space-x-3 p-3 rounded-lg"
-                  :class="position.matched ? 'bg-success/10' : 'bg-error/10'"
-                >
-                  <span class="position text-lg mt-0.5" :class="getPositionColorClass(position.position)"> ● </span>
-                  <div class="flex-1">
-                    <div class="flex items-center gap-2">
-                      <span class="font-medium">
-                        {{ $t('results.position_label') }}
-                        {{ position.position }}: <strong>{{ position.value }}</strong>
-                      </span>
-                      <span v-if="position.matched" class="badge badge-success badge-sm">✓</span>
-                      <span v-else class="badge badge-error badge-sm">✗</span>
-                    </div>
-                    <div class="text-md font-semibold mt-1">{{ position.name }}</div>
+              <UBadge v-if="decodedResult.isValid" color="success">{{ $t('results.status_decoded') }}</UBadge>
+              <UBadge v-else color="error">{{ $t('results.status_invalid') }}</UBadge>
+            </div>
+          </div>
+          <!-- Summary -->
+          <div class="mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+              <div class="p-4 bg-muted rounded-lg">
+                <div class="text-sm opacity-70">
+                  {{ $t('results.year_range_stat') }}
+                </div>
+                <div class="text-lg font-bold">{{ decodedResult.yearRange }}</div>
+              </div>
+              <div class="p-4 bg-muted rounded-lg">
+                <div class="text-sm opacity-70">
+                  {{ $t('results.chassis_number_stat') }}
+                </div>
+                <div class="text-xl font-mono mt-1">
+                  <UBadge color="secondary" size="lg">{{ decodedResult.chassisNumber }}</UBadge>
+                </div>
+              </div>
+              <div class="p-4 bg-muted rounded-lg">
+                <div class="text-sm opacity-70">
+                  {{ $t('results.expected_pattern_stat') }}
+                </div>
+                <div class="text-lg font-mono font-bold">{{ decodedResult.pattern }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Validation Errors -->
+          <div v-if="decodedResult.errors.length > 0" class="mb-6">
+            <h4 class="text-lg font-semibold mb-3">
+              {{ $t('results.validation_issues_title') }}
+            </h4>
+            <div class="space-y-2">
+              <UAlert v-for="error in decodedResult.errors" :key="error" color="warning" :title="error" />
+            </div>
+          </div>
+
+          <!-- Decoded Positions -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">
+              {{ $t('results.decoded_positions_title') }}
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div
+                v-for="position in decodedResult.decodedPositions"
+                :key="position.position"
+                class="flex items-start space-x-3 p-3 rounded-lg"
+                :class="position.matched ? 'bg-success/10' : 'bg-error/10'"
+              >
+                <span class="position text-lg mt-0.5" :class="getPositionColorClass(position.position)"> ● </span>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2">
+                    <span class="font-medium">
+                      {{ $t('results.position_label') }}
+                      {{ position.position }}: <strong>{{ position.value }}</strong>
+                    </span>
+                    <UBadge v-if="position.matched" color="success" size="sm">✓</UBadge>
+                    <UBadge v-else color="error" size="sm">✗</UBadge>
                   </div>
+                  <div class="text-md font-semibold mt-1">{{ position.name }}</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </UCard>
       </div>
 
       <!-- Special Notes -->
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="card bg-base-100 shadow-md">
-          <div class="card-body">
-            <h3 class="card-title text-2xl font-semibold mb-4">
-              {{ $t('special_notes.title') }}
-            </h3>
-            <div class="space-y-4">
-              <div>
-                <h4 class="text-lg font-semibold mb-2">
-                  {{ $t('special_notes.build_number_title') }}
-                </h4>
-                <p>
-                  {{ $t('special_notes.build_number_text') }}
-                </p>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold mb-2">
-                  {{ $t('special_notes.assembly_plant_title') }}
-                </h4>
-                <p>
-                  {{ $t('special_notes.assembly_plant_text') }}
-                </p>
-              </div>
+        <UCard>
+          <h3 class="text-2xl font-semibold mb-4">
+            {{ $t('special_notes.title') }}
+          </h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold mb-2">
+                {{ $t('special_notes.build_number_title') }}
+              </h4>
+              <p>
+                {{ $t('special_notes.build_number_text') }}
+              </p>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold mb-2">
+                {{ $t('special_notes.assembly_plant_title') }}
+              </h4>
+              <p>
+                {{ $t('special_notes.assembly_plant_text') }}
+              </p>
             </div>
           </div>
-        </div>
+        </UCard>
       </div>
 
       <div class="col-span-12 md:col-span-10 md:col-start-2">
@@ -378,7 +364,7 @@
       </div>
 
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ $t('ui.support_section') }}</div>
+        <USeparator :label="$t('ui.support_section')" />
       </div>
 
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">

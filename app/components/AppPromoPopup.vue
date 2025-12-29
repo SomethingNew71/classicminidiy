@@ -39,82 +39,88 @@
 </script>
 
 <template>
-  <div v-if="isVisible" class="modal modal-open">
-    <div class="modal-box max-w-2xl relative p-0 overflow-hidden">
-      <!-- Close button -->
-      <button
-        @click="dismissPopup"
-        class="btn btn-sm btn-circle absolute right-4 top-4 z-10 bg-base-100"
-        aria-label="Close"
-      >
-        ✕
-      </button>
+  <UModal v-model:open="isVisible" :ui="{ width: 'max-w-2xl' }">
+    <template #content>
+      <div class="relative overflow-hidden">
+        <!-- Close button -->
+        <UButton
+          @click="dismissPopup"
+          size="sm"
+          variant="ghost"
+          color="neutral"
+          square
+          class="absolute right-4 top-4 z-10"
+          aria-label="Close"
+        >
+          <i class="fas fa-times"></i>
+        </UButton>
 
-      <!-- Banner Header -->
-      <div class="relative w-full">
-        <img src="/app-promo/banner.png" alt="Classic Mini Toolbox Banner" class="w-full h-auto" />
+        <!-- Banner Header -->
+        <div class="relative w-full">
+          <img src="/app-promo/banner.png" alt="Classic Mini Toolbox Banner" class="w-full h-auto" />
+        </div>
+
+        <div class="p-6">
+          <!-- Title -->
+          <div class="text-center mb-6">
+            <h3 class="font-bold text-2xl mb-2">{{ t('title') }}</h3>
+            <p class="text-muted">{{ t('subtitle') }}</p>
+          </div>
+
+          <!-- Features Grid -->
+          <div class="grid grid-cols-2 gap-3 mb-6">
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fas fa-wifi-slash text-success"></i>
+              <span>{{ t('features.offline') }}</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fas fa-calculator text-success"></i>
+              <span>{{ t('features.calculators') }}</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fas fa-bolt text-success"></i>
+              <span>{{ t('features.fast') }}</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <i class="fas fa-gift text-success"></i>
+              <span>{{ t('features.free') }}</span>
+            </div>
+          </div>
+
+          <!-- Download buttons -->
+          <div class="flex flex-col sm:flex-row gap-3 mb-4">
+            <UButton
+              to="https://apps.apple.com/us/app/classic-mini-toolbox-cmdiy/id6751475172"
+              target="_blank"
+              color="primary"
+              class="flex-1"
+              @click="handleAppClick('ios')"
+            >
+              <i class="fab fa-apple text-xl mr-2"></i>
+              {{ t('buttons.ios') }}
+            </UButton>
+            <UButton
+              to="https://play.google.com/store/apps/details?id=com.classicminidiy.toolbox"
+              target="_blank"
+              color="primary"
+              class="flex-1"
+              @click="handleAppClick('android')"
+            >
+              <i class="fab fa-google-play text-xl mr-2"></i>
+              {{ t('buttons.android') }}
+            </UButton>
+          </div>
+
+          <!-- Dismiss text -->
+          <div class="text-center">
+            <button @click="dismissPopup" class="text-sm text-muted hover:text-default underline">
+              {{ t('dismiss') }}
+            </button>
+          </div>
+        </div>
       </div>
-
-      <div class="p-6">
-        <!-- Title -->
-        <div class="text-center mb-6">
-          <h3 class="font-bold text-2xl mb-2">{{ t('title') }}</h3>
-          <p class="text-base-content/70">{{ t('subtitle') }}</p>
-        </div>
-
-        <!-- Features Grid -->
-        <div class="grid grid-cols-2 gap-3 mb-6">
-          <div class="flex items-center gap-2 text-sm">
-            <i class="fas fa-wifi-slash text-success"></i>
-            <span>{{ t('features.offline') }}</span>
-          </div>
-          <div class="flex items-center gap-2 text-sm">
-            <i class="fas fa-calculator text-success"></i>
-            <span>{{ t('features.calculators') }}</span>
-          </div>
-          <div class="flex items-center gap-2 text-sm">
-            <i class="fas fa-bolt text-success"></i>
-            <span>{{ t('features.fast') }}</span>
-          </div>
-          <div class="flex items-center gap-2 text-sm">
-            <i class="fas fa-gift text-success"></i>
-            <span>{{ t('features.free') }}</span>
-          </div>
-        </div>
-
-        <!-- Download buttons -->
-        <div class="flex flex-col sm:flex-row gap-3 mb-4">
-          <a
-            href="https://apps.apple.com/us/app/classic-mini-toolbox-cmdiy/id6751475172"
-            target="_blank"
-            rel="noopener noreferrer"
-            @click="handleAppClick('ios')"
-            class="btn btn-primary flex-1 gap-2"
-          >
-            <i class="fab fa-apple text-xl"></i>
-            {{ t('buttons.ios') }}
-          </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.classicminidiy.toolbox"
-            target="_blank"
-            rel="noopener noreferrer"
-            @click="handleAppClick('android')"
-            class="btn btn-primary flex-1 gap-2"
-          >
-            <i class="fab fa-google-play text-xl"></i>
-            {{ t('buttons.android') }}
-          </a>
-        </div>
-
-        <!-- Dismiss text -->
-        <div class="text-center">
-          <button @click="dismissPopup" class="text-sm text-base-content/50 hover:text-base-content/70 underline">
-            {{ t('dismiss') }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    </template>
+  </UModal>
 </template>
 
 <i18n lang="json">

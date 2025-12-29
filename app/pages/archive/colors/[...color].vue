@@ -70,7 +70,7 @@
 </script>
 
 <template>
-  <div class="min-h-screen bg-base-200">
+  <div class="min-h-screen bg-muted">
     <!-- Hero Section -->
     <div class="bg-primary text-primary-content py-8">
       <div class="container mx-auto px-4">
@@ -78,15 +78,17 @@
           <i class="fas fa-palette text-3xl"></i>
           <h1 class="text-3xl font-bold">{{ $t('pages.archive.subpages.colors_detail.hero_title') }}</h1>
         </div>
-        <div class="text-sm breadcrumbs">
-          <ul>
+        <div class="text-sm">
+          <ul class="flex items-center gap-2">
             <li>
-              <NuxtLink to="/">{{ $t('pages.archive.subpages.colors_detail.breadcrumb.home') }}</NuxtLink>
+              <NuxtLink to="/" class="hover:underline">{{ $t('pages.archive.subpages.colors_detail.breadcrumb.home') }}</NuxtLink>
+              <span class="mx-2">/</span>
             </li>
             <li>
-              <NuxtLink to="/archive/colors">{{
+              <NuxtLink to="/archive/colors" class="hover:underline">{{
                 $t('pages.archive.subpages.colors_detail.breadcrumb.colors')
               }}</NuxtLink>
+              <span class="mx-2">/</span>
             </li>
             <li v-if="color">{{ color.pretty.Name }}</li>
           </ul>
@@ -96,21 +98,21 @@
 
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-8">
-      <div class="card bg-base-100 shadow-xl">
+      <UCard>
         <div v-if="status === 'pending'" class="flex justify-center p-8">
-          <span class="loading loading-spinner loading-lg text-primary"></span>
+          <span class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></span>
         </div>
 
-        <div v-else-if="color" class="card-body">
+        <div v-else-if="color">
           <!-- Color Header -->
           <div class="flex flex-col md:flex-row gap-6 items-center">
             <!-- Color Info -->
             <div class="flex-1 text-center md:text-left">
-              <h2 class="card-title text-3xl font-bold mb-2">{{ color.pretty.Name }}</h2>
-              <div class="badge badge-lg badge-primary mb-4">
+              <h2 class="text-3xl font-bold mb-2">{{ color.pretty.Name }}</h2>
+              <UBadge size="lg" color="primary" class="mb-4">
                 <i class="fas fa-palette mr-1"></i>
                 {{ $t('pages.archive.subpages.colors_detail.primary_color_badge') }}
-              </div>
+              </UBadge>
               <h3 class="text-5xl font-bold text-primary mb-6">{{ color.pretty.Code }}</h3>
             </div>
 
@@ -125,7 +127,7 @@
                 />
                 <div
                   v-else
-                  class="w-full h-full bg-gradient-to-br from-base-200 to-base-300 flex items-center justify-center"
+                  class="w-full h-full bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center"
                 >
                   <i class="fas fa-paint-roller text-6xl opacity-30"></i>
                 </div>
@@ -134,118 +136,86 @@
           </div>
 
           <!-- Color Details -->
-          <div class="divider">{{ $t('pages.archive.subpages.colors_detail.details_divider') }}</div>
+          <USeparator :label="$t('pages.archive.subpages.colors_detail.details_divider')" class="my-6" />
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="stats bg-base-200">
-              <div class="stat">
-                <div class="stat-figure text-primary">
-                  <i class="fas fa-calendar-days text-2xl"></i>
-                </div>
-                <div class="stat-title">{{ $t('pages.archive.subpages.colors_detail.stats.years') }}</div>
-                <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty.Years }">
-                  {{ color.pretty.Years || $t('pages.archive.subpages.colors_detail.stats.missing') }}
-                </div>
+            <div class="bg-muted rounded-lg p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm opacity-70">{{ $t('pages.archive.subpages.colors_detail.stats.years') }}</span>
+                <i class="fas fa-calendar-days text-xl text-primary"></i>
+              </div>
+              <div class="text-lg font-semibold truncate" :class="{ 'text-error': !color.pretty.Years }">
+                {{ color.pretty.Years || $t('pages.archive.subpages.colors_detail.stats.missing') }}
               </div>
             </div>
 
-            <div class="stats bg-base-200">
-              <div class="stat">
-                <div class="stat-figure text-primary">
-                  <i class="fas fa-code text-2xl"></i>
-                </div>
-                <div class="stat-title">{{ $t('pages.archive.subpages.colors_detail.stats.short_code') }}</div>
-                <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Short Code'] }">
-                  {{ color.pretty['Short Code'] || $t('pages.archive.subpages.colors_detail.stats.missing') }}
-                </div>
+            <div class="bg-muted rounded-lg p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm opacity-70">{{ $t('pages.archive.subpages.colors_detail.stats.short_code') }}</span>
+                <i class="fas fa-code text-xl text-primary"></i>
+              </div>
+              <div class="text-lg font-semibold truncate" :class="{ 'text-error': !color.pretty['Short Code'] }">
+                {{ color.pretty['Short Code'] || $t('pages.archive.subpages.colors_detail.stats.missing') }}
               </div>
             </div>
 
-            <div class="stats bg-base-200">
-              <div class="stat">
-                <div class="stat-figure text-primary">
-                  <i class="fas fa-barcode text-2xl"></i>
-                </div>
-                <div class="stat-title">{{ $t('pages.archive.subpages.colors_detail.stats.ditzler_ppg_code') }}</div>
-                <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Ditzler PPG Code'] }">
-                  {{ color.pretty['Ditzler PPG Code'] || $t('pages.archive.subpages.colors_detail.stats.missing') }}
-                </div>
+            <div class="bg-muted rounded-lg p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm opacity-70">{{ $t('pages.archive.subpages.colors_detail.stats.ditzler_ppg_code') }}</span>
+                <i class="fas fa-barcode text-xl text-primary"></i>
+              </div>
+              <div class="text-lg font-semibold truncate" :class="{ 'text-error': !color.pretty['Ditzler PPG Code'] }">
+                {{ color.pretty['Ditzler PPG Code'] || $t('pages.archive.subpages.colors_detail.stats.missing') }}
               </div>
             </div>
 
-            <div class="stats bg-base-200">
-              <div class="stat">
-                <div class="stat-figure text-primary">
-                  <i class="fas fa-barcode text-2xl"></i>
-                </div>
-                <div class="stat-title">{{ $t('pages.archive.subpages.colors_detail.stats.dulux_code') }}</div>
-                <div class="stat-value text-lg" :class="{ 'text-error': !color.pretty['Dulux Code'] }">
-                  {{ color.pretty['Dulux Code'] || $t('pages.archive.subpages.colors_detail.stats.missing') }}
-                </div>
+            <div class="bg-muted rounded-lg p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm opacity-70">{{ $t('pages.archive.subpages.colors_detail.stats.dulux_code') }}</span>
+                <i class="fas fa-barcode text-xl text-primary"></i>
+              </div>
+              <div class="text-lg font-semibold truncate" :class="{ 'text-error': !color.pretty['Dulux Code'] }">
+                {{ color.pretty['Dulux Code'] || $t('pages.archive.subpages.colors_detail.stats.missing') }}
               </div>
             </div>
           </div>
 
           <!-- Action Buttons -->
-          <div class="divider">{{ $t('pages.archive.subpages.colors_detail.share_divider') }}</div>
+          <USeparator :label="$t('pages.archive.subpages.colors_detail.share_divider')" class="my-6" />
           <div class="flex flex-wrap gap-4 justify-center">
-            <button @click="copyUrl()" class="btn btn-primary" :class="{ 'btn-success': copied }">
+            <UButton @click="copyUrl()" :color="copied ? 'success' : 'primary'">
               <i class="fas fa-link mr-2"></i>
               {{
                 copied
                   ? $t('pages.archive.subpages.colors_detail.actions.copied')
                   : $t('pages.archive.subpages.colors_detail.actions.copy_link')
               }}
-            </button>
+            </UButton>
 
-            <a
-              :href="`mailto:?subject=Mini Color Swatch - ${color.pretty.Name} | ${color.pretty.Code}&body=Color%20Name%20-%20${color.pretty.Name}%20%0ABMC%20Code%20-%20${color.pretty.Code}%20%0ADulux%20Code%20-%20${color.pretty['Dulux Code']}%20%0ADitzler%20Code%20-%20${color.pretty['Ditzler PPG Code']}%20`"
-              class="btn btn-secondary"
+            <UButton
+              :to="`mailto:?subject=Mini Color Swatch - ${color.pretty.Name} | ${color.pretty.Code}&body=Color%20Name%20-%20${color.pretty.Name}%20%0ABMC%20Code%20-%20${color.pretty.Code}%20%0ADulux%20Code%20-%20${color.pretty['Dulux Code']}%20%0ADitzler%20Code%20-%20${color.pretty['Ditzler PPG Code']}%20`"
+              color="secondary"
             >
               <i class="fas fa-envelope mr-2"></i>
               {{ $t('pages.archive.subpages.colors_detail.actions.email') }}
-            </a>
+            </UButton>
 
-            <button @click="shareColorItem(color.pretty.Name, color.pretty.ID)" class="btn btn-accent">
+            <UButton @click="shareColorItem(color.pretty.Name, color.pretty.ID)" color="neutral">
               <i class="fas fa-share-nodes mr-2"></i>
               {{ $t('pages.archive.subpages.colors_detail.actions.share') }}
-            </button>
+            </UButton>
 
-            <NuxtLink :to="`/archive/colors/contribute?color=${color.raw.id}`" class="btn btn-outline">
+            <UButton :to="`/archive/colors/contribute?color=${color.raw.id}`" variant="outline">
               <i class="fas fa-edit mr-2"></i>
               {{ $t('pages.archive.subpages.colors_detail.actions.contribute') }}
-            </NuxtLink>
+            </UButton>
           </div>
         </div>
-      </div>
+      </UCard>
     </div>
   </div>
 </template>
 
 <style scoped>
-  .card {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
-  }
-
-  .card:hover {
-    --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-
-  .stat-value {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .btn {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 200ms;
-  }
-
   figure {
     transition: transform 0.3s ease;
   }

@@ -148,99 +148,56 @@
       <div class="col-span-12">
         <!-- Loading state -->
         <div v-if="status === 'pending'" class="space-y-4">
-          <div class="skeleton h-12 w-full"></div>
-          <div class="skeleton h-12 w-full"></div>
-          <div class="skeleton h-12 w-full"></div>
+          <USkeleton class="h-12 w-full" />
+          <USkeleton class="h-12 w-full" />
+          <USkeleton class="h-12 w-full" />
         </div>
 
         <!-- Content when loaded -->
-        <div v-if="tables && status !== 'pending'" class="space-y-6">
-          <div
+        <div v-if="tables && status !== 'pending'" class="space-y-4">
+          <UAccordion
             v-for="(table, name, index) in tables"
             :key="`${name}-${index}`"
-            class="collapse collapse-plus bg-base-200 border border-base-300 mb-2"
+            :items="[{ label: table.title, slot: 'content' }]"
+            class="mb-2"
           >
-            <!-- Accordion header -->
-            <input
-              type="checkbox"
-              :checked="table.title === activePanel"
-              @change="activePanel = activePanel === table.title ? null : table.title"
-            />
-            <div class="collapse-title font-semibold text-xl bg-primary text-primary-content">
-              {{ table.title }}
-            </div>
-
-            <!-- Accordion content -->
-            <div class="collapse-content">
-              <!-- Search field -->
-              <div class="flex justify-end mb-4 mt-4">
-                <div class="form-control w-full max-w-xs">
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      :placeholder="$t('ui.search_placeholder')"
-                      v-model="tableSearchQueries[name]"
-                      class="input input-bordered w-full input-md"
-                    />
-                  </div>
+            <template #leading="{ item }">
+              <div class="bg-primary text-primary-content px-4 py-3 rounded-t-lg font-semibold text-xl w-full">
+                {{ item.label }}
+              </div>
+            </template>
+            <template #content>
+              <UCard class="rounded-t-none">
+                <!-- Search field -->
+                <div class="flex justify-end mb-4">
+                  <UInput
+                    type="text"
+                    :placeholder="$t('ui.search_placeholder')"
+                    v-model="tableSearchQueries[name]"
+                    class="w-full max-w-xs"
+                    icon="i-heroicons-magnifying-glass"
+                  />
                 </div>
-              </div>
 
-              <!-- Table -->
-              <div class="w-full overflow-x-auto">
-                <UTable :data="filterItems(table.items, name)" :columns="tableColumns" class="w-full min-w-full" />
-              </div>
-            </div>
-          </div>
+                <!-- Table -->
+                <div class="w-full overflow-x-auto">
+                  <UTable :data="filterItems(table.items, name)" :columns="tableColumns" class="w-full min-w-full" />
+                </div>
+              </UCard>
+            </template>
+          </UAccordion>
         </div>
       </div>
 
       <!-- Support section -->
       <div class="col-span-12 mt-8 mb-10">
-        <div class="divider">{{ $t('support_divider') }}</div>
+        <USeparator :label="$t('support_divider')" class="mb-6" />
         <patreon-card size="large" />
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-  .divider {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-
-    &:before,
-    &:after {
-      flex-grow: 1;
-      background-color: hsl(var(--b3));
-      height: 1px;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      content: '';
-    }
-  }
-
-  .skeleton {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    background-color: hsl(var(--b3));
-    border-radius: 0.25rem;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-</style>
 
 <i18n lang="json">
 {

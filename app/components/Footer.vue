@@ -7,102 +7,89 @@
 
   const socials = ref(SocialItems);
 </script>
+
 <template>
-  <footer class="footer p-10 bg-base-200 text-center flex flex-col w-full">
-    <div class="container mx-auto">
-      <div class="pb-2 mx-auto">
-        <div class="flex justify-center">
-          <a
+  <footer class="bg-muted/50 py-10 text-center">
+    <div class="container mx-auto px-4">
+      <!-- Social Links -->
+      <div class="pb-4">
+        <div class="flex justify-center gap-2">
+          <UButton
             v-for="(social, i) in socials"
             :key="i"
-            :href="social.href"
-            class="mx-4 btn btn-ghost btn-circle text-2xl"
-            :title="social.title"
+            :to="social.href"
             target="_blank"
             rel="noopener noreferrer"
+            variant="ghost"
+            color="neutral"
+            size="lg"
+            square
+            :title="social.title"
           >
-            <i :class="social.icon"></i>
-          </a>
+            <i :class="social.icon" class="text-2xl"></i>
+          </UButton>
         </div>
       </div>
 
-      <div class="pt-0 mx-auto">
+      <!-- Brand Info -->
+      <div class="pt-0">
         <h2 class="text-xl font-semibold">
           <strong class="text-primary">{{ t('brand_name') }}</strong> by
-          <a
-            rel="noopener"
+          <ULink
+            to="https://youtube.com/c/classicminidiy?sub_confirmation=1"
             target="_blank"
-            href="https://youtube.com/c/classicminidiy?sub_confirmation=1"
+            rel="noopener"
             :aria-label="t('youtube_link_aria')"
-            class="link link-hover"
+            class="hover:underline"
           >
-            {{ t('author_name') }}</a
+            {{ t('author_name') }}</ULink
           >.
         </h2>
-        <p class="pb-3 max-w-3xl mx-auto mt-2">
+        <p class="pb-3 max-w-3xl mx-auto mt-2 text-muted">
           {{ t('description') }}
         </p>
       </div>
 
-      <div class="container mx-auto">
+      <!-- Copyright and Links -->
+      <div>
         <div class="flex justify-center">
           <div class="w-10/12">
-            <p>
+            <p class="text-muted">
               {{ new Date().getFullYear() }} — <strong>{{ t('company_name') }}</strong>
             </p>
-            <div class="divider">{{ t('links_divider') }}</div>
-            <p>
-              <nuxt-link class="link link-hover mr-3" to="/contact" rel="noopener noreferrer">{{
-                t('contact_link')
-              }}</nuxt-link>
-              <nuxt-link class="link link-hover mr-3" to="/privacy" rel="noopener noreferrer">{{
-                t('privacy_links.cmdiy_privacy')
-              }}</nuxt-link>
-              <a
-                class="link link-hover mr-3"
-                href="https://www.youtube.com/t/terms"
+
+            <USeparator class="my-4" :label="t('links_divider')" />
+
+            <div class="flex flex-wrap justify-center gap-3">
+              <ULink to="/contact" class="text-sm hover:underline">
+                {{ t('contact_link') }}
+              </ULink>
+              <ULink to="/privacy" class="text-sm hover:underline">
+                {{ t('privacy_links.cmdiy_privacy') }}
+              </ULink>
+              <ULink
+                to="https://www.youtube.com/t/terms"
                 target="_blank"
                 rel="noopener noreferrer"
-                >{{ t('privacy_links.youtube_privacy') }}</a
+                class="text-sm hover:underline"
               >
-              <a
-                class="link link-hover"
-                href="http://www.google.com/policies/privacy"
+                {{ t('privacy_links.youtube_privacy') }}
+              </ULink>
+              <ULink
+                to="http://www.google.com/policies/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
-                >{{ t('privacy_links.google_privacy') }}</a
+                class="text-sm hover:underline"
               >
-            </p>
+                {{ t('privacy_links.google_privacy') }}
+              </ULink>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </footer>
 </template>
-
-<style scoped>
-  .divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 1rem 0;
-  }
-
-  .divider::before,
-  .divider::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid rgba(var(--color-base-300), 0.3);
-  }
-
-  .divider::before {
-    margin-right: 0.5rem;
-  }
-
-  .divider::after {
-    margin-left: 0.5rem;
-  }
-</style>
 
 <i18n lang="json">
 {

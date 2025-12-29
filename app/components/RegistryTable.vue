@@ -30,6 +30,14 @@
   const currentPage = ref(1);
   const pageSize = ref(props.defaultPageSize);
 
+  // Page size options for USelect
+  const pageSizeOptions = computed(() => [
+    { label: t('per_page_options.10'), value: 10 },
+    { label: t('per_page_options.25'), value: 25 },
+    { label: t('per_page_options.50'), value: 50 },
+    { label: t('per_page_options.100'), value: 100 },
+  ]);
+
   // Debounced search to avoid excessive filtering
   const debouncedSearch = useDebounce(searchValue, 300);
 
@@ -166,176 +174,152 @@
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-xl">
-    <div class="card-body">
-      <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
-        <div class="form-control w-full max-w-md">
-          <div class="input-group">
-            <label class="input w-full">
-              <span class="label"><i class="fad fa-search"></i></span>
-              <input
-                v-model="searchValue"
-                :placeholder="t('search_placeholder')"
-                type="text"
-                class="input-bordered w-full"
-              />
-            </label>
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <div v-if="items?.length" class="badge badge-primary badge-lg">
-            {{ items?.length }} {{ t('total_minis') }}
-          </div>
-          <div class="form-control">
-            <select v-model="pageSize" class="select select-bordered select-sm">
-              <option :value="10">{{ t('per_page_options.10') }}</option>
-              <option :value="25">{{ t('per_page_options.25') }}</option>
-              <option :value="50">{{ t('per_page_options.50') }}</option>
-              <option :value="100">{{ t('per_page_options.100') }}</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- Loading state -->
-      <div v-if="loading" class="flex justify-center items-center py-8">
-        <span class="loading loading-spinner loading-lg text-primary"></span>
-      </div>
-
-      <!-- Table -->
-      <div v-else class="overflow-x-auto">
-        <table class="table table-zebra w-full">
-          <thead>
-            <tr>
-              <th class="w-10"></th>
-              <th v-for="header in tableHeaders" :key="header.key" :class="header.width ? `w-[${header.width}]` : ''">
-                {{ header.title }}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <template v-if="paginatedItems.length">
-              <template v-for="(item, index) in paginatedItems" :key="item.uniqueId">
-                <tr class="hover:bg-base-200 cursor-pointer" @click="toggleExpanded(item.uniqueId)">
-                  <td>
-                    <button class="btn btn-ghost btn-xs">
-                      <i
-                        :class="
-                          expanded.includes(item.uniqueId) ? 'fa-solid fa-chevron-down' : 'fa-solid fa-chevron-right'
-                        "
-                      ></i>
-                    </button>
-                  </td>
-                  <td v-for="header in tableHeaders" :key="header.key">
-                    <template v-if="header.key === 'status' && item.status">
-                      <div
-                        class="badge"
-                        :class="{
-                          'badge-primary': item.status === RegistryItemStatus.PENDING,
-                          'badge-success': item.status === RegistryItemStatus.APPROVED,
-                          'badge-error': item.status === RegistryItemStatus.REJECTED,
-                        }"
-                      >
-                        {{ getStatusText(item.status) }}
-                      </div>
-                    </template>
-                    <template v-else>{{ item[header.key] || t('no_data') }}</template>
-                  </td>
-                </tr>
-                <tr v-if="expanded.includes(item.uniqueId)" class="bg-base-200">
-                  <td></td>
-                  <td colspan="2" class="p-4">
-                    <div class="grid grid-cols-1 gap-2">
-                      <div>
-                        <strong>{{ t('expanded_details.build_date') }}</strong>
-                        <div>{{ item.buildDate || t('no_data') }}</div>
-                      </div>
-                      <div>
-                        <strong>{{ t('expanded_details.body_number') }}</strong>
-                        <div>{{ item.bodyNum || t('no_data') }}</div>
-                      </div>
-                      <div>
-                        <strong>{{ t('expanded_details.engine_number') }}</strong>
-                        <div>{{ item.engineNum || t('no_data') }}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td colspan="2" class="p-4">
-                    <div class="grid grid-cols-1 gap-2">
-                      <div>
-                        <strong>{{ t('expanded_details.submitted_by') }}</strong>
-                        <div>{{ item.submittedBy || t('no_data') }}</div>
-                      </div>
-                      <div>
-                        <strong>{{ t('expanded_details.notes') }}</strong>
-                        <div>{{ item.notes || t('no_data') }}</div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </template>
-            </template>
-            <tr v-else>
-              <td colspan="5" class="text-center py-8">{{ t('no_items_found') }}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- Pagination -->
-        <div class="flex justify-center mt-6" v-if="totalPages > 1">
-          <div class="join">
-            <!-- Previous button -->
-            <button
-              class="join-item btn"
-              :class="{ 'btn-disabled': currentPage === 1 }"
-              @click="currentPage > 1 && changePage(currentPage - 1)"
-            >
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-
-            <!-- Page numbers -->
-            <template v-for="(page, index) in paginationArray" :key="index">
-              <button v-if="page === 'ellipsis-start' || page === 'ellipsis-end'" class="join-item btn btn-disabled">
-                ...
-              </button>
-              <button
-                v-else
-                class="join-item btn"
-                :class="{ 'btn-active': currentPage === page }"
-                @click="changePage(page as number)"
-              >
-                {{ page }}
-              </button>
-            </template>
-
-            <!-- Next button -->
-            <button
-              class="join-item btn"
-              :class="{ 'btn-disabled': currentPage === totalPages }"
-              @click="currentPage < totalPages && changePage(currentPage + 1)"
-            >
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
+  <UCard>
+    <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
+      <UInput
+        v-model="searchValue"
+        :placeholder="t('search_placeholder')"
+        icon="i-heroicons-magnifying-glass"
+        class="w-full max-w-md"
+      />
+      <div class="flex items-center gap-2">
+        <UBadge v-if="items?.length" color="primary" size="lg">
+          {{ items?.length }} {{ t('total_minis') }}
+        </UBadge>
+        <USelect
+          v-model="pageSize"
+          :items="pageSizeOptions"
+          size="sm"
+        />
       </div>
     </div>
-  </div>
+
+    <!-- Loading state -->
+    <div v-if="loading" class="flex justify-center items-center py-8">
+      <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+    </div>
+
+    <!-- Table -->
+    <div v-else class="overflow-x-auto">
+      <table class="w-full text-left">
+        <thead class="border-b border-default">
+          <tr>
+            <th class="w-10 p-3"></th>
+            <th v-for="header in tableHeaders" :key="header.key" class="p-3 font-semibold" :class="header.width ? `w-[${header.width}]` : ''">
+              {{ header.title }}
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-default">
+          <template v-if="paginatedItems.length">
+            <template v-for="(item, index) in paginatedItems" :key="item.uniqueId">
+              <tr class="hover:bg-muted/50 cursor-pointer transition-colors" @click="toggleExpanded(item.uniqueId)">
+                <td class="p-3">
+                  <UButton variant="ghost" size="xs" square>
+                    <i
+                      :class="
+                        expanded.includes(item.uniqueId) ? 'fa-solid fa-chevron-down' : 'fa-solid fa-chevron-right'
+                      "
+                    ></i>
+                  </UButton>
+                </td>
+                <td v-for="header in tableHeaders" :key="header.key" class="p-3">
+                  <template v-if="header.key === 'status' && item.status">
+                    <UBadge
+                      :color="
+                        item.status === RegistryItemStatus.PENDING
+                          ? 'primary'
+                          : item.status === RegistryItemStatus.APPROVED
+                          ? 'success'
+                          : 'error'
+                      "
+                    >
+                      {{ getStatusText(item.status) }}
+                    </UBadge>
+                  </template>
+                  <template v-else>{{ item[header.key] || t('no_data') }}</template>
+                </td>
+              </tr>
+              <tr v-if="expanded.includes(item.uniqueId)" class="bg-muted/30">
+                <td></td>
+                <td colspan="2" class="p-4">
+                  <div class="grid grid-cols-1 gap-2">
+                    <div>
+                      <strong>{{ t('expanded_details.build_date') }}</strong>
+                      <div>{{ item.buildDate || t('no_data') }}</div>
+                    </div>
+                    <div>
+                      <strong>{{ t('expanded_details.body_number') }}</strong>
+                      <div>{{ item.bodyNum || t('no_data') }}</div>
+                    </div>
+                    <div>
+                      <strong>{{ t('expanded_details.engine_number') }}</strong>
+                      <div>{{ item.engineNum || t('no_data') }}</div>
+                    </div>
+                  </div>
+                </td>
+                <td colspan="2" class="p-4">
+                  <div class="grid grid-cols-1 gap-2">
+                    <div>
+                      <strong>{{ t('expanded_details.submitted_by') }}</strong>
+                      <div>{{ item.submittedBy || t('no_data') }}</div>
+                    </div>
+                    <div>
+                      <strong>{{ t('expanded_details.notes') }}</strong>
+                      <div>{{ item.notes || t('no_data') }}</div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </template>
+          </template>
+          <tr v-else>
+            <td colspan="5" class="text-center py-8 text-muted">{{ t('no_items_found') }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div class="flex justify-center mt-6" v-if="totalPages > 1">
+        <UButtonGroup>
+          <!-- Previous button -->
+          <UButton
+            variant="outline"
+            :disabled="currentPage === 1"
+            @click="currentPage > 1 && changePage(currentPage - 1)"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </UButton>
+
+          <!-- Page numbers -->
+          <template v-for="(page, index) in paginationArray" :key="index">
+            <UButton v-if="page === 'ellipsis-start' || page === 'ellipsis-end'" variant="outline" disabled>
+              ...
+            </UButton>
+            <UButton
+              v-else
+              :variant="currentPage === page ? 'solid' : 'outline'"
+              :color="currentPage === page ? 'primary' : 'neutral'"
+              @click="changePage(page as number)"
+            >
+              {{ page }}
+            </UButton>
+          </template>
+
+          <!-- Next button -->
+          <UButton
+            variant="outline"
+            :disabled="currentPage === totalPages"
+            @click="currentPage < totalPages && changePage(currentPage + 1)"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </UButton>
+        </UButtonGroup>
+      </div>
+    </div>
+  </UCard>
 </template>
 
-<style lang="scss" scoped>
-  // DaisyUI specific styles
-  .table-container {
-    overflow-x: auto;
-    width: 100%;
-  }
-
-  // Ensure proper spacing in expanded rows
-  .expanded-content {
-    padding: 1rem;
-    background-color: hsl(var(--b2));
-  }
-</style>
 
 <i18n lang="json">
 {

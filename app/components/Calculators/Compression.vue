@@ -43,221 +43,163 @@
 <template>
   <div class="grid grid-cols-1 gap-6">
     <div class="col-span-1">
-      <button class="btn btn-primary mb-5" @click="showHelpModal = true">
+      <UButton color="primary" class="mb-5" @click="showHelpModal = true">
         <i class="fad fa-question-circle mr-2"></i>
         {{ t('help_button') }}
-      </button>
+      </UButton>
 
       <!-- Help Modal -->
-      <dialog :class="{ 'modal modal-open': showHelpModal, modal: !showHelpModal }">
-        <div class="modal-box w-11/12 max-w-4xl">
-          <div class="card bg-base-100">
-            <div class="card-body">
-              <h2 class="card-title">{{ t('help_modal.title') }}</h2>
-              <div class="aspect-video w-full">
-                <iframe
-                  class="w-full h-full"
-                  allowfullscreen
-                  src="https://www.youtube.com/embed/GxlgkbrfK2Y"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                ></iframe>
-              </div>
-              <div class="mt-4">
-                <h3 class="text-xl font-bold">{{ t('help_modal.friend_title') }}</h3>
-                <p class="text-sm opacity-70">
-                  <a href="https://www.youtube.com/watch?v=GxlgkbrfK2Y" class="link link-primary">@hreirl</a>
-                  {{ t('help_modal.friend_description') }}
-                </p>
-                <p class="mt-2">
-                  {{ t('help_modal.friend_text') }}
-                </p>
-              </div>
+      <UModal v-model:open="showHelpModal">
+        <template #content>
+          <UCard>
+            <template #header>
+              <h2 class="text-lg font-semibold">{{ t('help_modal.title') }}</h2>
+            </template>
+            <div class="aspect-video w-full">
+              <iframe
+                class="w-full h-full"
+                allowfullscreen
+                src="https://www.youtube.com/embed/GxlgkbrfK2Y"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              ></iframe>
             </div>
-            <div class="card-actions justify-end p-4">
-              <button class="btn btn-primary" @click="showHelpModal = false">
-                {{ t('help_modal.close_button') }}
-              </button>
+            <div class="mt-4">
+              <h3 class="text-xl font-bold">{{ t('help_modal.friend_title') }}</h3>
+              <p class="text-sm opacity-70">
+                <a href="https://www.youtube.com/watch?v=GxlgkbrfK2Y" class="text-primary hover:underline">@hreirl</a>
+                {{ t('help_modal.friend_description') }}
+              </p>
+              <p class="mt-2">
+                {{ t('help_modal.friend_text') }}
+              </p>
             </div>
-          </div>
-        </div>
-        <form method="dialog" class="modal-backdrop">
-          <button @click="showHelpModal = false">close</button>
-        </form>
-      </dialog>
+            <template #footer>
+              <div class="flex justify-end">
+                <UButton color="primary" @click="showHelpModal = false">
+                  {{ t('help_modal.close_button') }}
+                </UButton>
+              </div>
+            </template>
+          </UCard>
+        </template>
+      </UModal>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Piston Size Select -->
-      <div class="form-control">
-        <div class="input-group w-full">
-          <label class="label pb-2">
-            <span class="label-text">{{ t('form_labels.piston_size') }}</span>
-          </label>
-          <label class="select w-full">
-            <span class="label"><i class="fad fa-engine"></i></span>
-            <select class="select-ghost w-full" v-model="bore">
-              <option v-for="option in reactiveFormOptions.pistonOptions" :key="option.value" :value="option.value">
-                {{ option.label }}
-              </option>
-            </select>
-          </label>
-        </div>
-      </div>
+      <UFormField>
+        <template #label>
+          <span class="flex items-center gap-2">
+            <i class="fad fa-engine"></i>
+            {{ t('form_labels.piston_size') }}
+          </span>
+        </template>
+        <USelect v-model="bore" :items="reactiveFormOptions.pistonOptions" value-key="value" class="w-full" />
+      </UFormField>
 
       <!-- Crankshaft Select -->
-      <div class="form-control">
-        <div class="input-group w-full">
-          <label class="label pb-2">
-            <span class="label-text">{{ t('form_labels.crankshaft') }}</span>
-          </label>
-          <label class="select w-full">
-            <span class="label"><i class="fad fa-arrows-rotate fa-spin"></i></span>
-            <select class="select-ghost w-full" v-model="stroke">
-              <option v-for="option in reactiveFormOptions.crankshaftOptions" :key="option.value" :value="option.value">
-                {{ option.label }}
-              </option>
-            </select>
-          </label>
-        </div>
-      </div>
+      <UFormField>
+        <template #label>
+          <span class="flex items-center gap-2">
+            <i class="fad fa-arrows-rotate fa-spin"></i>
+            {{ t('form_labels.crankshaft') }}
+          </span>
+        </template>
+        <USelect v-model="stroke" :items="reactiveFormOptions.crankshaftOptions" value-key="value" class="w-full" />
+      </UFormField>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Head Gasket Select -->
-      <div class="form-control">
-        <div class="input-group w-full">
-          <label class="label pb-2">
-            <span class="label-text">{{ t('form_labels.head_gasket') }}</span>
-          </label>
-          <label class="select w-full">
-            <span class="label"><i class="fad fa-head-side-gear"></i></span>
-            <select class="select-ghost w-full" v-model.number="gasket">
-              <option v-for="option in reactiveFormOptions.headGasketOptions" :key="option.value" :value="option.value">
-                {{ option.label }}
-              </option>
-            </select>
-          </label>
-        </div>
+      <div>
+        <UFormField>
+          <template #label>
+            <span class="flex items-center gap-2">
+              <i class="fad fa-head-side-gear"></i>
+              {{ t('form_labels.head_gasket') }}
+            </span>
+          </template>
+          <USelect v-model.number="gasket" :items="reactiveFormOptions.headGasketOptions" value-key="value" class="w-full" />
+        </UFormField>
         <div v-if="gasket === 0" class="mt-2">
-          <div class="input-group w-full">
-            <label class="label pb-2">
-              <span class="label-text">{{ t('form_labels.custom_gasket_size') }}</span>
-            </label>
-            <label class="input w-full">
-              <span class="label"><i class="fad fa-ruler"></i></span>
-              <input
-                type="number"
-                min="0.1"
-                max="10"
-                step="0.1"
-                v-model.number="customGasket"
-                class="input input-bordered w-full"
-              />
-            </label>
-          </div>
+          <UFormField>
+            <template #label>
+              <span class="flex items-center gap-2">
+                <i class="fad fa-ruler"></i>
+                {{ t('form_labels.custom_gasket_size') }}
+              </span>
+            </template>
+            <UInput type="number" min="0.1" max="10" step="0.1" v-model.number="customGasket" class="w-full" />
+          </UFormField>
         </div>
       </div>
 
       <!-- Decompression Plate Select -->
-      <div class="form-control">
-        <div class="input-group w-full">
-          <label class="label pb-2">
-            <span class="label-text">{{ t('form_labels.decompression_plate') }}</span>
-          </label>
-          <label class="select w-full">
-            <span class="label"><i class="fad fa-arrow-down-to-line"></i></span>
-            <select class="select-ghost w-full" v-model="decomp">
-              <option
-                v-for="option in reactiveFormOptions.decompPlateOptions"
-                :key="option.value"
-                :value="option.value"
-              >
-                {{ option.label }}
-              </option>
-            </select>
-          </label>
-        </div>
-      </div>
+      <UFormField>
+        <template #label>
+          <span class="flex items-center gap-2">
+            <i class="fad fa-arrow-down-to-line"></i>
+            {{ t('form_labels.decompression_plate') }}
+          </span>
+        </template>
+        <USelect v-model="decomp" :items="reactiveFormOptions.decompPlateOptions" value-key="value" class="w-full" />
+      </UFormField>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Piston Dish Size -->
-      <div class="form-control">
-        <div class="input-group w-full">
-          <label class="label pb-2">
-            <span class="label-text">{{ t('form_labels.piston_dish_size') }}</span>
-          </label>
-          <label class="input w-full">
-            <span class="label"><i class="fad fa-circle-half fa-rotate-270"></i></span>
-            <input
-              v-model.number="pistonDish"
-              type="number"
-              min="0"
-              max="20"
-              step="0.1"
-              class="input-bordered w-full"
-            />
-          </label>
-        </div>
-      </div>
+      <UFormField>
+        <template #label>
+          <span class="flex items-center gap-2">
+            <i class="fad fa-circle-half fa-rotate-270"></i>
+            {{ t('form_labels.piston_dish_size') }}
+          </span>
+        </template>
+        <UInput v-model.number="pistonDish" type="number" min="0" max="20" step="0.1" class="w-full" />
+      </UFormField>
 
       <!-- Cylinder Head Chamber Volume -->
-      <div class="form-control">
-        <div class="input-group w-full">
-          <label class="label pb-2">
-            <span class="label-text">{{ t('form_labels.cylinder_head_chamber_volume') }}</span>
-          </label>
-          <label class="input w-full">
-            <span class="label"><i class="fad fa-arrows-to-dot"></i></span>
-            <input
-              v-model.number="headVolume"
-              type="number"
-              min="15"
-              max="35"
-              step="0.1"
-              class="input-bordered w-full"
-            />
-          </label>
-        </div>
-      </div>
+      <UFormField>
+        <template #label>
+          <span class="flex items-center gap-2">
+            <i class="fad fa-arrows-to-dot"></i>
+            {{ t('form_labels.cylinder_head_chamber_volume') }}
+          </span>
+        </template>
+        <UInput v-model.number="headVolume" type="number" min="15" max="35" step="0.1" class="w-full" />
+      </UFormField>
 
       <!-- Piston Deck Height -->
-      <div class="form-control">
-        <div class="input-group w-full">
-          <label class="label pb-2">
-            <span class="label-text">{{ t('form_labels.piston_deck_height') }}</span>
-          </label>
-          <label class="input w-full">
-            <span class="label"><i class="fad fa-arrow-up-to-line"></i></span>
-            <input v-model.number="deckHeight" type="number" min="0" max="80" step="1" class="input-bordered w-full" />
-          </label>
-        </div>
-      </div>
+      <UFormField>
+        <template #label>
+          <span class="flex items-center gap-2">
+            <i class="fad fa-arrow-up-to-line"></i>
+            {{ t('form_labels.piston_deck_height') }}
+          </span>
+        </template>
+        <UInput v-model.number="deckHeight" type="number" min="0" max="80" step="1" class="w-full" />
+      </UFormField>
     </div>
 
     <!-- Results Section -->
     <div class="mt-8">
       <h2 class="text-2xl font-bold mb-4">{{ t('results.title') }}</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="card bg-secondary shadow-sm">
-          <div class="card-body text-center text-white">
-            <h3 class="text-lg opacity-70">
-              <i class="fa-jelly-duo fa-regular fa-compress fa-beat"></i>
-              {{ t('results.compression_ratio') }}
-            </h3>
-            <p class="text-3xl font-bold">{{ ratio || '?' }}</p>
-          </div>
+        <div class="rounded-lg bg-secondary shadow-sm p-6 text-center text-white">
+          <h3 class="text-lg opacity-70">
+            <i class="fa-jelly-duo fa-regular fa-compress fa-beat"></i>
+            {{ t('results.compression_ratio') }}
+          </h3>
+          <p class="text-3xl font-bold">{{ ratio || '?' }}</p>
         </div>
-        <div class="card bg-primary shadow-sm">
-          <div class="card-body text-center text-white">
-            <h3 class="text-lg opacity-70">
-              <i class="fa-duotone fa-solid fa-fill"></i>
-              {{ t('results.engine_capacity') }}
-            </h3>
-            <p class="text-3xl font-bold">{{ capacity || '?' }}</p>
-          </div>
+        <div class="rounded-lg bg-primary shadow-sm p-6 text-center text-white">
+          <h3 class="text-lg opacity-70">
+            <i class="fa-duotone fa-solid fa-fill"></i>
+            {{ t('results.engine_capacity') }}
+          </h3>
+          <p class="text-3xl font-bold">{{ capacity || '?' }}</p>
         </div>
       </div>
     </div>
@@ -271,7 +213,7 @@
             href="https://github.com/SomethingNew71/classicminidiy/blob/master/components/CompressionCalculator.vue#L344"
             target="_blank"
             rel="noopener noreferrer"
-            class="link link-primary"
+            class="text-primary hover:underline"
           >
             {{ t('disclaimer.equation_source') }}
           </a>
@@ -282,7 +224,7 @@
             href="https://www.calverst.com/technical-info/compression-ratio-%E2%80%93-working-it-out/"
             target="_blank"
             rel="noopener noreferrer"
-            class="link link-primary"
+            class="text-primary hover:underline"
           >
             {{ t('disclaimer.calver_link') }}</a
           >,
@@ -290,7 +232,7 @@
             href="https://www.jepistons.com/blog/how-to-calculate-engine-compression-ratio-and-displacement"
             target="_blank"
             rel="noopener noreferrer"
-            class="link link-primary"
+            class="text-primary hover:underline"
           >
             {{ t('disclaimer.je_pistons_link') }}
           </a>

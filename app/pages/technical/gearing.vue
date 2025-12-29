@@ -41,38 +41,36 @@
           </div>
           <div class="col-span-12 md:col-span-4">
             <NuxtLink :to="'/archive/engines'" :title="$t('engine_sizes_card.link_title')" class="block">
-              <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
-                <div class="card-body">
-                  <div class="flex items-start space-x-4">
-                    <div class="flex-shrink-0">
-                      <figure class="w-16 h-16">
-                        <picture>
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp"
-                            type="image/webp"
-                          />
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
-                            type="image/png"
-                          />
-                          <nuxt-img
-                            loading="lazy"
-                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
-                            class="w-full h-full object-contain"
-                            :alt="$t('engine_sizes_card.alt_text')"
-                          />
-                        </picture>
-                      </figure>
-                    </div>
-                    <div>
-                      <h2 class="text-xl font-semibold">
-                        {{ $t('engine_sizes_card.heading') }}
-                      </h2>
-                      <p class="mt-1">{{ $t('engine_sizes_card.description') }}</p>
-                    </div>
+              <UCard class="hover:shadow-lg transition-shadow">
+                <div class="flex items-start space-x-4">
+                  <div class="shrink-0">
+                    <figure class="w-16 h-16">
+                      <picture>
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
+                          type="image/png"
+                        />
+                        <nuxt-img
+                          loading="lazy"
+                          src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
+                          class="w-full h-full object-contain"
+                          :alt="$t('engine_sizes_card.alt_text')"
+                        />
+                      </picture>
+                    </figure>
+                  </div>
+                  <div>
+                    <h2 class="text-xl font-semibold">
+                      {{ $t('engine_sizes_card.heading') }}
+                    </h2>
+                    <p class="mt-1">{{ $t('engine_sizes_card.description') }}</p>
                   </div>
                 </div>
-              </div>
+              </UCard>
             </NuxtLink>
           </div>
         </div>
@@ -81,15 +79,15 @@
         <ClientOnly fallback-tag="div" :fallback="$t('ui.loading_fallback')">
           <div class="min-h-96 flex items-center justify-center" v-if="!isCalculatorLoaded">
             <div class="flex flex-col items-center space-y-4">
-              <span class="loading loading-spinner loading-lg text-primary"></span>
-              <p class="text-base-content/70">{{ $t('ui.loading_text') }}</p>
+              <span class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></span>
+              <p class="opacity-70">{{ $t('ui.loading_text') }}</p>
             </div>
           </div>
           <LazyCalculatorsGearbox @vue:mounted="isCalculatorLoaded = true" />
         </ClientOnly>
       </div>
       <div class="col-span-12 md:col-span-4 md:col-start-5">
-        <div class="divider">{{ $t('ui.more_section') }}</div>
+        <USeparator :label="$t('ui.more_section')" />
       </div>
       <div class="col-span-12">
         <patreon-card size="large" />

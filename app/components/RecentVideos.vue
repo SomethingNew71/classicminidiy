@@ -14,18 +14,18 @@
   </div>
 
   <template v-else-if="videos">
-    <div v-for="video in videos" class="card bg-base-100 col-span-12 md:col-span-4 shadow-xl">
-      <figure>
-        <nuxt-picture :src="video.thumbnails.maxres" alt="Video Thumbnail" />
-      </figure>
-      <div class="card-body">
-        <h2 class="card-title">{{ video.title }}</h2>
-        <p>{{ t('published_on') }} {{ video.publishedOn }}</p>
-        <div class="card-actions justify-end">
-          <a :href="video.videoUrl" class="btn btn-primary">{{ t('watch_button') }}</a>
+    <UCard v-for="video in videos" :key="video.videoUrl" class="col-span-12 md:col-span-4">
+      <template #header>
+        <nuxt-picture :src="video.thumbnails.maxres" alt="Video Thumbnail" class="w-full" />
+      </template>
+      <h2 class="font-semibold text-lg">{{ video.title }}</h2>
+      <p class="text-sm text-muted">{{ t('published_on') }} {{ video.publishedOn }}</p>
+      <template #footer>
+        <div class="flex justify-end">
+          <UButton :to="video.videoUrl" target="_blank" color="primary">{{ t('watch_button') }}</UButton>
         </div>
-      </div>
-    </div>
+      </template>
+    </UCard>
   </template>
 </template>
 

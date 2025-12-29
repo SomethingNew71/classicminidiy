@@ -38,61 +38,63 @@
 <template>
   <div>
     <p class="font-bold pt-4 pb-2">{{ t('question_text') }}</p>
-    <button @click="openModal" class="btn btn-primary gap-2">
-      <i class="fas fa-clipboard-question"></i>
+    <UButton @click="openModal" color="primary">
+      <i class="fas fa-clipboard-question mr-2"></i>
       {{ t('button_text') }}
-    </button>
+    </UButton>
 
     <!-- Modal -->
-    <div v-if="isOpen" class="modal modal-open">
-      <div class="modal-box max-w-4xl">
-        <h3 class="font-bold text-lg mb-4">{{ t('modal_title') }}</h3>
+    <UModal v-model:open="isOpen" :ui="{ width: 'max-w-4xl' }">
+      <template #content>
+        <div class="p-6">
+          <h3 class="font-bold text-lg mb-4">{{ t('modal_title') }}</h3>
 
-        <!-- Carousel -->
-        <div class="carousel w-full relative mb-4">
-          <div class="carousel-item relative w-full h-64 md:h-96">
-            <img
-              v-for="(slide, index) in slides"
-              :key="index"
-              :src="slide.src"
-              :alt="slide.alt"
-              class="w-full h-full object-cover"
-              :class="{ hidden: currentSlide !== index }"
-            />
+          <!-- Carousel -->
+          <div class="relative w-full mb-4">
+            <div class="relative w-full h-64 md:h-96 overflow-hidden rounded-lg">
+              <img
+                v-for="(slide, index) in slides"
+                :key="index"
+                :src="slide.src"
+                :alt="slide.alt"
+                class="w-full h-full object-cover absolute inset-0 transition-opacity duration-300"
+                :class="currentSlide === index ? 'opacity-100' : 'opacity-0'"
+              />
+            </div>
+
+            <!-- Navigation Buttons -->
+            <UButton @click="prevSlide" class="absolute left-2 top-1/2 -translate-y-1/2" size="sm" variant="solid" color="neutral" square>❮</UButton>
+            <UButton @click="nextSlide" class="absolute right-2 top-1/2 -translate-y-1/2" size="sm" variant="solid" color="neutral" square>❯</UButton>
+
+            <!-- Indicators -->
+            <div class="flex justify-center mt-2 gap-2">
+              <button
+                v-for="(_, index) in slides"
+                :key="index"
+                @click="currentSlide = index"
+                class="w-3 h-3 rounded-full transition-colors"
+                :class="currentSlide === index ? 'bg-primary' : 'bg-muted'"
+                :aria-label="t('slide_aria_label', { number: index + 1 })"
+              ></button>
+            </div>
           </div>
 
-          <!-- Navigation Buttons -->
-          <button @click="prevSlide" class="absolute left-2 top-1/2 -translate-y-1/2 btn btn-circle btn-sm">❮</button>
-          <button @click="nextSlide" class="absolute right-2 top-1/2 -translate-y-1/2 btn btn-circle btn-sm">❯</button>
+          <h4 class="text-lg font-semibold py-4">{{ t('location_title') }}</h4>
+          <p class="mb-4">
+            {{ t('location_description') }}
+          </p>
+          <ul class="list-disc pl-5 space-y-2 mb-4">
+            <li>{{ t('missing_reasons.replaced') }}</li>
+            <li>{{ t('missing_reasons.removed') }}</li>
+            <li>{{ t('missing_reasons.corroded') }}</li>
+          </ul>
 
-          <!-- Indicators -->
-          <div class="flex justify-center mt-2 gap-2">
-            <button
-              v-for="(_, index) in slides"
-              :key="index"
-              @click="currentSlide = index"
-              class="w-3 h-3 rounded-full"
-              :class="currentSlide === index ? 'bg-primary' : 'bg-gray-300'"
-              :aria-label="t('slide_aria_label', { number: index + 1 })"
-            ></button>
+          <div class="flex justify-end">
+            <UButton @click="isOpen = false" variant="outline">{{ t('close_button') }}</UButton>
           </div>
         </div>
-
-        <h4 class="text-lg font-semibold py-4">{{ t('location_title') }}</h4>
-        <p class="mb-4">
-          {{ t('location_description') }}
-        </p>
-        <ul class="list-disc pl-5 space-y-2 mb-4">
-          <li>{{ t('missing_reasons.replaced') }}</li>
-          <li>{{ t('missing_reasons.removed') }}</li>
-          <li>{{ t('missing_reasons.corroded') }}</li>
-        </ul>
-
-        <div class="modal-action">
-          <button @click="isOpen = false" class="btn">{{ t('close_button') }}</button>
-        </div>
-      </div>
-    </div>
+      </template>
+    </UModal>
   </div>
 </template>
 

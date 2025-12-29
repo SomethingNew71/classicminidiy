@@ -93,37 +93,35 @@
           </div>
           <div class="col-span-12 md:col-span-4">
             <NuxtLink :to="'/technical/compression'" :title="$t('compression_card.link_title')">
-              <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                <div class="card-body p-4">
-                  <div class="flex items-start">
-                    <div class="mr-4">
-                      <figure class="w-16 h-16">
-                        <picture>
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp"
-                            type="image/webp"
-                          />
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
-                            type="image/png"
-                          />
-                          <nuxt-img
-                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
-                            :alt="$t('compression_card.alt_text')"
-                            class="w-full h-full object-contain"
-                          />
-                        </picture>
-                      </figure>
-                    </div>
-                    <div>
-                      <h2 class="text-lg font-semibold">
-                        {{ $t('compression_card.title') }}
-                      </h2>
-                      <p>{{ $t('compression_card.description') }}</p>
-                    </div>
+              <UCard class="hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-start">
+                  <div class="mr-4">
+                    <figure class="w-16 h-16">
+                      <picture>
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
+                          type="image/png"
+                        />
+                        <nuxt-img
+                          src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-calculator-100.png"
+                          :alt="$t('compression_card.alt_text')"
+                          class="w-full h-full object-contain"
+                        />
+                      </picture>
+                    </figure>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-semibold">
+                      {{ $t('compression_card.title') }}
+                    </h2>
+                    <p>{{ $t('compression_card.description') }}</p>
                   </div>
                 </div>
-              </div>
+              </UCard>
             </NuxtLink>
           </div>
         </div>
@@ -136,44 +134,48 @@
           <i class="fas fa-circle text-error mx-2"></i>
           {{ $t('legend.different_stroke') }}
         </div>
-        <div class="card bg-base-100 shadow-xl">
-          <div class="card-title p-4 bg-base-200 flex items-center">
-            <i class="fad fa-engine mr-2"></i>
-            <span>{{ $t('table_title') }}</span>
-          </div>
-          <div class="card-body p-4">
-            <div class="overflow-x-auto" v-if="data?.engines">
-              <table class="table table-zebra w-full table-compact" :class="{ 'opacity-60': status === 'pending' }">
-                <thead>
-                  <tr>
-                    <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) in data.engines" :key="index" class="hover">
-                    <td>
-                      <i class="fas fa-circle" :class="item.color"></i>
-                    </td>
-                    <td>{{ item.group }}</td>
-                    <td>{{ item.engineSize }}</td>
-                    <td>{{ item.boreSize }}</td>
-                    <td>{{ item.overBore }}</td>
-                    <td>{{ item.stroke }}</td>
-                    <td>{{ item.power }}</td>
-                    <td>{{ item.torque }}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div v-if="status === 'pending'" class="flex justify-center items-center py-4">
-                <span class="loading loading-spinner loading-md"></span>
-                <span class="ml-2">{{ $t('loading_text') }}</span>
-              </div>
+        <UCard>
+          <template #header>
+            <div class="flex items-center">
+              <i class="fad fa-engine mr-2"></i>
+              <span class="font-semibold text-lg">{{ $t('table_title') }}</span>
+            </div>
+          </template>
+          <div class="overflow-x-auto" v-if="data?.engines">
+            <table class="w-full text-sm" :class="{ 'opacity-60': status === 'pending' }">
+              <thead>
+                <tr class="border-b border-default">
+                  <th v-for="header in tableHeaders" :key="header.key" class="text-left p-2 font-medium">
+                    {{ header.title }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in data.engines" :key="index" class="border-b border-default last:border-0 hover:bg-muted transition-colors">
+                  <td class="p-2">
+                    <i class="fas fa-circle" :class="item.color"></i>
+                  </td>
+                  <td class="p-2">{{ item.group }}</td>
+                  <td class="p-2">{{ item.engineSize }}</td>
+                  <td class="p-2">{{ item.boreSize }}</td>
+                  <td class="p-2">{{ item.overBore }}</td>
+                  <td class="p-2">{{ item.stroke }}</td>
+                  <td class="p-2">{{ item.power }}</td>
+                  <td class="p-2">{{ item.torque }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div v-if="status === 'pending'" class="flex justify-center items-center py-4">
+              <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+              <span class="ml-2">{{ $t('loading_text') }}</span>
             </div>
           </div>
-        </div>
+        </UCard>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ $t('support_divider') }}</div>
+        <USeparator>
+          <span class="text-sm text-muted">{{ $t('support_divider') }}</span>
+        </USeparator>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2 pb-10">
         <patreon-card size="large" />
@@ -190,11 +192,6 @@
     &.mobile-v {
       font-size: 0.75rem;
     }
-  }
-
-  /* Additional DaisyUI specific styles */
-  .table-compact {
-    font-size: 0.875rem;
   }
 </style>
 

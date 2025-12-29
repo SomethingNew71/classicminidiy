@@ -1,0 +1,359 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+@import '@fontsource/outfit';
+
+@plugin '@tailwindcss/typography';
+
+@theme {
+  /* Brand Colors - Primary (Olive Green #859369) */
+  --color-primary-50: #f4f6f0;
+  --color-primary-100: #e8ede1;
+  --color-primary-200: #d1dbc3;
+  --color-primary-300: #b3c49d;
+  --color-primary-400: #9aac7f;
+  --color-primary-500: #859369;
+  --color-primary-600: #6b7a52;
+  --color-primary-700: #566340;
+  --color-primary-800: #444d33;
+  --color-primary-900: #383f2c;
+  --color-primary-950: #1c2016;
+
+  /* Secondary (Orange #ed7135) */
+  --color-secondary-50: #fef6f0;
+  --color-secondary-100: #fdeadd;
+  --color-secondary-200: #fad2ba;
+  --color-secondary-300: #f5b28d;
+  --color-secondary-400: #f08a54;
+  --color-secondary-500: #ed7135;
+  --color-secondary-600: #d94410;
+  --color-secondary-700: #b43410;
+  --color-secondary-800: #902b14;
+  --color-secondary-900: #742714;
+  --color-secondary-950: #3f1107;
+
+  /* Success (Dark Green #4a7023) */
+  --color-success-50: #f3f7ed;
+  --color-success-100: #e4edd8;
+  --color-success-200: #cbddb5;
+  --color-success-300: #a9c788;
+  --color-success-400: #89b062;
+  --color-success-500: #4a7023;
+  --color-success-600: #3d5c1d;
+  --color-success-700: #32491a;
+  --color-success-800: #2a3b19;
+  --color-success-900: #253318;
+  --color-success-950: #111c09;
+
+  /* Error (Firebrick Red #b22222) */
+  --color-error-50: #fdf3f3;
+  --color-error-100: #fce4e4;
+  --color-error-200: #fbcdcd;
+  --color-error-300: #f6a8a8;
+  --color-error-400: #ef7676;
+  --color-error-500: #b22222;
+  --color-error-600: #9a1c1c;
+  --color-error-700: #811919;
+  --color-error-800: #6c1818;
+  --color-error-900: #5c1a1a;
+  --color-error-950: #320909;
+
+  /* Warning (Amber) */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  --color-warning-950: #451a03;
+
+  /* Info (Blue) */
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-200: #bfdbfe;
+  --color-info-300: #93c5fd;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  --color-info-800: #1e40af;
+  --color-info-900: #1e3a8a;
+  --color-info-950: #172554;
+
+  /* Neutral (Slate) */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+  --color-neutral-950: #020617;
+
+  /* Fonts */
+  --font-sans: 'Outfit', system-ui, sans-serif;
+}
+
+/* Apply font globally and override Nuxt UI color defaults */
+@layer base {
+  html,
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Force brand colors to override Nuxt UI defaults */
+:root {
+  /* Primary - Olive Green */
+  --color-primary-50: #f4f6f0 !important;
+  --color-primary-100: #e8ede1 !important;
+  --color-primary-200: #d1dbc3 !important;
+  --color-primary-300: #b3c49d !important;
+  --color-primary-400: #9aac7f !important;
+  --color-primary-500: #859369 !important;
+  --color-primary-600: #6b7a52 !important;
+  --color-primary-700: #566340 !important;
+  --color-primary-800: #444d33 !important;
+  --color-primary-900: #383f2c !important;
+  --color-primary-950: #1c2016 !important;
+
+  /* Secondary - Orange */
+  --color-secondary-50: #fef6f0 !important;
+  --color-secondary-100: #fdeadd !important;
+  --color-secondary-200: #fad2ba !important;
+  --color-secondary-300: #f5b28d !important;
+  --color-secondary-400: #f08a54 !important;
+  --color-secondary-500: #ed7135 !important;
+  --color-secondary-600: #d94410 !important;
+  --color-secondary-700: #b43410 !important;
+  --color-secondary-800: #902b14 !important;
+  --color-secondary-900: #742714 !important;
+  --color-secondary-950: #3f1107 !important;
+
+  /* Nuxt UI color references */
+  --ui-primary: #859369;
+  --ui-secondary: #ed7135;
+  --ui-success: #4a7023;
+  --ui-error: #b22222;
+
+  /* Light mode background colors */
+  --ui-bg: #ffffff;
+  --ui-bg-muted: #f8fafc;
+}
+
+/* Dark mode overrides */
+.dark {
+  --ui-bg: #0f172a;
+  --ui-bg-muted: #1e293b;
+
+  /* Ensure text is readable in dark mode */
+  color-scheme: dark;
+}
+
+/* Ensure proper backgrounds for light/dark modes */
+html {
+  background-color: var(--ui-bg, #ffffff);
+}
+
+html.dark {
+  background-color: #0f172a;
+}
+
+body {
+  background-color: inherit;
+}
+
+/* Ensure bg-muted works properly */
+.bg-muted {
+  background-color: #f1f5f9;
+}
+
+.dark .bg-muted {
+  background-color: #1e293b;
+}
+
+/* Text muted color */
+.text-muted {
+  color: #64748b;
+}
+
+.dark .text-muted {
+  color: #94a3b8;
+}
+
+/* ============================================
+   Custom Brand Styling (preserved from DaisyUI)
+   ============================================ */
+
+/* Partner/Affiliate Button Styles */
+.is-patreon {
+  background-color: #f96854 !important;
+  border-color: #f96854 !important;
+  color: white !important;
+}
+
+.is-guessworks {
+  background-color: #b8b8b8 !important;
+  border-color: #b8b8b8 !important;
+  color: white !important;
+}
+
+.is-amazon {
+  background-color: #febd69 !important;
+  border-color: #febd69 !important;
+  color: white !important;
+}
+
+/* Text Utilities */
+.truncate-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.sentence-case {
+  text-transform: capitalize;
+}
+
+/* ============================================
+   Hero Section Spacer Backgrounds
+   ============================================ */
+
+.spacer {
+  aspect-ratio: 900/100;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.spacer.layer {
+  margin-top: -10%;
+  background-image: url('https://classicminidiy.s3.us-east-1.amazonaws.com/misc/layer.svg');
+}
+
+.spacer.layer1 {
+  margin-top: -5%;
+  background-image: url('https://classicminidiy.s3.us-east-1.amazonaws.com/misc/layer1.svg');
+}
+
+.spacer.layer2 {
+  background-image: url('https://classicminidiy.s3.us-east-1.amazonaws.com/misc/layer2.svg');
+}
+
+/* ============================================
+   Custom Font Faces
+   ============================================ */
+
+@font-face {
+  font-family: discord;
+  src: url('~/assets/fonts/discord-thin.otf') format('opentype');
+}
+
+@font-face {
+  font-family: discord-bold;
+  src: url('~/assets/fonts/discord-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: whitney-book;
+  src: url('~/assets/fonts/whitneybook.woff') format('opentype');
+}
+
+@font-face {
+  font-family: whitney-semibold;
+  src: url('~/assets/fonts/whitneysemibold.woff') format('opentype');
+}
+
+/* ============================================
+   Futura PT Font Classes (Adobe Typekit)
+   ============================================ */
+
+/* Futura PT Heavy */
+.fancy-font-heavy {
+  font-family: futura-pt, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Heavy Oblique */
+.fancy-font-heavy-oblique {
+  font-family: futura-pt, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura PT Book */
+.fancy-font-book {
+  font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Book Oblique */
+.fancy-font-book-oblique {
+  font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura PT Bold */
+.fancy-font-bold {
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Bold Oblique */
+.fancy-font-bold-oblique {
+  font-family: futura-pt-bold, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura PT Cond Book */
+.fancy-font-cond-book {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Cond Book Oblique */
+.fancy-font-cond-book-oblique {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura PT Cond Bold */
+.fancy-font-cond-bold {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura PT Cond Bold Oblique */
+.fancy-font-cond-bold-oblique {
+  font-family: futura-pt-condensed, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}

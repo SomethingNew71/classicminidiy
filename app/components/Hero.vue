@@ -98,7 +98,7 @@
 
 <template>
   <section
-    class="hero flex"
+    class="hero-section flex bg-primary-950 bg-cover bg-center bg-no-repeat"
     :class="{
       [textSize]: textSize,
       'md:h-144 sm:h-96': heroType === HERO_TYPES.HOME,
@@ -107,15 +107,18 @@
     }"
     :style="[!showImage ? { backgroundImage: 'none' } : styleObject]"
   >
-    <div class="hero-content flex-col" :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]">
-      <div class="pl-20 prose lg:prose-xl" :class="{ 'has-text-centered': centered }">
-        <p class="text-white" :class="{ 'has-text-centered': blog }">
+    <div
+      class="hero-content flex flex-col items-start justify-center"
+      :style="[blog ? { paddingTop: '4rem', paddingBottom: '4rem' } : {}]"
+    >
+      <div class="pl-20" :class="{ 'text-center': centered }">
+        <p class="text-white text-sm uppercase tracking-wide" :class="{ 'text-center': blog }">
           {{ displaySubtitle }}
         </p>
         <h1
           v-if="displayTitle"
-          class="fancy-font-bold text-white"
-          :class="{ 'special-title': special, 'has-text-centered': blog }"
+          class="fancy-font-bold text-white text-4xl lg:text-5xl mt-2"
+          :class="{ 'special-title': special, 'text-center': blog }"
         >
           <span v-if="heroType === HERO_TYPES.HOME">
             {{ t('home_title') }}
@@ -128,13 +131,9 @@
     </div>
   </section>
 </template>
-<style lang="scss">
-  .hero {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #242424;
 
+<style lang="scss">
+  .hero-section {
     .special-title {
       font-size: 100px;
     }

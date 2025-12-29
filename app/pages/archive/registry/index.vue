@@ -52,45 +52,43 @@
               {{ $t('description_text') }}
             </p>
             <p class="font-bold mt-4 mb-5">{{ $t('submission_status_text') }}</p>
-            <NuxtLink to="/archive/registry/pending" class="btn btn-primary">
+            <UButton to="/archive/registry/pending" color="primary">
               <i class="fa-duotone fa-clipboard-question mr-2"></i>
               {{ $t('track_submission_button') }}
-            </NuxtLink>
+            </UButton>
           </div>
           <div class="col-span-12 md:col-span-4">
             <a href="#submitAnchor" class="block">
-              <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                <div class="card-body">
-                  <div class="flex items-start space-x-4">
-                    <div class="flex-shrink-0">
-                      <figure class="w-16 h-16">
-                        <picture>
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp"
-                            type="image/webp"
-                          />
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
-                            type="image/png"
-                          />
-                          <nuxt-img
-                            loading="lazy"
-                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
-                            :alt="$t('submit_card.alt_text')"
-                            class="w-16 h-16"
-                          />
-                        </picture>
-                      </figure>
-                    </div>
-                    <div>
-                      <h2 class="card-title">{{ $t('submit_card.title') }}</h2>
-                      <p>
-                        {{ $t('submit_card.description') }}
-                      </p>
-                    </div>
+              <UCard class="hover:shadow-2xl transition-shadow duration-300">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0">
+                    <figure class="w-16 h-16">
+                      <picture>
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
+                          type="image/png"
+                        />
+                        <nuxt-img
+                          loading="lazy"
+                          src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-book-reading-100.png"
+                          :alt="$t('submit_card.alt_text')"
+                          class="w-16 h-16"
+                        />
+                      </picture>
+                    </figure>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-semibold">{{ $t('submit_card.title') }}</h2>
+                    <p>
+                      {{ $t('submit_card.description') }}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </UCard>
             </a>
           </div>
         </div>
@@ -104,13 +102,13 @@
         />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider" id="submitAnchor">{{ $t('submit_divider') }}</div>
+        <USeparator id="submitAnchor" :label="$t('submit_divider')" />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <RegistrySubmission></RegistrySubmission>
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ $t('support_divider') }}</div>
+        <USeparator :label="$t('support_divider')" />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <patreon-card size="large" />

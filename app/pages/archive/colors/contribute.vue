@@ -143,23 +143,24 @@
       <p class="mb-6 text-base">
         {{ $t('description_text') }}
       </p>
-      <div class="divider"></div>
+      <USeparator />
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- Current Data Card -->
       <div class="lg:col-span-1">
-        <div class="card bg-base-100 shadow-xl">
-          <div class="card-body p-0">
-            <div class="card-title bg-gray-200 p-4">
+        <UCard>
+          <template #header>
+            <div class="flex items-center bg-muted -m-4 p-4">
               <i class="fas fa-list-timeline mr-2"></i>
               <h2 class="text-lg font-semibold">
                 {{ $t('current_data.title') }}
               </h2>
             </div>
+          </template>
 
             <div v-if="status === 'pending'" class="flex justify-center p-8">
-              <span class="loading loading-spinner loading-lg text-primary"></span>
+              <span class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></span>
             </div>
 
             <div v-else-if="status === 'success' && color" class="p-4">
@@ -255,14 +256,12 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+        </UCard>
       </div>
 
       <!-- Form Card -->
       <div class="lg:col-span-2">
-        <div class="card bg-base-100 shadow-xl">
-          <div class="card-body p-0">
+        <UCard>
             <!-- Success Message -->
             <div v-if="submissionSuccess" class="p-6 text-center">
               <div class="mb-4">
@@ -273,230 +272,171 @@
               </h1>
               <h2 class="text-xl mb-6">{{ $t('form.success.subtitle') }}</h2>
               <div class="space-y-4 text-left max-w-md mx-auto">
-                <div class="bg-base-200 p-4 rounded-lg">
+                <div class="bg-muted p-4 rounded-lg">
                   <p class="font-medium">{{ $t('form.success.submission_id') }}{{ submissionId }}</p>
-                  <p class="text-sm text-gray-600">
+                  <p class="text-sm opacity-70">
                     {{ $t('form.success.pending_review') }}
                   </p>
                 </div>
-                <button @click="submissionSuccess = false" class="btn btn-primary w-full">
+                <UButton @click="submissionSuccess = false" color="primary" class="w-full">
                   {{ $t('form.success.make_another') }}
-                </button>
+                </UButton>
               </div>
             </div>
 
             <!-- Form -->
             <div v-else>
-              <div class="card-title bg-primary text-primary-content p-4">
+              <div class="flex items-center bg-primary text-primary-content -m-4 mb-4 p-4 rounded-t-lg">
                 <i class="fas fa-sparkles mr-2"></i>
                 <h2 class="text-lg font-semibold">{{ $t('form.title') }}</h2>
               </div>
 
-              <div class="p-6">
+              <div class="p-2">
                 <!-- Error Alert -->
-                <div v-if="apiError" class="alert alert-warning mb-6">
-                  <i class="fas fa-exclamation-triangle mr-2"></i>
-                  <div>
-                    <h3 class="font-bold">{{ $t('form.error.title') }}</h3>
-                    <div class="text-xs">
-                      {{ apiMessage || $t('form.error.default_message') }}
-                    </div>
-                  </div>
-                </div>
+                <UAlert v-if="apiError" color="warning" class="mb-6">
+                  <template #icon>
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </template>
+                  <template #title>{{ $t('form.error.title') }}</template>
+                  <template #description>
+                    {{ apiMessage || $t('form.error.default_message') }}
+                  </template>
+                </UAlert>
 
                 <!-- Form Fields -->
                 <form @submit.prevent="submit" class="space-y-4">
                   <!-- Submitter Information -->
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="form-control">
-                      <label class="label" for="submittedBy">
-                        <span class="label-text">{{ $t('form.fields.submitted_by.label') }} *</span>
-                      </label>
-                      <div class="relative">
-                        <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                        <input
-                          id="submittedBy"
-                          type="text"
-                          v-model="formData.submittedBy"
-                          :placeholder="$t('form.fields.submitted_by.placeholder')"
-                          class="input input-bordered w-full pl-10"
-                          :disabled="processing"
-                          required
-                        />
-                      </div>
-                    </div>
+                    <UFormField :label="`${$t('form.fields.submitted_by.label')} *`">
+                      <UInput
+                        id="submittedBy"
+                        type="text"
+                        v-model="formData.submittedBy"
+                        :placeholder="$t('form.fields.submitted_by.placeholder')"
+                        class="w-full"
+                        :disabled="processing"
+                        required
+                        icon="i-heroicons-user"
+                      />
+                    </UFormField>
 
-                    <div class="form-control">
-                      <label class="label" for="submittedByEmail">
-                        <span class="label-text">{{ $t('form.fields.submitted_by_email.label') }} *</span>
-                      </label>
-                      <div class="relative">
-                        <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                        <input
-                          id="submittedByEmail"
-                          type="email"
-                          v-model="formData.submittedByEmail"
-                          :placeholder="$t('form.fields.submitted_by_email.placeholder')"
-                          class="input input-bordered w-full pl-10"
-                          :disabled="processing"
-                          required
-                        />
-                      </div>
-                    </div>
+                    <UFormField :label="`${$t('form.fields.submitted_by_email.label')} *`">
+                      <UInput
+                        id="submittedByEmail"
+                        type="email"
+                        v-model="formData.submittedByEmail"
+                        :placeholder="$t('form.fields.submitted_by_email.placeholder')"
+                        class="w-full"
+                        :disabled="processing"
+                        required
+                        icon="i-heroicons-envelope"
+                      />
+                    </UFormField>
                   </div>
 
-                  <div class="divider"></div>
+                  <USeparator />
 
                   <!-- Color Information -->
-                  <div class="form-control">
-                    <label class="label" for="colorName">
-                      <span class="label-text">{{ $t('form.fields.color_name.label') }} *</span>
-                    </label>
-                    <div class="relative">
-                      <i class="fas fa-id-card absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                      <input
-                        id="colorName"
+                  <UFormField :label="`${$t('form.fields.color_name.label')} *`">
+                    <UInput
+                      id="colorName"
+                      type="text"
+                      v-model="formData.name"
+                      :placeholder="$t('form.fields.color_name.placeholder')"
+                      class="w-full"
+                      maxlength="30"
+                      required
+                      icon="i-heroicons-identification"
+                    />
+                  </UFormField>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <UFormField :label="$t('form.fields.primary_code.label')">
+                      <UInput
+                        id="code"
+                        v-model="formData.code"
                         type="text"
-                        v-model="formData.name"
-                        :placeholder="$t('form.fields.color_name.placeholder')"
-                        class="input input-bordered w-full pl-10"
-                        maxlength="30"
+                        :placeholder="$t('form.fields.primary_code.placeholder')"
+                        class="w-full"
+                        :disabled="processing"
                         required
+                        icon="i-heroicons-code-bracket"
                       />
-                    </div>
+                    </UFormField>
+
+                    <UFormField :label="$t('form.fields.short_code.label')">
+                      <UInput
+                        id="shortCode"
+                        v-model="formData.shortCode"
+                        type="text"
+                        :placeholder="$t('form.fields.short_code.placeholder')"
+                        class="w-full"
+                        :disabled="processing"
+                        icon="i-heroicons-code-bracket"
+                      />
+                    </UFormField>
                   </div>
 
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="form-control">
-                      <label class="label" for="primaryCode">
-                        <span class="label-text">{{ $t('form.fields.primary_code.label') }}</span>
-                      </label>
-                      <div class="relative">
-                        <i
-                          class="fas fa-brackets-curly absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                        ></i>
-                        <input
-                          id="code"
-                          v-model="formData.code"
-                          type="text"
-                          :placeholder="$t('form.fields.primary_code.placeholder')"
-                          class="input input-bordered w-full"
-                          :disabled="processing"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div class="form-control">
-                      <label class="label" for="shortCode">
-                        <span class="label-text">{{ $t('form.fields.short_code.label') }}</span>
-                      </label>
-                      <div class="relative">
-                        <i
-                          class="fas fa-brackets-curly absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                        ></i>
-                        <input
-                          id="shortCode"
-                          v-model="formData.shortCode"
-                          type="text"
-                          :placeholder="$t('form.fields.short_code.placeholder')"
-                          class="input input-bordered w-full"
-                          :disabled="processing"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="form-control">
-                      <label class="label" for="ditzlerPpgCode">
-                        <span class="label-text">{{ $t('form.fields.ditzler_ppg_code.label') }}</span>
-                      </label>
-                      <div class="relative">
-                        <i
-                          class="fas fa-brackets-curly absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                        ></i>
-                        <input
-                          id="ditzlerPpgCode"
-                          v-model="formData.ditzlerPpgCode"
-                          type="text"
-                          :placeholder="$t('form.fields.ditzler_ppg_code.placeholder')"
-                          class="input input-bordered w-full"
-                          :disabled="processing"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="form-control">
-                      <label class="label" for="duluxCode">
-                        <span class="label-text">{{ $t('form.fields.dulux_code.label') }}</span>
-                      </label>
-                      <div class="relative">
-                        <i
-                          class="fas fa-brackets-curly absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                        ></i>
-                        <input
-                          id="duluxCode"
-                          v-model="formData.duluxCode"
-                          type="text"
-                          :placeholder="$t('form.fields.dulux_code.placeholder')"
-                          class="input input-bordered w-full"
-                          :disabled="processing"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-control">
-                    <label class="label" for="years">
-                      <span class="label-text">{{ $t('form.fields.years_used.label') }}</span>
-                    </label>
-                    <div class="relative">
-                      <i
-                        class="fas fa-calendar-days absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                      ></i>
-                      <input
-                        id="years"
-                        v-model="formData.years"
+                    <UFormField :label="$t('form.fields.ditzler_ppg_code.label')">
+                      <UInput
+                        id="ditzlerPpgCode"
+                        v-model="formData.ditzlerPpgCode"
                         type="text"
-                        :placeholder="$t('form.fields.years_used.placeholder')"
-                        class="input input-bordered w-full"
+                        :placeholder="$t('form.fields.ditzler_ppg_code.placeholder')"
+                        class="w-full"
                         :disabled="processing"
+                        icon="i-heroicons-code-bracket"
                       />
-                    </div>
+                    </UFormField>
+
+                    <UFormField :label="$t('form.fields.dulux_code.label')">
+                      <UInput
+                        id="duluxCode"
+                        v-model="formData.duluxCode"
+                        type="text"
+                        :placeholder="$t('form.fields.dulux_code.placeholder')"
+                        class="w-full"
+                        :disabled="processing"
+                        icon="i-heroicons-code-bracket"
+                      />
+                    </UFormField>
                   </div>
 
-                  <div class="form-control">
-                    <label class="label" for="imageSwatch">
-                      <span class="label-text">{{ $t('form.fields.image_swatch.label') }}</span>
-                    </label>
-                    <div class="relative">
-                      <i class="fas fa-image absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                      <input
-                        id="imageSwatch"
-                        v-model="formData.imageSwatch"
-                        type="text"
-                        :placeholder="$t('form.fields.image_swatch.placeholder')"
-                        class="input input-bordered w-full"
-                        :disabled="processing"
-                      />
-                    </div>
-                    <label class="label">
-                      <span class="label-text-alt">{{ $t('form.fields.image_swatch.help') }}</span>
-                    </label>
-                  </div>
+                  <UFormField :label="$t('form.fields.years_used.label')">
+                    <UInput
+                      id="years"
+                      v-model="formData.years"
+                      type="text"
+                      :placeholder="$t('form.fields.years_used.placeholder')"
+                      class="w-full"
+                      :disabled="processing"
+                      icon="i-heroicons-calendar-days"
+                    />
+                  </UFormField>
+
+                  <UFormField :label="$t('form.fields.image_swatch.label')" :help="$t('form.fields.image_swatch.help')">
+                    <UInput
+                      id="imageSwatch"
+                      v-model="formData.imageSwatch"
+                      type="text"
+                      :placeholder="$t('form.fields.image_swatch.placeholder')"
+                      class="w-full"
+                      :disabled="processing"
+                      icon="i-heroicons-photo"
+                    />
+                  </UFormField>
 
                   <div class="pt-4">
-                    <button type="submit" class="btn btn-primary w-full" :disabled="processing">
-                      <span v-if="processing" class="loading loading-spinner"></span>
+                    <UButton type="submit" color="primary" class="w-full" :disabled="processing">
+                      <span v-if="processing" class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
                       {{ processing ? $t('form.submit.submitting') : $t('form.submit.button') }}
-                    </button>
+                    </UButton>
                   </div>
                 </form>
               </div>
             </div>
-          </div>
-        </div>
+        </UCard>
       </div>
     </div>
   </div>

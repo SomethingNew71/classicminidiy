@@ -29,112 +29,66 @@
     },
   });
 
-  const crumbs = computed(() => {
-    const result: any[] = [];
+  const breadcrumbItems = computed(() => {
+    const result: { label: string; to?: string; icon?: string }[] = [];
+
+    // Home is always first
+    result.push({
+      label: t('home'),
+      to: '/',
+      icon: 'i-heroicons-home',
+    });
+
+    // Determine section based on version
+    const sectionLabel =
+      props.version === BREADCRUMB_VERSIONS.TECH
+        ? t('technical')
+        : props.version === BREADCRUMB_VERSIONS.ADMIN
+          ? t('admin')
+          : t('archive');
+
+    const sectionHref =
+      props.version === BREADCRUMB_VERSIONS.TECH
+        ? '/technical'
+        : props.version === BREADCRUMB_VERSIONS.ADMIN
+          ? '/admin'
+          : '/archive';
 
     if (props.root) {
-      result.push(
-        {
-          title: t('home'),
-          disabled: false,
-          href: '/',
-        },
-        {
-          title:
-            props.version === BREADCRUMB_VERSIONS.TECH
-              ? t('technical')
-              : props.version === BREADCRUMB_VERSIONS.ADMIN
-                ? t('admin')
-                : t('archive'),
-          disabled: true,
-          href:
-            props.version === BREADCRUMB_VERSIONS.TECH
-              ? '/technical'
-              : props.version === BREADCRUMB_VERSIONS.ADMIN
-                ? '/admin'
-                : '/archive',
-        }
-      );
+      // Root page - section is current/disabled
+      result.push({
+        label: sectionLabel,
+      });
     } else if (props.subpage) {
-      result.push(
-        {
-          title: t('home'),
-          disabled: false,
-          href: '/',
-        },
-        {
-          title:
-            props.version === BREADCRUMB_VERSIONS.TECH
-              ? t('technical')
-              : props.version === BREADCRUMB_VERSIONS.ADMIN
-                ? t('admin')
-                : t('archive'),
-          disabled: false,
-          href:
-            props.version === BREADCRUMB_VERSIONS.TECH
-              ? '/technical'
-              : props.version === BREADCRUMB_VERSIONS.ADMIN
-                ? '/admin'
-                : '/archive',
-        },
-        {
-          title: props.subpage,
-          disabled: false,
-          href: props.subpageHref,
-        },
-        {
-          title: props.page,
-          disabled: true,
-        }
-      );
+      // Has subpage - section is clickable, subpage is clickable, page is current
+      result.push({
+        label: sectionLabel,
+        to: sectionHref,
+      });
+      result.push({
+        label: props.subpage,
+        to: props.subpageHref,
+      });
+      result.push({
+        label: props.page,
+      });
     } else {
-      result.push(
-        {
-          title: t('home'),
-          disabled: false,
-          href: '/',
-        },
-        {
-          title:
-            props.version === BREADCRUMB_VERSIONS.TECH
-              ? t('technical')
-              : props.version === BREADCRUMB_VERSIONS.ADMIN
-                ? t('admin')
-                : t('archive'),
-          disabled: false,
-          href:
-            props.version === BREADCRUMB_VERSIONS.TECH
-              ? '/technical'
-              : props.version === BREADCRUMB_VERSIONS.ADMIN
-                ? '/admin'
-                : '/archive',
-        },
-        {
-          title: props.page,
-          disabled: true,
-        }
-      );
+      // Regular page - section is clickable, page is current
+      result.push({
+        label: sectionLabel,
+        to: sectionHref,
+      });
+      result.push({
+        label: props.page,
+      });
     }
 
     return result;
   });
 </script>
+
 <template>
-  <div class="text-base breadcrumbs">
-    <ul>
-      <li v-for="(crumb, index) in crumbs" :key="index">
-        <div v-if="index === 0" class="flex items-center">
-          <i class="fa-duotone fa-home mr-1"></i>
-          <NuxtLink v-if="!crumb.disabled" :to="crumb.href">{{ crumb.title }}</NuxtLink>
-          <span v-else class="opacity-60">{{ crumb.title }}</span>
-        </div>
-        <div v-else>
-          <NuxtLink v-if="!crumb.disabled" :to="crumb.href">{{ crumb.title }}</NuxtLink>
-          <span v-else class="opacity-60">{{ crumb.title }}</span>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <UBreadcrumb :items="breadcrumbItems" class="text-base" />
 </template>
 
 <i18n lang="json">
