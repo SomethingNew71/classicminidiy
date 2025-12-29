@@ -1,10 +1,10 @@
 <template>
   <div v-if="links && links.length > 0" class="space-y-4">
     <!-- Header -->
-    <div class="flex items-center gap-2 pb-2 border-b border-base-300">
+    <div class="flex items-center gap-2 pb-2 border-b border-default">
       <i class="fa-solid fa-link text-primary"></i>
-      <h3 class="text-sm font-semibold text-base-content">{{ t('title') }}</h3>
-      <span class="text-xs text-base-content/50 ml-auto">{{ links.length }}</span>
+      <h3 class="text-sm font-semibold">{{ t('title') }}</h3>
+      <span class="text-xs text-muted ml-auto">{{ links.length }}</span>
     </div>
 
     <!-- Links List -->
@@ -15,29 +15,29 @@
         :href="addUtmParams(link.url)"
         target="_blank"
         rel="noopener noreferrer"
-        class="block p-3 rounded-lg bg-base-100 hover:bg-base-200 transition-colors border border-base-200 hover:border-base-300 group"
+        class="block p-3 rounded-lg bg-default hover:bg-muted transition-colors border border-default hover:border-muted group"
       >
         <div class="space-y-2">
           <!-- Title and Score -->
           <div class="flex items-start justify-between gap-2">
-            <h4 class="font-medium text-sm text-primary group-hover:text-primary-focus line-clamp-2 leading-tight">
+            <h4 class="font-medium text-sm text-primary group-hover:text-primary/80 line-clamp-2 leading-tight">
               {{ link.title }}
             </h4>
-            <div class="flex-shrink-0 flex items-center gap-1">
+            <div class="shrink-0 flex items-center gap-1">
               <span class="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded">
                 {{ Math.round(link.score * 100) }}%
               </span>
-              <i class="fa-solid fa-external-link text-xs text-base-content/50"></i>
+              <i class="fa-solid fa-external-link text-xs text-muted"></i>
             </div>
           </div>
 
           <!-- Content Preview -->
-          <p class="text-xs text-base-content/70 line-clamp-3 leading-relaxed">
+          <p class="text-xs text-muted line-clamp-3 leading-relaxed">
             {{ link.content }}
           </p>
 
           <!-- URL -->
-          <div class="text-xs text-base-content/50 truncate">
+          <div class="text-xs text-muted truncate">
             {{ link.url }}
           </div>
         </div>
@@ -45,8 +45,8 @@
     </div>
 
     <!-- Show More Indicator if many links -->
-    <div v-if="links.length > 5" class="text-center pt-2 border-t border-base-300">
-      <p class="text-xs text-base-content/50">{{ t('showing_results', { count: links.length }) }}</p>
+    <div v-if="links.length > 5" class="text-center pt-2 border-t border-default">
+      <p class="text-xs text-muted">{{ t('showing_results', { count: links.length }) }}</p>
     </div>
   </div>
 </template>

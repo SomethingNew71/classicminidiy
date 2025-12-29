@@ -1,66 +1,56 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-base-200">
-    <div class="card w-full max-w-md bg-base-100 shadow-xl">
-      <div class="card-body">
-        <div class="text-center mb-6">
-          <h1 class="text-3xl font-bold text-base-content">{{ $t('title') }}</h1>
-          <p class="text-base-content/70 mt-2">{{ $t('subtitle') }}</p>
-        </div>
-
-        <form @submit.prevent="handleLogin" class="space-y-4">
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">{{ $t('username_label') }}</span>
-            </label>
-            <input
-              v-model="credentials.username"
-              type="text"
-              :placeholder="$t('username_placeholder')"
-              class="input input-bordered w-full"
-              :class="{ 'input-error': hasError }"
-              required
-              :disabled="isLoading"
-            />
-          </div>
-
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">{{ $t('password_label') }}</span>
-            </label>
-            <input
-              v-model="credentials.password"
-              type="password"
-              :placeholder="$t('password_placeholder')"
-              class="input input-bordered w-full"
-              :class="{ 'input-error': hasError }"
-              required
-              :disabled="isLoading"
-            />
-          </div>
-
-          <div v-if="errorMessage" class="alert alert-error">
-            <i class="fad fa-exclamation-triangle"></i>
-            <span>{{ errorMessage }}</span>
-          </div>
-
-          <div class="form-control mt-6">
-            <button type="submit" class="btn btn-primary w-full" :class="{ loading: isLoading }" :disabled="isLoading">
-              <i v-if="!isLoading" class="fad fa-sign-in mr-2"></i>
-              {{ isLoading ? $t('signing_in') : $t('sign_in') }}
-            </button>
-          </div>
-        </form>
-
-        <div class="divider"></div>
-
-        <div class="text-center">
-          <NuxtLink to="/" class="btn btn-ghost btn-sm">
-            <i class="fad fa-arrow-left mr-2"></i>
-            {{ $t('back_to_site') }}
-          </NuxtLink>
-        </div>
+  <div class="min-h-screen flex items-center justify-center bg-muted">
+    <UCard class="w-full max-w-md">
+      <div class="text-center mb-6">
+        <h1 class="text-3xl font-bold">{{ $t('title') }}</h1>
+        <p class="opacity-70 mt-2">{{ $t('subtitle') }}</p>
       </div>
-    </div>
+
+      <form @submit.prevent="handleLogin" class="space-y-4">
+        <UFormField :label="$t('username_label')">
+          <UInput
+            v-model="credentials.username"
+            type="text"
+            :placeholder="$t('username_placeholder')"
+            class="w-full"
+            :color="hasError ? 'error' : undefined"
+            required
+            :disabled="isLoading"
+          />
+        </UFormField>
+
+        <UFormField :label="$t('password_label')">
+          <UInput
+            v-model="credentials.password"
+            type="password"
+            :placeholder="$t('password_placeholder')"
+            class="w-full"
+            :color="hasError ? 'error' : undefined"
+            required
+            :disabled="isLoading"
+          />
+        </UFormField>
+
+        <UAlert v-if="errorMessage" color="error" icon="i-heroicons-exclamation-triangle" :title="errorMessage" />
+
+        <div class="mt-6">
+          <UButton type="submit" color="primary" class="w-full" :disabled="isLoading">
+            <span v-if="isLoading" class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
+            <i v-else class="fad fa-sign-in mr-2"></i>
+            {{ isLoading ? $t('signing_in') : $t('sign_in') }}
+          </UButton>
+        </div>
+      </form>
+
+      <USeparator class="my-4" />
+
+      <div class="text-center">
+        <UButton to="/" variant="ghost" size="sm">
+          <i class="fad fa-arrow-left mr-2"></i>
+          {{ $t('back_to_site') }}
+        </UButton>
+      </div>
+    </UCard>
   </div>
 </template>
 

@@ -68,19 +68,19 @@
             <h1 class="text-2xl font-bold mb-4">{{ $t('main_heading') }}</h1>
             <p class="mb-6">{{ $t('description_text') }}</p>
             <div class="flex flex-wrap gap-3 mb-6">
-              <button class="btn btn-primary" @click="submitArchiveFile(ARCHIVE_TYPES.TUNING)">
+              <UButton color="primary" @click="submitArchiveFile(ARCHIVE_TYPES.TUNING)">
                 <i class="fad fa-paper-plane mr-2"></i>
                 {{ $t('actions.add_to_archive') }}
-              </button>
-              <a
-                class="btn btn-secondary"
-                href="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
+              </UButton>
+              <UButton
+                color="secondary"
+                to="https://buy.stripe.com/3cs8yWe1P1ER3Oo5kl"
                 target="_blank"
                 @click="trackStuff(TRACKING_EVENTS.SERVER_COST, path)"
               >
                 <i class="fad fa-hand-holding-circle-dollar mr-2"></i>
                 {{ $t('actions.cover_server_costs') }}
-              </a>
+              </UButton>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
 
       <!-- Support section -->
       <div class="col-span-12 mt-8 mb-10">
-        <div class="divider">{{ $t('support_divider') }}</div>
+        <USeparator :label="$t('support_divider')" />
         <patreon-card size="large" />
       </div>
     </div>

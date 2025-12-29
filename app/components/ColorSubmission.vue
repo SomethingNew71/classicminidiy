@@ -195,252 +195,228 @@
 </script>
 
 <template>
-  <div class="card bg-base-100 shadow-xl">
-    <div class="card-body">
-      <h2 class="card-title">{{ t('title') }}</h2>
+  <UCard>
+    <template #header>
+      <h2 class="font-semibold text-lg">{{ t('title') }}</h2>
+    </template>
 
-      <!-- Success State -->
-      <div v-if="!processing && submissionSuccess && !apiError">
-        <div class="text-center py-5">
-          <i class="text-4xl text-success fa-duotone fa-box-check fa-beat py-5"></i>
-          <h1 class="text-2xl font-bold mb-1">{{ t('success.thank_you') }}</h1>
-          <h2 class="text-lg mb-4">
-            {{ t('success.submitted_message') }}
-          </h2>
-          <div class="bg-base-200 p-4 rounded-lg mb-5 max-w-md mx-auto">
-            <p class="font-medium">{{ t('success.submission_id') }} {{ submissionId }}</p>
-            <p class="text-sm text-gray-600">{{ t('success.pending_review') }}</p>
-          </div>
-          <button class="btn btn-primary" @click="submitAnotherColor()">
-            <i class="fa-duotone fa-solid fa-plus-large mr-2"></i>
-            {{ t('success.submit_another') }}
-          </button>
+    <!-- Success State -->
+    <div v-if="!processing && submissionSuccess && !apiError">
+      <div class="text-center py-5">
+        <i class="text-4xl text-success fa-duotone fa-box-check fa-beat py-5"></i>
+        <h1 class="text-2xl font-bold mb-1">{{ t('success.thank_you') }}</h1>
+        <h2 class="text-lg mb-4">
+          {{ t('success.submitted_message') }}
+        </h2>
+        <div class="bg-muted p-4 rounded-lg mb-5 max-w-md mx-auto">
+          <p class="font-medium">{{ t('success.submission_id') }} {{ submissionId }}</p>
+          <p class="text-sm text-muted">{{ t('success.pending_review') }}</p>
         </div>
+        <UButton color="primary" @click="submitAnotherColor()">
+          <i class="fa-duotone fa-solid fa-plus-large mr-2"></i>
+          {{ t('success.submit_another') }}
+        </UButton>
       </div>
+    </div>
 
-      <!-- Duplicate Warning Modal -->
-      <dialog
-        :class="['modal', { 'modal-open': showDuplicateWarning }]"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="duplicate-dialog-title"
-        aria-describedby="duplicate-dialog-description"
-      >
-        <div class="modal-box max-w-2xl">
-          <h3 id="duplicate-dialog-title" class="font-bold text-lg flex items-center gap-2">
+    <!-- Duplicate Warning Modal -->
+    <UModal v-model:open="showDuplicateWarning" :ui="{ width: 'max-w-2xl' }">
+      <template #content>
+        <div class="p-6">
+          <h3 class="font-bold text-lg flex items-center gap-2 mb-4">
             <i class="fas fa-exclamation-triangle text-warning"></i>
             {{ t('duplicate.title') }}
           </h3>
-          <p id="duplicate-dialog-description" class="py-4">{{ t('duplicate.message') }}</p>
+          <p class="mb-4">{{ t('duplicate.message') }}</p>
 
           <div class="space-y-3 max-h-60 overflow-y-auto">
             <div
               v-for="match in duplicateMatches"
               :key="match.id"
-              class="bg-base-200 p-4 rounded-lg flex justify-between items-center"
+              class="bg-muted p-4 rounded-lg flex justify-between items-center"
             >
               <div>
                 <p class="font-medium">{{ match.name }}</p>
-                <p class="text-sm text-gray-600">
+                <p class="text-sm text-muted">
                   {{ t('duplicate.code') }}: {{ match.code }}
                   <span v-if="match.shortCode"> | {{ t('duplicate.short_code') }}: {{ match.shortCode }}</span>
                 </p>
               </div>
-              <button class="btn btn-sm btn-info" @click="editExistingColor(match.id)">
+              <UButton size="sm" color="info" @click="editExistingColor(match.id)">
                 <i class="fas fa-edit mr-1"></i>
                 {{ t('duplicate.edit_existing') }}
-              </button>
+              </UButton>
             </div>
           </div>
 
-          <div class="modal-action">
-            <button class="btn" @click="cancelDuplicateSubmission">{{ t('duplicate.cancel') }}</button>
-            <button class="btn btn-warning" @click="proceedWithSubmission">
+          <div class="flex justify-end gap-3 mt-6">
+            <UButton variant="outline" @click="cancelDuplicateSubmission">{{ t('duplicate.cancel') }}</UButton>
+            <UButton color="warning" @click="proceedWithSubmission">
               <i class="fas fa-plus mr-2"></i>
               {{ t('duplicate.submit_anyway') }}
-            </button>
+            </UButton>
           </div>
         </div>
-      </dialog>
+      </template>
+    </UModal>
 
-      <!-- Form -->
-      <div v-if="!submissionSuccess">
-        <form @submit.prevent="submit">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
-            <!-- Personal Info Section -->
-            <div class="col-span-1 md:col-span-2">
-              <h2 class="text-xl font-bold">{{ t('sections.personal_info') }}</h2>
-            </div>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.your_name') }} <span class="text-error">*</span></span>
-                <span class="label-text-alt"><i class="fad fa-user"></i></span>
-              </label>
-              <input
-                type="text"
-                :placeholder="t('placeholders.name')"
-                v-model="details.submittedBy"
-                class="input input-bordered w-full"
-                :class="{ 'input-error': details.submittedBy === '' && touchedFields.submittedBy }"
-                required
-                @blur="touchedFields.submittedBy = true"
-              />
-              <label v-if="details.submittedBy === '' && touchedFields.submittedBy" class="label">
-                <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
-              </label>
-            </div>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.your_email') }} <span class="text-error">*</span></span>
-                <span class="label-text-alt"><i class="fad fa-at"></i></span>
-              </label>
-              <input
-                type="email"
-                :placeholder="t('placeholders.email')"
-                v-model="details.submittedByEmail"
-                class="input input-bordered w-full"
-                :class="{
-                  'input-error':
-                    (details.submittedByEmail === '' || rules.email(details.submittedByEmail) !== true) &&
-                    touchedFields.submittedByEmail,
-                }"
-                required
-                @blur="touchedFields.submittedByEmail = true"
-              />
-              <label
-                v-if="
-                  (details.submittedByEmail === '' || rules.email(details.submittedByEmail) !== true) &&
-                  touchedFields.submittedByEmail
-                "
-                class="label"
-              >
-                <span class="label-text-alt text-error">
-                  {{ details.submittedByEmail === '' ? t('validation.required') : t('validation.invalid_email') }}
-                </span>
-              </label>
-            </div>
-
-            <!-- Color Details Section -->
-            <div class="col-span-1 md:col-span-2">
-              <h2 class="text-xl font-bold">{{ t('sections.color_details') }}</h2>
-            </div>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.color_name') }} <span class="text-error">*</span></span>
-                <span class="label-text-alt"><i class="fad fa-palette"></i></span>
-              </label>
-              <input
-                type="text"
-                :placeholder="t('placeholders.color_name')"
-                v-model="details.name"
-                class="input input-bordered w-full"
-                :class="{ 'input-error': details.name === '' && touchedFields.name }"
-                required
-                @blur="touchedFields.name = true"
-              />
-              <label v-if="details.name === '' && touchedFields.name" class="label">
-                <span class="label-text-alt text-error">{{ t('validation.required') }}</span>
-              </label>
-            </div>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.bmc_code') }}</span>
-                <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
-              </label>
-              <input
-                type="text"
-                :placeholder="t('placeholders.bmc_code')"
-                v-model="details.code"
-                class="input input-bordered w-full"
-              />
-            </div>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.short_code') }}</span>
-                <span class="label-text-alt"><i class="fad fa-tag"></i></span>
-              </label>
-              <input
-                type="text"
-                :placeholder="t('placeholders.short_code')"
-                v-model="details.shortCode"
-                class="input input-bordered w-full"
-              />
-            </div>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.ditzler_ppg_code') }}</span>
-                <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
-              </label>
-              <input
-                type="text"
-                :placeholder="t('placeholders.ditzler_ppg_code')"
-                v-model="details.ditzlerPpgCode"
-                class="input input-bordered w-full"
-              />
-            </div>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.dulux_code') }}</span>
-                <span class="label-text-alt"><i class="fad fa-hashtag"></i></span>
-              </label>
-              <input
-                type="text"
-                :placeholder="t('placeholders.dulux_code')"
-                v-model="details.duluxCode"
-                class="input input-bordered w-full"
-              />
-            </div>
-
-            <div class="form-control w-full">
-              <label class="label">
-                <span class="label-text">{{ t('form_labels.years_used') }}</span>
-                <span class="label-text-alt"><i class="fad fa-calendar"></i></span>
-              </label>
-              <input
-                type="text"
-                :placeholder="t('placeholders.years_used')"
-                v-model="details.years"
-                class="input input-bordered w-full"
-              />
-            </div>
+    <!-- Form -->
+    <div v-if="!submissionSuccess">
+      <form @submit.prevent="submit">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
+          <!-- Personal Info Section -->
+          <div class="col-span-1 md:col-span-2">
+            <h2 class="text-xl font-bold">{{ t('sections.personal_info') }}</h2>
           </div>
 
-          <div class="mt-6">
-            <div v-if="apiError" class="alert alert-error mb-4">
-              <i class="fa-duotone fa-circle-exclamation"></i>
-              <div>
-                <h3 class="font-bold">{{ t('error.title') }}</h3>
-                <div class="text-sm">
-                  {{ apiMessage || t('error.message') }}
-                </div>
-              </div>
-              <button class="btn btn-sm" @click="apiError = false">
-                {{ t('error.dismiss') }}
-              </button>
-            </div>
+          <!-- Your Name -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.your_name') }} <span class="text-error">*</span></span>
+              <span class="text-sm text-muted"><i class="fad fa-user"></i></span>
+            </label>
+            <UInput
+              type="text"
+              :placeholder="t('placeholders.name')"
+              v-model="details.submittedBy"
+              :color="details.submittedBy === '' && touchedFields.submittedBy ? 'error' : undefined"
+              required
+              @blur="touchedFields.submittedBy = true"
+            />
+            <p v-if="details.submittedBy === '' && touchedFields.submittedBy" class="text-sm text-error mt-1">
+              {{ t('validation.required') }}
+            </p>
+          </div>
 
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg"
-              :class="{ 'btn-disabled': !validateForm() }"
-              :disabled="processing || checkingDuplicates"
+          <!-- Your Email -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.your_email') }} <span class="text-error">*</span></span>
+              <span class="text-sm text-muted"><i class="fad fa-at"></i></span>
+            </label>
+            <UInput
+              type="email"
+              :placeholder="t('placeholders.email')"
+              v-model="details.submittedByEmail"
+              :color="
+                (details.submittedByEmail === '' || rules.email(details.submittedByEmail) !== true) &&
+                touchedFields.submittedByEmail
+                  ? 'error'
+                  : undefined
+              "
+              required
+              @blur="touchedFields.submittedByEmail = true"
+            />
+            <p
+              v-if="
+                (details.submittedByEmail === '' || rules.email(details.submittedByEmail) !== true) &&
+                touchedFields.submittedByEmail
+              "
+              class="text-sm text-error mt-1"
             >
-              <i class="fad fa-paper-plane mr-2" v-if="!processing && !checkingDuplicates"></i>
-              <span class="loading loading-spinner" v-if="processing || checkingDuplicates"></span>
-              {{ checkingDuplicates ? t('checking_duplicates') : t('submit_button') }}
-            </button>
+              {{ details.submittedByEmail === '' ? t('validation.required') : t('validation.invalid_email') }}
+            </p>
           </div>
-        </form>
-      </div>
+
+          <!-- Color Details Section -->
+          <div class="col-span-1 md:col-span-2">
+            <h2 class="text-xl font-bold">{{ t('sections.color_details') }}</h2>
+          </div>
+
+          <!-- Color Name -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.color_name') }} <span class="text-error">*</span></span>
+              <span class="text-sm text-muted"><i class="fad fa-palette"></i></span>
+            </label>
+            <UInput
+              type="text"
+              :placeholder="t('placeholders.color_name')"
+              v-model="details.name"
+              :color="details.name === '' && touchedFields.name ? 'error' : undefined"
+              required
+              @blur="touchedFields.name = true"
+            />
+            <p v-if="details.name === '' && touchedFields.name" class="text-sm text-error mt-1">
+              {{ t('validation.required') }}
+            </p>
+          </div>
+
+          <!-- BMC Code -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.bmc_code') }}</span>
+              <span class="text-sm text-muted"><i class="fad fa-hashtag"></i></span>
+            </label>
+            <UInput type="text" :placeholder="t('placeholders.bmc_code')" v-model="details.code" />
+          </div>
+
+          <!-- Short Code -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.short_code') }}</span>
+              <span class="text-sm text-muted"><i class="fad fa-tag"></i></span>
+            </label>
+            <UInput type="text" :placeholder="t('placeholders.short_code')" v-model="details.shortCode" />
+          </div>
+
+          <!-- Ditzler/PPG Code -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.ditzler_ppg_code') }}</span>
+              <span class="text-sm text-muted"><i class="fad fa-hashtag"></i></span>
+            </label>
+            <UInput type="text" :placeholder="t('placeholders.ditzler_ppg_code')" v-model="details.ditzlerPpgCode" />
+          </div>
+
+          <!-- Dulux Code -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.dulux_code') }}</span>
+              <span class="text-sm text-muted"><i class="fad fa-hashtag"></i></span>
+            </label>
+            <UInput type="text" :placeholder="t('placeholders.dulux_code')" v-model="details.duluxCode" />
+          </div>
+
+          <!-- Years Used -->
+          <div class="w-full">
+            <label class="flex justify-between items-center mb-1">
+              <span class="text-sm font-medium">{{ t('form_labels.years_used') }}</span>
+              <span class="text-sm text-muted"><i class="fad fa-calendar"></i></span>
+            </label>
+            <UInput type="text" :placeholder="t('placeholders.years_used')" v-model="details.years" />
+          </div>
+        </div>
+
+        <!-- Error Alert & Submit Button -->
+        <div class="mt-6">
+          <UAlert v-if="apiError" color="error" class="mb-4">
+            <template #icon>
+              <i class="fa-duotone fa-circle-exclamation"></i>
+            </template>
+            <template #title>{{ t('error.title') }}</template>
+            <template #description>{{ apiMessage || t('error.message') }}</template>
+            <template #actions>
+              <UButton size="sm" variant="outline" @click="apiError = false">
+                {{ t('error.dismiss') }}
+              </UButton>
+            </template>
+          </UAlert>
+
+          <UButton
+            type="submit"
+            color="primary"
+            size="lg"
+            :disabled="!validateForm() || processing || checkingDuplicates"
+            :loading="processing || checkingDuplicates"
+          >
+            <i class="fad fa-paper-plane mr-2" v-if="!processing && !checkingDuplicates"></i>
+            {{ checkingDuplicates ? t('checking_duplicates') : t('submit_button') }}
+          </UButton>
+        </div>
+      </form>
     </div>
-  </div>
+  </UCard>
 </template>
 
 <i18n lang="json">

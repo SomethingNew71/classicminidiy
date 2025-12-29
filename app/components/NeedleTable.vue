@@ -4,27 +4,27 @@
   const { t } = useI18n({ useScope: 'local' });
   const { data: needlesTables, status } = await useFetch<SuggestedNeedles[]>(() => '/api/needles/suggested');
 
-  const tableHeaders = computed(() => [
+  // UTable columns configuration
+  const tableColumns = computed(() => [
     {
-      title: t('table_headers.engine_size'),
-      key: 'engineSize',
-      align: 'start',
+      accessorKey: 'engineSize',
+      header: t('table_headers.engine_size'),
     },
     {
-      title: t('table_headers.needle_std'),
-      key: 'needleStd',
+      accessorKey: 'needleStd',
+      header: t('table_headers.needle_std'),
     },
     {
-      title: t('table_headers.needle_rich'),
-      key: 'needleRich',
+      accessorKey: 'needleRich',
+      header: t('table_headers.needle_rich'),
     },
     {
-      title: t('table_headers.needle_lean'),
-      key: 'needleLean',
+      accessorKey: 'needleLean',
+      header: t('table_headers.needle_lean'),
     },
     {
-      title: t('table_headers.spring_type'),
-      key: 'springType',
+      accessorKey: 'springType',
+      header: t('table_headers.spring_type'),
     },
   ]);
 </script>
@@ -32,10 +32,9 @@
 <template>
   <div class="grid grid-cols-12 gap-6">
     <div v-for="(table, name) in needlesTables" :key="name" class="col-span-12 md:col-span-6">
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body p-0">
-          <!-- Card header -->
-          <div class="bg-primary text-primary-content p-4 flex items-center rounded-t-xl">
+      <UCard :ui="{ body: 'p-0' }">
+        <template #header>
+          <div class="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6 mr-2"
@@ -50,33 +49,18 @@
                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
               />
             </svg>
-            <h2 class="card-title">{{ table.title }}</h2>
+            <h2 class="font-semibold text-lg">{{ table.title }}</h2>
           </div>
+        </template>
 
-          <!-- Table -->
-          <div class="overflow-x-auto p-4">
-            <div v-if="status === 'pending'" class="flex justify-center items-center py-8">
-              <span class="loading loading-spinner loading-lg"></span>
-            </div>
-            <table v-else class="table table-zebra w-full">
-              <thead>
-                <tr>
-                  <th v-for="header in tableHeaders" :key="header.key">{{ header.title }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, index) in table.items" :key="index">
-                  <td class="capitalize">{{ item.engineSize }}</td>
-                  <td class="capitalize">{{ item.needleStd }}</td>
-                  <td class="capitalize">{{ item.needleRich }}</td>
-                  <td class="capitalize">{{ item.needleLean }}</td>
-                  <td class="capitalize">{{ item.springType }}</td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Table -->
+        <div class="overflow-x-auto p-4">
+          <div v-if="status === 'pending'" class="flex justify-center items-center py-8">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
           </div>
+          <UTable v-else :data="table.items" :columns="tableColumns" class="w-full" />
         </div>
-      </div>
+      </UCard>
     </div>
   </div>
 </template>

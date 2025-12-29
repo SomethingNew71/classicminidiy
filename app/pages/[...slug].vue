@@ -159,23 +159,20 @@
       </div>
       <!-- Loading state with skeleton loader -->
       <div v-if="status === 'pending'" class="mx-auto max-w-xs border p-4 rounded-lg">
-        <div class="skeleton h-32 w-full"></div>
-        <div class="skeleton h-4 w-28 mt-4"></div>
-        <div class="skeleton h-4 w-full mt-2"></div>
-        <div class="skeleton h-4 w-full mt-2"></div>
+        <USkeleton class="h-32 w-full" />
+        <USkeleton class="h-4 w-28 mt-4" />
+        <USkeleton class="h-4 w-full mt-2" />
+        <USkeleton class="h-4 w-full mt-2" />
       </div>
 
       <!-- Error state -->
-      <div v-else-if="error" class="alert alert-error shadow-lg max-w-2xl mx-auto">
-        <div>
-          <i class="fa-duotone fa-circle-exclamation"></i>
-          <span>{{ $t('loading_error') }}</span>
-        </div>
-      </div>
+      <UAlert v-else-if="error" color="error" class="max-w-2xl mx-auto" icon="i-heroicons-exclamation-circle">
+        <template #title>{{ $t('loading_error') }}</template>
+      </UAlert>
       <!-- Content state - only show if we have data and no errors -->
       <div v-if="currentPostData && status !== 'pending' && !error" class="flex justify-center">
-        <div class="card bg-base-100 shadow-xl w-full max-w-4xl">
-          <figure class="px-10 pt-10 pb-6">
+        <UCard class="w-full max-w-4xl">
+          <div class="px-10 pt-4 pb-6 flex justify-center">
             <!-- No image case -->
             <i
               v-if="!currentPostData.image || currentPostData.image === ''"
@@ -191,7 +188,7 @@
             >
               <img
                 :src="currentPostData.image"
-                class="rounded-xl max-h-[200px] object-contain"
+                class="rounded-xl max-h-50 object-contain"
                 :alt="
                   $t('preview_image_alt', {
                     title: currentPostData.title || $t('fallback_title'),
@@ -205,7 +202,7 @@
             <img
               v-else
               :src="currentPostData.image"
-              class="rounded-xl max-h-[200px] object-contain"
+              class="rounded-xl max-h-50 object-contain"
               :alt="
                 $t('archive_item_alt', {
                   title: currentPostData.title || $t('fallback_title'),
@@ -214,10 +211,10 @@
               loading="lazy"
               @error="(e: Event) => handleImageError(e)"
             />
-          </figure>
-          <div class="card-body items-center text-center">
+          </div>
+          <div class="items-center text-center">
             <!-- Title with fallback -->
-            <h2 class="card-title text-2xl font-bold capitalize">
+            <h2 class="text-2xl font-bold capitalize">
               {{ currentPostData.title?.toLowerCase() || $t('fallback_title') }}
             </h2>
 
@@ -240,17 +237,20 @@
             <!-- Description with fallback -->
             <p class="my-4">{{ currentPostData.description || $t('no_description') }}</p>
 
-            <div class="card-actions justify-center mt-4">
+            <div class="flex flex-wrap justify-center mt-4 gap-2">
               <ClientOnly>
-                <button
-                  class="btn btn-outline btn-info m-1 normal-case"
+                <UButton
+                  variant="outline"
+                  color="info"
+                  class="m-1"
                   @click="shareArchiveItem(currentPostData.title, currentPostData.path)"
                 >
                   <i class="fa-duotone fa-solid fa-arrow-up-from-bracket mr-2"></i>
                   {{ $t('share_button') }}
-                </button>
-                <button
-                  class="btn btn-secondary m-1 normal-case"
+                </UButton>
+                <UButton
+                  color="secondary"
+                  class="m-1"
                   @click="
                     submitArchiveFile(
                       archiveType,
@@ -263,30 +263,31 @@
                 >
                   <i class="fa-duotone fa-solid fa-plus-large mr-2"></i>
                   {{ $t('contribute_button') }}
-                </button>
-                <button
+                </UButton>
+                <UButton
                   v-if="
                     (!currentPostData.download || currentPostData.download === '') &&
                     !currentPostData.path?.includes('companies')
                   "
-                  class="btn btn-disabled m-1 normal-case"
+                  class="m-1"
                   disabled
                 >
                   <i class="fa-duotone fa-solid fa-question mr-2"></i>
                   {{ $t('missing_file_button') }}
-                </button>
-                <a
+                </UButton>
+                <UButton
                   v-else-if="!currentPostData.path?.includes('companies')"
-                  class="btn btn-primary m-1 normal-case"
-                  :href="currentPostData.download"
+                  color="primary"
+                  class="m-1"
+                  :to="currentPostData.download"
                 >
                   <i class="fa-duotone fa-solid fa-download mr-2"></i>
                   {{ $t('download_button') }}
-                </a>
+                </UButton>
               </ClientOnly>
             </div>
           </div>
-        </div>
+        </UCard>
       </div>
     </div>
   </div>
@@ -591,13 +592,6 @@
     }
     p {
       padding-bottom: 1.5rem;
-    }
-  }
-
-  .post {
-    .divider {
-      height: 1px;
-      background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity, 1)); /* Equivalent to @apply bg-base-300 */
     }
   }
 

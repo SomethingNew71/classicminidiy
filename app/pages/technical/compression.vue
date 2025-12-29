@@ -125,38 +125,36 @@
           </div>
           <div class="col-span-12 md:col-span-4">
             <NuxtLink :to="'/archive/engines'" :title="$t('engine_sizes_card.link_title')" class="block">
-              <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
-                <div class="card-body">
-                  <div class="flex items-start space-x-4">
-                    <div class="flex-shrink-0">
-                      <figure class="w-16 h-16">
-                        <picture>
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp"
-                            type="image/webp"
-                          />
-                          <source
-                            srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
-                            type="image/png"
-                          />
-                          <nuxt-img
-                            loading="lazy"
-                            src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
-                            :alt="$t('engine_sizes_card.alt_text')"
-                            class="w-full h-full object-contain"
-                          />
-                        </picture>
-                      </figure>
-                    </div>
-                    <div>
-                      <h2 class="text-xl font-semibold">
-                        {{ $t('engine_sizes_card.heading') }}
-                      </h2>
-                      <p class="mt-1">{{ $t('engine_sizes_card.description') }}</p>
-                    </div>
+              <UCard class="hover:shadow-lg transition-shadow">
+                <div class="flex items-start space-x-4">
+                  <div class="shrink-0">
+                    <figure class="w-16 h-16">
+                      <picture>
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.webp"
+                          type="image/webp"
+                        />
+                        <source
+                          srcset="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
+                          type="image/png"
+                        />
+                        <nuxt-img
+                          loading="lazy"
+                          src="https://classicminidiy.s3.amazonaws.com/cloud-icon/icons8-dashboard-100.png"
+                          :alt="$t('engine_sizes_card.alt_text')"
+                          class="w-full h-full object-contain"
+                        />
+                      </picture>
+                    </figure>
+                  </div>
+                  <div>
+                    <h2 class="text-xl font-semibold">
+                      {{ $t('engine_sizes_card.heading') }}
+                    </h2>
+                    <p class="mt-1">{{ $t('engine_sizes_card.description') }}</p>
                   </div>
                 </div>
-              </div>
+              </UCard>
             </NuxtLink>
           </div>
         </div>
@@ -165,7 +163,7 @@
         <CalculatorsCompression />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
-        <div class="divider">{{ $t('ui.more_section') }}</div>
+        <USeparator :label="$t('ui.more_section')" />
       </div>
       <div class="col-span-12 md:col-span-10 md:col-start-2">
         <patreon-card size="large" />
