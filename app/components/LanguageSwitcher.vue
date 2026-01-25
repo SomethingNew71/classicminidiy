@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  const { t, locale, locales, setLocale } = useI18n({
-    useScope: 'local',
-  });
+  const { t, locale, locales, setLocale } = useI18n();
   const switchLocalePath = useSwitchLocalePath();
 
   const currentLocale = computed(() => {
@@ -51,7 +49,7 @@
     :items="
       availableLocales.map((loc) => ({
         label: getLanguageName(loc.code),
-        click: () => handleLanguageChange(loc.code),
+        onSelect: () => handleLanguageChange(loc.code),
       }))
     "
     :aria-label="t('language_menu_aria')"

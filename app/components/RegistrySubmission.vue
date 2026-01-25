@@ -1,9 +1,7 @@
 <script lang="ts" setup>
   import type { RegistryItem, RegistryQueueSubmissionResponse } from '../../data/models/registry';
 
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
   interface TouchedFields {
     submittedBy: boolean;
     submittedByEmail: boolean;

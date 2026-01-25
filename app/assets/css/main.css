@@ -5,6 +5,17 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
+  /* ============================================
+     Base Color Variables for Nuxt UI
+     These are required for classes like bg-primary, text-secondary, etc.
+     ============================================ */
+  --color-primary: #859369;
+  --color-secondary: #ed7135;
+  --color-success: #4a7023;
+  --color-error: #b22222;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+
   /* Brand Colors - Primary (Olive Green #859369) */
   --color-primary-50: #f4f6f0;
   --color-primary-100: #e8ede1;
@@ -110,6 +121,14 @@
 
 /* Force brand colors to override Nuxt UI defaults */
 :root {
+  /* Base color variables (required for bg-primary, text-secondary, etc.) */
+  --color-primary: #859369 !important;
+  --color-secondary: #ed7135 !important;
+  --color-success: #4a7023 !important;
+  --color-error: #b22222 !important;
+  --color-warning: #f59e0b !important;
+  --color-info: #3b82f6 !important;
+
   /* Primary - Olive Green */
   --color-primary-50: #f4f6f0 !important;
   --color-primary-100: #e8ede1 !important;
@@ -163,6 +182,14 @@
 
 /* Dark mode overrides - Nuxt UI Neutral theme */
 .dark {
+  /* Base color variables (same in dark mode - colors don't change) */
+  --color-primary: #859369 !important;
+  --color-secondary: #ed7135 !important;
+  --color-success: #4a7023 !important;
+  --color-error: #b22222 !important;
+  --color-warning: #f59e0b !important;
+  --color-info: #3b82f6 !important;
+
   /* Override Nuxt UI color scale for neutral */
   --ui-color-neutral-50: #fafafa;
   --ui-color-neutral-100: #f5f5f5;

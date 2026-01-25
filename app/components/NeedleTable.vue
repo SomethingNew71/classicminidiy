@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import type { SuggestedNeedles } from '../../data/models/needles';
 
-  const { t } = useI18n({ useScope: 'local' });
+  const { t } = useI18n();
   const { data: needlesTables, status } = await useFetch<SuggestedNeedles[]>(() => '/api/needles/suggested');
 
   // UTable columns configuration

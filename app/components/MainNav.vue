@@ -1,9 +1,7 @@
 <script lang="ts" setup>
   const route = useRoute();
   const switchLocalePath = useSwitchLocalePath();
-  const { t, locale, locales, setLocale } = useI18n({
-    useScope: 'local',
-  });
+  const { t, locale, locales, setLocale } = useI18n();
 
   // Drawer state for mobile menu
   const isMobileMenuOpen = ref(false);
@@ -58,7 +56,7 @@
   const languageItems = computed(() => {
     return availableLocales.value.map((loc) => ({
       label: getLanguageName(loc.code),
-      click: () => handleLanguageChange(loc.code),
+      onSelect: () => handleLanguageChange(loc.code),
     }));
   });
 

@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
   import type { IWheelsData } from '../../data/models/wheels';
   import Fuse from 'fuse.js';
 

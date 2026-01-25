@@ -1,9 +1,7 @@
 <script lang="ts" setup>
   import type { Color, ColorQueueItem, ColorQueueSubmissionResponse } from '../../data/models/colors';
 
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
 
   interface TouchedFields {
     submittedBy: boolean;

@@ -20,7 +20,7 @@
     "url": "https://github.com/SomethingNew71/classicminidiy/issues"
   },
   "engines": {
-    "node": "^22.12.0"
+    "node": "^24"
   },
   "scripts": {
     "dev": "nuxi dev",
@@ -88,5 +88,8 @@
     "patch-package": "^8.0.1",
     "prettier": "3.8.1",
     "sass-loader": "^16.0.6"
-  }
+  },
+  "trustedDependencies": [
+    "@parcel/watcher"
+  ]
 }

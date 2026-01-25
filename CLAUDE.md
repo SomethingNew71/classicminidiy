@@ -45,13 +45,13 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 
 ### Package Management
 
-- **Primary**: npm (Node.js v22.12.0+)
+- **Primary**: bun (Node.js v24+)
 - **Current Version**: 3.5.4
 - **Scripts**:
-  - `npm run dev` - Start development server (using `nuxi dev`)
-  - `npm run build` - Build for production (using `nuxi build`)
-  - `npm run start` - Preview production build (using `nuxi preview`)
-  - `npm run format` - Format code with Prettier
+  - `bun run dev` - Start development server (using `nuxi dev`)
+  - `bun run build` - Build for production (using `nuxi build`)
+  - `bun run start` - Preview production build (using `nuxi preview`)
+  - `bun run format` - Format code with Prettier
 
 ### Key Technologies
 
@@ -340,7 +340,7 @@ s3Base=
 2. Add API routes in `/server/api/`
 3. Create Vue components with proper typing
 4. Update navigation and routing as needed
-5. Test build process: `npm run build`
+5. Test build process: `bun run build`
 
 ### Content Updates
 
@@ -365,7 +365,7 @@ s3Base=
 
 ### Performance Optimization
 
-- Run `npm run build` to test production build
+- Run `bun run build` to test production build
 - Check bundle analysis for large dependencies
 - Verify image optimization is working correctly
 - Test PWA functionality and caching strategies
@@ -601,7 +601,8 @@ Current implementation includes:
 
 - **Nuxt 4.1.2**: Upgraded from Nuxt 3 to Nuxt 4.1.2 for improved performance and new features
 - **TailwindCSS v4**: Migration to TailwindCSS 4.1.13 with @tailwindcss/vite for better build performance and developer experience
-- **Node.js 22.12.0**: Updated Node.js requirement to v22.12.0+ for latest performance improvements
+- **Node.js 24**: Updated Node.js requirement to v24+ for latest performance improvements
+- **Bun Package Manager**: Migrated from npm to bun for faster dependency installation and script execution
 
 **Recent Commits and Updates:**
 

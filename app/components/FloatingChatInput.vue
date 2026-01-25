@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-  const { t } = useI18n({ useScope: 'local' });
+  const { t } = useI18n();
   const input = ref('');
   const inputRef = ref<HTMLTextAreaElement>();
   const router = useRouter();

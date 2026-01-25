@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-  const { t } = useI18n({ useScope: 'local' });
+  const { t } = useI18n();
 
   interface UsefulLink {
     url: string;
