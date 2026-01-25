@@ -134,6 +134,9 @@
         :items="Object.entries(tables || {}).map(([name, table]) => ({ label: table.title, value: name, table }))"
         :default-value="Object.keys(tables || {})"
         multiple
+        :ui="{
+          trigger: 'text-lg font-semibold py-4',
+        }"
       >
         <template #body="{ item }">
           <!-- Search field -->

@@ -4,14 +4,6 @@
   const { data: tables, status } = await useFetch('/api/torque');
   const tableSearchQueries = ref<Record<string, string>>({});
 
-  // Icon mapping for torque categories (using Font Awesome)
-  const categoryIcons: Record<string, string> = {
-    engine: 'i-fa6-solid-gear',
-    suspension: 'i-fa6-solid-car',
-    electrical: 'i-fa6-solid-bolt',
-    clutchGearbox: 'i-fa6-solid-gears',
-  };
-
   const tableColumns = [
     {
       accessorKey: 'name',
@@ -168,13 +160,11 @@
               Object.entries(tables).map(([key, table]) => ({
                 label: table.title,
                 value: key,
-                icon: categoryIcons[key] || 'i-fa6-solid-wrench',
                 table,
               }))
             "
             :ui="{
               trigger: 'text-lg font-semibold py-4',
-              leadingIcon: 'size-6',
             }"
           >
             <template #body="{ item }">
