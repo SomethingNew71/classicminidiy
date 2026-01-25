@@ -20,8 +20,52 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive/registry',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // ItemList structured data for registry
+  const registryJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Classic Mini Registry',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/archive/registry',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Registered Classic Mini Vehicles',
+      description: 'User-submitted Classic Mini vehicles with specifications',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(registryJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('seo.og_title'),
     ogDescription: $t('seo.og_description'),
@@ -122,6 +166,7 @@
   "en": {
     "title": "Classic Mini Registry - Classic Mini DIY",
     "description": "Browse and contribute to the Classic Mini registry database",
+    "keywords": "Classic Mini registry, Mini Cooper database, registered Minis, Classic Mini owners, Mini vehicle registry, car registry, vintage Mini database",
     "hero_title": "Classic Mini Registry",
     "breadcrumb_title": "Registry",
     "main_heading": "Classic Mini Registry",

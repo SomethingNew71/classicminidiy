@@ -7,6 +7,16 @@
     layout: 'admin',
   });
 
+  useHead({
+    title: 'Admin - Wheels Review',
+    meta: [
+      {
+        name: 'robots',
+        content: 'noindex, nofollow',
+      },
+    ],
+  });
+
   // State
   const errorMessage = ref('');
   const isProcessing = ref(false);

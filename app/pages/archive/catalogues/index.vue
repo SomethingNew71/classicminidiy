@@ -43,8 +43,52 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive/catalogues',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // CollectionPage structured data for catalogues archive
+  const cataloguesJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Classic Mini Parts Catalogues Archive',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/archive/catalogues',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Classic Mini Parts Catalogues',
+      description: 'Collection of historical parts catalogues and documentation for Classic Mini vehicles',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(cataloguesJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('seo.og_title'),
     ogDescription: $t('seo.og_description'),
@@ -108,6 +152,7 @@
   "en": {
     "title": "Classic Mini Archive - Catalogues",
     "description": "Curated collection of Classic Mini vendor catalogues",
+    "keywords": "Classic Mini parts catalogues, Mini Cooper vendor catalogues, parts list, historical catalogues, Mini parts documentation, vendor documentation",
     "hero_title": "Classic Mini Archives",
     "breadcrumb_title": "Catalogues",
     "breadcrumb": {

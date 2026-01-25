@@ -67,8 +67,48 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        key: 'keywords',
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/technical/engine-decoder',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // Dataset structured data for engine codes
+  const datasetJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'Classic Mini Engine Code Database',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/technical/engine-decoder',
+    keywords: ['Classic Mini', 'engine codes', 'Mini Cooper', 'A-series engine'],
+    creator: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(datasetJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('og_title'),
     ogDescription: $t('og_description'),
@@ -193,6 +233,7 @@
   "en": {
     "title": "Tech - Mini Engine Plate Decoder",
     "description": "Decode your Classic Mini's Engine plate to determine the engine size and features of your car. This plate is located in the same place across all mini generations and is used to identify the engine size and features.",
+    "keywords": "engine decoder, Classic Mini engine codes, A-series engine, Mini Cooper engine, engine plate decoder, engine identification, engine size lookup",
     "hero_title": "Engine Code Decoder",
     "breadcrumb_title": "Engine Sizes",
     "og_title": "Tech - Mini Engine Plate Decoder",
@@ -239,6 +280,7 @@
   "es": {
     "title": "Técnico - Decodificador de Placa del Motor Mini",
     "description": "Decodifica la placa del motor de tu Classic Mini para determinar el tamaño del motor y las características de tu coche. Esta placa está ubicada en el mismo lugar en todas las generaciones de mini y se usa para identificar el tamaño del motor y las características.",
+    "keywords": "decodificador de motor, códigos de motor Classic Mini, motor serie A, motor Mini Cooper, decodificador de placa de motor, identificación de motor, búsqueda de tamaño de motor",
     "hero_title": "Decodificador de Código de Motor",
     "breadcrumb_title": "Tamaños de Motor",
     "og_title": "Técnico - Decodificador de Placa del Motor Mini",
@@ -285,6 +327,7 @@
   "fr": {
     "title": "Technique - Décodeur de Plaque Moteur Mini",
     "description": "Décodez la plaque moteur de votre Classic Mini pour déterminer la taille du moteur et les caractéristiques de votre voiture. Cette plaque est située au même endroit sur toutes les générations de mini et est utilisée pour identifier la taille du moteur et les caractéristiques.",
+    "keywords": "décodeur de moteur, codes moteur Classic Mini, moteur série A, moteur Mini Cooper, décodeur plaque moteur, identification moteur, recherche taille moteur",
     "hero_title": "Décodeur de Code Moteur",
     "breadcrumb_title": "Tailles de Moteur",
     "og_title": "Technique - Décodeur de Plaque Moteur Mini",
@@ -331,6 +374,7 @@
   "it": {
     "title": "Tecnico - Decodificatore Piastra Motore Mini",
     "description": "Decodifica la piastra del motore della tua Classic Mini per determinare la dimensione del motore e le caratteristiche della tua auto. Questa piastra si trova nello stesso posto su tutte le generazioni di mini ed è usata per identificare la dimensione del motore e le caratteristiche.",
+    "keywords": "decodificatore motore, codici motore Classic Mini, motore serie A, motore Mini Cooper, decodificatore piastra motore, identificazione motore, ricerca dimensione motore",
     "hero_title": "Decodificatore Codice Motore",
     "breadcrumb_title": "Dimensioni Motore",
     "og_title": "Tecnico - Decodificatore Piastra Motore Mini",
@@ -377,6 +421,7 @@
   "de": {
     "title": "Technik - Mini Motorplaketten-Decoder",
     "description": "Decodieren Sie die Motorplakette Ihres Classic Mini, um die Motorgröße und die Eigenschaften Ihres Autos zu bestimmen. Diese Plakette befindet sich bei allen Mini-Generationen an derselben Stelle und wird zur Identifizierung der Motorgröße und der Eigenschaften verwendet.",
+    "keywords": "Motor-Decoder, Classic Mini Motorcodes, A-Serie Motor, Mini Cooper Motor, Motorplaketten-Decoder, Motor-Identifikation, Motorgröße-Suche",
     "hero_title": "Motorcode-Decoder",
     "breadcrumb_title": "Motorgrößen",
     "og_title": "Technik - Mini Motorplaketten-Decoder",
@@ -423,6 +468,7 @@
   "pt": {
     "title": "Técnico - Decodificador de Placa do Motor Mini",
     "description": "Decodifique a placa do motor do seu Classic Mini para determinar o tamanho do motor e as características do seu carro. Esta placa está localizada no mesmo lugar em todas as gerações de mini e é usada para identificar o tamanho do motor e as características.",
+    "keywords": "decodificador de motor, códigos de motor Classic Mini, motor série A, motor Mini Cooper, decodificador placa de motor, identificação de motor, pesquisa de tamanho de motor",
     "hero_title": "Decodificador de Código do Motor",
     "breadcrumb_title": "Tamanhos de Motor",
     "og_title": "Técnico - Decodificador de Placa do Motor Mini",
@@ -469,6 +515,7 @@
   "ru": {
     "title": "Техника - Декодер Табличек Двигателя Mini",
     "description": "Декодируйте табличку двигателя вашего Classic Mini, чтобы определить размер двигателя и характеристики вашего автомобиля. Эта табличка расположена в одном и том же месте во всех поколениях mini и используется для идентификации размера двигателя и характеристик.",
+    "keywords": "декодер двигателя, коды двигателей Classic Mini, двигатель серии A, двигатель Mini Cooper, декодер таблички двигателя, идентификация двигателя, поиск размера двигателя",
     "hero_title": "Декодер Кода Двигателя",
     "breadcrumb_title": "Размеры Двигателей",
     "og_title": "Техника - Декодер Табличек Двигателя Mini",
@@ -515,6 +562,7 @@
   "ja": {
     "title": "技術 - ミニエンジンプレートデコーダー",
     "description": "クラシックミニのエンジンプレートをデコードして、車のエンジンサイズと特徴を決定します。このプレートはすべてのミニ世代で同じ場所にあり、エンジンサイズと特徴を識別するために使用されます。",
+    "keywords": "エンジンデコーダー, クラシックミニ エンジンコード, Aシリーズエンジン, ミニクーパーエンジン, エンジンプレートデコーダー, エンジン識別, エンジンサイズ検索",
     "hero_title": "エンジンコードデコーダー",
     "breadcrumb_title": "エンジンサイズ",
     "og_title": "技術 - ミニエンジンプレートデコーダー",
@@ -561,6 +609,7 @@
   "zh": {
     "title": "技术 - 迷你发动机铭牌解码器",
     "description": "解码您的经典迷你发动机铭牌以确定您汽车的发动机尺寸和特征。该铭牌在所有迷你世代中都位于同一位置，用于识别发动机尺寸和特征。",
+    "keywords": "发动机解码器, 经典迷你发动机代码, A系列发动机, 迷你库珀发动机, 发动机铭牌解码器, 发动机识别, 发动机尺寸查询",
     "hero_title": "发动机代码解码器",
     "breadcrumb_title": "发动机尺寸",
     "og_title": "技术 - 迷你发动机铭牌解码器",
@@ -607,6 +656,7 @@
   "ko": {
     "title": "기술 - 미니 엔진 플레이트 디코더",
     "description": "클래식 미니의 엔진 플레이트를 디코딩하여 자동차의 엔진 크기와 특징을 결정하세요. 이 플레이트는 모든 미니 세대에서 같은 위치에 있으며 엔진 크기와 특징을 식별하는 데 사용됩니다.",
+    "keywords": "엔진 디코더, 클래식 미니 엔진 코드, A시리즈 엔진, 미니 쿠퍼 엔진, 엔진 플레이트 디코더, 엔진 식별, 엔진 크기 조회",
     "hero_title": "엔진 코드 디코더",
     "breadcrumb_title": "엔진 크기",
     "og_title": "기술 - 미니 엔진 플레이트 디코더",

@@ -47,11 +47,14 @@
 
   useHead({
     title: $t('title'),
-
     meta: [
       {
         name: 'description',
         content: $t('description'),
+      },
+      {
+        name: 'robots',
+        content: 'noindex, nofollow',
       },
     ],
   });

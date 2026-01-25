@@ -14,6 +14,60 @@
         name: 'description',
         content: $t('home.description'),
       },
+      {
+        name: 'keywords',
+        content: $t('home.keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
+    ],
+  });
+
+  // WebSite structured data for home page
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Classic Mini DIY',
+    url: 'https://classicminidiy.com',
+    description: $t('home.description'),
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://classicminidiy.com/search?q={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://classicminidiy.s3.amazonaws.com/misc/seo-images/avatar.jpg',
+      },
+      sameAs: [
+        'https://www.youtube.com/c/ClassicMiniDIY',
+        'https://www.facebook.com/classicminidiy',
+        'https://www.instagram.com/classicminidiy/',
+      ],
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(websiteJsonLd),
+      },
     ],
   });
 
@@ -235,6 +289,7 @@
     "home": {
       "title": "Classic Mini DIY | Your Friendly Neighborhood Classic Mini Resource",
       "description": "Classic Mini DIY - Your complete resource for Classic Mini restoration, maintenance, and modification. DIY tutorials, technical guides, and community support.",
+      "keywords": "classic mini, mini cooper, mini restoration, DIY car repair, classic mini parts, mini cooper maintenance, british cars, classic car restoration, mini toolbox, automotive DIY",
       "mission": {
         "title": "THE MINI MISSION",
         "heading": "Keeping the Classics on the Road",
@@ -286,6 +341,7 @@
     "home": {
       "title": "Classic Mini DIY | Tu Recurso Amigable del Barrio para Classic Mini",
       "description": "Classic Mini DIY - Tu recurso completo para restauración, mantenimiento y modificación de Classic Mini. Tutoriales DIY, guías técnicas y apoyo comunitario.",
+      "keywords": "classic mini, mini cooper, restauración mini, reparación de coches DIY, piezas classic mini, mantenimiento mini cooper, coches británicos, restauración coches clásicos",
       "mission": {
         "title": "LA MISIÓN MINI",
         "heading": "Manteniendo los Clásicos en la Carretera",
@@ -337,6 +393,7 @@
     "home": {
       "title": "Classic Mini DIY | Votre Ressource Amicale de Quartier pour Classic Mini",
       "description": "Classic Mini DIY - Votre ressource complète pour la restauration, l'entretien et la modification de Classic Mini. Tutoriels DIY, guides techniques et support communautaire.",
+      "keywords": "classic mini, mini cooper, restauration mini, réparation voiture DIY, pièces classic mini, entretien mini cooper, voitures britanniques, restauration voitures classiques",
       "mission": {
         "title": "LA MISSION MINI",
         "heading": "Garder les Classiques sur la Route",
@@ -388,6 +445,7 @@
     "home": {
       "title": "Classic Mini DIY | La Tua Risorsa Amichevole di Quartiere per Classic Mini",
       "description": "Classic Mini DIY - La tua risorsa completa per restauro, manutenzione e modifica di Classic Mini. Tutorial fai-da-te, guide tecniche e supporto della comunità.",
+      "keywords": "classic mini, mini cooper, restauro mini, riparazione auto fai-da-te, ricambi classic mini, manutenzione mini cooper, auto britanniche, restauro auto classiche",
       "mission": {
         "title": "LA MISSIONE MINI",
         "heading": "Mantenere i Classici sulla Strada",
@@ -439,6 +497,7 @@
     "home": {
       "title": "Classic Mini DIY | Ihre Freundliche Nachbarschaftsressource für Classic Mini",
       "description": "Classic Mini DIY - Ihre vollständige Ressource für Classic Mini Restaurierung, Wartung und Modifikation. DIY-Tutorials, technische Anleitungen und Community-Support.",
+      "keywords": "classic mini, mini cooper, mini restaurierung, DIY autoreparatur, classic mini ersatzteile, mini cooper wartung, britische autos, oldtimer restaurierung",
       "mission": {
         "title": "DIE MINI MISSION",
         "heading": "Die Klassiker auf der Straße halten",
@@ -490,6 +549,7 @@
     "home": {
       "title": "Classic Mini DIY | Seu Recurso Amigável da Vizinhança para Classic Mini",
       "description": "Classic Mini DIY - Seu recurso completo para restauração, manutenção e modificação de Classic Mini. Tutoriais DIY, guias técnicos e suporte da comunidade.",
+      "keywords": "classic mini, mini cooper, restauração mini, reparo de carros DIY, peças classic mini, manutenção mini cooper, carros britânicos, restauração carros clássicos",
       "mission": {
         "title": "A MISSÃO MINI",
         "heading": "Mantendo os Clássicos na Estrada",
@@ -541,6 +601,7 @@
     "home": {
       "title": "Classic Mini DIY | Ваш Дружелюбный Соседский Ресурс для Classic Mini",
       "description": "Classic Mini DIY - Ваш полный ресурс для реставрации, обслуживания и модификации Classic Mini. DIY учебники, технические руководства и поддержка сообщества.",
+      "keywords": "classic mini, mini cooper, реставрация мини, ремонт автомобилей своими руками, запчасти classic mini, обслуживание mini cooper, британские автомобили, реставрация классических авто",
       "mission": {
         "title": "МИССИЯ МИНИ",
         "heading": "Сохраняя Классику на Дорогах",
@@ -592,6 +653,7 @@
     "home": {
       "title": "Classic Mini DIY | あなたの親しみやすい近所のClassic Miniリソース",
       "description": "Classic Mini DIY - Classic Miniの復元、メンテナンス、改造のための完全なリソース。DIYチュートリアル、技術ガイド、コミュニティサポート。",
+      "keywords": "クラシックミニ, ミニクーパー, ミニ修復, DIY車修理, クラシックミニ部品, ミニクーパーメンテナンス, 英国車, クラシックカー修復",
       "mission": {
         "title": "ミニミッション",
         "heading": "クラシックを道路に保つ",
@@ -643,6 +705,7 @@
     "home": {
       "title": "Classic Mini DIY | 您友好的邻里Classic Mini资源",
       "description": "Classic Mini DIY - 您的Classic Mini修复、维护和改装完整资源。DIY教程、技术指南和社区支持。",
+      "keywords": "经典迷你, 迷你库珀, 迷你修复, DIY汽车维修, 经典迷你配件, 迷你库珀保养, 英国汽车, 经典汽车修复",
       "mission": {
         "title": "迷你使命",
         "heading": "让经典车保持在路上",
@@ -694,6 +757,7 @@
     "home": {
       "title": "Classic Mini DIY | 당신의 친근한 동네 Classic Mini 리소스",
       "description": "Classic Mini DIY - Classic Mini 복원, 유지보수 및 개조를 위한 완전한 리소스. DIY 튜토리얼, 기술 가이드 및 커뮤니티 지원.",
+      "keywords": "클래식 미니, 미니 쿠퍼, 미니 복원, DIY 자동차 수리, 클래식 미니 부품, 미니 쿠퍼 유지보수, 영국 자동차, 클래식 자동차 복원",
       "mission": {
         "title": "미니 미션",
         "heading": "클래식을 도로에 유지하기",

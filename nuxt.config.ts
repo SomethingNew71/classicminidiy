@@ -196,6 +196,9 @@ export default defineNuxtConfig({
       '/logout',
       '/readme',
       '/readme-tools',
+      '/archive/registry/pending',
+      '/archive/colors/contribute',
+      '/archive/wheels/submit',
     ],
   },
 
