@@ -10,6 +10,13 @@
           { label: $t('breadcrumb_home'), to: '/', icon: 'i-fa6-solid-house' },
           { label: $t('breadcrumb_contact') },
         ]"
+        :ui="{
+          item: 'text-primary-600 dark:text-primary-400',
+          link: 'text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300',
+          linkActive: 'text-neutral-500 dark:text-neutral-400 font-medium',
+          separator: 'text-neutral-400 dark:text-neutral-500',
+          icon: 'text-primary-600 dark:text-primary-400',
+        }"
       />
     </div>
 

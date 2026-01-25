@@ -14,12 +14,12 @@
 
 <template>
   <UApp>
-    <div class="app-wrapper bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-neutral-100">
+    <div class="app-wrapper bg-white dark:bg-[#171717] text-neutral-900 dark:text-neutral-100">
       <div class="app-content">
         <MainNav></MainNav>
         <UToaster />
         <NuxtLoadingIndicator />
-        <main class="bg-white dark:bg-[#0a0a0a]">
+        <main class="bg-white dark:bg-[#171717]">
           <NuxtPage />
         </main>
       </div>

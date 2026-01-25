@@ -4,47 +4,268 @@
   });
   import { chartOptions, type Needle, type NeedleResponse } from '../../../data/models/needles';
 
+  // Dark mode support
+  const colorMode = useColorMode();
+  const isDark = computed(() => colorMode.value === 'dark');
+
+  // Dark mode chart colors
+  const darkModeChartOptions = {
+    chart: {
+      backgroundColor: '#171717',
+    },
+    title: {
+      style: { color: '#e5e5e5' },
+    },
+    subtitle: {
+      style: { color: '#a3a3a3' },
+    },
+    xAxis: {
+      labels: { style: { color: '#a3a3a3' } },
+      title: { style: { color: '#e5e5e5' } },
+      gridLineColor: '#404040',
+      lineColor: '#404040',
+      tickColor: '#404040',
+    },
+    yAxis: {
+      labels: { style: { color: '#a3a3a3' } },
+      title: { style: { color: '#e5e5e5' } },
+      gridLineColor: '#404040',
+      lineColor: '#404040',
+      tickColor: '#404040',
+    },
+    legend: {
+      itemStyle: { color: '#e5e5e5' },
+      itemHoverStyle: { color: '#ffffff' },
+    },
+    tooltip: {
+      backgroundColor: '#262626',
+      style: { color: '#e5e5e5' },
+    },
+  };
+
+  // Light mode chart colors
+  const lightModeChartOptions = {
+    chart: {
+      backgroundColor: '#ffffff',
+    },
+    title: {
+      style: { color: '#171717' },
+    },
+    subtitle: {
+      style: { color: '#525252' },
+    },
+    xAxis: {
+      labels: { style: { color: '#525252' } },
+      title: { style: { color: '#171717' } },
+      gridLineColor: '#e5e5e5',
+      lineColor: '#d4d4d4',
+      tickColor: '#d4d4d4',
+    },
+    yAxis: {
+      labels: { style: { color: '#525252' } },
+      title: { style: { color: '#171717' } },
+      gridLineColor: '#e5e5e5',
+      lineColor: '#d4d4d4',
+      tickColor: '#d4d4d4',
+    },
+    legend: {
+      itemStyle: { color: '#171717' },
+      itemHoverStyle: { color: '#000000' },
+    },
+    tooltip: {
+      backgroundColor: '#ffffff',
+      style: { color: '#171717' },
+    },
+  };
+
   // Fetch needles data
   const { data: needles, pending }: any = await useFetch(() => '/api/needles/list');
 
+  // Merge chart options with color mode options
+  const getChartOptionsForMode = () => {
+    const modeOptions = isDark.value ? darkModeChartOptions : lightModeChartOptions;
+    return {
+      ...chartOptions,
+      chart: { ...chartOptions.chart, ...modeOptions.chart },
+      title: { ...chartOptions.title, ...modeOptions.title },
+      subtitle: { ...chartOptions.subtitle, ...modeOptions.subtitle },
+      xAxis: { ...chartOptions.xAxis, ...modeOptions.xAxis },
+      yAxis: { ...chartOptions.yAxis, ...modeOptions.yAxis },
+      legend: { ...chartOptions.legend, ...modeOptions.legend },
+      tooltip: { ...chartOptions.tooltip, ...modeOptions.tooltip },
+    };
+  };
+
   // Reactive chart options
-  const reactiveChartOptions = ref(chartOptions);
-  const allNeedles = ref<NeedleResponse>(needles);
+  const reactiveChartOptions = ref(getChartOptionsForMode());
   const selectedNeedles = ref<Needle[]>(needles?.value?.initial ? [...needles.value.initial] : []);
   const alreadyExistsError = ref(false);
-  const emptyError = ref(false);
-  const addNeedleValue: any = ref();
 
   // Modal and UI state
-  const searchText = ref('');
   const showDiagramModal = ref(false);
 
-  // Computed options for USelect
-  const needleSelectOptions = computed(() => {
-    if (!allNeedles.value?.all) return [];
-    return allNeedles.value.all.map((needle: Needle) => ({
-      label: needle.name,
-      value: needle,
+  // Custom autocomplete state
+  const searchQuery = ref('');
+  const isDropdownOpen = ref(false);
+  const displayLimit = ref(50);
+  const dropdownRef = ref<HTMLElement | null>(null);
+  const inputContainerRef = ref<HTMLElement | null>(null);
+  const dropdownPosition = ref({ top: 0, left: 0, width: 0 });
+
+  // Compute dropdown position based on input location
+  const updateDropdownPosition = () => {
+    if (inputContainerRef.value) {
+      const rect = inputContainerRef.value.getBoundingClientRect();
+      dropdownPosition.value = {
+        top: rect.bottom + 4,
+        left: rect.left,
+        width: rect.width,
+      };
+    }
+  };
+
+  // Style for the teleported dropdown
+  const dropdownStyle = computed(() => ({
+    top: `${dropdownPosition.value.top}px`,
+    left: `${dropdownPosition.value.left}px`,
+    width: `${dropdownPosition.value.width}px`,
+    zIndex: 9999,
+  }));
+
+  // Update position when dropdown opens
+  watch(isDropdownOpen, (open) => {
+    if (open) {
+      updateDropdownPosition();
+    }
+  });
+
+  // Create a lookup map for fast needle retrieval
+  const needleLookup = computed(() => {
+    if (!needles.value?.all) return new Map<string, Needle>();
+    return new Map(needles.value.all.map((needle: Needle) => [needle.name, needle]));
+  });
+
+  // Pre-compute needle names with lowercase versions for fast filtering
+  const needleSearchData = computed(() => {
+    if (!needles.value?.all) return [];
+    return needles.value.all.map((needle: Needle) => ({
+      name: needle.name,
+      lower: needle.name.toLowerCase(),
     }));
   });
 
-  function updateArrayItem() {
-    reactiveChartOptions.value.series = selectedNeedles.value;
-  }
+  // Filtered results - search entire dataset
+  const filteredResults = computed(() => {
+    const query = searchQuery.value.toLowerCase().trim();
+    const data = needleSearchData.value;
 
-  function addArrayItem() {
-    alreadyExistsError.value = selectedNeedles.value.some((obj: Needle) => obj.name === addNeedleValue.value?.name);
-    emptyError.value = !addNeedleValue.value;
-    if (alreadyExistsError.value) {
-      window.setTimeout(() => (alreadyExistsError.value = false), 5000);
-    } else if (emptyError.value) {
-      window.setTimeout(() => (emptyError.value = false), 5000);
-    } else {
-      selectedNeedles.value.push(addNeedleValue.value as Needle);
-      addNeedleValue.value = null;
-      searchText.value = '';
-      updateArrayItem();
+    if (!query) {
+      return data.map((d) => d.name);
     }
+
+    const results: string[] = [];
+    for (const item of data) {
+      if (item.lower.includes(query)) {
+        results.push(item.name);
+      }
+    }
+    return results;
+  });
+
+  // Lazy-loaded display items - only show up to displayLimit
+  const displayedItems = computed(() => {
+    return filteredResults.value.slice(0, displayLimit.value);
+  });
+
+  // Check if there are more items to load
+  const hasMoreItems = computed(() => {
+    return filteredResults.value.length > displayLimit.value;
+  });
+
+  // Load more items when scrolling near bottom
+  const loadMoreItems = () => {
+    if (hasMoreItems.value) {
+      displayLimit.value += 50;
+    }
+  };
+
+  // Handle scroll in dropdown
+  const onDropdownScroll = (event: Event) => {
+    const target = event.target as HTMLElement;
+    const scrollBottom = target.scrollHeight - target.scrollTop - target.clientHeight;
+    if (scrollBottom < 100) {
+      loadMoreItems();
+    }
+  };
+
+  // Reset display limit when search changes
+  watch(searchQuery, () => {
+    displayLimit.value = 50;
+  });
+
+  // Select a needle from dropdown
+  const selectNeedle = (name: string) => {
+    const needle = needleLookup.value.get(name);
+    if (!needle) return;
+
+    if (selectedNeedles.value.some((n) => n.name === name)) {
+      alreadyExistsError.value = true;
+      window.setTimeout(() => (alreadyExistsError.value = false), 5000);
+      return;
+    }
+
+    selectedNeedles.value.push(needle);
+    searchQuery.value = '';
+    isDropdownOpen.value = false;
+    displayLimit.value = 50;
+    updateArrayItem();
+  };
+
+  // Close dropdown when clicking outside
+  const onClickOutside = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    // Check if click is inside input container or dropdown
+    const isInsideInput = inputContainerRef.value?.contains(target);
+    const isInsideDropdown = dropdownRef.value?.contains(target);
+    if (!isInsideInput && !isInsideDropdown) {
+      isDropdownOpen.value = false;
+    }
+  };
+
+  // Update position on scroll/resize
+  const onScrollOrResize = () => {
+    if (isDropdownOpen.value) {
+      updateDropdownPosition();
+    }
+  };
+
+  onMounted(() => {
+    document.addEventListener('click', onClickOutside);
+    window.addEventListener('scroll', onScrollOrResize, true);
+    window.addEventListener('resize', onScrollOrResize);
+  });
+
+  onUnmounted(() => {
+    document.removeEventListener('click', onClickOutside);
+    window.removeEventListener('scroll', onScrollOrResize, true);
+    window.removeEventListener('resize', onScrollOrResize);
+  });
+
+  // Watch for color mode changes
+  watch(isDark, () => {
+    const newOptions = getChartOptionsForMode();
+    reactiveChartOptions.value = {
+      ...newOptions,
+      series: selectedNeedles.value,
+    };
+  });
+
+  function updateArrayItem() {
+    const newOptions = getChartOptionsForMode();
+    reactiveChartOptions.value = {
+      ...newOptions,
+      series: selectedNeedles.value,
+    };
   }
 
   function removeArrayItem(currentItem: Needle) {
@@ -57,7 +278,6 @@
 
   // Watch for changes in needles data and update selectedNeedles
   watch(needles, (newNeedles) => {
-    allNeedles.value = newNeedles;
     selectedNeedles.value = newNeedles?.initial ? [...newNeedles.initial] : [];
     updateArrayItem();
   });
@@ -104,39 +324,66 @@
           <!-- Loading state -->
           <USkeleton class="h-32 w-full" />
         </template>
-        <template v-else-if="allNeedles && selectedNeedles">
-          <!-- Needle selection dropdown -->
-          <UFormField class="w-full">
-            <USelect
-              v-model="addNeedleValue"
-              :items="needleSelectOptions"
-              value-key="value"
-              class="w-full"
+        <template v-else-if="needles && selectedNeedles">
+          <!-- Custom needle autocomplete -->
+          <div class="needle-autocomplete relative" ref="inputContainerRef">
+            <UInput
+              v-model="searchQuery"
               :placeholder="t('form.select_placeholder')"
+              class="w-full"
+              autocomplete="off"
+              @focus="isDropdownOpen = true"
+              @input="isDropdownOpen = true"
             />
-          </UFormField>
+
+            <!-- Dropdown results - teleported to body to avoid overflow clipping -->
+            <Teleport to="body">
+              <div
+                v-if="isDropdownOpen && filteredResults.length > 0"
+                ref="dropdownRef"
+                class="fixed bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-lg max-h-64 overflow-y-auto"
+                :style="dropdownStyle"
+                @scroll="onDropdownScroll"
+              >
+                <button
+                  v-for="name in displayedItems"
+                  :key="name"
+                  type="button"
+                  class="w-full px-3 py-2 text-left hover:bg-neutral-100 dark:hover:bg-neutral-700 text-sm transition-colors"
+                  :class="{
+                    'text-neutral-400 dark:text-neutral-500': selectedNeedles.some((n) => n.name === name),
+                  }"
+                  @click="selectNeedle(name)"
+                >
+                  {{ name }}
+                  <span v-if="selectedNeedles.some((n) => n.name === name)" class="text-xs ml-2">(added)</span>
+                </button>
+
+                <!-- Load more indicator -->
+                <div v-if="hasMoreItems" class="px-3 py-2 text-center text-xs text-neutral-500">
+                  Scroll for more ({{ filteredResults.length - displayLimit }} remaining)
+                </div>
+              </div>
+
+              <!-- No results -->
+              <div
+                v-if="isDropdownOpen && searchQuery && filteredResults.length === 0"
+                class="fixed bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-lg px-3 py-2 text-sm text-neutral-500"
+                :style="dropdownStyle"
+              >
+                No needles found
+              </div>
+            </Teleport>
+          </div>
 
           <!-- Alerts -->
           <UAlert
             v-if="alreadyExistsError"
             color="info"
-            class="mb-4"
+            class="mt-4"
             icon="i-fa6-solid-circle-info"
             :title="t('alerts.already_exists')"
           />
-          <UAlert
-            v-if="emptyError"
-            color="info"
-            class="mb-4"
-            icon="i-fa6-solid-circle-info"
-            :title="t('alerts.empty_selection')"
-          />
-
-          <!-- Add needle button -->
-          <UButton color="primary" class="mt-2" @click="addArrayItem()">
-            <i class="fas fa-plus mr-2"></i>
-            {{ t('form.add_button') }}
-          </UButton>
 
           <USeparator class="my-4" />
 

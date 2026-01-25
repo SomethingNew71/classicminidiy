@@ -6,18 +6,6 @@
   const activePanel = ref<string | null>(null);
   const searchQuery = ref('');
 
-  // Icon mapping for diagram categories (using Font Awesome)
-  const categoryIcons: Record<string, string> = {
-    positiveGround: 'i-fa6-solid-circle-plus',
-    negativeGround: 'i-fa6-solid-circle-minus',
-    britishLeyland: 'i-fa6-solid-industry',
-    earlyRover: 'i-fa6-solid-car',
-    laterRover: 'i-fa6-solid-car-side',
-    spiMinis: 'i-fa6-solid-microchip',
-    hornetElf: 'i-fa6-solid-sparkles',
-    ausMinis: 'i-fa6-solid-globe',
-  };
-
   // Prepare data for Fuse.js search
   const searchableItems = computed(() => {
     if (!diagrams.value) return [];
@@ -228,13 +216,11 @@
               Object.entries(diagrams).map(([key, diagram]) => ({
                 label: diagram.title,
                 value: key,
-                icon: categoryIcons[key] || 'i-fa6-solid-file-lines',
                 diagram,
               }))
             "
             :ui="{
               trigger: 'text-lg font-semibold py-4',
-              leadingIcon: 'size-6',
             }"
           >
             <template #body="{ item }">
