@@ -151,9 +151,7 @@
 </template>
 
 <script setup lang="ts">
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
   import { useStreamProvider } from '~/composables/useStreamProvider';
   import type { Message } from '../../../data/models/chat';
   import AssistantMessage from './AssistantMessage.vue';

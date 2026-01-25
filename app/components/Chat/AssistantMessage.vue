@@ -30,7 +30,7 @@
   import { useStreamContext } from '~/composables/useStreamProvider';
 
   import MarkdownText from './MarkdownText.vue';
-  const { t } = useI18n({ useScope: 'local' });
+  const { t } = useI18n();
   const props = defineProps<AssistantMessageProps>();
 
   useStreamContext();

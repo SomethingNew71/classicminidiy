@@ -1,9 +1,7 @@
 <script lang="ts" setup>
   import { SocialItems } from '../../data/models/generic';
 
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
 
   const socials = ref(SocialItems);
 </script>

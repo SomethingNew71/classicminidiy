@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { t } = useI18n({ useScope: 'local' });
+  const { t } = useI18n();
   const { data: videos, status, error } = await useFetch('/api/youtube/videos');
 </script>
 

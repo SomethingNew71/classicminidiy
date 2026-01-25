@@ -18,9 +18,7 @@
   import type { IWheelsData } from '../../data/models/wheels';
   import { humanFileSize } from '../../data/models/helper-utils';
 
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
 
   // Reactive state
   const wheel = ref();

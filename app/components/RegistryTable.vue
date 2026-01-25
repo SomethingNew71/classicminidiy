@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
   import type { RegistryItem } from '../../data/models/registry';
   import { RegistryItemStatus } from '../../data/models/registry';
   import { useDebounce } from '../composables/useDebounce';

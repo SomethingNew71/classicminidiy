@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { HERO_TYPES } from '../../data/models/generic';
 
-  const { t } = useI18n({ useScope: 'local' });
+  const { t } = useI18n();
   let styleObject: any;
 
   const props = defineProps({

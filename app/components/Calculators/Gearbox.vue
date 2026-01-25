@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
   import {
     options,
     tableHeaders,
@@ -10,6 +8,80 @@
     type ISpeedometer,
     type TireValue,
   } from '../../../data/models/gearing';
+
+  // Dark mode support
+  const colorMode = useColorMode();
+  const isDark = computed(() => colorMode.value === 'dark');
+
+  // Dark mode chart colors
+  const darkModeChartOptions = {
+    chart: {
+      backgroundColor: '#171717',
+    },
+    title: {
+      style: { color: '#e5e5e5' },
+    },
+    subtitle: {
+      style: { color: '#a3a3a3' },
+    },
+    xAxis: {
+      labels: { style: { color: '#a3a3a3' } },
+      title: { style: { color: '#e5e5e5' } },
+      gridLineColor: '#404040',
+      lineColor: '#404040',
+      tickColor: '#404040',
+    },
+    yAxis: {
+      labels: { style: { color: '#a3a3a3' } },
+      title: { style: { color: '#e5e5e5' } },
+      gridLineColor: '#404040',
+      lineColor: '#404040',
+      tickColor: '#404040',
+    },
+    legend: {
+      itemStyle: { color: '#e5e5e5' },
+      itemHoverStyle: { color: '#ffffff' },
+    },
+    tooltip: {
+      backgroundColor: '#262626',
+      style: { color: '#e5e5e5' },
+    },
+  };
+
+  // Light mode chart colors
+  const lightModeChartOptions = {
+    chart: {
+      backgroundColor: '#ffffff',
+    },
+    title: {
+      style: { color: '#171717' },
+    },
+    subtitle: {
+      style: { color: '#525252' },
+    },
+    xAxis: {
+      labels: { style: { color: '#525252' } },
+      title: { style: { color: '#171717' } },
+      gridLineColor: '#e5e5e5',
+      lineColor: '#d4d4d4',
+      tickColor: '#d4d4d4',
+    },
+    yAxis: {
+      labels: { style: { color: '#525252' } },
+      title: { style: { color: '#171717' } },
+      gridLineColor: '#e5e5e5',
+      lineColor: '#d4d4d4',
+      tickColor: '#d4d4d4',
+    },
+    legend: {
+      itemStyle: { color: '#171717' },
+      itemHoverStyle: { color: '#000000' },
+    },
+    tooltip: {
+      backgroundColor: '#ffffff',
+      style: { color: '#171717' },
+    },
+  };
 
   // Default Values for form elements
   const metric = ref(false);
@@ -50,15 +122,24 @@
 
   // Memoized chart options - avoiding expensive deep clone
   const mapOptions = computed(() => {
+    const modeOptions = isDark.value ? darkModeChartOptions : lightModeChartOptions;
     const options = {
       ...chartOptions,
+      chart: { ...chartOptions.chart, ...modeOptions.chart },
+      title: { ...chartOptions.title, ...modeOptions.title },
+      subtitle: { ...chartOptions.subtitle, ...modeOptions.subtitle },
+      xAxis: { ...chartOptions.xAxis, ...modeOptions.xAxis },
       yAxis: {
         ...chartOptions.yAxis,
+        ...modeOptions.yAxis,
         title: {
           ...chartOptions.yAxis.title,
+          ...modeOptions.yAxis.title,
           text: metric.value ? 'Speed (km/h)' : 'Speed (mph)',
         },
       },
+      legend: { ...chartOptions.legend, ...modeOptions.legend },
+      tooltip: { ...chartOptions.tooltip, ...modeOptions.tooltip },
       series: chartData.value,
     };
     return options;
@@ -299,13 +380,9 @@
 
 <template>
   <div class="grid grid-cols-1 gap-6">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-      <div class="col-span-1 md:col-span-4">
-        <div class="flex items-center justify-between">
-          <label class="text-sm font-medium">{{ t('form_labels.imperial_or_metric') }}</label>
-          <USwitch v-model="metric" color="primary" @update:model-value="triggerDebouncedUpdate" />
-        </div>
-      </div>
+    <div class="flex items-center justify-start gap-3">
+      <label class="text-sm font-medium">{{ t('form_labels.imperial_or_metric') }}</label>
+      <USwitch v-model="metric" color="primary" @update:model-value="triggerDebouncedUpdate" />
     </div>
 
     <div class="grid grid-cols-12 gap-6">

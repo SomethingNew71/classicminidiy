@@ -1,9 +1,7 @@
 <script lang="ts" setup>
   import { BREADCRUMB_VERSIONS } from '../../data/models/generic';
 
-  const { t } = useI18n({
-    useScope: 'local',
-  });
+  const { t } = useI18n();
 
   const props = defineProps({
     page: {
