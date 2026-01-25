@@ -26,7 +26,8 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "nuxi preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postinstall": "cd node_modules/better-sqlite3 && npx --yes prebuild-install || npx --yes node-gyp rebuild --release"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.975.0",
@@ -90,6 +91,7 @@
     "sass-loader": "^16.0.6"
   },
   "trustedDependencies": [
-    "@parcel/watcher"
+    "@parcel/watcher",
+    "better-sqlite3"
   ]
 }
