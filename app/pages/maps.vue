@@ -370,7 +370,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="row in items" class="border-b border-default last:border-0 hover:bg-muted transition-colors">
+                  <tr
+                    v-for="row in items"
+                    class="border-b border-default last:border-0 hover:bg-muted transition-colors"
+                  >
                     <td class="text-center py-3 p-2" v-for="(ecu, index) in row" :key="ecu">
                       <p class="text-left" v-if="index === 'features'">
                         {{ ecu }}
@@ -417,10 +420,7 @@
               </div>
             </template>
             <div class="p-2">
-              <div
-                v-if="commitsLoading === 'pending' || releasesLoading === 'pending'"
-                class="flex justify-center p-4"
-              >
+              <div v-if="commitsLoading === 'pending' || releasesLoading === 'pending'" class="flex justify-center p-4">
                 <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
               </div>
               <div v-else-if="mergedUpdates && mergedUpdates.length > 0">
@@ -485,7 +485,12 @@
                 </div>
               </div>
               <div class="flex justify-center p-4">
-                <UButton to="https://github.com/SomethingNew71/MiniECUMaps" color="neutral" class="w-full" target="_blank">
+                <UButton
+                  to="https://github.com/SomethingNew71/MiniECUMaps"
+                  color="neutral"
+                  class="w-full"
+                  target="_blank"
+                >
                   <i class="fad fa-code-branch mr-2"></i> {{ $t('updates.viewAllCommits') }}
                 </UButton>
               </div>

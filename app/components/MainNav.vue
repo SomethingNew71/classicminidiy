@@ -101,7 +101,7 @@
 </script>
 
 <template>
-  <header class="bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800">
+  <header class="bg-white dark:bg-[#171717] border-b border-neutral-200 dark:border-neutral-800">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between py-3">
         <!-- Logo -->
@@ -122,7 +122,8 @@
               target="_blank"
               variant="ghost"
               color="neutral"
-              size="sm"
+              size="md"
+              class="font-bold"
             >
               <i :class="['fad', item.icon, 'mr-1']"></i>
               {{ item.label }}
@@ -132,7 +133,8 @@
               :to="item.to"
               variant="ghost"
               :color="isActive(item.to as string) ? 'primary' : 'neutral'"
-              size="sm"
+              size="md"
+              class="font-bold"
             >
               <i :class="['fad', item.icon, 'mr-1']"></i>
               {{ item.label }}
@@ -155,12 +157,7 @@
           <UColorModeButton />
 
           <!-- Patreon Button -->
-          <UButton
-            to="https://patreon.com/classicminidiy"
-            target="_blank"
-            class="is-patreon"
-            size="sm"
-          >
+          <UButton to="https://patreon.com/classicminidiy" target="_blank" class="is-patreon" size="sm">
             <i class="fab fa-patreon mr-1"></i>
             {{ t('donate_button') }}
           </UButton>
@@ -169,13 +166,7 @@
         <!-- Mobile Menu Button -->
         <div class="lg:hidden flex items-center gap-2">
           <UColorModeButton size="sm" />
-          <UButton
-            variant="ghost"
-            color="neutral"
-            size="sm"
-            square
-            @click="isMobileMenuOpen = true"
-          >
+          <UButton variant="ghost" color="neutral" size="sm" square @click="isMobileMenuOpen = true">
             <i class="fad fa-bars text-xl"></i>
           </UButton>
         </div>
@@ -201,7 +192,7 @@
               variant="ghost"
               color="neutral"
               block
-              class="justify-start"
+              class="justify-start font-bold"
               @click="handleNavClick(item)"
             >
               <i :class="['fad', item.icon, 'mr-2']"></i>
@@ -213,7 +204,7 @@
               variant="ghost"
               :color="isActive(item.to as string) ? 'primary' : 'neutral'"
               block
-              class="justify-start"
+              class="justify-start font-bold"
               @click="handleNavClick(item)"
             >
               <i :class="['fad', item.icon, 'mr-2']"></i>
@@ -243,12 +234,7 @@
           <USeparator class="my-2" />
 
           <!-- Patreon Button -->
-          <UButton
-            to="https://patreon.com/classicminidiy"
-            target="_blank"
-            class="is-patreon"
-            block
-          >
+          <UButton to="https://patreon.com/classicminidiy" target="_blank" class="is-patreon" block>
             <i class="fab fa-patreon mr-2"></i>
             {{ t('donate_button') }}
           </UButton>

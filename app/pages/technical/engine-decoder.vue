@@ -152,11 +152,7 @@
         </div>
         <div class="col-span-12 md:col-span-6">
           <div class="pb-5">
-            <UInput
-              v-model="search"
-              :placeholder="$t('search.placeholder')"
-              class="w-full"
-            >
+            <UInput v-model="search" :placeholder="$t('search.placeholder')" class="w-full">
               <template #leading>
                 <i class="fad fa-search"></i>
               </template>

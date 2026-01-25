@@ -150,7 +150,9 @@
         class="border border-muted rounded-lg overflow-hidden"
       >
         <template #trigger>
-          <div class="flex items-center justify-between w-full px-4 py-3 bg-primary text-primary-content font-semibold text-xl">
+          <div
+            class="flex items-center justify-between w-full px-4 py-3 bg-primary text-primary-content font-semibold text-xl"
+          >
             <span>{{ table.title }}</span>
             <i class="fas fa-chevron-down transition-transform"></i>
           </div>
@@ -158,11 +160,7 @@
         <div class="p-4 bg-muted/50">
           <!-- Search field -->
           <div class="flex justify-end mb-4">
-            <UInput
-              v-model="searchValue"
-              :placeholder="$t('ui.search_placeholder')"
-              class="w-full max-w-xs"
-            />
+            <UInput v-model="searchValue" :placeholder="$t('ui.search_placeholder')" class="w-full max-w-xs" />
           </div>
 
           <div class="w-full overflow-x-auto">

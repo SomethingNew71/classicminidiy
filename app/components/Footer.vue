@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <footer class="bg-muted/50 py-10 text-center">
+  <footer class="bg-neutral-100 dark:bg-[#171717] py-10 text-center">
     <div class="container mx-auto px-4">
       <!-- Social Links -->
       <div class="pb-4">

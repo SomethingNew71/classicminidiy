@@ -4,6 +4,14 @@
   const { data: tables, status } = await useFetch('/api/torque');
   const tableSearchQueries = ref<Record<string, string>>({});
 
+  // Icon mapping for torque categories (using Font Awesome)
+  const categoryIcons: Record<string, string> = {
+    engine: 'i-fa6-solid-gear',
+    suspension: 'i-fa6-solid-car',
+    electrical: 'i-fa6-solid-bolt',
+    clutchGearbox: 'i-fa6-solid-gears',
+  };
+
   const tableColumns = [
     {
       accessorKey: 'name',
@@ -156,34 +164,39 @@
         <!-- Content when loaded -->
         <div v-if="tables && status !== 'pending'" class="space-y-4">
           <UAccordion
-            v-for="(table, name, index) in tables"
-            :key="`${name}-${index}`"
-            :items="[{ label: table.title, slot: 'content' }]"
-            class="mb-2"
+            :items="
+              Object.entries(tables).map(([key, table]) => ({
+                label: table.title,
+                value: key,
+                icon: categoryIcons[key] || 'i-fa6-solid-wrench',
+                table,
+              }))
+            "
+            :ui="{
+              trigger: 'text-lg font-semibold py-4',
+              leadingIcon: 'size-6',
+            }"
           >
-            <template #leading="{ item }">
-              <div class="bg-primary text-primary-content px-4 py-3 rounded-t-lg font-semibold text-xl w-full">
-                {{ item.label }}
+            <template #body="{ item }">
+              <!-- Search field -->
+              <div class="flex justify-end mb-4">
+                <UInput
+                  type="text"
+                  :placeholder="$t('ui.search_placeholder')"
+                  v-model="tableSearchQueries[item.value]"
+                  class="w-full max-w-xs"
+                  icon="i-fa6-solid-magnifying-glass"
+                />
               </div>
-            </template>
-            <template #content>
-              <UCard class="rounded-t-none">
-                <!-- Search field -->
-                <div class="flex justify-end mb-4">
-                  <UInput
-                    type="text"
-                    :placeholder="$t('ui.search_placeholder')"
-                    v-model="tableSearchQueries[name]"
-                    class="w-full max-w-xs"
-                    icon="i-heroicons-magnifying-glass"
-                  />
-                </div>
 
-                <!-- Table -->
-                <div class="w-full overflow-x-auto">
-                  <UTable :data="filterItems(table.items, name)" :columns="tableColumns" class="w-full min-w-full" />
-                </div>
-              </UCard>
+              <!-- Table -->
+              <div class="w-full overflow-x-auto">
+                <UTable
+                  :data="filterItems(item.table.items, item.value)"
+                  :columns="tableColumns"
+                  class="w-full min-w-full"
+                />
+              </div>
             </template>
           </UAccordion>
         </div>
@@ -197,7 +210,6 @@
     </div>
   </div>
 </template>
-
 
 <i18n lang="json">
 {

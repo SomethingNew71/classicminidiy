@@ -192,7 +192,9 @@
           <!-- Your Name -->
           <div class="w-full">
             <label class="flex justify-between items-center mb-1">
-              <span class="text-sm font-medium">{{ t('form_labels.your_name') }} <span class="text-error">*</span></span>
+              <span class="text-sm font-medium"
+                >{{ t('form_labels.your_name') }} <span class="text-error">*</span></span
+              >
               <span class="text-sm text-muted"><i class="fad fa-user"></i></span>
             </label>
             <UInput
@@ -211,7 +213,9 @@
           <!-- Your Email -->
           <div class="w-full">
             <label class="flex justify-between items-center mb-1">
-              <span class="text-sm font-medium">{{ t('form_labels.your_email') }} <span class="text-error">*</span></span>
+              <span class="text-sm font-medium"
+                >{{ t('form_labels.your_email') }} <span class="text-error">*</span></span
+              >
               <span class="text-sm text-muted"><i class="fad fa-at"></i></span>
             </label>
             <UInput
@@ -248,7 +252,9 @@
             <!-- Model Year -->
             <div class="w-full">
               <label class="flex justify-between items-center mb-1">
-                <span class="text-sm font-medium">{{ t('form_labels.model_year') }} <span class="text-error">*</span></span>
+                <span class="text-sm font-medium"
+                  >{{ t('form_labels.model_year') }} <span class="text-error">*</span></span
+                >
                 <span class="text-sm text-muted"><i class="fad fa-calendar"></i></span>
               </label>
               <UInput
@@ -306,7 +312,9 @@
             <!-- Body Type -->
             <div class="w-full">
               <label class="flex justify-between items-center mb-1">
-                <span class="text-sm font-medium">{{ t('form_labels.body_type') }} <span class="text-error">*</span></span>
+                <span class="text-sm font-medium"
+                  >{{ t('form_labels.body_type') }} <span class="text-error">*</span></span
+                >
                 <span class="text-sm text-muted"><i class="fad fa-cars"></i></span>
               </label>
               <USelect

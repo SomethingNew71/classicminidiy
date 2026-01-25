@@ -143,7 +143,7 @@
                 type="text"
                 v-model="searchValue"
                 :placeholder="$t('search.placeholder')"
-                icon="i-heroicons-magnifying-glass"
+                icon="i-fa6-solid-magnifying-glass"
               />
             </div>
           </div>
@@ -172,7 +172,10 @@
                       <span v-else class="text-muted">{{ $t('table.no_value') }}</span>
                     </td>
                     <td class="p-2">
-                      <span v-if="tableItem.mm" class="px-2 py-1 rounded bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 font-medium">
+                      <span
+                        v-if="tableItem.mm"
+                        class="px-2 py-1 rounded bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 font-medium"
+                      >
                         {{ tableItem.mm }}
                       </span>
                       <span v-else class="text-muted">{{ $t('table.no_value') }}</span>

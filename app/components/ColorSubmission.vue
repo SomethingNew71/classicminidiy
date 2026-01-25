@@ -176,7 +176,6 @@
     navigateTo(`/archive/colors/contribute?color=${colorId}`);
   }
 
-
   function resetForm() {
     details.value = { ...initialDetails };
     confirmedNoDuplicate.value = false;
@@ -272,7 +271,9 @@
           <!-- Your Name -->
           <div class="w-full">
             <label class="flex justify-between items-center mb-1">
-              <span class="text-sm font-medium">{{ t('form_labels.your_name') }} <span class="text-error">*</span></span>
+              <span class="text-sm font-medium"
+                >{{ t('form_labels.your_name') }} <span class="text-error">*</span></span
+              >
               <span class="text-sm text-muted"><i class="fad fa-user"></i></span>
             </label>
             <UInput
@@ -291,7 +292,9 @@
           <!-- Your Email -->
           <div class="w-full">
             <label class="flex justify-between items-center mb-1">
-              <span class="text-sm font-medium">{{ t('form_labels.your_email') }} <span class="text-error">*</span></span>
+              <span class="text-sm font-medium"
+                >{{ t('form_labels.your_email') }} <span class="text-error">*</span></span
+              >
               <span class="text-sm text-muted"><i class="fad fa-at"></i></span>
             </label>
             <UInput
@@ -326,7 +329,9 @@
           <!-- Color Name -->
           <div class="w-full">
             <label class="flex justify-between items-center mb-1">
-              <span class="text-sm font-medium">{{ t('form_labels.color_name') }} <span class="text-error">*</span></span>
+              <span class="text-sm font-medium"
+                >{{ t('form_labels.color_name') }} <span class="text-error">*</span></span
+              >
               <span class="text-sm text-muted"><i class="fad fa-palette"></i></span>
             </label>
             <UInput

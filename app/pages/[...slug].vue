@@ -166,7 +166,7 @@
       </div>
 
       <!-- Error state -->
-      <UAlert v-else-if="error" color="error" class="max-w-2xl mx-auto" icon="i-heroicons-exclamation-circle">
+      <UAlert v-else-if="error" color="error" class="max-w-2xl mx-auto" icon="i-fa6-solid-circle-exclamation">
         <template #title>{{ $t('loading_error') }}</template>
       </UAlert>
       <!-- Content state - only show if we have data and no errors -->

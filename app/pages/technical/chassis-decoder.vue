@@ -193,11 +193,7 @@
             <div class="space-y-4 max-w-md mx-auto">
               <!-- Year Range Selection -->
               <UFormField :label="$t('form.year_range_label')">
-                <USelect
-                  v-model="yearRange"
-                  :items="yearRangeOptions"
-                  class="w-full"
-                />
+                <USelect v-model="yearRange" :items="yearRangeOptions" class="w-full" />
               </UFormField>
 
               <!-- Chassis Number Input -->
@@ -223,9 +219,9 @@
                 <UButton
                   @click="decodeChassisNumber"
                   :disabled="isLoading || !chassisNumber.trim()"
+                  :loading="isLoading"
                   color="primary"
                 >
-                  <span v-if="isLoading" class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
                   {{ isLoading ? $t('form.decoding_button') : $t('form.decode_button') }}
                 </UButton>
                 <UButton @click="resetForm" variant="ghost">

@@ -121,7 +121,12 @@
               {{ t('form_labels.head_gasket') }}
             </span>
           </template>
-          <USelect v-model.number="gasket" :items="reactiveFormOptions.headGasketOptions" value-key="value" class="w-full" />
+          <USelect
+            v-model.number="gasket"
+            :items="reactiveFormOptions.headGasketOptions"
+            value-key="value"
+            class="w-full"
+          />
         </UFormField>
         <div v-if="gasket === 0" class="mt-2">
           <UFormField>

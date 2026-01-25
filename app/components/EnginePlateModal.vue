@@ -63,8 +63,24 @@
             </div>
 
             <!-- Navigation Buttons -->
-            <UButton @click="prevSlide" class="absolute left-2 top-1/2 -translate-y-1/2" size="sm" variant="solid" color="neutral" square>❮</UButton>
-            <UButton @click="nextSlide" class="absolute right-2 top-1/2 -translate-y-1/2" size="sm" variant="solid" color="neutral" square>❯</UButton>
+            <UButton
+              @click="prevSlide"
+              class="absolute left-2 top-1/2 -translate-y-1/2"
+              size="sm"
+              variant="solid"
+              color="neutral"
+              square
+              >❮</UButton
+            >
+            <UButton
+              @click="nextSlide"
+              class="absolute right-2 top-1/2 -translate-y-1/2"
+              size="sm"
+              variant="solid"
+              color="neutral"
+              square
+              >❯</UButton
+            >
 
             <!-- Indicators -->
             <div class="flex justify-center mt-2 gap-2">

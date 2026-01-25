@@ -216,7 +216,7 @@
     <!-- Admin authentication handled by login system -->
 
     <!-- Error Message -->
-    <UAlert v-if="errorMessage" color="error" icon="i-heroicons-x-circle" :title="errorMessage" class="mb-6" />
+    <UAlert v-if="errorMessage" color="error" icon="i-fa6-solid-circle-xmark" :title="errorMessage" class="mb-6" />
 
     <!-- Loading State -->
     <div v-if="fetchStatus === 'pending'" class="flex justify-center my-8">
@@ -227,7 +227,7 @@
     <UAlert
       v-else-if="!wheelsToReview?.length"
       color="info"
-      icon="i-heroicons-information-circle"
+      icon="i-fa6-solid-circle-info"
       title="No wheels in the review queue."
     />
 
@@ -377,13 +377,12 @@
                       color="success"
                       @click="approveItem(item)"
                       :disabled="isProcessing"
+                      :loading="isProcessing && processingItemId === item.uuid"
                       title="Approve item"
                     >
-                      <span
-                        v-if="isProcessing && processingItemId === item.uuid"
-                        class="animate-spin rounded-full h-3 w-3 border-b-2 border-white"
-                      ></span>
-                      <i v-else class="fas fa-check"></i>
+                      <template #leading>
+                        <i v-if="!(isProcessing && processingItemId === item.uuid)" class="fas fa-check"></i>
+                      </template>
                     </UButton>
                     <UButton
                       size="xs"
@@ -426,8 +425,7 @@
           </div>
           <div class="flex justify-end gap-2">
             <UButton variant="outline" @click="showDeleteDialog = false" :disabled="isProcessing">Cancel</UButton>
-            <UButton color="error" @click="deleteItem" :disabled="isProcessing">
-              <span v-if="isProcessing" class="animate-spin rounded-full h-3 w-3 border-b-2 border-white mr-2"></span>
+            <UButton color="error" @click="deleteItem" :disabled="isProcessing" :loading="isProcessing">
               Reject Submission
             </UButton>
           </div>

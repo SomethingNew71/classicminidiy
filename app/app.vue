@@ -14,12 +14,12 @@
 
 <template>
   <UApp>
-    <div class="app-wrapper bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
+    <div class="app-wrapper bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-neutral-100">
       <div class="app-content">
         <MainNav></MainNav>
         <UToaster />
         <NuxtLoadingIndicator />
-        <main class="bg-neutral-50 dark:bg-neutral-900">
+        <main class="bg-white dark:bg-[#0a0a0a]">
           <NuxtPage />
         </main>
       </div>
@@ -35,6 +35,10 @@
 <style lang="scss">
   .bg-color-section {
     background-color: #f0f0f0;
+  }
+
+  :global(.dark) .bg-color-section {
+    background-color: #171717;
   }
 
   html,

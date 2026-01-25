@@ -24,7 +24,10 @@ export default defineEventHandler(async (event): Promise<ColorQueueSubmissionRes
     validateDetails(details);
 
     // Generate UUID with more entropy to prevent collisions
-    details.id = uuidv5(`${details.submittedBy}-${details.submittedByEmail}-${Date.now()}-${Math.random()}`, CMDIY_NAMESPACE);
+    details.id = uuidv5(
+      `${details.submittedBy}-${details.submittedByEmail}-${Date.now()}-${Math.random()}`,
+      CMDIY_NAMESPACE
+    );
     details.status = ColorItemStatus.PENDING;
     details.hasSwatch = details.hasSwatch || false;
 
@@ -79,7 +82,11 @@ function validateDetails(details: ColorQueueItem): void {
   }
 
   // Validate email with proper regex
-  if (!details.submittedByEmail || typeof details.submittedByEmail !== 'string' || !EMAIL_REGEX.test(details.submittedByEmail)) {
+  if (
+    !details.submittedByEmail ||
+    typeof details.submittedByEmail !== 'string' ||
+    !EMAIL_REGEX.test(details.submittedByEmail)
+  ) {
     throw createError({
       statusCode: 400,
       statusMessage: 'Invalid or missing email address',
@@ -119,7 +126,10 @@ function validateDetails(details: ColorQueueItem): void {
       statusMessage: `Invalid short code (max ${MAX_CODE_LENGTH} characters)`,
     });
   }
-  if (details.ditzlerPpgCode && (typeof details.ditzlerPpgCode !== 'string' || details.ditzlerPpgCode.length > MAX_CODE_LENGTH)) {
+  if (
+    details.ditzlerPpgCode &&
+    (typeof details.ditzlerPpgCode !== 'string' || details.ditzlerPpgCode.length > MAX_CODE_LENGTH)
+  ) {
     throw createError({
       statusCode: 400,
       statusMessage: `Invalid Ditzler/PPG code (max ${MAX_CODE_LENGTH} characters)`,

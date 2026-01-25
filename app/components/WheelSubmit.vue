@@ -306,18 +306,17 @@
   <div class="container mx-auto px-4 py-6">
     <!-- Stepper -->
     <div class="flex justify-between items-center mb-8">
-      <div
-        v-for="(stepItem, index) in stepperItems"
-        :key="index"
-        class="flex flex-col items-center flex-1"
-      >
+      <div v-for="(stepItem, index) in stepperItems" :key="index" class="flex flex-col items-center flex-1">
         <div
           class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors"
           :class="step >= index + 1 ? 'bg-primary text-white' : 'bg-muted text-muted'"
         >
           {{ index + 1 }}
         </div>
-        <span class="text-xs mt-1 text-center hidden sm:block" :class="step >= index + 1 ? 'text-primary font-medium' : 'text-muted'">
+        <span
+          class="text-xs mt-1 text-center hidden sm:block"
+          :class="step >= index + 1 ? 'text-primary font-medium' : 'text-muted'"
+        >
           {{ stepItem }}
         </span>
         <div v-if="index < stepperItems.length - 1" class="hidden sm:block absolute" />
@@ -358,7 +357,7 @@
             <UInput
               v-model="name"
               :placeholder="t('step1.wheel_name_placeholder')"
-              icon="i-heroicons-document-text"
+              icon="i-fa6-solid-file-lines"
               :color="isFieldTouched('name') && newWheel && !name.trim() ? 'error' : undefined"
               @blur="markFieldAsTouched('name')"
             />
@@ -374,11 +373,7 @@
               <span class="font-semibold">{{ wheel.type || t('step1.no_data') }}</span>
             </p>
             <label class="text-sm font-medium mb-1 block">{{ t('step1.wheel_material_type') }}</label>
-            <UInput
-              v-model="type"
-              :placeholder="t('step1.wheel_material_placeholder')"
-              icon="i-heroicons-cube"
-            />
+            <UInput v-model="type" :placeholder="t('step1.wheel_material_placeholder')" icon="i-fa6-solid-cube" />
           </div>
 
           <!-- Wheel Width -->
@@ -395,7 +390,7 @@
               type="number"
               v-model="width"
               :placeholder="t('step1.wheel_width_placeholder')"
-              icon="i-heroicons-arrows-right-left"
+              icon="i-fa6-solid-right-left"
               :color="isFieldTouched('width') && newWheel && !width ? 'error' : undefined"
               @blur="markFieldAsTouched('width')"
             />
@@ -437,7 +432,7 @@
             <UInput
               v-model="offset"
               :placeholder="t('step1.offset_placeholder')"
-              icon="i-heroicons-arrow-right"
+              icon="i-fa6-solid-arrow-right"
               maxlength="30"
             />
           </div>
@@ -449,12 +444,7 @@
               <span class="font-semibold">{{ wheel.notes || t('step1.no_data') }}</span>
             </p>
             <label class="text-sm font-medium mb-1 block">{{ t('step1.extra_notes') }}</label>
-            <UTextarea
-              v-model="notes"
-              :placeholder="t('step1.notes_placeholder')"
-              :rows="3"
-              maxlength="250"
-            />
+            <UTextarea v-model="notes" :placeholder="t('step1.notes_placeholder')" :rows="3" maxlength="250" />
             <p class="text-sm text-muted mt-1">{{ t('step1.characters_count', { count: notes.length }) }}</p>
           </div>
         </div>
@@ -578,7 +568,7 @@
           <UInput
             v-model="userName"
             :placeholder="t('step3.name_placeholder')"
-            icon="i-heroicons-user"
+            icon="i-fa6-solid-user"
             :color="isFieldTouched('userName') && !userName.trim() ? 'error' : undefined"
             @blur="markFieldAsTouched('userName')"
             required
@@ -597,12 +587,17 @@
             type="email"
             v-model="emailAddress"
             :placeholder="t('step3.email_placeholder')"
-            icon="i-heroicons-envelope"
-            :color="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress) ? 'error' : undefined"
+            icon="i-fa6-solid-envelope"
+            :color="
+              isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress) ? 'error' : undefined
+            "
             @blur="markFieldAsTouched('emailAddress')"
             required
           />
-          <p v-if="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress)" class="text-sm text-error mt-1">
+          <p
+            v-if="isFieldTouched('emailAddress') && emailAddress && !validateEmail(emailAddress)"
+            class="text-sm text-error mt-1"
+          >
             {{ t('step3.email_invalid') }}
           </p>
         </div>
@@ -739,12 +734,7 @@
         {{ t('navigation.back') }}
       </UButton>
 
-      <UButton
-        v-if="step < 4"
-        color="primary"
-        @click="handleNextStep"
-        :disabled="!canProceedToNextStep || loading"
-      >
+      <UButton v-if="step < 4" color="primary" @click="handleNextStep" :disabled="!canProceedToNextStep || loading">
         {{ t('navigation.next') }}
         <i class="fas fa-arrow-right ml-2"></i>
       </UButton>

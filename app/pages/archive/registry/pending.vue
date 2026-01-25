@@ -66,7 +66,8 @@
             </p>
             <p class="my-4">
               {{ $t('contact_text') }}
-              <ULink to="/contact" class="text-primary hover:underline">{{ $t('contact_link') }}</ULink>.
+              <ULink to="/contact" class="text-primary hover:underline">{{ $t('contact_link') }}</ULink
+              >.
             </p>
           </div>
           <div class="col-span-12 md:col-span-4">

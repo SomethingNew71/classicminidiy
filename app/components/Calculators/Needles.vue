@@ -107,12 +107,30 @@
         <template v-else-if="allNeedles && selectedNeedles">
           <!-- Needle selection dropdown -->
           <UFormField class="w-full">
-            <USelect v-model="addNeedleValue" :items="needleSelectOptions" value-key="value" class="w-full" :placeholder="t('form.select_placeholder')" />
+            <USelect
+              v-model="addNeedleValue"
+              :items="needleSelectOptions"
+              value-key="value"
+              class="w-full"
+              :placeholder="t('form.select_placeholder')"
+            />
           </UFormField>
 
           <!-- Alerts -->
-          <UAlert v-if="alreadyExistsError" color="info" class="mb-4" icon="i-heroicons-information-circle" :title="t('alerts.already_exists')" />
-          <UAlert v-if="emptyError" color="info" class="mb-4" icon="i-heroicons-information-circle" :title="t('alerts.empty_selection')" />
+          <UAlert
+            v-if="alreadyExistsError"
+            color="info"
+            class="mb-4"
+            icon="i-fa6-solid-circle-info"
+            :title="t('alerts.already_exists')"
+          />
+          <UAlert
+            v-if="emptyError"
+            color="info"
+            class="mb-4"
+            icon="i-fa6-solid-circle-info"
+            :title="t('alerts.empty_selection')"
+          />
 
           <!-- Add needle button -->
           <UButton color="primary" class="mt-2" @click="addArrayItem()">

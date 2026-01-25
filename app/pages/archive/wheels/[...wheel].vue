@@ -96,7 +96,7 @@
     </div>
 
     <!-- Error State -->
-    <UAlert v-else-if="error" color="error" class="my-8" icon="i-heroicons-exclamation-triangle">
+    <UAlert v-else-if="error" color="error" class="my-8" icon="i-fa6-solid-triangle-exclamation">
       <template #title>{{ $t('error_message') }}</template>
       <template #actions>
         <UButton to="/archive/wheels" size="sm" variant="ghost">

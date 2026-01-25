@@ -70,7 +70,7 @@
           <UInput
             v-model="search"
             :placeholder="t('search_placeholder')"
-            icon="i-heroicons-magnifying-glass"
+            icon="i-fa6-solid-magnifying-glass"
             size="lg"
           />
         </div>

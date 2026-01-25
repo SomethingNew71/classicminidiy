@@ -62,7 +62,11 @@
         <div>
           <h2 class="text-xl font-bold mb-2">
             {{ $t('footer.title') }}
-            <a href="https://www.mini-forum.de/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"
+            <a
+              href="https://www.mini-forum.de/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary hover:underline"
               >Mini-Forum.de</a
             >.
           </h2>

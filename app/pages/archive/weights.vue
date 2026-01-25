@@ -104,7 +104,7 @@
                     type="text"
                     :placeholder="$t('search_placeholder')"
                     v-model="tableSearchQueries[item.value]"
-                    icon="i-heroicons-magnifying-glass"
+                    icon="i-fa6-solid-magnifying-glass"
                   />
                 </div>
               </div>
@@ -123,7 +123,10 @@
 
                   <!-- Table body -->
                   <tbody>
-                    <template v-for="(tableItem, itemIndex) in filterItems(item.table.items, item.value)" :key="itemIndex">
+                    <template
+                      v-for="(tableItem, itemIndex) in filterItems(item.table.items, item.value)"
+                      :key="itemIndex"
+                    >
                       <tr class="border-b border-default last:border-0 hover:bg-muted transition-colors">
                         <td class="p-2">{{ tableItem.item }}</td>
                         <td class="p-2">{{ tableItem.weight || '---' }}</td>
@@ -145,7 +148,6 @@
     </div>
   </div>
 </template>
-
 
 <i18n lang="json">
 {
