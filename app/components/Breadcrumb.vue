@@ -36,7 +36,7 @@
     result.push({
       label: t('home'),
       to: '/',
-      icon: 'i-heroicons-home',
+      icon: 'i-fa6-solid-house',
     });
 
     // Determine section based on version

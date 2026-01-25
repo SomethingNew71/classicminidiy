@@ -180,7 +180,7 @@
                   type="text"
                   :placeholder="$t('search.placeholder')"
                   :aria-label="$t('search.placeholder')"
-                  icon="i-heroicons-magnifying-glass"
+                  icon="i-fa6-solid-magnifying-glass"
                   class="w-full"
                 />
               </div>
@@ -221,11 +221,7 @@
                 <template v-else-if="!filteredColors.length">
                   <tr>
                     <td :colspan="tableHeaders.length" class="text-center p-8">
-                      <UAlert
-                        color="info"
-                        icon="i-heroicons-information-circle"
-                        :title="$t('states.no_colors')"
-                      />
+                      <UAlert color="info" icon="i-fa6-solid-circle-info" :title="$t('states.no_colors')" />
                     </td>
                   </tr>
                 </template>

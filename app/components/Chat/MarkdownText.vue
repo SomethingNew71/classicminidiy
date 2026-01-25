@@ -28,14 +28,11 @@
     enableAnimation?: boolean;
   }
 
-  const props = withDefaults(
-    defineProps<MarkdownTextProps & { showCursor?: boolean } & StreamingAnimationOptions>(),
-    {
-      showCursor: false,
-      animationType: 'fadeIn',
-      enableAnimation: true,
-    }
-  );
+  const props = withDefaults(defineProps<MarkdownTextProps & { showCursor?: boolean } & StreamingAnimationOptions>(), {
+    showCursor: false,
+    animationType: 'fadeIn',
+    enableAnimation: true,
+  });
 
   // Animation configuration
   const ANIMATION_DURATION = 150; // ms - fast fade/blur in
@@ -447,7 +444,8 @@
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
     50% {

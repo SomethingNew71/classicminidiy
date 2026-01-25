@@ -209,10 +209,10 @@
       <div class="flex justify-between items-center">
         <UBreadcrumb
           :items="[
-            { label: 'Home', to: '/', icon: 'i-heroicons-home' },
+            { label: 'Home', to: '/', icon: 'i-fa6-solid-house' },
             { label: 'Admin', to: '/admin' },
             { label: 'Chat Threads', to: '/admin/threads' },
-            { label: 'Thread Details' }
+            { label: 'Thread Details' },
           ]"
         />
 
@@ -235,7 +235,7 @@
 
       <!-- Error State -->
       <UCard v-else-if="error">
-        <UAlert color="error" icon="i-heroicons-exclamation-triangle" class="mb-4">
+        <UAlert color="error" icon="i-fa6-solid-triangle-exclamation" class="mb-4">
           <template #title>Error Loading Thread</template>
           <template #description>{{ error.message || 'Failed to load thread details' }}</template>
         </UAlert>
@@ -297,8 +297,10 @@
               :key="message.index"
               class="rounded-lg p-4 border-l-4"
               :class="{
-                'border-primary bg-primary/5': message.role.toLowerCase().includes('human') || message.role.toLowerCase().includes('user'),
-                'border-secondary bg-secondary/5': message.role.toLowerCase().includes('ai') || message.role.toLowerCase().includes('assistant'),
+                'border-primary bg-primary/5':
+                  message.role.toLowerCase().includes('human') || message.role.toLowerCase().includes('user'),
+                'border-secondary bg-secondary/5':
+                  message.role.toLowerCase().includes('ai') || message.role.toLowerCase().includes('assistant'),
                 'border-info bg-info/5': message.role.toLowerCase().includes('system'),
                 'border-warning bg-warning/5': message.role.toLowerCase().includes('tool'),
               }"
@@ -315,28 +317,39 @@
               </div>
 
               <!-- Tool Calls -->
-              <UAccordion v-if="message.toolCalls" :items="[{ label: 'Tool Calls', slot: 'tool-calls' }]" class="mt-3">
-                <template #tool-calls>
+              <UAccordion
+                v-if="message.toolCalls"
+                :items="[{ label: 'Tool Calls', value: 'tool-calls', data: message.toolCalls }]"
+                class="mt-3"
+              >
+                <template #body="{ item }">
                   <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto">{{
-                    JSON.stringify(message.toolCalls, null, 2)
+                    JSON.stringify(item.data, null, 2)
                   }}</pre>
                 </template>
               </UAccordion>
 
               <!-- Tool Results -->
-              <UAccordion v-if="message.toolResults" :items="[{ label: 'Tool Results', slot: 'tool-results' }]" class="mt-3">
-                <template #tool-results>
+              <UAccordion
+                v-if="message.toolResults"
+                :items="[{ label: 'Tool Results', value: 'tool-results', data: message.toolResults }]"
+                class="mt-3"
+              >
+                <template #body="{ item }">
                   <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto">{{
-                    JSON.stringify(message.toolResults, null, 2)
+                    JSON.stringify(item.data, null, 2)
                   }}</pre>
                 </template>
               </UAccordion>
 
               <!-- Raw Message JSON -->
-              <UAccordion :items="[{ label: 'Raw Message Data', slot: 'raw-data' }]" class="mt-3">
-                <template #raw-data>
+              <UAccordion
+                :items="[{ label: 'Raw Message Data', value: 'raw-data', data: message.rawContent }]"
+                class="mt-3"
+              >
+                <template #body="{ item }">
                   <pre class="bg-black text-green-400 p-3 rounded text-xs overflow-auto">{{
-                    JSON.stringify(message.rawContent, null, 2)
+                    JSON.stringify(item.data, null, 2)
                   }}</pre>
                 </template>
               </UAccordion>

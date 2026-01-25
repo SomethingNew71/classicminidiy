@@ -62,7 +62,9 @@ export default defineEventHandler(async (event) => {
 
   // Validate the provided API key
   if (!validKeys.includes(providedKey)) {
-    console.error(`[MCP Auth] Invalid API key. Provided key does not match any valid keys. Valid keys count: ${validKeys.length}`);
+    console.error(
+      `[MCP Auth] Invalid API key. Provided key does not match any valid keys. Valid keys count: ${validKeys.length}`
+    );
     throw createError({
       statusCode: 403,
       statusMessage: 'Forbidden',

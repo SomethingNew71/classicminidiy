@@ -81,7 +81,9 @@
         <div class="text-sm">
           <ul class="flex items-center gap-2">
             <li>
-              <NuxtLink to="/" class="hover:underline">{{ $t('pages.archive.subpages.colors_detail.breadcrumb.home') }}</NuxtLink>
+              <NuxtLink to="/" class="hover:underline">{{
+                $t('pages.archive.subpages.colors_detail.breadcrumb.home')
+              }}</NuxtLink>
               <span class="mx-2">/</span>
             </li>
             <li>
@@ -150,7 +152,9 @@
 
             <div class="bg-muted rounded-lg p-4">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-sm opacity-70">{{ $t('pages.archive.subpages.colors_detail.stats.short_code') }}</span>
+                <span class="text-sm opacity-70">{{
+                  $t('pages.archive.subpages.colors_detail.stats.short_code')
+                }}</span>
                 <i class="fas fa-code text-xl text-primary"></i>
               </div>
               <div class="text-lg font-semibold truncate" :class="{ 'text-error': !color.pretty['Short Code'] }">
@@ -160,7 +164,9 @@
 
             <div class="bg-muted rounded-lg p-4">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-sm opacity-70">{{ $t('pages.archive.subpages.colors_detail.stats.ditzler_ppg_code') }}</span>
+                <span class="text-sm opacity-70">{{
+                  $t('pages.archive.subpages.colors_detail.stats.ditzler_ppg_code')
+                }}</span>
                 <i class="fas fa-barcode text-xl text-primary"></i>
               </div>
               <div class="text-lg font-semibold truncate" :class="{ 'text-error': !color.pretty['Ditzler PPG Code'] }">
@@ -170,7 +176,9 @@
 
             <div class="bg-muted rounded-lg p-4">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-sm opacity-70">{{ $t('pages.archive.subpages.colors_detail.stats.dulux_code') }}</span>
+                <span class="text-sm opacity-70">{{
+                  $t('pages.archive.subpages.colors_detail.stats.dulux_code')
+                }}</span>
                 <i class="fas fa-barcode text-xl text-primary"></i>
               </div>
               <div class="text-lg font-semibold truncate" :class="{ 'text-error': !color.pretty['Dulux Code'] }">

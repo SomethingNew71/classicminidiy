@@ -17,7 +17,9 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 ### Frontend
 
 - **Framework**: Nuxt 4.1.2 with TypeScript
-- **Styling**: TailwindCSS 4.1.13 with @tailwindcss/vite + DaisyUI custom theme
+- **UI Components**: Nuxt UI for form controls, modals, accordions, and other UI elements
+- **Styling**: TailwindCSS 4.1.13 with @tailwindcss/vite
+- **Icons**: Font Awesome 6 (exclusive icon library - no Heroicons or Lucide)
 - **Search**: Fuse.js for advanced fuzzy search functionality
 - **Charts**: Highcharts for data visualization
 - **PWA**: Configured with @vite-pwa/nuxt for offline functionality
@@ -55,7 +57,9 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 
 - **Nuxt 4.1.2** with Vue 3 Composition API
 - **TypeScript** for type safety
-- **TailwindCSS 4.1.13** with @tailwindcss/vite for styling and custom DaisyUI theme
+- **Nuxt UI** for UI components (buttons, forms, modals, accordions, etc.)
+- **TailwindCSS 4.1.13** with @tailwindcss/vite for styling
+- **Font Awesome 6** for all icons (exclusive - no Heroicons/Lucide)
 - **Nuxt Content** for content management
 - **AWS SDK v3** (v3.894.0) for cloud services
 - **LangChain/LangGraph** (v0.1.6) for AI functionality
@@ -184,7 +188,68 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
 - **Single File Components**: .vue files with `<script setup>` syntax
 - **Composables**: Reusable logic in `/composables/` directory
 - **Type Safety**: All components properly typed with TypeScript interfaces
-- **CSS**: TailwindCSS classes preferred, custom DaisyUI theme
+- **CSS**: TailwindCSS classes preferred
+
+### Icons (Font Awesome 6 - EXCLUSIVE)
+
+**IMPORTANT**: This project uses Font Awesome 6 as the ONLY icon library. Do NOT use Heroicons, Lucide, or any other icon libraries.
+
+Font Awesome is loaded via a **Font Awesome Kit** (CDN script configured in `nuxt.config.ts`), not via an npm package.
+
+#### Nuxt UI Component Icons
+
+When using Nuxt UI components with `icon` props (UButton, UAccordion, UAlert, etc.), use the Iconify format:
+
+```vue
+<!-- Solid icons (most common) -->
+<UButton icon="i-fa6-solid-house" />
+<UAccordion :items="[{ label: 'Item', icon: 'i-fa6-solid-gear' }]" />
+<UAlert icon="i-fa6-solid-circle-info" />
+
+<!-- Regular icons -->
+<UButton icon="i-fa6-regular-heart" />
+
+<!-- Brand icons -->
+<UButton icon="i-fa6-brands-github" />
+```
+
+**Format**: `i-fa6-{style}-{icon-name}`
+
+- `i-fa6-solid-*` - Solid style (fas)
+- `i-fa6-regular-*` - Regular style (far)
+- `i-fa6-brands-*` - Brand icons (fab)
+
+#### Inline Icons
+
+For inline icons in templates, use the traditional Font Awesome class syntax:
+
+```vue
+<i class="fas fa-house"></i>
+<!-- Solid -->
+<i class="far fa-heart"></i>
+<!-- Regular -->
+<i class="fab fa-github"></i>
+<!-- Brands -->
+<i class="fad fa-spinner"></i>
+<!-- Duotone -->
+```
+
+#### Common Icon Mappings
+
+| Purpose     | Iconify Format                     | Class Format                  |
+| ----------- | ---------------------------------- | ----------------------------- |
+| Home        | `i-fa6-solid-house`                | `fas fa-house`                |
+| Search      | `i-fa6-solid-magnifying-glass`     | `fas fa-magnifying-glass`     |
+| Settings    | `i-fa6-solid-gear`                 | `fas fa-gear`                 |
+| User        | `i-fa6-solid-user`                 | `fas fa-user`                 |
+| Info        | `i-fa6-solid-circle-info`          | `fas fa-circle-info`          |
+| Warning     | `i-fa6-solid-triangle-exclamation` | `fas fa-triangle-exclamation` |
+| Error       | `i-fa6-solid-circle-xmark`         | `fas fa-circle-xmark`         |
+| Plus        | `i-fa6-solid-plus`                 | `fas fa-plus`                 |
+| Close       | `i-fa6-solid-xmark`                | `fas fa-xmark`                |
+| Arrow Right | `i-fa6-solid-arrow-right`          | `fas fa-arrow-right`          |
+| File        | `i-fa6-solid-file-lines`           | `fas fa-file-lines`           |
+| Car         | `i-fa6-solid-car`                  | `fas fa-car`                  |
 
 ### Performance Optimizations
 
@@ -551,10 +616,13 @@ Current implementation includes:
 
 - `@aws-sdk/*` packages: v3.894.0
 - `nuxt`: v4.1.2
+- `@nuxt/ui`: Nuxt UI component library
 - `tailwindcss`: v4.1.13
-- `fuse.js`: v7.1.0 (new addition)
+- `fuse.js`: v7.1.0
 - `highcharts`: v12.4.0
 - `@langchain/langgraph-sdk`: v0.1.6
+
+**Font Awesome**: Loaded via Font Awesome Kit (CDN script in nuxt.config.ts)
 
 ## Support Resources
 

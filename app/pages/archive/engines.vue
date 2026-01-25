@@ -151,7 +151,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in data.engines" :key="index" class="border-b border-default last:border-0 hover:bg-muted transition-colors">
+                <tr
+                  v-for="(item, index) in data.engines"
+                  :key="index"
+                  class="border-b border-default last:border-0 hover:bg-muted transition-colors"
+                >
                   <td class="p-2">
                     <i class="fas fa-circle" :class="item.color"></i>
                   </td>

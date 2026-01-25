@@ -98,7 +98,7 @@
 
 <template>
   <section
-    class="hero-section flex bg-primary-950 bg-cover bg-center bg-no-repeat"
+    class="hero-section flex bg-[#242424] bg-cover bg-center bg-no-repeat"
     :class="{
       [textSize]: textSize,
       'md:h-144 sm:h-96': heroType === HERO_TYPES.HOME,

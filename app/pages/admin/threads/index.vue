@@ -160,9 +160,9 @@
       <div class="flex justify-between items-center">
         <UBreadcrumb
           :items="[
-            { label: 'Home', to: '/', icon: 'i-heroicons-home' },
+            { label: 'Home', to: '/', icon: 'i-fa6-solid-house' },
             { label: 'Admin', to: '/admin' },
-            { label: 'Chat Threads' }
+            { label: 'Chat Threads' },
           ]"
         />
 
@@ -188,13 +188,10 @@
               <span class="font-semibold">{{ filteredThreads.length }}</span>
             </p>
           </div>
-          <UButton
-            @click="handleRefresh"
-            :disabled="isLoading"
-            color="primary"
-          >
-            <i v-if="!isLoading" class="fad fa-refresh mr-2"></i>
-            <span v-if="isLoading" class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
+          <UButton @click="handleRefresh" :disabled="isLoading" :loading="isLoading" color="primary">
+            <template #leading>
+              <i v-if="!isLoading" class="fad fa-refresh"></i>
+            </template>
             {{ isLoading ? 'Refreshing...' : 'Refresh' }}
           </UButton>
         </div>
@@ -206,7 +203,7 @@
               v-model="searchQuery"
               type="text"
               placeholder="Search by thread ID or metadata..."
-              icon="i-heroicons-magnifying-glass"
+              icon="i-fa6-solid-magnifying-glass"
             />
           </UFormField>
           <UFormField label="Filter by status">
@@ -217,7 +214,7 @@
                 { label: 'Idle', value: 'idle' },
                 { label: 'Busy', value: 'busy' },
                 { label: 'Interrupted', value: 'interrupted' },
-                { label: 'Error', value: 'error' }
+                { label: 'Error', value: 'error' },
               ]"
             />
           </UFormField>
@@ -245,7 +242,11 @@
                   No threads found
                 </td>
               </tr>
-              <tr v-for="thread in filteredThreads" :key="thread.thread_id" class="border-b border-default last:border-0 hover:bg-muted transition-colors">
+              <tr
+                v-for="thread in filteredThreads"
+                :key="thread.thread_id"
+                class="border-b border-default last:border-0 hover:bg-muted transition-colors"
+              >
                 <td class="p-2">
                   <code class="text-xs">{{ thread.thread_id }}</code>
                 </td>

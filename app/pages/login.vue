@@ -31,12 +31,13 @@
           />
         </UFormField>
 
-        <UAlert v-if="errorMessage" color="error" icon="i-heroicons-exclamation-triangle" :title="errorMessage" />
+        <UAlert v-if="errorMessage" color="error" icon="i-fa6-solid-triangle-exclamation" :title="errorMessage" />
 
         <div class="mt-6">
-          <UButton type="submit" color="primary" class="w-full" :disabled="isLoading">
-            <span v-if="isLoading" class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
-            <i v-else class="fad fa-sign-in mr-2"></i>
+          <UButton type="submit" color="primary" class="w-full" :disabled="isLoading" :loading="isLoading">
+            <template #leading>
+              <i v-if="!isLoading" class="fad fa-sign-in"></i>
+            </template>
             {{ isLoading ? $t('signing_in') : $t('sign_in') }}
           </UButton>
         </div>

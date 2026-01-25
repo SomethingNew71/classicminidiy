@@ -136,18 +136,18 @@
         </div>
       </div>
 
-      <UInput
-        v-model="search"
-        :placeholder="t('search_placeholder')"
-        icon="i-heroicons-magnifying-glass"
-        size="lg"
-      />
+      <UInput v-model="search" :placeholder="t('search_placeholder')" icon="i-fa6-solid-magnifying-glass" size="lg" />
     </div>
 
     <!-- Content section -->
     <div>
       <!-- Error state -->
-      <UAlert v-if="error" color="error" :title="error.message || t('error_loading')" icon="i-heroicons-exclamation-circle" />
+      <UAlert
+        v-if="error"
+        color="error"
+        :title="error.message || t('error_loading')"
+        icon="i-fa6-solid-circle-exclamation"
+      />
 
       <!-- Loading state -->
       <div v-else-if="status === 'pending'" class="flex justify-center p-8">
@@ -218,7 +218,10 @@
           <UButton variant="ghost" color="neutral">
             {{ t('page_info', { current: page, total: Math.ceil(filteredWheels.length / 12) }) }}
           </UButton>
-          <UButton :disabled="page >= Math.ceil(filteredWheels.length / 12)" @click="page < Math.ceil(filteredWheels.length / 12) && page++">
+          <UButton
+            :disabled="page >= Math.ceil(filteredWheels.length / 12)"
+            @click="page < Math.ceil(filteredWheels.length / 12) && page++"
+          >
             <i class="fad fa-arrow-right"></i>
           </UButton>
         </UButtonGroup>

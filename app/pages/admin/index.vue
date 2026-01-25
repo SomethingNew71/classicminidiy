@@ -43,8 +43,7 @@
     await useFetch<RegistryItem[]>('/api/registry/queue/list');
   const { data: wheelsStats, refresh: refreshWheelsStats } =
     await useFetch<IWheelsDataReviewItem[]>('/api/wheels/review/list');
-  const { data: colorsStats, refresh: refreshColorsStats } =
-    await useFetch<ColorQueueItem[]>('/api/colors/queue/list');
+  const { data: colorsStats, refresh: refreshColorsStats } = await useFetch<ColorQueueItem[]>('/api/colors/queue/list');
 
   // Refresh state
   const isRefreshing = ref(false);
@@ -126,12 +125,7 @@
     <!-- Breadcrumb Navigation -->
     <div class="container mx-auto px-4 pt-10">
       <div class="flex justify-between items-center">
-        <UBreadcrumb
-          :items="[
-            { label: 'Home', to: '/', icon: 'i-heroicons-home' },
-            { label: 'Admin' }
-          ]"
-        />
+        <UBreadcrumb :items="[{ label: 'Home', to: '/', icon: 'i-fa6-solid-house' }, { label: 'Admin' }]" />
 
         <div class="flex items-center gap-4">
           <span class="text-sm opacity-70"> Welcome, {{ user?.username }} </span>
@@ -290,14 +284,10 @@
         <UCard class="bg-muted">
           <div class="flex justify-between items-center mb-6">
             <h3 class="text-2xl font-bold">Quick Stats</h3>
-            <UButton
-              @click="refreshStats"
-              :disabled="isRefreshing"
-              variant="ghost"
-              size="sm"
-            >
-              <span v-if="isRefreshing" class="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2"></span>
-              <i v-else class="fad fa-refresh mr-2"></i>
+            <UButton @click="refreshStats" :disabled="isRefreshing" :loading="isRefreshing" variant="ghost" size="sm">
+              <template #leading>
+                <i v-if="!isRefreshing" class="fad fa-refresh"></i>
+              </template>
               {{ isRefreshing ? 'Refreshing...' : 'Refresh' }}
             </UButton>
           </div>

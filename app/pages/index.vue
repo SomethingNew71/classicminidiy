@@ -57,11 +57,24 @@
         <p class="text-lg pt-2 pb-3">
           {{ $t('home.support.content') }}
         </p>
-        <UButton class="mr-3 text-lg is-patreon" rel="noopener" to="https://patreon.com/classicminidiy" target="_blank" external>
+        <UButton
+          class="mr-3 text-lg is-patreon"
+          rel="noopener"
+          to="https://patreon.com/classicminidiy"
+          target="_blank"
+          external
+        >
           <i class="fab fa-patreon mr-2" />
           {{ $t('common.donate') }}
         </UButton>
-        <UButton class="text-lg" variant="outline" rel="noopener" to="https://github.com/somethingnew71/classicminidiy" target="_blank" external>
+        <UButton
+          class="text-lg"
+          variant="outline"
+          rel="noopener"
+          to="https://github.com/somethingnew71/classicminidiy"
+          target="_blank"
+          external
+        >
           <i class="fab fa-github mr-2" />
           {{ $t('common.contribute') }}
         </UButton>
@@ -72,7 +85,7 @@
     </div>
   </div>
   <div class="spacer layer1"></div>
-  <div class="bg-color-section">
+  <div class="bg-[#f0f0f0] dark:bg-[#171717]">
     <div class="container mx-auto px-4 pt-10">
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-12 md:col-span-5">
@@ -100,7 +113,13 @@
           <p class="text-lg">
             {{ $t('home.patreon.content') }}
           </p>
-          <UButton class="mt-5 mb-5 is-patreon" rel="noopener" to="https://patreon.com/classicminidiy" target="_blank" external>
+          <UButton
+            class="mt-5 mb-5 is-patreon"
+            rel="noopener"
+            to="https://patreon.com/classicminidiy"
+            target="_blank"
+            external
+          >
             <i class="fab fa-patreon mr-2" />
             {{ $t('home.patreon.button') }}
           </UButton>
@@ -735,6 +754,10 @@
 
   .bg-color-section {
     background-color: #f0f0f0;
+  }
+
+  :global(.dark) .bg-color-section {
+    background-color: #171717;
   }
 
   .phone {

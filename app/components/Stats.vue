@@ -4,7 +4,9 @@
 </script>
 
 <template>
-  <div class="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-default rounded-lg shadow-lg bg-default border border-default">
+  <div
+    class="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-default rounded-lg shadow-lg bg-default border border-default"
+  >
     <!-- Views Stat -->
     <div class="flex-1 p-6 text-center lg:text-left">
       <div class="flex items-center justify-center lg:justify-start gap-4">
@@ -39,7 +41,9 @@
         </div>
         <div>
           <div class="text-sm text-muted">{{ t('subscribers') }}</div>
-          <div class="text-2xl font-bold text-secondary" v-if="stats && stats.subscribers">{{ stats?.subscribers }}</div>
+          <div class="text-2xl font-bold text-secondary" v-if="stats && stats.subscribers">
+            {{ stats?.subscribers }}
+          </div>
           <div class="text-xs text-muted">{{ t('across_world') }}</div>
         </div>
       </div>

@@ -179,18 +179,12 @@
       <UInput
         v-model="searchValue"
         :placeholder="t('search_placeholder')"
-        icon="i-heroicons-magnifying-glass"
+        icon="i-fa6-solid-magnifying-glass"
         class="w-full max-w-md"
       />
       <div class="flex items-center gap-2">
-        <UBadge v-if="items?.length" color="primary" size="lg">
-          {{ items?.length }} {{ t('total_minis') }}
-        </UBadge>
-        <USelect
-          v-model="pageSize"
-          :items="pageSizeOptions"
-          size="sm"
-        />
+        <UBadge v-if="items?.length" color="primary" size="lg"> {{ items?.length }} {{ t('total_minis') }} </UBadge>
+        <USelect v-model="pageSize" :items="pageSizeOptions" size="sm" />
       </div>
     </div>
 
@@ -205,7 +199,12 @@
         <thead class="border-b border-default">
           <tr>
             <th class="w-10 p-3"></th>
-            <th v-for="header in tableHeaders" :key="header.key" class="p-3 font-semibold" :class="header.width ? `w-[${header.width}]` : ''">
+            <th
+              v-for="header in tableHeaders"
+              :key="header.key"
+              class="p-3 font-semibold"
+              :class="header.width ? `w-[${header.width}]` : ''"
+            >
               {{ header.title }}
             </th>
           </tr>
@@ -230,8 +229,8 @@
                         item.status === RegistryItemStatus.PENDING
                           ? 'primary'
                           : item.status === RegistryItemStatus.APPROVED
-                          ? 'success'
-                          : 'error'
+                            ? 'success'
+                            : 'error'
                       "
                     >
                       {{ getStatusText(item.status) }}
@@ -319,7 +318,6 @@
     </div>
   </UCard>
 </template>
-
 
 <i18n lang="json">
 {

@@ -147,10 +147,11 @@
   --ui-bg-muted: #f8fafc;
 }
 
-/* Dark mode overrides */
+/* Dark mode overrides - using neutral grays instead of navy slate */
 .dark {
-  --ui-bg: #0f172a;
-  --ui-bg-muted: #1e293b;
+  --ui-bg: #0a0a0a;
+  --ui-bg-muted: #171717;
+  --ui-bg-elevated: #1a1a1a;
 
   /* Ensure text is readable in dark mode */
   color-scheme: dark;
@@ -162,11 +163,21 @@ html {
 }
 
 html.dark {
-  background-color: #0f172a;
+  background-color: #0a0a0a;
 }
 
 body {
   background-color: inherit;
+}
+
+/* Force dark backgrounds on main content in dark mode */
+.dark main,
+.dark .container {
+  background-color: transparent;
+}
+
+.dark section:not(.hero-section) {
+  background-color: transparent;
 }
 
 /* Ensure bg-muted works properly */
@@ -175,7 +186,7 @@ body {
 }
 
 .dark .bg-muted {
-  background-color: #1e293b;
+  background-color: #171717;
 }
 
 /* Text muted color */
@@ -248,6 +259,13 @@ body {
 
 .spacer.layer2 {
   background-image: url('https://classicminidiy.s3.us-east-1.amazonaws.com/misc/layer2.svg');
+}
+
+/* Dark mode spacer backgrounds - hide white SVG spacers in dark mode */
+.dark .spacer.layer,
+.dark .spacer.layer1,
+.dark .spacer.layer2 {
+  display: none;
 }
 
 /* ============================================

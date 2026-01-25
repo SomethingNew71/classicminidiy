@@ -233,7 +233,7 @@
     </div>
 
     <!-- Error Message -->
-    <UAlert v-if="errorMessage" color="error" icon="i-heroicons-x-circle" :title="errorMessage" class="mb-6" />
+    <UAlert v-if="errorMessage" color="error" icon="i-fa6-solid-circle-xmark" :title="errorMessage" class="mb-6" />
 
     <!-- Loading State -->
     <div v-if="fetchStatus === 'pending'" class="flex justify-center my-8">
@@ -244,7 +244,7 @@
     <UAlert
       v-else-if="!colorItems?.length"
       color="info"
-      icon="i-heroicons-information-circle"
+      icon="i-fa6-solid-circle-info"
       title="No color submissions in the queue."
     />
 
@@ -268,7 +268,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in colorItems" :key="item.id" class="border-b border-default last:border-0 hover:bg-muted transition-colors">
+          <tr
+            v-for="item in colorItems"
+            :key="item.id"
+            class="border-b border-default last:border-0 hover:bg-muted transition-colors"
+          >
             <!-- Name -->
             <td class="p-2">
               <UInput
@@ -381,12 +385,16 @@
                   <UButton size="xs" variant="ghost" @click="cancelEditing(item)" :disabled="isProcessing">
                     <i class="fa-solid fa-times"></i>
                   </UButton>
-                  <UButton size="xs" color="primary" @click="approveItem(item)" :disabled="isProcessing">
-                    <span
-                      v-if="processingItemId === item.id && isProcessing"
-                      class="animate-spin rounded-full h-3 w-3 border-b-2 border-white"
-                    ></span>
-                    <i v-else class="fa-solid fa-check-double"></i>
+                  <UButton
+                    size="xs"
+                    color="primary"
+                    @click="approveItem(item)"
+                    :disabled="isProcessing"
+                    :loading="processingItemId === item.id && isProcessing"
+                  >
+                    <template #leading>
+                      <i v-if="!(processingItemId === item.id && isProcessing)" class="fa-solid fa-check-double"></i>
+                    </template>
                   </UButton>
                 </template>
                 <template v-else>
@@ -394,12 +402,16 @@
                   <UButton size="xs" color="info" @click="startEditing(item)" :disabled="isProcessing">
                     <i class="fa-solid fa-edit"></i>
                   </UButton>
-                  <UButton size="xs" color="success" @click="approveItem(item)" :disabled="isProcessing">
-                    <span
-                      v-if="processingItemId === item.id && isProcessing"
-                      class="animate-spin rounded-full h-3 w-3 border-b-2 border-white"
-                    ></span>
-                    <i v-else class="fa-solid fa-check"></i>
+                  <UButton
+                    size="xs"
+                    color="success"
+                    @click="approveItem(item)"
+                    :disabled="isProcessing"
+                    :loading="processingItemId === item.id && isProcessing"
+                  >
+                    <template #leading>
+                      <i v-if="!(processingItemId === item.id && isProcessing)" class="fa-solid fa-check"></i>
+                    </template>
                   </UButton>
                   <UButton size="xs" color="error" @click="confirmDelete(item)" :disabled="isProcessing">
                     <i class="fa-solid fa-times"></i>
@@ -428,8 +440,7 @@
           </div>
           <div class="flex justify-end gap-2">
             <UButton variant="outline" @click="closeDeleteDialog" :disabled="isProcessing">Cancel</UButton>
-            <UButton color="error" @click="deleteItem" :disabled="isProcessing">
-              <span v-if="isProcessing" class="animate-spin rounded-full h-3 w-3 border-b-2 border-white mr-2"></span>
+            <UButton color="error" @click="deleteItem" :disabled="isProcessing" :loading="isProcessing">
               Reject Submission
             </UButton>
           </div>

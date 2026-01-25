@@ -6,6 +6,18 @@
   const activePanel = ref<string | null>(null);
   const searchQuery = ref('');
 
+  // Icon mapping for diagram categories (using Font Awesome)
+  const categoryIcons: Record<string, string> = {
+    positiveGround: 'i-fa6-solid-circle-plus',
+    negativeGround: 'i-fa6-solid-circle-minus',
+    britishLeyland: 'i-fa6-solid-industry',
+    earlyRover: 'i-fa6-solid-car',
+    laterRover: 'i-fa6-solid-car-side',
+    spiMinis: 'i-fa6-solid-microchip',
+    hornetElf: 'i-fa6-solid-sparkles',
+    ausMinis: 'i-fa6-solid-globe',
+  };
+
   // Prepare data for Fuse.js search
   const searchableItems = computed(() => {
     if (!diagrams.value) return [];
@@ -149,7 +161,7 @@
             :placeholder="$t('search_placeholder')"
             type="search"
             class="w-full"
-            icon="i-heroicons-magnifying-glass"
+            icon="i-fa6-solid-magnifying-glass"
           />
         </div>
       </div>
@@ -164,11 +176,12 @@
               </div>
             </template>
             <ul class="divide-y divide-default">
-              <li
-                v-for="(result, index) in filteredResults"
-                :key="`search-${index}-${result.name}`"
-              >
-                <a :href="result.link" target="_blank" class="flex justify-between py-4 hover:bg-muted rounded px-2 transition-colors">
+              <li v-for="(result, index) in filteredResults" :key="`search-${index}-${result.name}`">
+                <a
+                  :href="result.link"
+                  target="_blank"
+                  class="flex justify-between py-4 hover:bg-muted rounded px-2 transition-colors"
+                >
                   <div>
                     <div class="text-lg">{{ result.name }}</div>
                     <div class="text-sm opacity-70 flex items-center mt-1">
@@ -211,42 +224,44 @@
         <!-- Content when loaded (hidden during search) -->
         <div v-if="diagrams && status !== 'pending' && !searchQuery" class="space-y-4">
           <UAccordion
-            v-for="(diagram, name, index) in diagrams"
-            :key="`${name}-${index}`"
-            :items="[{ label: diagram.title, slot: 'content' }]"
-            class="mb-2"
+            :items="
+              Object.entries(diagrams).map(([key, diagram]) => ({
+                label: diagram.title,
+                value: key,
+                icon: categoryIcons[key] || 'i-fa6-solid-file-lines',
+                diagram,
+              }))
+            "
+            :ui="{
+              trigger: 'text-lg font-semibold py-4',
+              leadingIcon: 'size-6',
+            }"
           >
-            <template #leading="{ item }">
-              <div class="bg-primary text-primary-content px-4 py-3 rounded-t-lg font-semibold text-xl w-full">
-                {{ item.label }}
-              </div>
-            </template>
-            <template #content>
-              <UCard class="rounded-t-none">
-                <ul class="divide-y divide-default">
-                  <li
-                    v-for="(item, idx) in diagram.items"
-                    :key="`${idx}-${item.name}`"
+            <template #body="{ item }">
+              <ul class="divide-y divide-default">
+                <li v-for="(diagramItem, idx) in item.diagram.items" :key="`${idx}-${diagramItem.name}`">
+                  <a
+                    :href="diagramItem.link"
+                    target="_blank"
+                    class="flex justify-between py-4 hover:bg-muted px-4 transition-colors"
                   >
-                    <a :href="item.link" target="_blank" class="flex justify-between py-4 hover:bg-muted rounded px-2 transition-colors">
-                      <div>
-                        <div class="text-lg">{{ item.name }}</div>
-                        <div class="text-lg opacity-70 flex items-center mt-1">
-                          <i class="fa-solid fa-calendar mr-2"></i>
-                          <span v-if="item.from || item.to"
-                            >{{ item.from || $t('date_range.unknown_placeholder') }}{{ $t('date_range.separator')
-                            }}{{ item.to || $t('date_range.unknown_placeholder') }}</span
-                          >
-                          <span v-else>{{ $t('date_range.unknown') }}</span>
-                        </div>
+                    <div>
+                      <div class="text-lg">{{ diagramItem.name }}</div>
+                      <div class="text-lg opacity-70 flex items-center mt-1">
+                        <i class="fa-solid fa-calendar mr-2"></i>
+                        <span v-if="diagramItem.from || diagramItem.to"
+                          >{{ diagramItem.from || $t('date_range.unknown_placeholder') }}{{ $t('date_range.separator')
+                          }}{{ diagramItem.to || $t('date_range.unknown_placeholder') }}</span
+                        >
+                        <span v-else>{{ $t('date_range.unknown') }}</span>
                       </div>
-                      <UButton variant="ghost" size="lg" :aria-label="$t('download_button_aria')">
-                        <i class="fa-solid fa-download"></i>
-                      </UButton>
-                    </a>
-                  </li>
-                </ul>
-              </UCard>
+                    </div>
+                    <UButton variant="ghost" size="lg" :aria-label="$t('download_button_aria')">
+                      <i class="fa-solid fa-download"></i>
+                    </UButton>
+                  </a>
+                </li>
+              </ul>
             </template>
           </UAccordion>
         </div>
@@ -260,7 +275,6 @@
     </div>
   </div>
 </template>
-
 
 <i18n lang="json">
 {

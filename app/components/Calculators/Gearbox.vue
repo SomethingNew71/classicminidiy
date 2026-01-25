@@ -489,7 +489,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in tableDataSpeedos" :key="index" class="border-b border-default last:border-0">
+                <tr
+                  v-for="(item, index) in tableDataSpeedos"
+                  :key="index"
+                  class="border-b border-default last:border-0"
+                >
                   <td class="p-2 font-bold">{{ item.speedometer }}</td>
                   <td class="p-2">{{ item.turns }}</td>
                   <td class="p-2">{{ item.speed }}{{ metric ? 'kph' : 'mph' }}</td>
@@ -519,7 +523,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in tableDataGearing" :key="index" class="border-b border-default last:border-0">
+                <tr
+                  v-for="(item, index) in tableDataGearing"
+                  :key="index"
+                  class="border-b border-default last:border-0"
+                >
                   <td class="p-2">{{ item.gear }}</td>
                   <td class="p-2">{{ item.ratio }}</td>
                   <td class="p-2">{{ item.maxSpeed }}</td>

@@ -7,8 +7,8 @@
     <div class="container mx-auto px-4 pt-10">
       <UBreadcrumb
         :items="[
-          { label: $t('breadcrumb_home'), to: '/', icon: 'i-heroicons-home' },
-          { label: $t('breadcrumb_contact') }
+          { label: $t('breadcrumb_home'), to: '/', icon: 'i-fa6-solid-house' },
+          { label: $t('breadcrumb_contact') },
         ]"
       />
     </div>
@@ -209,13 +209,7 @@
           </div>
 
           <div class="mt-6 text-center">
-            <UButton
-              to="https://www.patreon.com/classicminidiy"
-              target="_blank"
-              external
-              color="primary"
-              size="lg"
-            >
+            <UButton to="https://www.patreon.com/classicminidiy" target="_blank" external color="primary" size="lg">
               <i class="fab fa-patreon mr-2"></i>
               {{ $t('support_patreon_button') }}
             </UButton>

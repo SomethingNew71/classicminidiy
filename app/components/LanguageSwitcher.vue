@@ -48,10 +48,12 @@
 
 <template>
   <UDropdownMenu
-    :items="availableLocales.map(loc => ({
-      label: getLanguageName(loc.code),
-      click: () => handleLanguageChange(loc.code)
-    }))"
+    :items="
+      availableLocales.map((loc) => ({
+        label: getLanguageName(loc.code),
+        click: () => handleLanguageChange(loc.code),
+      }))
+    "
     :aria-label="t('language_menu_aria')"
   >
     <UButton
