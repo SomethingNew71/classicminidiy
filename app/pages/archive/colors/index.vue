@@ -88,6 +88,59 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive/colors',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
+    ],
+  });
+
+  // Dataset structured data for colors database
+  const colorsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'Classic Mini Paint Color Database',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/archive/colors',
+    keywords: ['Classic Mini colors', 'paint codes', 'BMC colors', 'Mini Cooper paint'],
+    creator: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+    license: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+    isAccessibleForFree: true,
+    variableMeasured: [
+      {
+        '@type': 'PropertyValue',
+        name: 'BMC Code',
+        description: 'British Motor Corporation paint code',
+      },
+      {
+        '@type': 'PropertyValue',
+        name: 'Ditzler/PPG Code',
+        description: 'Ditzler or PPG paint matching code',
+      },
+    ],
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(colorsJsonLd),
+      },
     ],
   });
 
@@ -387,6 +440,7 @@
   "en": {
     "title": "Color Picker",
     "description": "Find the perfect color for your Classic Mini with our comprehensive color picker.",
+    "keywords": "Classic Mini colors, Mini Cooper paint codes, BMC color codes, Ditzler PPG codes, Dulux paint codes, vintage Mini colors, paint color database",
     "hero_title": "Color Picker",
     "breadcrumb_title": "Color Swatches",
     "main_heading": "Classic Mini Color Picker",

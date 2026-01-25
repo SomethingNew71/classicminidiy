@@ -116,8 +116,49 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        key: 'keywords',
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/technical/chassis-decoder',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // WebApplication structured data for decoder tool
+  const decoderJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Classic Mini Chassis Number Decoder',
+    applicationCategory: 'AutomotiveApplication',
+    operatingSystem: 'Web Browser',
+    description: $t('description'),
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(decoderJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('og_title'),
     ogDescription: $t('og_description'),
@@ -375,6 +416,7 @@
   "en": {
     "title": "Tech - Mini Chassis Plate Decoder",
     "description": "Decode your Classic Mini's chassis plate to determine the model year, assembly plant, and sequential build number of the car. The chassis plate is also known as the VIN plate, VIN tag, or VIN plate depending on the generation.",
+    "keywords": "chassis decoder, Classic Mini VIN, chassis plate, Mini Cooper VIN decoder, chassis number lookup, Mini identification, build number decoder",
     "hero_title": "Chassis Decoder",
     "breadcrumb_title": "Chassis Decoder",
     "og_title": "Tech - Mini Chassis Plate Decoder",
@@ -433,6 +475,7 @@
   "es": {
     "title": "Tech - Decodificador de Placa de Chasis Mini",
     "description": "Decodifica la placa de chasis de tu Classic Mini para determinar el año del modelo, planta de ensamblaje y número de construcción secuencial del auto. La placa de chasis también se conoce como placa VIN, etiqueta VIN o placa VIN dependiendo de la generación.",
+    "keywords": "decodificador de chasis, VIN Classic Mini, placa de chasis, decodificador VIN Mini Cooper, búsqueda número de chasis, identificación Mini, decodificador número de construcción",
     "hero_title": "Decodificador de Chasis",
     "breadcrumb_title": "Decodificador de Chasis",
     "og_title": "Tech - Decodificador de Placa de Chasis Mini",
@@ -491,6 +534,7 @@
   "fr": {
     "title": "Tech - Décodeur de Plaque de Châssis Mini",
     "description": "Décodez la plaque de châssis de votre Classic Mini pour déterminer l'année modèle, l'usine d'assemblage et le numéro de construction séquentiel de la voiture. La plaque de châssis est également connue sous le nom de plaque VIN, étiquette VIN ou plaque VIN selon la génération.",
+    "keywords": "décodeur de châssis, VIN Classic Mini, plaque de châssis, décodeur VIN Mini Cooper, recherche numéro de châssis, identification Mini, décodeur numéro de construction",
     "hero_title": "Décodeur de Châssis",
     "breadcrumb_title": "Décodeur de Châssis",
     "og_title": "Tech - Décodeur de Plaque de Châssis Mini",
@@ -549,6 +593,7 @@
   "it": {
     "title": "Tech - Decodificatore Piastra Telaio Mini",
     "description": "Decodifica la piastra del telaio della tua Classic Mini per determinare l'anno del modello, stabilimento di assemblaggio e numero di costruzione sequenziale dell'auto. La piastra del telaio è anche conosciuta come piastra VIN, etichetta VIN o piastra VIN a seconda della generazione.",
+    "keywords": "decodificatore telaio, VIN Classic Mini, piastra telaio, decodificatore VIN Mini Cooper, ricerca numero telaio, identificazione Mini, decodificatore numero costruzione",
     "hero_title": "Decodificatore Telaio",
     "breadcrumb_title": "Decodificatore Telaio",
     "og_title": "Tech - Decodificatore Piastra Telaio Mini",
@@ -607,6 +652,7 @@
   "de": {
     "title": "Tech - Mini Fahrgestellplatte Decoder",
     "description": "Dekodieren Sie die Fahrgestellplatte Ihres Classic Mini, um das Modelljahr, Montagewerk und die sequenzielle Baunummer des Autos zu bestimmen. Die Fahrgestellplatte ist auch als VIN-Platte, VIN-Etikett oder VIN-Platte bekannt, je nach Generation.",
+    "keywords": "Fahrgestell-Decoder, Classic Mini VIN, Fahrgestellplatte, Mini Cooper VIN-Decoder, Fahrgestellnummer-Suche, Mini-Identifikation, Baunummer-Decoder",
     "hero_title": "Fahrgestell-Decoder",
     "breadcrumb_title": "Fahrgestell-Decoder",
     "og_title": "Tech - Mini Fahrgestellplatte Decoder",

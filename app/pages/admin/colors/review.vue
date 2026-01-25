@@ -8,6 +8,16 @@
     layout: 'admin',
   });
 
+  useHead({
+    title: 'Admin - Colors Review',
+    meta: [
+      {
+        name: 'robots',
+        content: 'noindex, nofollow',
+      },
+    ],
+  });
+
   interface TableHeader {
     title: string;
     value?: string;

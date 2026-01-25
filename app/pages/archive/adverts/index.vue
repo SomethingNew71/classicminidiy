@@ -26,8 +26,52 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive/adverts',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // CollectionPage structured data for adverts archive
+  const advertsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Classic Mini Advertisements Archive',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/archive/adverts',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Classic Mini Period Advertisements',
+      description: 'Collection of historical advertisements and promotional materials for Classic Mini vehicles',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(advertsJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('seo.og_title'),
     ogDescription: $t('seo.og_description'),
@@ -93,6 +137,7 @@
   "en": {
     "title": "Classic Mini Archive - Advertisements",
     "description": "Curated collection of Classic Mini advertisements",
+    "keywords": "Classic Mini advertisements, Mini Cooper ads, vintage Mini advertising, period brochures, promotional materials, historical Mini marketing",
     "hero_title": "Classic Mini Archives",
     "breadcrumb_title": "Advertisements",
     "breadcrumb": {

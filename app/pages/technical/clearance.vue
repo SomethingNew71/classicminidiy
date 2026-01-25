@@ -105,6 +105,93 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/technical/clearance',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
+    ],
+  });
+
+  // TechArticle and Dataset structured data for clearance specifications
+  const techArticleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Classic Mini Clearance Specifications',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/technical/clearance',
+    author: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+    mainEntityOfPage: 'https://classicminidiy.com/technical/clearance',
+    about: {
+      '@type': 'Thing',
+      name: 'Classic Mini Engine and Mechanical Clearances',
+    },
+  };
+
+  const datasetJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'Classic Mini Clearance Specifications Database',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/technical/clearance',
+    keywords: [
+      'Classic Mini clearances',
+      'engine clearances',
+      'valve clearances',
+      'bearing clearances',
+      'endfloat specifications',
+      'Mini Cooper specifications',
+    ],
+    creator: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+    license: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+    isAccessibleForFree: true,
+    variableMeasured: [
+      {
+        '@type': 'PropertyValue',
+        name: 'Clearance (thou)',
+        unitText: 'thousandths of an inch',
+      },
+      {
+        '@type': 'PropertyValue',
+        name: 'Clearance (mm)',
+        unitText: 'millimeters',
+      },
+    ],
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(techArticleJsonLd),
+      },
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(datasetJsonLd),
+      },
     ],
   });
 
@@ -228,6 +315,7 @@
   "en": {
     "title": "Tech - Mini Clearances",
     "description": "Detailed clearance specifications can be found online right here at Classic Mini DIY.",
+    "keywords": "Classic Mini clearances, engine clearances, valve clearances, bearing clearances, endfloat specifications, Mini Cooper specifications, A-series engine clearances, crankshaft clearance",
     "hero_title": "Common Clearances",
     "breadcrumb_title": "Common Clearances",
     "og_title": "Tech - Mini Clearances",
@@ -256,6 +344,7 @@
   "es": {
     "title": "Tech - Holguras Mini",
     "description": "Las especificaciones detalladas de holguras se pueden encontrar en línea aquí mismo en Classic Mini DIY.",
+    "keywords": "holguras Classic Mini, holguras del motor, holguras de válvulas, holguras de cojinetes, especificaciones de juego axial, especificaciones Mini Cooper, holguras motor serie A",
     "hero_title": "Holguras Comunes",
     "breadcrumb_title": "Holguras Comunes",
     "og_title": "Tech - Holguras Mini",
@@ -284,6 +373,7 @@
   "fr": {
     "title": "Tech - Jeux Mini",
     "description": "Les spécifications détaillées des jeux peuvent être trouvées en ligne ici même sur Classic Mini DIY.",
+    "keywords": "jeux Classic Mini, jeux du moteur, jeux de soupapes, jeux de roulements, spécifications jeu axial, spécifications Mini Cooper, jeux moteur série A",
     "hero_title": "Jeux Communs",
     "breadcrumb_title": "Jeux Communs",
     "og_title": "Tech - Jeux Mini",
@@ -312,6 +402,7 @@
   "it": {
     "title": "Tech - Giochi Mini",
     "description": "Le specifiche dettagliate dei giochi possono essere trovate online proprio qui su Classic Mini DIY.",
+    "keywords": "giochi Classic Mini, giochi del motore, giochi delle valvole, giochi dei cuscinetti, specifiche gioco assiale, specifiche Mini Cooper, giochi motore serie A",
     "hero_title": "Giochi Comuni",
     "breadcrumb_title": "Giochi Comuni",
     "og_title": "Tech - Giochi Mini",
@@ -340,6 +431,7 @@
   "de": {
     "title": "Tech - Mini Spiele",
     "description": "Detaillierte Spiel-Spezifikationen können online hier bei Classic Mini DIY gefunden werden.",
+    "keywords": "Classic Mini Spiele, Motorspiele, Ventilspiele, Lagerspiele, Axialspiel Spezifikationen, Mini Cooper Spezifikationen, A-Serie Motorspiele",
     "hero_title": "Häufige Spiele",
     "breadcrumb_title": "Häufige Spiele",
     "og_title": "Tech - Mini Spiele",
@@ -368,6 +460,7 @@
   "pt": {
     "title": "Tech - Folgas Mini",
     "description": "Especificações detalhadas de folgas podem ser encontradas online aqui mesmo no Classic Mini DIY.",
+    "keywords": "folgas Classic Mini, folgas do motor, folgas das válvulas, folgas dos rolamentos, especificações de folga axial, especificações Mini Cooper, folgas motor série A",
     "hero_title": "Folgas Comuns",
     "breadcrumb_title": "Folgas Comuns",
     "og_title": "Tech - Folgas Mini",
@@ -396,6 +489,7 @@
   "ru": {
     "title": "Tech - Зазоры Mini",
     "description": "Подробные спецификации зазоров можно найти онлайн прямо здесь на Classic Mini DIY.",
+    "keywords": "зазоры Classic Mini, зазоры двигателя, зазоры клапанов, зазоры подшипников, спецификации осевого зазора, спецификации Mini Cooper, зазоры двигателя серии A",
     "hero_title": "Общие Зазоры",
     "breadcrumb_title": "Общие Зазоры",
     "og_title": "Tech - Зазоры Mini",
@@ -424,6 +518,7 @@
   "ja": {
     "title": "Tech - ミニクリアランス",
     "description": "詳細なクリアランス仕様は、Classic Mini DIYでオンラインで見つけることができます。",
+    "keywords": "クラシックミニクリアランス, エンジンクリアランス, バルブクリアランス, ベアリングクリアランス, エンドフロート仕様, ミニクーパー仕様, Aシリーズエンジンクリアランス",
     "hero_title": "一般的なクリアランス",
     "breadcrumb_title": "一般的なクリアランス",
     "og_title": "Tech - ミニクリアランス",
@@ -452,6 +547,7 @@
   "zh": {
     "title": "Tech - 迷你间隙",
     "description": "详细的间隙规格可以在Classic Mini DIY在线找到。",
+    "keywords": "经典迷你间隙, 发动机间隙, 气门间隙, 轴承间隙, 轴向间隙规格, 迷你库珀规格, A系列发动机间隙",
     "hero_title": "常见间隙",
     "breadcrumb_title": "常见间隙",
     "og_title": "Tech - 迷你间隙",
@@ -480,6 +576,7 @@
   "ko": {
     "title": "Tech - 미니 클리어런스",
     "description": "자세한 클리어런스 사양은 Classic Mini DIY에서 온라인으로 찾을 수 있습니다.",
+    "keywords": "클래식 미니 클리어런스, 엔진 클리어런스, 밸브 클리어런스, 베어링 클리어런스, 엔드플로트 사양, 미니 쿠퍼 사양, A시리즈 엔진 클리어런스",
     "hero_title": "일반적인 클리어런스",
     "breadcrumb_title": "일반적인 클리어런스",
     "og_title": "Tech - 미니 클리어런스",

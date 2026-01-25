@@ -13,6 +13,10 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'robots',
+        content: 'noindex, nofollow',
+      },
     ],
     link: [
       {

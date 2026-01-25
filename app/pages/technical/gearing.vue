@@ -11,8 +11,83 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        key: 'keywords',
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/technical/gearing',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // Add structured data for the calculator tool
+  const calculatorJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: $t('structured_data.calculator_name'),
+    applicationCategory: 'AutomotiveApplication',
+    operatingSystem: 'Web Browser',
+    description: $t('structured_data.calculator_description'),
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+  };
+
+  // Add HowTo structured data
+  const howToJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: $t('structured_data.how_to_name'),
+    description: $t('structured_data.how_to_description'),
+    step: [
+      {
+        '@type': 'HowToStep',
+        name: $t('structured_data.steps.select_gearbox.name'),
+        text: $t('structured_data.steps.select_gearbox.text'),
+      },
+      {
+        '@type': 'HowToStep',
+        name: $t('structured_data.steps.enter_tire.name'),
+        text: $t('structured_data.steps.enter_tire.text'),
+      },
+      {
+        '@type': 'HowToStep',
+        name: $t('structured_data.steps.select_final_drive.name'),
+        text: $t('structured_data.steps.select_final_drive.text'),
+      },
+      {
+        '@type': 'HowToStep',
+        name: $t('structured_data.steps.view_results.name'),
+        text: $t('structured_data.steps.view_results.text'),
+      },
+    ],
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(calculatorJsonLd),
+      },
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(howToJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('og_title'),
     ogDescription: $t('og_description'),
@@ -101,6 +176,7 @@
   "en": {
     "title": "Tech - Gearing Calculator",
     "description": "Planning your next gearbox build? Use our brand new gearbox gearing calculator to generate information for your Classic Mini's gearbox refurb or upgrade.",
+    "keywords": "gearbox calculator, Classic Mini gearing, gear ratios, speedometer gear, final drive ratio, Mini Cooper transmission, gearbox rebuild",
     "hero_title": "Gearbox Calculator",
     "breadcrumb_title": "Gearbox Calculator",
     "og_title": "Tech - Gearing Calculator",
@@ -115,6 +191,30 @@
       "description": "Click here to learn about common engine sizes in the classic mini.",
       "alt_text": "Engine size table image preview"
     },
+    "structured_data": {
+      "calculator_name": "Classic Mini Gearbox Calculator",
+      "calculator_description": "An interactive calculator to determine gear ratios, speedometer gearing, and top speeds for Classic Mini gearbox builds.",
+      "how_to_name": "How to Calculate Gearing for a Classic Mini Gearbox",
+      "how_to_description": "Learn how to calculate the correct gearing for your Classic Mini gearbox using our interactive calculator.",
+      "steps": {
+        "select_gearbox": {
+          "name": "Select Gearbox Type",
+          "text": "Choose your gearbox type from the available options (A+, rod change, etc.)."
+        },
+        "enter_tire": {
+          "name": "Enter Tire Size",
+          "text": "Enter your tire dimensions to calculate accurate speed readings."
+        },
+        "select_final_drive": {
+          "name": "Select Final Drive Ratio",
+          "text": "Choose your final drive ratio from the dropdown or enter a custom value."
+        },
+        "view_results": {
+          "name": "View Results",
+          "text": "The calculator will display speed at RPM for each gear and recommended speedometer gear."
+        }
+      }
+    },
     "ui": {
       "loading_fallback": "Loading gearbox calculator...",
       "loading_text": "Loading gearbox calculator...",
@@ -124,6 +224,7 @@
   "es": {
     "title": "Técnico - Calculadora de Engranajes",
     "description": "¿Planificando tu próxima construcción de caja de cambios? Usa nuestra nueva calculadora de engranajes de caja de cambios para generar información para la renovación o actualización de la caja de cambios de tu Classic Mini.",
+    "keywords": "calculadora de caja de cambios, engranajes Classic Mini, relaciones de engranajes, engranaje velocímetro, relación de transmisión final, transmisión Mini Cooper, reconstrucción de caja de cambios",
     "hero_title": "Calculadora de Caja de Cambios",
     "breadcrumb_title": "Calculadora de Caja de Cambios",
     "og_title": "Técnico - Calculadora de Engranajes",
@@ -147,6 +248,7 @@
   "fr": {
     "title": "Technique - Calculateur d'Engrenages",
     "description": "Vous planifiez votre prochaine construction de boîte de vitesses ? Utilisez notre tout nouveau calculateur d'engrenages de boîte de vitesses pour générer des informations pour la rénovation ou la mise à niveau de la boîte de vitesses de votre Classic Mini.",
+    "keywords": "calculateur boîte de vitesses, engrenages Classic Mini, rapports de vitesse, pignon compteur, rapport de pont, transmission Mini Cooper, reconstruction boîte de vitesses",
     "hero_title": "Calculateur de Boîte de Vitesses",
     "breadcrumb_title": "Calculateur de Boîte de Vitesses",
     "og_title": "Technique - Calculateur d'Engrenages",
@@ -170,6 +272,7 @@
   "it": {
     "title": "Tecnico - Calcolatore Ingranaggi",
     "description": "Stai pianificando la tua prossima costruzione del cambio? Usa il nostro nuovissimo calcolatore di ingranaggi del cambio per generare informazioni per il rinnovamento o l'aggiornamento del cambio della tua Classic Mini.",
+    "keywords": "calcolatore cambio, ingranaggi Classic Mini, rapporti di trasmissione, ingranaggio tachimetro, rapporto finale, trasmissione Mini Cooper, ricostruzione cambio",
     "hero_title": "Calcolatore Cambio",
     "breadcrumb_title": "Calcolatore Cambio",
     "og_title": "Tecnico - Calcolatore Ingranaggi",
@@ -193,6 +296,7 @@
   "de": {
     "title": "Technik - Übersetzungsrechner",
     "description": "Planen Sie Ihren nächsten Getriebeaufbau? Verwenden Sie unseren brandneuen Getriebe-Übersetzungsrechner, um Informationen für die Renovierung oder das Upgrade des Getriebes Ihres Classic Mini zu generieren.",
+    "keywords": "Getrieberechner, Classic Mini Übersetzung, Übersetzungsverhältnisse, Tachoantrieb, Achsübersetzung, Mini Cooper Getriebe, Getriebe-Überholung",
     "hero_title": "Getriebe-Rechner",
     "breadcrumb_title": "Getriebe-Rechner",
     "og_title": "Technik - Übersetzungsrechner",
@@ -216,6 +320,7 @@
   "pt": {
     "title": "Técnico - Calculadora de Engrenagens",
     "description": "Planejando sua próxima construção de caixa de câmbio? Use nossa nova calculadora de engrenagens de caixa de câmbio para gerar informações para a renovação ou atualização da caixa de câmbio do seu Classic Mini.",
+    "keywords": "calculadora de caixa de câmbio, engrenagens Classic Mini, relações de engrenagens, engrenagem velocímetro, relação de transmissão final, transmissão Mini Cooper, reconstrução de caixa de câmbio",
     "hero_title": "Calculadora de Caixa de Câmbio",
     "breadcrumb_title": "Calculadora de Caixa de Câmbio",
     "og_title": "Técnico - Calculadora de Engrenagens",
@@ -239,6 +344,7 @@
   "ru": {
     "title": "Техника - Калькулятор Передач",
     "description": "Планируете следующую сборку коробки передач? Используйте наш новый калькулятор передач коробки передач для генерации информации для ремонта или модернизации коробки передач вашего Classic Mini.",
+    "keywords": "калькулятор коробки передач, передачи Classic Mini, передаточные числа, шестерня спидометра, главная передача, трансмиссия Mini Cooper, восстановление коробки передач",
     "hero_title": "Калькулятор Коробки Передач",
     "breadcrumb_title": "Калькулятор Коробки Передач",
     "og_title": "Техника - Калькулятор Передач",
@@ -262,6 +368,7 @@
   "ja": {
     "title": "技術 - ギア計算機",
     "description": "次のギアボックス構築を計画していますか？クラシックミニのギアボックス改修またはアップグレードの情報を生成するために、私たちの新しいギアボックスギア計算機を使用してください。",
+    "keywords": "ギアボックス計算機, クラシックミニ ギアリング, ギア比, スピードメーターギア, ファイナルドライブ, ミニクーパー トランスミッション, ギアボックス再構築",
     "hero_title": "ギアボックス計算機",
     "breadcrumb_title": "ギアボックス計算機",
     "og_title": "技術 - ギア計算機",
@@ -285,6 +392,7 @@
   "zh": {
     "title": "技术 - 齿轮计算器",
     "description": "正在计划您的下一个变速箱构建？使用我们全新的变速箱齿轮计算器为您的经典迷你变速箱翻新或升级生成信息。",
+    "keywords": "变速箱计算器, 经典迷你齿轮, 齿轮比, 速度表齿轮, 最终传动比, 迷你库珀变速箱, 变速箱重建",
     "hero_title": "变速箱计算器",
     "breadcrumb_title": "变速箱计算器",
     "og_title": "技术 - 齿轮计算器",
@@ -308,6 +416,7 @@
   "ko": {
     "title": "기술 - 기어 계산기",
     "description": "다음 기어박스 구축을 계획하고 계신가요? 클래식 미니 기어박스 개조 또는 업그레이드를 위한 정보를 생성하기 위해 우리의 새로운 기어박스 기어 계산기를 사용하세요.",
+    "keywords": "기어박스 계산기, 클래식 미니 기어링, 기어비, 속도계 기어, 파이널 드라이브, 미니 쿠퍼 변속기, 기어박스 재구축",
     "hero_title": "기어박스 계산기",
     "breadcrumb_title": "기어박스 계산기",
     "og_title": "기술 - 기어 계산기",

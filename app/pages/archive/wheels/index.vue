@@ -9,8 +9,56 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive/wheels',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // CollectionPage structured data for wheels archive
+  const wheelsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Classic Mini Wheels Archive',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/archive/wheels',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Classic Mini Wheel Fitment Database',
+      description: 'Comprehensive database of wheels that fit Classic Mini vehicles',
+      itemListElement: {
+        '@type': 'ListItem',
+        name: 'Classic Mini Compatible Wheels',
+      },
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(wheelsJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('seo.og_title'),
     ogDescription: $t('seo.og_description'),
@@ -86,6 +134,7 @@
   "en": {
     "title": "Classic Mini Wheels Archive - Classic Mini DIY",
     "description": "Browse and contribute to the Classic Mini wheels database",
+    "keywords": "Classic Mini wheels, Mini Cooper wheels, wheel fitment, wheel database, aftermarket wheels, factory wheels, wheel offset, bolt pattern",
     "hero_title": "Classic Mini Wheels",
     "breadcrumb_title": "Wheels",
     "main_heading": "Classic Mini Wheels Archive",

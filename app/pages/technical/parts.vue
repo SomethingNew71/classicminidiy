@@ -91,6 +91,67 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/technical/parts',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
+    ],
+  });
+
+  // Dataset structured data for parts cross-reference database
+  const datasetJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'Classic Mini Parts Equivalency Database',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/technical/parts',
+    keywords: [
+      'Classic Mini parts',
+      'parts cross-reference',
+      'Mini Cooper parts',
+      'oil filter',
+      'air filter',
+      'alternator',
+      'parts equivalency',
+    ],
+    creator: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+    license: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+    isAccessibleForFree: true,
+    variableMeasured: [
+      {
+        '@type': 'PropertyValue',
+        name: 'Brand',
+        description: 'Aftermarket brand name',
+      },
+      {
+        '@type': 'PropertyValue',
+        name: 'Part Number',
+        description: 'Manufacturer part number',
+      },
+    ],
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(datasetJsonLd),
+      },
     ],
   });
 
@@ -219,6 +280,7 @@
   "en": {
     "title": "Tech - Parts Equivalency",
     "description": "A complete list of parts which can be found at local parts sellers",
+    "keywords": "Classic Mini parts, parts equivalency, Mini Cooper parts, oil filter, air filter, alternator, cross-reference parts, local auto parts, aftermarket Mini parts",
     "hero_title": "Parts Equivalency",
     "breadcrumb_title": "Parts Equivalency",
     "og_title": "Tech - Parts Equivalency",
@@ -270,6 +332,7 @@
   "es": {
     "title": "Tech - Equivalencia de Piezas",
     "description": "Una lista completa de piezas que se pueden encontrar en vendedores de piezas locales",
+    "keywords": "piezas Classic Mini, equivalencia de piezas, piezas Mini Cooper, filtro de aceite, filtro de aire, alternador, referencia cruzada de piezas, piezas de auto locales",
     "hero_title": "Equivalencia de Piezas",
     "breadcrumb_title": "Equivalencia de Piezas",
     "og_title": "Tech - Equivalencia de Piezas",
@@ -321,6 +384,7 @@
   "fr": {
     "title": "Tech - Équivalence des Pièces",
     "description": "Une liste complète des pièces qui peuvent être trouvées chez les vendeurs de pièces locaux",
+    "keywords": "pièces Classic Mini, équivalence de pièces, pièces Mini Cooper, filtre à huile, filtre à air, alternateur, référence croisée de pièces, pièces auto locales",
     "hero_title": "Équivalence des Pièces",
     "breadcrumb_title": "Équivalence des Pièces",
     "og_title": "Tech - Équivalence des Pièces",
@@ -372,6 +436,7 @@
   "it": {
     "title": "Tech - Equivalenza Parti",
     "description": "Un elenco completo di parti che possono essere trovate presso i venditori di parti locali",
+    "keywords": "parti Classic Mini, equivalenza parti, parti Mini Cooper, filtro olio, filtro aria, alternatore, riferimento incrociato parti, ricambi auto locali",
     "hero_title": "Equivalenza Parti",
     "breadcrumb_title": "Equivalenza Parti",
     "og_title": "Tech - Equivalenza Parti",
@@ -423,6 +488,7 @@
   "de": {
     "title": "Tech - Teileäquivalenz",
     "description": "Eine vollständige Liste von Teilen, die bei lokalen Teilehändlern gefunden werden können",
+    "keywords": "Classic Mini Teile, Teileäquivalenz, Mini Cooper Teile, Ölfilter, Luftfilter, Lichtmaschine, Teile-Querverweise, lokale Autoteile",
     "hero_title": "Teileäquivalenz",
     "breadcrumb_title": "Teileäquivalenz",
     "og_title": "Tech - Teileäquivalenz",
@@ -474,6 +540,7 @@
   "pt": {
     "title": "Tech - Equivalência de Peças",
     "description": "Uma lista completa de peças que podem ser encontradas em vendedores de peças locais",
+    "keywords": "peças Classic Mini, equivalência de peças, peças Mini Cooper, filtro de óleo, filtro de ar, alternador, referência cruzada de peças, peças de auto locais",
     "hero_title": "Equivalência de Peças",
     "breadcrumb_title": "Equivalência de Peças",
     "og_title": "Tech - Equivalência de Peças",
@@ -525,6 +592,7 @@
   "ru": {
     "title": "Tech - Эквивалентность деталей",
     "description": "Полный список деталей, которые можно найти у местных продавцов деталей",
+    "keywords": "детали Classic Mini, эквивалентность деталей, детали Mini Cooper, масляный фильтр, воздушный фильтр, генератор, перекрестные ссылки деталей, местные автозапчасти",
     "hero_title": "Эквивалентность деталей",
     "breadcrumb_title": "Эквивалентность деталей",
     "og_title": "Tech - Эквивалентность деталей",
@@ -576,6 +644,7 @@
   "ja": {
     "title": "Tech - パーツ互換性",
     "description": "地元のパーツ販売店で見つけることができるパーツの完全なリスト",
+    "keywords": "クラシックミニ部品, パーツ互換性, ミニクーパー部品, オイルフィルター, エアフィルター, オルタネーター, 部品クロスリファレンス, 地元の自動車部品",
     "hero_title": "パーツ互換性",
     "breadcrumb_title": "パーツ互換性",
     "og_title": "Tech - パーツ互換性",
@@ -627,6 +696,7 @@
   "zh": {
     "title": "Tech - 零件等效性",
     "description": "可以在当地零件销售商处找到的零件完整列表",
+    "keywords": "经典迷你零件, 零件等效性, 迷你库珀零件, 机油滤清器, 空气滤清器, 发电机, 零件交叉参考, 当地汽车零件",
     "hero_title": "零件等效性",
     "breadcrumb_title": "零件等效性",
     "og_title": "Tech - 零件等效性",
@@ -678,6 +748,7 @@
   "ko": {
     "title": "Tech - 부품 등가성",
     "description": "지역 부품 판매업체에서 찾을 수 있는 부품의 완전한 목록",
+    "keywords": "클래식 미니 부품, 부품 등가성, 미니 쿠퍼 부품, 오일 필터, 에어 필터, 알터네이터, 부품 교차 참조, 지역 자동차 부품",
     "hero_title": "부품 등가성",
     "breadcrumb_title": "부품 등가성",
     "og_title": "Tech - 부품 등가성",

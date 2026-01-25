@@ -43,8 +43,52 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive/tuning',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // CollectionPage structured data for tuning archive
+  const tuningJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Classic Mini Tuning & Performance Archive',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/archive/tuning',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Classic Mini Tuning Guides',
+      description: 'Collection of performance tuning guides and specifications for Classic Mini vehicles',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(tuningJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('seo.og_title'),
     ogDescription: $t('seo.og_description'),
@@ -104,6 +148,7 @@
   "en": {
     "title": "Classic Mini Archive - Tuning",
     "description": "Curated collection of Classic Mini tuning guides and resources",
+    "keywords": "Classic Mini tuning, Mini Cooper performance, engine tuning, A-series tuning, performance modifications, speed tuning, racing Mini",
     "hero_title": "Classic Mini Archives",
     "breadcrumb_title": "Tuning",
     "breadcrumb": {

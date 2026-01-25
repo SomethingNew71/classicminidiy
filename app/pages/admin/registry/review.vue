@@ -3,6 +3,20 @@
   import { RegistryItemStatus } from '../../../../data/models/registry';
   import { BREADCRUMB_VERSIONS } from '../../../../data/models/generic';
 
+  definePageMeta({
+    layout: 'admin',
+  });
+
+  useHead({
+    title: 'Admin - Registry Review',
+    meta: [
+      {
+        name: 'robots',
+        content: 'noindex, nofollow',
+      },
+    ],
+  });
+
   interface TableHeader {
     title: string;
     value?: string;

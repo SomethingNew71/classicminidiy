@@ -43,8 +43,53 @@
         name: 'description',
         content: $t('description'),
       },
+      {
+        name: 'keywords',
+        content: $t('keywords'),
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: 'https://classicminidiy.com/archive/manuals',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://classicminidiy.s3.amazonaws.com',
+      },
     ],
   });
+
+  // CollectionPage structured data for manuals archive
+  const manualsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Classic Mini Workshop Manuals Archive',
+    description: $t('description'),
+    url: 'https://classicminidiy.com/archive/manuals',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Classic Mini Workshop Manuals',
+      description:
+        'Collection of workshop manuals, service guides, and technical documentation for Classic Mini vehicles',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'Classic Mini DIY',
+      url: 'https://classicminidiy.com',
+    },
+  };
+
+  // Add JSON-LD structured data to head
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(manualsJsonLd),
+      },
+    ],
+  });
+
   useSeoMeta({
     ogTitle: $t('seo.og_title'),
     ogDescription: $t('seo.og_description'),
@@ -110,6 +155,7 @@
   "en": {
     "title": "Classic Mini Archive - Manuals",
     "description": "Curated collection of Classic Mini original manuals",
+    "keywords": "Classic Mini workshop manuals, Mini Cooper service manual, repair guide, technical documentation, factory manual, Haynes manual, A-series engine manual",
     "hero_title": "Classic Mini Archives",
     "breadcrumb_title": "Manuals",
     "breadcrumb": {
