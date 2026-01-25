@@ -53,6 +53,8 @@ This file provides guidance to Claude Code when working with the Classic Mini DI
   - `bun run start` - Preview production build (using `nuxi preview`)
   - `bun run format` - Format code with Prettier
 
+**Note**: A `postinstall` script handles native module compilation for `better-sqlite3` across platforms.
+
 ### Key Technologies
 
 - **Nuxt 4.1.2** with Vue 3 Composition API
@@ -306,9 +308,11 @@ s3Base=
 
 ### Vercel Configuration
 
-- **Build Command**: `nuxi build`
+- **Config File**: `vercel.json` with bun commands
+- **Install Command**: `bun install --frozen-lockfile`
+- **Build Command**: `bun run build`
 - **Output Directory**: `.nuxt/dist`
-- **Node Version**: 22.x
+- **Node Version**: 24.x
 - **Environment**: Production optimizations enabled
 
 ### Performance Features
